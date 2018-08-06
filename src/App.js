@@ -70,7 +70,7 @@ class App extends Component {
                 <form onSubmit={this.handleSubmit}>
                   <input type="text" name="author" placeholder="Author" onChange={this.handleChange} value={this.state.author}/>
                   <input type="text" name="articleTitle" placeholder="Article Title" onChange={this.handleChange} value={this.state.articleTitle}/>
-                  <button>Upload</button>
+                  <button>Uploads</button>
                   
                 </form>
 
