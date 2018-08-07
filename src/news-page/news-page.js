@@ -1,12 +1,14 @@
 import React from 'react';
 import './news-item.css';
 // import MediaQuery from 'react-responsive';
-// import Parser from 'html-react-parser';
+import Parser from 'html-react-parser';
 import {Link} from 'react-router-dom';
 
 import DummyData from '../home-page/dummy-data.js';
+import Form from '../myKnews/form.js';
 
 const dummyNews = DummyData;
+
 
 
 
@@ -51,19 +53,16 @@ export const NewsPage = ({match}) =>{
         width:"100%"
     }
 
-    const changeFontSize = {
-        fontSize:"25rem",
-    }
 
-console.log(ExtraImageLoop)
+
+// console.log(ExtraImageLoop)
  
  return(    
      
-    <div className='news-page-wrapper'>
-    
+    <div className='news-page-wrapper'> 
+
+        <Form articleid={articleID}/>
         
-
-
         <div className='article-banner-image-wrapper'>
             <div className="article-banner-image" style={style}></div>
             <div className="article-banner-image extra-banner-image" style={extraImage}></div>
@@ -79,12 +78,11 @@ console.log(ExtraImageLoop)
                 <h3 className="article-author">{articleObject.author}</h3>
         </header>
 
-
         <div className="news-article-body">
             <article>
                     {/* <p className="article-text">{articleObject.text}</p> */}
                     <div className="article-text">
-                        {/* <ParseHTML props={articleObject.text}/> */}
+                        <ParseHTML props={articleObject.text}/>
                     </div>
                     
                     <p className="article-likes">Likes: {articleObject.likes} </p>
@@ -111,10 +109,10 @@ console.log(ExtraImageLoop)
     return imagesArray;
 }
 
-// const ParseHTML = (props) =>{
-//     const parseHTML = Parser(props.props);
-//     // console.log(props.props);
-//     return parseHTML;
-// } 
+const ParseHTML = (props) =>{
+    const parseHTML = Parser(props.props);
+    // console.log(props.props);
+    return parseHTML;
+} 
 
 export default NewsPage;

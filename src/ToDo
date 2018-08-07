@@ -1,0 +1,142 @@
+Part 1 - Implement the front end UI:
+     Build from a mobile first approach
+         Design should be responsive
+     Focus on the non-logged functionality
+     Add Logged in functionality as a secondary feature
+     Most important is the ability to click on a link, go to a new page and then back again
+     With that core in place then add the CMS elements.
+
+
+    Known Bugs:
+        ✔ If you middle click or try to open a news item in a new tab, you can an error @started(18-07-25 11:58) @done(18-08-01 11:03) @lasted(6d23h5m12s)
+        ☐ Typing in localhost:3000newsitem will return a blank screen
+        ✔ The random image function returns the same image. Not a big deal but should be fixed before the end. @done(18-07-31 17:41)
+        ☐ Any ID that doesn't exists should return an error page. @started(18-08-01 11:47)
+        ✔ Routing Redirect Error relating to /theKnews/.See the console. @started(18-08-07 16:07) @done(18-08-07 16:17) @lasted(10m39s)
+        ✔ If you refresh the page anywhere you return to home @started(18-08-07 16:07) @done(18-08-07 16:17) @lasted(10m37s)
+            I fixed these 2 errors by messing with the switch statement but I think this will mess up on deployment. 
+        ☐ If you refresh the page on the form you get a setState error. @started(18-08-07 16:07)
+        ✔ The html parser stopped working after the port @done(18-08-07 16:07)
+            I don't know how i fixed this. All I did was uncomment everything and it worked.
+        
+    General Notes  Objectives:
+        Add some accessibility options:
+            ☐ Button that changes font size in articles.
+        
+        ☐ I should consider replacing the random images with my own hosted images to help future proof the website
+        ☐ There should be a scroll to top button
+        ☐ Think about pagination / infinite scroll functionality
+
+        ✔ Get routes up and running once basic structure is in place. @done(18-07-24 17:47)
+        ☐ Mobile Menu should be controlled by swipe gesture or button located at bottom of page
+            This is a good idea but I'm not sure where to even start with this.
+            Could just use a basic menu for this project and integrate gestures in the next
+        ☐ Media Queries
+            ☐ 360px
+                Extreme case scenario but good practice anyway
+            ☐ 768px
+                 Mobile Nav Cutoff
+                 Probably the most adjustments at this point
+                 Limit width to 90%, create a margin at the sides
+                 Change header to have nav left and brand right
+           ☐ 1200px
+           ☐ 1500px
+           ☐ 1920px
+         I really need to be better at branching with Github when starting something.
+        
+        ✔ If you click on a News Item at Home you should get a unique shareable URL @done(18-07-31 17:19)
+            ✔ Right now you get a path simply ends with news-item @done(18-07-25 17:09)
+            I think this is possible but I will need to go more in deapth with Routes
+                I solved a part of this by adding arraymap.id to the path
+                However the link is still not shareable at this point
+                I think this now has something to do with the onClick event because the data is loaded from an external file on click. If there's no click then there is not data loaded to state which returns an error.
+            ✔ Work out how to get by the onClick to load. @done(18-07-26 15:39)
+                 So I think I have an idea
+                 I use parameters to move the id from the home to the news item and then run the .map again to retrieve the rest of the data.
+                 Right now I am getting all of the data when the page loads. 
+                 My idea is to only get the article id,title and image
+                 Using that when you click on an item you go the article with the rest of the content ready.
+                 Well that didn't work and now I am a bit stumped.
+                 I am going to go back to basics and create a map that returns the dummy data when the page is rendered to a hard-coded ID
+            ✔ Created Unique pages with shareable URLS @done(18-07-26 15:36)
+                  The main problem with my approach is that the ID needs to match up with the array. The array goes from 0 to 9 so if there isnt an entry with an id of 0 then you get an error. This would be a problem when the design starts to scale and you start adding and removing things from the database. 
+                
+                 Its also dependant on the for loop so its not at all flexible but I am not sure how else to approach something like this at the moment
+                
+                 I think I need to do this in reverse. Use the id from the json data to set the URL param and display the news items and their content based on the id from url.
+
+                 I'm still a bit unsure how to proceed but an interesting and good challenge.
+
+                 Ok so maybe if I rework my loop I can make this more dynamic and flexible. THe entire rigidity of the design comes from the loop setting a value of i for the ID that increments every it loops. If I can somehow rework the entire thing maybe I could have i correspond in someway to the values within the json data. How the hell i do that I don't know but I can give it a crack 
+
+                 I am going to call it a day I think as I am in a bit of haze from starting at the same pieces of code for hours. I do think i'm not that for from a solution though, I just need to look the way I am looping through the external data. The issue is definitley there...probably.
+
+                 I made some branches and tried some things but I didnt get very far. The good news is that I have successfully created unique shareable pages that can be manually typed in. The bad news is that the design only works if the id's in the database go from 0 to whatever. If you have an id like 342 then it won't work. I feel like the solution is right in front of me but I just can't get it. Very frustrating. 
+
+                 I have given it a long time and a really good shot but I just don't know how to fix this. It's not a big deal and doesn't actually affect this project but it's something I need to pick up for the future. Maybe next project will be built around this.
+
+                 I am going to spend this final day on this and see if I can do anything. If I can't then tommorow I will move on because this has already taken up too much time and it's not even a roadblock for this project.
+
+                 I might have got somewhere by ripping up the entire system and starting again with a new map instead of using a for loop. Now the system loops through the objects within the file and returns those objects. Specifically i now have the database id and array id as seperatw values to work with. I'm not in the clear yet but I am in a better position than i was at the least.
+
+                 I have managed to solve this but explaining it is a bit tricky because i'm not sure how to actually start. Basically i used match.params.id to get the identifier along with js .find and map functions. I will try and go into more detail later.
+    Header:
+        ✔ Get basic structure in place @done(18-07-24 17:48)
+        ☐ Mobile Nav @started(18-07-25 11:08)
+             ☐ See Above @started(18-07-25 11:08)
+             The basic layout is in place but more work is needed especially with spacing
+                ☐ Try and get everything onto one line
+                ☐ Sign in button needs fixed which could mean an overhaul of the whole thing.
+        ☐ Desktop Nav @started(18-07-25 11:08)
+            ☐ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it.
+            
+        
+
+    Home Page:
+        ✔ Basic skeleton in place @done(18-07-24 17:48)
+        ✔ Used some code from React-Project-2 to get news items displayed on the page @started(18-07-25 11:08) @done(18-07-25 15:13) @lasted(4h5m59s)
+            Next stage is formatting @started(18-07-25 11:08)
+        ✔ Seperate News Item Look into its own component @started(18-07-25 11:08) @done(18-07-25 11:32) @lasted(24m38s)
+             Actually split it up into 3 seperate components.
+             A component for unique news item
+             A component to loop each news item
+             A component to display the end result
+             Code is a wee bit more manageable
+        News Items:
+            ☐ Create Hover/Click caption @started(18-07-25 15:13)
+
+    
+    News Item:
+        ☐ Basic Structure in place
+        Style page: 
+            ✔ Large Header Image at top @done(18-08-01 11:50)
+            ☐   Main Header Below
+            ☐    Sub-Title Next
+            ☐      Content 
+        ✔ Figure out how to add a new line to json data @done(18-07-26 11:08)
+             It's a 2 part thing
+                 First \n in json
+                 Second .where-the-data-is { white-space: pre-wrap;}
+        ✔ There's probably a bit too much white space at either side of the article. Maybe think about adding functionality for images. @done(18-08-01 13:57)
+            ☐ The images are the same for each page. Make sure these are truly random @started(18-08-01 13:57)
+            ☐ Instead of removing the images at lower than 1600px just add them in a grid to the bottom of the article.
+        ☐ Figure out how to render html tags from json file.
+    Footer:
+         Dont' know if I am going to have one.
+         Might put a small bar at the bottom to act as footer.
+    
+
+Part 2 Implement Database functionality:
+    ✔ Get information from database. @done(18-08-07 16:03)
+    ☐ Create a simple form to submit to the database with basic info
+        No need to rush this, take your time and work through each challenge one by one.
+        This is possible but you might need to go off and some tuturials  research to 
+        
+        Achieved this using a firebase database. I just need to have news articles submit to the database and then returned to a news item.
+    
+
+
+Deployed Project To-Do:
+    ☐ Add Custom FavIco
+    ☐ Add Custom Title Tag
+    ☐ The split main header in the news page appears too early.

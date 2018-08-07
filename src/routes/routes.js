@@ -5,7 +5,9 @@ import {Route, Redirect, Switch} from 'react-router-dom';
 import './routes.css';
 
 import Home from '../home-page/home.js';
-import NewsPage from '../news-page/news-page.js'
+import NewsPage from '../news-page/news-page.js';
+import Form from '../myKnews/form.js';
+import { PracticeForm } from '../myKnews/practice-form';
 
 //  const TestLoop = (title) => {
 //     let i;
@@ -22,11 +24,14 @@ export class Routes extends React.Component{
         return (
             <div className="body-wrapper">
                 <Switch>            
-                    <Redirect from="/" to="/theKnews" /> 
-                    <Route path="/theKnews" component={Home} /> 
+                    <Redirect from="/theKnews" to="/" /> 
+                    <Route exact path="/" component={Home} /> 
                 </Switch> 
 
                 <Route path="/theKnews" component={Home} /> 
+                <Route path="/myKnews" component={Form} />
+                
+                <Route path="/filters" component={PracticeForm} />  
                 {/* <Route  path="/home" component={Home}/> */}
                 {/* <Route  path={"/news-item" + {TestLoop} } component={NewsItem}/> */}
                 
