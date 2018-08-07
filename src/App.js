@@ -122,6 +122,7 @@ class App extends Component {
 
                   <div className=''>
                     Display Articles
+                    asdfa
                     <ul>
                     {
                       this.state.articlesArray.map((item) => {
