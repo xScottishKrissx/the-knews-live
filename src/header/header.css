@@ -1,0 +1,102 @@
+
+*{
+    /* border: 1px solid; */
+}
+
+    .brand{
+        /* border-bottom: 1px solid black; */
+        display: block;
+
+        font-size: 4rem;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    #header{
+        border-bottom: 1px solid black;
+    }
+    .header-wrapper{
+        max-width: 1200px;
+    }
+
+    .header-wrapper nav{
+        /* border: 1px solid; */
+    }
+
+    .header-wrapper nav ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+
+        margin:0;
+        height: 100%;
+    }   
+        .header-wrapper nav ul li{
+            /* border-bottom: 1px solid black; */
+            border: 1px solid black;
+            flex: 1;
+            text-align: center;
+        }
+            .header-wrapper nav ul li a{
+                color: black;
+                text-decoration: none;
+            }
+
+
+
+    @media (min-width: 768px) {
+
+        .brand{
+            flex: 1;
+            padding-right: 5rem;
+            text-align: right;
+            
+        }
+        .header-wrapper{
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 0 auto;
+            /* max-width: 1920px; */
+            /* padding: 5px; */
+            width: 90%;
+
+        }
+
+        .header-wrapper nav{
+            flex: 1;
+            position: relative;
+            max-width: 35rem;
+        }
+            .header-wrapper nav ul{
+                bottom: 0;
+                height: auto;
+                position: absolute;
+                width: 100%;
+            }
+
+                .header-wrapper nav ul li{
+                    position: relative;
+                    border: none;
+                }
+                .header-wrapper nav ul li a{
+                    /* position: absolute; */
+                    /* bottom: 0; */
+                    /* left: 0; */
+                }
+    }
+
+    @media (min-width: 576px) {
+
+        .header-wrapper{
+            /* background-color: blue; */
+        }
+    }
+     
+     @media (max-width: 576px) {
+
+        .header-wrapper{
+            /* background-color: red; */
+        }
+    }
+
