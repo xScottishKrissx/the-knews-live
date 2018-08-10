@@ -36,7 +36,7 @@ class MapDatabaseItems extends React.Component{
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
-            console.log(newsItems);
+            // console.log(newsItems);
             let newState = [];
             for(let newsItem in newsItems){
                 newState.push({
@@ -49,14 +49,15 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 articlesArray: newState
             })
-            console.log(this.state.articlesArray);
+            // console.log(this.state.articlesArray);
+            
         })
     }
 
     render(){
         const firebaseDB = this.state.articlesArray;
 
-        const myEffingMap = firebaseDB.map((value,key) => {
+        const HomePageView = firebaseDB.map((value,key) => {
 
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -71,17 +72,18 @@ class MapDatabaseItems extends React.Component{
             }
     
     
-            console.log(value.author + " Key is: " + value.key)
+            // console.log(value.author + " Key is: " + value.key)
             return (
                     <div className='news-square' key={key}>                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
-                                title={value.articleTitle} />
+                                title={value.articleTitle}
+                                author={value.author} />
                     </div>
             );
       })
-        return myEffingMap;   
+        return HomePageView;   
     }
 }
 
@@ -91,7 +93,7 @@ class MapDatabaseItems extends React.Component{
 
 
   
-//     const myEffingMap = testData.map((value,key) => {
+//     const HomePageView = testData.map((value,key) => {
 
 //         // There is probably a better way of doing this...
 //         const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -113,7 +115,7 @@ class MapDatabaseItems extends React.Component{
 //                 </div>
 //         );
 //   })
-//     return myEffingMap;    
+//     return HomePageView;    
 // }
 
 class Caption extends React.Component{
@@ -125,11 +127,11 @@ class Caption extends React.Component{
 
     showExcerpt(e){
         e.preventDefault();
-        console.log("ShowExcerpt");
+        // console.log("ShowExcerpt");
         const thing = document.getElementsByClassName("news-item-link");
-        console.log(this.props.pageid);
-        console.log(thing);
-        console.log(thing[e.currentTarget])
+        // console.log(this.props.pageid);
+        // console.log(thing);
+        // console.log(thing[e.currentTarget])
         
     }
     
@@ -137,7 +139,8 @@ class Caption extends React.Component{
         const pageid = this.props.pageid;
         //console.log(pageid);
         const style = this.props.style;
-        const title = this.props.title
+        const title = this.props.title;
+        const author = this.props.author;
        // console.log(title);
 
         return (
@@ -154,8 +157,8 @@ class Caption extends React.Component{
             <div style={style}>
                 
                 <div className="news-item-link-text" onClick={this.showExcerpt}>
-                    <span>{this.props.pageid}</span>
-                    <p>Excerpt from Article</p>
+                    <span>{title}</span>
+                    <p>by {author}</p>
                 </div>
                 
             </div> 

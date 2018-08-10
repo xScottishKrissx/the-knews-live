@@ -9,7 +9,7 @@ Part 1 - Implement the front end UI:
 
     Known Bugs:
         ✔ If you middle click or try to open a news item in a new tab, you can an error @started(18-07-25 11:58) @done(18-08-01 11:03) @lasted(6d23h5m12s)
-        ☐ Typing in localhost:3000newsitem will return a blank screen
+        ✔ Typing in localhost:3000newsitem will return a blank screen @done(18-08-10 17:39)
         ✔ The random image function returns the same image. Not a big deal but should be fixed before the end. @done(18-07-31 17:41)
         ☐ Any ID that doesn't exists should return an error page. @started(18-08-01 11:47)
         ✔ Routing Redirect Error relating to /theKnews/.See the console. @started(18-08-07 16:07) @done(18-08-07 16:17) @lasted(10m39s)
@@ -31,17 +31,17 @@ Part 1 - Implement the front end UI:
         ☐ Mobile Menu should be controlled by swipe gesture or button located at bottom of page
             This is a good idea but I'm not sure where to even start with this.
             Could just use a basic menu for this project and integrate gestures in the next
-        ☐ Media Queries
-            ☐ 360px
+       / ☐ Media Queries
+       /     ☐ 360px
                 Extreme case scenario but good practice anyway
-            ☐ 768px
+       /     ☐ 768px
                  Mobile Nav Cutoff
                  Probably the most adjustments at this point
                  Limit width to 90%, create a margin at the sides
                  Change header to have nav left and brand right
-           ☐ 1200px
-           ☐ 1500px
-           ☐ 1920px
+        /   ☐ 1200px
+        /   ☐ 1500px
+        /   ☐ 1920px
          I really need to be better at branching with Github when starting something.
         
         ✔ If you click on a News Item at Home you should get a unique shareable URL @done(18-07-31 17:19)
@@ -118,7 +118,7 @@ Part 1 - Implement the front end UI:
                  First \n in json
                  Second .where-the-data-is { white-space: pre-wrap;}
         ✔ There's probably a bit too much white space at either side of the article. Maybe think about adding functionality for images. @done(18-08-01 13:57)
-            ☐ The images are the same for each page. Make sure these are truly random @started(18-08-01 13:57)
+            ✔ The images are the same for each page. Make sure these are truly random @started(18-08-01 13:57) @done(18-08-10 17:33) @lasted(1w2d3h36m6s)
             ☐ Instead of removing the images at lower than 1600px just add them in a grid to the bottom of the article.
         ☐ Figure out how to render html tags from json file.
     Footer:
@@ -147,7 +147,15 @@ Part 2 Implement Database functionality:
      /☐ Sort Home Page News Article by upload date
      ✔ Create a form that allow article upload @done(18-08-10 11:50)
      ✔ Display new Objects from database. @done(18-08-10 14:21)
+     / The page id of each page is now set when you submit the form and will work with random images.
      ☐ Implement news page styles
+     ☐ Implement User Authorization so that only I can access the form.
+     ☐ The ability to edit posts when submitted.
+     ☐ The ability to hide but not delete posts from view
+     ☐ The ability to delete posts
+     ☐ Ability to Like and Dislike Posts
+     ☐ Move everything in the filters page to myKnews
+     ☐ Organise Components a bit neater
      ☐ Profit ???
     
 

@@ -50,7 +50,26 @@ export class PracticeForm extends React.Component{
     //     })
   
     //   }
+    componentDidMount(){
+      const dbRef = fire.database().ref("items");
+      console.log(dbRef);
 
+      dbRef.on('value', (snapshot) => {
+        let dbObjects = snapshot.val();
+        let tempState = [];
+        for (let dbObject in dbObjects){
+          tempState.push({
+            author: dbObjects[dbObject].author
+          })
+        }
+        this.setState({
+          articlesArray: tempState
+        })
+        console.log(((this.state.articlesArray).length) + 1)
+      })
+
+
+    }
 
     handleChange(e){
       console.log("Change!!!")
@@ -67,10 +86,21 @@ export class PracticeForm extends React.Component{
       const article = {
         author: this.state.author,
         articleTitle: this.state.articleTitle,
-        id: this.state.id
+        id: (((this.state.articlesArray).length) * 3 )
       }
+
+      
       // dbRef.push(article);
-      dbRef.child(article.key).set("Custom2");
+
+
+
+      // dbRef.push((((this.state.articlesArray).length) + 1)).set(article)
+      //dbRef.push(article).set((((this.state.articlesArray).length) + 1))
+      //const keyRef = dbRef.child("items");
+      const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
+      dbRef.child(ObjectsInDbCount).set(article);
+
+
       this.setState({
         author: '',
         articleTitle: '',

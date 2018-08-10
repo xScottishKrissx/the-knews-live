@@ -17,11 +17,13 @@ export class NewsPage extends React.Component{
         super(props);
         this.state = {
             author: "",
+            articleTitle: "",
             articlesArray: []
         }
     }
 
     componentDidMount(){
+        
         console.log(this.props.match.params.id);
         const dave = this.props.match.params.id;
         console.log(dave)
@@ -32,7 +34,8 @@ export class NewsPage extends React.Component{
             for(let item in articles){
                 newState.push({
                     id: item,
-                    author: articles[item].author
+                    author: articles[item].author,
+                    articleTitle: articles[item].articleTitle
                 });
             }
             this.setState({
@@ -47,16 +50,17 @@ export class NewsPage extends React.Component{
 
     render(){
         const firebasedb = this.state.articlesArray;
-       console.log(firebasedb)
+        //console.log(firebasedb)
         return (
             <div className=''>
                 
             {
-                firebasedb.map((test) => {
+                firebasedb.map((articleMap) => {
                     return(
-                        <div className=''>
-                            <p>ID: {test.id} </p>
-                            <p>Author {test.author}</p>
+                        <div className='' key={articleMap.id}>
+                            <p>ID: {articleMap.id} </p>
+                            <p>Author: {articleMap.author}</p>
+                            <p>Article Title: {articleMap.articleTitle}</p>
                         </div>
                     )
                 })
@@ -119,31 +123,31 @@ export class NewsPage extends React.Component{
 
 //         <Form articleid={articleID}/>
         
-//         <div className='article-banner-image-wrapper'>
-//             <div className="article-banner-image" style={style}></div>
-//             <div className="article-banner-image extra-banner-image" style={extraImage}></div>
+//         <div className='articleMap-banner-image-wrapper'>
+//             <div className="articleMap-banner-image" style={style}></div>
+//             <div className="articleMap-banner-image extra-banner-image" style={extraImage}></div>
 //         </div>
 
 //         <div className="back-button">
 //             <Link to='/theKnews'><p>go back</p></Link>
 //         </div>
 
-//         <header className="news-article-header">
-//                 <h1 className="article-title">{articleObject.title}</h1>
-//                 <h2 className="article-subtitle">Subtitle</h2>
-//                 <h3 className="article-author">{articleObject.author}</h3>
+//         <header className="news-articleMap-header">
+//                 <h1 className="articleMap-title">{articleObject.title}</h1>
+//                 <h2 className="articleMap-subtitle">Subtitle</h2>
+//                 <h3 className="articleMap-author">{articleObject.author}</h3>
 //         </header>
 
-//         <div className="news-article-body">
-//             <article>
-//                     {/* <p className="article-text">{articleObject.text}</p> */}
-//                     <div className="article-text">
+//         <div className="news-articleMap-body">
+//             <articleMap>
+//                     {/* <p className="articleMap-text">{articleObject.text}</p> */}
+//                     <div className="articleMap-text">
 //                         <ParseHTML props={articleObject.text}/>
 //                     </div>
                     
-//                     <p className="article-likes">Likes: {articleObject.likes} </p>
-//                     <p className="article-dislikes">Dislikes: {articleObject.dislikes}</p>
-//             </article>
+//                     <p className="articleMap-likes">Likes: {articleObject.likes} </p>
+//                     <p className="articleMap-dislikes">Dislikes: {articleObject.dislikes}</p>
+//             </articleMap>
 
 //             <div className="extra-images">
 //                 <ExtraImageLoop />             
