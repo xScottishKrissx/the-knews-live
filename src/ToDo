@@ -128,7 +128,7 @@ Part 1 - Implement the front end UI:
 
 Part 2 Implement Database functionality:
     ✔ Get information from database. @done(18-08-07 16:03)
-    ☐ Create a simple form to submit to the database with basic info
+    ✔ Create a simple form to submit to the database with basic info @done(18-08-10 11:50)
         No need to rush this, take your time and work through each challenge one by one.
         This is possible but you might need to go off and some tuturials  research to 
         
@@ -141,9 +141,13 @@ Part 2 Implement Database functionality:
 
      ✔ Upload all of that to the porfolio @done(18-08-08 12:54)
         The routes are a bit of a mess but that's a deployment problem
-
-     ☐ Add Objects to the database.
-     ☐ Display new Objects from database.
+     ✔ Use info in database to populate home page instead of local file. @done(18-08-10 11:13)
+     ✔ Ensure Image paths can be loaded from the server. @done(18-08-10 11:13)
+     ☐ The News Page themsevles could be loaded using the same db as the home page using props instead of making another seperate call.
+     /☐ Sort Home Page News Article by upload date
+     ✔ Create a form that allow article upload @done(18-08-10 11:50)
+     ✔ Display new Objects from database. @done(18-08-10 14:21)
+     ☐ Implement news page styles
      ☐ Profit ???
     
 

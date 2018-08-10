@@ -1,9 +1,5 @@
 GOAL:
-        Home page news items should be loaded from the database instead of the local file
-        Implement news page styles
-        Ensure Image paths can be loaded from the server.
-        Create from that allows authorised user article uploads
-        Sort Home Page News Article by upload date
+
         
 
 
@@ -13,6 +9,7 @@ GOAL:
         Setup a form that allows users to enter data and show on website. This was removed but will be added back in later
         When you click on a home page news item you will be taken to a page with information from the database rather than the local json file like before
         All of the above works when upload to the porfolio
+        Home page now loads from database instead of local file
 
 
 3 August 2018

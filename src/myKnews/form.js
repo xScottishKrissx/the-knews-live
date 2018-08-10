@@ -46,6 +46,11 @@ export class Form extends React.Component{
       itemRef.remove();
     }
 
+
+
+
+    
+
     handleSubmit(e){
       e.preventDefault();
       const itemRef = fire.database().ref('items');
@@ -59,6 +64,11 @@ export class Form extends React.Component{
         articleTitle: ''
       });
     }
+
+
+
+
+
 
     componentDidMount(){
       const articleRef = fire.database().ref('items');
