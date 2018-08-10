@@ -31,7 +31,7 @@ export class Routes extends React.Component{
                 <Route path="/theKnews" component={Home} /> 
                 <Route path="/myKnews" component={Form} />
                 
-                <Route path="/filters" component={PracticeForm} />  
+                <Route path="/filters/:id" component={PracticeForm} />  
                 {/* <Route  path="/home" component={Home}/> */}
                 {/* <Route  path={"/news-item" + {TestLoop} } component={NewsItem}/> */}
                 

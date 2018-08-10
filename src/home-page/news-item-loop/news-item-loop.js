@@ -66,7 +66,9 @@ class Caption extends React.Component{
         const title = this.props.title
 
         return (
-            <Link className="news-item-link" to={{pathname: '/articles/news-page/' + pageid}}>
+            // <Link className="news-item-link" to={{pathname: '/articles/news-page/' + pageid}}>
+
+            <Link className="news-item-link" to={{pathname: '/filters/' + pageid}}>
             {/* // <Link className="news-item-link" to={{pathname: pageid}}>         */}
             
 

@@ -133,6 +133,18 @@ Part 2 Implement Database functionality:
         This is possible but you might need to go off and some tuturials  research to 
         
         Achieved this using a firebase database. I just need to have news articles submit to the database and then returned to a news item.
+
+    ✔ Connect to the database and retrieve a list of objects @done(18-08-08 12:44)
+        Success - This was fairly simple, even if I don't quite get some of the code I am getting to grips with a lot of it.I managed to get a single record from the database which is a good start.
+    ✔ Use a url param to retrieve an object from the database @done(18-08-08 12:45)
+        I don't know how secure this is but it works and I can live with it for the moment
+
+     ✔ Upload all of that to the porfolio @done(18-08-08 12:54)
+        The routes are a bit of a mess but that's a deployment problem
+
+     ☐ Add Objects to the database.
+     ☐ Display new Objects from database.
+     ☐ Profit ???
     
 
 

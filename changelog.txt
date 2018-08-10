@@ -1,0 +1,57 @@
+GOAL:
+        Home page news items should be loaded from the database instead of the local file
+        Implement news page styles
+        Ensure Image paths can be loaded from the server.
+        Create from that allows authorised user article uploads
+        Sort Home Page News Article by upload date
+        
+
+
+10 August 2018
+        Connected project to firebase database
+        Successfully displayed information from the database
+        Setup a form that allows users to enter data and show on website. This was removed but will be added back in later
+        When you click on a home page news item you will be taken to a page with information from the database rather than the local json file like before
+        All of the above works when upload to the porfolio
+
+
+3 August 2018
+        Used html-react-parser to get html from json file rendered correctly to page
+        Deployed project to portfolio for testing and letting people know I am busy.
+        Created a message for WIP deployment
+        Removed footer for deployment because its' a bit naff and I want to work on it later.
+        Replaced Sign In / Register with my Knews.
+        Improved spacing of nav bar.
+        Improved appearance and changed position of back button to be below banner images.
+        Tweaked navbar appearance, should look better across resolutions
+        Added some basic styles to footer, ugly as hell but gives me a start
+        Added Split Banner Image for news page at beyond 1920px wide
+        Tweaks to Responsiveness by removing max-width limit for news header image
+
+2 August 2018
+        Added the footer
+        Made some improvements to news page responsiveness
+        Tweaked Header to be a bit better at higher resolutions
+        Started work on the home page news item caption.
+
+1 August 2018
+        Added the react-responsive library so I should be able to more easily design for responsive.
+        Improved News Page for resolutions up to and including 4K
+        Improved News Page for larger resolutions by adding images and reducing article width
+        Improved the home page flex
+        Improved appearance of news page
+
+31 July 2018 - 
+        Cracked the shareable urls
+        Starting to populate and style the website
+        Added random images to home page and news pages.
+        
+30 July 2018 - What I Did today
+        Spent the entire day working on the shareable urls
+        Made a breakthrough towards the end of the end of the day that will allow me to proceed
+        Will develop more tommorow.
+
+26 July 2018 - What I Did today:
+        ✔ Figured out how to add a new line to JSON data.
+        ✔ Made some progress with Unique IDs but hit some roadblocks. I feel like I am so close to a breakthrough
+        ✔ I managed to get unique shareable urls working. You can manually navigation to any page provided the id of the page exists in the database. There is still a lot of work to be done here as I have detailed in the todo file. Basically I think I need to completley overhaul the way I am retrieving the data and displaying it on page.

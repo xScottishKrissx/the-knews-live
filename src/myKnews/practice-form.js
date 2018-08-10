@@ -3,16 +3,14 @@ import fire, {auth, provider} from '../fire.js'
 
 
 
-// {/* Goal 1 === Connect to and retrieve list from database. */}
-        // Success - This was fairly simple, even if I don't quite get some of the code I am getting to grips with a lot of it.I managed to get a single record from the database which is a good start.
 export class PracticeForm extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
             author: '',
-            articleID: '',
-            articleTitle: '',
+            // articleID: '',
+            // articleTitle: '',
             articlesArray: [],
         }
     }   
@@ -20,16 +18,27 @@ export class PracticeForm extends React.Component{
 
     componentDidMount(){
         // When it comes to It I can use the key instead of Id but for this stage ID is just easier for me to lay around with.
-        const articleRef = fire.database().ref('items').orderByChild("id").equalTo(0);
+        console.log(this.props);
+        console.log(this.props.match.params.id);
+
+        
+        const dave = Number(this.props.match.params.id);
+        const newDave = 123;
+        const articleRef = fire.database().ref('articles').orderByChild("id").equalTo(dave);
+
+
+        console.log(newDave);
+
+
         articleRef.on('value', (snapshot) => {
           let articles = snapshot.val();
           let newState = [];
           for (let item in articles){
             newState.push({
-              id: item,
-              articleID: articles[item].id,
+              // id: item,
+              // articleID: articles[item].id,
               author: articles[item].author,
-              articleTitle: articles[item].articleTitle
+              // articleTitle: articles[item].articleTitle
             });
           }
           this.setState({
@@ -48,9 +57,9 @@ export class PracticeForm extends React.Component{
                 {firebaseDB.map((test) => {
                   return(
                     <div className=''>
-                      <p>{test.id}</p>
-                      <p>{test.articleTitle}</p>
-                      <p>{test.articleID}</p>
+                      {/* <p>{test.id}</p> */}
+                      {/* <p>{test.articleTitle}</p> */}
+                      {/* <p>{test.articleID}</p> */}
                       <p>{test.author}</p>
                     </div>
                   )
