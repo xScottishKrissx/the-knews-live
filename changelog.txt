@@ -2,6 +2,9 @@ GOAL:
 
         
 
+13 August 2018
+        Styled News Page as it was before the database work
+        Cleaned up, move around and separated components to make everything a bit neater and easier to use.
 
 10 August 2018
         Connected project to firebase database

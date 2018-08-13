@@ -16,6 +16,8 @@ Part 1 - Implement the front end UI:
         ✔ If you refresh the page anywhere you return to home @started(18-08-07 16:07) @done(18-08-07 16:17) @lasted(10m37s)
             I fixed these 2 errors by messing with the switch statement but I think this will mess up on deployment. 
         ☐ If you refresh the page on the form you get a setState error. @started(18-08-07 16:07)
+            It's because the component makes a call to the database and sets state on the home page as soon as it loads. if you refresh on a news page and try to go back it hasnt done that yet and doesnt like it.
+            
         ✔ The html parser stopped working after the port @done(18-08-07 16:07)
             I don't know how i fixed this. All I did was uncomment everything and it worked.
         
@@ -82,13 +84,13 @@ Part 1 - Implement the front end UI:
                  I have managed to solve this but explaining it is a bit tricky because i'm not sure how to actually start. Basically i used match.params.id to get the identifier along with js .find and map functions. I will try and go into more detail later.
     Header:
         ✔ Get basic structure in place @done(18-07-24 17:48)
-        ☐ Mobile Nav @started(18-07-25 11:08)
-             ☐ See Above @started(18-07-25 11:08)
+        ✔ Mobile Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m48s)
+             ✔ See Above @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m48s)
              The basic layout is in place but more work is needed especially with spacing
-                ☐ Try and get everything onto one line
-                ☐ Sign in button needs fixed which could mean an overhaul of the whole thing.
-        ☐ Desktop Nav @started(18-07-25 11:08)
-            ☐ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it.
+                ✔ Try and get everything onto one line @done(18-08-13 18:03)
+                ✔ Sign in button needs fixed which could mean an overhaul of the whole thing. @done(18-08-13 18:03)
+        ✔ Desktop Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m51s)
+            ✔ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it. @done(18-08-13 18:03)
             
         
 
@@ -107,12 +109,12 @@ Part 1 - Implement the front end UI:
 
     
     News Item:
-        ☐ Basic Structure in place
+        ✔ Basic Structure in place @done(18-08-13 18:03)
         Style page: 
             ✔ Large Header Image at top @done(18-08-01 11:50)
-            ☐   Main Header Below
-            ☐    Sub-Title Next
-            ☐      Content 
+            ✔   Main Header Below @done(18-08-13 18:03)
+            ✔    Sub-Title Next @done(18-08-13 18:03)
+            ✔      Content @done(18-08-13 18:03)
         ✔ Figure out how to add a new line to json data @done(18-07-26 11:08)
              It's a 2 part thing
                  First \n in json
@@ -120,7 +122,7 @@ Part 1 - Implement the front end UI:
         ✔ There's probably a bit too much white space at either side of the article. Maybe think about adding functionality for images. @done(18-08-01 13:57)
             ✔ The images are the same for each page. Make sure these are truly random @started(18-08-01 13:57) @done(18-08-10 17:33) @lasted(1w2d3h36m6s)
             ☐ Instead of removing the images at lower than 1600px just add them in a grid to the bottom of the article.
-        ☐ Figure out how to render html tags from json file.
+        ✔ Figure out how to render html tags from json file. @done(18-08-13 18:03)
     Footer:
          Dont' know if I am going to have one.
          Might put a small bar at the bottom to act as footer.
@@ -143,19 +145,21 @@ Part 2 Implement Database functionality:
         The routes are a bit of a mess but that's a deployment problem
      ✔ Use info in database to populate home page instead of local file. @done(18-08-10 11:13)
      ✔ Ensure Image paths can be loaded from the server. @done(18-08-10 11:13)
-     ☐ The News Page themsevles could be loaded using the same db as the home page using props instead of making another seperate call.
+     ✘ The News Page themsevles could be loaded using the same db as the home page using props instead of making another seperate call. @cancelled(18-08-13 18:02)
+        I think the idea of less work for the database is good but this implementation means I can't navigate directly to the page without going home first.
+
      /☐ Sort Home Page News Article by upload date
      ✔ Create a form that allow article upload @done(18-08-10 11:50)
      ✔ Display new Objects from database. @done(18-08-10 14:21)
      / The page id of each page is now set when you submit the form and will work with random images.
-     ☐ Implement news page styles
-     ☐ Implement User Authorization so that only I can access the form.
-     ☐ The ability to edit posts when submitted.
-     ☐ The ability to hide but not delete posts from view
-     ☐ The ability to delete posts
-     ☐ Ability to Like and Dislike Posts
-     ☐ Move everything in the filters page to myKnews
-     ☐ Organise Components a bit neater
+     ✔ Implement news page styles @done(18-08-13 18:02)
+     ☐ Implement User Authorization so that only I can access the form. @started(18-08-13 18:04)
+     ☐ The ability to edit posts when submitted. @started(18-08-13 18:04)
+     ☐ The ability to hide but not delete posts from view @started(18-08-13 18:04)
+     ☐ The ability to delete posts @started(18-08-13 18:04)
+     ☐ Ability to Like and Dislike Posts @started(18-08-13 18:04)
+     ☐ Move everything in the filters page to myKnews @started(18-08-13 18:04)
+     ✔ Organise Components a bit neater @done(18-08-13 18:02)
      ☐ Profit ???
     
 

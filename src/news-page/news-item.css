@@ -77,6 +77,11 @@
         display: none;
     }
 
+    .social{
+        margin: 0 auto;
+        max-width: 35rem;
+    }
+
 
 
 @media (min-width: 1600px) {

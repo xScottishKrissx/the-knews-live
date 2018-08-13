@@ -21,7 +21,7 @@ class MapDatabaseItems extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articleTitle: "",
+            title: "",
             author: "",
             id: "",
             imgPath: "",
@@ -42,7 +42,7 @@ class MapDatabaseItems extends React.Component{
                 newState.push({
                     key: newsItem,
                     author: newsItems[newsItem].author,
-                    articleTitle: newsItems[newsItem].articleTitle,
+                    title: newsItems[newsItem].title,
                     id:newsItems[newsItem].id
                 });
             }
@@ -58,6 +58,8 @@ class MapDatabaseItems extends React.Component{
         const firebaseDB = this.state.articlesArray;
 
         const HomePageView = firebaseDB.map((value,key) => {
+
+            // console.log(value.id)
 
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -78,7 +80,7 @@ class MapDatabaseItems extends React.Component{
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
-                                title={value.articleTitle}
+                                title={value.title}
                                 author={value.author} />
                     </div>
             );
@@ -154,16 +156,16 @@ class Caption extends React.Component{
             {/* // <Link className="news-item-link" to={{pathname: pageid}}>         */}
             
 
-            <div style={style}>
-                
-                <div className="news-item-link-text" onClick={this.showExcerpt}>
-                    <span>{title}</span>
-                    <p>by {author}</p>
-                </div>
-                
-            </div> 
+                <div style={style}>
+                    
+                    <div className="news-item-link-text" onClick={this.showExcerpt}>
+                        <span>{title}</span>
+                        <p>by {author}</p>
+                    </div>
+                    
+                </div> 
 
-        </Link>
+            </Link>
         );
     }
 } 

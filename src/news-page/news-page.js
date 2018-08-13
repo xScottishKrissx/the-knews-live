@@ -1,10 +1,10 @@
 import React from 'react';
 import './news-item.css';
 // import MediaQuery from 'react-responsive';
-import Parser from 'html-react-parser';
-import {Link} from 'react-router-dom';
+
 import fire, {auth, provider} from '../fire.js'
 
+import NewsPageVIEW from './news-page-view.js';
 import DummyData from '../home-page/dummy-data.js';
 import Form from '../myKnews/form.js';
 
@@ -17,60 +17,54 @@ export class NewsPage extends React.Component{
         super(props);
         this.state = {
             author: "",
-            articleTitle: "",
+            title: "",
+            text:"",
+            likes:"",
+            dislikes:"",
+            postdate:"",
             articlesArray: []
         }
     }
 
-    componentDidMount(){
-        
-        console.log(this.props.match.params.id);
+    componentDidMount(){        
+        // console.log(this.props.match.params.id);
         const dave = this.props.match.params.id;
-        console.log(dave)
+        // console.log(dave)
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
         dbRef.on('value', (snapshot) => {
             let articles = snapshot.val();
             let newState = [];
             for(let item in articles){
                 newState.push({
-                    id: item,
+                    key: item,
                     author: articles[item].author,
-                    articleTitle: articles[item].articleTitle
+                    title: articles[item].title,
+                    id:articles[item].id,
+                    text: articles[item].text,
+                    likes: articles[item].likes,
+                    dislikes: articles[item].dislikes,
+                    postdate: articles[item].postdate,
                 });
             }
             this.setState({
                 articlesArray: newState
             })
-            console.log(this.state.articlesArray);
+            // console.log(this.state.articlesArray);
         })
-
-
-
     }
 
-    render(){
-        const firebasedb = this.state.articlesArray;
-        //console.log(firebasedb)
-        return (
-            <div className=''>
-                
-            {
-                firebasedb.map((articleMap) => {
-                    return(
-                        <div className='' key={articleMap.id}>
-                            <p>ID: {articleMap.id} </p>
-                            <p>Author: {articleMap.author}</p>
-                            <p>Article Title: {articleMap.articleTitle}</p>
-                        </div>
-                    )
-                })
-            }
+    
 
-            
-            </div>
-        )
+    render(){    
+        //console.log(firebasedb)
+        return <NewsPageVIEW 
+                    database={this.state.articlesArray} 
+                    params={this.props.match.params.id}
+                />;
     }
 }
+
+
 
 // This is a bit of a copy and paste job but I understand what's going on what i've been doing wrong.
 // export const NewsPage = ({match}) =>{
@@ -87,11 +81,11 @@ export class NewsPage extends React.Component{
 //     }
 
 //     // console.log(dummyNews.find(findId));
-//     const articleObject = dummyNews.find(findId);
+//     const articleMap = dummyNews.find(findId);
 
 //     // console.log(articleID);
 
-//     const imgUrl = "https://unsplash.it/500/200?random=" + articleObject.id;
+//     const imgUrl = "https://unsplash.it/500/200?random=" + articleMap.id;
 //     ///... and this.
 //     const style = {
 //         backgroundImage: 'url(' + imgUrl + ')',
@@ -102,7 +96,7 @@ export class NewsPage extends React.Component{
 //         width:"100%"
 //     }
 
-//     const imgUrl2 = "https://unsplash.it/500/200?random=" + (articleObject.id + 1);
+//     const imgUrl2 = "https://unsplash.it/500/200?random=" + (articleMap.id + 1);
 //     ///... and this.
 //     const extraImage = {
 //         backgroundImage: 'url(' + imgUrl2 + ')',
@@ -133,20 +127,20 @@ export class NewsPage extends React.Component{
 //         </div>
 
 //         <header className="news-articleMap-header">
-//                 <h1 className="articleMap-title">{articleObject.title}</h1>
+//                 <h1 className="articleMap-title">{articleMap.title}</h1>
 //                 <h2 className="articleMap-subtitle">Subtitle</h2>
-//                 <h3 className="articleMap-author">{articleObject.author}</h3>
+//                 <h3 className="articleMap-author">{articleMap.author}</h3>
 //         </header>
 
 //         <div className="news-articleMap-body">
 //             <articleMap>
-//                     {/* <p className="articleMap-text">{articleObject.text}</p> */}
+//                     {/* <p className="articleMap-text">{articleMap.text}</p> */}
 //                     <div className="articleMap-text">
-//                         <ParseHTML props={articleObject.text}/>
+//                         <ParseHTML props={articleMap.text}/>
 //                     </div>
                     
-//                     <p className="articleMap-likes">Likes: {articleObject.likes} </p>
-//                     <p className="articleMap-dislikes">Dislikes: {articleObject.dislikes}</p>
+//                     <p className="articleMap-likes">Likes: {articleMap.likes} </p>
+//                     <p className="articleMap-dislikes">Dislikes: {articleMap.dislikes}</p>
 //             </articleMap>
 
 //             <div className="extra-images">
@@ -160,19 +154,6 @@ export class NewsPage extends React.Component{
 
 
 
- const ExtraImageLoop = (title) => {
-    let i;
-    let imagesArray = [];
-    for(i = 0; i < 3; i++){        
-        imagesArray.push(<img key={i} src={"https://unsplash.it/500/200?random=" + (i * 12 ) } alt="the-knews-extra-images" />)
-    }
-    return imagesArray;
-}
 
-const ParseHTML = (props) =>{
-    const parseHTML = Parser(props.props);
-    // console.log(props.props);
-    return parseHTML;
-} 
 
 export default NewsPage;
