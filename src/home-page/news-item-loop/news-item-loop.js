@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import GalleryData from '../dummy-data';
+// import GalleryData from '../dummy-data';
 import fire, {auth, provider} from '../../fire.js'
 // import UniqueNewsItem from '../unique-news-item/unique-news-item';
 
@@ -8,9 +8,11 @@ import fire, {auth, provider} from '../../fire.js'
 
 import '../news-item-loop/news-item-loop.css';
 
-const testData = GalleryData;
+import Caption from './news-item-caption/news-item-caption.js';
 
-console.log(testData);
+// const testData = GalleryData;
+
+// console.log(testData);
 export const NewsItemLoop = () => {
     return <MapDatabaseItems />;    
 }
@@ -120,54 +122,6 @@ class MapDatabaseItems extends React.Component{
 //     return HomePageView;    
 // }
 
-class Caption extends React.Component{
 
-    constructor(props){
-        super(props);
-        this.showExcerpt = this.showExcerpt.bind(this);
-    }
-
-    showExcerpt(e){
-        e.preventDefault();
-        // console.log("ShowExcerpt");
-        const thing = document.getElementsByClassName("news-item-link");
-        // console.log(this.props.pageid);
-        // console.log(thing);
-        // console.log(thing[e.currentTarget])
-        
-    }
-    
-    render(){
-        const pageid = this.props.pageid;
-        //console.log(pageid);
-        const style = this.props.style;
-        const title = this.props.title;
-        const author = this.props.author;
-       // console.log(title);
-
-        return (
-            // <Link className="news-item-link" to={{pathname: '/articles/news-page/' + pageid}}>
-
-            <Link 
-                className="news-item-link" 
-                to={{pathname: '/articles/news-page/' + pageid}}
-                              
-                >
-            {/* // <Link className="news-item-link" to={{pathname: pageid}}>         */}
-            
-
-                <div style={style}>
-                    
-                    <div className="news-item-link-text" onClick={this.showExcerpt}>
-                        <span>{title}</span>
-                        <p>by {author}</p>
-                    </div>
-                    
-                </div> 
-
-            </Link>
-        );
-    }
-} 
 
 export default NewsItemLoop;

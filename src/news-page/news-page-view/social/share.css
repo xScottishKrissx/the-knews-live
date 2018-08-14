@@ -1,0 +1,21 @@
+.share-wrapper{
+    /* border: 1px solid red; */
+    margin-bottom: 1rem;
+    margin-top:1rem;
+}
+    .social-channels-links{
+        /* border: 1px solid black; */
+        display: flex;
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 25%;
+    }
+
+        .social-channels-links div{
+            flex: 1 1;
+            text-align: center;
+        }
+        
+            .share-icon img{
+                width: 30px;
+            }

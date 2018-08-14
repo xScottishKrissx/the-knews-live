@@ -1,0 +1,17 @@
+.article-banner-image-wrapper{
+    display: flex;
+}
+    .article-banner-image{
+        
+    }
+    .article-banner-image:nth-child(2){
+        display: none;
+    }
+
+    
+@media (min-width: 1600px) {
+
+    .article-banner-image:nth-child(2){
+        display: block;
+    }
+}

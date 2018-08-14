@@ -1,0 +1,39 @@
+
+.social{
+    display: flex;
+    margin: 0 auto;
+    max-width: 35rem;
+    text-align: center;
+}
+    .social div{
+        /* border: 1px solid black; */
+        display: flex;
+        flex: 1 1;
+        width:50%;
+    }
+
+    .article-likes span, .article-dislikes span{
+        flex: 1 1;
+    }
+
+    .social-score{
+        background-color: black;
+        color: white;
+        text-align: center;        
+    }
+        .pos{
+            background-color: green;
+        }
+        .neg{
+            background-color: red;
+        }
+
+
+
+    .article-likes{
+        /* padding: 5px; */
+    }
+
+    .article-dislikes{
+        /* padding: 5px; */
+    }

@@ -1,6 +1,9 @@
 GOAL:
 
-        
+14 August 2018
+        Further cleanup and re-organisation of components and css files.
+        myKnews now links to upload form, filters back to home.
+        Continued styling news page.
 
 13 August 2018
         Styled News Page as it was before the database work

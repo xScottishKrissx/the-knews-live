@@ -1,10 +1,9 @@
 import React from 'react';
-import './news-item.css';
 // import MediaQuery from 'react-responsive';
 
 import fire, {auth, provider} from '../fire.js'
 
-import NewsPageVIEW from './news-page-view.js';
+import NewsPageVIEW from './news-page-view/news-page-view.js';
 import DummyData from '../home-page/dummy-data.js';
 import Form from '../myKnews/form.js';
 
@@ -57,10 +56,7 @@ export class NewsPage extends React.Component{
 
     render(){    
         //console.log(firebasedb)
-        return <NewsPageVIEW 
-                    database={this.state.articlesArray} 
-                    params={this.props.match.params.id}
-                />;
+        return <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} />;
     }
 }
 

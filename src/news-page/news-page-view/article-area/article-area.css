@@ -1,0 +1,49 @@
+/* Article Header */
+.news-article-header{
+    /* border:1px solid red; */
+    text-align: center;
+}
+
+
+/* Article Body */
+.news-page-article{
+    /* background-color: red; */
+}
+
+section h1,
+section h2,
+section h3{
+    text-align: center;
+}
+
+.news-article-body{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.article-title{}
+
+.article-author{}
+
+
+.article-text{
+    padding: 5px;
+    line-height: 1.5rem;
+    /* max-width: 600px; */
+    max-width: 35rem;
+    margin: 0 auto;
+    white-space: pre-wrap;
+}
+
+
+
+
+@media (min-width: 1600px) {
+    .news-article-body{
+        display: flex;
+    }
+}
+
+
+@media(min-width: 1921px){
+
+}

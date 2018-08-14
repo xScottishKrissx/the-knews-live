@@ -4,32 +4,6 @@
     display: flex;
     flex: auto;
     width: 260px;
-
 }
 
-
-/* Caption Class */
-.news-item-link{
-    width: 100%;
-    background-color: white;
-}
-    .news-item-link{
-        position: relative;
-    }
-
-        .news-item-link-text{
-            bottom: 0;
-            width: 100%;
-            /* border: 5px solid red; */
-            position: absolute;
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-        }
-        .news-item-link-text span{
-            display: block;
-            font-size:2rem;
-            padding: 5px;
-        }
 
