@@ -160,6 +160,7 @@ Part 2 Implement Database functionality:
      ✔ Implement news page styles @done(18-08-13 18:02)
         ✔ Finish off styling news pages @done(18-08-14 12:24)
      ☐ Implement User Authorization so that only I can access the form. @started(18-08-13 18:04)
+     ☐ Implement some sort of like and dislike functionality @started(18-08-15 11:17)
      ☐ Form should take in a series of mandatory inputs or not be able to submit
         // Author, title, text,
         ☐ Some inputs should automatically be submitted
@@ -189,8 +190,12 @@ Deployed Project To-Do:
     ✔ Add deployment message to deployed version @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m19s)
     ✔ Figure out why the home page is looping twice @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m22s)
         I had 2 of the component responsible for looping the news items.
-    ☐ Implement some sort of like and dislike functionality @started(18-08-15 11:17)
-    ☐ Merge progress into master @started(18-08-15 11:17)
+
+    ✔ Merge progress into master @started(18-08-15 11:17) @done(18-08-15 15:23) @lasted(4h6m8s)
+    ☐ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23)
+    // Author, title, text,
+    ☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
+        // Date Posted, Page ID, Image path settings
     ☐ Write Blog @started(18-08-15 11:17)
 
 14 August Goals:
