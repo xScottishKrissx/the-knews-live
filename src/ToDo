@@ -183,14 +183,23 @@ Deployed Project To-Do:
     ☐ Add Custom FavIco
     ☐ Add Custom Title Tag
     ☐ The split main header in the news page appears too early.
+    ☐ BUG: If you refresh the page on a news article you will get a 404 error.
+
+15 August Goals:
+    ✔ Add deployment message to deployed version @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m19s)
+    ✔ Figure out why the home page is looping twice @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m22s)
+        I had 2 of the component responsible for looping the news items.
+    ☐ Implement some sort of like and dislike functionality @started(18-08-15 11:17)
+    ☐ Merge progress into master @started(18-08-15 11:17)
+    ☐ Write Blog @started(18-08-15 11:17)
 
 14 August Goals:
     ✔ Finish off styling news pages @done(18-08-14 12:24)
     ✔ Organise CSS into neater file @done(18-08-14 13:52)
     ✔ Further Organise components @done(18-08-14 13:52)
-    ☐ Implement some sort of like and dislike functionality
+   / ☐ Implement some sort of like and dislike functionality
     ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
     ✔ Move everything in the filters page to myKnews @done(18-08-14 13:53)
-    ☐ Merge progress into master
-    ☐ Deploy New Build to portfolio
-    ☐ Write End of Day Blog
+   / ☐ Merge progress into master
+    ✔ Deploy New Build to portfolio @done(18-08-15 11:15)
+   / ☐ Write End of Day Blog

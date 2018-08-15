@@ -19,11 +19,11 @@ export const Header = () => {
                         </li>
 
                         <li>
-                            <Link to="/filters">filters</Link>
+                            <Link to="/theKnews">filters</Link>
                         </li>
 
                         <li>
-                            <Link to="/myKnews">my Knews</Link>
+                            <Link to="/theKnews">my Knews</Link>
                         </li>
                     </ul>
                 </nav>

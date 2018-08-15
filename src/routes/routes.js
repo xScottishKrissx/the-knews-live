@@ -24,12 +24,12 @@ export class Routes extends React.Component{
         return (
             <div className="body-wrapper">
                 <Switch>            
-                    <Redirect from="/home" to="/theKnews" /> 
+                    <Redirect from="/" to="/theKnews" /> 
                     <Route exact path="/theKnews" component={Home} /> 
                 </Switch> 
 
                 <Route path="/theKnews" component={Home} /> 
-                <Route path="/myKnews" component={PracticeForm} />
+                {/* <Route path="/myKnews" component={PracticeForm} /> */}
                 
                 <Route path="/filters" component={Home} />  
                 {/* <Route  path="/home" component={Home}/> */}
