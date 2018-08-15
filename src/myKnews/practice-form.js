@@ -1,6 +1,7 @@
 import React from 'react';
 import fire, {auth, provider} from '../fire.js'
 
+import './form.css';
 
 
 export class PracticeForm extends React.Component{
@@ -10,7 +11,7 @@ export class PracticeForm extends React.Component{
         this.state = {
             author: '',
             // articleID: '',
-            articleTitle: '',
+            title: '',
             id: '',
             articlesArray: [],
         }
@@ -19,37 +20,6 @@ export class PracticeForm extends React.Component{
     }   
 
 
-    // componentDidMount(){
-    //     // When it comes to It I can use the key instead of Id but for this stage ID is just easier for me to lay around with.
-    //     // console.log(this.props);
-    //     // console.log(this.props.match.params.id);
-
-        
-    //     const dave = Number(this.props.match.params.id);
-    //     const newDave = 123;
-    //     const articleRef = fire.database().ref('articles');
-
-    //     console.log(newDave);
-
-
-    //     articleRef.on('value', (snapshot) => {
-    //       let articles = snapshot.val();
-    //       let newState = [];
-    //       for (let item in articles){
-    //         newState.push({
-    //           // id: item,
-    //           // articleID: articles[item].id,
-    //           author: articles[item].author,
-    //           // articleTitle: articles[item].articleTitle
-    //         });
-    //       }
-    //       this.setState({
-    //         articlesArray: newState
-    //       })
-    //       console.log(this.state.articlesArray);
-    //     })
-  
-    //   }
     componentDidMount(){
       const dbRef = fire.database().ref("items");
       console.log(dbRef);
@@ -85,25 +55,18 @@ export class PracticeForm extends React.Component{
       const dbRef = fire.database().ref('items');
       const article = {
         author: this.state.author,
-        articleTitle: this.state.articleTitle,
+        articleTitle: this.state.title,
         id: (((this.state.articlesArray).length) * 3 )
       }
 
-      
-      // dbRef.push(article);
 
-
-
-      // dbRef.push((((this.state.articlesArray).length) + 1)).set(article)
-      //dbRef.push(article).set((((this.state.articlesArray).length) + 1))
-      //const keyRef = dbRef.child("items");
       const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
       dbRef.child(ObjectsInDbCount).set(article);
 
 
       this.setState({
         author: '',
-        articleTitle: '',
+        title: '',
         id: ''
       })
     }
@@ -111,39 +74,57 @@ export class PracticeForm extends React.Component{
     render(){
         // const firebaseDB = this.state.articlesArray;
         return(
-          <div className=''>
+          <div className='form'>
            <h1>Upload</h1>
 
            <div className='uploadArticle'>
             
-            <form onSubmit={this.handleSubmit}>
-             <p> 
+            <form name="myForm" onSubmit={this.handleSubmit}>
+             {/* <p> 
                 Author: 
                 <input
+                  id="author-input"
                   type="text"
                   name="author"
                   onChange={this.handleChange}
+                  required
                   value={this.state.author}>
                 </input>
-             </p>
+             </p> */}
 
-             <p>
-                Title:
+             <p>Title</p>
                 <input
-                  type="text"
-                  name="articleTitle"
-                  onChange={this.handleChange}
-                  value={this.state.articleTitle}></input>
-             </p>
+                    type="text"
+                    name="articleTitle"
+                    onChange={this.handleChange}                   
+                    required
+                    value={this.state.articleTitle}>
+                </input>
+            
 
-             <p>
+             {/* <p>
                 Id:
                 <input
-                type="text"
-                name="id"
-                onChange={this.handleChange}
-                value={this.state.id}></input>
-             </p>
+                  type="text"
+                  name="id"
+                  onChange={this.handleChange}
+                  required
+                  value={this.state.id}>
+                </input>
+             </p> */}
+
+              <p>Article</p>
+                <textarea
+                  form="myForm"
+                  type="text"
+                  name="textarea"
+                  onChange={this.handleChange}
+                  required
+                  rows="10"
+                  >
+                </textarea>
+            
+
 
 
               <button>Upload</button>

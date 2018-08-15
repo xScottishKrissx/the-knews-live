@@ -1,0 +1,51 @@
+input:invalid, textarea:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:valid,textarea:valid {
+    border: 2px solid green;
+  }
+
+  {
+    border: 2px dashed rgb(255, 0, 0);
+  }
+
+
+  .uploadArticle{ 
+    border: 1px solid red;
+    margin: 0 auto;
+    max-width: 700px;
+
+  }
+    .form{
+        border: 1px solid red;
+    }
+        p{
+            display: block;
+            margin: 0 auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            width: 90%;
+        }
+        input{
+            display: block;
+            height: 2rem;
+            margin: 0 auto;
+            width: 90%;
+        }
+        textarea{
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+            width: 90%;
+        }
+        button{
+            border: none;
+            display: block;
+            height: 3rem;
+            margin-top: 3rem;
+            margin: 0 auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            width: 9rem;
+        }

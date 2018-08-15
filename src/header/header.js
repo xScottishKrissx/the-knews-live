@@ -11,7 +11,7 @@ export const Header = () => {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/theKnews">the Knews</Link>
+                            <Link to="/theKnews/home">the Knews</Link>
                         </li>
 
                         <li>
@@ -23,7 +23,7 @@ export const Header = () => {
                         </li>
 
                         <li>
-                            <Link to="/theKnews">my Knews</Link>
+                            <Link to="/theKnews/myKnews">my Knews</Link>
                         </li>
                     </ul>
                 </nav>
