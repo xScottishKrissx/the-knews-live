@@ -56,6 +56,12 @@ class MapDatabaseItems extends React.Component{
         })
     }
 
+    componentWillUnmount(){
+        console.log("Unmount on news-item-loop.js")
+        fire.database().ref("items").off();
+      }
+  
+
     render(){
         const firebaseDB = this.state.articlesArray;
 

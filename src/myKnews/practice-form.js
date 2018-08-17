@@ -1,4 +1,6 @@
 import React from 'react';
+import {Route, Redirect, Switch} from 'react-router-dom';
+
 import fire, {auth, provider} from '../fire.js'
 
 import './form.css';
@@ -12,8 +14,10 @@ export class PracticeForm extends React.Component{
             author: '',
             // articleID: '',
             title: '',
-            id: '',
+            // id: '',
+            text: '',
             articlesArray: [],
+            redirectToReferrer: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,6 +45,11 @@ export class PracticeForm extends React.Component{
 
     }
 
+    componentWillUnmount(){
+      console.log("Unmount on practice-form.js")
+      fire.database().ref("items").off();
+    }
+
     handleChange(e){
       console.log("Change!!!")
       this.setState({
@@ -52,26 +61,63 @@ export class PracticeForm extends React.Component{
       console.log("SUBMIT!!!");      
       e.preventDefault();
 
-      const dbRef = fire.database().ref('items');
-      const article = {
-        author: this.state.author,
-        articleTitle: this.state.title,
-        id: (((this.state.articlesArray).length) * 3 )
+      console.log("Author is :" + this.state.author)
+      const currentAuthor = this.state.author;
+      const currentText = this.state.text;
+      const currentTitle = this.state.title;
+
+      if(currentAuthor.length === 0 || currentText.length === 0 ||currentText.length  === 0){
+        // console.log("Can't submit")
+        alert("Please enter something in each of the marked fields.")
+      }else{
+        console.log("Can submit")
+        const dbRef = fire.database().ref('items');
+        const article = {
+          // User Input here...
+          author: this.state.author,
+          text:this.state.text,
+          title: this.state.title,
+  
+          // Auto Generated Stuff here...
+          id: (((this.state.articlesArray).length) * 3 ),
+          postdate: "12/12/2017"
+        }
+  
+  
+        const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
+        dbRef.child(ObjectsInDbCount).set(article);
+  
+  
+        this.setState({
+          author: '',
+          text: '',
+          title: '',
+          redirectToReferrer: true
+          // id: ''
+        })
+
+
       }
+      
 
+    
+      
 
-      const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
-      dbRef.child(ObjectsInDbCount).set(article);
-
-
-      this.setState({
-        author: '',
-        title: '',
-        id: ''
-      })
     }
 
+
+
     render(){
+      // console.log(this.state.redirectToReferrer)
+      const redirectToReferrer = this.state.redirectToReferrer;
+      if (redirectToReferrer === true) {
+          return (
+            <Switch>
+              <Redirect 
+                  to={"/articles/news-page/" + ((this.state.articlesArray).length) }
+                />          
+            </Switch>)
+      }
         // const firebaseDB = this.state.articlesArray;
         return(
           <div className='form'>
@@ -91,15 +137,44 @@ export class PracticeForm extends React.Component{
                   value={this.state.author}>
                 </input>
              </p> */}
+            <p>Author:</p>
+            <input                 
+                form="myForm"
+                type="text"
+                name="author"
+                onChange={this.handleChange}                   
+                required
+                value={this.state.author}>
+            </input>
 
-             <p>Title</p>
-                <input
+            <p>Dislikes - Auto</p>
+            <p>Id - auto</p>
+            <p>Likes - Auto</p>
+            <p>Postdate - auto</p>
+
+            <p>Text</p>
+              <textarea
+                  form="myForm"
+                  type="text"
+                  name="text"
+                  onChange={this.handleChange}
+                  required
+                  rows="10"
+                  value={this.state.article}
+                >
+              </textarea>
+            
+            <p>Title</p>
+                <input                    
+                    form="myForm"
                     type="text"
-                    name="articleTitle"
+                    name="title"
                     onChange={this.handleChange}                   
                     required
-                    value={this.state.articleTitle}>
+                    value={this.state.title}>
                 </input>
+
+
             
 
              {/* <p>
@@ -113,16 +188,7 @@ export class PracticeForm extends React.Component{
                 </input>
              </p> */}
 
-              <p>Article</p>
-                <textarea
-                  form="myForm"
-                  type="text"
-                  name="textarea"
-                  onChange={this.handleChange}
-                  required
-                  rows="10"
-                  >
-                </textarea>
+
             
 
 

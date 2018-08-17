@@ -6,11 +6,6 @@ input:invalid, textarea:invalid {
     border: 2px solid green;
   }
 
-  {
-    border: 2px dashed rgb(255, 0, 0);
-  }
-
-
   .uploadArticle{ 
     border: 1px solid red;
     margin: 0 auto;

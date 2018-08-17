@@ -160,11 +160,10 @@ Part 2 Implement Database functionality:
      ✔ Implement news page styles @done(18-08-13 18:02)
         ✔ Finish off styling news pages @done(18-08-14 12:24)
      ☐ Implement User Authorization so that only I can access the form. @started(18-08-13 18:04)
+     ✔ Can you re-route to the article you just uploaded on sumbit?? @started(18-08-17 13:26) @done(18-08-17 13:43) @lasted(17m40s)
      ☐ Implement some sort of like and dislike functionality @started(18-08-15 11:17)
-     ☐ Form should take in a series of mandatory inputs or not be able to submit
-        // Author, title, text,
-        ☐ Some inputs should automatically be submitted
-            // Date Posted, Page ID, Image path settings
+     ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
+        ☐ Will need to complete User Auth before I can do Author @started(18-08-17 13:44)
      ☐ The ability to edit posts when submitted. @started(18-08-13 18:04)
      ☐ The ability to hide but not delete posts from view @started(18-08-13 18:04)
      ☐ The ability to delete posts @started(18-08-13 18:04)
@@ -185,6 +184,26 @@ Deployed Project To-Do:
     ☐ Add Custom Title Tag
     ☐ The split main header in the news page appears too early.
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
+    
+17 August Goals:
+    ✔ Fix this bug @done(18-08-17 12:00)
+        Can't call setState (or forceUpdate) on an unmounted component
+        Fixed it by calling componentWillUnmount on the database object like so
+
+        componentWillUnmount(){
+            console.log("Unmount on practice-form.js")
+            fire.database().ref("items").off();
+          }
+      
+    ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
+        ✔ Form should not submit without mandatory fields @done(18-08-17 12:55)
+    ☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
+        ✔ Post Date @done(18-08-17 12:42)
+        ☐ Author
+    ✔ Can you re-route to the article you just uploaded on sumbit?? @started(18-08-17 13:26) @done(18-08-17 13:43) @lasted(17m28s)
+        
+    ☐ Deploy new version of design and update deployment message. @started(18-08-17 11:10)
+    ☐ Write Blog @started(18-08-15 11:17)
 
 15 August Goals:
     ✔ Add deployment message to deployed version @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m19s)
@@ -192,11 +211,13 @@ Deployed Project To-Do:
         I had 2 of the component responsible for looping the news items.
 
     ✔ Merge progress into master @started(18-08-15 11:17) @done(18-08-15 15:23) @lasted(4h6m8s)
-    ☐ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23)
+   / ☐ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23)
     // Author, title, text,
-    ☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
+   / ☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
         // Date Posted, Page ID, Image path settings
-    ☐ Write Blog @started(18-08-15 11:17)
+   / ☐ Write Blog @started(18-08-15 11:17)
+
+
 
 14 August Goals:
     ✔ Finish off styling news pages @done(18-08-14 12:24)
@@ -208,3 +229,4 @@ Deployed Project To-Do:
    / ☐ Merge progress into master
     ✔ Deploy New Build to portfolio @done(18-08-15 11:15)
    / ☐ Write End of Day Blog
+
