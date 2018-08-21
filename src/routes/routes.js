@@ -6,7 +6,7 @@ import './routes.css';
 
 import Home from '../home-page/home.js';
 import NewsPage from '../news-page/news-page.js';
-// import Form from '../myKnews/form.js';
+import Form from '../myKnews/form.js';
 import { PracticeForm } from '../myKnews/practice-form';
 
 //  const TestLoop = (title) => {

@@ -1,12 +1,5 @@
 GOAL:
 
-17 August 2018
-        Form now submits only if fields are not empty
-        Form reroutes to upload article on submit
-        Fixed no-op error by adding componentWillUnmount
-
-
-
 14 August 2018
         Further cleanup and re-organisation of components and css files.
         myKnews now links to upload form, filters back to home.

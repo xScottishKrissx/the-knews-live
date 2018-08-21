@@ -5,7 +5,7 @@ import fire, {auth, provider} from '../fire.js'
 
 import NewsPageVIEW from './news-page-view/news-page-view.js';
 import DummyData from '../home-page/dummy-data.js';
-import PracticeForm from '../myKnews/practice-form.js';
+import Form from '../myKnews/form.js';
 
 const dummyNews = DummyData;
 
@@ -50,11 +50,6 @@ export class NewsPage extends React.Component{
             })
             // console.log(this.state.articlesArray);
         })
-    }
-    
-    componentWillUnmount(){
-        console.log("Unmounting news-page.js");
-        fire.database().ref("items").off();
     }
 
     
