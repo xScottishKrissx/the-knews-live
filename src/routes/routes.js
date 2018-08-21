@@ -23,8 +23,8 @@ export class Routes extends React.Component{
     render(){
         console.log("Log")
         return (
-            <div className="body-wrapper">            
-            {/* <h1>Home</h1> */}
+            <div className="body-wrapper">
+            <h1>Home</h1>
                 <Switch>            
                     <Redirect exact from="/" to="/theKnews/home" /> 
                     <Redirect exact from="/theKnews/" to="/theKnews/home" /> 
