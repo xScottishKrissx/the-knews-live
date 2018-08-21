@@ -1,5 +1,8 @@
 GOAL:
 
+21 August:
+        You can now login to the website and submit articles
+
 17 August 2018
         Form now submits only if fields are not empty
         Form reroutes to upload article on submit

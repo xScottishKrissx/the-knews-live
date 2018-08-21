@@ -45,12 +45,7 @@ export class Form extends React.Component{
       const itemRef = fire.database().ref(`/items/${itemId}`);
       itemRef.remove();
     }
-
-
-
-
-    
-
+   
     handleSubmit(e){
       e.preventDefault();
       const itemRef = fire.database().ref('items');
@@ -64,11 +59,6 @@ export class Form extends React.Component{
         articleTitle: ''
       });
     }
-
-
-
-
-
 
     componentDidMount(){
       const articleRef = fire.database().ref('items');
@@ -116,7 +106,6 @@ export class Form extends React.Component{
                 })}
 
                 {this.state.user ?
-
                 
                   <button onClick={this.logout}>Log Out</button>
                   :

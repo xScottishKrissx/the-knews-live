@@ -125,6 +125,15 @@ Part 1 - Implement the front end UI:
         ✔ Figure out how to render html tags from json file. @done(18-08-13 18:03)
         ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
         ☐ Add a recommended reading column using contents from the database. @started(18-08-14 16:33)
+
+    theKnews:
+        ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
+            ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
+                ✔ Logged In View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
+            ✔ Log Out Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
+                ✔ Logged Out View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
+        ☐ Limit User Uploads to One per registered email address @started(18-08-21 17:36)
+        ☐ Automate Post Date @started(18-08-21 17:36)
     
     
     
@@ -185,6 +194,21 @@ Deployed Project To-Do:
     ☐ The split main header in the news page appears too early.
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
     
+
+
+21 August Goals:
+    ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
+
+        ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
+            ✔ Logged In View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
+
+        ✔ Log Out Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
+            ✔ Logged Out View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
+
+        / . "auth != null"
+    ✘ Deploy new version of design and update deployment message. @started(18-08-17 11:10) @cancelled(18-08-21 17:32) @wasted(4d6h22m1s)
+    ✘ Write Blog @started(18-08-15 11:17) @cancelled(18-08-21 17:31) @wasted(6d6h15m)
+
 17 August Goals:
     ✔ Fix this bug @done(18-08-17 12:00)
         Can't call setState (or forceUpdate) on an unmounted component
@@ -197,13 +221,13 @@ Deployed Project To-Do:
       
     ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
         ✔ Form should not submit without mandatory fields @done(18-08-17 12:55)
-    ☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
+    /☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
         ✔ Post Date @done(18-08-17 12:42)
-        ☐ Author
+    /    ☐ Author
     ✔ Can you re-route to the article you just uploaded on sumbit?? @started(18-08-17 13:26) @done(18-08-17 13:43) @lasted(17m28s)
         
-    ☐ Deploy new version of design and update deployment message. @started(18-08-17 11:10)
-    ☐ Write Blog @started(18-08-15 11:17)
+    /☐ Deploy new version of design and update deployment message. @started(18-08-17 11:10)
+    /☐ Write Blog @started(18-08-15 11:17)
 
 15 August Goals:
     ✔ Add deployment message to deployed version @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m19s)
