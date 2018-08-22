@@ -1,4 +1,9 @@
 GOAL:
+22 August 2018:
+        Website will now only accept one article at a time per each registered email address
+        Form now submits all required data to database and displays on page
+        Cleaned up console log.
+        Started Spliting up form component into logic and view files.
 
 21 August:
         You can now login to the website and submit articles

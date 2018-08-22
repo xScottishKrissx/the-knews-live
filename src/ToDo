@@ -15,7 +15,7 @@ Part 1 - Implement the front end UI:
         ✔ Routing Redirect Error relating to /theKnews/.See the console. @started(18-08-07 16:07) @done(18-08-07 16:17) @lasted(10m39s)
         ✔ If you refresh the page anywhere you return to home @started(18-08-07 16:07) @done(18-08-07 16:17) @lasted(10m37s)
             I fixed these 2 errors by messing with the switch statement but I think this will mess up on deployment. 
-        ☐ If you refresh the page on the form you get a setState error. @started(18-08-07 16:07)
+        ✔ If you refresh the page on the form you get a setState error. @started(18-08-07 16:07) @done(18-08-22 12:35) @lasted(2w20h28m58s)
             It's because the component makes a call to the database and sets state on the home page as soon as it loads. if you refresh on a news page and try to go back it hasnt done that yet and doesnt like it.
             
         ✔ The html parser stopped working after the port @done(18-08-07 16:07)
@@ -132,7 +132,7 @@ Part 1 - Implement the front end UI:
                 ✔ Logged In View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
             ✔ Log Out Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
                 ✔ Logged Out View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
-        ☐ Limit User Uploads to One per registered email address @started(18-08-21 17:36)
+        ✔ Limit User Uploads to One per registered email address @started(18-08-21 17:36) @done(18-08-22 12:57) @lasted(19h21m39s)
         ☐ Automate Post Date @started(18-08-21 17:36)
     
     
@@ -168,17 +168,17 @@ Part 2 Implement Database functionality:
      / The page id of each page is now set when you submit the form and will work with random images.
      ✔ Implement news page styles @done(18-08-13 18:02)
         ✔ Finish off styling news pages @done(18-08-14 12:24)
-     ☐ Implement User Authorization so that only I can access the form. @started(18-08-13 18:04)
+     ✔ Implement User Authorization so that only I can access the form. @started(18-08-13 18:04) @done(18-08-22 12:32) @lasted(1w1d18h28m36s)
      ✔ Can you re-route to the article you just uploaded on sumbit?? @started(18-08-17 13:26) @done(18-08-17 13:43) @lasted(17m40s)
      ☐ Implement some sort of like and dislike functionality @started(18-08-15 11:17)
      ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
-        ☐ Will need to complete User Auth before I can do Author @started(18-08-17 13:44)
+        ✔ Will need to complete User Auth before I can do Author @started(18-08-17 13:44) @done(18-08-22 17:02) @lasted(5d3h18m3s)
      ☐ The ability to edit posts when submitted. @started(18-08-13 18:04)
      ☐ The ability to hide but not delete posts from view @started(18-08-13 18:04)
      ☐ The ability to delete posts @started(18-08-13 18:04)
      ☐ Ability to Like and Dislike Posts @started(18-08-13 18:04)
      ☐ Look into loading a limited number of news items on the home page. The scroll could be used to detect the scroll position and load more things from the database.
-
+     ☐ Ability to approve posts made by unauthorized users @started(18-08-22 16:04)
      ✔ Organise Components a bit neater @done(18-08-13 18:02)
         ✔ Organise CSS into neater file @done(18-08-14 13:52)
         ✔ Further Organise components @done(18-08-14 13:52)
@@ -195,6 +195,20 @@ Deployed Project To-Do:
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
     
 
+
+22 August Goals:
+    ✔ Limit User Uploads to One per registered email address @started(18-08-21 17:36) @done(18-08-22 12:56) @lasted(19h20m59s)
+        ☐ Create UI letting users know about this before they try to type stuff in @started(18-08-22 12:57)
+    
+        ✘ Automate Post Date @started(18-08-21 17:36) @cancelled(18-08-22 15:40) @wasted(22h4m24s)
+             Attempted this but something didn't want to play nice. Will come back this later as it's not a major priority.
+    
+        ✔ Ensure the correct data is being submitted to the database. @started(18-08-22 12:35) @done(18-08-22 17:01) @lasted(4h26m47s)
+    ✘ The ability to delete posts @started(18-08-13 18:04) @cancelled(18-08-22 17:01) @wasted(1w1d22h57m54s)
+    ✔ Clean up components @started(18-08-22 15:41) @done(18-08-22 17:01) @lasted(1h20m43s)
+    ✔ Clean Up Console Log @started(18-08-22 15:48) @done(18-08-22 16:05) @lasted(17m4s)
+    ✘ If email restrictions are in place, deploy new  build to portfolio @started(18-08-22 12:59) @cancelled(18-08-22 17:01) @wasted(4h2m52s)
+    ✘ Write Blog @started(18-08-22 12:34) @cancelled(18-08-22 17:01) @wasted(4h27m50s)
 
 21 August Goals:
     ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)

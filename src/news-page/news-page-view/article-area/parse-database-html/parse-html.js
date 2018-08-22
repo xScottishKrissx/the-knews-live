@@ -1,4 +1,3 @@
-import React from 'react';
 import Parser from 'html-react-parser';
 
 export const ParseHTML = (props) =>{

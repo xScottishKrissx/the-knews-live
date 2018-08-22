@@ -1,13 +1,13 @@
 import React from 'react';
 // import MediaQuery from 'react-responsive';
 
-import fire, {auth, provider} from '../fire.js'
+import fire from '../fire.js'
 
 import NewsPageVIEW from './news-page-view/news-page-view.js';
-import DummyData from '../home-page/dummy-data.js';
-import PracticeForm from '../myKnews/practice-form.js';
+// import DummyData from '../home-page/dummy-data.js';
+// import PracticeForm from '../myKnews/practice-form.js';
 
-const dummyNews = DummyData;
+// const dummyNews = DummyData;
 
 
 export class NewsPage extends React.Component{
