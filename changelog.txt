@@ -1,4 +1,7 @@
 GOAL:
+23 August 2018
+        Can now delete articles from database
+        
 22 August 2018:
         Website will now only accept one article at a time per each registered email address
         Form now submits all required data to database and displays on page

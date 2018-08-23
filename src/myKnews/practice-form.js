@@ -26,7 +26,9 @@ export class PracticeForm extends React.Component{
             postdate: '',
             redirectToReferrer: false,
             user: null,
-            viewForm: true
+            viewForm: true,
+            currentArticles: [],
+            key:''
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,7 +40,7 @@ export class PracticeForm extends React.Component{
 
     componentDidMount(){
       const dbRef = fire.database().ref("items");   
-            
+           
       dbRef.on('value', (snapshot) => {
         let dbObjects = snapshot.val();
         let tempState = [];
@@ -46,6 +48,12 @@ export class PracticeForm extends React.Component{
           tempState.push({
             author: dbObjects[dbObject].author,
             email:dbObjects[dbObject].email,
+            title:dbObjects[dbObject].title,
+            postdate:dbObjects[dbObject].postdate,
+            likes:dbObjects[dbObject].likes,
+            dislikes:dbObjects[dbObject].dislikes,
+            id:dbObjects[dbObject].id,
+            key:dbObject
            
           })
         }
@@ -60,35 +68,26 @@ export class PracticeForm extends React.Component{
 
         // If they Exist Check to see if they have already created article
         if(checkUser){
-          console.log("Logged In")
+          console.log("Logged In");
+          const checkDBRef = this.state.articlesArray;
+          const currentUserEmail =  this.state.user.email;
+          console.log(currentUserEmail);
 
-        const checkDBRef = this.state.articlesArray;
-
-        const currentUserEmail =  this.state.user.email;
-        console.log(currentUserEmail);
-
-        checkDBRef.map((test) => {
-
-          if(test.email === this.state.user.email){
-            
-            // alert("You can only have one article at a time!!")
-            console.log("You can't submit until you delete one of the articles you already have")
-            this.setState({
-              viewForm:false
-            })
-            console.log("Can User Submit an Article? : " + this.state.viewForm)
-
-
-
-          }else{
-             this.setState({
-               viewForm:true
-             })
-          }
-        return null;
-        }        
-      )
-
+          checkDBRef.map((test) => {         
+            if(test.email === this.state.user.email){            
+              // alert("You can only have one article at a time!!")
+              console.log("You can't submit until you delete one of the articles you already have")
+              this.setState({
+                viewForm:false
+              })
+              console.log("Can User Submit an Article? : " + this.state.viewForm)
+            }else{
+              this.setState({
+                viewForm:true
+              })
+            }
+          return null;
+          }); 
         //... if they haven't then don't do anything.
         }else{
           console.log("Not Logged In")
@@ -114,6 +113,8 @@ export class PracticeForm extends React.Component{
       })
     }
 
+
+
     handleSubmit(e){
 
       console.log("SUBMIT!!!");      
@@ -123,7 +124,7 @@ export class PracticeForm extends React.Component{
       // const currentAuthor = this.state.author;
       const currentText = this.state.text;
       const currentTitle = this.state.title;
-      // const currentUser = this.state.user.email;
+
 
       alert ("Can User Submit New Articles? : " + this.state.viewForm)
       if(currentTitle.length === 0 ||currentText.length  === 0){
@@ -133,8 +134,7 @@ export class PracticeForm extends React.Component{
         console.log("Cannot submit. Please remove or edit your existing post.")
         alert("User cannot have more than 1 article at a time. Please remove or edit your existing post.")
       }else{
-        console.log("Can submit")
-        const dbRef = fire.database().ref('items');
+        console.log("Can submit")        
         const article = {
           // User Input here...
           text:this.state.text,
@@ -146,14 +146,13 @@ export class PracticeForm extends React.Component{
           email: this.state.user.email,
           id: (((this.state.articlesArray).length) * 3 ),
           likes: 0,
-          postdate: "12/12/2012"   
-
+          postdate: "12/12/2012"  
         }
   
-  
+        const dbRef = fire.database().ref('items');
         const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
         dbRef.child(ObjectsInDbCount).set(article);
-  
+        // dbRef.push(article)  
   
         this.setState({
           author: '',
@@ -163,8 +162,6 @@ export class PracticeForm extends React.Component{
           redirectToReferrer: true
           // id: ''
         })
-
-
       } 
     }
 
@@ -185,9 +182,10 @@ export class PracticeForm extends React.Component{
       })
     }
 
-    testMethod(e){
-      e.preventDefault()
-      console.log("Test Method")
+
+    handleDelete(key){
+      const itemRef = fire.database().ref(`/items/${key}`);
+      itemRef.remove()
     }
    
     render(){
@@ -205,8 +203,31 @@ export class PracticeForm extends React.Component{
                 />          
             </Switch>)
       }
-        
+
+     
+
+      const existingArticle = this.state.articlesArray;
+      const testthing = existingArticle.map((value,key) => {
+        if(value.email === this.state.user.email){
+          return (
+            <div key={key}>
+              <ul key={key} id={key}>
+                <li>Article Title: {value.title}</li>
+                <li>Post Date: {value.postdate}</li>
+                <li>Likes: {value.likes}</li>
+                <li>dislikes: {value.dislikes}</li>
+                <li>Key: {value.key}</li>
+                <li>Id: {value.id}</li>
+              </ul>
+              <button onClick={() => this.handleDelete(value.key)}>Delete</button>
+            </div>
+
+          );
+        }
+
+      })
         return(
+
           <FormView 
             user={this.state.user}
             // displayName={this.state.user.displayName}
@@ -217,6 +238,8 @@ export class PracticeForm extends React.Component{
             onSubmit={this.handleSubmit}
             login={this.login}
             logout={this.logout}
+            test1={testthing}
+           
           
           />
         )

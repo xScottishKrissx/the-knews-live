@@ -22,6 +22,14 @@ const FormView = (props) => {
 
                 <h1>Logged in View</h1>
                 <p>Hello, {props.user.displayName}</p>
+
+                <h1>Current Articles</h1>
+                    {props.test1}
+                    
+
+
+
+
                 <h1>Upload</h1>
 
                 <form name="myForm" onSubmit={props.onSubmit}>

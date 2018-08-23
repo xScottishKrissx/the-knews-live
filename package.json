@@ -2,6 +2,7 @@
   "name": "the-knews-live",
   "version": "0.1.0",
   "private": true,
+  "cleanUrls" : true,
   "dependencies": {
     "firebase": "^5.3.1",
     "html-react-parser": "^0.4.6",
