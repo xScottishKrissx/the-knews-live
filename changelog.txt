@@ -1,4 +1,11 @@
-GOAL:
+Changelog::
+
+24 August 2018
+        Upload form is now not accessible if you have an article already on the website
+        Post Date is automated
+        Added a recommended reading bar to news page
+        Extra images in news pages now appear at bottom of page below 1600px instead of vanishing completley
+
 23 August 2018
         Can now delete articles from database
         

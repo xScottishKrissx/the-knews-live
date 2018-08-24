@@ -1,0 +1,9 @@
+.recReadingWrapper{
+    border: 1px solid black;
+    display: flex;
+}
+    .recReadingItem{
+        border: 1px solid red;
+        flex: 1 1;
+        /* widows: 200px; */
+    }

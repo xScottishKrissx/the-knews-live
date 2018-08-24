@@ -39,6 +39,20 @@ export class PracticeForm extends React.Component{
 
 
     componentDidMount(){
+
+      //Getting the Current Date and assigning it state.
+      const today = new Date();
+      const day = today.getDate();
+      const month = today.getMonth() + 1;
+      const year = today.getFullYear();
+      const postDate = day + "/" + month + "/" + year;
+      this.setState({
+        postdate: postDate
+      })
+
+
+
+      // console.log({GeneratePostDate})
       const dbRef = fire.database().ref("items");   
            
       dbRef.on('value', (snapshot) => {
@@ -146,7 +160,8 @@ export class PracticeForm extends React.Component{
           email: this.state.user.email,
           id: (((this.state.articlesArray).length) * 3 ),
           likes: 0,
-          postdate: "12/12/2012"  
+          postdate: this.state.postdate
+         
         }
   
         const dbRef = fire.database().ref('items');
@@ -204,6 +219,7 @@ export class PracticeForm extends React.Component{
             </Switch>)
       }
 
+
      
 
       const existingArticle = this.state.articlesArray;
@@ -218,6 +234,7 @@ export class PracticeForm extends React.Component{
                 <li>dislikes: {value.dislikes}</li>
                 <li>Key: {value.key}</li>
                 <li>Id: {value.id}</li>
+
               </ul>
               <button onClick={() => this.handleDelete(value.key)}>Delete</button>
             </div>
@@ -227,7 +244,7 @@ export class PracticeForm extends React.Component{
 
       })
         return(
-
+          
           <FormView 
             user={this.state.user}
             // displayName={this.state.user.displayName}
@@ -239,7 +256,8 @@ export class PracticeForm extends React.Component{
             login={this.login}
             logout={this.logout}
             test1={testthing}
-           
+            viewForm={this.state.viewForm}
+            
           
           />
         )
@@ -259,3 +277,19 @@ export default PracticeForm;
 //         </Switch>)
 //   }
 // };
+
+// const GeneratePostDate = () => {
+//   const today = new Date();
+//   const day = today.getDate();
+//   const month = today.getMonth() + 1;
+//   const year = today.getFullYear();
+
+//   // if(day < 10){
+//   //   day = '0' + day
+//   // }
+//   // if(month < 10){
+//   //   month = '0' + month
+//   // }
+//   const postDate = day + "/" + month + "/" + year;
+//   return postDate;
+// }

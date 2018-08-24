@@ -23,11 +23,11 @@ Part 1 - Implement the front end UI:
         
     General Notes  Objectives:
         Add some accessibility options:
-            ☐ Button that changes font size in articles.
+            Button that changes font size in articles.
         
-        ☐ I should consider replacing the random images with my own hosted images to help future proof the website
+        I should consider replacing the random images with my own hosted images to help future proof the website
         ☐ There should be a scroll to top button
-        ☐ Think about pagination / infinite scroll functionality
+        Think about pagination / infinite scroll functionality
 
         ✔ Get routes up and running once basic structure is in place. @done(18-07-24 17:47)
         ☐ Mobile Menu should be controlled by swipe gesture or button located at bottom of page
@@ -121,10 +121,11 @@ Part 1 - Implement the front end UI:
                  Second .where-the-data-is { white-space: pre-wrap;}
         ✔ There's probably a bit too much white space at either side of the article. Maybe think about adding functionality for images. @done(18-08-01 13:57)
             ✔ The images are the same for each page. Make sure these are truly random @started(18-08-01 13:57) @done(18-08-10 17:33) @lasted(1w2d3h36m6s)
-            ☐ Instead of removing the images at lower than 1600px just add them in a grid to the bottom of the article.
+            ✔ Instead of removing the images at lower than 1600px just add them in a grid to the bottom of the article. @done(18-08-24 12:26)
         ✔ Figure out how to render html tags from json file. @done(18-08-13 18:03)
         ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
-        ☐ Add a recommended reading column using contents from the database. @started(18-08-14 16:33)
+        ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
+            It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -133,7 +134,7 @@ Part 1 - Implement the front end UI:
             ✔ Log Out Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
                 ✔ Logged Out View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
         ✔ Limit User Uploads to One per registered email address @started(18-08-21 17:36) @done(18-08-22 12:57) @lasted(19h21m39s)
-        ☐ Automate Post Date @started(18-08-21 17:36)
+        ✔ Automate Post Date @started(18-08-21 17:36) @done(18-08-24 11:24) @lasted(2d17h48m47s)
     
     
     
@@ -174,10 +175,12 @@ Part 2 Implement Database functionality:
      ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
         ✔ Will need to complete User Auth before I can do Author @started(18-08-17 13:44) @done(18-08-22 17:02) @lasted(5d3h18m3s)
      ✔ Be able to see posts linked to current account on myKnews page @started(18-08-23 12:00) @done(18-08-23 14:18) @lasted(2h18m12s)
+     ✔ User should'nt see form unless they are able to submit it. @started(18-08-24 10:33) @done(18-08-24 10:50) @lasted(17m15s)
      ☐ The ability to edit posts when submitted. @started(18-08-13 18:04)
      ☐ The ability to hide but not delete posts from view @started(18-08-13 18:04)
      ✔ The ability to delete posts @started(18-08-13 18:04) @done(18-08-23 17:06) @lasted(1w2d23h2m23s)
         ☐ BUG:: You are unable to create a new article straight away unless you refresh the page
+        ☐ When you delete an article the page should auto-refresh.
         //☐ ISSUE:: The key that is now used is +1 the number of objects in the database. Not an issue I think but might cause some problems
      ☐ Ability to Like and Dislike Posts @started(18-08-13 18:04)
      ☐ Look into loading a limited number of news items on the home page. The scroll could be used to detect the scroll position and load more things from the database.
@@ -198,13 +201,22 @@ Deployed Project To-Do:
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
     
 
-23 August 2018:
-    ☐ Create UI letting users know article limit this before they try to type stuff in 
-    ✔ Be able to see posts linked to current account on myKnews page @done(18-08-23 14:18)
-    ✔ Ability to delete posts @done(18-08-23 17:07)
-    ☐ Automate Post date
+24 August 2018:
+    ✔ Create UI letting users know about article limit this before they try to type stuff in @done(18-08-24 10:50)
+    ✔ Automate Post date @done(18-08-24 11:24)
+    ✔ Add a recommended reading column using contents from the database. @done(18-08-24 12:17)
+    ✔ Instead of removing the extra images at lower than 1600px on the news page just add them in a grid to the bottom of the article. @done(18-08-24 12:25)
+    ☐ Any ID that doesn't exists should return an error page.
     ☐ Deploy new build to portfolio
     ☐ Write blog
+
+23 August 2018:
+    ✘ Create UI letting users know article limit this before they try to type stuff in @cancelled(18-08-24 10:32)
+    ✔ Be able to see posts linked to current account on myKnews page @done(18-08-23 14:18)
+    ✔ Ability to delete posts @done(18-08-23 17:07)
+    ✘ Automate Post date @cancelled(18-08-24 10:32)
+    ✘ Deploy new build to portfolio @cancelled(18-08-24 10:32)
+    ✘ Write blog @cancelled(18-08-24 10:32)
 
 
 22 August Goals:

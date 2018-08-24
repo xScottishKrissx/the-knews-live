@@ -22,40 +22,57 @@ const FormView = (props) => {
 
                 <h1>Logged in View</h1>
                 <p>Hello, {props.user.displayName}</p>
-
+                
                 <h1>Current Articles</h1>
-                    {props.test1}
+                {props.test1}
+
+                {
+                    props.viewForm ?
+                    <div>
+                        <h1>Upload</h1>
+                        
+                            <form name="myForm" onSubmit={props.onSubmit}>
+                                <p>Title</p>
+                                <input                    
+                                    form="myForm"
+                                    type="text"
+                                    name="title"
+                                    onChange={props.handleChange}                   
+                                    required
+                                    value={props.title}>
+                                </input>
+
+                                <p>Text</p>
+                                <textarea
+                                    form="myForm"
+                                    type="text"
+                                    name="text"
+                                    onChange={props.handleChange}
+                                    required
+                                    rows="10"
+                                    value={props.article}
+                                ></textarea>    
+                                    
+                                <button>Upload</button>                
+                            </form>
+                    </div>
+                   
+                    :
+                    <div>
+                        <h1>Upload</h1>
+                        <p>You have the maximum number (1) of articles on the website. Please delete or edit your existing article.</p>
+                    </div>
+                    
+                   
+                }
+
                     
 
 
 
 
-                <h1>Upload</h1>
+                
 
-                <form name="myForm" onSubmit={props.onSubmit}>
-                    <p>Title</p>
-                    <input                    
-                        form="myForm"
-                        type="text"
-                        name="title"
-                        onChange={props.handleChange}                   
-                        required
-                        value={props.title}>
-                    </input>
-
-                    <p>Text</p>
-                    <textarea
-                        form="myForm"
-                        type="text"
-                        name="text"
-                        onChange={props.handleChange}
-                        required
-                        rows="10"
-                        value={props.article}
-                    ></textarea>    
-                        
-                    <button>Upload</button>                
-                </form>
             
             </div>
             :
@@ -71,3 +88,4 @@ const FormView = (props) => {
 }
 
 export default FormView;
+

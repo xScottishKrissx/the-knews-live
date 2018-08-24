@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 import HeaderImage from './header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 
+import RecommendedReading from './social/recommended-reading/recommended-reading.js';
+
 import './news-page-view.css';
 
 export class NewsPageVIEW extends React.Component{
@@ -32,6 +34,8 @@ export class NewsPageVIEW extends React.Component{
                         likes={value.likes}
                         dislikes={value.dislikes}
                     />
+
+                    <RecommendedReading />
 
     
     
