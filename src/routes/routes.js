@@ -39,6 +39,7 @@ export class Routes extends React.Component{
                 {/* <Route  path={"/news-item" + {TestLoop} } component={NewsItem}/> */}
                 
                 {/* <Route path="/news-page/:id" component={NewsPage}/> */}
+
                 <Route path="/articles/news-page/:id" component={NewsPage}/>
                 {/* <Route path=":id" component={NewsPage}/> */}
                 

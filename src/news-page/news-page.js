@@ -30,6 +30,7 @@ export class NewsPage extends React.Component{
         const dave = this.props.match.params.id;
         // console.log(dave)
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
+        console.log(this.props.match.params.id);
         dbRef.on('value', (snapshot) => {
             let articles = snapshot.val();
             let newState = [];
@@ -61,7 +62,29 @@ export class NewsPage extends React.Component{
 
     render(){    
         //console.log(firebasedb)
-        return <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} />;
+        const ref = this.state.articlesArray;
+        const checkIdMap = ref.map((value) => {
+            console.log("Something" + value.key)
+            if(value.key === this.props.match.params.id){
+                 console.log("ID")
+                 console.log(this.props.match.params.id)
+            }
+            else{
+                console.log("Error")
+                console.log(this.props.match.params.id)
+            }
+            return null;
+        })
+
+    return (
+        <span>
+        {checkIdMap}
+        <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} />
+        </span>
+        );
+            
+            
+        
     }
 }
 
