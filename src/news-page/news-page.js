@@ -2,7 +2,7 @@ import React from 'react';
 // import MediaQuery from 'react-responsive';
 
 import fire from '../fire.js'
-
+import {Link} from 'react-router-dom';
 import NewsPageVIEW from './news-page-view/news-page-view.js';
 // import DummyData from '../home-page/dummy-data.js';
 // import PracticeForm from '../myKnews/practice-form.js';
@@ -21,15 +21,17 @@ export class NewsPage extends React.Component{
             likes:"",
             dislikes:"",
             postdate:"",
-            articlesArray: []
+            articlesArray: [],
         }
     }
 
     componentDidMount(){        
         // console.log(this.props.match.params.id);
         const dave = this.props.match.params.id;
+        
         // console.log(dave)
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
+        console.log(dbRef)
         console.log(this.props.match.params.id);
         dbRef.on('value', (snapshot) => {
             let articles = snapshot.val();
@@ -49,7 +51,7 @@ export class NewsPage extends React.Component{
             this.setState({
                 articlesArray: newState
             })
-            // console.log(this.state.articlesArray);
+            // console.log(this.state.articlesArray[0].id);
         })
     }
     
@@ -62,24 +64,38 @@ export class NewsPage extends React.Component{
 
     render(){    
         //console.log(firebasedb)
-        const ref = this.state.articlesArray;
-        const checkIdMap = ref.map((value) => {
-            console.log("Something" + value.key)
-            if(value.key === this.props.match.params.id){
-                 console.log("ID")
-                 console.log(this.props.match.params.id)
-            }
-            else{
-                console.log("Error")
-                console.log(this.props.match.params.id)
-            }
-            return null;
-        })
+        // const ref = this.state.articlesArray;
+        // const checkIdMap = ref.map((value) => {
+        //     console.log("Something" + value.key)
+        //     if(value.key === this.props.match.params.id){
+        //          console.log("ID")
+        //          console.log("Match" + this.props.match.params.id)
+        //     }
+        //     else{
+        //         console.log("Error")
+        //         console.log(this.props.match.params.id)
+        //     }
+        //     return null;
+        // })
 
+        console.log(this.props.match.params.id)
+    const arrayLength = this.state.articlesArray.length;
+    console.log("Array Length is : " + Number(arrayLength))
+    const test = arrayLength;
     return (
         <span>
-        {checkIdMap}
-        <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} />
+        {test === 1 ?         
+            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} /> 
+            : 
+            <div className="back-button">
+                <Link to='/theKnews'><p>Home</p></Link>
+            </div>
+ 
+        }
+
+
+        {/* {checkIdMap} */}
+
         </span>
         );
             

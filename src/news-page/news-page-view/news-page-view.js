@@ -11,14 +11,21 @@ import './news-page-view.css';
 export class NewsPageVIEW extends React.Component{
     render(){
         const database = this.props.database;
+
+        // console.log(Number(database))
+
+ 
+
+
         const NewsPageView = database.map((value, key) => {
                     
             return(
                 <div className='news-page-wrapper' key={value.id}> 
-    
+
                     <div className="back-button">
-                        <Link to='/theKnews'><p>go back</p></Link>
+                        <Link to='/theKnews'><p>Home</p></Link>
                     </div>
+
     
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
@@ -42,7 +49,16 @@ export class NewsPageVIEW extends React.Component{
                 </div>
             )
         })
-        return NewsPageView;
+
+        const test = 1;
+        return (
+            <div>
+                {/* {test === 1 ? NewsPageView : <p>Error</p>} */}
+                {NewsPageView}
+            </div>
+        )
+
+        // return NewsPageView;
     }
     
 }

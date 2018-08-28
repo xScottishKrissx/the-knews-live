@@ -1,5 +1,8 @@
 Changelog::
 
+28 August 2018
+        Website now has janky as hell basic error handling for wrong article urls
+
 24 August 2018
         Upload form is now not accessible if you have an article already on the website
         Post Date is automated

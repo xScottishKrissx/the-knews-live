@@ -104,6 +104,7 @@ Part 1 - Implement the front end UI:
              A component to loop each news item
              A component to display the end result
              Code is a wee bit more manageable
+        ☐ A button that lets you change the size of the news items @started(18-08-28 12:47)
         News Items:
             ☐ Create Hover/Click caption @started(18-07-25 15:13)
 
@@ -200,15 +201,18 @@ Deployed Project To-Do:
     ☐ The split main header in the news page appears too early.
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
     
-
+28 August 2018:
+    ☐ Any ID that doesn't exists should return an error page.
+    ☐ Deploy new build to portfolio
+    ☐ Write blog
 24 August 2018:
     ✔ Create UI letting users know about article limit this before they try to type stuff in @done(18-08-24 10:50)
     ✔ Automate Post date @done(18-08-24 11:24)
     ✔ Add a recommended reading column using contents from the database. @done(18-08-24 12:17)
     ✔ Instead of removing the extra images at lower than 1600px on the news page just add them in a grid to the bottom of the article. @done(18-08-24 12:25)
-    ☐ Any ID that doesn't exists should return an error page.
-    ☐ Deploy new build to portfolio
-    ☐ Write blog
+    ✘ Any ID that doesn't exists should return an error page. @cancelled(18-08-28 12:18)
+    ✘ Deploy new build to portfolio @cancelled(18-08-28 12:18)
+    ✘ Write blog @cancelled(18-08-28 12:18)
 
 23 August 2018:
     ✘ Create UI letting users know article limit this before they try to type stuff in @cancelled(18-08-24 10:32)
