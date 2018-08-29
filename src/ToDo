@@ -21,6 +21,8 @@ Part 1 - Implement the front end UI:
         ✔ The html parser stopped working after the port @done(18-08-07 16:07)
             I don't know how i fixed this. All I did was uncomment everything and it worked.
         
+        ☐ When deployed, if you login with an article in the database the website UI doesnt update to reflect this. You need to manually refresh the page before the correct UI appears.
+        
     General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
@@ -172,7 +174,7 @@ Part 2 Implement Database functionality:
         ✔ Finish off styling news pages @done(18-08-14 12:24)
      ✔ Implement User Authorization so that only I can access the form. @started(18-08-13 18:04) @done(18-08-22 12:32) @lasted(1w1d18h28m36s)
      ✔ Can you re-route to the article you just uploaded on sumbit?? @started(18-08-17 13:26) @done(18-08-17 13:43) @lasted(17m40s)
-     ☐ Implement some sort of like and dislike functionality @started(18-08-15 11:17)
+     ✔ Implement some sort of like and dislike functionality @started(18-08-15 11:17) @done(18-08-29 17:07) @lasted(2w5h50m53s)
         // Have it working with componentWillMount but not yet onClick 12:14 29/08/2018
         ✔ Implement Like functionality @done(18-08-29 12:19)
             // Got it. I had to setState and then update the database
@@ -211,9 +213,9 @@ Deployed Project To-Do:
     
 
 29 August 2018:
-    ☐ Implement some sort of like and dislike functionality 
-    ☐ Deploy new build to portfolio
-    ☐ Write blog
+    ✔ Implement some sort of like and dislike functionality @done(18-08-29 17:09)
+    ✔ Deploy new build to portfolio @done(18-08-29 17:09)
+    ✔ Write blog @done(18-08-29 17:09)
 
 28 August 2018:
     ✔ Any ID that doesn't exists should return an error page. @done(18-08-29 11:13)
