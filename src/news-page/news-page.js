@@ -31,8 +31,8 @@ export class NewsPage extends React.Component{
         
         // console.log(dave)
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
-        console.log(dbRef)
-        console.log(this.props.match.params.id);
+        // console.log(dbRef)
+        // console.log(this.props.match.params.id);
         dbRef.on('value', (snapshot) => {
             let articles = snapshot.val();
             let newState = [];
@@ -78,16 +78,18 @@ export class NewsPage extends React.Component{
         //     return null;
         // })
 
-        console.log(this.props.match.params.id)
+    // console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
-    console.log("Array Length is : " + Number(arrayLength))
+    // console.log("Array Length is : " + Number(arrayLength))
+
     const test = arrayLength;
     return (
         <span>
         {test === 1 ?         
-            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} /> 
+            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  /> 
             : 
             <div className="back-button">
+                <p>Error: page not found</p>
                 <Link to='/theKnews'><p>Home</p></Link>
             </div>
  

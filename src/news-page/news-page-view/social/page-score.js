@@ -1,10 +1,12 @@
 import React from 'react';
 
 import './page-score.css';
+import HandleLike from './handle-like.js';
 
 
 class PageScore extends React.Component{
     render(){
+        const id = this.props.id;
         const likes = this.props.likes;
         const dislikes = this.props.dislikes;
         return (
@@ -20,6 +22,7 @@ class PageScore extends React.Component{
                    <span className="social-score neg">{dislikes}</span>
                 </div>
 
+                <HandleLike id={id} likes={likes} dislikes={dislikes}/>
         </div>
         )
     }

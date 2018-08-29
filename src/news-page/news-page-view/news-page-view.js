@@ -18,7 +18,7 @@ export class NewsPageVIEW extends React.Component{
 
 
         const NewsPageView = database.map((value, key) => {
-                    
+            // console.log(value)
             return(
                 <div className='news-page-wrapper' key={value.id}> 
 
@@ -40,6 +40,7 @@ export class NewsPageVIEW extends React.Component{
                         text={value.text}
                         likes={value.likes}
                         dislikes={value.dislikes}
+                        id={value.key}
                     />
 
                     <RecommendedReading />

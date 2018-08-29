@@ -9,6 +9,7 @@ import './article-area.css';
 
 
 const ArticleArea = (value) => {
+    console.log(value.id)
     return (
             
             <div className='article'>
@@ -30,7 +31,7 @@ const ArticleArea = (value) => {
                             <ParseHTML props={value.text}/>
                         </div>                     
 
-                        <PageScore likes={value.likes} dislikes={value.dislikes} />
+                        <PageScore likes={value.likes} dislikes={value.dislikes} id={value.id}/>
                     </article>
 
                     <ExtraImageLoop />          
