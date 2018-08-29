@@ -178,8 +178,9 @@ Part 2 Implement Database functionality:
             // Got it. I had to setState and then update the database
         ✔ Implement Dislike functionality @done(18-08-29 12:34)
             // Copy and paste really. I could make it so you can't go negative dislikes
-        ☐ Allow like/dislike ONLY for logged in users @started(18-08-29 11:25)
+        ✔ Allow like/dislike ONLY for logged in users @started(18-08-29 11:25) @done(18-08-29 15:43) @lasted(4h18m58s)
             // I can now tell if someone is logged in, I just need to adjust the UI to represent this.
+        ☐ Ensure users can only like/dislike ONCE per account @started(18-08-29 15:44)
 
      ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
         ✔ Will need to complete User Auth before I can do Author @started(18-08-17 13:44) @done(18-08-22 17:02) @lasted(5d3h18m3s)

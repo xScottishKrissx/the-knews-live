@@ -11,19 +11,8 @@ class PageScore extends React.Component{
         const dislikes = this.props.dislikes;
         return (
             <div className='social'>
-
-                <div className="article-likes">
-                    <span>Likes:</span>
-                    <span className="social-score pos">{likes}</span>
-                </div>
-
-                <div className="article-dislikes">
-                   <span> Not Likes: </span>
-                   <span className="social-score neg">{dislikes}</span>
-                </div>
-
                 <HandleLike id={id} likes={likes} dislikes={dislikes}/>
-        </div>
+            </div>
         )
     }
 }

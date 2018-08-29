@@ -1,6 +1,8 @@
 Changelog::
 29 August 2018
         You can now like and dislike articles
+        Interacting with page score now requires users to be logged in.
+        
 28 August 2018
         Website now has janky as hell basic error handling for wrong article urls
 

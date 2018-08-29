@@ -12,6 +12,7 @@ export class HandleLike extends React.Component{
             likeGraphic: 'https://christopherdunne.co.uk/react-cards-project/static/media/like.df7ce1e7.png',
             currentLikes:this.props.likes,
             currentDislikes: this.props.dislikes,
+            loggedIn: false,
             newLikes: "",
             isLike:false,
             currentID: this.props.id,
@@ -27,8 +28,14 @@ export class HandleLike extends React.Component{
 
        if(fire.auth().currentUser){
            console.log("User Logged In")
+           this.setState({
+               loggedIn: true
+           })
        }else{
            console.log("Not logged in")
+           this.setState({
+               loggedIn: false
+           })
        }
 
         // const currentID = this.state.currentID
@@ -64,17 +71,23 @@ export class HandleLike extends React.Component{
 
         const updateLikes = {};
 
-        if (getButtonClicked === "likeBtn"){
-            console.log("UpVote")
-            this.setState({currentLikes: this.state.currentLikes + 1})
-            updateLikes[currentID + "/likes/"] = this.state.currentLikes + 1;
-        }else if(getButtonClicked === "dislikeBtn"){
-            console.log("Downvote")
-            this.setState({currentDislikes: this.state.currentDislikes - 1})
-            updateLikes[currentID + "/dislikes/"] = this.state.currentDislikes - 1;
+        if(this.state.loggedIn === true){
+            if (getButtonClicked === "likeBtn"){
+                console.log("UpVote")
+                this.setState({currentLikes: this.state.currentLikes + 1})
+                updateLikes[currentID + "/likes/"] = this.state.currentLikes + 1;
+            }else if(getButtonClicked === "dislikeBtn"){
+                console.log("Downvote")
+                this.setState({currentDislikes: this.state.currentDislikes - 1})
+                updateLikes[currentID + "/dislikes/"] = this.state.currentDislikes - 1;
+            }else{
+                console.log("Do Nothing");
+            }
         }else{
-            console.log("Do Nothing");
+            console.log("Please Log In to Use the Page Score Function")
+            alert("Please Log-In to use Page Score Functionality")
         }
+
 
         
         // // When clicked update the database likes by +1
@@ -94,10 +107,14 @@ export class HandleLike extends React.Component{
 
     render(){
         return (
-            <div>
-                <p id="likeBtn" onClick={this.clicked}>Like: {this.state.currentLikes}</p>
-                <p id="dislikeBtn" onClick={this.clicked}>Dislikes: {this.state.currentDislikes}</p>
-                {/* <button onClick={this.clicked}>UpClick</button> */}
+            <div>        
+                <div className="article-likes">                
+                    <p className="social-score pos" id="likeBtn" onClick={this.clicked}>Like: {this.state.currentLikes}</p>
+                </div>
+
+                <div className="article-dislikes">
+                    <p className="social-score neg" id="dislikeBtn" onClick={this.clicked}>Dislikes: {this.state.currentDislikes}</p>
+                </div>
             </div>
         )
     }
