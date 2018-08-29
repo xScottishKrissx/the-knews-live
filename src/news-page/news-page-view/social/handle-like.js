@@ -71,17 +71,20 @@ export class HandleLike extends React.Component{
 
         const updateLikes = {};
 
-        if(this.state.loggedIn === true){
-            if (getButtonClicked === "likeBtn"){
+        if(this.state.loggedIn === true ){
+            if (getButtonClicked === "likeBtn" && this.state.isLike === false){
                 console.log("UpVote")
                 this.setState({currentLikes: this.state.currentLikes + 1})
                 updateLikes[currentID + "/likes/"] = this.state.currentLikes + 1;
-            }else if(getButtonClicked === "dislikeBtn"){
+                this.setState({isLike:true})
+            }else if(getButtonClicked === "dislikeBtn" && this.state.isLike === false){
                 console.log("Downvote")
                 this.setState({currentDislikes: this.state.currentDislikes - 1})
                 updateLikes[currentID + "/dislikes/"] = this.state.currentDislikes - 1;
+                this.setState({isLike:true})
             }else{
                 console.log("Do Nothing");
+                alert("You can only like or dislike once per article. You could also refresh the page but that would just be rude...")
             }
         }else{
             console.log("Please Log In to Use the Page Score Function")
