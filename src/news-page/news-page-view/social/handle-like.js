@@ -1,6 +1,6 @@
 import React from 'react'
 
-import fire from "../../../fire.js";
+import fire, {auth, provider} from "../../../fire.js";
 
 export class HandleLike extends React.Component{
     constructor(props){
@@ -14,13 +14,22 @@ export class HandleLike extends React.Component{
             currentDislikes: this.props.dislikes,
             newLikes: "",
             isLike:false,
-            currentID: this.props.id
+            currentID: this.props.id,
+            user: null
         }
         this.clicked = this.clicked.bind(this); 
     }
-    componentWillMount(){
+    componentDidMount(){
         console.log(this.state.currentLikes)
         console.log(this.state.currentID);
+        // const checkUser = fire.auth().currentUser;
+    //    console.log(fire.auth().currentUser.displayName)
+
+       if(fire.auth().currentUser){
+           console.log("User Logged In")
+       }else{
+           console.log("Not logged in")
+       }
 
         // const currentID = this.state.currentID
         // const dbRef = fire.database().ref("items").orderByKey().equalTo(currentID);
@@ -30,6 +39,19 @@ export class HandleLike extends React.Component{
 
         // fire.database().ref("items").update(updateLikes);
 
+
+        // auth.signInWithPopup(provider).then((result) => {
+        //     const user = result.user;
+        //     this.setState({
+        //       user
+        //     });
+        //   })
+        // auth.onAuthStateChanged((user) => {
+        //     if(user){
+        //       this.setState({user});
+        //     }
+        //   }) 
+        //   console.log(this.state.user.displayName);
     }
     clicked(e){
         e.preventDefault();
@@ -67,6 +89,8 @@ export class HandleLike extends React.Component{
         console.log("Unmounting handle-like.js");
         fire.database().ref("items").off();
     }
+
+
 
     render(){
         return (

@@ -224,7 +224,7 @@ export class PracticeForm extends React.Component{
 
       const existingArticle = this.state.articlesArray;
       const testthing = existingArticle.map((value,key) => {
-        if(value.email === this.state.user.email){
+        if(this.state.user && value.email === this.state.user.email){
           return (
             <div key={key}>
               <ul key={key} id={key}>
@@ -240,7 +240,10 @@ export class PracticeForm extends React.Component{
             </div>
 
           );
+        }else{
+          return null;
         }
+        
 
       })
         return(
