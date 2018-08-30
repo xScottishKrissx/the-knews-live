@@ -51,10 +51,8 @@ export class NewsPageVIEW extends React.Component{
             )
         })
 
-        const test = 1;
         return (
             <div>
-                {/* {test === 1 ? NewsPageView : <p>Error</p>} */}
                 {NewsPageView}
             </div>
         )

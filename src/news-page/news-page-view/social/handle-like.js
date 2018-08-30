@@ -1,6 +1,6 @@
 import React from 'react'
 
-import fire, {auth, provider} from "../../../fire.js";
+import fire from "../../../fire.js";
 
 export class HandleLike extends React.Component{
     constructor(props){
@@ -21,10 +21,10 @@ export class HandleLike extends React.Component{
         this.clicked = this.clicked.bind(this); 
     }
     componentDidMount(){
-        console.log(this.state.currentLikes)
-        console.log(this.state.currentID);
+        // console.log(this.state.currentLikes)
+        // console.log(this.state.currentID);
         // const checkUser = fire.auth().currentUser;
-    //    console.log(fire.auth().currentUser.displayName)
+        // console.log(fire.auth().currentUser.displayName)
 
        if(fire.auth().currentUser){
            console.log("User Logged In")
@@ -62,12 +62,12 @@ export class HandleLike extends React.Component{
     }
     clicked(e){
         e.preventDefault();
-        console.log("Clicked")
+        // console.log("Clicked")
         const getButtonClicked = document.getElementById(e.currentTarget.id).id;
-        console.log(getButtonClicked);
+        // console.log(getButtonClicked);
 
         const currentID = this.state.currentID
-        const dbRef = fire.database().ref("items").orderByKey().equalTo(currentID);
+        // const dbRef = fire.database().ref("items").orderByKey().equalTo(currentID);
 
         const updateLikes = {};
 

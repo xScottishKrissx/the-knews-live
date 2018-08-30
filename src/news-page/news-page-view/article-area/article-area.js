@@ -9,7 +9,7 @@ import './article-area.css';
 
 
 const ArticleArea = (value) => {
-    console.log(value.id)
+    // console.log(value.id)
     return (
             
             <div className='article'>

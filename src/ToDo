@@ -84,6 +84,8 @@ Part 1 - Implement the front end UI:
                  I might have got somewhere by ripping up the entire system and starting again with a new map instead of using a for loop. Now the system loops through the objects within the file and returns those objects. Specifically i now have the database id and array id as seperatw values to work with. I'm not in the clear yet but I am in a better position than i was at the least.
 
                  I have managed to solve this but explaining it is a bit tricky because i'm not sure how to actually start. Basically i used match.params.id to get the identifier along with js .find and map functions. I will try and go into more detail later.
+
+        ✔ Clean up Console messages. @started(18-08-30 11:33) @done(18-08-30 11:47) @lasted(14m41s)
     Header:
         ✔ Get basic structure in place @done(18-07-24 17:48)
         ✔ Mobile Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m48s)
@@ -93,7 +95,8 @@ Part 1 - Implement the front end UI:
                 ✔ Sign in button needs fixed which could mean an overhaul of the whole thing. @done(18-08-13 18:03)
         ✔ Desktop Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m51s)
             ✔ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it. @done(18-08-13 18:03)
-            
+        ☐ Clean up back/home button @started(18-08-30 11:35)
+        ☐ Implement mobile nav bar @started(18-08-30 11:36)
         
 
     Home Page:
@@ -130,6 +133,7 @@ Part 1 - Implement the front end UI:
         ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
             It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
         ☐ Clean Up Recommended reading bar styling @started(18-08-29 11:14)
+        ☐ Improve Control and Appearance of page score buttons @started(18-08-30 11:33)
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -211,6 +215,12 @@ Deployed Project To-Do:
     ☐ The split main header in the news page appears too early.
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
     
+30 August 2018:
+    ✔ Clean Up Console @done(18-08-30 11:47)
+    ☐ Improve appearance and control of page score
+    ☐ Improve appearance of recommended reading bar
+    ☐ Deploy new build to portfolio
+    ☐ Write blog
 
 29 August 2018:
     ✔ Implement some sort of like and dislike functionality @done(18-08-29 17:09)

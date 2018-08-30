@@ -1,9 +1,5 @@
 import React from 'react';
-import fire, {auth, provider} from '../../../../fire.js';
-
-import {
-    // Route
-    Redirect, Switch} from 'react-router-dom';
+import fire from '../../../../fire.js';
 
 import './recommended-reading.css'
 
@@ -31,7 +27,7 @@ class RecommendedReading extends React.Component{
             this.setState({
                 articlesArray: tempState
             })
-            console.log(this.state.articlesArray);
+            // console.log(this.state.articlesArray);
         })
     }
 
