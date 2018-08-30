@@ -36,19 +36,26 @@ class RecommendedReading extends React.Component{
         const showItems = items.map((item, key) => {
             return(
                 
-                <div className="recReadingItem" key={key}>              
-                     <a href={"/articles/news-page/" + item.id}>
-                        <h3>{item.title}</h3>
-                        <p>Posted: {item.postdate}</p>
-                    </a>                    
+                <div className="recReadingItem" key={key}>   
+                
+                    <div >           
+                        <a href={"/articles/news-page/" + item.id}>
+                            <h3>{item.title}</h3>
+                            <p>Posted: {item.postdate}</p>
+                        </a> 
+                    </div>                   
                 </div>
                
             )
         })
         return (
             <div className="recReadingWrapper">
-                {showItems}
+                <h2>Recommended Reading...</h2>
+                    <div className="recReadingItemWrapper">            
+                        {showItems}
+                    </div>
             </div>
+
         );
     }
 }
