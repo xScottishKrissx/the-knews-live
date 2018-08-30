@@ -96,7 +96,7 @@ export class HandleLike extends React.Component{
         // // When clicked update the database likes by +1
 
 
-        console.log(updateLikes)
+        // console.log(updateLikes)
 
         fire.database().ref("items").update(updateLikes);
     }
