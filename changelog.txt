@@ -1,4 +1,7 @@
 Changelog::
+30 August 2018
+        Improved appearance and control of page score buttons
+        
 29 August 2018
         You can now like and dislike articles
         Interacting with page score now requires users to be logged in.

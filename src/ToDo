@@ -133,7 +133,7 @@ Part 1 - Implement the front end UI:
         ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
             It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
         ☐ Clean Up Recommended reading bar styling @started(18-08-29 11:14)
-        ☐ Improve Control and Appearance of page score buttons @started(18-08-30 11:33)
+        ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -217,7 +217,7 @@ Deployed Project To-Do:
     
 30 August 2018:
     ✔ Clean Up Console @done(18-08-30 11:47)
-    ☐ Improve appearance and control of page score
+    ✔ Improve appearance and control of page score @done(18-08-30 12:26)
     ☐ Improve appearance of recommended reading bar
     ☐ Deploy new build to portfolio
     ☐ Write blog

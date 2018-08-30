@@ -19,13 +19,23 @@
     .social-score{
         background-color: black;
         color: white;
-        text-align: center;        
+        text-align: center;  
+        
+        cursor: pointer;
+        padding: 0.8rem;
     }
-        .pos{
-            background-color: green;
+        .social-score:active{
+            box-shadow: 0px 0px 0px 1px black;            
         }
+        .voteArrow{
+            font-size: 2rem;
+        }
+        .pos{
+            background-color: rgba(0, 128, 0, 0.75);
+        }
+
         .neg{
-            background-color: red;
+            background-color: rgba(255, 0, 0, 0.75);
         }
 
 
