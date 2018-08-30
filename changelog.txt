@@ -1,6 +1,7 @@
 Changelog::
 30 August 2018
         Improved appearance and control of page score buttons
+        Improved Appearance of recommended reading bar
         
 29 August 2018
         You can now like and dislike articles
