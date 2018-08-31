@@ -28,13 +28,21 @@ class MapDatabaseItems extends React.Component{
             id: "",
             imgPath: "",
             key: "",
-            articlesArray : []
+            articlesArray : [],
+            newStyle: {
+                // height: "400px",
+                width:"260px"
+            }
         }
+        // this.showExcerpt = this.showExcerpt.bind(this);
+        this.setting1 = this.setting1.bind(this);
+        this.setting2 = this.setting2.bind(this);
+        this.setting3 = this.setting3.bind(this);
     }
 
     componentDidMount(){
         // const dbRef = fire.database().ref('articles').orderByChild("id");
-        const dbRef = fire.database().ref('items').orderByChild("id");
+        const dbRef = fire.database().ref('items').limitToLast(20);
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -56,6 +64,22 @@ class MapDatabaseItems extends React.Component{
         })
     }
 
+    setting1(e){
+        e.preventDefault();
+        console.log("Setting 1 Clicked");
+        this.setState({newStyle:{width:"10rem" }})
+    }
+    setting2(e){
+        e.preventDefault();
+        console.log("Setting 2 Clicked");
+        this.setState({newStyle:{width:"260px" }})
+    }
+    setting3(e){
+        e.preventDefault();
+        console.log("Setting 3 Clicked");
+        this.setState({newStyle:{width:"50rem" }})
+    }
+    
     componentWillUnmount(){
         console.log("Unmount on news-item-loop.js")
         fire.database().ref("items").off();
@@ -84,7 +108,7 @@ class MapDatabaseItems extends React.Component{
     
             // console.log(value.author + " Key is: " + value.key)
             return (
-                    <div className='news-square' key={key}>                    
+                    <div className='news-square' key={key} style={this.state.newStyle}>                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
@@ -93,7 +117,17 @@ class MapDatabaseItems extends React.Component{
                     </div>
             );
       })
-        return HomePageView;   
+        return (
+            <div>
+                <div className="tileSizeControls">
+                    <h2>Amazing Final Production Version Custom Controls V1337</h2>    
+                    <button onClick={this.setting1}>Small</button>
+                    <button onClick={this.setting2}>Standard</button>
+                    <button onClick={this.setting3}>Large</button>
+                </div>
+                {HomePageView}
+            </div>
+        );   
     }
 }
 

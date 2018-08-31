@@ -2,13 +2,27 @@
 
 
 .home-wrapper{
-
+ 
 }
     .news-item-wrapper{
         display: flex;
         flex-wrap: wrap;
     }
+        .news-item-wrapper div{
+        /* width: 100%; */
+        display: flex;
+        /* flex: auto; */
+        flex-wrap: wrap;
+        }
 
+        .tileSizeControls{
+            background-color: grey;
+            width:100%;
+        }
+            .tileSizeControls button{
+                margin: 5px;
+                padding: 0;
+            }
 @media (min-width: 768px) {
     .home-wrapper{
         margin: 0 auto;

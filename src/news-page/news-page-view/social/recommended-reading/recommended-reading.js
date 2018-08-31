@@ -13,7 +13,7 @@ class RecommendedReading extends React.Component{
 
     componentDidMount(){
         
-        const articleRef = fire.database().ref('items').orderByKey().startAt("3").endAt("6");
+        const articleRef = fire.database().ref('items').orderByKey().startAt("1").endAt("6");
         articleRef.on('value', (snapshot) => {
             let articles  = snapshot.val();
             let tempState = [];

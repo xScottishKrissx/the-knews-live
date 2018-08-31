@@ -35,7 +35,7 @@ export const MessageBody = () =>{
 
         <div>
         <h1>The Knews </h1>
-        <h3>Deployed V4 - 30 August 2018 </h3>
+        <h3>Deployed V5 - 31 August 2018 </h3>
         <h5>you can temporarily hide this message by clicking it. Refresh the page to get it back</h5>
         <p>Keep an eye out for constant updates as I tinker and add new features regularly: <a href="https://christopherdunne.co.uk/portfolio/react-project-3-the-knews/">HERE</a></p>
             <ul>

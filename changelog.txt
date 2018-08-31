@@ -1,4 +1,10 @@
 Changelog::
+31 August 2018:
+        Basic implementation of custom news tile sizes. Currently resets if you click a news item.
+        Added a metric france load of data to website
+        Limited home page news items to 20
+        Further tweaks and experiments with the recommended reading bar
+
 30 August 2018
         Improved appearance and control of page score buttons
         Improved Appearance of recommended reading bar
