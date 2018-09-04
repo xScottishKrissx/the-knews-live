@@ -17,6 +17,42 @@ export const NewsItemLoop = () => {
     return <MapDatabaseItems />;    
 }
 
+const titleSettings = {
+    small: {
+        width:"100px"
+    },
+    medium: {
+        width:"200px"
+    },
+    large: {
+        width:"400px"
+    }
+}
+
+// const ThemeContext = React.createContext(
+//     themes.medium
+// )
+
+// function ThemedButton(props){
+//     return (
+//         <ThemeContext.Consumer>
+//             {theme => (
+//                 <button
+//                     {...props}
+//                     style={{width:themes.medium}}
+//                 />
+//             )}
+//         </ThemeContext.Consumer>
+//     );
+// }
+
+// function Toolbar(props){
+//     return (
+//         <ThemedButton onClick={props.changeTheme}>
+//             Change Theme
+//         </ThemedButton>
+//     )
+// }
 
 class MapDatabaseItems extends React.Component{
 
@@ -29,17 +65,52 @@ class MapDatabaseItems extends React.Component{
             imgPath: "",
             key: "",
             articlesArray : [],
-            newStyle: {
-                // height: "400px",
-                width:"260px"
-            }
+            currentStyle:"",
+            testStyle:{
+                width:"100px"
+            },
+
+            //Context Api
+            theme: titleSettings.medium
+            
         }
         // this.showExcerpt = this.showExcerpt.bind(this);
         this.setting1 = this.setting1.bind(this);
         this.setting2 = this.setting2.bind(this);
         this.setting3 = this.setting3.bind(this);
-    }
 
+        //Context Api
+        // this.toggleTheme = () => {
+        //     this.setState(state => ({
+        //         theme:
+        //             // state.theme === themes.small ? themes.medium : themes.large
+        //             state.theme === themes.small           
+        //     }));
+            
+        // };
+        // this.toggleTheme = () => {
+        //     this.setState({theme: themes.small})
+        //     console.log(this.state.theme)
+        // }
+    }
+    
+    componentWillMount(){
+        if(this.state.currentStyle === ""){
+            console.log("Style Not Set")
+        }else{
+            console.log("State set")
+        }
+        // this.setState({
+        //     currentStyle:{
+        //         width:"260px"
+        //     }
+        // })
+        console.log(this.state.currentStyle)
+        const data = "Hello World!";
+        localStorage.setItem("myData", data);
+        localStorage.getItem("myData")
+        console.log(localStorage.getItem("myData"));
+    }
     componentDidMount(){
         // const dbRef = fire.database().ref('articles').orderByChild("id");
         const dbRef = fire.database().ref('items').limitToLast(20);
@@ -66,28 +137,29 @@ class MapDatabaseItems extends React.Component{
 
     setting1(e){
         e.preventDefault();
-        console.log("Setting 1 Clicked");
-        this.setState({newStyle:{width:"10rem" }})
+        // console.log("Setting 1 Clicked");
+        this.setState({currentStyle:{width:"10rem" }})
     }
     setting2(e){
         e.preventDefault();
-        console.log("Setting 2 Clicked");
-        this.setState({newStyle:{width:"260px" }})
+        // console.log("Setting 2 Clicked");
+        this.setState({currentStyle:{width:"260px" }})
     }
     setting3(e){
         e.preventDefault();
-        console.log("Setting 3 Clicked");
-        this.setState({newStyle:{width:"50rem" }})
+        // console.log("Setting 3 Clicked");
+        this.setState({currentStyle:{width:"50rem" }})
     }
     
     componentWillUnmount(){
-        console.log("Unmount on news-item-loop.js")
+        // console.log("Unmount on news-item-loop.js")
         fire.database().ref("items").off();
       }
   
 
     render(){
-        const firebaseDB = this.state.articlesArray;
+        const firebaseDB = this.state.articlesArray;        
+        console.log(this.state.currentStyle)
 
         const HomePageView = firebaseDB.map((value,key) => {
 
@@ -108,22 +180,29 @@ class MapDatabaseItems extends React.Component{
     
             // console.log(value.author + " Key is: " + value.key)
             return (
-                    <div className='news-square' key={key} style={this.state.newStyle}>                    
+                
+                    <div className='news-square' key={key} style={this.state.currentStyle || this.state.newStyle}>                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
                                 title={value.title}
                                 author={value.author} />
                     </div>
+                
+
             );
       })
         return (
-            <div>
+            <div>               
+
+
                 <div className="tileSizeControls">
-                    <h2>Amazing Final Production Version Custom Controls V1337</h2>    
-                    <button onClick={this.setting1}>Small</button>
-                    <button onClick={this.setting2}>Standard</button>
-                    <button onClick={this.setting3}>Large</button>
+                    <h2>Amazing Final Production Version Custom Controls V1337</h2> 
+                    <span className="controlBtns">
+                        <button onClick={this.setting1}>S</button>
+                        <button onClick={this.setting2}>M</button>
+                        <button onClick={this.setting3}>L</button>
+                    </span>   
                 </div>
                 {HomePageView}
             </div>

@@ -1,4 +1,7 @@
 Changelog::
+4 August 2018:
+        Slightly tweaked appearance of buttons
+        Started work on remembering control choices
 31 August 2018:
         Basic implementation of custom news tile sizes. Currently resets if you click a news item.
         Added a metric france load of data to website

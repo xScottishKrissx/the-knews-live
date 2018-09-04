@@ -112,6 +112,10 @@ Part 1 - Implement the front end UI:
         ✔ A button that lets you change the size of the news items @started(18-08-28 12:47) @done(18-08-31 17:21) @lasted(3d4h34m34s)
             //Sort of, doesn't remember tile sizes if you leave the page.
             ☐ Maybe some kind of randomised news tile size @started(18-08-31 17:24)
+            ☐ Work on controls appearance @started(18-09-04 12:29)
+            ☐ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29)
+                //Might not be possible without another library
+                .... or I could use local storage/session storage to remember user choice.
         ☐ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24)
             // Currently limited to last 20 in database.
 
@@ -220,6 +224,11 @@ Deployed Project To-Do:
     ☐ The split main header in the news page appears too early.
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
 
+4 August 2018:
+    ☐ Work on custom controls
+    ☐ Deploy to portfolio
+    ☐ Update changelog
+    ☐ 
 31 August 2018:
     ✔ Keep working on recommended reading bar @done(18-08-31 17:22)
     ✔ Add more data to database @done(18-08-31 17:22)
