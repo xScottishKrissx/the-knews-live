@@ -116,9 +116,10 @@ Part 1 - Implement the front end UI:
             ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
                 //Might not be possible without another library
                 .... or I could use local storage/session storage to remember user choice.
-        ☐ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24)
+        ✘ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24) @cancelled(18-09-11 13:57) @wasted(1w3d20h33m16s)
             // Currently limited to last 20 in database.
             // Infinite Scrolling is the term Im looking for...
+            // After some looking around I think I would need to build the design around this feature. At the very least I don't think trying to learn this while fitting it around the current project will help me too much. Will leave this until a future project.
 
         News Items:
             ☐ Create Hover/Click caption @started(18-07-25 15:13)
@@ -228,7 +229,8 @@ Deployed Project To-Do:
 11 August 2018:
     ✔ Get Ducks In Order @done(18-09-11 13:01)
     ✔ Get Local Storage thing working @done(18-09-11 13:01)
-    ☐ Investigate Infinite Scrolling for the home page @started(18-09-11 13:10)
+    ✘ Investigate Infinite Scrolling for the home page @started(18-09-11 13:10) @cancelled(18-09-11 13:57) @wasted(47m7s)
+    ☐ Working on Scroll to top button
     ☐ Write Changelog
     ☐ Deploy new build to portfolio
 

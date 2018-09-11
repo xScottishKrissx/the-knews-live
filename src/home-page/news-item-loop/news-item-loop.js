@@ -78,6 +78,8 @@ class MapDatabaseItems extends React.Component{
         this.setting1 = this.setting1.bind(this);
         this.setting2 = this.setting2.bind(this);
         this.setting3 = this.setting3.bind(this);
+        // this.scroll = this.scroll.bind(this);
+
 
         //Context Api
         // this.toggleTheme = () => {
@@ -114,6 +116,7 @@ class MapDatabaseItems extends React.Component{
     }
     componentDidMount(){
         // const dbRef = fire.database().ref('articles').orderByChild("id");
+        window.addEventListener('scroll', this.scroll);
         const dbRef = fire.database().ref('items').limitToLast(20);
         
         dbRef.on('value', (snapshot) => {
@@ -168,9 +171,25 @@ class MapDatabaseItems extends React.Component{
     
     componentWillUnmount(){
         // console.log("Unmount on news-item-loop.js")
+        window.addEventListener('scroll', this.scroll);
         fire.database().ref("items").off();
       }
-  
+
+          scroll(){
+          const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+          const body = document.body;
+          const html = document.documentElement;
+          const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+          const windowBottom = windowHeight + window.pageYOffset;
+          console.log(docHeight);
+          console.log(windowBottom)
+          
+            if(windowBottom >= docHeight){
+                console.log("Bottom Reached")
+            }else{
+                console.log("Not At Bottom Yet")
+            }
+      }
 
     render(){
         const firebaseDB = this.state.articlesArray;        
@@ -196,7 +215,7 @@ class MapDatabaseItems extends React.Component{
             // console.log(value.author + " Key is: " + value.key)
             return (
                 
-                    <div className='news-square' key={key} style={this.state.currentStyle || this.state.testStyle}>                    
+                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle}>                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
@@ -211,7 +230,7 @@ class MapDatabaseItems extends React.Component{
             <div>               
 
 
-                <div className="tileSizeControls">
+                <div className="tileSizeControls" >
                     <h2>Amazing Final Production Version Custom Controls V1337</h2> 
                     <span className="controlBtns">
                         <button onClick={this.setting1}>S</button>
