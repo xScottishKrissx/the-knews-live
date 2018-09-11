@@ -67,7 +67,7 @@ class MapDatabaseItems extends React.Component{
             articlesArray : [],
             currentStyle:"",
             testStyle:{
-                width:"100px"
+                width: localStorage.getItem("myData")
             },
 
             //Context Api
@@ -106,9 +106,10 @@ class MapDatabaseItems extends React.Component{
         //     }
         // })
         console.log(this.state.currentStyle)
-        const data = "Hello World!";
-        localStorage.setItem("myData", data);
-        localStorage.getItem("myData")
+        
+        // const data = "Hello World!";
+        // localStorage.setItem("myData", data);
+        // localStorage.getItem("myData")
         console.log(localStorage.getItem("myData"));
     }
     componentDidMount(){
@@ -139,16 +140,30 @@ class MapDatabaseItems extends React.Component{
         e.preventDefault();
         // console.log("Setting 1 Clicked");
         this.setState({currentStyle:{width:"10rem" }})
+        const temp = "10rem"
+        localStorage.setItem("myData", temp);
+        localStorage.getItem("myData")
+        console.log(localStorage.getItem("myData"));
+
     }
     setting2(e){
         e.preventDefault();
         // console.log("Setting 2 Clicked");
         this.setState({currentStyle:{width:"260px" }})
+        const temp = "260px"
+        localStorage.setItem("myData", temp);
+        localStorage.getItem("myData")
+        console.log(localStorage.getItem("myData"));
+
     }
     setting3(e){
         e.preventDefault();
         // console.log("Setting 3 Clicked");
         this.setState({currentStyle:{width:"50rem" }})
+        const temp = "50rem"
+        localStorage.setItem("myData", temp);
+        localStorage.getItem("myData")
+        console.log(localStorage.getItem("myData"));
     }
     
     componentWillUnmount(){
@@ -181,7 +196,7 @@ class MapDatabaseItems extends React.Component{
             // console.log(value.author + " Key is: " + value.key)
             return (
                 
-                    <div className='news-square' key={key} style={this.state.currentStyle || this.state.newStyle}>                    
+                    <div className='news-square' key={key} style={this.state.currentStyle || this.state.testStyle}>                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 

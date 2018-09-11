@@ -3,7 +3,12 @@
     border:5px solid white;
     display: flex;
     flex: auto;
+    
+    /* Default */
     width: 260px;
+
+    /* Small */
+    /* width: 200px; */
 }
 
 

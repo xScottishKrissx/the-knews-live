@@ -9,7 +9,7 @@
         flex-wrap: wrap;
     }
         .news-item-wrapper div{
-        /* width: 100%; */
+        width: 100%;
         display: flex;
         /* flex: auto; */
         flex-wrap: wrap;

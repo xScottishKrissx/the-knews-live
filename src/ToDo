@@ -113,11 +113,12 @@ Part 1 - Implement the front end UI:
             //Sort of, doesn't remember tile sizes if you leave the page.
             ☐ Maybe some kind of randomised news tile size @started(18-08-31 17:24)
             ☐ Work on controls appearance @started(18-09-04 12:29)
-            ☐ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29)
+            ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
                 //Might not be possible without another library
                 .... or I could use local storage/session storage to remember user choice.
         ☐ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24)
             // Currently limited to last 20 in database.
+            // Infinite Scrolling is the term Im looking for...
 
         News Items:
             ☐ Create Hover/Click caption @started(18-07-25 15:13)
@@ -224,11 +225,18 @@ Deployed Project To-Do:
     ☐ The split main header in the news page appears too early.
     ☐ BUG: If you refresh the page on a news article you will get a 404 error.
 
+11 August 2018:
+    ✔ Get Ducks In Order @done(18-09-11 13:01)
+    ✔ Get Local Storage thing working @done(18-09-11 13:01)
+    ☐ Investigate Infinite Scrolling for the home page @started(18-09-11 13:10)
+    ☐ Write Changelog
+    ☐ Deploy new build to portfolio
+
 4 August 2018:
-    ☐ Work on custom controls
-    ☐ Deploy to portfolio
-    ☐ Update changelog
-    ☐ 
+    ✔ Work on custom controls @done(18-09-11 12:03)
+    ✘ Deploy to portfolio @cancelled(18-09-11 12:03)
+    ✘ Update changelog @cancelled(18-09-11 12:03)
+    
 31 August 2018:
     ✔ Keep working on recommended reading bar @done(18-08-31 17:22)
     ✔ Add more data to database @done(18-08-31 17:22)
@@ -236,6 +244,7 @@ Deployed Project To-Do:
         //Sort of, doesn't remember tile sizes if you leave the page.
     ☐ Deploy new build to website
     ☐ Update portfolio changelog
+
 30 August 2018:
     ✔ Clean Up Console @done(18-08-30 11:47)
     ✔ Improve appearance and control of page score @done(18-08-30 12:26)
@@ -252,6 +261,7 @@ Deployed Project To-Do:
     ✔ Any ID that doesn't exists should return an error page. @done(18-08-29 11:13)
     ✘ Deploy new build to portfolio @cancelled(18-08-29 11:12)
     ✘ Write blog @cancelled(18-08-29 11:12)
+
 24 August 2018:
     ✔ Create UI letting users know about article limit this before they try to type stuff in @done(18-08-24 10:50)
     ✔ Automate Post date @done(18-08-24 11:24)
