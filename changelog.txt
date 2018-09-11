@@ -1,8 +1,8 @@
 Changelog::
-11 August 2018:
+11 September 2018:
         Using local storage website now remembers choice of tile size
         
-4 August 2018:
+4 September 2018:
         Slightly tweaked appearance of buttons
         Started work on remembering control choices
 

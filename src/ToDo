@@ -230,7 +230,7 @@ Deployed Project To-Do:
     ✔ Get Ducks In Order @done(18-09-11 13:01)
     ✔ Get Local Storage thing working @done(18-09-11 13:01)
     ✘ Investigate Infinite Scrolling for the home page @started(18-09-11 13:10) @cancelled(18-09-11 13:57) @wasted(47m7s)
-    ☐ Working on Scroll to top button
+    ✔ Working on Scroll to top button @done(18-09-11 15:53)
     ☐ Write Changelog
     ☐ Deploy new build to portfolio
 

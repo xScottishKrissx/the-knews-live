@@ -107,12 +107,12 @@ class MapDatabaseItems extends React.Component{
         //         width:"260px"
         //     }
         // })
-        console.log(this.state.currentStyle)
+        // console.log(this.state.currentStyle)
         
         // const data = "Hello World!";
         // localStorage.setItem("myData", data);
         // localStorage.getItem("myData")
-        console.log(localStorage.getItem("myData"));
+        // console.log(localStorage.getItem("myData"));
     }
     componentDidMount(){
         // const dbRef = fire.database().ref('articles').orderByChild("id");
@@ -175,25 +175,25 @@ class MapDatabaseItems extends React.Component{
         fire.database().ref("items").off();
       }
 
-          scroll(){
-          const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-          const body = document.body;
-          const html = document.documentElement;
-          const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-          const windowBottom = windowHeight + window.pageYOffset;
-          console.log(docHeight);
-          console.log(windowBottom)
+    //       scroll(){
+    //       const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    //       const body = document.body;
+    //       const html = document.documentElement;
+    //       const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+    //       const windowBottom = windowHeight + window.pageYOffset;
+    //       console.log(docHeight);
+    //       console.log(windowBottom)
           
-            if(windowBottom >= docHeight){
-                console.log("Bottom Reached")
-            }else{
-                console.log("Not At Bottom Yet")
-            }
-      }
+    //         if(windowBottom >= docHeight){
+    //             console.log("Bottom Reached")
+    //         }else{
+    //             console.log("Not At Bottom Yet")
+    //         }
+    //   }
 
     render(){
         const firebaseDB = this.state.articlesArray;        
-        console.log(this.state.currentStyle)
+        // console.log(this.state.currentStyle)
 
         const HomePageView = firebaseDB.map((value,key) => {
 
