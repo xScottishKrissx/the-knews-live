@@ -1,13 +1,21 @@
 Part 1 - Implement the front end UI:
-     Build from a mobile first approach
-         Design should be responsive
-     Focus on the non-logged functionality
-     Add Logged in functionality as a secondary feature
-     Most important is the ability to click on a link, go to a new page and then back again
-     With that core in place then add the CMS elements.
+     ☐ Build from a mobile first approach
+        ☐ Design should be responsive
+     ☐ Focus on the non-logged functionality
+     ☐ Add Logged in functionality as a secondary feature
+     ☐ Most important is the ability to click on a link, go to a new page and then back again
+     ☐ With that core in place then add the CMS elements.
 
 
-    Known Bugs:
+ Part 2 - Back to Work:
+        ☐ Figure out how to use the do-list again
+        ☐ Get the blog back up and running
+        ☐ Get Portfolio back up and running
+        ☐ Get comfortable with react again.
+        ☐ Probably take a couple of refreshers for JavaScript, it's been a while
+        ☐ Profit??
+
+ Known Bugs:
         ✔ If you middle click or try to open a news item in a new tab, you can an error @started(18-07-25 11:58) @done(18-08-01 11:03) @lasted(6d23h5m12s)
         ✔ Typing in localhost:3000newsitem will return a blank screen @done(18-08-10 17:39)
         ✔ The random image function returns the same image. Not a big deal but should be fixed before the end. @done(18-07-31 17:41)
@@ -23,7 +31,7 @@ Part 1 - Implement the front end UI:
         
         ☐ When deployed, if you login with an article in the database the website UI doesnt update to reflect this. You need to manually refresh the page before the correct UI appears.
         
-    General Notes  Objectives:
+General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
         
