@@ -45,7 +45,8 @@ export const MessageBody = () =>{
                 <li>To build it I am using React for the front end and Google Firebase for the database</li>
                 <li>Check out the repo for this project <a href="https://github.com/xScottishKrissx/react-project-3" target="_new">here</a></li>
                 <li>It's a WIP but I'm proud of my progress so far. I also plan on updating it with a new version daily.</li>
-                <li>Being Furloughed from work has encouraged me to cget back to this. I'm also working on other projects aside from this so progress might be slow</li>
+                <li>Being Furloughed from work has encouraged me to get back to this. I'm also working on other projects aside from this so progress might be slow</li>
+                <li>Also, not working with react in a few years can really get in the way of working with react. Who da thunk?</li>
                 <li>KNOWN BUG: If you refresh on a news article you will get a 404 error.</li>
             </ul>
         </div>
