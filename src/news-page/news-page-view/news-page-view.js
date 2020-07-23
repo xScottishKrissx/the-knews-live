@@ -30,7 +30,7 @@ export class NewsPageVIEW extends React.Component{
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
                         <HeaderImage props={value.id} />
-                        <HeaderImage props={value.id + 65} />
+                        <HeaderImage props={value.id + 60} />
                     </div>
 
                     <ArticleArea 
@@ -42,6 +42,8 @@ export class NewsPageVIEW extends React.Component{
                         dislikes={value.dislikes}
                         id={value.key}
                     />
+
+
 
                     <RecommendedReading />
 

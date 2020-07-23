@@ -32,6 +32,18 @@ const ArticleArea = (value) => {
                         </div>                     
 
                         <PageScore likes={value.likes} dislikes={value.dislikes} id={value.id}/>
+                        <button>Edit Article</button>
+
+                    <div>
+                        
+                    <form name="myForm" onSubmit={console.log("Edit Text")}>
+                            <textarea>
+                                {value.text}
+                            </textarea>
+                        </form>
+                        <button formTarget="myForm">Submit Edit</button>
+                    </div>
+
                     </article>
 
                     <ExtraImageLoop />          

@@ -6,6 +6,7 @@ import {
 import fire, {auth, provider} from '../fire.js'
 
 import FormView from './form-view.js';
+import ArticleArea from '../news-page/news-page-view/article-area/article-area.js';
 
 // import GetTodaysDate from '../utility_components/todaysDate.js';
 
@@ -54,6 +55,7 @@ export class PracticeForm extends React.Component{
 
       // console.log({GeneratePostDate})
       const dbRef = fire.database().ref("items");   
+      console.log("db-ref: " + dbRef);
            
       dbRef.on('value', (snapshot) => {
         let dbObjects = snapshot.val();
@@ -62,6 +64,7 @@ export class PracticeForm extends React.Component{
           tempState.push({
             author: dbObjects[dbObject].author,
             email:dbObjects[dbObject].email,
+            text:dbObjects[dbObject].text,
             title:dbObjects[dbObject].title,
             postdate:dbObjects[dbObject].postdate,
             likes:dbObjects[dbObject].likes,
@@ -74,7 +77,7 @@ export class PracticeForm extends React.Component{
         this.setState({
           articlesArray: tempState
         })
-        // console.log(((this.state.articlesArray).length) + 1)
+        console.log(((this.state.articlesArray).length) + 1)
 
 
         // Check if User is Logged In...
@@ -92,7 +95,8 @@ export class PracticeForm extends React.Component{
               // alert("You can only have one article at a time!!")
               console.log("You can't submit until you delete one of the articles you already have")
               this.setState({
-                viewForm:false
+                viewForm:true
+                //Allowing multiple articles for testing
               })
               console.log("Can User Submit an Article? : " + this.state.viewForm)
             }else{
@@ -120,12 +124,7 @@ export class PracticeForm extends React.Component{
       fire.database().ref("items").off();      
     }
 
-    handleChange(e){
-      console.log("Change!!!")
-      this.setState({
-        [e.target.name]: e.target.value
-      })
-    }
+
 
 
 
@@ -202,6 +201,15 @@ export class PracticeForm extends React.Component{
       const itemRef = fire.database().ref(`/items/${key}`);
       itemRef.remove()
     }
+
+    handleChange(key,event){
+      console.log("New Text: " + this.state.text)
+      const itemRef = fire.database().ref(`/items/${key}`);
+      //This is how to hardcode it...
+    itemRef.update({text: "this.state.text2"})
+
+
+    }
    
     render(){
       // <RedirectOnSubmit 
@@ -234,9 +242,13 @@ export class PracticeForm extends React.Component{
                 <li>dislikes: {value.dislikes}</li>
                 <li>Key: {value.key}</li>
                 <li>Id: {value.id}</li>
+                <li>Content: {value.text}</li>
 
               </ul>
+              
               <button onClick={() => this.handleDelete(value.key)}>Delete</button>
+              <button onClick={() => this.handleChange(value.key)}>Edit</button>
+              
             </div>
 
           );
@@ -254,16 +266,21 @@ export class PracticeForm extends React.Component{
             // email={this.state.user.email}
             title={this.state.title}
             article={this.state.article}
-            handleChange={this.handleChange}
+            onChange={this.handleChange}
             onSubmit={this.handleSubmit}
             login={this.login}
             logout={this.logout}
             test1={testthing}
             viewForm={this.state.viewForm}
+
+            newText={this.state.text}
             
           
           />
+
+          
         )
+        
     }
 }
 

@@ -52,10 +52,22 @@ const FormView = (props) => {
                                     rows="10"
                                     value={props.article}
                                 ></textarea>    
+
+                                <p>New Text</p>
+                                <textarea
+                                    form="myForm"
+                                    type="text"
+                                    name="newText"
+                                    onChange={props.handleChange}
+                                    required
+                                    rows="10"
+                                    value={props.article}
+                                ></textarea>    
                                     
                                 <button>Upload</button>                
                             </form>
                     </div>
+                   
                    
                     :
                     <div>
@@ -65,6 +77,8 @@ const FormView = (props) => {
                     
                    
                 }
+
+          
 
                     
 

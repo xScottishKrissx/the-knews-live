@@ -107,7 +107,7 @@ class MapDatabaseItems extends React.Component{
         //         width:"260px"
         //     }
         // })
-        // console.log(this.state.currentStyle)
+         //console.log(this.state.currentStyle)
         
         // const data = "Hello World!";
         // localStorage.setItem("myData", data);
@@ -134,7 +134,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 articlesArray: newState
             })
-            // console.log(this.state.articlesArray);
+             console.log(this.state.articlesArray);
             
         })
     }

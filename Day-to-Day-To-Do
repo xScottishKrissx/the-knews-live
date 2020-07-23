@@ -1,0 +1,140 @@
+Deployed Project To-Do:
+    ☐ Add Custom FavIco
+    ☐ Add Custom Title Tag
+    ☐ The split main header in the news page appears too early.
+    ☐ BUG: If you refresh the page on a news article you will get a 404 error.
+
+11 August 2018:
+    ✔ Get Ducks In Order @done(18-09-11 13:01)
+    ✔ Get Local Storage thing working @done(18-09-11 13:01)
+    ✘ Investigate Infinite Scrolling for the home page @started(18-09-11 13:10) @cancelled(18-09-11 13:57) @wasted(47m7s)
+    ✔ Working on Scroll to top button @done(18-09-11 15:53)
+    ☐ Write Changelog
+    ☐ Deploy new build to portfolio
+
+4 August 2018:
+    ✔ Work on custom controls @done(18-09-11 12:03)
+    ✘ Deploy to portfolio @cancelled(18-09-11 12:03)
+    ✘ Update changelog @cancelled(18-09-11 12:03)
+    
+31 August 2018:
+    ✔ Keep working on recommended reading bar @done(18-08-31 17:22)
+    ✔ Add more data to database @done(18-08-31 17:22)
+    ✔ Implement custom news tile sizes @done(18-08-31 17:22)
+        //Sort of, doesn't remember tile sizes if you leave the page.
+    ☐ Deploy new build to website
+    ☐ Update portfolio changelog
+
+30 August 2018:
+    ✔ Clean Up Console @done(18-08-30 11:47)
+    ✔ Improve appearance and control of page score @done(18-08-30 12:26)
+    ✔ Improve appearance of recommended reading bar @done(18-08-31 17:22)
+    ✔ Deploy new build to portfolio @done(18-08-31 17:22)
+    ✔ Write blog @done(18-08-31 17:22)
+
+29 August 2018:
+    ✔ Implement some sort of like and dislike functionality @done(18-08-29 17:09)
+    ✔ Deploy new build to portfolio @done(18-08-29 17:09)
+    ✔ Write blog @done(18-08-29 17:09)
+
+28 August 2018:
+    ✔ Any ID that doesn't exists should return an error page. @done(18-08-29 11:13)
+    ✘ Deploy new build to portfolio @cancelled(18-08-29 11:12)
+    ✘ Write blog @cancelled(18-08-29 11:12)
+
+24 August 2018:
+    ✔ Create UI letting users know about article limit this before they try to type stuff in @done(18-08-24 10:50)
+    ✔ Automate Post date @done(18-08-24 11:24)
+    ✔ Add a recommended reading column using contents from the database. @done(18-08-24 12:17)
+    ✔ Instead of removing the extra images at lower than 1600px on the news page just add them in a grid to the bottom of the article. @done(18-08-24 12:25)
+    ✘ Any ID that doesn't exists should return an error page. @cancelled(18-08-28 12:18)
+    ✘ Deploy new build to portfolio @cancelled(18-08-28 12:18)
+    ✘ Write blog @cancelled(18-08-28 12:18)
+
+23 August 2018:
+    ✘ Create UI letting users know article limit this before they try to type stuff in @cancelled(18-08-24 10:32)
+    ✔ Be able to see posts linked to current account on myKnews page @done(18-08-23 14:18)
+    ✔ Ability to delete posts @done(18-08-23 17:07)
+    ✘ Automate Post date @cancelled(18-08-24 10:32)
+    ✘ Deploy new build to portfolio @cancelled(18-08-24 10:32)
+    ✘ Write blog @cancelled(18-08-24 10:32)
+
+
+22 August Goals:
+    ✔ Limit User Uploads to One per registered email address @started(18-08-21 17:36) @done(18-08-22 12:56) @lasted(19h20m59s)
+        ✘ Create UI letting users know about this before they try to type stuff in @started(18-08-22 12:57) @cancelled(18-08-23 11:54) @wasted(22h57m50s)
+    
+        ✘ Automate Post Date @started(18-08-21 17:36) @cancelled(18-08-22 15:40) @wasted(22h4m24s)
+             Attempted this but something didn't want to play nice. Will come back this later as it's not a major priority.
+    
+        ✔ Ensure the correct data is being submitted to the database. @started(18-08-22 12:35) @done(18-08-22 17:01) @lasted(4h26m47s)
+    ✘ The ability to delete posts @started(18-08-13 18:04) @cancelled(18-08-22 17:01) @wasted(1w1d22h57m54s)
+    ✔ Clean up components @started(18-08-22 15:41) @done(18-08-22 17:01) @lasted(1h20m43s)
+    ✔ Clean Up Console Log @started(18-08-22 15:48) @done(18-08-22 16:05) @lasted(17m4s)
+    ✘ If email restrictions are in place, deploy new  build to portfolio @started(18-08-22 12:59) @cancelled(18-08-22 17:01) @wasted(4h2m52s)
+    ✘ Write Blog @started(18-08-22 12:34) @cancelled(18-08-22 17:01) @wasted(4h27m50s)
+
+21 August Goals:
+    ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
+
+        ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
+            ✔ Logged In View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
+
+        ✔ Log Out Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
+            ✔ Logged Out View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
+
+        / . "auth != null"
+    ✘ Deploy new version of design and update deployment message. @started(18-08-17 11:10) @cancelled(18-08-21 17:32) @wasted(4d6h22m1s)
+    ✘ Write Blog @started(18-08-15 11:17) @cancelled(18-08-21 17:31) @wasted(6d6h15m)
+
+17 August Goals:
+    ✔ Fix this bug @done(18-08-17 12:00)
+        Can't call setState (or forceUpdate) on an unmounted component
+        Fixed it by calling componentWillUnmount on the database object like so
+
+        componentWillUnmount(){
+            console.log("Unmount on practice-form.js")
+            fire.database().ref("items").off();
+          }
+      
+    ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
+        ✔ Form should not submit without mandatory fields @done(18-08-17 12:55)
+    /☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
+        ✔ Post Date @done(18-08-17 12:42)
+    /    ☐ Author
+    ✔ Can you re-route to the article you just uploaded on sumbit?? @started(18-08-17 13:26) @done(18-08-17 13:43) @lasted(17m28s)
+        
+    /☐ Deploy new version of design and update deployment message. @started(18-08-17 11:10)
+    /☐ Write Blog @started(18-08-15 11:17)
+
+15 August Goals:
+    ✔ Add deployment message to deployed version @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m19s)
+    ✔ Figure out why the home page is looping twice @started(18-08-15 11:17) @done(18-08-15 12:13) @lasted(56m22s)
+        I had 2 of the component responsible for looping the news items.
+
+    ✔ Merge progress into master @started(18-08-15 11:17) @done(18-08-15 15:23) @lasted(4h6m8s)
+   / ☐ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23)
+    // Author, title, text,
+   / ☐ Some inputs should automatically be submitted @started(18-08-15 15:23)
+        // Date Posted, Page ID, Image path settings
+   / ☐ Write Blog @started(18-08-15 11:17)
+
+
+
+14 August Goals:
+    ✔ Finish off styling news pages @done(18-08-14 12:24)
+    ✔ Organise CSS into neater file @done(18-08-14 13:52)
+    ✔ Further Organise components @done(18-08-14 13:52)
+   / ☐ Implement some sort of like and dislike functionality
+    ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
+    ✔ Move everything in the filters page to myKnews @done(18-08-14 13:53)
+   / ☐ Merge progress into master
+    ✔ Deploy New Build to portfolio @done(18-08-15 11:15)
+   / ☐ Write End of Day Blog
+
+23 July 2020 Goals:
+    ☐ Get portfolio up and running
+    ☐ JavaScript refresher
+    ☐ React Refresher
+
+
