@@ -1,5 +1,6 @@
 import React from 'react';
 import fire, {auth, provider} from '../../../fire.js';
+import { Redirect } from 'react-router';
 
 export class EditArticle extends React.Component{
     constructor(props){
@@ -14,6 +15,22 @@ export class EditArticle extends React.Component{
         console.log("handlEdit")
         this.setState({articleText: e.target.value});   
         console.log(this.state.articleText)
+
+    //Following code stolen from various souces on the internet.
+    e.target.style.height ='inherit';
+    // Get the computed styles for the element
+    const computed = window.getComputedStyle(e.target);
+
+    // Calculate the height
+    const height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+                 + parseInt(computed.getPropertyValue('padding-top'), 10)
+                 + e.target.scrollHeight
+                 + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+                 + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+
+    e.target.style.height = `${height}px`;
+    
+
     }
 
     handleSubmit(e){
@@ -22,16 +39,24 @@ export class EditArticle extends React.Component{
         const dbRef = fire.database().ref('items');
         const itemRef = fire.database().ref(`/items/101`);
         itemRef.update({text: this.state.articleText})
+
+        
+
     }
     render(){
 
-        const value = this.state.value;
         const currentArticle = this.state.articleText;
+        const testStyle = {
+            maxHeight: '50vh',
+            minHeight:'10vh',
+            color: 'red'
+        }
         return(
             <div>  
             
             <form onSubmit={this.handleSubmit}>
-               <input type="text" value={currentArticle} onChange={this.handleChange}/>
+               {/* <input type="text-area" value={currentArticle} onChange={this.handleChange}/> */}
+               <textarea style={testStyle} type="text-area" value={currentArticle} onChange={this.handleChange}/>
                <input type="submit" value="Submit" />
             </form>
         </div>   
