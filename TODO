@@ -3,14 +3,16 @@
   ☐ Get portfolio up and running
   ☐ JavaScript refresher
   ☐ React Refresher
-  ☐ Create a new component for edits.
+  ✔ Create a new component for edits. @done(20-07-24 12:17)
+     ☐ Before moving on, add ability to edit title.
+  ✔ Change keyboard settings back to UK. @done(20-07-24 12:50)
 
 23 July 2020 Goals:
-  ☐ Get portfolio up and running
-  ☐ JavaScript refresher
-  ☐ React Refresher
-  ☐ So instead of doing that I did a whole thing on editing text of a current database record. Next I will try and get away of editing that actualy text from the database instead of setting it manually.
-  ☐ I think tommorow I should create a new component and try and start from fresh. I'm confusing myself trying to both remember react and integrate new code into old code I don't really remember.
+  ✘ Get portfolio up and running @cancelled(20-07-24 12:17)
+  ✘ JavaScript refresher @cancelled(20-07-24 12:17)
+  ✘ React Refresher @cancelled(20-07-24 12:17)
+  ✔ So instead of doing that I did a whole thing on editing text of a current database record. Next I will try and get away of editing that actualy text from the database instead of setting it manually. @done(20-07-24 12:17)
+  ✔ I think tommorow I should create a new component and try and start from fresh. I'm confusing myself trying to both remember react and integrate new code into old code I don't really remember. @done(20-07-24 12:17)
    
 
 

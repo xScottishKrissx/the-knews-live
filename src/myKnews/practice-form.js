@@ -206,7 +206,7 @@ export class PracticeForm extends React.Component{
       console.log("New Text: " + this.state.text)
       const itemRef = fire.database().ref(`/items/${key}`);
       //This is how to hardcode it...
-    itemRef.update({text: "this.state.text2"})
+    //itemRef.update({text: "this.state.text2"})
 
 
     }

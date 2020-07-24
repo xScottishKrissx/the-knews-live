@@ -22,7 +22,7 @@ const ArticleArea = (value) => {
                         <h3 className="article-author">{value.author}</h3>
                         
                 </header>
-                <EditArticle articleText={value.text}/>
+                <EditArticle articleText={value.text} articleID={value.id} articleTitle={value.title}/>
                 <Share />
                 
                 

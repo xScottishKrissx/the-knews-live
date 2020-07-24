@@ -5,7 +5,12 @@ import { Redirect } from 'react-router';
 export class EditArticle extends React.Component{
     constructor(props){
         super(props);
-        this.state = {articleText: this.props.articleText}
+        this.state = {
+            articleTitle: this.props.articleTitle,
+            articleText: this.props.articleText, 
+            articleID:this.props.articleID
+        }
+
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,8 +18,19 @@ export class EditArticle extends React.Component{
 
     handleChange(e){
         console.log("handlEdit")
-        this.setState({articleText: e.target.value});   
+
+        const target = e.target;
+        if(target.name === "title"){
+            this.setState({articleTitle: e.target.value}); 
+        }else{
+            this.setState({articleText: e.target.value}); 
+        }
+
+
+       // this.setState({articleText: e.target.value}); 
+        //this.setState({articleTitle: e.target.value});  
         console.log(this.state.articleText)
+        console.log(this.state.articleTitle)
 
     //Following code stolen from various souces on the internet.
     e.target.style.height ='inherit';
@@ -36,16 +52,15 @@ export class EditArticle extends React.Component{
     handleSubmit(e){
         console.log("New Text to be submitted:" + this.state.articleText);
         e.preventDefault();
-        const dbRef = fire.database().ref('items');
-        const itemRef = fire.database().ref(`/items/101`);
-        itemRef.update({text: this.state.articleText})
-
-        
+        const articleKey = this.state.articleID
+        const itemRef = fire.database().ref(`/items/` + articleKey);
+        itemRef.update({text: this.state.articleText, title: this.state.articleTitle})        
 
     }
     render(){
 
         const currentArticle = this.state.articleText;
+        console.log(this.state.articleID)
         const testStyle = {
             maxHeight: '50vh',
             minHeight:'10vh',
@@ -53,10 +68,10 @@ export class EditArticle extends React.Component{
         }
         return(
             <div>  
-            
             <form onSubmit={this.handleSubmit}>
                {/* <input type="text-area" value={currentArticle} onChange={this.handleChange}/> */}
-               <textarea style={testStyle} type="text-area" value={currentArticle} onChange={this.handleChange}/>
+               <input name="title" type="text" value={this.state.articleTitle} onChange={this.handleChange}/>
+               <textarea name="content" style={testStyle} type="text-area" value={currentArticle} onChange={this.handleChange}/>
                <input type="submit" value="Submit" />
             </form>
         </div>   

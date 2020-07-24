@@ -1,0 +1,23 @@
+Blog Entry 1
+--------------------------
+Good lord, so I've managed to add the ability to edit an article which might not mean anything now as I've deleted this entry about 20 times so far.
+
+So here's the bullet points:
+<ul>
+<li>I've been away from this project for quite a while(years).</li>
+<li>My progress when i left was to a point where I can create new articles under a specific logged into user id and get an article with some randomly generated images</li>
+<li>I didn't have the ability to edit articles outside of the database once they've been created.</li>
+<li>Creating this little edit form was my way of easing myself back into this project and react In general</li>
+<li>After much trial and error and about a day of work I managed to implement said form.</li>
+<li>I have moved onto adding the ability to also change the title while in the process deleting the original post that existed here.</li>
+</ul>
+I also want to use these articles as a sort of blog to both document and encourage the development of new features of this project. I realise I could just use various libraries to implement the same functionality in a fraction of the time but I probably wouldn't learn a whole lot other than how to google(which I am quite already quite proficient at)
+
+As of this entry, the form is also hilariously insecure so I will need to address that at some point. Althought I do currently have google authenticated user access for the myKnews page so I think it should be fairly simple to hide the edit button from anyone who doesn't have proper access.
+
+----------------------------
+
+Blog Entry 2
+So with the edit functionality sort of solid, I now want to add the ability to change the article title. That shouldn't be too difficult right? just another text box....right?
+
+{{insert answer here}} ---->> ___________
