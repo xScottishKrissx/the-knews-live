@@ -4,6 +4,8 @@
 ☐ React Refresher
 ☐ Edit button should only be accessibly by the person who authored the current article.
 ☐ Fix the ability to upload new articles
+    ☐ Looks like there's something wrong the loop on practice-form.js(L:143)
+    ☐ Code works when removed from the loop
 
 
 24 July 2020 Goals:

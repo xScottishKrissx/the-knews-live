@@ -139,46 +139,50 @@ export class PracticeForm extends React.Component{
       // const currentAuthor = this.state.author;
       const currentText = this.state.text;
       const currentTitle = this.state.title;
-
-
-      alert ("Can User Submit New Articles? : " + this.state.viewForm)
+      
+      console.log("New Article Text: " + currentText)
+      //alert ("Can User Submit New Articles? : " + this.state.viewForm)
       if(currentTitle.length === 0 ||currentText.length  === 0){
         // console.log("Can't submit")
-        alert("Error!! Title or Text boxes cannot be empty")
+        //alert("Error!! Title or Text boxes cannot be empty")
       }else if(this.state.viewForm === false){
-        console.log("Cannot submit. Please remove or edit your existing post.")
-        alert("User cannot have more than 1 article at a time. Please remove or edit your existing post.")
+        //console.log("Cannot submit. Please remove or edit your existing post.")
+        //alert("User cannot have more than 1 article at a time. Please remove or edit your existing post.")
       }else{
         console.log("Can submit")        
-        const article = {
-          // User Input here...
-          text:this.state.text,
-          title: this.state.title,
-          
-          // Auto Generated Stuff here...
-          author: this.state.user.displayName,
-          dislikes: 0,
-          email: this.state.user.email,
-          id: (((this.state.articlesArray).length) * 3 ),
-          likes: 0,
-          postdate: this.state.postdate
-         
-        }
-  
-        const dbRef = fire.database().ref('items');
-        const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
-        dbRef.child(ObjectsInDbCount).set(article);
-        // dbRef.push(article)  
-  
-        this.setState({
-          author: '',
-          email: '',
-          text: '',
-          title: '',
-          redirectToReferrer: true
-          // id: ''
-        })
+
       } 
+
+      /// THis was inside the loop as seen above but is no longer working unless removed from the if statement
+      // This is the priority.
+      const article = {
+        // User Input here...
+        text:"test-1",
+        title: "test-2",
+        
+        // Auto Generated Stuff here...
+        author: this.state.user.displayName,
+        dislikes: 0,
+        email: this.state.user.email,
+        id: (((this.state.articlesArray).length) * 3 ),
+        likes: 0,
+        postdate: this.state.postdate
+       
+      }
+
+      const dbRef = fire.database().ref('items');
+      const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
+      dbRef.child(ObjectsInDbCount).set(article);
+      // dbRef.push(article)  
+
+      this.setState({
+        author: '',
+        email: '',
+        text: '',
+        title: '',
+        redirectToReferrer: true
+        // id: ''
+      })
     }
 
     login(){

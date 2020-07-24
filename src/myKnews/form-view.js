@@ -23,13 +23,13 @@ const FormView = (props) => {
                 <h1>Logged in View</h1>
                 <p>Hello, {props.user.displayName}</p>
                 
-                <h1>Current Articles</h1>
-                {props.test1}
+                
+                
 
                 {
                     props.viewForm ?
                     <div>
-                        <h1>Upload</h1>
+                        <h1>New Article</h1>
                         
                             <form name="myForm" onSubmit={props.onSubmit}>
                                 <p>Title</p>
@@ -50,19 +50,9 @@ const FormView = (props) => {
                                     onChange={props.handleChange}
                                     required
                                     rows="10"
-                                    defaultValue={props.article}
+                                    value={props.article}
                                 ></textarea>    
 
-                                <p>New Text</p>
-                                <textarea
-                                    form="myForm"
-                                    type="text"
-                                    name="newText"
-                                    onChange={props.handleChange}
-                                    required
-                                    rows="10"
-                                    defaultValue={props.article}
-                                ></textarea>    
                                     
                                 <button>Upload</button>                
                             </form>
@@ -77,6 +67,8 @@ const FormView = (props) => {
                     
                    
                 }
+                <h1>Current Articles</h1>
+                {props.test1}
 
           
 
