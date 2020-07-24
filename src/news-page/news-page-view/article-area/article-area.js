@@ -5,6 +5,8 @@ import ParseHTML from './parse-database-html/parse-html.js';
 import PageScore from '../social/page-score.js';
 import Share from '../social/share.js';
 
+import EditArticle from './edit-article.js';
+
 import './article-area.css';
 
 
@@ -20,7 +22,7 @@ const ArticleArea = (value) => {
                         <h3 className="article-author">{value.author}</h3>
                         
                 </header>
-
+                <EditArticle articleText={value.text}/>
                 <Share />
                 
                 
@@ -32,17 +34,9 @@ const ArticleArea = (value) => {
                         </div>                     
 
                         <PageScore likes={value.likes} dislikes={value.dislikes} id={value.id}/>
-                        <button>Edit Article</button>
-
-                    <div>
                         
-                    <form name="myForm" onSubmit={console.log("Edit Text")}>
-                            <textarea>
-                                {value.text}
-                            </textarea>
-                        </form>
-                        <button formTarget="myForm">Submit Edit</button>
-                    </div>
+                    
+
 
                     </article>
 
