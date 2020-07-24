@@ -66,6 +66,7 @@ export class PracticeForm extends React.Component{
             email:dbObjects[dbObject].email,
             text:dbObjects[dbObject].text,
             title:dbObjects[dbObject].title,
+
             postdate:dbObjects[dbObject].postdate,
             likes:dbObjects[dbObject].likes,
             dislikes:dbObjects[dbObject].dislikes,
@@ -247,7 +248,7 @@ export class PracticeForm extends React.Component{
               </ul>
               
               <button onClick={() => this.handleDelete(value.key)}>Delete</button>
-              <button onClick={() => this.handleChange(value.key)}>Edit</button>
+              
               
             </div>
 
@@ -277,6 +278,7 @@ export class PracticeForm extends React.Component{
             
           
           />
+          
 
           
         )

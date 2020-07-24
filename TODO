@@ -3,8 +3,9 @@
   ☐ Get portfolio up and running
   ☐ JavaScript refresher
   ☐ React Refresher
+  ☐ Edit button should only be accessibly by the person who authored the current article.
   ✔ Create a new component for edits. @done(20-07-24 12:17)
-     ☐ Before moving on, add ability to edit title.
+     ✔ Before moving on, add ability to edit title. @done(20-07-24 13:13)
   ✔ Change keyboard settings back to UK. @done(20-07-24 12:50)
 
 23 July 2020 Goals:

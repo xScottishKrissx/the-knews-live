@@ -39,7 +39,7 @@ const FormView = (props) => {
                                     name="title"
                                     onChange={props.handleChange}                   
                                     required
-                                    value={props.title}>
+                                    defaultValue={props.title}>
                                 </input>
 
                                 <p>Text</p>
@@ -50,7 +50,7 @@ const FormView = (props) => {
                                     onChange={props.handleChange}
                                     required
                                     rows="10"
-                                    value={props.article}
+                                    defaultValue={props.article}
                                 ></textarea>    
 
                                 <p>New Text</p>
@@ -61,7 +61,7 @@ const FormView = (props) => {
                                     onChange={props.handleChange}
                                     required
                                     rows="10"
-                                    value={props.article}
+                                    defaultValue={props.article}
                                 ></textarea>    
                                     
                                 <button>Upload</button>                
