@@ -1,0 +1,13 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "articles" : {
+      ".indexOn" : "id"
+    },
+    "adminContent" : {
+      ".read" : "auth.token.admin === true",
+      ".write" : "auth.token.admin === true",
+    }
+  }
+}

@@ -196,6 +196,9 @@ Part 2 Implement Database functionality:
      ✔ Implement news page styles @done(18-08-13 18:02)
         ✔ Finish off styling news pages @done(18-08-14 12:24)
      ✔ Implement User Authorization so that only I can access the form. @started(18-08-13 18:04) @done(18-08-22 12:32) @lasted(1w1d18h28m36s)
+     ✔ Figure out why you can only see news articles if logged in @done(20-07-24 18:42)
+     ☐   There are rules in the firebase console that limit what users can see. 
+     ☐    I've opened them up for now but this will need to be made secure
      ✔ Can you re-route to the article you just uploaded on sumbit?? @started(18-08-17 13:26) @done(18-08-17 13:43) @lasted(17m40s)
      ✔ Implement some sort of like and dislike functionality @started(18-08-15 11:17) @done(18-08-29 17:07) @lasted(2w5h50m53s)
         // Have it working with componentWillMount but not yet onClick 12:14 29/08/2018

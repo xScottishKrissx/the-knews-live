@@ -56,6 +56,7 @@ export class NewsPageVIEW extends React.Component{
         return (
             <div>
                 {NewsPageView}
+                
             </div>
         )
 

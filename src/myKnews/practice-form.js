@@ -5,8 +5,8 @@ import {
 
 import fire, {auth, provider} from '../fire.js'
 
+
 import FormView from './form-view.js';
-import ArticleArea from '../news-page/news-page-view/article-area/article-area.js';
 
 // import GetTodaysDate from '../utility_components/todaysDate.js';
 
@@ -40,7 +40,7 @@ export class PracticeForm extends React.Component{
 
 
     componentDidMount(){
-
+      
       //Getting the Current Date and assigning it state.
       const today = new Date();
       const day = today.getDate();
@@ -123,6 +123,7 @@ export class PracticeForm extends React.Component{
     componentWillUnmount(){
       console.log("Unmount on practice-form.js")
       fire.database().ref("items").off();      
+  
     }
 
 
@@ -181,6 +182,7 @@ export class PracticeForm extends React.Component{
     }
 
     login(){
+      
       auth.signInWithPopup(provider).then((result) => {
         const user = result.user;
         this.setState({
@@ -190,11 +192,8 @@ export class PracticeForm extends React.Component{
     }
 
     logout(){
-      auth.signOut().then(() => {
-        this.setState({
-          user:null
-        });
-      })
+      auth.signOut().then(() => {this.setState({user:null});
+     })
     }
 
 

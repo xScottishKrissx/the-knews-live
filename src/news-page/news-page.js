@@ -31,7 +31,7 @@ export class NewsPage extends React.Component{
         
         // console.log(dave)
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
-        // console.log(dbRef)
+        console.log(dbRef)
         // console.log(this.props.match.params.id);
         dbRef.on('value', (snapshot) => {
             let articles = snapshot.val();

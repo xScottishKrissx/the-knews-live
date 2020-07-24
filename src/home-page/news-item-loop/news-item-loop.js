@@ -115,9 +115,16 @@ class MapDatabaseItems extends React.Component{
         // console.log(localStorage.getItem("myData"));
     }
     componentDidMount(){
-        // const dbRef = fire.database().ref('articles').orderByChild("id");
-        window.addEventListener('scroll', this.scroll);
-        const dbRef = fire.database().ref('items').limitToLast(20);
+    //const dbRef = fire.database().ref('articles').orderByChild("id");
+       // window.addEventListener('scroll', this.scroll);
+       const checkUser = fire.auth().currentUser;
+       console.log("User Status: "+ checkUser)
+
+
+        
+       const dbRef = fire.database().ref('items').limitToLast(20); 
+
+        console.log(dbRef);
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -137,6 +144,7 @@ class MapDatabaseItems extends React.Component{
              console.log(this.state.articlesArray);
             
         })
+        
     }
 
     setting1(e){
@@ -197,7 +205,7 @@ class MapDatabaseItems extends React.Component{
 
         const HomePageView = firebaseDB.map((value,key) => {
 
-            // console.log(value.id)
+            
 
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -239,6 +247,7 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div>
                 {HomePageView}
+                <p>Why are the images only loading when a user is logged in?</p>
             </div>
         );   
     }

@@ -1,12 +1,22 @@
+25 July Goals:
+☐ Get portfolio up and running
+☐ JavaScript refresher
+☐ React Refresher
+☐ Edit button should only be accessibly by the person who authored the current article.
+☐ Fix the ability to upload new articles
+
 
 24 July 2020 Goals:
-  ☐ Get portfolio up and running
-  ☐ JavaScript refresher
-  ☐ React Refresher
-  ☐ Edit button should only be accessibly by the person who authored the current article.
+  ✘ Get portfolio up and running @cancelled(20-07-24 18:40)
+  ✘ JavaScript refresher @cancelled(20-07-24 18:40)
+  ✘ React Refresher @cancelled(20-07-24 18:40)
+  ✘ Edit button should only be accessibly by the person who authored the current article. @cancelled(20-07-24 18:40)
   ✔ Create a new component for edits. @done(20-07-24 12:17)
      ✔ Before moving on, add ability to edit title. @done(20-07-24 13:13)
   ✔ Change keyboard settings back to UK. @done(20-07-24 12:50)
+  ✔ Figure out why you can only see news articles if logged in @done(20-07-24 18:42)
+    ✔ There are rules in the firebase console that limit what users can see. I've opened them up for now but this will need to be made secure @done(20-07-24 18:42)
+  ✘ Fix the ability to upload new articles @cancelled(20-07-24 18:40)
 
 23 July 2020 Goals:
   ✘ Get portfolio up and running @cancelled(20-07-24 12:17)
