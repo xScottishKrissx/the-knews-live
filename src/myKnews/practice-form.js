@@ -150,7 +150,7 @@ export class PracticeForm extends React.Component{
       //alert ("Can User Submit New Articles? : " + this.state.viewForm)
       if(currentTitle.length === 0 ||currentText.length  === 0){
         // console.log("Can't submit")
-        //alert("Error!! Title or Text boxes cannot be empty")
+        alert("Error!! Title or Text boxes cannot be empty")
       }else if(this.state.viewForm === false){
         //console.log("Cannot submit. Please remove or edit your existing post.")
         //alert("User cannot have more than 1 article at a time. Please remove or edit your existing post.")
@@ -188,8 +188,6 @@ export class PracticeForm extends React.Component{
         })
       } 
 
-      /// THis was inside the loop as seen above but is no longer working unless removed from the if statement
-      // This is the priority.
 
     }
 
@@ -214,12 +212,17 @@ export class PracticeForm extends React.Component{
       itemRef.remove()
     }
 
-    handleChange(){
+    handleChange(e){
 
-      //const itemRef = fire.database().ref(`/items/${key}`);
 
       console.log("Change")
-     
+      const target = e.target;
+      if(target.name === "title"){
+          this.setState({title: e.target.value}); 
+      }else{
+          this.setState({text: e.target.value}); 
+      }
+      console.log(this.state.title);
 
 
 
@@ -247,7 +250,7 @@ export class PracticeForm extends React.Component{
     
 
       const existingArticle = this.state.articlesArray;
-      const testthing = existingArticle.map((value,key) => {
+      const currentArticleView = existingArticle.map((value,key) => {
         if(this.state.user && value.email === this.state.user.email){
           return (
             <div key={key}>
@@ -277,18 +280,18 @@ export class PracticeForm extends React.Component{
         return(
          
           
-        /* 
+        
            <FormView 
             user={this.state.user}
             // displayName={this.state.user.displayName}
             // email={this.state.user.email}
             title={this.state.title}
             article={this.state.article}
-            onChange={this.handleChange}
+            handleChange={this.handleChange}
             onSubmit={this.handleSubmit}
             login={this.login}
             logout={this.logout}
-            test1={testthing}
+            test1={currentArticleView}
             viewForm={this.state.viewForm}
             
 
@@ -296,96 +299,11 @@ export class PracticeForm extends React.Component{
             
           
           />
-          */
-<div className='form' onChange={this.state.handleChange}>
-
-{/* Login */}
-
-{this.state.user ?
-    <button onClick={this.logout}>Log Out</button>
-    :
-    <button onClick={this.login}>Login</button>
-}
-
-
-{/* Logged In View */}
-
-{this.state.user ?
-
-
-<div className='uploadArticle' onChange={this.handleChange}>
-
-    <h1>Logged in View</h1>
-    <p>Hello, {this.state.user.displayName}</p>
-    {this.state.test2}
-    
-    
-    
-
-    {
-        this.state.viewForm ?
-        <div>
-            <h1>New Article</h1>
-            
-                <form name="myForm" onSubmit={this.state.onSubmit}  >
-                    <p>Title</p>
-                    <input                    
-                        form="myForm"
-                        type="text"
-                        name="title"
-                        onChange={this.state.handleChange}                   
-                        required
-                        defaultValue={this.state.title}>
-                    </input>
-
-                    <p>Text</p>
-                    <textarea
-                        form="myForm"
-                        type="text"
-                        name="text"
-                        onChange={this.state.handleChange}
-                        required
-                        rows="10"
-                        value={this.state.article}
-                    ></textarea>    
-
-                        
-                    <button>Upload</button>                
-                </form>
-        </div>
-       
-       
-        :
-        <div>
-            <h1>Upload</h1>
-            <p>You have the maximum number (1) of articles on the website. Please delete or edit your existing article.</p>
-        </div>
-        
-       
-    }
-    <h1>Current Articles</h1>
-    {testthing}
-
-
+          
 
         
-
-
-
-
-    
-
-
-</div>
-:
-// Logged Out View
-<div>
-    <h1>Logged Out View</h1>
-</div>
-}
-
-
-</div>
+          
+          
           
 
         

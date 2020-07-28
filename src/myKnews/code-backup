@@ -1,0 +1,77 @@
+******************************************************************
+Working Upload Form
+******************************************************************
+
+<div className='form' >
+
+          {/* Login */}
+
+          {this.state.user ?
+              <button onClick={this.logout}>Log Out</button>
+              :
+              <button onClick={this.login}>Login</button>
+          }
+
+
+          {/* Logged In View */}
+
+          {this.state.user ?
+
+
+          <div className='uploadArticle' >
+
+              <h1>Logged in View</h1>
+              <p>Hello, {this.state.user.displayName}</p>
+
+              {
+              this.state.viewForm ?
+              <div>
+                  <h1>New Article</h1>
+                  
+                      <form name="myForm" onSubmit={this.handleSubmit}  >
+                          <p>Title</p>
+                          <input                    
+                              form="myForm"
+                              type="text"
+                              name="title"
+                              onChange={this.handleChange}                   
+                              required
+                              defaultValue={this.state.title}>
+                          </input>
+
+                          <p>Text</p>
+                          <textarea
+                              form="myForm"
+                              type="text"
+                              name="text"
+                              onChange={this.handleChange}
+                              required
+                              rows="10"
+                              value={this.state.article}
+                          ></textarea>    
+
+                              
+                          <button>Upload</button>                
+                      </form>
+              </div> 
+              :
+              <div>
+                  <h1>Upload</h1>
+                  <p>You have the maximum number (1) of articles on the website. Please delete or edit your existing article.</p>
+              </div>
+              }
+              <h1>Current Articles</h1>
+              {currentArticleView}    
+          
+
+
+          </div>
+          :
+          // Logged Out View
+          <div>
+              <h1>Logged Out View</h1>
+          </div>
+          }
+
+
+          </div>
