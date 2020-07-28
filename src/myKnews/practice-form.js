@@ -94,12 +94,12 @@ export class PracticeForm extends React.Component{
           checkDBRef.map((test) => {         
             if(test.email === this.state.user.email){            
               // alert("You can only have one article at a time!!")
-              console.log("You can't submit until you delete one of the articles you already have")
+              //console.log("You can't submit until you delete one of the articles you already have")
               this.setState({
                 viewForm:true
                 //Allowing multiple articles for testing
               })
-              console.log("Can User Submit an Article? : " + this.state.viewForm)
+              //console.log("Can User Submit an Article? : " + this.state.viewForm)
             }else{
               this.setState({
                 viewForm:true
@@ -132,15 +132,21 @@ export class PracticeForm extends React.Component{
 
     handleSubmit(e){
 
+     
       console.log("SUBMIT!!!");      
       e.preventDefault();
 
+
       // console.log("Author is :" + this.state.author)
       // const currentAuthor = this.state.author;
+
+
       const currentText = this.state.text;
       const currentTitle = this.state.title;
       
+      console.log("Test Thing:: " + this.state.title)
       console.log("New Article Text: " + currentText)
+      
       //alert ("Can User Submit New Articles? : " + this.state.viewForm)
       if(currentTitle.length === 0 ||currentText.length  === 0){
         // console.log("Can't submit")
@@ -149,40 +155,42 @@ export class PracticeForm extends React.Component{
         //console.log("Cannot submit. Please remove or edit your existing post.")
         //alert("User cannot have more than 1 article at a time. Please remove or edit your existing post.")
       }else{
-        console.log("Can submit")        
-
+        console.log("Can submit")    
+        
+        
+        const article = {
+          // User Input here...
+          text: this.state.text,
+          title: this.state.title,
+          
+          // Auto Generated Stuff here...
+          author: this.state.user.displayName,
+          dislikes: 0,
+          email: this.state.user.email,
+          id: (((this.state.articlesArray).length) * 3 ),
+          likes: 0,
+          postdate: this.state.postdate
+         
+        }
+  
+        const dbRef = fire.database().ref('items');
+        const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
+        dbRef.child(ObjectsInDbCount).set(article);
+        // dbRef.push(article)  
+  
+        this.setState({
+          author: '',
+          email: '',
+          text: '',
+          title: '',
+          redirectToReferrer: true
+          // id: ''
+        })
       } 
 
       /// THis was inside the loop as seen above but is no longer working unless removed from the if statement
       // This is the priority.
-      const article = {
-        // User Input here...
-        text:"test-1",
-        title: "test-2",
-        
-        // Auto Generated Stuff here...
-        author: this.state.user.displayName,
-        dislikes: 0,
-        email: this.state.user.email,
-        id: (((this.state.articlesArray).length) * 3 ),
-        likes: 0,
-        postdate: this.state.postdate
-       
-      }
 
-      const dbRef = fire.database().ref('items');
-      const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
-      dbRef.child(ObjectsInDbCount).set(article);
-      // dbRef.push(article)  
-
-      this.setState({
-        author: '',
-        email: '',
-        text: '',
-        title: '',
-        redirectToReferrer: true
-        // id: ''
-      })
     }
 
     login(){
@@ -206,15 +214,19 @@ export class PracticeForm extends React.Component{
       itemRef.remove()
     }
 
-    handleChange(key,event){
-      console.log("New Text: " + this.state.text)
-      const itemRef = fire.database().ref(`/items/${key}`);
-      //This is how to hardcode it...
-    //itemRef.update({text: "this.state.text2"})
+    handleChange(){
+
+      //const itemRef = fire.database().ref(`/items/${key}`);
+
+      console.log("Change")
+     
+
 
 
     }
    
+
+
     render(){
       // <RedirectOnSubmit 
       //   redirectToReferrer={this.state.redirectToReferrer} 
@@ -232,7 +244,7 @@ export class PracticeForm extends React.Component{
       }
 
 
-     
+    
 
       const existingArticle = this.state.articlesArray;
       const testthing = existingArticle.map((value,key) => {
@@ -263,8 +275,10 @@ export class PracticeForm extends React.Component{
 
       })
         return(
+         
           
-          <FormView 
+        /* 
+           <FormView 
             user={this.state.user}
             // displayName={this.state.user.displayName}
             // email={this.state.user.email}
@@ -276,13 +290,106 @@ export class PracticeForm extends React.Component{
             logout={this.logout}
             test1={testthing}
             viewForm={this.state.viewForm}
+            
 
             newText={this.state.text}
             
           
           />
+          */
+<div className='form' onChange={this.state.handleChange}>
+
+{/* Login */}
+
+{this.state.user ?
+    <button onClick={this.logout}>Log Out</button>
+    :
+    <button onClick={this.login}>Login</button>
+}
+
+
+{/* Logged In View */}
+
+{this.state.user ?
+
+
+<div className='uploadArticle' onChange={this.handleChange}>
+
+    <h1>Logged in View</h1>
+    <p>Hello, {this.state.user.displayName}</p>
+    {this.state.test2}
+    
+    
+    
+
+    {
+        this.state.viewForm ?
+        <div>
+            <h1>New Article</h1>
+            
+                <form name="myForm" onSubmit={this.state.onSubmit}  >
+                    <p>Title</p>
+                    <input                    
+                        form="myForm"
+                        type="text"
+                        name="title"
+                        onChange={this.state.handleChange}                   
+                        required
+                        defaultValue={this.state.title}>
+                    </input>
+
+                    <p>Text</p>
+                    <textarea
+                        form="myForm"
+                        type="text"
+                        name="text"
+                        onChange={this.state.handleChange}
+                        required
+                        rows="10"
+                        value={this.state.article}
+                    ></textarea>    
+
+                        
+                    <button>Upload</button>                
+                </form>
+        </div>
+       
+       
+        :
+        <div>
+            <h1>Upload</h1>
+            <p>You have the maximum number (1) of articles on the website. Please delete or edit your existing article.</p>
+        </div>
+        
+       
+    }
+    <h1>Current Articles</h1>
+    {testthing}
+
+
+
+        
+
+
+
+
+    
+
+
+</div>
+:
+// Logged Out View
+<div>
+    <h1>Logged Out View</h1>
+</div>
+}
+
+
+</div>
           
 
+        
+         
           
         )
         
@@ -291,13 +398,13 @@ export class PracticeForm extends React.Component{
 
 export default PracticeForm;
 
-// const RedirectOnSubmit = (props) => {
-//   const redirectToReferrer = props.redirectToReferrer;
+// const RedirectOnSubmit = (this.state) => {
+//   const redirectToReferrer = this.state.redirectToReferrer;
 //   if (redirectToReferrer === true) {
 //       return (
 //         <Switch>
 //           <Redirect 
-//               to={"/articles/news-page/" + ((props.articlesArray).length) }
+//               to={"/articles/news-page/" + ((this.state.articlesArray).length) }
 //             />          
 //         </Switch>)
 //   }

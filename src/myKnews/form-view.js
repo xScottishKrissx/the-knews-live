@@ -1,8 +1,9 @@
 import React from 'react'
 
 const FormView = (props) => {
+    
     return(
-            <div className='form'>
+            <div className='form' onChange={props.handleChange}>
 
             {/* Login */}
 
@@ -18,10 +19,11 @@ const FormView = (props) => {
             {props.user ?
 
 
-            <div className='uploadArticle'>
+            <div className='uploadArticle' onChange={props.handleChange}>
 
                 <h1>Logged in View</h1>
                 <p>Hello, {props.user.displayName}</p>
+                {props.test2}
                 
                 
                 
@@ -31,7 +33,7 @@ const FormView = (props) => {
                     <div>
                         <h1>New Article</h1>
                         
-                            <form name="myForm" onSubmit={props.onSubmit}>
+                            <form name="myForm" onSubmit={props.onSubmit}  >
                                 <p>Title</p>
                                 <input                    
                                     form="myForm"

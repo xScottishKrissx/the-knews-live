@@ -214,8 +214,10 @@ Part 2 Implement Database functionality:
         ✔ Will need to complete User Auth before I can do Author @started(18-08-17 13:44) @done(18-08-22 17:02) @lasted(5d3h18m3s)
      ✔ Be able to see posts linked to current account on myKnews page @started(18-08-23 12:00) @done(18-08-23 14:18) @lasted(2h18m12s)
      ✔ User should'nt see form unless they are able to submit it. @started(18-08-24 10:33) @done(18-08-24 10:50) @lasted(17m15s)
+     //Edit Button
      ✔ The ability to edit posts when submitted. @started(18-08-13 18:04) @done(20-07-24 13:16) @lasted(1y49w2d19h12m13s)
         ✔ Also added the ability to edit articles and their title @done(20-07-24 13:16)
+        ☐ Edit button should only be accessibly by the person who authored the current article.
      ☐ The ability to hide but not delete posts from view @started(18-08-13 18:04)
      ✔ The ability to delete posts @started(18-08-13 18:04) @done(18-08-23 17:06) @lasted(1w2d23h2m23s)
         ☐ BUG:: You are unable to create a new article straight away unless you refresh the page

@@ -1,6 +1,5 @@
 import React from 'react';
-import fire, {auth, provider} from '../../../fire.js';
-import { Redirect } from 'react-router';
+import fire from '../../../fire.js';
 
 export class EditArticle extends React.Component{
     constructor(props){

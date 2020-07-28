@@ -1,11 +1,40 @@
-25 July Goals:
-☐ Get portfolio up and running
-☐ JavaScript refresher
-☐ React Refresher
-☐ Edit button should only be accessibly by the person who authored the current article.
+28 July Goals:
+☐ Work on Edit Button
 ☐ Fix the ability to upload new articles
     ☐ Looks like there's something wrong the loop on practice-form.js(L:143)
     ☐ Code works when removed from the loop
+
+27 July Goals:
+✔ Get portfolio up and running @done(20-07-28 09:36)
+  ✔ Attempting to restore the old portfolio from an old backup. I'll see what happens but I don't think it will work. If that's the case then I will just start moving my old projects one by one and creating the required content for the new website. @done(20-07-28 09:36)
+    ✔ Old portfolio is bricked. Backup and Restore failed so I'm starting again. @done(20-07-27 15:25)
+    ✔ Try and access the database to get the portfolio text @done(20-07-27 16:30)
+      ✘ Install a slave wordpress site and import the old database to that @cancelled(20-07-27 16:30
+  ✔ I'm aware that this has nothing to do with theKnews but I think that it's all still relevant to getting back into development. @done(20-07-28 09:36)
+  ✔ Status of Portfolio Projects @done(20-07-28 09:36)
+    ✔ Yellowandblack - No Issues @done(20-07-27 11:10)
+    ✔ SuperMegaDriveZ - No Issues @done(20-07-27 11:10)
+    ✔ Celtic Practice - Server Error @done(20-07-27 16:30)
+    ✔ WetandCold - Server Error @done(20-07-27 16:30)
+    ✔ Infinite Scroll - Server Error @done(20-07-27 16:30)
+    ✔ glasgow-archers-v2 @done(20-07-27 11:13)
+    ✔ eastshade-replication-project @done(20-07-27 11:15)
+    ✔ christophers-photographysite @done(20-07-27 11:16)
+    ✔ blackandwhite @done(20-07-27 11:18)
+    ✔ bbc-replication-project @done(20-07-27 11:19)
+    ✔ argos-replication @done(20-07-27 11:21)
+    ✔ react-cards-project @done(20-07-27 11:39)
+    ✔ react-project-2 @done(20-07-27 11:46)
+  ✔ Add Github repositories to all of these @done(20-07-27 16:00)
+  ✘ Get broken projects working @cancelled(20-07-27 16:30)
+
+
+✘ JavaScript refresher @cancelled(20-07-28 09:36)
+✘ React Refresher @cancelled(20-07-28 09:36)
+✘ Edit button should only be accessibly by the person who authored the current article. @cancelled(20-07-28 09:37)
+✘ Fix the ability to upload new articles @cancelled(20-07-28 09:37)
+    ✘ Looks like there's something wrong the loop on practice-form.js(L:143) @cancelled(20-07-28 09:37)
+    ✘ Code works when removed from the loop @cancelled(20-07-28 09:37)
 
 
 24 July 2020 Goals:
