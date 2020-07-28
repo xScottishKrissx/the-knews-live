@@ -5,24 +5,42 @@ import ParseHTML from './parse-database-html/parse-html.js';
 import PageScore from '../social/page-score.js';
 import Share from '../social/share.js';
 
+import fire, {auth} from '../../../fire.js';
+
 import EditArticle from './edit-article.js';
 
 import './article-area.css';
 
 
-const ArticleArea = (value) => {
-    // console.log(value.id)
+const ArticleArea = (props) => {
+    // console.log(props.id)
+    
+
+
+    
+    //console.log("Logged in email:  " + fire.auth().currentUser.email)
+    //console.log("Grab Email: " + props.email)
+
+   // const loggedInEmail = fire.auth().currentUser.email;
+    const loggedInEmail = "chrisdunne66@gmail.com"
+    const articleEmail = props.email;
     return (
             
             <div className='article'>
             {/* Article Header */}
                 <header className="news-article-header">
-                        <h1 className="article-title">{value.title}</h1>
-                        <h2 className="article-subtitle">{value.postdate}</h2>
-                        <h3 className="article-author">{value.author}</h3>
+                        <h1 className="article-title">{props.title}</h1>
+                        <h2 className="article-subtitle">{props.postdate}</h2>
+                        <h3 className="article-author">{props.author}</h3>
+                        <h3>Email: {props.email}</h3>
+                        
                         
                 </header>
-                <EditArticle articleText={value.text} articleID={value.id} articleTitle={value.title}/>
+                {loggedInEmail === articleEmail ?
+                <EditArticle articleText={props.text} articleID={props.id} articleTitle={props.title}/>
+                :
+                <p>No Edit Button for you</p>
+                }
                 <Share />
                 
                 
@@ -30,10 +48,10 @@ const ArticleArea = (value) => {
                 <div className='news-article-body'>
                     <article>
                         <div className="article-text">
-                            <ParseHTML props={value.text}/>
+                            <ParseHTML props={props.text}/>
                         </div>                     
 
-                        <PageScore likes={value.likes} dislikes={value.dislikes} id={value.id}/>
+                        <PageScore likes={props.likes} dislikes={props.dislikes} id={props.id}/>
                         
                     
 

@@ -118,7 +118,7 @@ class MapDatabaseItems extends React.Component{
     //const dbRef = fire.database().ref('articles').orderByChild("id");
        // window.addEventListener('scroll', this.scroll);
        const checkUser = fire.auth().currentUser;
-       console.log("User Status: "+ checkUser)
+       //console.log("User Status: "+ checkUser)
 
 
         
@@ -247,7 +247,7 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div>
                 {HomePageView}
-                <p>Why are the images only loading when a user is logged in?</p>
+                
             </div>
         );   
     }

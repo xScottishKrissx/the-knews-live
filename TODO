@@ -1,8 +1,20 @@
+29 Goals:
+  ☐ Fix news page breaking as a result of edit form.
+  
 28 July Goals:
-☐ Work on Edit Button
-☐ Fix the ability to upload new articles
-    ☐ Looks like there's something wrong the loop on practice-form.js(L:143)
-    ☐ Code works when removed from the loop
+☐ Restrict edit button to owner of article.
+  ☐ Use Email to match current logged in user with email in database
+  ☐ Things might be easier if I can get the email in the database onto the article page.
+    ☐ I can currently get it on the myKnews page so it shouldnt be too hard
+      ☐ That worked. Bringing everything back to the basics helped me focus on the problem and get a solution.
+      ☐ Right now, i have the current authors email address being compared to the logged in user to determine edit form render.
+      ☐ The page breaks when no one is logged in so that's the priority.
+
+
+✔ Fix the ability to upload new articles @done(20-07-28 13:20)
+    ✔ Looks like there's something wrong the loop on practice-form.js(L:143) @done(20-07-28 13:20)
+    ✔ Code works when removed from the loop @done(20-07-28 13:20)
+      ✔ I had the wrong prop name lol @done(20-07-28 13:20)
 
 27 July Goals:
 ✔ Get portfolio up and running @done(20-07-28 09:36)

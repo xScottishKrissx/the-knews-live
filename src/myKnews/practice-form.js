@@ -29,7 +29,8 @@ export class PracticeForm extends React.Component{
             user: null,
             viewForm: true,
             currentArticles: [],
-            key:''
+            key:'',
+
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,7 +51,7 @@ export class PracticeForm extends React.Component{
       this.setState({
         postdate: postDate
       })
-
+      
 
 
       // console.log({GeneratePostDate})
@@ -247,21 +248,25 @@ export class PracticeForm extends React.Component{
       }
 
 
+    console.log("Owns article::" + this.state.ownsArticle)
     
-
+    
       const existingArticle = this.state.articlesArray;
       const currentArticleView = existingArticle.map((value,key) => {
         if(this.state.user && value.email === this.state.user.email){
           return (
+            
             <div key={key}>
               <ul key={key} id={key}>
                 <li>Article Title: {value.title}</li>
                 <li>Post Date: {value.postdate}</li>
                 <li>Likes: {value.likes}</li>
+                <li>Email: {value.email}</li>
                 <li>dislikes: {value.dislikes}</li>
                 <li>Key: {value.key}</li>
                 <li>Id: {value.id}</li>
                 <li>Content: {value.text}</li>
+                
 
               </ul>
               
@@ -274,13 +279,13 @@ export class PracticeForm extends React.Component{
         }else{
           return null;
         }
-        
+
+
+
 
       })
         return(
-         
-          
-        
+                  
            <FormView 
             user={this.state.user}
             // displayName={this.state.user.displayName}
@@ -292,13 +297,12 @@ export class PracticeForm extends React.Component{
             login={this.login}
             logout={this.logout}
             test1={currentArticleView}
-            viewForm={this.state.viewForm}
-            
-
-            newText={this.state.text}
-            
-          
+            viewForm={this.state.viewForm}           
+            newText={this.state.text}     
+           
+   
           />
+          
           
 
         

@@ -42,6 +42,7 @@ export class NewsPage extends React.Component{
                     author: articles[item].author,
                     title: articles[item].title,
                     id:articles[item].id,
+                    email:articles[item].email,
                     text: articles[item].text,
                     likes: articles[item].likes,
                     dislikes: articles[item].dislikes,
