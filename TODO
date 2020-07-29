@@ -1,5 +1,6 @@
 29 Goals:
   ☐ Bug: After submitting an article, you're currently not being redirected to the new article. 
+    ✔ Temporary solution is just rerouting to home page. New articles are at the top so it's 1 click, not ideal. @done(20-07-29 16:59)
   ✔  Fix news page breaking as a result of edit form. @done(20-07-29 10:18)
   ✔ The upload form is broken again. @done(20-07-29 16:17)
       ✔ When you upload, you just overwrite the same record over and over. @done(20-07-29 16:17)

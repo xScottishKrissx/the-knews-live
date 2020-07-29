@@ -34,6 +34,9 @@ Part 1 - Implement the front end UI:
 General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
+            ☐ Add keyboard control
+                ☐ Pressing Enter should submit forms
+                ☐ Using keyboard arrows to navigate home page
         
         I should consider replacing the random images with my own hosted images to help future proof the website
         ☐ There should be a scroll to top button @started(18-08-29 11:13)
@@ -94,6 +97,7 @@ General Notes  Objectives:
                  I have managed to solve this but explaining it is a bit tricky because i'm not sure how to actually start. Basically i used match.params.id to get the identifier along with js .find and map functions. I will try and go into more detail later.
 
         ✔ Clean up Console messages. @started(18-08-30 11:33) @done(18-08-30 11:47) @lasted(14m41s)
+        
     Header:
         ✔ Get basic structure in place @done(18-07-24 17:48)
         ✔ Mobile Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m48s)

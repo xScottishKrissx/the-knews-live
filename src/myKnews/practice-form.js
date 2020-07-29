@@ -255,17 +255,18 @@ export class PracticeForm extends React.Component{
 
       // console.log(this.state.redirectToReferrer)
       const redirectToReferrer = this.state.redirectToReferrer;
+      console.log("Redirect to:: " + fire.database().ref('items').limitToLast(1))
+      const routeThingy = fire.database().ref('items').orderByKey().limitToLast(1);
       if (redirectToReferrer === true) {
           return (
             <Switch>
               <Redirect 
-                  to={"/articles/news-page/" + ((this.state.articlesArray).length) }
+                 //to={"/articles/news-page/" + ((this.state.articlesArray).length) }
+                 //A stop gap solution to the issue of working with firebase generated keys.
+                 to={"/" }
                 />          
             </Switch>)
       }
-
-
-    console.log("Owns article::" + this.state.ownsArticle)
     
     
       const existingArticle = this.state.articlesArray;
