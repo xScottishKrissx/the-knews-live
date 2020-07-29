@@ -7,7 +7,7 @@ import ArticleArea from './article-area/article-area.js';
 import RecommendedReading from './social/recommended-reading/recommended-reading.js';
 
 import './news-page-view.css';
-import fire, {auth} from '../../fire.js'
+import fire from '../../fire.js'
 
 export class NewsPageVIEW extends React.Component{
 

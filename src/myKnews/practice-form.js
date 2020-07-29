@@ -179,12 +179,12 @@ export class PracticeForm extends React.Component{
         const dbRef = fire.database().ref('items');
 
 
-        //I think this is causing the issue, I can hardcode a record and it solves the problem.
+        //I think this is causing the issue of database overwriting, I can hardcode a record and it solves the problem.
         //Yeah, this is it, im looking for the total number of records and then adding 1
         //This would be fine if you couldnt delete records, but when you can then you end up breaking down.
         // const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
         //alert("Objectsindbcount::" + ObjectsInDbCount)
-        const ObjectsInDbCount = 99;
+        //const ObjectsInDbCount = 99;
 
 
 
@@ -256,7 +256,6 @@ export class PracticeForm extends React.Component{
       // console.log(this.state.redirectToReferrer)
       const redirectToReferrer = this.state.redirectToReferrer;
       console.log("Redirect to:: " + fire.database().ref('items').limitToLast(1))
-      const routeThingy = fire.database().ref('items').orderByKey().limitToLast(1);
       if (redirectToReferrer === true) {
           return (
             <Switch>

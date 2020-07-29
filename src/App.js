@@ -6,7 +6,7 @@ import './App.css';
 
 import Header from './header/header.js';
 // import Footer from './footer/footer.js';
-import DeploymentMessage from './deployment-message/deploymentmessage.js';
+// import DeploymentMessage from './deployment-message/deploymentmessage.js';
 import { Routes } from './routes/routes';
 
 

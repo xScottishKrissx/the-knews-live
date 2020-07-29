@@ -5,7 +5,7 @@ import ParseHTML from './parse-database-html/parse-html.js';
 import PageScore from '../social/page-score.js';
 import Share from '../social/share.js';
 
-import fire, {auth} from '../../../fire.js';
+import fire from '../../../fire.js';
 
 import EditArticle from './edit-article.js';
 

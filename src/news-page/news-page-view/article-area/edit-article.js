@@ -78,7 +78,7 @@ export class EditArticle extends React.Component{
     }
 }
 
-{/*
+/* {
 const EditArticle = (value) => {
 
 
@@ -94,9 +94,9 @@ const EditArticle = (value) => {
      </div>   
     )
 }
-*/}
+}*/
 
-{/*
+/*{
 export class EditArticle extends React.Component{
     render(){
         return(
@@ -107,6 +107,6 @@ export class EditArticle extends React.Component{
         
     }
 }
-*/}
+}*/
 
 export default EditArticle;

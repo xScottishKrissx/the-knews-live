@@ -96,35 +96,17 @@ class MapDatabaseItems extends React.Component{
         // }
     }
     
-    componentWillMount(){
-        if(this.state.currentStyle === ""){
-            console.log("Style Not Set")
-        }else{
-            console.log("State set")
-        }
-        // this.setState({
-        //     currentStyle:{
-        //         width:"260px"
-        //     }
-        // })
-         //console.log(this.state.currentStyle)
-        
-        // const data = "Hello World!";
-        // localStorage.setItem("myData", data);
-        // localStorage.getItem("myData")
-        // console.log(localStorage.getItem("myData"));
-    }
     componentDidMount(){
     //const dbRef = fire.database().ref('articles').orderByChild("id");
        // window.addEventListener('scroll', this.scroll);
-       const checkUser = fire.auth().currentUser;
+       //const checkUser = fire.auth().currentUser;
        //console.log("User Status: "+ checkUser)
 
 
         
        const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(20); 
 
-        console.log(dbRef);
+        // console.log(dbRef);
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -141,7 +123,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 articlesArray: newState.reverse()
             })
-             console.log(this.state.articlesArray);
+            //  console.log(this.state.articlesArray);
             
         })
         
