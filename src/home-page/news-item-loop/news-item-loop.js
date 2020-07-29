@@ -122,7 +122,7 @@ class MapDatabaseItems extends React.Component{
 
 
         
-       const dbRef = fire.database().ref('items').limitToLast(20); 
+       const dbRef = fire.database().ref('items').limitToLast(100); 
 
         console.log(dbRef);
         
