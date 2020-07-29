@@ -20,9 +20,13 @@ const ArticleArea = (props) => {
     
     //console.log("Logged in email:  " + fire.auth().currentUser.email)
     //console.log("Grab Email: " + props.email)
-
-   // const loggedInEmail = fire.auth().currentUser.email;
-    const loggedInEmail = "chrisdunne66@gmail.com"
+    console.log(fire.auth().currentUser)
+    
+    // Optional Chaining -- The ? is a javascript operator that helps account for null.
+    // In this example, loggedInEmail will work even if nobody is logged in, setting the value to null which was breaking the page previously.
+    // Isn't fully supported yet so might cause issues on non supported platforms.
+    const loggedInEmail = fire.auth().currentUser?.email;
+    //const loggedInEmail = "chrisdunne66@gmail.com"
     const articleEmail = props.email;
     return (
             
