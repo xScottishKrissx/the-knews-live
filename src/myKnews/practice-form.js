@@ -57,6 +57,7 @@ export class PracticeForm extends React.Component{
       // console.log({GeneratePostDate})
       const dbRef = fire.database().ref("items");   
       console.log("db-ref: " + dbRef);
+
            
       dbRef.on('value', (snapshot) => {
         let dbObjects = snapshot.val();
@@ -79,7 +80,8 @@ export class PracticeForm extends React.Component{
         this.setState({
           articlesArray: tempState
         })
-        console.log(((this.state.articlesArray).length) + 1)
+        console.log("Number of Records in DB:: " + ((this.state.articlesArray).length))
+        console.log("WIll Overwrite Record:: " + ((this.state.articlesArray).length) + 1)
 
 
         // Check if User is Logged In...
@@ -175,15 +177,30 @@ export class PracticeForm extends React.Component{
         }
   
         const dbRef = fire.database().ref('items');
-        const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
-        dbRef.child(ObjectsInDbCount).set(article);
-        // dbRef.push(article)  
+
+
+        //I think this is causing the issue, I can hardcode a record and it solves the problem.
+        //Yeah, this is it, im looking for the total number of records and then adding 1
+        //This would be fine if you couldnt delete records, but when you can then you end up breaking down.
+        // const ObjectsInDbCount = (((this.state.articlesArray).length) + 1);
+        //alert("Objectsindbcount::" + ObjectsInDbCount)
+        const ObjectsInDbCount = 99;
+
+
+
+        //dbRef.child(ObjectsInDbCount).set(article);
+        
+        //This might be a solution but I'm not sure what the implication of this is for the rest of the project.
+        // It adds a new record to the database with a firebase generated key.
+        // I need to see how I can use this key for my needs.
+        dbRef.push(article)  
   
         this.setState({
           author: '',
           email: '',
           text: '',
           title: '',
+          articlesArray: [],
           redirectToReferrer: true
           // id: ''
         })

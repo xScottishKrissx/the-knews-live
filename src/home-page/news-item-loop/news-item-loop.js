@@ -122,7 +122,7 @@ class MapDatabaseItems extends React.Component{
 
 
         
-       const dbRef = fire.database().ref('items').limitToLast(20); 
+       const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(20); 
 
         console.log(dbRef);
         
@@ -139,7 +139,7 @@ class MapDatabaseItems extends React.Component{
                 });
             }
             this.setState({
-                articlesArray: newState
+                articlesArray: newState.reverse()
             })
              console.log(this.state.articlesArray);
             

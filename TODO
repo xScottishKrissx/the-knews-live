@@ -1,10 +1,12 @@
 29 Goals:
-  ✔ Fix news page breaking as a result of edit form. @done(20-07-29 10:18)
-  ☐ The upload form is broken again.
-      ☐ When you upload, you just overwrite the same record over and over.
-      ☐ You're also spit out to the article associated with record before in the database.
+  ☐ Bug: After submitting an article, you're currently not being redirected to the new article. 
+  ✔  Fix news page breaking as a result of edit form. @done(20-07-29 10:18)
+  ✔ The upload form is broken again. @done(20-07-29 16:17)
+      ✔ When you upload, you just overwrite the same record over and over. @done(20-07-29 16:17)
+      ✔ You're also spit out to the article associated with record before in the database. @done(20-07-29 16:17)
+        ✔ I may have solved the problem my using the .push firebase method. This might have roll on issues with the rest of the project but I think it's the proper way forward. @done(20-07-29 16:17)
 
-      
+
 28 July Goals:
 ✔ Restrict edit button to owner of article. @done(20-07-29 10:18)
   ✔ Use Email to match current logged in user with email in database @done(20-07-29 10:18)

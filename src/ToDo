@@ -2,8 +2,8 @@ Part 1 - Implement the front end UI:
      ☐ Build from a mobile first approach
         ☐ Design should be responsive
      ☐ Focus on the non-logged functionality
-     ☐ Add Logged in functionality as a secondary feature
-     ☐ Most important is the ability to click on a link, go to a new page and then back again
+     ✔ Add Logged in functionality as a secondary feature @done(20-07-29 15:53)
+     ✔ Most important is the ability to click on a link, go to a new page and then back again @done(20-07-29 15:53)
      ☐ With that core in place then add the CMS elements.
 
 
@@ -157,11 +157,14 @@ General Notes  Objectives:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
                 ✔ Logged In View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
+                ☐ Add Login Button to nav bar
             ✔ Log Out Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
                 ✔ Logged Out View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
         ✔ Limit User Uploads to One per registered email address @started(18-08-21 17:36) @done(18-08-22 12:57) @lasted(19h21m39s)
         ✔ Automate Post Date @started(18-08-21 17:36) @done(18-08-24 11:24) @lasted(2d17h48m47s)
-    
+        ☐ Add View Post button to articles in myKnews
+        ☐ Convert timestamp to readable date time format
+        
     
     
         Footer:
@@ -191,6 +194,7 @@ Part 2 Implement Database functionality:
 
      /☐ Sort Home Page News Article by upload date
      ✔ Create a form that allow article upload @done(18-08-10 11:50)
+        ☐ When article is submitted, you should be sent to the article just posted.
      ✔ Display new Objects from database. @done(18-08-10 14:21)
      / The page id of each page is now set when you submit the form and will work with random images.
      ✔ Implement news page styles @done(18-08-13 18:02)

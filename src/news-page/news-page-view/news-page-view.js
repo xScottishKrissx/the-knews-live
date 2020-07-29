@@ -54,7 +54,7 @@ export class NewsPageVIEW extends React.Component{
           })
           //console.log(((this.state.articlesArray).length) + 1)
   
-  
+          
           // Check if User is Logged In...
           const checkUser = fire.auth().currentUser;
   
@@ -89,7 +89,6 @@ export class NewsPageVIEW extends React.Component{
         const NewsPageView = database.map((value) => {
             console.log(value)
             //console.log("current author email:: " + value.email)
-            
             return(
                 <div className='news-page-wrapper' key={value.id}> 
 
