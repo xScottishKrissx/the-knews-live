@@ -121,8 +121,17 @@ class MapDatabaseItems extends React.Component{
        //console.log("User Status: "+ checkUser)
 
 
-        
-       const dbRef = fire.database().ref('items').limitToLast(100); 
+       // This is the working code for non-infinite-scrolling. 
+       const dbRef = fire.database().ref('items').limitToLast(200); 
+
+        // const dbRef = fire.database().ref("items")
+        //                     .orderByChild("postdate")
+        //                     .startAt(1596017135083)
+        //                     .endAt(Date.now())
+        //                     // .endAt("94")
+        //                     .limitToLast(10)
+                            
+
 
         console.log(dbRef);
         
@@ -139,7 +148,7 @@ class MapDatabaseItems extends React.Component{
                 });
             }
             this.setState({
-                articlesArray: newState
+                articlesArray: newState.reverse()
             })
              console.log(this.state.articlesArray);
             

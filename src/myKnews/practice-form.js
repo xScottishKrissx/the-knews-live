@@ -48,9 +48,11 @@ export class PracticeForm extends React.Component{
       const month = today.getMonth() + 1;
       const year = today.getFullYear();
       const postDate = day + "/" + month + "/" + year;
+      //const postDate = Date.now();
       this.setState({
         postdate: postDate
       })
+      console.log(postDate)
       
 
 
@@ -216,7 +218,7 @@ export class PracticeForm extends React.Component{
     handleChange(e){
 
 
-      console.log("Change")
+      console.log(Date.now())
       const target = e.target;
       if(target.name === "title"){
           this.setState({title: e.target.value}); 
