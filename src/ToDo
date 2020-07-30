@@ -35,7 +35,9 @@ General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
             ☐ Add keyboard control
-                ☐ Pressing Enter should submit forms
+                ✔ Pressing Enter should submit forms @done(20-07-30 17:43)
+                    ✔ Works with myKnews page @done(20-07-30 17:43)
+                    ☐ Need to implement for edit form
                 ☐ Using keyboard arrows to navigate home page
         
         I should consider replacing the random images with my own hosted images to help future proof the website
@@ -164,6 +166,7 @@ General Notes  Objectives:
                 ☐ Add Login Button to nav bar
             ✔ Log Out Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
                 ✔ Logged Out View @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m11s)
+                    ☐ Logged Out View UI can be so much better
         ✔ Limit User Uploads to One per registered email address @started(18-08-21 17:36) @done(18-08-22 12:57) @lasted(19h21m39s)
         ✔ Automate Post Date @started(18-08-21 17:36) @done(18-08-24 11:24) @lasted(2d17h48m47s)
         ☐ Add View Post button to articles in myKnews

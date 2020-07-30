@@ -33,7 +33,7 @@ const FormView = (props) => {
                     <div>
                         <h1>New Article</h1>
                         
-                            <form name="myForm" onSubmit={props.onSubmit}  >
+                            <form name="myForm" onSubmit={props.onSubmit}  onKeyDown={props.onKeyPress}>
                                 <p>Title</p>
                                 <input                    
                                     form="myForm"

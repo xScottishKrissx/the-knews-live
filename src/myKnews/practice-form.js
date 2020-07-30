@@ -9,6 +9,7 @@ import fire, {auth, provider} from '../fire.js'
 import FormView from './form-view.js';
 
 // import GetTodaysDate from '../utility_components/todaysDate.js';
+// import HandleKeyPress from '../utility_components/keybindings.js';
 
 import './form.css';
 
@@ -34,6 +35,7 @@ export class PracticeForm extends React.Component{
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         
@@ -56,7 +58,7 @@ export class PracticeForm extends React.Component{
 
       // console.log({GeneratePostDate})
       const dbRef = fire.database().ref("items");   
-      console.log("db-ref: " + dbRef);
+      //console.log("db-ref: " + dbRef);
 
            
       dbRef.on('value', (snapshot) => {
@@ -80,8 +82,8 @@ export class PracticeForm extends React.Component{
         this.setState({
           articlesArray: tempState
         })
-        console.log("Number of Records in DB:: " + ((this.state.articlesArray).length))
-        console.log("WIll Overwrite Record:: " + ((this.state.articlesArray).length) + 1)
+        //console.log("Number of Records in DB:: " + ((this.state.articlesArray).length))
+        //console.log("WIll Overwrite Record:: " + ((this.state.articlesArray).length) + 1)
 
 
         // Check if User is Logged In...
@@ -89,10 +91,11 @@ export class PracticeForm extends React.Component{
 
         // If they Exist Check to see if they have already created article
         if(checkUser){
-          console.log("Logged In");
+          
           const checkDBRef = this.state.articlesArray;
           const currentUserEmail =  this.state.user.email;
-          console.log(currentUserEmail);
+          console.log("Logged In as::" + currentUserEmail);
+          
 
           checkDBRef.map((test) => {         
             if(test.email === this.state.user.email){            
@@ -137,7 +140,7 @@ export class PracticeForm extends React.Component{
 
      
       console.log("SUBMIT!!!");      
-      e.preventDefault();
+      //e.preventDefault();
 
 
       // console.log("Author is :" + this.state.author)
@@ -147,8 +150,8 @@ export class PracticeForm extends React.Component{
       const currentText = this.state.text;
       const currentTitle = this.state.title;
       
-      console.log("Test Thing:: " + this.state.title)
-      console.log("New Article Text: " + currentText)
+      // console.log("Test Thing:: " + this.state.title)
+      // console.log("New Article Text: " + currentText)
       
       //alert ("Can User Submit New Articles? : " + this.state.viewForm)
       if(currentTitle.length === 0 ||currentText.length  === 0){
@@ -231,19 +234,20 @@ export class PracticeForm extends React.Component{
     }
 
     handleChange(e){
-
-
-      console.log("Change")
       const target = e.target;
       if(target.name === "title"){
           this.setState({title: e.target.value}); 
       }else{
           this.setState({text: e.target.value}); 
       }
-      console.log(this.state.title);
+      //console.log(this.state.title);
+    }
 
-
-
+    handleKeyPress(e){
+      if(e.ctrlKey && e.key === 'Enter'){
+        console.log("Control and Enter")
+        this.handleSubmit();
+      }
     }
    
 
@@ -255,7 +259,7 @@ export class PracticeForm extends React.Component{
 
       // console.log(this.state.redirectToReferrer)
       const redirectToReferrer = this.state.redirectToReferrer;
-      console.log("Redirect to:: " + fire.database().ref('items').limitToLast(1))
+      //console.log("Redirect to:: " + fire.database().ref('items').limitToLast(1))
       if (redirectToReferrer === true) {
           return (
             <Switch>
@@ -315,7 +319,8 @@ export class PracticeForm extends React.Component{
             logout={this.logout}
             test1={currentArticleView}
             viewForm={this.state.viewForm}           
-            newText={this.state.text}     
+            newText={this.state.text}   
+            onKeyPress={this.handleKeyPress}  
            
    
           />

@@ -1,5 +1,6 @@
 import React from 'react';
 import fire from '../../../fire.js';
+// import HandleKeyPress from '../../../utility_components/keybindings.js';
 
 export class EditArticle extends React.Component{
     constructor(props){
@@ -70,7 +71,7 @@ export class EditArticle extends React.Component{
             <form onSubmit={this.handleSubmit} >
                {/* <input type="text-area" value={currentArticle} onChange={this.handleChange}/> */}
                <input name="title" type="text" defaultValue={this.state.articleTitle} onChange={this.handleChange}/>
-               <textarea name="content" style={testStyle} type="text-area" defaultValue={currentArticle} onChange={this.handleChange}/>
+               <textarea name="content" style={testStyle} type="text-area" defaultValue={currentArticle} onChange={this.handleChange} />
                <input type="submit" value="Submit" />
             </form>
         </div>   
