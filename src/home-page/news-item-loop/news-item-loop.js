@@ -69,6 +69,7 @@ class MapDatabaseItems extends React.Component{
             articlesArray : [],
             articlesArray2 : [],
             currentStyle:"",
+            newCount:0,
             testStyle:{
                 width: localStorage.getItem("myData")
             },
@@ -181,12 +182,18 @@ class MapDatabaseItems extends React.Component{
         
         if(windowBottom >= docHeight){
             this.setState({count: this.state.count + 1})     
-            const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(10); 
-            console.log(dbRef);
+            this.setState({newCount: this.state.newCount + 1})
+            console.log(this.state.newCount)
+            const dbRef = fire.database().ref('items').orderByKey().limitToFirst(10);
+
+            
+            console.log("Record Test:: " + dbRef[1]);
+           
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
                // console.log(newsItems);
+               console.log(newsItems[1])
                let newState = [];
                for(let newsItem in newsItems){
                    newState.push({
@@ -201,8 +208,12 @@ class MapDatabaseItems extends React.Component{
                })
                console.log(this.state.articlesArray2);
                
+               const thing3 = this.state.newCount;
+               console.log("Re3cord:: " + this.state.articlesArray2[thing3].title);
+               
            })
             console.log("Bottom Reached")
+            
         }else{
             console.log("Not At Bottom Yet")
         }
@@ -248,6 +259,7 @@ class MapDatabaseItems extends React.Component{
         while(count--)
            newLoadedArticles.push(
                <div>{addNewArticle}</div> 
+               
             )
         return newLoadedArticles;
     }
@@ -307,6 +319,7 @@ class MapDatabaseItems extends React.Component{
 
                 {HomePageView}                             
                 {this.renderDivs()}
+                
                 
                 
             </div>
