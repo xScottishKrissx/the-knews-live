@@ -1,3 +1,11 @@
+3 August 2020 Goals:
+  ☐ Work on User Interface
+    ☐ Size Controls
+    ☐ Nav bar
+    ☐ Footer
+    ☐ Add UI for Pagenation
+    ☐ Load 10 Items at start, then load more page scroll.
+
 30th July Goals:
   ☐ Pressing Enter Should submit forms
     ✔ Works with myKnews page not in editForm. Trying to figure out how to get one function to handle both forms. @done(20-07-30 17:44)

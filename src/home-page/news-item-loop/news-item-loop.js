@@ -9,6 +9,7 @@ import fire from '../../fire.js'
 import '../news-item-loop/news-item-loop.css';
 
 import Caption from './news-item-caption/news-item-caption.js';
+import { render } from 'react-dom';
 
 // const testData = GalleryData;
 
@@ -59,6 +60,7 @@ class MapDatabaseItems extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            count:0,
             title: "",
             author: "",
             id: "",
@@ -78,6 +80,8 @@ class MapDatabaseItems extends React.Component{
         this.setting1 = this.setting1.bind(this);
         this.setting2 = this.setting2.bind(this);
         this.setting3 = this.setting3.bind(this);
+       
+ 
         // this.scroll = this.scroll.bind(this);
 
 
@@ -97,14 +101,15 @@ class MapDatabaseItems extends React.Component{
     }
     
     componentDidMount(){
+        
     //const dbRef = fire.database().ref('articles').orderByChild("id");
-       // window.addEventListener('scroll', this.scroll);
+       
        //const checkUser = fire.auth().currentUser;
        //console.log("User Status: "+ checkUser)
 
 
         
-       const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(20); 
+       const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(6); 
 
         // console.log(dbRef);
         
@@ -126,6 +131,7 @@ class MapDatabaseItems extends React.Component{
             //  console.log(this.state.articlesArray);
             
         })
+        window.addEventListener('scroll', this.scroll);
         
     }
 
@@ -159,36 +165,86 @@ class MapDatabaseItems extends React.Component{
         console.log(localStorage.getItem("myData"));
     }
     
+
+
+
+
+    scroll = () => {
+        const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+        const body = document.body;
+        const html = document.documentElement;
+        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+        const windowBottom = windowHeight + window.pageYOffset;
+       // console.log(docHeight);
+       // console.log(windowBottom)
+        
+        if(windowBottom >= docHeight){
+            this.setState({count: this.state.count + 1})     
+            console.log("Bottom Reached")
+        }else{
+            console.log("Not At Bottom Yet")
+        }
+    }
+
+
+
+    renderDivs(){
+        const firebaseDB = this.state.articlesArray;
+
+        const addNewArticle = firebaseDB.map((value,key) => {           
+            // There is probably a better way of doing this...
+            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
+            ///... and this.
+            const style = {
+                backgroundImage: 'url(' + imgUrl + ')',
+                backgroundPosition: "bottom",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                height: "400px",
+                width:"100%"
+            }
+    
+    
+            // console.log(value.author + " Key is: " + value.key)
+            return (
+                
+                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle}>                    
+                            <Caption 
+                                pageid={value.key} 
+                                style={style} 
+                                title={value.title}
+                                author={value.author} />
+                    </div>
+                
+
+            );
+      })
+
+
+        let count = this.state.count, newLoadedArticles = [];  
+
+        while(count--)
+           newLoadedArticles.push(
+               <div>
+                   New Article:: {count}
+                   {addNewArticle}
+               </div> 
+            )
+        return newLoadedArticles;
+    }
+
     componentWillUnmount(){
         // console.log("Unmount on news-item-loop.js")
         window.addEventListener('scroll', this.scroll);
         fire.database().ref("items").off();
+        document.body.removeChild(this.newdiv);
       }
-
-    //       scroll(){
-    //       const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-    //       const body = document.body;
-    //       const html = document.documentElement;
-    //       const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-    //       const windowBottom = windowHeight + window.pageYOffset;
-    //       console.log(docHeight);
-    //       console.log(windowBottom)
-          
-    //         if(windowBottom >= docHeight){
-    //             console.log("Bottom Reached")
-    //         }else{
-    //             console.log("Not At Bottom Yet")
-    //         }
-    //   }
 
     render(){
         const firebaseDB = this.state.articlesArray;        
         // console.log(this.state.currentStyle)
 
-        const HomePageView = firebaseDB.map((value,key) => {
-
-            
-
+        const HomePageView = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             ///... and this.
@@ -229,6 +285,10 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div>
                 {HomePageView}
+                <div>
+                <h1>New Div</h1>                
+                    {this.renderDivs()}
+                </div>
                 
             </div>
         );   
