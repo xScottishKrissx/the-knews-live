@@ -67,6 +67,7 @@ class MapDatabaseItems extends React.Component{
             imgPath: "",
             key: "",
             articlesArray : [],
+            articlesArray2 : [],
             currentStyle:"",
             testStyle:{
                 width: localStorage.getItem("myData")
@@ -109,9 +110,9 @@ class MapDatabaseItems extends React.Component{
 
 
         
-       const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(6); 
-
-        // console.log(dbRef);
+       //const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(6); 
+       const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(6); 
+         console.log(dbRef);
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -175,11 +176,32 @@ class MapDatabaseItems extends React.Component{
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset;
-       // console.log(docHeight);
+       console.log(docHeight);
        // console.log(windowBottom)
         
         if(windowBottom >= docHeight){
             this.setState({count: this.state.count + 1})     
+            const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(10); 
+            console.log(dbRef);
+           
+           dbRef.on('value', (snapshot) => {
+               let newsItems = snapshot.val();
+               // console.log(newsItems);
+               let newState = [];
+               for(let newsItem in newsItems){
+                   newState.push({
+                       key: newsItem,
+                       author: newsItems[newsItem].author,
+                       title: newsItems[newsItem].title,
+                       id:newsItems[newsItem].id
+                   });
+               }
+               this.setState({
+                   articlesArray2: newState.reverse()
+               })
+               console.log(this.state.articlesArray2);
+               
+           })
             console.log("Bottom Reached")
         }else{
             console.log("Not At Bottom Yet")
@@ -188,8 +210,9 @@ class MapDatabaseItems extends React.Component{
 
 
 
+
     renderDivs(){
-        const firebaseDB = this.state.articlesArray;
+        const firebaseDB = this.state.articlesArray2;
 
         const addNewArticle = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
@@ -222,13 +245,9 @@ class MapDatabaseItems extends React.Component{
 
 
         let count = this.state.count, newLoadedArticles = [];  
-
         while(count--)
            newLoadedArticles.push(
-               <div>
-                   New Article:: {count}
-                   {addNewArticle}
-               </div> 
+               <div>{addNewArticle}</div> 
             )
         return newLoadedArticles;
     }
@@ -237,7 +256,7 @@ class MapDatabaseItems extends React.Component{
         // console.log("Unmount on news-item-loop.js")
         window.addEventListener('scroll', this.scroll);
         fire.database().ref("items").off();
-        document.body.removeChild(this.newdiv);
+       
       }
 
     render(){
@@ -284,11 +303,11 @@ class MapDatabaseItems extends React.Component{
                         <button onClick={this.setting3}>L</button>
                     </span>   
                 </div>
-                {HomePageView}
-                <div>
-                <h1>New Div</h1>                
-                    {this.renderDivs()}
-                </div>
+               
+
+                {HomePageView}                             
+                {this.renderDivs()}
+                
                 
             </div>
         );   

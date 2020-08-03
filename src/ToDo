@@ -43,6 +43,16 @@ General Notes  Objectives:
         I should consider replacing the random images with my own hosted images to help future proof the website
         ☐ There should be a scroll to top button @started(18-08-29 11:13)
         Think about pagination / infinite scroll functionality
+        ☐ Infinite Scrolling / Lazy Loading Home Page
+            ☐ Idea is that the start page has 10 articles to start with, as you scroll more articles load and populate the page
+            ☐ Ideally, when you click on the articles, as you return to the home page your position is remembered
+                //Probably add scroll position to local storage.
+                // 3/8/2020 - Current Progress -- I have items from the database loading onto page as you scroll.
+                // So i have managed to get a different set of articles from the initital call loading onto the page which is good.
+                // I'm not sure how, with my current dataset, I can consistently get different records every time.
+                // I don't really want to get the entire database at once, count it on the front end and then call the records from that.
+                // Or maybe that is the answer, either way I'm not totally sure how to proceed from here.
+                // Still though, I have managed to create an infinite scrolling UI so that's cool
 
         ✔ Get routes up and running once basic structure is in place. @done(18-07-24 17:47)
         ☐ Mobile Menu should be controlled by swipe gesture or button located at bottom of page @started(18-08-29 11:13)

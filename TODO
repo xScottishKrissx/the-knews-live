@@ -5,6 +5,9 @@
     ☐ Footer
     ☐ Add UI for Pagenation
     ☐ Load 10 Items at start, then load more page scroll.
+       Actually have something going with the same articles already on page being called again.
+       This is a good start though as, ideally, all I now need to do is specify the database call to be something different that now.
+       This might involve changing the array but at the very least, I have  something to build on.
 
 30th July Goals:
   ☐ Pressing Enter Should submit forms
