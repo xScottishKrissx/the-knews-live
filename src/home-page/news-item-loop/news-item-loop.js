@@ -71,16 +71,16 @@ class MapDatabaseItems extends React.Component{
             articlesArray : [],
             articlesArray2 : [],
             articlesArray3:[],
-            arrayStartState: 0,
-            arrayEndState: 5,
+            arrayStartState: 6,
+            arrayEndState: 10,
             currentStyle:"",
             newCount:0,
             testStyle:{
                 width: localStorage.getItem("myData")
             },
-
             //Context Api
-            theme: titleSettings.medium
+            theme: titleSettings.medium,
+            addNewArticle:"",
             
         }
         // this.showExcerpt = this.showExcerpt.bind(this);
@@ -237,8 +237,8 @@ class MapDatabaseItems extends React.Component{
                console.log(array1.slice(11,21))
                console.log(array1.slice(22,33))
 
-               const arrayStart = this.state.arrayStartState;
-               const arrayEnd = this.state.arrayEndState;
+            //    const arrayStart = this.state.arrayStartState;
+            //    const arrayEnd = this.state.arrayEndState;
                
                //At this point, I want to take the above array and only get the first 10 or so records everytime the page scrolls
                // How I do that I don't know at this point
@@ -259,6 +259,7 @@ class MapDatabaseItems extends React.Component{
 
                 // articlesArray2: newState[thing3]
                })
+               console.log(this.state.arrayStartState)
                console.log(this.state.articlesArray2)
                
                
@@ -270,6 +271,8 @@ class MapDatabaseItems extends React.Component{
 
             console.log("Bottom Reached")
             
+
+            
         }else{
             console.log("Not At Bottom Yet")
         }
@@ -279,13 +282,12 @@ class MapDatabaseItems extends React.Component{
 
 
     renderDivs(){
-        const firebaseDB = this.state.articlesArray2.slice(0,5);
+        //This is the initial load in from the database...
+        // const firebaseDB = this.state.articlesArray2.slice(this.state.arrayStartState,this.state.arrayEndState);
+        const firebaseDB = this.state.articlesArray2.slice(0,4);
         console.log(this.state.articlesArray2.slice(0,20));
-        
-
-        
-        
-        
+               
+     
         const addNewArticle = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -320,18 +322,50 @@ class MapDatabaseItems extends React.Component{
                 
 
             );
+
       })
 
 
+        
+
+        // let count2 = this.state.count, uiItems = [];
+        // while(count2--)
+        // uiItems.push(
+        //     <div>This is added div! uniqueID: {count2}</div>
+        // )
+        // return uiItems;
+    }
+
+    lolWut(){
+
         let count = this.state.count, newLoadedArticles = [];  
+        console.log(count);
+        const thing3 = this.state.newCount;
+        console.log("Count:: " + thing3)
         while(count--)
         
            newLoadedArticles.push(
             //    <div>{firebaseDB.title}</div> 
-            <div>{addNewArticle}</div>
+            <div>
+                {/* Don't delete addNewArticle, just trying stuff out. */}
+                {/* {addNewArticle} */}
+                {this.state.addNewArticle}
+                {this.renderDivs()}
+                <div>
+                    <h1>Test{thing3+1}</h1>
+                </div>
+            </div>
+            
                
             )
         return newLoadedArticles;
+        
+        // let count2 = this.state.count, uiItems = [];
+        // while(count2--)
+        // uiItems.push(
+        //     <div>This is added div! uniqueID: {count2}</div>
+        // )
+        // return uiItems;
     }
 
     componentWillUnmount(){
@@ -344,7 +378,11 @@ class MapDatabaseItems extends React.Component{
     render(){
         const firebaseDB = this.state.articlesArray;        
         // console.log(this.state.currentStyle)
+        
+        //Render new div without re-rerendering entire thing.
 
+
+        
         const HomePageView = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -375,6 +413,25 @@ class MapDatabaseItems extends React.Component{
       })
 
 
+      let count = this.state.count, newLoadedArticles = [];  
+      console.log(newLoadedArticles);
+      const thing3 = this.state.newCount;
+      console.log("Count:: " + thing3)
+      while(count--)
+      
+         newLoadedArticles.push(
+          //    <div>{firebaseDB.title}</div> 
+          <div>
+              {/* Don't delete addNewArticle, just trying stuff out. */}
+              {/* {addNewArticle} */}
+              <div>
+                  <h1>Test{thing3+1}</h1>
+              </div>
+          </div>
+          
+             
+          )
+
       
 
 
@@ -394,7 +451,9 @@ class MapDatabaseItems extends React.Component{
 
                 {HomePageView}         
                                    
-                {this.renderDivs()}      
+                {this.renderDivs()}     
+                {this.lolWut()}
+
                         
                 
                 
