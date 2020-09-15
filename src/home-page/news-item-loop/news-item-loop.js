@@ -81,6 +81,7 @@ class MapDatabaseItems extends React.Component{
             //Context Api
             theme: titleSettings.medium,
             addNewArticle:"",
+            loadedArticles: "",
             
         }
         // this.showExcerpt = this.showExcerpt.bind(this);
@@ -117,7 +118,7 @@ class MapDatabaseItems extends React.Component{
 
         
        //const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(6); 
-       const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(6); 
+       const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(5); 
 
 
         // console.log(dbRef);
@@ -138,14 +139,14 @@ class MapDatabaseItems extends React.Component{
                 articlesArray: newState.reverse(),
                 
             })
-            //  console.log(this.state.articlesArray);
+            console.log(this.state.articlesArray);
             
         })
         window.addEventListener('scroll', this.scroll);
 
                //Get 50 articles from database
 
-       const articles3 = fire.database().ref('items').orderByKey().limitToFirst(50);
+       const articles3 = fire.database().ref('items').orderByKey().limitToFirst(100);
        articles3.on('value', (snapshot) => {
         let newsItems = snapshot.val();
         // console.log(newsItems);
@@ -213,9 +214,9 @@ class MapDatabaseItems extends React.Component{
         if(windowBottom >= docHeight){
             this.setState({count: this.state.count + 1})     
             this.setState({newCount: this.state.newCount + 1})
-            console.log(this.state.newCount)
-            const dbRef = fire.database().ref('items').orderByKey().limitToFirst(50);
-            console.log(dbRef);           
+            //console.log(this.state.newCount)
+            const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100);
+            //console.log(dbRef);           
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
@@ -234,11 +235,13 @@ class MapDatabaseItems extends React.Component{
                const array1 = newState;
                
                console.log(array1.slice(0,10))
-               console.log(array1.slice(11,21))
-               console.log(array1.slice(22,33))
+               //console.log(array1.slice(11,21))
+               //console.log(array1.slice(22,33))
 
-            //    const arrayStart = this.state.arrayStartState;
-            //    const arrayEnd = this.state.arrayEndState;
+
+
+               const arrayStart = this.state.arrayStartState;
+                const arrayEnd = this.state.arrayEndState;
                
                //At this point, I want to take the above array and only get the first 10 or so records everytime the page scrolls
                // How I do that I don't know at this point
@@ -252,20 +255,24 @@ class MapDatabaseItems extends React.Component{
                //   I do think that would work but it would be awful. Probably a last resort type of thing.
 
                this.setState({
-                articlesArray2: newState.reverse(),
-                //    articlesArray2: newState.slice(arrayStart,arrayEnd).reverse(),
+               // articlesArray2: newState.reverse(),
+                   articlesArray2: newState.slice(arrayStart,arrayEnd).reverse(),
                    arrayStartState: this.state.arrayStartState + 5,
                    arrayEndState: this.state.arrayEndState + 5
 
                 // articlesArray2: newState[thing3]
                })
-               console.log(this.state.arrayStartState)
+               //console.log(this.state.arrayStartState)
                console.log(this.state.articlesArray2)
                
-               
+            //    const thing6 = this.state.articlesArray.concat(array1.slice(0,10));
+            const thing6 = this.state.articlesArray.concat(this.state.articlesArray2);
+               this.setState({
+                   articlesArray:thing6
+               })
                const thing3 = this.state.newCount;
                console.log("Count:: " + thing3)
-               console.log("Re3cord:: " + this.state.articlesArray2[thing3].title);
+              // console.log("Re3cord:: " + this.state.articlesArray2[thing3].title);
                
            })
 
@@ -285,8 +292,9 @@ class MapDatabaseItems extends React.Component{
         //This is the initial load in from the database...
         // const firebaseDB = this.state.articlesArray2.slice(this.state.arrayStartState,this.state.arrayEndState);
         const firebaseDB = this.state.articlesArray2.slice(0,4);
-        console.log(this.state.articlesArray2.slice(0,20));
+      //  console.log(this.state.articlesArray2.slice(0,20));
                
+      
      
         const addNewArticle = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
@@ -339,9 +347,10 @@ class MapDatabaseItems extends React.Component{
     lolWut(){
 
         let count = this.state.count, newLoadedArticles = [];  
-        console.log(count);
+        //console.log(count);
         const thing3 = this.state.newCount;
-        console.log("Count:: " + thing3)
+
+        //console.log("Count:: " + thing3)
         while(count--)
         
            newLoadedArticles.push(
@@ -354,10 +363,15 @@ class MapDatabaseItems extends React.Component{
                 <div>
                     <h1>Test{thing3+1}</h1>
                 </div>
+                
             </div>
             
                
             )
+
+           
+               
+
         return newLoadedArticles;
         
         // let count2 = this.state.count, uiItems = [];
@@ -414,9 +428,9 @@ class MapDatabaseItems extends React.Component{
 
 
       let count = this.state.count, newLoadedArticles = [];  
-      console.log(newLoadedArticles);
+      //console.log(newLoadedArticles);
       const thing3 = this.state.newCount;
-      console.log("Count:: " + thing3)
+     // console.log("Count:: " + thing3)
       while(count--)
       
          newLoadedArticles.push(
@@ -451,7 +465,8 @@ class MapDatabaseItems extends React.Component{
 
                 {HomePageView}         
                                    
-                {this.renderDivs()}     
+                {this.renderDivs()}  
+                   
                 {this.lolWut()}
 
                         
