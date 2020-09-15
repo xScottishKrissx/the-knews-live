@@ -1,10 +1,21 @@
+15 September 2020:
+  ✔ Got lazy loading to work by simply adding to the current loaded articles state. @done(20-09-15 13:15)
+    I already had most of the work done with 50 articles loaded into an array and ready to go.
+    After that, I sliced up the array using  "arrayStart" and "arrayEnd" in state that incremented when the window scrolled to the bottom. This would correspond to the array indexes and allow me to add 5 new unique articles to the page on scroll.
+    It's actually annoyinngly simple and made more annoying by the fact I had done most of the work already, I just failed to connect the dots and, as usual, tried to overcomplicate what I was doing.
+    The next stage is to
+        ☐ Clean up my code as I have gone a bit mental trying to figure this out. @started(20-09-15 13:15)
+        ☐ Fix an issue where clicking on an article and returning home renders the initial view but keeps the previously rendered artices in state which causes a bunch of issues. @started(20-09-15 13:15)
+    This was some major progress for me. Part of ther reason i had lossed motivation(other than falling into a rut after leaving Wholesale Domestic) was that I had hit a bit of a brick wall after being unable to come up with a solution
+    I want to keep moving forward and even if it means only spending 30 mins at a time, I want to be working on this everyday. This rut I'm in is a pain but as long as I stick to it and keep myself motivated I think I will be in better shape moving forward. Losing my job was a blow to my motivation but this was a good step.
+
 3 August 2020 Goals:
-  ☐ Work on User Interface
-    ☐ Size Controls
-    ☐ Nav bar
-    ☐ Footer
-    ☐ Add UI for Pagenation
-    ☐ Load 10 Items at start, then load more page scroll.
+  ✘ Work on User Interface @cancelled(20-09-15 13:10)
+    ✘ Size Controls @cancelled(20-09-15 13:10)
+    ✘ Nav bar @cancelled(20-09-15 13:10)
+    ✘ Footer @cancelled(20-09-15 13:10)
+    ✘ Add UI for Pagenation @cancelled(20-09-15 13:10)
+    ✘ Load 10 Items at start, then load more page scroll. @cancelled(20-09-15 13:10)
        Actually have something going with the same articles already on page being called again.
        This is a good start though as, ideally, all I now need to do is specify the database call to be something different that now.
        This might involve changing the array but at the very least, I have  something to build on.

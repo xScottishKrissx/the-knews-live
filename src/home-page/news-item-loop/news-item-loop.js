@@ -427,24 +427,24 @@ class MapDatabaseItems extends React.Component{
       })
 
 
-      let count = this.state.count, newLoadedArticles = [];  
-      //console.log(newLoadedArticles);
-      const thing3 = this.state.newCount;
-     // console.log("Count:: " + thing3)
-      while(count--)
+    //   let count = this.state.count, newLoadedArticles = [];  
+    //   //console.log(newLoadedArticles);
+    //   const thing3 = this.state.newCount;
+    //  // console.log("Count:: " + thing3)
+    //   while(count--)
       
-         newLoadedArticles.push(
-          //    <div>{firebaseDB.title}</div> 
-          <div>
-              {/* Don't delete addNewArticle, just trying stuff out. */}
-              {/* {addNewArticle} */}
-              <div>
-                  <h1>Test{thing3+1}</h1>
-              </div>
-          </div>
+    //      newLoadedArticles.push(
+    //       //    <div>{firebaseDB.title}</div> 
+    //       <div>
+    //           {/* Don't delete addNewArticle, just trying stuff out. */}
+    //           {/* {addNewArticle} */}
+    //           <div>
+    //               {/* <h1>Test{thing3+1}</h1> */}
+    //           </div>
+    //       </div>
           
              
-          )
+    //       )
 
       
 
@@ -467,7 +467,7 @@ class MapDatabaseItems extends React.Component{
                                    
                 {this.renderDivs()}  
                    
-                {this.lolWut()}
+                {/* {this.lolWut()} */}
 
                         
                 
