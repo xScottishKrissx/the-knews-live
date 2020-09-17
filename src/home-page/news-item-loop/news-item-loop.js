@@ -9,53 +9,10 @@ import fire from '../../fire.js'
 import '../news-item-loop/news-item-loop.css';
 
 import Caption from './news-item-caption/news-item-caption.js';
-import { render } from 'react-dom';
 
-// const testData = GalleryData;
-
-// console.log(testData);
 export const NewsItemLoop = () => {
     return <MapDatabaseItems />;    
 }
-
-const titleSettings = {
-    small: {
-        width:"100px"
-    },
-    medium: {
-        width:"200px"
-    },
-    large: {
-        width:"400px"
-    }
-}
-
-// const ThemeContext = React.createContext(
-//     themes.medium
-// )
-
-// function ThemedButton(props){
-//     return (
-//         <ThemeContext.Consumer>
-//             {theme => (
-//                 <button
-//                     {...props}
-//                     style={{width:themes.medium}}
-//                 />
-//             )}
-//         </ThemeContext.Consumer>
-//     );
-// }
-
-// function Toolbar(props){
-//     return (
-//         <ThemedButton onClick={props.changeTheme}>
-//             Change Theme
-//         </ThemedButton>
-//     )
-// }
-
-
 
 class MapDatabaseItems extends React.Component{
 
@@ -70,7 +27,7 @@ class MapDatabaseItems extends React.Component{
             key: "",
             articlesArray : [],
             articlesArray2 : [],
-            articlesArray3:[],
+            // articlesArray3:[],
             arrayStartState: 6,
             arrayEndState: 10,
             currentStyle:"",
@@ -78,50 +35,26 @@ class MapDatabaseItems extends React.Component{
             testStyle:{
                 width: localStorage.getItem("myData")
             },
-            //Context Api
-            theme: titleSettings.medium,
             addNewArticle:"",
             loadedArticles: "",
             
         }
-        // this.showExcerpt = this.showExcerpt.bind(this);
         this.setting1 = this.setting1.bind(this);
         this.setting2 = this.setting2.bind(this);
         this.setting3 = this.setting3.bind(this);
        
  
-        // this.scroll = this.scroll.bind(this);
 
 
-        //Context Api
-        // this.toggleTheme = () => {
-        //     this.setState(state => ({
-        //         theme:
-        //             // state.theme === themes.small ? themes.medium : themes.large
-        //             state.theme === themes.small           
-        //     }));
-            
-        // };
-        // this.toggleTheme = () => {
-        //     this.setState({theme: themes.small})
-        //     console.log(this.state.theme)
-        // }
     }
     
     componentDidMount(){
         
     //const dbRef = fire.database().ref('articles').orderByChild("id");
-       
-       //const checkUser = fire.auth().currentUser;
-       //console.log("User Status: "+ checkUser)
-
-
-        
-       //const dbRef = fire.database().ref('items').orderByChild("postdate").limitToLast(6); 
-       const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(5); 
-
-
-        // console.log(dbRef);
+       //const checkUser = fire.auth().currentUser;        
+      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(10); 
+    //   const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(10); 
+      
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -135,37 +68,21 @@ class MapDatabaseItems extends React.Component{
                     id:newsItems[newsItem].id
                 });
             }
+
+            // A janky way of removing the duplicating records.
+            // const indexesToBeRemoved = [6,7,8,9];
+            // while(indexesToBeRemoved.length){
+            //     newState.splice(indexesToBeRemoved.pop(),1);
+            // };
+
             this.setState({
-                articlesArray: newState.reverse(),
-                
+                // articlesArray: newState.reverse(),
+                articlesArray: newState
             })
             console.log(this.state.articlesArray);
             
         })
         window.addEventListener('scroll', this.scroll);
-
-               //Get 50 articles from database
-
-       const articles3 = fire.database().ref('items').orderByKey().limitToFirst(100);
-       articles3.on('value', (snapshot) => {
-        let newsItems = snapshot.val();
-        // console.log(newsItems);
-        let newState = [];
-        for(let newsItem in newsItems){
-            newState.push({
-                key: newsItem,
-                author: newsItems[newsItem].author,
-                title: newsItems[newsItem].title,
-                id:newsItems[newsItem].id
-            });
-        }
-        this.setState({
-            articlesArray3: newState.reverse(),
-            
-        })
-        //  console.log(this.state.articlesArray);
-        
-    })
     }
 
     setting1(e){
@@ -181,7 +98,7 @@ class MapDatabaseItems extends React.Component{
     setting2(e){
         e.preventDefault();
         // console.log("Setting 2 Clicked");
-        this.setState({currentStyle:{width:"260px" }})
+        this.setState({currentStyle:{width:"400px" }})
         const temp = "260px"
         localStorage.setItem("myData", temp);
         localStorage.getItem("myData")
@@ -216,7 +133,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({newCount: this.state.newCount + 1})
             //console.log(this.state.newCount)
             const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100);
-            //console.log(dbRef);           
+            
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
@@ -230,163 +147,45 @@ class MapDatabaseItems extends React.Component{
                        id:newsItems[newsItem].id
                    });
                }
-            //    console.log(newState)
+               const testThing = newState.splice(10,100);
+               console.log(newState)
+               console.log(testThing)
+               console.log(newState.splice(10,100));
 
-               const array1 = newState;
-               
-               console.log(array1.slice(0,10))
+            //    const array1 = newState;
+            //    console.log(array1.slice(0,10))
                //console.log(array1.slice(11,21))
                //console.log(array1.slice(22,33))
 
-
-
                const arrayStart = this.state.arrayStartState;
-                const arrayEnd = this.state.arrayEndState;
+               const arrayEnd = this.state.arrayEndState;
                
-               //At this point, I want to take the above array and only get the first 10 or so records everytime the page scrolls
-               // How I do that I don't know at this point
-               // I can get new articles render after each other but this is just rerendering the entire page.
-               // I can think of a hilariously janky way of creating an if statement to check which slice of the array has been rendered
-               //   if(infiniteLoadPhase1 === false){
-               //       render slice 1    
-               //   }elseif(infiniteLoadPhase2 === false){
-                //      render slice 2
-               //   ...and so on.
-               //   I do think that would work but it would be awful. Probably a last resort type of thing.
-
                this.setState({
                // articlesArray2: newState.reverse(),
-                   articlesArray2: newState.slice(arrayStart,arrayEnd).reverse(),
-                   arrayStartState: this.state.arrayStartState + 5,
-                   arrayEndState: this.state.arrayEndState + 5
-
-                // articlesArray2: newState[thing3]
+                //    articlesArray2: newState.slice(arrayStart,arrayEnd).reverse(),
+                   articlesArray2: newState.slice(arrayStart,arrayEnd),
+                   arrayStartState: this.state.arrayStartState + 4,
+                   arrayEndState: this.state.arrayEndState + 4
                })
                //console.log(this.state.arrayStartState)
                console.log(this.state.articlesArray2)
                
-            //    const thing6 = this.state.articlesArray.concat(array1.slice(0,10));
-            const thing6 = this.state.articlesArray.concat(this.state.articlesArray2);
+            const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
                this.setState({
-                   articlesArray:thing6
-               })
-               const thing3 = this.state.newCount;
-               console.log("Count:: " + thing3)
-              // console.log("Re3cord:: " + this.state.articlesArray2[thing3].title);
-               
+                   articlesArray:renderNewArticlesOnScroll
+               })            
            })
 
             console.log("Bottom Reached")
-            
-
-            
         }else{
             console.log("Not At Bottom Yet")
         }
-    }
-
-
-
-
-    renderDivs(){
-        //This is the initial load in from the database...
-        // const firebaseDB = this.state.articlesArray2.slice(this.state.arrayStartState,this.state.arrayEndState);
-        const firebaseDB = this.state.articlesArray2.slice(0,4);
-      //  console.log(this.state.articlesArray2.slice(0,20));
-               
-      
-     
-        const addNewArticle = firebaseDB.map((value,key) => {           
-            // There is probably a better way of doing this...
-            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            ///... and this.
-            const style = {
-                backgroundImage: 'url(' + imgUrl + ')',
-                backgroundPosition: "bottom",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-                width:"100%"
-            }
-    
-    
-            // console.log(value.author + " Key is: " + value.key)
-            return (
-                    
-                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle}>                    
-                            <Caption 
-                                pageid={value.key} 
-                                style={style} 
-                                title={value.title}
-                                author={value.author} />
-                    </div>
-
-                    
-
-                    // <div>
-                    //     <h1>Title:{this.state.articlesArray3[thing3].title}</h1>
-                    //     <p>Author</p>
-                    // </div>
-                
-
-            );
-
-      })
-
-
-        
-
-        // let count2 = this.state.count, uiItems = [];
-        // while(count2--)
-        // uiItems.push(
-        //     <div>This is added div! uniqueID: {count2}</div>
-        // )
-        // return uiItems;
-    }
-
-    lolWut(){
-
-        let count = this.state.count, newLoadedArticles = [];  
-        //console.log(count);
-        const thing3 = this.state.newCount;
-
-        //console.log("Count:: " + thing3)
-        while(count--)
-        
-           newLoadedArticles.push(
-            //    <div>{firebaseDB.title}</div> 
-            <div>
-                {/* Don't delete addNewArticle, just trying stuff out. */}
-                {/* {addNewArticle} */}
-                {this.state.addNewArticle}
-                {this.renderDivs()}
-                <div>
-                    <h1>Test{thing3+1}</h1>
-                </div>
-                
-            </div>
-            
-               
-            )
-
-           
-               
-
-        return newLoadedArticles;
-        
-        // let count2 = this.state.count, uiItems = [];
-        // while(count2--)
-        // uiItems.push(
-        //     <div>This is added div! uniqueID: {count2}</div>
-        // )
-        // return uiItems;
     }
 
     componentWillUnmount(){
         // console.log("Unmount on news-item-loop.js")
         window.addEventListener('scroll', this.scroll);
         fire.database().ref("items").off();
-       
       }
 
     render(){
@@ -424,29 +223,7 @@ class MapDatabaseItems extends React.Component{
                 
 
             );
-      })
-
-
-    //   let count = this.state.count, newLoadedArticles = [];  
-    //   //console.log(newLoadedArticles);
-    //   const thing3 = this.state.newCount;
-    //  // console.log("Count:: " + thing3)
-    //   while(count--)
-      
-    //      newLoadedArticles.push(
-    //       //    <div>{firebaseDB.title}</div> 
-    //       <div>
-    //           {/* Don't delete addNewArticle, just trying stuff out. */}
-    //           {/* {addNewArticle} */}
-    //           <div>
-    //               {/* <h1>Test{thing3+1}</h1> */}
-    //           </div>
-    //       </div>
-          
-             
-    //       )
-
-      
+      })   
 
 
         return (
@@ -463,51 +240,11 @@ class MapDatabaseItems extends React.Component{
                 </div>
                
 
-                {HomePageView}         
-                                   
-                {this.renderDivs()}  
-                   
-                {/* {this.lolWut()} */}
-
-                        
-                
-                
+                {HomePageView}      
+                                    
             </div>
         );   
     }
 }
-
-
-
-// const NewMap = () => {
-
-
-  
-//     const HomePageView = testData.map((value,key) => {
-
-//         // There is probably a better way of doing this...
-//         const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-//         ///... and this.
-//         const style = {
-//             backgroundImage: 'url(' + imgUrl + ')',
-//             backgroundPosition: "bottom",
-//             backgroundRepeat: "no-repeat",
-//             backgroundSize: "cover",
-//             height: "400px",
-//             width:"100%"
-//         }
-
-
-
-//         return (
-//                 <div className='news-square' key={key}>                    
-//                         <Caption pageid={value.id} style={style} title={value.title} />
-//                 </div>
-//         );
-//   })
-//     return HomePageView;    
-// }
-
-
 
 export default NewsItemLoop;

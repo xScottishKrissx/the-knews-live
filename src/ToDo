@@ -30,7 +30,8 @@ Part 1 - Implement the front end UI:
             I don't know how i fixed this. All I did was uncomment everything and it worked.
         
         ☐ When deployed, if you login with an article in the database the website UI doesnt update to reflect this. You need to manually refresh the page before the correct UI appears.
-        
+        ☐ When loading articles on scroll, the first 4 articles are repeats of the last 4 from the database. @started(20-09-17 18:55)
+            This is less of a bug and more of a incomplete feature that is working as expected given the current code.
 General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.

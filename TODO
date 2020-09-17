@@ -1,3 +1,5 @@
+17 September 2020:
+  ☐ Need to figure out the duplicate records from the database
 15 September 2020:
   ✔ Got lazy loading to work by simply adding to the current loaded articles state. @done(20-09-15 13:15)
     I already had most of the work done with 50 articles loaded into an array and ready to go.
