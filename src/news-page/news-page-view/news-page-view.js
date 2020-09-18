@@ -22,6 +22,7 @@ export class NewsPageVIEW extends React.Component{
             ownsArticle: '',
             postdate:'',
             user:'',
+            scrollsavetest:"",
         }
     }
     componentDidMount(){
@@ -77,6 +78,7 @@ export class NewsPageVIEW extends React.Component{
       }
     render(){
         const database = this.props.database;
+        console.log(this.props.scrollpos)
       // console.log({GeneratePostDate})
 
 
@@ -93,7 +95,7 @@ export class NewsPageVIEW extends React.Component{
                 <div className='news-page-wrapper' key={value.id}> 
 
                     <div className="back-button">
-                        <Link to='/theKnews'><p>Home</p></Link>
+                        <Link to='/theKnews' ><p>Home</p></Link>
                     </div>
 
     
@@ -113,6 +115,7 @@ export class NewsPageVIEW extends React.Component{
                         id={value.key}
                         email={value.email}
                         owns={this.state.ownsArticle}
+                       
                     />
 
 

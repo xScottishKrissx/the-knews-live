@@ -19,7 +19,6 @@ class MapDatabaseItems extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            count:0,
             title: "",
             author: "",
             id: "",
@@ -28,15 +27,15 @@ class MapDatabaseItems extends React.Component{
             articlesArray : [],
             articlesArray2 : [],
             // articlesArray3:[],
-            arrayStartState: 6,
-            arrayEndState: 10,
+            arrayStartState: 21,
+            arrayEndState: 31,
             currentStyle:"",
-            newCount:0,
             testStyle:{
                 width: localStorage.getItem("myData")
             },
             addNewArticle:"",
             loadedArticles: "",
+            scrollsavetest:2000,
             
         }
         this.setting1 = this.setting1.bind(this);
@@ -52,7 +51,7 @@ class MapDatabaseItems extends React.Component{
         
     //const dbRef = fire.database().ref('articles').orderByChild("id");
        //const checkUser = fire.auth().currentUser;        
-      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(10); 
+      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100); 
     //   const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(10); 
       
         
@@ -77,7 +76,7 @@ class MapDatabaseItems extends React.Component{
 
             this.setState({
                 // articlesArray: newState.reverse(),
-                articlesArray: newState
+                articlesArray: newState.slice(0,20)
             })
             console.log(this.state.articlesArray);
             
@@ -126,11 +125,14 @@ class MapDatabaseItems extends React.Component{
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset;
        //console.log(docHeight);
-       // console.log(windowBottom)
+       console.log(windowBottom)
+        
 
+
+
+
+        console.log(this.state.scrollsavetest)
         if(windowBottom >= docHeight){
-            this.setState({count: this.state.count + 1})     
-            this.setState({newCount: this.state.newCount + 1})
             //console.log(this.state.newCount)
             const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100);
             
@@ -147,10 +149,10 @@ class MapDatabaseItems extends React.Component{
                        id:newsItems[newsItem].id
                    });
                }
-               const testThing = newState.splice(10,100);
-               console.log(newState)
-               console.log(testThing)
-               console.log(newState.splice(10,100));
+            //    const testThing = newState.splice(10,100);
+            //    console.log(newState)
+            //    console.log(testThing)
+            //    console.log(newState.splice(10,100));
 
             //    const array1 = newState;
             //    console.log(array1.slice(0,10))
@@ -164,8 +166,8 @@ class MapDatabaseItems extends React.Component{
                // articlesArray2: newState.reverse(),
                 //    articlesArray2: newState.slice(arrayStart,arrayEnd).reverse(),
                    articlesArray2: newState.slice(arrayStart,arrayEnd),
-                   arrayStartState: this.state.arrayStartState + 4,
-                   arrayEndState: this.state.arrayEndState + 4
+                   arrayStartState: this.state.arrayStartState + 10,
+                   arrayEndState: this.state.arrayEndState + 10
                })
                //console.log(this.state.arrayStartState)
                console.log(this.state.articlesArray2)
@@ -189,9 +191,20 @@ class MapDatabaseItems extends React.Component{
       }
 
     render(){
-        const firebaseDB = this.state.articlesArray;        
+        const firebaseDB = this.state.articlesArray;       
+        window.scrollTo(0,2000); 
         // console.log(this.state.currentStyle)
         
+        //Trying to get the page to remember your scroll position when you return from a page.
+        // const temp2 = this.state.scrollsavetest;
+        // localStorage.setItem("scrollPos", temp2);
+        // localStorage.getItem("scrollPos")
+        // console.log("Scroll Position should be::" + localStorage.getItem("scrollPos"));
+        // if(temp2 > 1000){
+        //     window.scrollTo(0, this.state.scrollsavetest);
+        // }
+        
+
         //Render new div without re-rerendering entire thing.
 
 
@@ -213,12 +226,14 @@ class MapDatabaseItems extends React.Component{
             // console.log(value.author + " Key is: " + value.key)
             return (
                 
-                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle}>                    
+                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle} >                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
                                 title={value.title}
-                                author={value.author} />
+                                author={value.author}
+                                
+                                />
                     </div>
                 
 
@@ -230,18 +245,18 @@ class MapDatabaseItems extends React.Component{
             <div>               
 
 
-                <div className="tileSizeControls" >
+                {/* <div className="tileSizeControls" >
                     <h2>Amazing Final Production Version Custom Controls V1337</h2> 
                     <span className="controlBtns">
                         <button onClick={this.setting1}>S</button>
                         <button onClick={this.setting2}>M</button>
                         <button onClick={this.setting3}>L</button>
                     </span>   
-                </div>
+                </div> */}
                
-
+               <button onClick={window.scrollTo(0,this.state.scrollsavetest)}>Buton</button>    
                 {HomePageView}      
-                                    
+                                 
             </div>
         );   
     }

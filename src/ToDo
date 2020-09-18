@@ -110,7 +110,11 @@ General Notes  Objectives:
                  I have managed to solve this but explaining it is a bit tricky because i'm not sure how to actually start. Basically i used match.params.id to get the identifier along with js .find and map functions. I will try and go into more detail later.
 
         ✔ Clean up Console messages. @started(18-08-30 11:33) @done(18-08-30 11:47) @lasted(14m41s)
-        
+        ☐ Width of news area has been maxed at 1600px (not final)
+            ☐ I want to make sure the space left here is used by something, maybe adding some kind of floating tag menu @started(20-09-18 17:14)
+            this menu would need to be placed somewhere else when used with smaller window.
+
+
     Header:
         ✔ Get basic structure in place @done(18-07-24 17:48)
         ✔ Mobile Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m48s)
@@ -138,6 +142,7 @@ General Notes  Objectives:
             //Sort of, doesn't remember tile sizes if you leave the page.
             ☐ Maybe some kind of randomised news tile size @started(18-08-31 17:24)
             ☐ Work on controls appearance @started(18-09-04 12:29)
+                18/9/2020 - Removed sized controls, they're just adding too much work at the moment. Want to focus on the core of the project rather than the smaller details like this.
             ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
                 //Might not be possible without another library
                 .... or I could use local storage/session storage to remember user choice.
@@ -170,6 +175,8 @@ General Notes  Objectives:
             It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
         ☐ Clean Up Recommended reading bar styling @started(18-08-29 11:14)
         ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
+        ☐ Each article should come with tags that can be filtered on the home page.
+            maybe even ability to search by tag
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
