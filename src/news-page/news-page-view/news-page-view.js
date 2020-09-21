@@ -22,7 +22,7 @@ export class NewsPageVIEW extends React.Component{
             ownsArticle: '',
             postdate:'',
             user:'',
-            scrollsavetest:"",
+            
         }
     }
     componentDidMount(){
@@ -78,7 +78,7 @@ export class NewsPageVIEW extends React.Component{
       }
     render(){
         const database = this.props.database;
-        console.log(this.props.scrollpos)
+        //console.log(this.props.scrollpos)
       // console.log({GeneratePostDate})
 
 

@@ -1,13 +1,6 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
-// import GalleryData from '../dummy-data';
 import fire from '../../fire.js'
-// import UniqueNewsItem from '../unique-news-item/unique-news-item';
-
-// import FetchRandomImage from '../../news-page/news-page'
-
 import '../news-item-loop/news-item-loop.css';
-
 import Caption from './news-item-caption/news-item-caption.js';
 
 export const NewsItemLoop = () => {
@@ -35,24 +28,20 @@ class MapDatabaseItems extends React.Component{
             },
             addNewArticle:"",
             loadedArticles: "",
-            scrollsavetest:2000,
+             scrollsaveScrollPosition:0,
             
         }
         this.setting1 = this.setting1.bind(this);
         this.setting2 = this.setting2.bind(this);
-        this.setting3 = this.setting3.bind(this);
-       
- 
-
-
+        this.setting3 = this.setting3.bind(this);     
     }
     
     componentDidMount(){
         
     //const dbRef = fire.database().ref('articles').orderByChild("id");
-       //const checkUser = fire.auth().currentUser;        
+    //const checkUser = fire.auth().currentUser;        
       const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100); 
-    //   const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(10); 
+    //const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(10); 
       
         
         dbRef.on('value', (snapshot) => {
@@ -67,12 +56,6 @@ class MapDatabaseItems extends React.Component{
                     id:newsItems[newsItem].id
                 });
             }
-
-            // A janky way of removing the duplicating records.
-            // const indexesToBeRemoved = [6,7,8,9];
-            // while(indexesToBeRemoved.length){
-            //     newState.splice(indexesToBeRemoved.pop(),1);
-            // };
 
             this.setState({
                 // articlesArray: newState.reverse(),
@@ -113,10 +96,6 @@ class MapDatabaseItems extends React.Component{
         localStorage.getItem("myData")
         console.log(localStorage.getItem("myData"));
     }
-    
-
-
-
 
     scroll = () => {
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
@@ -124,14 +103,13 @@ class MapDatabaseItems extends React.Component{
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset;
-       //console.log(docHeight);
-       console.log(windowBottom)
+    //    console.log(docHeight);
+    //    console.log(windowBottom)
         
+        this.setState({
+            scrollsaveScrollPosition: windowBottom
+        })
 
-
-
-
-        console.log(this.state.scrollsavetest)
         if(windowBottom >= docHeight){
             //console.log(this.state.newCount)
             const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100);
@@ -149,27 +127,17 @@ class MapDatabaseItems extends React.Component{
                        id:newsItems[newsItem].id
                    });
                }
-            //    const testThing = newState.splice(10,100);
-            //    console.log(newState)
-            //    console.log(testThing)
-            //    console.log(newState.splice(10,100));
-
-            //    const array1 = newState;
-            //    console.log(array1.slice(0,10))
-               //console.log(array1.slice(11,21))
-               //console.log(array1.slice(22,33))
 
                const arrayStart = this.state.arrayStartState;
                const arrayEnd = this.state.arrayEndState;
                
-               this.setState({
-               // articlesArray2: newState.reverse(),
-                //    articlesArray2: newState.slice(arrayStart,arrayEnd).reverse(),
-                   articlesArray2: newState.slice(arrayStart,arrayEnd),
-                   arrayStartState: this.state.arrayStartState + 10,
-                   arrayEndState: this.state.arrayEndState + 10
+               this.setState({               
+                articlesArray2: newState.slice(arrayStart,arrayEnd),
+                arrayStartState: this.state.arrayStartState + 10,
+                arrayEndState: this.state.arrayEndState + 10
                })
-               //console.log(this.state.arrayStartState)
+
+               console.log(this.state.arrayStartState)
                console.log(this.state.articlesArray2)
                
             const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
@@ -190,25 +158,37 @@ class MapDatabaseItems extends React.Component{
         fire.database().ref("items").off();
       }
 
+    saveScrollPosition(){
+        console.log("Scroll is:: " + window.scrollY)
+
+        const saveScrollPosition = window.scrollY;
+        const saveArticlesLoaded = this.state.arrayStartState;
+
+        localStorage.setItem("myScrollPos", saveScrollPosition);
+        localStorage.setItem("articlesLoaded", saveArticlesLoaded)
+
+        console.log("Scroll Position is:: " + localStorage.getItem("myScrollPos"));
+        console.log(localStorage.getItem("articlesLoaded") + " articles currently loaded");
+    }
+
+    scrollTo(){
+        if(localStorage.getItem("myScrollPos") > 0){
+            window.scrollTo(0,localStorage.getItem("myScrollPos"));
+            console.log("Scroooooooooooooooooooooooooooooooooooooooooooooollling to " + localStorage.getItem("myScrollPos"))
+
+        }
+        else{
+            console.log("Don't scroll anywhere")
+        }
+    }
+    scrollToTop(){
+        window.scrollTo(0,0);
+    }
+
     render(){
-        const firebaseDB = this.state.articlesArray;       
-        window.scrollTo(0,2000); 
-        // console.log(this.state.currentStyle)
+        // console.log(localStorage.getItem("myScrollPos"));
         
-        //Trying to get the page to remember your scroll position when you return from a page.
-        // const temp2 = this.state.scrollsavetest;
-        // localStorage.setItem("scrollPos", temp2);
-        // localStorage.getItem("scrollPos")
-        // console.log("Scroll Position should be::" + localStorage.getItem("scrollPos"));
-        // if(temp2 > 1000){
-        //     window.scrollTo(0, this.state.scrollsavetest);
-        // }
-        
-
-        //Render new div without re-rerendering entire thing.
-
-
-        
+        const firebaseDB = this.state.articlesArray;               
         const HomePageView = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -220,13 +200,11 @@ class MapDatabaseItems extends React.Component{
                 backgroundSize: "cover",
                 height: "400px",
                 width:"100%"
-            }
-    
-    
+            }    
             // console.log(value.author + " Key is: " + value.key)
             return (
                 
-                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle} >                    
+                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle}  >                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
@@ -235,8 +213,6 @@ class MapDatabaseItems extends React.Component{
                                 
                                 />
                     </div>
-                
-
             );
       })   
 
@@ -254,7 +230,9 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div> */}
                
-               <button onClick={window.scrollTo(0,this.state.scrollsavetest)}>Buton</button>    
+               <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button> 
+               <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>   
+               <button id="scrollToTop" onClick={() => this.scrollToTop()}>Scroll Top</button>
                 {HomePageView}      
                                  
             </div>

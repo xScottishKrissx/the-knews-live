@@ -12,4 +12,28 @@
     /* width: 200px; */
 }
 
+#saveScroll{
+    position: fixed;
+    right: 0;
+    bottom: 1vh;
+    z-index: 1;
+}
+
+#scrollTo{
+    position: fixed;
+    left: 0;
+    bottom: 1vh;
+    z-index: 1;
+}
+
+#scrollToTop{
+    left: 45%;
+    bottom: 1vh;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 1;
+
+
+}
+
 
