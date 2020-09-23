@@ -37,15 +37,15 @@ const ArticleArea = (props) => {
                         <h1 className="article-title">{props.title}</h1>
                         <h2 className="article-subtitle">{props.postdate}</h2>
                         <h3 className="article-author">{props.author}</h3>
-                        <h3>Email: {props.email}</h3>
+                        <h3>{props.email}</h3>
                         
                         
                 </header>
-                {loggedInEmail === articleEmail ?
+                {/* {loggedInEmail === articleEmail ?
                 <EditArticle articleText={props.text} articleID={props.id} articleTitle={props.title}/>
                 :
                 <p>No Edit Button for you</p>
-                }
+                } */}
                 <Share />
                 
                 

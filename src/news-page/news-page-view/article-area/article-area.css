@@ -27,15 +27,24 @@ section h3{
 
 .article-text{
     padding: 5px;
-    line-height: 1.5rem;
+    line-height: 1.75rem;
     /* max-width: 600px; */
     max-width: 35rem;
     margin: 0 auto;
     white-space: pre-wrap;
 }
 
+@media (max-width: 1200px) {
+.article-text{
+    max-width: 85%;
+}
+}
 
-
+@media (min-width: 1200px) {
+    .news-article-body{
+        display: flex;
+    }
+}
 
 @media (min-width: 1600px) {
     .news-article-body{
@@ -44,6 +53,12 @@ section h3{
 }
 
 
-@media(min-width: 1921px){
-
+@media(min-width: 2300px){
+    .article-text{
+        font-size: 1.25rem;
+        line-height: 2;
+        max-width: 100%;
+        width: 100%;
+    }
 }
+

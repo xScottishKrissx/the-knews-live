@@ -1,13 +1,17 @@
 import React from 'react';
+import '../utility_components/scrollToTop.css';
 
-export class ScrollTopTopBtn extends React.Component{
+export class ScrollToTopBtn extends React.Component{
+    scrollToTop(){
+        window.scrollTo(0,0);
+    }
     render(){
         return (
-            <div>
-                <p>ScrollTopTopBtn</p>
-            </div>
+            <button id="scrollToTop" onClick={() => this.scrollToTop()}>Back to Top</button>
         )
     }
 }
 
-export default ScrollTopTopBtn;
+
+
+export default ScrollToTopBtn;

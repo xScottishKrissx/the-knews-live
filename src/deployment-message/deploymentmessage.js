@@ -35,20 +35,10 @@ export const MessageBody = () =>{
 
         <div>
         <h1>The Knews </h1>
-        <h3>Deployed V7.1 - Back to Work - 1 July 2020 - </h3>
+        <h3>Deployed V8 - 23 September 2020 - </h3>
         <h5>you can temporarily hide this message by clicking it. Refresh the page to get it back</h5>
-        <p>Keep an eye out for constant updates as I tinker and add new features regularly: <a href="https://christopherdunne.co.uk/portfolio/react-project-3-the-knews/">HERE</a></p>
-            <ul>
-                <li>This is a project that I have chosen to deploy while still under construction.</li>
-                <li>Being deployed to a live server helps me test React related things as well as letting any potential visitor know what I'm up to</li>
-                <li>I am building a sort of news website that will display items all at once in the form of tiles. I want it to feel big and bold,responsive to different resolutions, with lots of images but also room for large bodies of text because as a news site the actual text should be priority.</li>
-                <li>To build it I am using React for the front end and Google Firebase for the database</li>
-                <li>Check out the repo for this project <a href="https://github.com/xScottishKrissx/react-project-3" target="_new">here</a></li>
-                <li>It's a WIP but I'm proud of my progress so far. I also plan on updating it with a new version daily.</li>
-                <li>Being Furloughed from work has encouraged me to get back to this. I'm also working on other projects aside from this so progress might be slow</li>
-                <li>Also, not working with react in a few years can really get in the way of working with react. Who da thunk?</li>
-                <li>KNOWN BUG: If you refresh on a news article you will get a 404 error.</li>
-            </ul>
+        <p>Check out my blog for this in progress project where I post updates and detail what I am doing: <a href="https://christopherswebdevdiary.wordpress.com/">HERE</a></p>
+        <p>Known Bug:: If you hit F5, you will get an error. Remove the /home from the url to get back.</p>
         </div>
     )
 }

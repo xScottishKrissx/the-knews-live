@@ -6,11 +6,13 @@ const HeaderImage = (props) =>{
     
     const style = {
         backgroundImage: 'url(' + imgUrl + ')',
-        backgroundPosition: "bottom",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        height: "400px",
-        width:"100%"
+        // backgroundPosition: "bottom",
+        // backgroundRepeat: "no-repeat",
+        // backgroundSize: "cover",
+        // height: "400px",
+        // maxWidth:"1200px",
+        // width:"100%"
+        
     }
     return(
         <div className="article-banner-image extra-banner-image" style={style}></div>

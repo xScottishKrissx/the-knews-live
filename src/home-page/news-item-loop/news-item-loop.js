@@ -3,6 +3,8 @@ import fire from '../../fire.js'
 import '../news-item-loop/news-item-loop.css';
 import Caption from './news-item-caption/news-item-caption.js';
 
+import ScrollToTopButton from '../../utility_components/scrollToTop.js';
+
 export const NewsItemLoop = () => {
     return <MapDatabaseItems />;    
 }
@@ -154,7 +156,8 @@ class MapDatabaseItems extends React.Component{
 
     componentWillUnmount(){
         // console.log("Unmount on news-item-loop.js")
-        window.addEventListener('scroll', this.scroll);
+        // window.addEventListener('scroll', this.scroll);
+        window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
       }
 
@@ -181,9 +184,6 @@ class MapDatabaseItems extends React.Component{
             console.log("Don't scroll anywhere")
         }
     }
-    scrollToTop(){
-        window.scrollTo(0,0);
-    }
 
     render(){
         // console.log(localStorage.getItem("myScrollPos"));
@@ -199,7 +199,7 @@ class MapDatabaseItems extends React.Component{
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 height: "400px",
-                width:"100%"
+                // width:"100%"
             }    
             // console.log(value.author + " Key is: " + value.key)
             return (
@@ -230,11 +230,12 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div> */}
                
-               <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button> 
-               <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>   
-               <button id="scrollToTop" onClick={() => this.scrollToTop()}>Scroll Top</button>
-                {HomePageView}      
-                                 
+               {/* <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button>  */}
+               {/* <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>    */}
+
+               
+               {HomePageView}      
+               <ScrollToTopButton />
             </div>
         );   
     }

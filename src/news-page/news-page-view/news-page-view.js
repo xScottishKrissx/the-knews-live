@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import HeaderImage from './header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 
+import ScrollToTopButton from '../../utility_components/scrollToTop.js';
 import RecommendedReading from './social/recommended-reading/recommended-reading.js';
 
 import './news-page-view.css';
@@ -89,20 +90,20 @@ export class NewsPageVIEW extends React.Component{
 
     
         const NewsPageView = database.map((value) => {
-            console.log(value)
+            // console.log(value)
             //console.log("current author email:: " + value.email)
             return(
                 <div className='news-page-wrapper' key={value.id}> 
 
-                    <div className="back-button">
+                    {/* <div className="back-button">
                         <Link to='/theKnews' ><p>Home</p></Link>
-                    </div>
+                    </div> */}
 
     
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
                         <HeaderImage props={value.id} />
-                        <HeaderImage props={value.id + 60} />
+                        {/* <HeaderImage props={value.id + 60} /> */}
                     </div>
 
                     <ArticleArea 
@@ -121,6 +122,7 @@ export class NewsPageVIEW extends React.Component{
 
 
                     <RecommendedReading />
+                    <ScrollToTopButton />
 
     
     

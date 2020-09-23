@@ -88,7 +88,7 @@ export class HandleLike extends React.Component{
             }
         }else{
             console.log("Please Log In to Use the Page Score Function")
-            alert("Please Log-In to use Page Score Functionality")
+            alert("Currently, you need to be logged in via google to interact with the score buttons. Just for this deployment I have disabled the entire login functionality so you can't vote. This feature will return after I'm happy with the way I handle logins which will hopefully be done by the next version.")
         }
 
 

@@ -5,7 +5,7 @@
     flex: auto;
 
     /* Default */
-    width: 260px;
+    width: 260px !important;
     
 
     /* Small */
@@ -26,14 +26,5 @@
     z-index: 1;
 }
 
-#scrollToTop{
-    left: 45%;
-    bottom: 1vh;
-    margin: 0 auto;
-    position: fixed;
-    z-index: 1;
-
-
-}
 
 

@@ -1,5 +1,9 @@
 .message-wrapper{
+    background-color: white;
     border: 1px solid;
     margin: 0 auto;
-    max-width: 1200px;
+    /* max-width: 1200px; */
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }

@@ -160,28 +160,32 @@ General Notes  Objectives:
             ☐ Create Hover/Click caption @started(18-07-25 15:13)
 
     
-    News Item:
-        ✔ Basic Structure in place @done(18-08-13 18:03)
-        Style page: 
-            ✔ Large Header Image at top @done(18-08-01 11:50)
-            ✔   Main Header Below @done(18-08-13 18:03)
-            ✔    Sub-Title Next @done(18-08-13 18:03)
-            ✔      Content @done(18-08-13 18:03)
-        ✔ Figure out how to add a new line to json data @done(18-07-26 11:08)
-             It's a 2 part thing
-                 First \n in json
-                 Second .where-the-data-is { white-space: pre-wrap;}
-        ✔ There's probably a bit too much white space at either side of the article. Maybe think about adding functionality for images. @done(18-08-01 13:57)
-            ✔ The images are the same for each page. Make sure these are truly random @started(18-08-01 13:57) @done(18-08-10 17:33) @lasted(1w2d3h36m6s)
-            ✔ Instead of removing the images at lower than 1600px just add them in a grid to the bottom of the article. @done(18-08-24 12:26)
-        ✔ Figure out how to render html tags from json file. @done(18-08-13 18:03)
-        ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
-        ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
-            It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
-        ☐ Clean Up Recommended reading bar styling @started(18-08-29 11:14)
-        ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
-        ☐ Each article should come with tags that can be filtered on the home page.
-            maybe even ability to search by tag
+        Article Page:
+            ✔ Basic Structure @done(18-08-13 18:03)
+                ✔ Large Header Image at top @done(18-08-01 11:50)
+                ✔   Main Header Below @done(18-08-13 18:03)
+                ✔    Sub-Title Next @done(18-08-13 18:03)
+                ✔      Content @done(18-08-13 18:03)
+            ✔ Figure out how to add a new line to json data @done(18-07-26 11:08)
+                It's a 2 part thing
+                    First \n in json
+                    Second .where-the-data-is { white-space: pre-wrap;}
+            ✔ There's probably a bit too much white space at either side of the article. Maybe think about adding functionality for images. @done(18-08-01 13:57)
+                ✔ The images are the same for each page. Make sure these are truly random @started(18-08-01 13:57) @done(18-08-10 17:33) @lasted(1w2d3h36m6s)
+                ✔ Instead of removing the images at lower than 1600px just add them in a grid to the bottom of the article. @done(18-08-24 12:26)
+                23/9/2020 - I have adjusted the appearance here by making the image take up most of the page and having the title, author and date take up the rest of the page. Almost like a book.
+            ✔ Figure out how to render html tags from json file. @done(18-08-13 18:03)
+            ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
+            ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
+                It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
+            ☐ Clean Up Recommended reading bar styling @started(18-08-29 11:14)
+            ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
+            ☐ Each article should come with tags that can be filtered on the home page.
+                maybe even ability to search by tag
+            ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
+            ☐ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08)
+                23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
+
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -193,13 +197,14 @@ General Notes  Objectives:
         ✔ Limit User Uploads to One per registered email address @started(18-08-21 17:36) @done(18-08-22 12:57) @lasted(19h21m39s)
         ✔ Automate Post Date @started(18-08-21 17:36) @done(18-08-24 11:24) @lasted(2d17h48m47s)
         ☐ Add View Post button to articles in myKnews
-        ☐ Convert timestamp to readable date time format
+        ✔ Convert timestamp to readable date time format @done(20-09-23 16:49)
         
     
     
         Footer:
          Dont' know if I am going to have one.
          Might put a small bar at the bottom to act as footer.
+         23/9/2020 - Well I have one now so I may as well make it look presentable.
     
 
 Part 2 Implement Database functionality:

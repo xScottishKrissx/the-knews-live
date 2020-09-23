@@ -7,8 +7,8 @@ export const Header = () => {
     return (
         <div id="header" className='header-container'>
             <div className="header-wrapper">
-                <span className="brand">the Knews</span>
-                <nav>
+                <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
+                {/* <nav>
                     <ul>
                         <li>
                             <Link to="/theKnews/home">the Knews</Link>
@@ -26,7 +26,7 @@ export const Header = () => {
                             <Link to="/theKnews/myKnews">my Knews</Link>
                         </li>
                     </ul>
-                </nav>
+                </nav> */}
             </div>
         </div>
     )
