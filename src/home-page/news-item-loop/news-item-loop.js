@@ -230,8 +230,8 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div> */}
                
-               <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button> 
-               <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>   
+               {/* <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button> 
+               <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>    */}
 
                
                {HomePageView}      

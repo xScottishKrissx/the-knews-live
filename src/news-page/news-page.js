@@ -85,6 +85,7 @@ export class NewsPage extends React.Component{
 
     const test = arrayLength;
     return (
+        
         <span>
         {test === 1 ?         
             <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  /> 

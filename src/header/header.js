@@ -3,17 +3,22 @@ import './header.css';
 
 import {Link} from 'react-router-dom';
 
+
 export const Header = () => {
+    
     return (
         <div id="header" className='header-container'>
             <div className="header-wrapper">
-                <div className="nav-controls">
-                    <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
-                    <div className="nav-icons back-button"><Link to='/theKnews' ><p className="large material-icons">arrow_back</p></Link></div>
-                    <div className="nav-icons home-button"><Link to='/theKnews' ><p className="large material-icons">home</p></Link></div>
-                    <div className="nav-icons next-button"><Link to='/theKnews' ><p className="large material-icons">arrow_next</p></Link></div>
-                </div>
-                
+            <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
+                {/* <div className="nav-controls">
+                <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
+                <span className="icons-wrapper">
+                        <div className="nav-icons home-button"><Link to='/theKnews' ><p className="large material-icons">home</p><span>Home</span></Link></div>
+                        <div className="nav-icons back-button"><Link to='/theKnews' ><p className="large material-icons">arrow_back</p><span>Prev Article</span></Link></div>
+                        <div className="nav-icons next-button"><Link to='/theKnews' ><p className="large material-icons">arrow_forward</p><span>Next Article</span></Link></div>
+                </span>
+                </div> */}
+
                 {/* <nav>
                     <ul>
                         <li>
@@ -38,25 +43,19 @@ export const Header = () => {
     )
 }
 
-// export class Header extends React.Component{
-//     render(){
-//         return(
-//             <div id="header" className='header-container'>
-
-//                 <span className="brand">the Knews</span>
-                
-//                 <nav>                    
-//                     <ul>
-//                         <li> <Link to="/theKnews">theKnews</Link></li>
-//                         <li>Categories</li>
-//                         <li>Filters</li>
-//                         <li>Sign In / Register</li>
-//                     </ul>
-//                 </nav>
-
-//             </div>
-//         )
-//     }
-// }
+export class HeaderStyle extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            style: "",            
+        }
+    }
+    
+    render(){
+        return(
+            <p>Thing</p>
+        )
+    }
+}
 
 export default Header;

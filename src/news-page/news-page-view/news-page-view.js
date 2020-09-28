@@ -5,6 +5,7 @@ import HeaderImage from './header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 
 import ScrollToTopButton from '../../utility_components/scrollToTop.js';
+import NavControls from '../../utility_components/navControls.js';
 import RecommendedReading from './social/recommended-reading/recommended-reading.js';
 
 import './news-page-view.css';
@@ -93,6 +94,7 @@ export class NewsPageVIEW extends React.Component{
             // console.log(value)
             //console.log("current author email:: " + value.email)
             return(
+              
                 <div className='news-page-wrapper' key={value.id}> 
 
   
@@ -130,10 +132,9 @@ export class NewsPageVIEW extends React.Component{
         return (
             
             <div>
---              
-                {NewsPageView}
-                
-                
+                <NavControls />
+                    
+                {NewsPageView}               
             </div>
         )
 

@@ -185,13 +185,16 @@ General Notes  Objectives:
             ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
             ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
                 23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
-                ☐ Add In Space for Home Button @started(20-09-28 12:58)
-                ☐ Add in "Next Article" Button @started(20-09-28 12:58)
+                ✔ Add In Space for Home Button @started(20-09-28 12:58) @done(20-09-28 16:16) @lasted(3h18m18s)
+                ✔ Add in "Next Article" Button @started(20-09-28 12:58) @done(20-09-28 16:16) @lasted(3h18m19s)
                 // So basically, 3 buttons that allow full movemement through website.
                 // Desktop layout like -> Home | Back | Next
                     the Knews header acts as second home button.
                 // Mobile layout like -> Back | Home | Next
                     // Fix to bottom for easier access.
+                ☐ Current UI has article controls on home page, hide these here. @started(20-09-28 16:18)
+                ☐ Create Logic for Back, Home and Next buttons to actually work. @started(20-09-28 16:19)
+                //Is this not as easy as using the page id to go to the next chronoligical page number? 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)

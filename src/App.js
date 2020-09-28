@@ -16,12 +16,14 @@ import { Routes } from './routes/routes';
 class App extends Component {
 
 
+
   render(){
     return(
       <div>
         {/* <h1>the Knews - Live</h1> */}
 
       {/* <DeploymentMessage /> */}
+      
       <Header />
       <Routes />
       {/* <Footer /> */}

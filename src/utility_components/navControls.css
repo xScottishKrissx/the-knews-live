@@ -1,0 +1,65 @@
+    /* Navigation Control */
+    .nav-controls{
+        bottom: 0;
+        display: block;
+        /* height: 110px; */
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+    }
+
+        .icons-wrapper{
+            display: flex;
+            height: 75px;
+        }
+        .nav-icons{
+            margin: 0 auto;
+            /* border-left: 1px solid white; */
+            background: black;
+            width: 33%;
+            text-align: center;
+        }
+        .back-button{           
+             border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+        .home-button{}
+        .next-button{}
+
+            .nav-icons a{
+                color: white;
+                display: block;
+                line-height: 0;
+            }
+
+                .nav-icons a p{}
+
+
+@media (min-width: 768px) {
+
+    .icons-wrapper{
+        display: inline;
+    }
+
+    .nav-icons{background: white;}
+    
+        .nav-icons a{ 
+            color: black;
+            line-height: 0;
+        }
+    
+    .home-button, .back-button, .next-button{
+        position: fixed;
+        top: 0vh;
+        width: auto;
+    }
+        .home-button{
+            left: 0;
+        }
+        .back-button{
+            left: 8vw;
+        }
+        .next-button{
+            right: 0;
+        }
+}
