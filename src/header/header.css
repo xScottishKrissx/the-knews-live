@@ -51,7 +51,28 @@ a, a:visited{
                 text-decoration: none;
             }
 
+    /* Back Button */
+    .nav-icons{
+        border: 1px solid black;
+        bottom: 0;
+        max-width: 1200px;
+        position: fixed;
+        
+        z-index: 1;
+    }
+    .back-button{}
+    .home-button{}
+    .next-button{}
+    .nav-icons a{
+        color: black;
+        text-decoration: none;
+    }
 
+    .nav-icons a p{
+            background-color: #0000000f;
+            margin: 0;
+            padding: 0;
+        }
 
     @media (min-width: 768px) {
 

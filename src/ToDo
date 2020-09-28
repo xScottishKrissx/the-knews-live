@@ -183,9 +183,15 @@ General Notes  Objectives:
             ☐ Each article should come with tags that can be filtered on the home page.
                 maybe even ability to search by tag
             ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
-            ☐ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08)
+            ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
                 23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
-
+                ☐ Add In Space for Home Button @started(20-09-28 12:58)
+                ☐ Add in "Next Article" Button @started(20-09-28 12:58)
+                // So basically, 3 buttons that allow full movemement through website.
+                // Desktop layout like -> Home | Back | Next
+                    the Knews header acts as second home button.
+                // Mobile layout like -> Back | Home | Next
+                    // Fix to bottom for easier access.
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -272,10 +278,13 @@ Part 2 Implement Database functionality:
 
 
     Part 3 Deployment:
-        ☐ 21/9/2020 - Create a new live version to go on the site @started(20-09-21 17:50)
-            ☐ Remove everything but the home page
-            ☐ Remove any sign of editing
-            ☐ Only show the lazy loading and article views
+        ✔ 21/9/2020 - Create a new live version (Version 8) to go on the site @started(20-09-21 17:50) @done(20-09-28 12:17) @lasted(6d18h27m55s)
+             Remove everything but the home page
+             Remove any sign of editing
+             Only show the lazy loading and article views
+    
+        New Features for Version 8 Update:
+            ☐ Added in Redesigned Back Button
 
      ☐ Profit ???
     

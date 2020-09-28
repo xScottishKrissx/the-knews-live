@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import './App.css';
 
+
 // import {Route, Redirect, Switch} from 'react-router-dom';
 
 import Header from './header/header.js';
@@ -20,7 +21,7 @@ class App extends Component {
       <div>
         {/* <h1>the Knews - Live</h1> */}
 
-      <DeploymentMessage />
+      {/* <DeploymentMessage /> */}
       <Header />
       <Routes />
       {/* <Footer /> */}

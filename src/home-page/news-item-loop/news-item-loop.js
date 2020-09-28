@@ -170,7 +170,7 @@ class MapDatabaseItems extends React.Component{
         localStorage.setItem("myScrollPos", saveScrollPosition);
         localStorage.setItem("articlesLoaded", saveArticlesLoaded)
 
-        console.log("Scroll Position is:: " + localStorage.getItem("myScrollPos"));
+        console.log("Saved Scroll Position is:: " + localStorage.getItem("myScrollPos"));
         console.log(localStorage.getItem("articlesLoaded") + " articles currently loaded");
     }
 
@@ -230,8 +230,8 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div> */}
                
-               {/* <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button>  */}
-               {/* <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>    */}
+               <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button> 
+               <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>   
 
                
                {HomePageView}      

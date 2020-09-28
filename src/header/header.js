@@ -7,7 +7,13 @@ export const Header = () => {
     return (
         <div id="header" className='header-container'>
             <div className="header-wrapper">
-                <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
+                <div className="nav-controls">
+                    <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
+                    <div className="nav-icons back-button"><Link to='/theKnews' ><p className="large material-icons">arrow_back</p></Link></div>
+                    <div className="nav-icons home-button"><Link to='/theKnews' ><p className="large material-icons">home</p></Link></div>
+                    <div className="nav-icons next-button"><Link to='/theKnews' ><p className="large material-icons">arrow_next</p></Link></div>
+                </div>
+                
                 {/* <nav>
                     <ul>
                         <li>

@@ -95,11 +95,8 @@ export class NewsPageVIEW extends React.Component{
             return(
                 <div className='news-page-wrapper' key={value.id}> 
 
-                    {/* <div className="back-button">
-                        <Link to='/theKnews' ><p>Home</p></Link>
-                    </div> */}
+  
 
-    
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
                         <HeaderImage props={value.id} />
