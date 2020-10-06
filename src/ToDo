@@ -131,6 +131,7 @@ General Notes  Objectives:
             ✔ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it. @done(18-08-13 18:03)
         ☐ Clean up back/home button @started(18-08-30 11:35)
         ☐ Implement mobile nav bar @started(18-08-30 11:36)
+
         
 
     Home Page:
@@ -192,9 +193,13 @@ General Notes  Objectives:
                     the Knews header acts as second home button.
                 // Mobile layout like -> Back | Home | Next
                     // Fix to bottom for easier access.
-                ☐ Current UI has article controls on home page, hide these here. @started(20-09-28 16:18)
-                ☐ Create Logic for Back, Home and Next buttons to actually work. @started(20-09-28 16:19)
+                ✔ Current UI has article controls on home page, hide these here. @started(20-09-28 16:18) @done(20-10-06 17:44) @lasted(1w1d1h26m11s)
+                ✔ Create Logic for Back, Home and Next buttons to actually work. @started(20-09-28 16:19) @done(20-10-06 17:42) @lasted(1w1d1h23m49s)
                 //Is this not as easy as using the page id to go to the next chronoligical page number? 
+                    // Yes, I have a back and forward button working although I am getting an error just as I leave the page. Doesn't seem to break anything but something to look at. @done(20-10-06 17:42)
+                    // When using the buttons, as the next page is rendering I can see some half visible UI under the main header. Clean this up
+                    ☐ Clean up half visible UI @started(20-10-06 17:44)
+
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)

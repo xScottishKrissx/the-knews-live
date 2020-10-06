@@ -55,6 +55,7 @@ export class NewsPageVIEW extends React.Component{
           this.setState({
             articlesArray: tempState
           })
+          console.log(this.props.params)
           //console.log(((this.state.articlesArray).length) + 1)
   
           
@@ -81,24 +82,15 @@ export class NewsPageVIEW extends React.Component{
     render(){
         const database = this.props.database;
         //console.log(this.props.scrollpos)
-      // console.log({GeneratePostDate})
-
-
- 
-
-
-        // console.log(Number(database))
-
-    
+        //console.log({GeneratePostDate})
+        //console.log(Number(database))
         const NewsPageView = database.map((value) => {
             // console.log(value)
             //console.log("current author email:: " + value.email)
+            
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
-
-  
-
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
                         <HeaderImage props={value.id} />
@@ -132,7 +124,7 @@ export class NewsPageVIEW extends React.Component{
         return (
             
             <div>
-                <NavControls />
+                <NavControls currentarticleid={this.props.params}/>
                     
                 {NewsPageView}               
             </div>

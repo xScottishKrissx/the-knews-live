@@ -6,7 +6,14 @@
     /* max-width: 1920px; */
 
 }
-
+.article{
+    outline: 1px solid #ececec;
+    /* background-color: black; */
+    /* color: white; */
+    max-width: 112rem;
+    margin: 0 auto;
+    box-shadow: -20px 14px #56505059;
+}
 /* Needs Desktop CSS */
 
 /* ..... */
