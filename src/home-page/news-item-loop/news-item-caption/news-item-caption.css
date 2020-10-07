@@ -23,3 +23,31 @@
             padding: 5px;
         }
 
+        .hover-caption{
+            visibility: hidden;
+        }
+
+@media (min-width: 1000px){
+    .hover-caption{
+        visibility: visible;
+        background-color: none;
+        opacity: 0.5;
+        transition: opacity 1s smooth ;
+        
+    }
+    :hover > .hover-caption{
+        background-color: #ffffff91;
+        opacity: 2.0;
+    }
+        .hover-caption p{
+            font-size: 3rem;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            position: a;
+            /* margin-top: 87px; */
+            /* height: 20%; */
+            position: absolute;
+            top: 125px;
+        }
+}

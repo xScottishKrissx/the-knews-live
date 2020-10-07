@@ -55,6 +55,8 @@ class MapDatabaseItems extends React.Component{
                     key: newsItem,
                     author: newsItems[newsItem].author,
                     title: newsItems[newsItem].title,
+                    likes: newsItems[newsItem].likes,
+                    dislikes: newsItems[newsItem].dislikes,
                     id:newsItems[newsItem].id
                 });
             }
@@ -210,6 +212,8 @@ class MapDatabaseItems extends React.Component{
                                 style={style} 
                                 title={value.title}
                                 author={value.author}
+                                likes={value.likes}
+                                dislikes={value.dislikes}
                                 
                                 />
                     </div>

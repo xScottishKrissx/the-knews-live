@@ -26,6 +26,8 @@ export class Caption extends React.Component{
         const style = this.props.style;
         const title = this.props.title;
         const author = this.props.author;
+        const uplikes = this.props.likes;
+        const dislikes = this.props.dislikes;
        // console.log(title);
 
         return (            
@@ -43,6 +45,9 @@ export class Caption extends React.Component{
                     <div className="news-item-link-text" onClick={this.showExcerpt}>
                         <span>{title}</span>
                         <p>by {author}</p>
+                    </div>
+                    <div className="hover-caption">
+                        <p>{uplikes} | {dislikes}</p>
                     </div>
                     
                 </div> 
