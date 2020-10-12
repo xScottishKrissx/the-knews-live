@@ -8,12 +8,12 @@ Part 1 - Implement the front end UI:
 
 
  Part 2 - Back to Work:
-        ☐ Figure out how to use the do-list again
-        ☐ Get the blog back up and running
-        ☐ Get Portfolio back up and running
-        ☐ Get comfortable with react again.
-        ☐ Probably take a couple of refreshers for JavaScript, it's been a while
-        ☐ Profit??
+        ✔ Figure out how to use the do-list again @done(20-10-12 17:40)
+        ✔ Get the blog back up and running @done(20-10-12 17:40)
+        ✔ Get Portfolio back up and running @done(20-10-12 17:40)
+        ✔ Get comfortable with react again. @done(20-10-12 17:40)
+        ✔ Probably take a couple of refreshers for JavaScript, it's been a while @done(20-10-12 17:40)
+        ✔ Profit?? @done(20-10-12 17:40)
 
  Known Bugs:
         ✔ If you middle click or try to open a news item in a new tab, you can an error @started(18-07-25 11:58) @done(18-08-01 11:03) @lasted(6d23h5m12s)
@@ -35,7 +35,7 @@ Part 1 - Implement the front end UI:
 General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
-            ☐ Add keyboard control
+            ☐ Add keyboard control @started(20-10-12 17:40)
                 ✔ Pressing Enter should submit forms @done(20-07-30 17:43)
                     ✔ Works with myKnews page @done(20-07-30 17:43)
                     ☐ Need to implement for edit form
@@ -148,8 +148,8 @@ General Notes  Objectives:
              Code is a wee bit more manageable
         ✔ A button that lets you change the size of the news items @started(18-08-28 12:47) @done(18-08-31 17:21) @lasted(3d4h34m34s)
             //Sort of, doesn't remember tile sizes if you leave the page.
-            ☐ Maybe some kind of randomised news tile size @started(18-08-31 17:24)
-            ☐ Work on controls appearance @started(18-09-04 12:29)
+            ✘ Maybe some kind of randomised news tile size @started(18-08-31 17:24) @cancelled(20-10-12 17:39) @wasted(2y6w1d15m59s)
+            ✘ Work on controls appearance @started(18-09-04 12:29) @cancelled(20-10-12 17:39) @wasted(2y5w4d5h10m57s)
                 18/9/2020 - Removed sized controls, they're just adding too much work at the moment. Want to focus on the core of the project rather than the smaller details like this.
             ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
                 //Might not be possible without another library
@@ -160,7 +160,7 @@ General Notes  Objectives:
             // After some looking around I think I would need to build the design around this feature. At the very least I don't think trying to learn this while fitting it around the current project will help me too much. Will leave this until a future project.
 
         News Items:
-            ☐ Create Hover/Click caption @started(18-07-25 15:13)
+            ✘ Create Hover/Click caption @started(18-07-25 15:13) @cancelled(20-10-12 17:40) @wasted(2y11w3d2h27m3s)
                 //Tried a few things here but nothing i like. I want the title to be a permament thing on the page but the title can be different lengths making styling a bit of a pain.
 
     
