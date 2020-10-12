@@ -13,7 +13,7 @@ class RecommendedReading extends React.Component{
 
     componentDidMount(){
         
-        const articleRef = fire.database().ref('items').orderByKey().startAt("1").endAt("6");
+        const articleRef = fire.database().ref('items').limitToFirst(4);
         articleRef.on('value', (snapshot) => {
             let articles  = snapshot.val();
             let tempState = [];
@@ -27,21 +27,32 @@ class RecommendedReading extends React.Component{
             this.setState({
                 articlesArray: tempState
             })
-            // console.log(this.state.articlesArray);
+            console.log(this.state.articlesArray);
         })
     }
 
     render(){
         const items = this.state.articlesArray;
         const showItems = items.map((item, key) => {
+            const imgUrl = "https://unsplash.it/500/200?random=" + item.id;
+            const style = {
+                backgroundImage: 'url(' + imgUrl + ')',
+                backgroundPosition: "bottom",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                width:"100%",
+                // height: "400px",
+                // width:"100%"
+            }   
             return(
                 
                 <div className="recReadingItem" key={key}>   
                 
                     <div >           
                         <a href={"/articles/news-page/" + item.id}>
+                            <img src={imgUrl} style={style}/>
                             <h3>{item.title}</h3>
-                            <p>Posted: {item.postdate}</p>
+                            <p>{item.postdate}</p>
                         </a> 
                     </div>                   
                 </div>

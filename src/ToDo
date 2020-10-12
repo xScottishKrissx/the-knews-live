@@ -183,6 +183,8 @@ General Notes  Objectives:
             ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
                 It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
             ☐ Clean Up Recommended reading bar styling @started(18-08-29 11:14)
+                12/10/2020 - Added a few borders, removed the grey and added images. Not 100% done but it's a start.
+
             ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
             ☐ Each article should come with tags that can be filtered on the home page.
                 maybe even ability to search by tag
