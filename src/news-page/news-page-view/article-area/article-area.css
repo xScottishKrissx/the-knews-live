@@ -50,6 +50,12 @@ section h3{
     .news-article-body{
         display: flex;
     }
+    .article-text{
+        font-size: 1.25rem;
+        line-height: 2;
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 

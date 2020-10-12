@@ -7,12 +7,14 @@
 
 }
 .article{
-    outline: 1px solid #ececec;
+    /* outline: 1px solid #ececec; */
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
     /* background-color: black; */
     /* color: white; */
     max-width: 112rem;
     margin: 0 auto;
-    box-shadow: -20px 14px #56505059;
+    /* box-shadow: -20px 14px #56505059; */
 }
 /* Needs Desktop CSS */
 

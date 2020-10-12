@@ -46,9 +46,9 @@ export class Caption extends React.Component{
                         <span>{title}</span>
                         <p>by {author}</p>
                     </div>
-                    <div className="hover-caption">
+                    {/* <div className="hover-caption">
                         <p>{uplikes} | {dislikes}</p>
-                    </div>
+                    </div> */}
                     
                 </div> 
 

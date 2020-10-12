@@ -4,7 +4,7 @@ Part 1 - Implement the front end UI:
      ☐ Focus on the non-logged functionality
      ✔ Add Logged in functionality as a secondary feature @done(20-07-29 15:53)
      ✔ Most important is the ability to click on a link, go to a new page and then back again @done(20-07-29 15:53)
-     ☐ With that core in place then add the CMS elements.
+     ✘ With that core in place then add the CMS elements. @cancelled(20-10-12 15:36)
 
 
  Part 2 - Back to Work:
@@ -45,7 +45,7 @@ General Notes  Objectives:
         ✔ There should be a scroll to top button @started(18-08-29 11:13) @done(20-09-21 16:53) @lasted(2y3w3d5h40m8s)
         Think about pagination / infinite scroll functionality
         ☐ Infinite Scrolling / Lazy Loading Home Page @started(17-09-21 16:46)
-            ☐ Idea is that the start page has 10 articles to start with, as you scroll more articles load and populate the page
+            //Idea is that the start page has 10 articles to start with, as you scroll more articles load and populate the page
             ☐ Ideally, when you click on the articles, as you return to the home page your position is remembered
             //Probably add scroll position to local storage.
             // 3/8/2020 - Current Progress -- I have items from the database loading onto page as you scroll.
@@ -129,7 +129,7 @@ General Notes  Objectives:
                 ✔ Sign in button needs fixed which could mean an overhaul of the whole thing. @done(18-08-13 18:03)
         ✔ Desktop Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m51s)
             ✔ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it. @done(18-08-13 18:03)
-        ☐ Clean up back/home button @started(18-08-30 11:35)
+        ✔ Clean up back/home button @started(18-08-30 11:35) @done(20-10-12 15:32) @lasted(2y6w2d3h57m16s)
         ☐ Implement mobile nav bar @started(18-08-30 11:36)
 
         
@@ -294,6 +294,9 @@ Part 2 Implement Database functionality:
     
         New Features for Version 8 Update:
             ☐ Added in Redesigned Back Button
+            ☐ Added Home button article view
+            ☐ Added Previous Article button to article view
+            ☐ Added Next Article button to article view
 
      ☐ Profit ???
     

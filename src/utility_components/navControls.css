@@ -33,7 +33,10 @@
             }
 
                 .nav-icons a p{}
-
+        .error-message{
+            top: 8vh;
+            position: relative;
+        }
 
 @media (min-width: 768px) {
 
@@ -62,4 +65,5 @@
         .next-button{
             right: 0;
         }
+        
 }
