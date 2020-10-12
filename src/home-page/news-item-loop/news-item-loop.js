@@ -23,7 +23,7 @@ class MapDatabaseItems extends React.Component{
             articlesArray2 : [],
             // articlesArray3:[],
             arrayStartState: 21,
-            arrayEndState: 31,
+            arrayEndState: 71,
             currentStyle:"",
             testStyle:{
                 width: localStorage.getItem("myData")
@@ -36,6 +36,7 @@ class MapDatabaseItems extends React.Component{
         this.setting1 = this.setting1.bind(this);
         this.setting2 = this.setting2.bind(this);
         this.setting3 = this.setting3.bind(this);     
+        this.saveScrollPosition = this.saveScrollPosition.bind(this);
     }
     
     componentDidMount(){
@@ -63,7 +64,7 @@ class MapDatabaseItems extends React.Component{
 
             this.setState({
                 // articlesArray: newState.reverse(),
-                articlesArray: newState.slice(0,20)
+                articlesArray: newState.slice(0,50)
             })
             console.log(this.state.articlesArray);
             
@@ -137,8 +138,8 @@ class MapDatabaseItems extends React.Component{
                
                this.setState({               
                 articlesArray2: newState.slice(arrayStart,arrayEnd),
-                arrayStartState: this.state.arrayStartState + 10,
-                arrayEndState: this.state.arrayEndState + 10
+                arrayStartState: this.state.arrayStartState + 50,
+                arrayEndState: this.state.arrayEndState + 50
                })
 
                console.log(this.state.arrayStartState)
@@ -160,7 +161,7 @@ class MapDatabaseItems extends React.Component{
         // console.log("Unmount on news-item-loop.js")
         // window.addEventListener('scroll', this.scroll);
         window.removeEventListener('scroll',this.scroll);
-        fire.database().ref("items").off();
+     fire.database().ref("items").off();
       }
 
     saveScrollPosition(){
@@ -180,7 +181,6 @@ class MapDatabaseItems extends React.Component{
         if(localStorage.getItem("myScrollPos") > 0){
             window.scrollTo(0,localStorage.getItem("myScrollPos"));
             console.log("Scroooooooooooooooooooooooooooooooooooooooooooooollling to " + localStorage.getItem("myScrollPos"))
-
         }
         else{
             console.log("Don't scroll anywhere")
@@ -206,7 +206,7 @@ class MapDatabaseItems extends React.Component{
             // console.log(value.author + " Key is: " + value.key)
             return (
                 
-                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle}  >                    
+                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
                             <Caption 
                                 pageid={value.key} 
                                 style={style} 
@@ -234,8 +234,13 @@ class MapDatabaseItems extends React.Component{
                     </span>   
                 </div> */}
                
-               {/* <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button> 
-               <button id="scrollTo" onClick={() => this.scrollTo()}>Scroll To Saved Position</button>    */}
+               {/* <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button>  */}
+               {localStorage.getItem("myStorage") != 0 ? 
+                <button id="scrollTo" onClick={() => this.scrollTo()}>Continue to previous position</button> 
+                :
+                console.log("Nothing") 
+            }
+                 
 
                
                {HomePageView}      
