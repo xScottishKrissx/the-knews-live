@@ -2,7 +2,7 @@ import React from 'react';
 // import MediaQuery from 'react-responsive';
 
 import fire from '../fire.js'
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import NewsPageVIEW from './news-page-view/news-page-view.js';
 // import DummyData from '../home-page/dummy-data.js';
 // import PracticeForm from '../myKnews/practice-form.js';

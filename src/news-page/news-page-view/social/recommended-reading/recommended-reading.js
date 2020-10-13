@@ -7,14 +7,33 @@ class RecommendedReading extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articlesArray: []
+            articlesArray: [],
+            query1:"",
+            thing:"",
         }
     }
 
     componentDidMount(){
         
-        const articleRef = fire.database().ref('items').limitToFirst(4);
-        articleRef.on('value', (snapshot) => {
+        const articleRef = fire.database().ref('items');
+
+        const query1 = articleRef.orderByKey().equalTo("10");
+        const query2 = articleRef.orderByKey().equalTo("11");
+        const query3 = articleRef.orderByKey().equalTo("12");
+        const query4 = articleRef.orderByKey().equalTo("13");
+
+        // const thing = [query1, query2, query3, query4];
+        // const list = thing.map((thing) =>
+        //     <li key={thing.id}>{thing}</li>
+        // );
+        // console.log(list)
+        // const thing2 = {...thing}
+        // console.log(typeof thing2)
+        // console.log(typeof query1)
+        
+
+       
+        query1.on('value', (snapshot) => {
             let articles  = snapshot.val();
             let tempState = [];
             for(let eachItem in articles){
@@ -25,10 +44,87 @@ class RecommendedReading extends React.Component{
                 });
             }
             this.setState({
-                articlesArray: tempState
+                articlesArray: [...this.state.articlesArray,...tempState]
             })
+        })
+
+        query2.on('value', (snapshot) => {
+            let articles  = snapshot.val();
+            let tempState = [];
+            for(let eachItem in articles){
+                tempState.push({
+                    id:eachItem,
+                    title: articles[eachItem].title,
+                    postdate: articles[eachItem].postdate
+                });
+            }
+            this.setState({
+                articlesArray: [...this.state.articlesArray,...tempState]
+            })
+        })
+
+        query3.on('value', (snapshot) => {
+            let articles  = snapshot.val();
+            let tempState = [];
+            for(let eachItem in articles){
+                tempState.push({
+                    id:eachItem,
+                    title: articles[eachItem].title,
+                    postdate: articles[eachItem].postdate
+                });
+            }
+            this.setState({
+                articlesArray: [...this.state.articlesArray,...tempState]
+            })
+        })
+
+        query4.on('value', (snapshot) => {
+            let articles  = snapshot.val();
+            let tempState = [];
+            for(let eachItem in articles){
+                tempState.push({
+                    id:eachItem,
+                    title: articles[eachItem].title,
+                    postdate: articles[eachItem].postdate
+                });
+            }
+            this.setState({
+                articlesArray: [...this.state.articlesArray,...tempState]
+            })
+
             console.log(this.state.articlesArray);
         })
+
+        // const query1 = articleRef.orderByKey().equalTo("10");
+        // const query2 = articleRef.orderByKey().equalTo("11");
+        // console.log(query1)
+        // this.setState({
+        //     query1: query1,
+        // })
+        // console.log(this.state.query1)
+
+        // const arrayThing = [query1,query2];
+        // const thing = Array.from(arrayThing)
+
+        // thing.on('value', (snapshot) => {
+        //     let articles  = snapshot.val();
+        //     let tempState = [];
+        //     for(let eachItem in articles){
+        //         tempState.push({
+        //             id:eachItem,
+        //             title: articles[eachItem].title,
+        //             postdate: articles[eachItem].postdate
+        //         });
+        //     }
+        //     // this.setState({
+        //     //     articlesArray: tempState
+        //     // })
+        //     // console.log(this.state.articlesArray);
+        // })
+
+        // console.log(arrayThing)
+
+
     }
 
     render(){
@@ -50,7 +146,7 @@ class RecommendedReading extends React.Component{
                 
                     <div >           
                         <a href={"/articles/news-page/" + item.id}>
-                            <img src={imgUrl} style={style}/>
+                            <img src={imgUrl} style={style} alt="literally all random images" />
                             <h3>{item.title}</h3>
                             <p>{item.postdate}</p>
                         </a> 
@@ -59,11 +155,16 @@ class RecommendedReading extends React.Component{
                
             )
         })
+
+        
+
+
         return (
             <div className="recReadingWrapper">
                 <h2>Recommended Reading...</h2>
                     <div className="recReadingItemWrapper">            
                         {showItems}
+                        
                     </div>
             </div>
 

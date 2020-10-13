@@ -235,7 +235,7 @@ class MapDatabaseItems extends React.Component{
                 </div> */}
                
                {/* <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button>  */}
-               {localStorage.getItem("myStorage") != 0 ? 
+               {localStorage.getItem("myStorage") !== 0 ? 
                 <button id="scrollTo" onClick={() => this.scrollTo()}>Continue to previous position</button> 
                 :
                 console.log("Nothing") 

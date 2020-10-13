@@ -182,8 +182,12 @@ General Notes  Objectives:
             ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
             ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
                 It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
-            ☐ Clean Up Recommended reading bar styling @started(18-08-29 11:14)
+            ✔ Clean Up Recommended reading bar styling @started(18-08-29 11:14) @done(20-10-13 11:53) @lasted(2y6w4d39m19s)
                 12/10/2020 - Added a few borders, removed the grey and added images. Not 100% done but it's a start.
+            ✔ Ability to control the exact articles that appear in recommended reading area @done(20-10-13 13:34)
+            // 13/10/2020 - Right now the area is populated with the first 4 articles in order of key. I want to be able to specify whatever article I want directly from the database.
+            // 13/10 - I have bascally copy and pasted the first main query to the database and then appended the results to the state. It is working as intended but i think there is definitley a better way of doing this.
+                ☐ Do another pass on the styles here @started(20-10-13 13:34)
 
             ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
             ☐ Each article should come with tags that can be filtered on the home page.

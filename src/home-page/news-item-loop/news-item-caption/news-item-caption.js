@@ -26,8 +26,8 @@ export class Caption extends React.Component{
         const style = this.props.style;
         const title = this.props.title;
         const author = this.props.author;
-        const uplikes = this.props.likes;
-        const dislikes = this.props.dislikes;
+        // const uplikes = this.props.likes;
+        // const dislikes = this.props.dislikes;
        // console.log(title);
 
         return (            
