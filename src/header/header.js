@@ -19,13 +19,13 @@ export const Header = () => {
                 </span>
                 </div> */}
 
-                {/* <nav>
+                <nav>
                     <ul>
                         <li>
-                            <Link to="/theKnews/home">the Knews</Link>
+                            <Link to="/theKnews/tags">Tags</Link>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link to="/theKnews">categories</Link>
                         </li>
 
@@ -35,9 +35,9 @@ export const Header = () => {
 
                         <li>
                             <Link to="/theKnews/myKnews">my Knews</Link>
-                        </li>
+                        </li> */}
                     </ul>
-                </nav> */}
+                </nav>
             </div>
         </div>
     )

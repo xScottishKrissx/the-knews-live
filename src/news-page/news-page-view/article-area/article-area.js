@@ -37,6 +37,7 @@ const ArticleArea = (props) => {
                         <h1 className="article-title">{props.title}</h1>
                         <h2 className="article-subtitle">{props.postdate}</h2>
                         <h3 className="article-author">{props.author}</h3>
+                        <h3 className="article-author">Tag: {props.tag}</h3>
                         <h3>{props.email}</h3>
                         
                         

@@ -190,8 +190,26 @@ General Notes  Objectives:
                 ☐ Do another pass on the styles here @started(20-10-13 13:34)
 
             ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
-            ☐ Each article should come with tags that can be filtered on the home page.
+            ☐ Each article should come with tags that can be filtered on the home page. @started(20-10-13 13:47)
                 maybe even ability to search by tag
+                13/10/2020 - So is this as simple as
+                    1 - creating a new field in the database (or create multiple tag fields, tag1, tag2, tag3 etc)
+                        -- Done
+                    2 - assigning a bunch of strings to said objects
+                        -- Done
+                    3 - querying the obects in the database to discover if any object matches the queried string
+                        -- Done
+                    4 - display everything that is a match
+                        -- Done
+                13/10 - I guess the challenge now is
+                    ✔ Create Separate Tags page @started(20-10-13 15:33) @done(20-10-13 16:19)
+                    ☐ Create UI in articles for clickable tags @started(20-10-13 15:33)
+                    ☐ Create UI for clickable tags on home page. @started(20-10-13 15:33)
+                    ☐ Create specific pages for a tag type that can goes in header. @started(20-10-13 15:33)
+                    // I just realised in order to effectively test this I will need to create a whole new data set of tags with at least 3 separate tags for everything...I'm not sure I have the will do that. 
+                    // Maybe a problem for tommorow me...
+                    // I did create a separate page for tags and started on the UI so tommorow me better be grateful
+                
             ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
             ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
                 23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.

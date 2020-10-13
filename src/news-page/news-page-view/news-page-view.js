@@ -23,6 +23,7 @@ export class NewsPageVIEW extends React.Component{
             ownsArticle: '',
             postdate:'',
             user:'',
+            tag:''
             
         }
     }
@@ -42,6 +43,7 @@ export class NewsPageVIEW extends React.Component{
               email:dbObjects[dbObject].email,
               text:dbObjects[dbObject].text,
               title:dbObjects[dbObject].title,
+              tag:dbObjects[dbObject].tag,
   
               postdate:dbObjects[dbObject].postdate,
               likes:dbObjects[dbObject].likes,
@@ -98,6 +100,7 @@ export class NewsPageVIEW extends React.Component{
 
                     <ArticleArea 
                         title={value.title}
+                        tag={value.tag}
                         postdate={value.postdate}
                         author={value.author}
                         text={value.text}

@@ -5,6 +5,7 @@ import {Route, Redirect, Switch} from 'react-router-dom';
 import './routes.css';
 
 import Home from '../home-page/home.js';
+import Tags from '../tags/tags.js';
 import NewsPage from '../news-page/news-page.js';
 // import Form from '../myKnews/form.js';
 import { PracticeForm } from '../myKnews/practice-form';
@@ -30,7 +31,7 @@ export class Routes extends React.Component{
                     <Route exact path="/theKnews/home" component={Home} /> 
                 </Switch> 
 
-                <Route path="/home" component={Home} /> 
+                <Route path="/theKnews/tags" component={Tags} /> 
                 <Route path="/theKnews/myKnews" component={PracticeForm} />
                 
                 <Route path="/filters" component={Home} />  
