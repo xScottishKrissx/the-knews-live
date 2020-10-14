@@ -45,9 +45,9 @@ class MapDatabaseItems extends React.Component{
     //const checkUser = fire.auth().currentUser;        
 
       //The actual code...
-    //   const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100); 
+      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100); 
 
-    const dbRef = fire.database().ref('items').orderByChild("tag").startAt("test")
+    
 
     //const dbRef = fire.database().ref('items').orderByChild("postdate").startAt("1/01/2018").endAt("6/01/2018").limitToFirst(10); 
       

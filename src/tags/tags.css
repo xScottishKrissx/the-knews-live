@@ -4,3 +4,11 @@
     max-width: 1600px;
     outline: 1px solid black;
 }
+
+    .tags-item-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+    }
+        .tags-item-wrapper h1{
+            width: 100%;
+        }

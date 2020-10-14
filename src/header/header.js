@@ -21,9 +21,9 @@ export const Header = () => {
 
                 <nav>
                     <ul>
-                        <li>
+                        {/* <li>
                             <Link to="/theKnews/tags">Tags</Link>
-                        </li>
+                        </li> */}
 
                         {/* <li>
                             <Link to="/theKnews">categories</Link>
