@@ -205,12 +205,16 @@ General Notes  Objectives:
                     ✔ Create Separate Tags page @started(20-10-13 15:33) @done(20-10-13 16:19)
                     ✔ Create simple interface on home page to test basic functionality of mulitple clickable tags @started(20-10-14 16:36) @done(20-10-14 16:36) @lasted(58s)
                     ✔ Create UI in articles for clickable tags @started(20-10-13 15:33) @done(20-10-14 16:45) @lasted(1d1h12m55s)
-                    ☐ Create UI for clickable tags on home page. @started(20-10-13 15:33)
+                    ✔ Create UI for clickable tags on home page. @started(20-10-13 15:33) @done(20-10-15 16:40) @lasted(2d1h7m34s)
                     ☐ Create specific pages for a tag type that can goes in header. @started(20-10-13 15:33)
                     // I just realised in order to effectively test this I will need to create a whole new data set of tags with at least 3 separate tags for everything...I'm not sure I have the will do that. 
                     // Maybe a problem for tommorow me...
                     // I did create a separate page for tags and started on the UI so tommorow me better be grateful
-                
+                    // ... tommorow me totally forgot about this until about 3 days later.Git.
+                    Ok so 2(3) things:
+                        ✔ Add the tag bar to the fixed header bar @started(20-10-15 16:41) @done(20-10-15 16:49) @lasted(9m)
+                        ☐ Instead of going to a new page, how about just re-rerendering the current page with the relevant items? @started(20-10-15 16:41)
+                        ☐ I really need to add more tags to the database. I've delayed this for too long.
             ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
             ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
                 23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
@@ -324,6 +328,8 @@ Part 2 Implement Database functionality:
             ☐ Added Home button article view
             ☐ Added Previous Article button to article view
             ☐ Added Next Article button to article view
+            ☐ Added Tags to articles that will let you filter articles based on type of content
+            ☐ Added Tags to Home page, bascially just a nav menu at the moment
 
      ☐ Profit ???
     

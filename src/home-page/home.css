@@ -7,8 +7,10 @@
     .news-item-wrapper{
         display: flex;
         flex-wrap: wrap;
+        margin-top: 79px;
     }
         .news-item-wrapper div{
+        /* border-radius: 10px; */
         width: 100%;
         display: flex;
         /* flex: auto; */
@@ -37,7 +39,7 @@
         margin: 0 auto;
         /* width: 90%; */
     }
-    .news-item-wrapper > div{
-        margin-top: 6vh;
+    .news-item-wrapper{
+        margin-top: 119px;
     }
 }

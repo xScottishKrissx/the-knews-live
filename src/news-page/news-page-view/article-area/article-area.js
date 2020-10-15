@@ -14,11 +14,7 @@ import './article-area.css';
 
 
 const ArticleArea = (props) => {
-    // console.log(props.id)
-    
-
-
-    
+    //console.log(props.id)   
     //console.log("Logged in email:  " + fire.auth().currentUser.email)
     //console.log("Grab Email: " + props.email)
     //console.log(fire.auth().currentUser)
@@ -35,15 +31,14 @@ const ArticleArea = (props) => {
             <div className='article'>
             {/* Article Header */}
                 <header className="news-article-header">
-                        <h1 className="article-title">{props.title}</h1>
-                        <h2 className="article-subtitle">{props.postdate}</h2>
-                        <h3 className="article-author">{props.author}</h3>
+                    <h1 className="article-title">{props.title}</h1>
+                    <h2 className="article-subtitle">{props.postdate}</h2>
+                    <h3 className="article-author">{props.author}</h3>
                         
-                <Link className="news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag}}}>
-                        <h3 className="article-author">Tag: {props.tag}</h3>
-                </Link>
-                        <h3>{props.email}</h3>
-                        
+                    <Link className="news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag}}}>
+                            <h3 className="article-author">Tag: {props.tag}</h3>
+                    </Link>
+                            <h3>{props.email}</h3>
                         
                 </header>
                 {/* {loggedInEmail === articleEmail ?

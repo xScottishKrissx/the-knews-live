@@ -31,6 +31,7 @@ class MapDatabaseItems extends React.Component{
             addNewArticle:"",
             loadedArticles: "",
              scrollsaveScrollPosition:0,
+            switch:0
             
         }
         this.setting1 = this.setting1.bind(this);
@@ -192,6 +193,20 @@ class MapDatabaseItems extends React.Component{
         }
     }
 
+    flipSwitch(){
+        if(this.state.switch === 0){
+            this.setState({
+                switch:1
+            })
+        }else{
+            this.setState({
+                switch:0
+            })
+        }
+        console.log(this.state.switch)
+
+    }
+
     render(){
         // console.log(localStorage.getItem("myScrollPos"));
         
@@ -227,7 +242,18 @@ class MapDatabaseItems extends React.Component{
 
 
         return (
-            <div>               
+            <div> 
+
+                {/* Playing with state and rendering */}
+                <div>
+                   
+                    <button onClick={()=> this.flipSwitch()}>Flip</button>
+                    {this.state.switch === 1 ? 
+                        <p>On</p>
+                        :    
+                        <p>Off</p>
+                    }
+                </div>
 
 
                 {/* <div className="tileSizeControls" >
@@ -243,7 +269,7 @@ class MapDatabaseItems extends React.Component{
                {localStorage.getItem("myStorage") !== 0 ? 
                 <button id="scrollTo" onClick={() => this.scrollTo()}>Continue to previous position</button> 
                 :
-                console.log("Nothing") 
+                null
             }
                  
 
