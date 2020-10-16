@@ -247,12 +247,12 @@ class MapDatabaseItems extends React.Component{
                 {/* Playing with state and rendering */}
                 <div>
                    
-                    <button onClick={()=> this.flipSwitch()}>Flip</button>
+                    {/* <button onClick={()=> this.flipSwitch()}>Flip</button>
                     {this.state.switch === 1 ? 
                         <p>On</p>
                         :    
                         <p>Off</p>
-                    }
+                    } */}
                 </div>
 
 
@@ -266,11 +266,11 @@ class MapDatabaseItems extends React.Component{
                 </div> */}
                
                {/* <button id="saveScroll" onClick={() => this.saveScrollPosition()}>Save Scroll</button>  */}
-               {localStorage.getItem("myStorage") !== 0 ? 
+               {/* {localStorage.getItem("myStorage") !== 0 ? 
                 <button id="scrollTo" onClick={() => this.scrollTo()}>Continue to previous position</button> 
                 :
                 null
-            }
+                } */}
                  
 
                

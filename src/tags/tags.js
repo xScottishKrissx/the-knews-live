@@ -12,13 +12,15 @@ class Tags extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articlesArray: []
+            articlesArray: [],
+            test: this.props.location.state.tag
         }
-}
+    }
+
 
     componentDidMount(){
-        console.log(this.props.location.state.tag)
-        const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.tag).endAt(this.props.location.state.tag)
+        
+        const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -44,9 +46,16 @@ class Tags extends React.Component{
         })
     }
 
+    componentWillUnmount(){
+    //  fire.database().ref("items").off();
+    }
     render(){
 
+        const test1 = this.props.location.state.tag;
+        console.log("State Says::" + test1)
         const pageView = this.state.articlesArray.map((value,key) => {
+            
+
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             ///... and this.
             const style = {
@@ -57,6 +66,7 @@ class Tags extends React.Component{
                 height: "400px",
                 // width:"100%"
             }   
+
             return(
                 <div className='news-square'  key={key}>                    
                 <Caption 
@@ -68,6 +78,7 @@ class Tags extends React.Component{
                     dislikes={value.dislikes}
                     
                     />
+                    
         </div>
             )
         })
@@ -78,6 +89,7 @@ class Tags extends React.Component{
                         <NavControls props="only-home-button"/>
                         <h1>{this.props.location.state.tag}</h1>
                         {pageView}
+                        
                 </div>
             </div>
         )

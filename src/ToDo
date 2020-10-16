@@ -203,6 +203,7 @@ General Notes  Objectives:
                         -- Done
                 13/10 - I guess the challenge now is
                     ✔ Create Separate Tags page @started(20-10-13 15:33) @done(20-10-13 16:19)
+                        ☐ Tagbar doesn't work from the tag pages @started(20-10-16 12:58)
                     ✔ Create simple interface on home page to test basic functionality of mulitple clickable tags @started(20-10-14 16:36) @done(20-10-14 16:36) @lasted(58s)
                     ✔ Create UI in articles for clickable tags @started(20-10-13 15:33) @done(20-10-14 16:45) @lasted(1d1h12m55s)
                     ✔ Create UI for clickable tags on home page. @started(20-10-13 15:33) @done(20-10-15 16:40) @lasted(2d1h7m34s)
@@ -214,7 +215,7 @@ General Notes  Objectives:
                     Ok so 2(3) things:
                         ✔ Add the tag bar to the fixed header bar @started(20-10-15 16:41) @done(20-10-15 16:49) @lasted(9m)
                         ☐ Instead of going to a new page, how about just re-rerendering the current page with the relevant items? @started(20-10-15 16:41)
-                        ☐ I really need to add more tags to the database. I've delayed this for too long.
+                        ✔ I really need to add more tags to the database. I've delayed this for too long. @done(20-10-16 13:56)
             ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
             ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
                 23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
@@ -337,9 +338,10 @@ Part 2 Implement Database functionality:
             ☐ Tweaked appearance of news squares on home page.
 
             Version 9 Release ToDo:
-                ☐ Remove Scroll To Previous Position Button
-                ☐ remove Flip switch
-                ☐ Add tags to at least 15 more articles
+                ✔ Remove Scroll To Previous Position Button @done(20-10-16 12:54)
+                ✔ remove Flip switch @done(20-10-16 12:54)
+                ✔ Add tags to at least 15 more articles @done(20-10-16 12:57)
+                ☐ Get Tagbar working properly @started(20-10-16 14:04)
                 ☐ Remove Firebase Genereated key article
                 ☐ Lower initial article count down to 20 with 10 loading in every bottom reached.
             ☐ Ready for Release?
