@@ -72,7 +72,7 @@ class MapDatabaseItems extends React.Component{
                 // articlesArray: newState.reverse(),
                 articlesArray: newState.slice(0,50)
             })
-            console.log(this.state.articlesArray);
+            // console.log(this.state.articlesArray);
             
         })
         window.addEventListener('scroll', this.scroll);

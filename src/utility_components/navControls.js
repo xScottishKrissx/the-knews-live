@@ -20,7 +20,16 @@ export class NavControls extends React.Component{
         return (
             <div className="nav-controls">
             <span className="icons-wrapper">
-                
+
+                {this.props.props === 'only-home-button' ? 
+                <div className="nav-icons home-button">
+                    <Link to='/theKnews' >
+                        <p className="large material-icons">home</p>
+                        <span>Home</span>
+                    </Link>
+                </div>
+                :
+                <div className="full-nav-bar">
                     <div className="nav-icons home-button">
                         <Link to='/theKnews' >
                             <p className="large material-icons">home</p>
@@ -41,6 +50,11 @@ export class NavControls extends React.Component{
                             <span>Next Article</span>
                         </Link>
                     </div>
+                </div>
+            }
+                
+
+                    
             </span>
             </div>
         )

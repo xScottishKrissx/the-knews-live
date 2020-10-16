@@ -12,6 +12,11 @@
             display: flex;
             height: 75px;
         }
+            .full-nav-bar{
+                display: flex;
+                height: 75px;
+                width: 100%;
+            }
         .nav-icons{
             margin: 0 auto;
             /* border-left: 1px solid white; */

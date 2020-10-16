@@ -16,12 +16,16 @@ class RecommendedReading extends React.Component{
     componentDidMount(){
         
         const articleRef = fire.database().ref('items');
+        
 
         const query1 = articleRef.orderByKey().equalTo("10");
         const query2 = articleRef.orderByKey().equalTo("11");
         const query3 = articleRef.orderByKey().equalTo("12");
         const query4 = articleRef.orderByKey().equalTo("13");
-
+        // console.log(query1)
+        // console.log(query2)
+        // console.log(query3)
+        // console.log(query4)
         // const thing = [query1, query2, query3, query4];
         // const list = thing.map((thing) =>
         //     <li key={thing.id}>{thing}</li>
@@ -73,6 +77,7 @@ class RecommendedReading extends React.Component{
                     postdate: articles[eachItem].postdate
                 });
             }
+            // console.log(this.state.articlesArray);
             this.setState({
                 articlesArray: [...this.state.articlesArray,...tempState]
             })
@@ -88,11 +93,13 @@ class RecommendedReading extends React.Component{
                     postdate: articles[eachItem].postdate
                 });
             }
+            // console.log(this.state.articlesArray);
             this.setState({
                 articlesArray: [...this.state.articlesArray,...tempState]
+                
             })
 
-            console.log(this.state.articlesArray);
+            // console.log(this.state.articlesArray);
         })
 
         // const query1 = articleRef.orderByKey().equalTo("10");

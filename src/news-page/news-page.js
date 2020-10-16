@@ -2,7 +2,7 @@ import React from 'react';
 // import MediaQuery from 'react-responsive';
 
 import fire from '../fire.js'
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import NewsPageVIEW from './news-page-view/news-page-view.js';
 // import DummyData from '../home-page/dummy-data.js';
 // import PracticeForm from '../myKnews/practice-form.js';
@@ -55,6 +55,7 @@ export class NewsPage extends React.Component{
                 articlesArray: newState
             })
             // console.log(this.state.articlesArray[0].id);
+            // console.log("DB: " + this.state.articlesArray)
         })
     }
     
@@ -84,20 +85,36 @@ export class NewsPage extends React.Component{
     // console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
     // console.log("Array Length is : " + Number(arrayLength))
+    // console.log(this.state.articlesArray)
 
     const test = arrayLength;
     return (
         
         <span>
+
+        {/* I have no idea what is going on here... */}
+
+        {/* <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  />  */}
+
+        {/* If i comment out below(106>113) and leave above(97), the recommended reading bar will not display with 4 articles, only 1.
+            However, if i comment out above and leave below it works as intended.
+
+            I have no idea what the difference is here and why they would be behaving differently.
+        */}
+
+
         {test >= 1 ?         
             <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  /> 
+            
             : 
             <div className="error-message">
                 <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
-                {/* <Link to='/theKnews'><p>Home</p></Link> */}
+                <Link to='/theKnews'><p>Home</p></Link>
             </div>
- 
+
+
         }
+
 
 
         {/* {checkIdMap} */}

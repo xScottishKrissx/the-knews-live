@@ -231,6 +231,8 @@ General Notes  Objectives:
                     // Yes, I have a back and forward button working although I am getting an error just as I leave the page. Doesn't seem to break anything but something to look at. @done(20-10-06 17:42)
                     // When using the buttons, as the next page is rendering I can see some half visible UI under the main header. Clean this up
                     ☐ Clean up half visible UI @started(20-10-06 17:44)
+                    ☐ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page. @started(20-10-16 12:10)
+                    ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -323,13 +325,26 @@ Part 2 Implement Database functionality:
              Remove any sign of editing
              Only show the lazy loading and article views
     
-        New Features for Version 8 Update:
-            ☐ Added in Redesigned Back Button
+        New Features for Version 9 Update:
+            ☐ Added in Redesigned Back Button to article view
             ☐ Added Home button article view
             ☐ Added Previous Article button to article view
             ☐ Added Next Article button to article view
+                ☐ These buttons are quite janky as they will only work as long as the next/prev page id is numericly adjacent. (1>2>3 will work, 1>4>8 will not.) I just wanted the basic functionality in place as page id within the database is part of a wider problem I will need to fix at some point.
             ☐ Added Tags to articles that will let you filter articles based on type of content
             ☐ Added Tags to Home page, bascially just a nav menu at the moment
+            ☐ Improved appearance of recommended reading bar.
+            ☐ Tweaked appearance of news squares on home page.
+
+            Version 9 Release ToDo:
+                ☐ Remove Scroll To Previous Position Button
+                ☐ remove Flip switch
+                ☐ Add tags to at least 15 more articles
+                ☐ Remove Firebase Genereated key article
+                ☐ Lower initial article count down to 20 with 10 loading in every bottom reached.
+            ☐ Ready for Release?
+            ☐ Remove Disclaimer from website.
+
 
      ☐ Profit ???
     

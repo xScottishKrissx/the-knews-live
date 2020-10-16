@@ -1,7 +1,9 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 import HeaderImage from './header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
+
 
 import ScrollToTopButton from '../../utility_components/scrollToTop.js';
 import NavControls from '../../utility_components/navControls.js';
@@ -122,13 +124,19 @@ export class NewsPageVIEW extends React.Component{
                 </div>
             )
         })
-
+        // console.log("Props are:: " + this.props.params);
         return (
             
             <div>
                 <NavControls currentarticleid={this.props.params}/>
-                    
-                {NewsPageView}               
+                
+                {this.props.params === "5" ?
+                
+                <Redirect to='/theKnews' />
+                :  
+                NewsPageView
+                }
+                             
             </div>
         )
 

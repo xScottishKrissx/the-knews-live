@@ -1,9 +1,6 @@
 import React from 'react';
 import './home.css';
 
-
-
-import TagBar from '../tags/tag-bar.js';
 import NewsItemLoop from './news-item-loop/news-item-loop.js'
 
 export class Home extends React.Component{
@@ -34,7 +31,6 @@ export class Home extends React.Component{
             <div className='home-wrapper' >                
                 {/* <h1>Home</h1> */}
                 <div className="news-item-wrapper">
-                    {/* <TagBar /> */}
                     <NewsItemLoop />                   
                 </div>
             </div>

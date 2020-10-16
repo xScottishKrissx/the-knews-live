@@ -2,6 +2,8 @@ import React from 'react';
 import fire from '../fire.js';
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
+import NavControls from '../utility_components/navControls.js';
+
 
 import '../tags/tags.css';
 
@@ -73,6 +75,7 @@ class Tags extends React.Component{
         return(
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
+                        <NavControls props="only-home-button"/>
                         <h1>{this.props.location.state.tag}</h1>
                         {pageView}
                 </div>
