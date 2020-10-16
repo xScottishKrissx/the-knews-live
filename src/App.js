@@ -22,7 +22,7 @@ class App extends Component {
       <div>
         {/* <h1>the Knews - Live</h1> */}
 
-      {/* <DeploymentMessage /> */}
+      <DeploymentMessage />
       
       <Header />
       <Routes />

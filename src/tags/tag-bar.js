@@ -1,5 +1,5 @@
 import React from 'react';
-import fire from '../fire.js'
+// import fire from '../fire.js'
 import {Link} from 'react-router-dom';
 
 import '../tags/tag-bar.css';
@@ -23,29 +23,29 @@ class TagBar extends React.Component{
         })
         console.log(this.state.test)
 
-        const dbRef = fire.database().ref('items').orderByChild("tag").startAt(chosenTag).endAt(chosenTag)
-        dbRef.on('value', (snapshot) => {
-            let newsItems = snapshot.val();
-            // console.log(newsItems);
-            let newState = [];
-            for(let newsItem in newsItems){
-                newState.push({
-                    key: newsItem,
-                    author: newsItems[newsItem].author,
-                    title: newsItems[newsItem].title,
-                    likes: newsItems[newsItem].likes,
-                    dislikes: newsItems[newsItem].dislikes,
-                    id:newsItems[newsItem].id
-                });
-            }
+        // const dbRef = fire.database().ref('items').orderByChild("tag").startAt(chosenTag).endAt(chosenTag)
+        // dbRef.on('value', (snapshot) => {
+        //     let newsItems = snapshot.val();
+        //     // console.log(newsItems);
+        //     let newState = [];
+        //     for(let newsItem in newsItems){
+        //         newState.push({
+        //             key: newsItem,
+        //             author: newsItems[newsItem].author,
+        //             title: newsItems[newsItem].title,
+        //             likes: newsItems[newsItem].likes,
+        //             dislikes: newsItems[newsItem].dislikes,
+        //             id:newsItems[newsItem].id
+        //         });
+        //     }
 
-            this.setState({
-                // articlesArray: newState.reverse(),
-                articlesArray: newState.slice(0,50)
-            })
-            console.log(this.state.articlesArray);
+        //     this.setState({
+        //         // articlesArray: newState.reverse(),
+        //         articlesArray: newState.slice(0,50)
+        //     })
+        //     console.log(this.state.articlesArray);
             
-        })
+        // })
 
     }
 

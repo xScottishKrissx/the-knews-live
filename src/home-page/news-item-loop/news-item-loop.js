@@ -23,7 +23,7 @@ class MapDatabaseItems extends React.Component{
             articlesArray2 : [],
             // articlesArray3:[],
             arrayStartState: 21,
-            arrayEndState: 71,
+            arrayEndState: 26,
             currentStyle:"",
             testStyle:{
                 width: localStorage.getItem("myData")
@@ -144,12 +144,12 @@ class MapDatabaseItems extends React.Component{
                
                this.setState({               
                 articlesArray2: newState.slice(arrayStart,arrayEnd),
-                arrayStartState: this.state.arrayStartState + 50,
-                arrayEndState: this.state.arrayEndState + 50
+                arrayStartState: this.state.arrayStartState + 5,
+                arrayEndState: this.state.arrayEndState + 5
                })
 
-               console.log(this.state.arrayStartState)
-               console.log(this.state.articlesArray2)
+            //    console.log(this.state.arrayStartState)
+            //    console.log(this.state.articlesArray2)
                
             const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
                this.setState({

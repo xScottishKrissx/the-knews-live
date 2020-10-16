@@ -40,6 +40,7 @@ export const MessageBody = () =>{
         <p>Check out my blog for this in progress project where I post updates and detail what I am doing: <a href="https://christopherswebdevdiary.wordpress.com/">HERE</a></p>
         <p>Known Bug:: If you hit F5, you will get an error. Remove the /home from the url to get back.</p>
         <p>Known Bug:: Every time you load an article, you will see text flash briefly. </p>
+        <p>Known Issue: Tag Bar doesn't work properly when on one of the tag pages. It's currently being held together via the power of positive thought :)</p>
         </div>
     )
 }

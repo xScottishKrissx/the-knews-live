@@ -207,7 +207,7 @@ General Notes  Objectives:
                     ✔ Create simple interface on home page to test basic functionality of mulitple clickable tags @started(20-10-14 16:36) @done(20-10-14 16:36) @lasted(58s)
                     ✔ Create UI in articles for clickable tags @started(20-10-13 15:33) @done(20-10-14 16:45) @lasted(1d1h12m55s)
                     ✔ Create UI for clickable tags on home page. @started(20-10-13 15:33) @done(20-10-15 16:40) @lasted(2d1h7m34s)
-                    ☐ Create specific pages for a tag type that can goes in header. @started(20-10-13 15:33)
+                    ✔ Create specific pages for a tag type in header. @started(20-10-13 15:33) @done(20-10-16 16:54) @lasted(3d1h21m9s)
                     // I just realised in order to effectively test this I will need to create a whole new data set of tags with at least 3 separate tags for everything...I'm not sure I have the will do that. 
                     // Maybe a problem for tommorow me...
                     // I did create a separate page for tags and started on the UI so tommorow me better be grateful
@@ -333,7 +333,8 @@ Part 2 Implement Database functionality:
             ☐ Added Next Article button to article view
                 ☐ These buttons are quite janky as they will only work as long as the next/prev page id is numericly adjacent. (1>2>3 will work, 1>4>8 will not.) I just wanted the basic functionality in place as page id within the database is part of a wider problem I will need to fix at some point.
             ☐ Added Tags to articles that will let you filter articles based on type of content
-            ☐ Added Tags to Home page, bascially just a nav menu at the moment
+            ☐ Added Tagbar that is currently a defacto website navigation menu
+                ☐ Currently not working properly when on one of the tag pages. Could have left this out of this release but I wanted to include it as demo of what it will be.
             ☐ Improved appearance of recommended reading bar.
             ☐ Tweaked appearance of news squares on home page.
 
@@ -341,9 +342,9 @@ Part 2 Implement Database functionality:
                 ✔ Remove Scroll To Previous Position Button @done(20-10-16 12:54)
                 ✔ remove Flip switch @done(20-10-16 12:54)
                 ✔ Add tags to at least 15 more articles @done(20-10-16 12:57)
-                ☐ Get Tagbar working properly @started(20-10-16 14:04)
-                ☐ Remove Firebase Genereated key article
-                ☐ Lower initial article count down to 20 with 10 loading in every bottom reached.
+                ✘ Get Tagbar working properly @started(20-10-16 14:04) @cancelled(20-10-16 16:29) @wasted(2h25m8s)
+                ✔ Remove Firebase Genereated key article @started(20-10-16 16:33) @done(20-10-16 16:33) @lasted(42s)
+                ✔ Lower initial article count down to 20 with 10 loading in every bottom reached. @done(20-10-16 16:35)
             ☐ Ready for Release?
             ☐ Remove Disclaimer from website.
 
