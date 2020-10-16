@@ -20,7 +20,7 @@ class Tags extends React.Component{
 
     componentDidMount(){
         
-        const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
+        const dbRef = fire.database().ref('items');
 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -33,7 +33,8 @@ class Tags extends React.Component{
                     title: newsItems[newsItem].title,
                     likes: newsItems[newsItem].likes,
                     dislikes: newsItems[newsItem].dislikes,
-                    id:newsItems[newsItem].id
+                    id:newsItems[newsItem].id,
+                    tag:newsItems[newsItem].tag
                 });
             }
 
@@ -49,8 +50,19 @@ class Tags extends React.Component{
     componentWillUnmount(){
     //  fire.database().ref("items").off();
     }
+
+    filterArray(){
+
+        console.log()
+        const getArray = this.state.articlesArray;
+
+        const thing = getArray.find(o => o.tag === 'Sports');
+        console.log(thing)
+    }
     render(){
 
+
+        this.filterArray("Sports", this.state.articlesArray);
         const test1 = this.props.location.state.tag;
         console.log("State Says::" + test1)
         const pageView = this.state.articlesArray.map((value,key) => {
