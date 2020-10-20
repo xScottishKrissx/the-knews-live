@@ -204,6 +204,18 @@ General Notes  Objectives:
                 13/10 - I guess the challenge now is
                     ✔ Create Separate Tags page @started(20-10-13 15:33) @done(20-10-13 16:19)
                         ☐ Tagbar doesn't work from the tag pages @started(20-10-16 12:58)
+                        // If you're on sports and click weather, nothing happens except the title changes.
+                        // What should happen is that the weather articles will render and replace the sports articles.
+                        // I don't think this will be a big issue to solve but what do i know about anything.
+                        
+                        20/10/2020 - So I have the items re-rerendering with the correct items... but it takes exactly 3 clicks in the tagbar for the items to appear. Everytime. No idea what's going on but I will take this as "progress"...
+
+                        ... so stack overflow just pulled one out of the bag.
+
+                        I changed back to my old method of having the tag page accessing the database rather than the bar. The old issue was that the page wouldnt update because the components don't update unless something changes. The code I found on stackoverflow adds a timestamp to the Router so that everytime the link is clicked the route gets a new timestamp which lets the component controlling the tag page view update.
+
+                        No idea if this is the correct way of doing this or not but the effect is what I wanted and I'm not getting any warnings or errors.
+
                     ✔ Create simple interface on home page to test basic functionality of mulitple clickable tags @started(20-10-14 16:36) @done(20-10-14 16:36) @lasted(58s)
                     ✔ Create UI in articles for clickable tags @started(20-10-13 15:33) @done(20-10-14 16:45) @lasted(1d1h12m55s)
                     ✔ Create UI for clickable tags on home page. @started(20-10-13 15:33) @done(20-10-15 16:40) @lasted(2d1h7m34s)
@@ -325,18 +337,26 @@ Part 2 Implement Database functionality:
              Remove everything but the home page
              Remove any sign of editing
              Only show the lazy loading and article views
+
+        
+        Version 11(Future Version) - New Features:
+            ☐ Fixed Database ID issue 
+
+        Version 10 (Next Version) - New Features:
+            ☐ Fixed Tagbar    
+
     
         New Features for Version 9 Update:
-            ☐ Added in Redesigned Back Button to article view
-            ☐ Added Home button article view
-            ☐ Added Previous Article button to article view
-            ☐ Added Next Article button to article view
-                ☐ These buttons are quite janky as they will only work as long as the next/prev page id is numericly adjacent. (1>2>3 will work, 1>4>8 will not.) I just wanted the basic functionality in place as page id within the database is part of a wider problem I will need to fix at some point.
-            ☐ Added Tags to articles that will let you filter articles based on type of content
-            ☐ Added Tagbar that is currently a defacto website navigation menu
-                ☐ Currently not working properly when on one of the tag pages. Could have left this out of this release but I wanted to include it as demo of what it will be.
-            ☐ Improved appearance of recommended reading bar.
-            ☐ Tweaked appearance of news squares on home page.
+            Added in Redesigned Back Button to article view
+            Added Home button article view
+            Added Previous Article button to article view
+            Added Next Article button to article view
+                These buttons are quite janky as they will only work as long as the next/prev page id is numericly adjacent. (1>2>3 will work, 1>4>8 will not.) I just wanted the basic functionality in place as page id within the database is part of a wider problem I will need to fix at some point.
+            Added Tags to articles that will let you filter articles based on type of content
+            Added Tagbar that is currently a defacto website navigation menu
+                Currently not working properly when on one of the tag pages. Could have left this out of this release but I wanted to include it as demo of what it will be.
+            Improved appearance of recommended reading bar.
+            Tweaked appearance of news squares on home page.
 
             Version 9 Release ToDo:
                 ✔ Remove Scroll To Previous Position Button @done(20-10-16 12:54)
@@ -345,8 +365,8 @@ Part 2 Implement Database functionality:
                 ✘ Get Tagbar working properly @started(20-10-16 14:04) @cancelled(20-10-16 16:29) @wasted(2h25m8s)
                 ✔ Remove Firebase Genereated key article @started(20-10-16 16:33) @done(20-10-16 16:33) @lasted(42s)
                 ✔ Lower initial article count down to 20 with 10 loading in every bottom reached. @done(20-10-16 16:35)
-            ☐ Ready for Release?
-            ☐ Remove Disclaimer from website.
+            ✔ Ready for Release? @done(20-10-20 12:13)
+            ✔ Remove Disclaimer from website. @done(20-10-20 12:13)
 
 
      ☐ Profit ???

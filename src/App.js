@@ -7,7 +7,7 @@ import './App.css';
 
 import Header from './header/header.js';
 // import Footer from './footer/footer.js';
-import DeploymentMessage from './deployment-message/deploymentmessage.js';
+// import DeploymentMessage from './deployment-message/deploymentmessage.js';
 import { Routes } from './routes/routes';
 
 
@@ -22,7 +22,7 @@ class App extends Component {
       <div>
         {/* <h1>the Knews - Live</h1> */}
 
-      <DeploymentMessage />
+      {/* <DeploymentMessage /> */}
       
       <Header />
       <Routes />

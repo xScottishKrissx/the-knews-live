@@ -5,6 +5,7 @@ import Caption from '../home-page/news-item-loop/news-item-caption/news-item-cap
 import NavControls from '../utility_components/navControls.js';
 
 
+
 import '../tags/tags.css';
 
 class Tags extends React.Component{
@@ -19,7 +20,7 @@ class Tags extends React.Component{
 
 
     componentDidMount(){
-        
+        console.log("Articles" + this.state.articlesArray)
         const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
 
         dbRef.on('value', (snapshot) => {
@@ -58,14 +59,16 @@ class Tags extends React.Component{
 
     //     const thing = getArray.find(o => o.tag === 'Sports');
     //     console.log(thing)
-    // }
+    
     render(){
 
 
         // this.filterArray("Sports", this.state.articlesArray);
         // const test1 = this.props.location.state.tag;
         // console.log("State Says::" + test1)
-        const pageView = this.state.articlesArray.map((value,key) => {
+        const new1 = this.state.articlesArray;
+        const new2 = this.props.location.state.tag3;
+        const pageView = new1.map((value,key) => {
             
 
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;

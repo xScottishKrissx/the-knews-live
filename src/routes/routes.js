@@ -31,7 +31,10 @@ export class Routes extends React.Component{
                     <Route exact path="/theKnews/home" component={Home} /> 
                 </Switch> 
 
-                <Route path="/theKnews/tags/" component={Tags} /> 
+                <Route path="/theKnews/tags/" component={ (props) => (
+                    <Tags timestamp={new Date().toString()} {...props} />
+                )}/>
+
                 <Route path="/theKnews/myKnews" component={PracticeForm} />
                 
                 <Route path="/filters" component={Home} />  
