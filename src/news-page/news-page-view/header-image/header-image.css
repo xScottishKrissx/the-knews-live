@@ -24,14 +24,14 @@
 
 @media (min-width: 1200px) {
     .article-banner-image{
-        height: 79vh;
+        height: 83vh;
     }
 
 }
 
 @media (min-width: 2300px) {
     .article-banner-image{
-        height: 79vh;
+        
     }
 
 }

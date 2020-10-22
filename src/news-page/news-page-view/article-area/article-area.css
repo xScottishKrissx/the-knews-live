@@ -24,6 +24,15 @@ section h3{
 
 .article-author{}
 
+.article-tag{
+    background-color: #000000b3;
+    color: white;
+    font-variant: all-petite-caps;
+    margin: 0 auto;
+    outline: 1px solid black;
+    text-align: center;
+    width: 100px;
+}
 
 .article-text{
     padding: 5px;
@@ -33,6 +42,8 @@ section h3{
     margin: 0 auto;
     white-space: pre-wrap;
 }
+
+
 
 @media (max-width: 1200px) {
 .article-text{

@@ -14,6 +14,8 @@ class Tags extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
+            arrayStartState: 5,
+            arrayEndState: 10,
             test: this.props.location.state.tag
         }
     }
@@ -41,9 +43,10 @@ class Tags extends React.Component{
 
             this.setState({
                 // articlesArray: newState.reverse(),
-                articlesArray: newState.slice(0,50)
+                articlesArray: newState.slice(0,5)
             })
             // console.log(this.state.articlesArray);
+            window.addEventListener('scroll', this.scroll);
             
         })
     }
@@ -60,6 +63,69 @@ class Tags extends React.Component{
     //     const thing = getArray.find(o => o.tag === 'Sports');
     //     console.log(thing)
     
+    scroll = () => {
+        const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+        const body = document.body;
+        const html = document.documentElement;
+        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+        const windowBottom = windowHeight + window.pageYOffset;
+    //    console.log(docHeight);
+    //    console.log(windowBottom)
+        
+        this.setState({
+            scrollsaveScrollPosition: windowBottom
+        })
+
+        if(windowBottom >= docHeight){
+            //console.log(this.state.newCount)
+            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
+            
+           
+           dbRef.on('value', (snapshot) => {
+               let newsItems = snapshot.val();
+               // console.log(newsItems);
+               let newState = [];
+               for(let newsItem in newsItems){
+                   newState.push({
+                       key: newsItem,
+                       author: newsItems[newsItem].author,
+                       title: newsItems[newsItem].title,
+                       id:newsItems[newsItem].id
+                   });
+               }
+
+               const arrayStart = this.state.arrayStartState;
+               const arrayEnd = this.state.arrayEndState;
+               console.log(this.state.articlesArray2)
+               this.setState({               
+                articlesArray2: newState.slice(arrayStart,arrayEnd),
+                arrayStartState: this.state.arrayStartState + 5,
+                arrayEndState: this.state.arrayEndState + 5
+               })
+               console.log(this.state.articlesArray)
+            //    console.log(this.state.arrayStartState)
+            //    console.log(this.state.articlesArray2)
+               
+            const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
+               this.setState({
+                   articlesArray:renderNewArticlesOnScroll
+               })    
+                       
+           })
+
+            console.log("Bottom Reached")
+        }else{
+            console.log("Not At Bottom Yet")
+        }
+    }
+
+    componentWillUnmount(){
+        // console.log("Unmount on news-item-loop.js")
+        // window.addEventListener('scroll', this.scroll);
+        window.removeEventListener('scroll',this.scroll);
+        fire.database().ref("items").off();
+      }
+
     render(){
 
 

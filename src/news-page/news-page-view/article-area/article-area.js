@@ -36,9 +36,10 @@ const ArticleArea = (props) => {
                     <h3 className="article-author">{props.author}</h3>
                         
                     <Link className="news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag}}}>
-                            <h3 className="article-author">Tag: {props.tag}</h3>
+                            <h3 className="article-tag">{props.tag}</h3>
                     </Link>
-                            <h3>{props.email}</h3>
+                    
+                    <h3>{props.email}</h3>
                         
                 </header>
                 {/* {loggedInEmail === articleEmail ?
