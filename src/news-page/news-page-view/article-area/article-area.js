@@ -11,6 +11,7 @@ import Share from '../social/share.js';
 // import EditArticle from './edit-article.js';
 
 import './article-area.css';
+// import ScrollToTopBtn from '../../../utility_components/scrollToTop.js';
 
 
 const ArticleArea = (props) => {
@@ -64,7 +65,8 @@ const ArticleArea = (props) => {
 
                     </article>
 
-                    <ExtraImageLoop />          
+                    <ExtraImageLoop />      
+                       
                 </div> 
                 
             </div>

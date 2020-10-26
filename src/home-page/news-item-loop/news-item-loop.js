@@ -5,6 +5,7 @@ import Caption from './news-item-caption/news-item-caption.js';
 
 import ScrollToTopButton from '../../utility_components/scrollToTop.js';
 
+
 export const NewsItemLoop = () => {
     return <MapDatabaseItems />;    
 }
@@ -31,7 +32,7 @@ class MapDatabaseItems extends React.Component{
             addNewArticle:"",
             loadedArticles: "",
              scrollsaveScrollPosition:0,
-            switch:0
+            switch:0,
             
         }
         this.setting1 = this.setting1.bind(this);
@@ -76,6 +77,8 @@ class MapDatabaseItems extends React.Component{
             
         })
         window.addEventListener('scroll', this.scroll);
+
+        
     }
 
     setting1(e){
@@ -116,6 +119,8 @@ class MapDatabaseItems extends React.Component{
         const windowBottom = windowHeight + window.pageYOffset;
     //    console.log(docHeight);
     //    console.log(windowBottom)
+
+
         
         this.setState({
             scrollsaveScrollPosition: windowBottom
@@ -241,6 +246,8 @@ class MapDatabaseItems extends React.Component{
       })   
 
 
+
+
         return (
             <div> 
 
@@ -273,9 +280,13 @@ class MapDatabaseItems extends React.Component{
                 } */}
                  
 
+                 
+                 {HomePageView}      
+                
                
-               {HomePageView}      
-               <ScrollToTopButton />
+                
+                <ScrollToTopButton  />
+               
             </div>
         );   
     }

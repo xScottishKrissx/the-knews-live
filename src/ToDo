@@ -35,15 +35,15 @@ Part 1 - Implement the front end UI:
 General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
-            ☐ Add keyboard control @started(20-10-12 17:40)
+            ✘ Add keyboard control @started(20-10-12 17:40) @cancelled(20-10-26 16:52) @wasted(2w12m6s)
                 ✔ Pressing Enter should submit forms @done(20-07-30 17:43)
                     ✔ Works with myKnews page @done(20-07-30 17:43)
-                    ☐ Need to implement for edit form
-                ☐ Using keyboard arrows to navigate home page
+                    ✘ Need to implement for edit form @cancelled(20-10-26 16:52)
+                ✘ Using keyboard arrows to navigate home page @cancelled(20-10-26 16:52)
         
         I should consider replacing the random images with my own hosted images to help future proof the website
         ✔ There should be a scroll to top button @started(18-08-29 11:13) @done(20-09-21 16:53) @lasted(2y3w3d5h40m8s)
-            ☐ Hide Scroll To Top Button until you're a certain distance off the top of the page @started(20-10-22 13:47)
+            ✔ Hide Scroll To Top Button until you're a certain distance off the top of the page @started(20-10-22 13:47) @done(20-10-26 17:20) @lasted(4d4h33m46s)
         Think about pagination / infinite scroll functionality
         ✘ Infinite Scrolling / Lazy Loading Home Page @started(17-09-21 16:46) @cancelled(20-10-12 17:38) @wasted(3y3w1d52m14s)
             //Idea is that the start page has 10 articles to start with, as you scroll more articles load and populate the page
@@ -118,9 +118,10 @@ General Notes  Objectives:
                  I have managed to solve this but explaining it is a bit tricky because i'm not sure how to actually start. Basically i used match.params.id to get the identifier along with js .find and map functions. I will try and go into more detail later.
 
         ✔ Clean up Console messages. @started(18-08-30 11:33) @done(18-08-30 11:47) @lasted(14m41s)
-        ☐ Width of news area has been maxed at 1600px (not final)
-            ☐ I want to make sure the space left here is used by something, maybe adding some kind of floating tag menu @started(20-09-18 17:14)
+        ✔ Width of news area has been maxed at 1600px (not final) @done(20-10-26 17:26)
+            ✔ I want to make sure the space left here is used by something, maybe adding some kind of floating tag menu @started(20-09-18 17:14) @done(20-10-26 17:26) @lasted(5w3d1h12m31s)
             this menu would need to be placed somewhere else when used with smaller window.
+            ✔ removed max width, the user can have as many or little items in a row by changing the size of the window. @done(20-10-26 17:26)
 
 
 
@@ -245,9 +246,11 @@ General Notes  Objectives:
                 //Is this not as easy as using the page id to go to the next chronoligical page number? 
                     // Yes, I have a back and forward button working although I am getting an error just as I leave the page. Doesn't seem to break anything but something to look at. @done(20-10-06 17:42)
                     // When using the buttons, as the next page is rendering I can see some half visible UI under the main header. Clean this up
-                    ☐ Clean up half visible UI @started(20-10-06 17:44)
-                    ☐ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page. @started(20-10-16 12:10)
-                        ☐ Having another go at this @started(20-10-26 15:51)
+                    ✘ Clean up half visible UI @started(20-10-06 17:44) @cancelled(20-10-26 17:26) @wasted(2w6d42m50s)
+                        // 26/10/2020 -  Don't know how to fix this.
+                    ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page. @started(20-10-16 12:10) @cancelled(20-10-26 17:27) @wasted(1w3d6h17m24s)
+                        ✘ Having another go at this @started(20-10-26 15:51) @cancelled(20-10-26 16:30) @wasted(39m20s)
+                        // I don't know how to get this to work in this project. Look at this in a dedicated project
                     ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
             ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
                  ☐ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions
@@ -353,8 +356,16 @@ Part 2 Implement Database functionality:
             ☐ Implement Swipe
 
         Version 10(Next Release) - Release Notes:
-            ☐ Fixed Database ID issue 
-            ☐ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page
+            ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
+            ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page @cancelled(20-10-26 16:30)
+            ✘ Add keyboard control @cancelled(20-10-26 16:51)
+            ✔ Hide Scroll To Top Button until you're a certain distance off the top of the page @done(20-10-26 17:20)
+            ✔ Removed max div width for news sqaures on the home page @done(20-10-26 17:44)
+            ☐ Tweaks to article styling
+                ✔ Removed border of article @done(20-10-26 17:44)
+                ✔ Improve styling of like and dislike buttons @done(20-10-26 17:44)
+                ☐ Improve styling of article heading area
+
 
 
         Version 9.1 - Tagbar Fix:

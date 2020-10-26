@@ -111,12 +111,19 @@ export class HandleLike extends React.Component{
     render(){
         return (
             <div>        
-                <div className="article-likes">                
-                    <p className="social-score pos" id="likeBtn" onClick={this.clicked}><span className="voteArrow">&uarr;</span> UpLike: {this.state.currentLikes}</p>
+                <div className="article-likes">       
+                            
+                    <p className="social-score pos" id="likeBtn" onClick={this.clicked}>
+                        <span className="large material-icons">thumb_up</span>
+                        {this.state.currentLikes}
+                    </p>
                 </div>
 
                 <div className="article-dislikes">
-                    <p className="social-score neg" id="dislikeBtn" onClick={this.clicked}><span className="voteArrow">&darr;</span> DownLike: {this.state.currentDislikes}</p>
+                    <p className="social-score neg" id="dislikeBtn" onClick={this.clicked}>
+                        <span className="large material-icons">thumb_down</span>
+                        {this.state.currentDislikes}
+                    </p>
                 </div>
             </div>
         )

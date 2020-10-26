@@ -50,7 +50,9 @@ export class NewsPage extends React.Component{
                     dislikes: articles[item].dislikes,
                     postdate: articles[item].postdate,
                 });
+                // console.log("New State is:: " + newState)
             }
+
             this.setState({
                 articlesArray: newState
             })
@@ -67,8 +69,9 @@ export class NewsPage extends React.Component{
     
 
     render(){    
-        //console.log(firebasedb)
-        // const ref = this.state.articlesArray;
+        // console.log(dbRef)
+        const ref = this.state.articlesArray;
+        // console.log(ref)
         // const checkIdMap = ref.map((value) => {
         //     console.log("Something" + value.key)
         //     if(value.key === this.props.match.params.id){
@@ -79,14 +82,33 @@ export class NewsPage extends React.Component{
         //         console.log("Error")
         //         console.log(this.props.match.params.id)
         //     }
-        //     return null;
+            
+        // })
+
+        // ref.map((value) => {
+        //     console.log("Something" + value.key)
+        //     if(value){
+        //         console.log("hello")
+        //     }
+        //     else{
+        //         console.log("No hello")
+        //     }
+        //     if(value.key === this.props.match.params.id){
+        //          console.log("ID")
+        //          console.log("Match" + this.props.match.params.id)
+        //     }
+        //     else{
+        //         console.log("Error")
+        //         console.log(this.props.match.params.id)
+        //     }
         // })
 
     // console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
+    // console.log(this.state.articlesArray)
     // console.log("Array Length is : " + Number(arrayLength))
     // console.log(this.state.articlesArray)
-
+    // console.log(this.state.test1)
     const test = arrayLength;
     return (
         
@@ -105,18 +127,18 @@ export class NewsPage extends React.Component{
 
         {test >= 1 ?         
             <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  /> 
-            
+
+        
             : 
             <div className="error-message">
-                <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
-                <Link to='/theKnews'><p>Home</p></Link>
+            <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
+            <Link to='/theKnews'><p>Home</p></Link>
             </div>
 
-
         }
+    
 
-
-
+        {/* <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  />  */}
         {/* {checkIdMap} */}
 
         </span>
