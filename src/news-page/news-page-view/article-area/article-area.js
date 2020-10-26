@@ -31,7 +31,52 @@ const ArticleArea = (props) => {
             
             <div className='article'>
             {/* Article Header */}
-                <header className="news-article-header">
+
+                
+
+                <div className='__article-header'>
+                    <header><h1>{props.title}</h1></header>
+                </div>
+
+                <div className='__article-sub-header'>
+                   
+                    <h2 className="__article-subtitle">
+                        <span>Posted </span>
+                        {props.postdate}
+                    </h2>
+
+                    <h3 className="__article-author">
+                        <span>Author </span>
+                        {props.author}
+                    </h3>
+
+                    <h3>
+                        <span>Email </span>
+                        {props.email}
+                    </h3>
+
+
+                    <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag}}}>
+                            <h3 className="__article-tag">
+                                <span>Tagged </span>
+                                {props.tag}
+                            </h3>
+                    </Link>
+
+                    
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                {/* <header className="news-article-header">
                     <h1 className="article-title">{props.title}</h1>
                     <h2 className="article-subtitle">{props.postdate}</h2>
                     <h3 className="article-author">{props.author}</h3>
@@ -43,12 +88,29 @@ const ArticleArea = (props) => {
                     <h3>{props.email}</h3>
                         
                 </header>
+                <Share />
+                */}
+
+
                 {/* {loggedInEmail === articleEmail ?
                 <EditArticle articleText={props.text} articleID={props.id} articleTitle={props.title}/>
                 :
                 <p>No Edit Button for you</p>
                 } */}
-                <Share />
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
                 
                 
                 {/* Article Body */}

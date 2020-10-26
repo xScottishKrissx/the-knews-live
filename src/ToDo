@@ -253,7 +253,11 @@ General Notes  Objectives:
                         // I don't know how to get this to work in this project. Look at this in a dedicated project
                     ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
             ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
-                 ☐ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions
+                 ☐ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions @started(20-10-26 18:39)
+            ☐ Clickable Elements in article sub-header @started(20-10-26 18:39)
+                ☐ When clicking Posted, go to a new page with all of the articles posted on that day
+                ☐ When clicking on author, go to a new page with all of the articles posted by that author
+                /// can leave email and tags already has its own page
                  
 
     theKnews:
@@ -365,6 +369,8 @@ Part 2 Implement Database functionality:
                 ✔ Removed border of article @done(20-10-26 17:44)
                 ✔ Improve styling of like and dislike buttons @done(20-10-26 17:44)
                 ☐ Improve styling of article heading area
+                    ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
+                    ☐ Need to continue with 768px + res
 
 
 
