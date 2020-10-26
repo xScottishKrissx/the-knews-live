@@ -133,7 +133,6 @@ class Tags extends React.Component{
         // const test1 = this.props.location.state.tag;
         // console.log("State Says::" + test1)
         const new1 = this.state.articlesArray;
-        const new2 = this.props.location.state.tag3;
         const pageView = new1.map((value,key) => {
             
 

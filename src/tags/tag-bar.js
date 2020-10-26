@@ -82,15 +82,15 @@ class TagBar extends React.Component{
     }
 }
 
-class Tags1 extends React.Component{
-    render(){
-        return (
-            <div>
-                <p>Thing - {this.state.test1}</p>
-            </div>
-        )
-    }
-}
+// class Tags1 extends React.Component{
+//     render(){
+//         return (
+//             <div>
+//                 <p>Thing - {this.state.test1}</p>
+//             </div>
+//         )
+//     }
+// }
 
 
     export default TagBar;
