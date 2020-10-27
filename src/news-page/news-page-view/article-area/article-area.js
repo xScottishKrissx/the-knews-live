@@ -33,12 +33,12 @@ const ArticleArea = (props) => {
             {/* Article Header */}
 
                 
-
-                <div className='__article-header'>
+            <span className="__header-container">
+                <div className='__article-header __1600_style'>
                     <header><h1>{props.title}</h1></header>
                 </div>
 
-                <div className='__article-sub-header'>
+                <div className='__article-sub-header __1600_style'>
                    
                     <h2 className="__article-subtitle">
                         <span>Posted </span>
@@ -65,7 +65,7 @@ const ArticleArea = (props) => {
 
                     
                 </div>
-
+            </span>
 
 
 

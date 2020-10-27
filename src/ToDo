@@ -32,6 +32,8 @@ Part 1 - Implement the front end UI:
         ☐ When deployed, if you login with an article in the database the website UI doesnt update to reflect this. You need to manually refresh the page before the correct UI appears.
         ✔ When loading articles on scroll, the first 4 articles are repeats of the last 4 from the database. @started(20-09-17 18:55) @done(20-09-21 16:45) @lasted(3d21h50m48s)
             This is less of a bug and more of a incomplete feature that is working as expected given the current code.
+        ☐ Due to the placeholder text, some elements don't fit into the design. Ideally I could set rules like max characters but I am really relying on the lorem ipsum being of a reasonable length.(which it sometimes isn't) @started(20-10-27 17:43)
+            ☐ I could repopulate the database, ensuring my own rules, which might help solve the problem. @started(20-10-27 17:44)
 General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
@@ -40,6 +42,8 @@ General Notes  Objectives:
                     ✔ Works with myKnews page @done(20-07-30 17:43)
                     ✘ Need to implement for edit form @cancelled(20-10-26 16:52)
                 ✘ Using keyboard arrows to navigate home page @cancelled(20-10-26 16:52)
+                ✔ Turns out this is a browser feature that you just have to test for and the website functions just fine...so I guess that counts right? @done(20-10-27 17:29)
+                // Although the main home page with it's long list of items could be a pain to tab through...
         
         I should consider replacing the random images with my own hosted images to help future proof the website
         ✔ There should be a scroll to top button @started(18-08-29 11:13) @done(20-09-21 16:53) @lasted(2y3w3d5h40m8s)
@@ -183,17 +187,46 @@ General Notes  Objectives:
                 23/9/2020 - I have adjusted the appearance here by making the image take up most of the page and having the title, author and date take up the rest of the page. Almost like a book.
             ✔ Figure out how to render html tags from json file. @done(18-08-13 18:03)
             ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
-            ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
-                It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
-            ✔ Clean Up Recommended reading bar styling @started(18-08-29 11:14) @done(20-10-13 11:53) @lasted(2y6w4d39m19s)
-                12/10/2020 - Added a few borders, removed the grey and added images. Not 100% done but it's a start.
-            ✔ Ability to control the exact articles that appear in recommended reading area @done(20-10-13 13:34)
-            // 13/10/2020 - Right now the area is populated with the first 4 articles in order of key. I want to be able to specify whatever article I want directly from the database.
-            // 13/10 - I have bascally copy and pasted the first main query to the database and then appended the results to the state. It is working as intended but i think there is definitley a better way of doing this.
-                ☐ Do another pass on the styles here @started(20-10-13 13:34)
+            ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
 
-            ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
-            ✔ Each article should come with tags that can be filtered on the home page. @started(20-10-13 13:47) @done(20-10-20 14:40) @lasted(1w53m52s)
+            ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
+                 ✔ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions @started(20-10-26 18:39) @done(20-10-27 17:36) @lasted(22h57m3s)
+                
+            ☐ Dark Mode? @started(20-10-27 17:53)
+                //What even constitutes a dark mode?
+                ☐ More research needed here @started(20-10-27 17:53)
+
+            Header Image and Article Info Area:
+                ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
+                ✔ Need to continue with 768px + res @done(20-10-27 17:36)
+                ☐ Large email addresses really mess with the look here @started(20-10-27 18:18)
+                    ☐ The design should be more flexible and better able to handle large emails and names. @started(20-10-27 18:18)
+                ☐ Clickable Elements in article sub-header @started(20-10-26 18:39)
+                    ☐ When clicking Posted, go to a new page with all of the articles posted on that day
+                    ☐ When clicking on author, go to a new page with all of the articles posted by that author
+
+            Actual Articles:
+                ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. @started(20-10-27 17:40)
+                ☐ Ability to edit articles on page. @started(20-10-27 17:46)
+                    //Wouldn't this just be a case of switching views when the article is clicked?
+                    // Step 1 - Load the article into the edit box
+                    // Step 2 - When article is clicked, switch views
+                    // Step 3 - Upload and save article to database when ready
+                    // Step 4 - Switch view back, with update article on page.
+                    // Will NOT be as easy as that but a guy can dream...
+            Recommended Reading Area:
+                 ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
+                It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
+                ✔ Clean Up Recommended reading bar styling @started(18-08-29 11:14) @done(20-10-13 11:53) @lasted(2y6w4d39m19s)
+                12/10/2020 - Added a few borders, removed the grey and added images. Not 100% done but it's a start.
+                ✔ Ability to control the exact articles that appear in recommended reading area @done(20-10-13 13:34)
+                    // 13/10/2020 - Right now the area is populated with the first 4 articles in order of key. I want to be able to specify whatever article I want directly from the database.
+                    // 13/10 - I have bascally copy and pasted the first main query to the database and then appended the results to the state. It is working as intended but i think there is definitley a better way of doing this.
+                        ☐ Do another pass on the styles here @started(20-10-13 13:34)
+            Social Score Buttons:
+                ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
+            Article Tags:
+                ✔ Each article should come with tags that can be filtered on the home page. @started(20-10-13 13:47) @done(20-10-20 14:40) @lasted(1w53m52s)
                 maybe even ability to search by tag
                 13/10/2020 - So is this as simple as
                     1 - creating a new field in the database (or create multiple tag fields, tag1, tag2, tag3 etc)
@@ -231,32 +264,30 @@ General Notes  Objectives:
                         ✔ Add the tag bar to the fixed header bar @started(20-10-15 16:41) @done(20-10-15 16:49) @lasted(9m)
                         ✔ Instead of going to a new page, how about just re-rerendering the current page with the relevant items? @started(20-10-15 16:41) @done(20-10-20 14:40) @lasted(4d21h59m58s)
                         ✔ I really need to add more tags to the database. I've delayed this for too long. @done(20-10-16 13:56)
-            ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
-            ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
-                23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
-                ✔ Add In Space for Home Button @started(20-09-28 12:58) @done(20-09-28 16:16) @lasted(3h18m18s)
-                ✔ Add in "Next Article" Button @started(20-09-28 12:58) @done(20-09-28 16:16) @lasted(3h18m19s)
-                // So basically, 3 buttons that allow full movemement through website.
-                // Desktop layout like -> Home | Back | Next
-                    the Knews header acts as second home button.
-                // Mobile layout like -> Back | Home | Next
-                    // Fix to bottom for easier access.
-                ✔ Current UI has article controls on home page, hide these here. @started(20-09-28 16:18) @done(20-10-06 17:44) @lasted(1w1d1h26m11s)
-                ✔ Create Logic for Back, Home and Next buttons to actually work. @started(20-09-28 16:19) @done(20-10-06 17:42) @lasted(1w1d1h23m49s)
-                //Is this not as easy as using the page id to go to the next chronoligical page number? 
-                    // Yes, I have a back and forward button working although I am getting an error just as I leave the page. Doesn't seem to break anything but something to look at. @done(20-10-06 17:42)
-                    // When using the buttons, as the next page is rendering I can see some half visible UI under the main header. Clean this up
-                    ✘ Clean up half visible UI @started(20-10-06 17:44) @cancelled(20-10-26 17:26) @wasted(2w6d42m50s)
-                        // 26/10/2020 -  Don't know how to fix this.
-                    ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page. @started(20-10-16 12:10) @cancelled(20-10-26 17:27) @wasted(1w3d6h17m24s)
-                        ✘ Having another go at this @started(20-10-26 15:51) @cancelled(20-10-26 16:30) @wasted(39m20s)
-                        // I don't know how to get this to work in this project. Look at this in a dedicated project
-                    ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
-            ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
-                 ☐ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions @started(20-10-26 18:39)
-            ☐ Clickable Elements in article sub-header @started(20-10-26 18:39)
-                ☐ When clicking Posted, go to a new page with all of the articles posted on that day
-                ☐ When clicking on author, go to a new page with all of the articles posted by that author
+            Article to Article Nav Controls:
+                ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
+                    23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
+                    ✔ Add In Space for Home Button @started(20-09-28 12:58) @done(20-09-28 16:16) @lasted(3h18m18s)
+                    ✔ Add in "Next Article" Button @started(20-09-28 12:58) @done(20-09-28 16:16) @lasted(3h18m19s)
+                    // So basically, 3 buttons that allow full movemement through website.
+                    // Desktop layout like -> Home | Back | Next
+                        the Knews header acts as second home button.
+                    // Mobile layout like -> Back | Home | Next
+                        // Fix to bottom for easier access.
+                    ✔ Current UI has article controls on home page, hide these here. @started(20-09-28 16:18) @done(20-10-06 17:44) @lasted(1w1d1h26m11s)
+                    ✔ Create Logic for Back, Home and Next buttons to actually work. @started(20-09-28 16:19) @done(20-10-06 17:42) @lasted(1w1d1h23m49s)
+                    //Is this not as easy as using the page id to go to the next chronoligical page number? 
+                        // Yes, I have a back and forward button working although I am getting an error just as I leave the page. Doesn't seem to break anything but something to look at. @done(20-10-06 17:42)
+                        // When using the buttons, as the next page is rendering I can see some half visible UI under the main header. Clean this up
+                        ✘ Clean up half visible UI @started(20-10-06 17:44) @cancelled(20-10-26 17:26) @wasted(2w6d42m50s)
+                            // 26/10/2020 -  Don't know how to fix this.
+                        ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page. @started(20-10-16 12:10) @cancelled(20-10-26 17:27) @wasted(1w3d6h17m24s)
+                            ✘ Having another go at this @started(20-10-26 15:51) @cancelled(20-10-26 16:30) @wasted(39m20s)
+                            // I don't know how to get this to work in this project. Look at this in a dedicated project
+                        ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
+                ☐ I think the nav controls should be in the same place regardless of screen size @started(20-10-27 18:22)
+
+
                 /// can leave email and tags already has its own page
                  
 
@@ -282,6 +313,8 @@ General Notes  Objectives:
          Dont' know if I am going to have one.
          Might put a small bar at the bottom to act as footer.
          23/9/2020 - Well I have one now so I may as well make it look presentable.
+         27/10/2020 - Recommended Reading Bar currently footer.
+        ☐ Add Proper Footer sitewide. @started(20-10-27 17:51)
     
 
 Part 2 Implement Database functionality:
@@ -335,6 +368,7 @@ Part 2 Implement Database functionality:
      ✔ The ability to edit posts when submitted. @started(18-08-13 18:04) @done(20-07-24 13:16) @lasted(1y49w2d19h12m13s)
         ✔ Also added the ability to edit articles and their title @done(20-07-24 13:16)
         ✔ Edit functionality should only be accessibly by the person who authored the current article. @done(20-07-29 10:18)
+
      ☐ The ability to hide but not delete posts from view @started(18-08-13 18:04)
      ✔ The ability to delete posts @started(18-08-13 18:04) @done(18-08-23 17:06) @lasted(1w2d23h2m23s)
         ☐ BUG:: You are unable to create a new article straight away unless you refresh the page
@@ -355,6 +389,9 @@ Part 2 Implement Database functionality:
              Remove any sign of editing
              Only show the lazy loading and article views
 
+        Version 12 - Planned:
+            ☐ myKnews - The Return.
+
         Version 11 (Future Version) - Planned Notes:
             ☐ Implement Mobile Menu
             ☐ Implement Swipe
@@ -362,15 +399,18 @@ Part 2 Implement Database functionality:
         Version 10(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
             ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page @cancelled(20-10-26 16:30)
-            ✘ Add keyboard control @cancelled(20-10-26 16:51)
+            ✔ Add keyboard control @done(20-10-27 17:28)
+                ✔ Turns out this is a browser feature that you just have to test for and the website functions just fine...so I guess that counts right? @done(20-10-27 17:29)
             ✔ Hide Scroll To Top Button until you're a certain distance off the top of the page @done(20-10-26 17:20)
             ✔ Removed max div width for news sqaures on the home page @done(20-10-26 17:44)
-            ☐ Tweaks to article styling
+            ✔ Tweaks to article styling @done(20-10-27 17:37)
                 ✔ Removed border of article @done(20-10-26 17:44)
-                ✔ Improve styling of like and dislike buttons @done(20-10-26 17:44)
-                ☐ Improve styling of article heading area
-                    ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
-                    ☐ Need to continue with 768px + res
+                ✔ Improved styling of like and dislike buttons @done(20-10-26 17:44)
+                ✔ Improved styling of article heading area @done(20-10-27 17:37)
+            ☐ Dark Mode
+            ☐ Clickable Author and Posted Links in Article Header
+            ☐ Steal someone elses article and see how it looks in my design.
+
 
 
 

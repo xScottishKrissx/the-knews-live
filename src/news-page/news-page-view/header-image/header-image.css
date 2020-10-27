@@ -6,7 +6,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         height: 400px;
-        max-width: 1800px;
+        /* max-width: 1800px; */
         margin: 0 auto;
         width: 100%;
     }
@@ -26,12 +26,17 @@
     .article-banner-image{
         height: 83vh;
     }
+}
 
+@media (min-width: 1600px) {
+    .article-banner-image{
+        height: 95vh;
+    }
 }
 
 @media (min-width: 2300px) {
     .article-banner-image{
-        
+        height: 86vh;
     }
 
 }
