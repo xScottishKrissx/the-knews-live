@@ -83,6 +83,21 @@ General Notes  Objectives:
         /   ☐ 1500px
         /   ☐ 1920px
          I really need to be better at branching with Github when starting something.
+         4/11/2020
+        // I found a potentially useful library on github that might help me with this.
+            https://github.com/sandstreamdev/react-swipeable-list
+        ✔ Added the New Swipe Library(see above)and managed to get it integrated ok, it's totally messed up the styling due to the addition of a new div but that's a minor issue. @started(20-11-04 15:39) @done(20-11-04 17:48) @lasted(2h9m5s)
+            // Well that took a lot longer than expected. Had to shift a bunch of css and class names around, delete a few divs and question the meaning of life. I managed to get there in the end though with the appearance of the news squares area back to normal.
+        ☐ The ability to hide but not delete posts from view.
+            ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
+                // Used the libraru to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
+                // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
+                ☐ Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
+            ☐ Not sure about what happens with swipe to the right right now... maybe "read later" ?? @started(20-11-04 16:02)
+            ☐ Swipe should only work on mobile devices. @started(20-11-04 15:41)
+            ☐ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41)
+            ☐ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45)
+
         
         ✔ If you click on a News Item at Home you should get a unique shareable URL @done(18-07-31 17:19)
             ✔ Right now you get a path simply ends with news-item @done(18-07-25 17:09)
@@ -369,7 +384,8 @@ Part 2 Implement Database functionality:
         ✔ Also added the ability to edit articles and their title @done(20-07-24 13:16)
         ✔ Edit functionality should only be accessibly by the person who authored the current article. @done(20-07-29 10:18)
 
-     ☐ The ability to hide but not delete posts from view @started(18-08-13 18:04)
+     ✘ The ability to hide but not delete posts from view @started(18-08-13 18:04) @cancelled(20-11-04 15:43) @wasted(2y11w6d22h39m9s)
+        4/11/2020 - This work is being folded in with the mobile menu as the both use the swipe library
      ✔ The ability to delete posts @started(18-08-13 18:04) @done(18-08-23 17:06) @lasted(1w2d23h2m23s)
         ☐ BUG:: You are unable to create a new article straight away unless you refresh the page
         ✔ When you delete an article the page should auto-refresh. @done(20-07-28 13:21)
@@ -389,12 +405,15 @@ Part 2 Implement Database functionality:
              Remove any sign of editing
              Only show the lazy loading and article views
 
+
+ -----
+
         Version 12 - Planned:
             ☐ myKnews - The Return.
 
         Version 11 (Future Version) - Planned Notes:
             ☐ Implement Mobile Menu
-            ☐ Implement Swipe
+            
 
         Version 10(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
@@ -407,8 +426,11 @@ Part 2 Implement Database functionality:
                 ✔ Removed border of article @done(20-10-26 17:44)
                 ✔ Improved styling of like and dislike buttons @done(20-10-26 17:44)
                 ✔ Improved styling of article heading area @done(20-10-27 17:37)
+            ☐ Implement Swipe
+                ☐ ... to hide but not delete posts
+                ☐ ... to activate a mobile specific menu interface.
             ☐ Dark Mode
-            ☐ Clickable Author and Posted Links in Article Header
+            ☐ Clickable Author and Date Posted Links in Article Header
             ☐ Steal someone elses article and see how it looks in my design.
 
 
@@ -453,3 +475,7 @@ Part 2 Implement Database functionality:
     
 
 
+// Things not made by me...
+
+Swipe Thingy
+https://github.com/sandstreamdev/react-swipeable-list

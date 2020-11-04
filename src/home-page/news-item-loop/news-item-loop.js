@@ -6,6 +6,9 @@ import Caption from './news-item-caption/news-item-caption.js';
 import ScrollToTopButton from '../../utility_components/scrollToTop.js';
 
 
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+
 export const NewsItemLoop = () => {
     return <MapDatabaseItems />;    
 }
@@ -208,8 +211,16 @@ class MapDatabaseItems extends React.Component{
                 switch:0
             })
         }
-        console.log(this.state.switch)
+        console.log("Switch Flipped:: " + this.state.switch)
 
+    }
+    
+    swipeLeftAction(){
+        console.log("Swipe Left Action")
+    }
+    swipeRightAction(id){
+        console.log("Post Dissapearing is Post:: " + id)
+        document.getElementById(id).style.display = "none";
     }
 
     render(){
@@ -230,18 +241,56 @@ class MapDatabaseItems extends React.Component{
             }    
             // console.log(value.author + " Key is: " + value.key)
             return (
+
+                <div id={value.id} >
+                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+                    <SwipeableListItem 
+                        
+                        swipeLeft={{
+                        content: <div>Revealed content during swipe</div>,
+                        action: () => console.log("Swipe Left")
+                        }}
+                        
+                        swipeRight={{
+                        content: <div>Revealed content during swipe</div>,
+                        action: () => this.swipeRightAction(value.id),
+                        }}
+
+                        onSwipeProgress={progress => console.info(`Swipe progress: ${progress}%`)}
+                    >
+                            
+                            <div className='news-square'  key={key}  style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
+                                <Caption 
+                                    pageid={value.key} 
+                                    style={style} 
+                                    title={value.title}
+                                    author={value.author}
+                                    likes={value.likes}
+                                    dislikes={value.dislikes}    
+                                 />
+                            </div>
+                     
+                    
+                    </SwipeableListItem>
+                    </SwipeableList>
+                </div>
                 
-                    <div className='news-square'  key={key} style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
-                            <Caption 
-                                pageid={value.key} 
-                                style={style} 
-                                title={value.title}
-                                author={value.author}
-                                likes={value.likes}
-                                dislikes={value.dislikes}
-                                
-                                />
-                    </div>
+            
+
+            
+
+
+                            // <div className='news-square'  key={key} id={value.id} style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
+                            //     <Caption 
+                            //         pageid={value.key} 
+                            //         style={style} 
+                            //         title={value.title}
+                            //         author={value.author}
+                            //         likes={value.likes}
+                            //         dislikes={value.dislikes}    
+                            //      />
+                            // </div>
+                
             );
       })   
 
@@ -249,10 +298,10 @@ class MapDatabaseItems extends React.Component{
 
 
         return (
-            <div> 
+            <div className="news-item-loop-wrapper"> 
 
                 {/* Playing with state and rendering */}
-                <div>
+                {/* <div> */}
                    
                     {/* <button onClick={()=> this.flipSwitch()}>Flip</button>
                     {this.state.switch === 1 ? 
@@ -260,7 +309,7 @@ class MapDatabaseItems extends React.Component{
                         :    
                         <p>Off</p>
                     } */}
-                </div>
+                {/* </div> */}
 
 
                 {/* <div className="tileSizeControls" >

@@ -1,5 +1,7 @@
 
-
+*{
+    /* outline: 1px solid red; */
+}
 
 .home-wrapper{
  
@@ -9,17 +11,26 @@
         flex-wrap: wrap;
         margin-top: 79px;
     }
-        .news-item-wrapper div{
+        .news-item-loop-wrapper{
+        /* background-color: blue; */
         /* border-radius: 10px; */
         width: 100%;
         display: flex;
-        /* flex: auto; */
         flex-wrap: wrap;
         
         margin: 0 auto;
         /* max-width: 1600px; */
         }
-
+        .news-item-loop-wrapper > div{
+            /* background-color: blue; */
+            /* border-radius: 10px; */
+            /* width: 100%; */
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1;
+            margin: 0 auto;
+            
+        }
         .tileSizeControls{
             background-color: grey;
             width:100%;

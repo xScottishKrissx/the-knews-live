@@ -5,6 +5,7 @@
   "private": true,
   "cleanUrls": true,
   "dependencies": {
+    "@sandstreamdev/react-swipeable-list": "^1.0.0",
     "firebase": "^7.24.0",
     "html-react-parser": "^0.14.0",
     "jshint": "^2.12.0",
