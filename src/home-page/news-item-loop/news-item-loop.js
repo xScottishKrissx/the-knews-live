@@ -36,12 +36,14 @@ class MapDatabaseItems extends React.Component{
             loadedArticles: "",
              scrollsaveScrollPosition:0,
             switch:0,
+            width:document.body.clientWidth
             
         }
         this.setting1 = this.setting1.bind(this);
         this.setting2 = this.setting2.bind(this);
         this.setting3 = this.setting3.bind(this);     
         this.saveScrollPosition = this.saveScrollPosition.bind(this);
+        this.onresize = this.onresize.bind(this);
     }
     
     componentDidMount(){
@@ -80,8 +82,7 @@ class MapDatabaseItems extends React.Component{
             
         })
         window.addEventListener('scroll', this.scroll);
-
-        
+        window.addEventListener("resize", this.onresize);        
     }
 
     setting1(e){
@@ -223,6 +224,13 @@ class MapDatabaseItems extends React.Component{
         document.getElementById(id).style.display = "none";
     }
 
+    onresize(){
+        const width = document.body.clientWidth;
+        // console.log(width);
+        this.setState({
+            width:width
+        })
+    }
     render(){
         // console.log(localStorage.getItem("myScrollPos"));
         
@@ -242,55 +250,59 @@ class MapDatabaseItems extends React.Component{
             // console.log(value.author + " Key is: " + value.key)
             return (
 
+                // Enabling the Swipe Gesture for Mobile Only
+                // Could probably bring it back if I implement custom card sizes for the user.
                 <div id={value.id} >
-                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                    <SwipeableListItem 
-                        
-                        swipeLeft={{
-                        content: <div>Revealed content during swipe</div>,
-                        action: () => console.log("Swipe Left")
-                        }}
-                        
-                        swipeRight={{
-                        content: <div>Revealed content during swipe</div>,
-                        action: () => this.swipeRightAction(value.id),
-                        }}
-
-                        onSwipeProgress={progress => console.info(`Swipe progress: ${progress}%`)}
-                    >
+                    <span onClick={() => this.swipeRightAction(value.id)}>X</span>
+                    {this.state.width < 1200 ? 
+                        <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+                        <SwipeableListItem 
                             
-                            <div className='news-square'  key={key}  style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
-                                <Caption 
-                                    pageid={value.key} 
-                                    style={style} 
-                                    title={value.title}
-                                    author={value.author}
-                                    likes={value.likes}
-                                    dislikes={value.dislikes}    
-                                 />
-                            </div>
-                     
+                            swipeLeft={{
+                            content: <div>Revealed content during swipe</div>,
+                            action: () => console.log("Swipe Left")
+                            }}
+                            
+                            swipeRight={{
+                            content: <div>Revealed content during swipe</div>,
+                            action: () => this.swipeRightAction(value.id),
+                            }}
+    
+                            onSwipeProgress={progress => console.info(`Swipe progress: ${progress}%`)}
+                        >
+                                
+                                <div className='news-square'  key={key}  style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
+                                    <Caption 
+                                        pageid={value.key} 
+                                        style={style} 
+                                        title={value.title}
+                                        author={value.author}
+                                        likes={value.likes}
+                                        dislikes={value.dislikes}    
+                                        />
+                                </div>
+                            
+                        
+                        </SwipeableListItem>
+                        </SwipeableList>
+
+                        :
                     
-                    </SwipeableListItem>
-                    </SwipeableList>
+                        <div className='news-square'  key={key} id={value.id} style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
+                        <Caption 
+                            pageid={value.key} 
+                            style={style} 
+                            title={value.title}
+                            author={value.author}
+                            likes={value.likes}
+                            dislikes={value.dislikes}    
+                         />
+                         
+                    </div>
+                    }
+
                 </div>
-                
-            
-
-            
-
-
-                            // <div className='news-square'  key={key} id={value.id} style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
-                            //     <Caption 
-                            //         pageid={value.key} 
-                            //         style={style} 
-                            //         title={value.title}
-                            //         author={value.author}
-                            //         likes={value.likes}
-                            //         dislikes={value.dislikes}    
-                            //      />
-                            // </div>
-                
+                        
             );
       })   
 

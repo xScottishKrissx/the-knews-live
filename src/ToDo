@@ -86,18 +86,31 @@ General Notes  Objectives:
          4/11/2020
         // I found a potentially useful library on github that might help me with this.
             https://github.com/sandstreamdev/react-swipeable-list
-        ✔ Added the New Swipe Library(see above)and managed to get it integrated ok, it's totally messed up the styling due to the addition of a new div but that's a minor issue. @started(20-11-04 15:39) @done(20-11-04 17:48) @lasted(2h9m5s)
-            // Well that took a lot longer than expected. Had to shift a bunch of css and class names around, delete a few divs and question the meaning of life. I managed to get there in the end though with the appearance of the news squares area back to normal.
-        ☐ The ability to hide but not delete posts from view.
-            ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
-                // Used the libraru to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
-                // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
-                ☐ Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
-            ☐ Not sure about what happens with swipe to the right right now... maybe "read later" ?? @started(20-11-04 16:02)
-            ☐ Swipe should only work on mobile devices. @started(20-11-04 15:41)
-            ☐ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41)
-            ☐ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45)
+    
+        Implementing Swipe:
+            ✔ Added the New Swipe Library(see above)and managed to get it integrated ok, it's totally messed up the styling due to the addition of a new div but that's a minor issue. @started(20-11-04 15:39) @done(20-11-04 17:48) @lasted(2h9m5s)
+                // Well that took a lot longer than expected. Had to shift a bunch of css and class names around, delete a few divs and question the meaning of life. I managed to get there in the end though with the appearance of the news squares area back to normal.
+            ☐ The ability to hide but not delete posts from view.
+                ☐ Save record of dismissed posts into local storage @started(20-11-05 12:46)
+                    // ... to mimic that feeling of working through an RSS feed. There is a point at which you've read everything there is to read.
+                ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
+                
+                    // Used the libraru to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
+                    // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
+                    ☐ Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
+                ☐ Not sure about what happens with swipe to the right right now... maybe "read later" ?? @started(20-11-04 16:02)
+                ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
+                    5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
 
+                    I guess the only reason is that I spent the time to create the code for detecting smaller windows and now that it's in place I don't want to remove it. :-(
+                ✔ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41) @done(20-11-05 13:56) @lasted(22h15m22s)
+                    // Like an "x" in the corner for example.
+                    ✔ Added UI for the X @done(20-11-05 13:55)
+                    ✔ Hide Post when Clicked @done(20-11-05 13:56)                    
+                ☐ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45)
+
+            ☐ Use Sqwipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
+            ☐ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29)
         
         ✔ If you click on a News Item at Home you should get a unique shareable URL @done(18-07-31 17:19)
             ✔ Right now you get a path simply ends with news-item @done(18-07-25 17:09)
@@ -183,7 +196,11 @@ General Notes  Objectives:
 
         News Items:
             ✘ Create Hover/Click caption @started(18-07-25 15:13) @cancelled(20-10-12 17:40) @wasted(2y11w3d2h27m3s)
-                //Tried a few things here but nothing i like. I want the title to be a permament thing on the page but the title can be different lengths making styling a bit of a pain.
+                //Tried a few things here but nothing i like. I want the title to be a permament thing on the page but the title can be different lengths making styling a bit of a pain when dealing with movable elements.
+            ✔ Create a hover effect that displays a "glow" when you mouse over the news squares. @started(20-11-05 12:53) @done(20-11-05 13:17) @lasted(24m21s)
+            // 5/11/2020 - A hover caption might not work but what about a nice effect for mousing over stuff?? Right? Sounds Amazing.
+
+            // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
 
     
         Article Page:
@@ -432,6 +449,7 @@ Part 2 Implement Database functionality:
             ☐ Dark Mode
             ☐ Clickable Author and Date Posted Links in Article Header
             ☐ Steal someone elses article and see how it looks in my design.
+            ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
 
 
 

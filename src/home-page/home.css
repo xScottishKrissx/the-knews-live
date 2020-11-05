@@ -29,7 +29,18 @@
             flex-wrap: wrap;
             flex: 1;
             margin: 0 auto;
+            position: relative;
             
+        }
+        .news-item-loop-wrapper > div > span{
+            background-color: black;
+            color: white;
+            position: absolute;
+            z-index: 10000;
+            right: 5px;
+            top: 5px;
+            padding: 20px;
+            cursor: pointer;
         }
         .tileSizeControls{
             background-color: grey;
