@@ -93,6 +93,10 @@ General Notes  Objectives:
             ☐ The ability to hide but not delete posts from view.
                 ☐ Save record of dismissed posts into local storage @started(20-11-05 12:46)
                     // ... to mimic that feeling of working through an RSS feed. There is a point at which you've read everything there is to read.
+                    6/11/2020 - My wee monkey brain is having a hard time figuring this one out. My thinking WAS that if I add the id of the item I hide to an array then check that array against the initial load, removing an object that matches, then I could render just the posts I want to view.
+                    // This hasn't worked out at this point,
+
+
                 ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
                 
                     // Used the libraru to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.

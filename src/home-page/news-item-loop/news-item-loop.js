@@ -36,7 +36,8 @@ class MapDatabaseItems extends React.Component{
             loadedArticles: "",
              scrollsaveScrollPosition:0,
             switch:0,
-            width:document.body.clientWidth
+            width:document.body.clientWidth,
+            postsArray:[]
             
         }
         this.setting1 = this.setting1.bind(this);
@@ -78,6 +79,8 @@ class MapDatabaseItems extends React.Component{
                 // articlesArray: newState.reverse(),
                 articlesArray: newState.slice(0,50)
             })
+
+            
             // console.log(this.state.articlesArray);
             
         })
@@ -218,10 +221,15 @@ class MapDatabaseItems extends React.Component{
     
     swipeLeftAction(){
         console.log("Swipe Left Action")
+        console.log(localStorage.getItem("hiddenPostList"));
     }
     swipeRightAction(id){
+        
         console.log("Post Dissapearing is Post:: " + id)
         document.getElementById(id).style.display = "none";
+        this.state.postsArray.push(id)
+        localStorage.setItem("hiddenPostList", this.state.postsArray);
+        
     }
 
     onresize(){
@@ -234,7 +242,13 @@ class MapDatabaseItems extends React.Component{
     render(){
         // console.log(localStorage.getItem("myScrollPos"));
         
-        const firebaseDB = this.state.articlesArray;               
+        const firebaseDB = this.state.articlesArray;     
+        console.log(firebaseDB)          
+
+
+
+
+
         const HomePageView = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -260,7 +274,7 @@ class MapDatabaseItems extends React.Component{
                             
                             swipeLeft={{
                             content: <div>Revealed content during swipe</div>,
-                            action: () => console.log("Swipe Left")
+                            action: () => this.swipeLeftAction()
                             }}
                             
                             swipeRight={{
@@ -268,7 +282,7 @@ class MapDatabaseItems extends React.Component{
                             action: () => this.swipeRightAction(value.id),
                             }}
     
-                            onSwipeProgress={progress => console.info(`Swipe progress: ${progress}%`)}
+                            // onSwipeProgress={progress => console.info(`Swipe progress: ${progress}%`)}
                         >
                                 
                                 <div className='news-square'  key={key}  style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
@@ -306,12 +320,26 @@ class MapDatabaseItems extends React.Component{
             );
       })   
 
+    //   const result = firebaseDB.find( ({ id }) => id === 319 );
+    //    console.log("Result:: " + result)
+    //   if(result === true){
+    //       console.log("True")
+    //   }else{
+    //       console.log("False")
+    //   }
+     
+      console.log(this.state.articlesArray.find(x => x.id === 319))
 
-
+      const checkForID = this.state.articlesArray.find(x => x.id === 319);
+      if(checkForID === false){
+          console.log(checkForID)
+      }else{
+          console.log("true" + checkForID)
+      }
 
         return (
             <div className="news-item-loop-wrapper"> 
-
+            
                 {/* Playing with state and rendering */}
                 {/* <div> */}
                    
