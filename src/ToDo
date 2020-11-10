@@ -96,6 +96,15 @@ General Notes  Objectives:
                     6/11/2020 - My wee monkey brain is having a hard time figuring this one out. My thinking WAS that if I add the id of the item I hide to an array then check that array against the initial load, removing an object that matches, then I could render just the posts I want to view.
                     // This hasn't worked out at this point,
 
+                    10/11/2020 - Breakthrough!!
+                        I've been able to hide a single post by checking an array for id's(stored in local storage) of articles that have been hidden.
+                        It only works with a single article in the hidden posts array... so obviously that's an issue, but at the very least I've made significant progress here.
+                    10/11/2020
+                        Well I've managed to get the swipe to hide multiple posts at a time... the only problem is that when i refresh and swipe away new posts, my previous swipes are overwritten, bringing back the old hidden posts. I'll count that as progress.Please.
+
+                        Ideally, you can add or remove posts from view one at a time.
+                    
+
 
                 ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
                 

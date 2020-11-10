@@ -37,7 +37,8 @@ class MapDatabaseItems extends React.Component{
              scrollsaveScrollPosition:0,
             switch:0,
             width:document.body.clientWidth,
-            postsArray:[]
+            postsArray:[],
+            hiddenPosts:localStorage.getItem("hiddenPostList")
             
         }
         this.setting1 = this.setting1.bind(this);
@@ -48,6 +49,9 @@ class MapDatabaseItems extends React.Component{
     }
     
     componentDidMount(){
+        console.log(localStorage.getItem("hiddenPostList"));
+        console.log(localStorage.getItem("hiddenPosts"));
+        console.log(this.state.postsArray)
         
     //const dbRef = fire.database().ref('articles').orderByChild("id");
     //const checkUser = fire.auth().currentUser;        
@@ -84,6 +88,7 @@ class MapDatabaseItems extends React.Component{
             // console.log(this.state.articlesArray);
             
         })
+        
         window.addEventListener('scroll', this.scroll);
         window.addEventListener("resize", this.onresize);        
     }
@@ -180,6 +185,11 @@ class MapDatabaseItems extends React.Component{
         // window.addEventListener('scroll', this.scroll);
         window.removeEventListener('scroll',this.scroll);
      fire.database().ref("items").off();
+
+     localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
+     console.log(localStorage.getItem("hiddenPostList"));
+     console.log(localStorage.getItem("hiddenPosts"));
+     console.log(this.state.postsArray)
       }
 
     saveScrollPosition(){
@@ -220,16 +230,21 @@ class MapDatabaseItems extends React.Component{
     }
     
     swipeLeftAction(){
-        console.log("Swipe Left Action")
+        console.log("Clear Local Storage")
         console.log(localStorage.getItem("hiddenPostList"));
+        localStorage.clear();
+
     }
     swipeRightAction(id){
         
         console.log("Post Dissapearing is Post:: " + id)
+        console.log(this.state.postsArray)
         document.getElementById(id).style.display = "none";
         this.state.postsArray.push(id)
         localStorage.setItem("hiddenPostList", this.state.postsArray);
-        
+
+        console.log(localStorage.getItem("hiddenPostList"));
+
     }
 
     onresize(){
@@ -239,13 +254,17 @@ class MapDatabaseItems extends React.Component{
             width:width
         })
     }
+
+    
     render(){
         // console.log(localStorage.getItem("myScrollPos"));
         
         const firebaseDB = this.state.articlesArray;     
-        console.log(firebaseDB)          
+        console.log(this.state.postsArray)
+        // console.log(firebaseDB)          
+        console.log("Posts Hidden: " + localStorage.getItem("hiddenPostList"));
 
-
+       
 
 
 
@@ -261,13 +280,57 @@ class MapDatabaseItems extends React.Component{
                 height: "400px",
                 // width:"100%"
             }    
+
+            // const checkForID = this.state.articlesArray.find(value => value.id === localStorage.getItem("hiddenPostList"));
+            
+            // if(checkForID === false){
+            //     console.log(checkForID)
+            // }else{
+            //     // console.log("true" + checkForID)               
+            // }
+            
+            const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
+            console.log(localStorageHiddenPosts)
+            // console.log(!!document.getElementsByClassName("news-square"))
+            
+            // for(var i = 0; i < localStorageHiddenPosts.length; i++){
+                
+            // }
+            // var b = localStorageHiddenPosts.split(',').map(Number);
+            // console.log(localStorageHiddenPosts.split(',').map(Number))
+                const checkExist = setInterval(function() {
+                    if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
+                    console.log("Exists!");
+                    clearInterval(checkExist);
+                    const thing2 = localStorageHiddenPosts.split(',').map(Number)
+                        // console.log(thing2.length)
+
+                        for(var i = 0; i < thing2.length; i++){
+                            if(!!thing2 && thing2[i].toString() === value.id.toString()){
+                                // console.log("Hidden Post Identified")
+                                document.getElementById(value.id).style.display = "none";
+                                console.log("Success: " + value.id + " hidden");
+                                console.log(thing2[i]);
+                            }
+                        }        
+                            // if(!!localStorageHiddenPosts && thing2[2].toString() === value.id.toString()){
+                            //     // console.log("Hidden Post Identified")
+                            //     document.getElementById(value.id).style.display = "none";
+                            // }else{
+                            //     // console.log("Nothing Found")
+                            // }
+                    }
+                }, 100); // check every 100ms
+            
+
+
             // console.log(value.author + " Key is: " + value.key)
             return (
 
                 // Enabling the Swipe Gesture for Mobile Only
                 // Could probably bring it back if I implement custom card sizes for the user.
-                <div id={value.id} >
-                    <span onClick={() => this.swipeRightAction(value.id)}>X</span>
+                <div id={value.id} className="myClass">
+                    <span id="thing" onClick={() => this.swipeRightAction(value.id)}>X</span>
                     {this.state.width < 1200 ? 
                         <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
@@ -318,7 +381,9 @@ class MapDatabaseItems extends React.Component{
                 </div>
                         
             );
-      })   
+            
+      })
+
 
     //   const result = firebaseDB.find( ({ id }) => id === 319 );
     //    console.log("Result:: " + result)
@@ -328,18 +393,21 @@ class MapDatabaseItems extends React.Component{
     //       console.log("False")
     //   }
      
-      console.log(this.state.articlesArray.find(x => x.id === 319))
+    //   console.log(this.state.articlesArray.find(x => x.id === 319))
 
-      const checkForID = this.state.articlesArray.find(x => x.id === 319);
-      if(checkForID === false){
-          console.log(checkForID)
-      }else{
-          console.log("true" + checkForID)
-      }
+    //   const checkForID = this.state.articlesArray.find(x => x.id === 319);
+    //   if(checkForID === false){
+    //       console.log(checkForID)
+    //   }else{
+    //       console.log("true" + checkForID)
+          
+    //   }
+    
 
         return (
-            <div className="news-item-loop-wrapper"> 
             
+            <div className="news-item-loop-wrapper"> 
+
                 {/* Playing with state and rendering */}
                 {/* <div> */}
                    
@@ -371,14 +439,16 @@ class MapDatabaseItems extends React.Component{
 
                  
                  {HomePageView}      
-                
-               
-                
+             
+              
                 <ScrollToTopButton  />
-               
+                
             </div>
-        );   
+
+        );  
+        
     }
+                   
 }
 
 export default NewsItemLoop;
