@@ -1,11 +1,13 @@
+/* Dark Mode */
+/* *{
+    background-color: #252427 !important;
+    border-color:#2f2f2f !important;
+    color: #bbbbbb !important;    
+} */
 
-*{
-    /* outline: 1px solid red; */
-}
-
-.home-wrapper{
+/* .home-wrapper{
  
-}
+} */
     .news-item-wrapper{
         display: flex;
         flex-wrap: wrap;

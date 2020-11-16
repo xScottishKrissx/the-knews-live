@@ -127,8 +127,10 @@ General Notes  Objectives:
                 ✔ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41) @done(20-11-05 13:56) @lasted(22h15m22s)
                     // Like an "x" in the corner for example.
                     ✔ Added UI for the X @done(20-11-05 13:55)
-                    ✔ Hide Post when Clicked @done(20-11-05 13:56)                    
+                    ✔ Hide Post when Clicked @done(20-11-05 13:56)    
+                    ☐ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00)
                 ☐ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45)
+                    ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
 
             ☐ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
             ☐ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29)
