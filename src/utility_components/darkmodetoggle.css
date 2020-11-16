@@ -1,0 +1,17 @@
+.dark-mode-toggle-wrapper{
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    user-select: none;
+    width: 8vw;
+    z-index: 10000;
+}
+    .dark-mode-toggle-wrapper p{
+        margin-top: 7px;
+        margin-right: 7px;
+    }
+
+    .light-on{
+        color:orange;
+    }

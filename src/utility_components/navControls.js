@@ -9,6 +9,7 @@ export class NavControls extends React.Component{
             currentArticle:this.props.currentarticleid
             
         }
+        
     }
 
     

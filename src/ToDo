@@ -471,7 +471,7 @@ Part 2 Implement Database functionality:
                 ✔ Improved styling of article heading area @done(20-10-27 17:37)
             ✔ Implement Swipe @done(20-11-16 12:54)
                 ✔ You can hide posts from view @done(20-11-16 12:54)
-            ☐ Dark Mode
+            ☐ Dark Mode - In Progress
             ☐ Clickable Author and Date Posted Links in Article Header
             ☐ Steal someone elses article and see how it looks in my design.
             ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
@@ -523,3 +523,9 @@ Part 2 Implement Database functionality:
 
 Swipe Thingy
 https://github.com/sandstreamdev/react-swipeable-list
+
+Material Icons
+https://material.io/resources/icons/?style=baseline
+
+Images
+...
