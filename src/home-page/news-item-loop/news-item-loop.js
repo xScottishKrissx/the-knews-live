@@ -25,16 +25,13 @@ class MapDatabaseItems extends React.Component{
             key: "",
             articlesArray : [],
             articlesArray2 : [],
-            // articlesArray3:[],
             arrayStartState: 21,
             arrayEndState: 26,
             currentStyle:"",
             testStyle:{
                 width: localStorage.getItem("myData")
             },
-            addNewArticle:"",
-            loadedArticles: "",
-             scrollsaveScrollPosition:0,
+            scrollsaveScrollPosition:0,
             switch:0,
             width:document.body.clientWidth,
             postsArray:[],
@@ -49,9 +46,20 @@ class MapDatabaseItems extends React.Component{
     }
     
     componentDidMount(){
-        console.log(localStorage.getItem("hiddenPostList"));
-        console.log(localStorage.getItem("hiddenPosts"));
-        console.log(this.state.postsArray)
+        if(localStorage.getItem("hiddenPostList") === null){
+            this.setState({
+                postsArray:[]
+            }) 
+
+        }else{
+            this.setState({
+                postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
+            })
+        }
+        // console.log(localStorage.getItem("hiddenPostList").split(',').map(Number))
+        // console.log(localStorage.getItem("hiddenPostList"));
+        // console.log(localStorage.getItem("hiddenPosts"));
+        console.log("Posts Hidden: " + this.state.postsArray)
         
     //const dbRef = fire.database().ref('articles').orderByChild("id");
     //const checkUser = fire.auth().currentUser;        
@@ -174,9 +182,9 @@ class MapDatabaseItems extends React.Component{
                })            
            })
 
-            console.log("Bottom Reached")
+            // console.log("Bottom Reached")
         }else{
-            console.log("Not At Bottom Yet")
+            // console.log("Not At Bottom Yet")
         }
     }
 
@@ -260,9 +268,9 @@ class MapDatabaseItems extends React.Component{
         // console.log(localStorage.getItem("myScrollPos"));
         
         const firebaseDB = this.state.articlesArray;     
-        console.log(this.state.postsArray)
+        // console.log(this.state.postsArray)
         // console.log(firebaseDB)          
-        console.log("Posts Hidden: " + localStorage.getItem("hiddenPostList"));
+        // console.log("Posts Hidden: " + localStorage.getItem("hiddenPostList"));
 
        
 
@@ -290,35 +298,23 @@ class MapDatabaseItems extends React.Component{
             // }
             
             const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-            console.log(localStorageHiddenPosts)
-            // console.log(!!document.getElementsByClassName("news-square"))
-            
-            // for(var i = 0; i < localStorageHiddenPosts.length; i++){
-                
-            // }
-            // var b = localStorageHiddenPosts.split(',').map(Number);
+            // console.log(localStorageHiddenPosts)            
             // console.log(localStorageHiddenPosts.split(',').map(Number))
                 const checkExist = setInterval(function() {
                     if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
                     console.log("Exists!");
                     clearInterval(checkExist);
-                    const thing2 = localStorageHiddenPosts.split(',').map(Number)
-                        // console.log(thing2.length)
+                    const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
 
-                        for(var i = 0; i < thing2.length; i++){
-                            if(!!thing2 && thing2[i].toString() === value.id.toString()){
+                        for(var i = 0; i < formattedPostsArray.length; i++){
+                            if(!!formattedPostsArray && formattedPostsArray[i].toString() === value.id.toString()){
                                 // console.log("Hidden Post Identified")
                                 document.getElementById(value.id).style.display = "none";
                                 console.log("Success: " + value.id + " hidden");
-                                console.log(thing2[i]);
+                                console.log(formattedPostsArray[i]);
                             }
                         }        
-                            // if(!!localStorageHiddenPosts && thing2[2].toString() === value.id.toString()){
-                            //     // console.log("Hidden Post Identified")
-                            //     document.getElementById(value.id).style.display = "none";
-                            // }else{
-                            //     // console.log("Nothing Found")
-                            // }
+
                     }
                 }, 100); // check every 100ms
             
@@ -382,27 +378,7 @@ class MapDatabaseItems extends React.Component{
                         
             );
             
-      })
-
-
-    //   const result = firebaseDB.find( ({ id }) => id === 319 );
-    //    console.log("Result:: " + result)
-    //   if(result === true){
-    //       console.log("True")
-    //   }else{
-    //       console.log("False")
-    //   }
-     
-    //   console.log(this.state.articlesArray.find(x => x.id === 319))
-
-    //   const checkForID = this.state.articlesArray.find(x => x.id === 319);
-    //   if(checkForID === false){
-    //       console.log(checkForID)
-    //   }else{
-    //       console.log("true" + checkForID)
-          
-    //   }
-    
+      })  
 
         return (
             

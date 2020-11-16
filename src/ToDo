@@ -7,7 +7,7 @@ Part 1 - Implement the front end UI:
      ✘ With that core in place then add the CMS elements. @cancelled(20-10-12 15:36)
 
 
- Part 2 - Back to Work:
+Part 2 - Back to Work:
         ✔ Figure out how to use the do-list again @done(20-10-12 17:40)
         ✔ Get the blog back up and running @done(20-10-12 17:40)
         ✔ Get Portfolio back up and running @done(20-10-12 17:40)
@@ -15,7 +15,7 @@ Part 1 - Implement the front end UI:
         ✔ Probably take a couple of refreshers for JavaScript, it's been a while @done(20-10-12 17:40)
         ✔ Profit?? @done(20-10-12 17:40)
 
- Known Bugs:
+Known Bugs:
         ✔ If you middle click or try to open a news item in a new tab, you can an error @started(18-07-25 11:58) @done(18-08-01 11:03) @lasted(6d23h5m12s)
         ✔ Typing in localhost:3000newsitem will return a blank screen @done(18-08-10 17:39)
         ✔ The random image function returns the same image. Not a big deal but should be fixed before the end. @done(18-07-31 17:41)
@@ -34,6 +34,10 @@ Part 1 - Implement the front end UI:
             This is less of a bug and more of a incomplete feature that is working as expected given the current code.
         ☐ Due to the placeholder text, some elements don't fit into the design. Ideally I could set rules like max characters but I am really relying on the lorem ipsum being of a reasonable length.(which it sometimes isn't) @started(20-10-27 17:43)
             ☐ I could repopulate the database, ensuring my own rules, which might help solve the problem. @started(20-10-27 17:44)
+
+Codebase:
+    ☐ news-item-loop.js is way too big and needs to be split up into components. @started(20-11-16 13:09)
+
 General Notes  Objectives:
         Add some accessibility options:
             Button that changes font size in articles.
@@ -90,8 +94,8 @@ General Notes  Objectives:
         Implementing Swipe:
             ✔ Added the New Swipe Library(see above)and managed to get it integrated ok, it's totally messed up the styling due to the addition of a new div but that's a minor issue. @started(20-11-04 15:39) @done(20-11-04 17:48) @lasted(2h9m5s)
                 // Well that took a lot longer than expected. Had to shift a bunch of css and class names around, delete a few divs and question the meaning of life. I managed to get there in the end though with the appearance of the news squares area back to normal.
-            ☐ The ability to hide but not delete posts from view.
-                ☐ Save record of dismissed posts into local storage @started(20-11-05 12:46)
+            ✔ The ability to hide but not delete posts from view. @done(20-11-16 12:59)
+                ✔ Save record of dismissed posts into local storage @started(20-11-05 12:46) @done(20-11-16 12:59) @lasted(1w4d13m56s)
                     // ... to mimic that feeling of working through an RSS feed. There is a point at which you've read everything there is to read.
                     6/11/2020 - My wee monkey brain is having a hard time figuring this one out. My thinking WAS that if I add the id of the item I hide to an array then check that array against the initial load, removing an object that matches, then I could render just the posts I want to view.
                     // This hasn't worked out at this point,
@@ -101,17 +105,21 @@ General Notes  Objectives:
                         It only works with a single article in the hidden posts array... so obviously that's an issue, but at the very least I've made significant progress here.
                     10/11/2020
                         Well I've managed to get the swipe to hide multiple posts at a time... the only problem is that when i refresh and swipe away new posts, my previous swipes are overwritten, bringing back the old hidden posts. I'll count that as progress.Please.
-
+                    16/11/2020
+                        Got it working as expected. You can hide multiple articles and they will remain hidden as you work your way through the website. I did this by simply adding a check on component mount that checks the local storage for a list of hidden posts. If it's there it checks the artice id and hides the relevant articles, if not it initialises the with an empty array.
                         Ideally, you can add or remove posts from view one at a time.
                     
 
+                Swipe Left:
+                    ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
+                    
+                        // Used the libraru to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
+                        // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
+                        ☐ Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
 
-                ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
-                
-                    // Used the libraru to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
-                    // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
-                    ☐ Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
-                ☐ Not sure about what happens with swipe to the right right now... maybe "read later" ?? @started(20-11-04 16:02)
+                Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
+                    ☐ Use swipe right to see only the article text in a popup @started(20-11-16 12:58)
+
                 ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
                     5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
 
@@ -122,7 +130,7 @@ General Notes  Objectives:
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)                    
                 ☐ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45)
 
-            ☐ Use Sqwipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
+            ☐ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
             ☐ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29)
         
         ✔ If you click on a News Item at Home you should get a unique shareable URL @done(18-07-31 17:19)
@@ -167,6 +175,7 @@ General Notes  Objectives:
             ✔ I want to make sure the space left here is used by something, maybe adding some kind of floating tag menu @started(20-09-18 17:14) @done(20-10-26 17:26) @lasted(5w3d1h12m31s)
             this menu would need to be placed somewhere else when used with smaller window.
             ✔ removed max width, the user can have as many or little items in a row by changing the size of the window. @done(20-10-26 17:26)
+    
 
 
 
@@ -442,10 +451,12 @@ Part 2 Implement Database functionality:
             ☐ myKnews - The Return.
 
         Version 11 (Future Version) - Planned Notes:
-            ☐ Implement Mobile Menu
+            ☐ Implement Mobile Menu using swipe
             
+        Version 10.1 - Codebase Cleanup - Release Notes:
+            ☐ A review of the codebase and separation of larger code chunks into smaller more easily manageable components.
 
-        Version 10(Next Release) - Release Notes:
+        Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
             ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page @cancelled(20-10-26 16:30)
             ✔ Add keyboard control @done(20-10-27 17:28)
@@ -456,13 +467,13 @@ Part 2 Implement Database functionality:
                 ✔ Removed border of article @done(20-10-26 17:44)
                 ✔ Improved styling of like and dislike buttons @done(20-10-26 17:44)
                 ✔ Improved styling of article heading area @done(20-10-27 17:37)
-            ☐ Implement Swipe
-                ☐ ... to hide but not delete posts
-                ☐ ... to activate a mobile specific menu interface.
+            ✔ Implement Swipe @done(20-11-16 12:54)
+                ✔ You can hide posts from view @done(20-11-16 12:54)
             ☐ Dark Mode
             ☐ Clickable Author and Date Posted Links in Article Header
             ☐ Steal someone elses article and see how it looks in my design.
             ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
+            ☐ Add functionality to right swipe.
 
 
 
