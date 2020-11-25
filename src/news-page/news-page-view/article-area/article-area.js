@@ -45,10 +45,12 @@ const ArticleArea = (props) => {
                         {props.postdate}
                     </h2>
 
+                    <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/author' , state: {author: props.author, searchDBFor: "author"}}}>
                     <h3 className="__article-author">
                         <span>Author </span>
                         {props.author}
                     </h3>
+                    </Link>
 
                     <h3>
                         <span>Email </span>
@@ -56,7 +58,7 @@ const ArticleArea = (props) => {
                     </h3>
 
 
-                    <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag}}}>
+                    <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag, searchDBFor: "tag"}}}>
                             <h3 className="__article-tag">
                                 <span>Tagged </span>
                                 {props.tag}

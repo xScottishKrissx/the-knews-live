@@ -248,9 +248,11 @@ General Notes  Objectives:
             ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
                  ✔ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions @started(20-10-26 18:39) @done(20-10-27 17:36) @lasted(22h57m3s)
                 
-            ☐ Dark Mode? @started(20-10-27 17:53)
+            ✘ Dark Mode? @started(20-10-27 17:53) @cancelled(20-11-25 17:29) @wasted(4w23h36m3s)
                 //What even constitutes a dark mode?
-                ☐ More research needed here @started(20-10-27 17:53)
+                ✘ More research needed here @started(20-10-27 17:53) @cancelled(20-11-25 17:28) @wasted(4w23h35m34s)
+                // Too much work and i'm not sure how to fit into this project.
+                // Circle back in later projects.
 
             Header Image and Article Info Area:
                 ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
@@ -259,7 +261,11 @@ General Notes  Objectives:
                     ☐ The design should be more flexible and better able to handle large emails and names. @started(20-10-27 18:18)
                 ☐ Clickable Elements in article sub-header @started(20-10-26 18:39)
                     ☐ When clicking Posted, go to a new page with all of the articles posted on that day
-                    ☐ When clicking on author, go to a new page with all of the articles posted by that author
+                    ✔ When clicking on author, go to a new page with all of the articles posted by that author @done(20-11-25 17:56)
+                    // 25/11/2020
+                        //  Looks like I can just use the existing tag page and change the call from the database.
+                        //  I can actually get an author page working but I can't get both working at the same time at the moment.
+                        //  Did It. I just added another property to the the state-props describing what I was looking for eg, tags, author, date posted etc.
 
             Actual Articles:
                 ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. @started(20-10-27 17:40)

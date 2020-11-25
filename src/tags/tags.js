@@ -16,14 +16,24 @@ class Tags extends React.Component{
             articlesArray: [],
             arrayStartState: 5,
             arrayEndState: 10,
-            test: this.props.location.state.tag
+            test: this.props.location.state.tag || this.props.location.state.author,
+            tagState: this.props.location.state.tag,
+            searchDBFor: this.props.location.state.searchDBFor,
+            databaseTest:"author",
         }
     }
 
 
     componentDidMount(){
         console.log("Articles" + this.state.articlesArray)
-        const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
+        console.log(this.state.test)
+        console.log(this.state.tagState)
+        console.log(this.state.authorState)
+        console.log(this.state.databaseTest)
+
+    
+        const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
+
 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -78,7 +88,7 @@ class Tags extends React.Component{
 
         if(windowBottom >= docHeight){
             //console.log(this.state.newCount)
-            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
+            const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
             
            
            dbRef.on('value', (snapshot) => {
@@ -167,7 +177,10 @@ class Tags extends React.Component{
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
                         <NavControls props="only-home-button"/>
-                        <h1>{this.props.location.state.tag}</h1>
+                        <h1>
+                        {this.props.location.state.tag} 
+                        Article by {this.props.location.state.author}
+                        </h1>
                         {pageView}
                         
                 </div>

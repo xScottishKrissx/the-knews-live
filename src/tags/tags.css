@@ -10,5 +10,6 @@
         flex-wrap: wrap;
     }
         .tags-item-wrapper h1{
+            margin-top: 3rem;
             width: 100%;
         }

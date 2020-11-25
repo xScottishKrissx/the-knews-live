@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import main from './index.css';
-// import darkMode from './darkMode.css';
+import './index.css';
 import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
 
