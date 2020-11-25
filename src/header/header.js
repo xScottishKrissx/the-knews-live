@@ -11,7 +11,7 @@ export const Header = () => {
     return (
         <div id="header" className='header-container'>
             <div className="header-wrapper">
-            <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
+            <span className="brand"><Link id="header-text" to="/theKnews/home">the Knews</Link></span>
             <DarkModeToggle />
             <TagBar />
                 {/* <div className="nav-controls">

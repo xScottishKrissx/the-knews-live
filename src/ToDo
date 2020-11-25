@@ -471,11 +471,14 @@ Part 2 Implement Database functionality:
                 ✔ Improved styling of article heading area @done(20-10-27 17:37)
             ✔ Implement Swipe @done(20-11-16 12:54)
                 ✔ You can hide posts from view @done(20-11-16 12:54)
-            ☐ Dark Mode - In Progress
+            ✘ Dark Mode - In Progress @cancelled(20-11-25 16:41)
+                // My project isn't really set up to allow for the sort of thing that would make a dark mode button workable.
+                // Will circle back to this in later projects.
             ☐ Clickable Author and Date Posted Links in Article Header
             ☐ Steal someone elses article and see how it looks in my design.
             ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
             ☐ Add functionality to right swipe.
+            ✔ Take a few weeks to do some freelance work @done(20-11-25 16:19)
 
 
 
