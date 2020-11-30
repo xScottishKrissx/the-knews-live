@@ -41,16 +41,20 @@ const ArticleArea = (props) => {
                 <div className='__article-sub-header __1600_style'>
                    
                     <h2 className="__article-subtitle">
-                        <span>Posted </span>
-                        {props.postdate}
+                        <span>Posted</span>
+                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/postdate' , state: {author: props.postdate, searchDBFor: "postdate"}}}>
+                            {props.postdate}
+                        </Link>
                     </h2>
 
-                    <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/author' , state: {author: props.author, searchDBFor: "author"}}}>
+                    
                     <h3 className="__article-author">
-                        <span>Author </span>
-                        {props.author}
+                        <span>Author</span>
+                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/author' , state: {author: props.author, searchDBFor: "author"}}}>
+                                {props.author}
+                        </Link>
                     </h3>
-                    </Link>
+                    
 
                     <h3>
                         <span>Email </span>
@@ -58,12 +62,14 @@ const ArticleArea = (props) => {
                     </h3>
 
 
-                    <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag, searchDBFor: "tag"}}}>
-                            <h3 className="__article-tag">
-                                <span>Tagged </span>
-                                {props.tag}
-                            </h3>
-                    </Link>
+
+                    <h3 className="__article-tag">
+                        <span>Topic</span>
+                        <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {tag: props.tag, searchDBFor: "tag"}}}>
+                            {props.tag}
+                        </Link>
+                    </h3>
+                    
 
                     
                 </div>

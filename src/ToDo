@@ -107,13 +107,13 @@ General Notes  Objectives:
                         Well I've managed to get the swipe to hide multiple posts at a time... the only problem is that when i refresh and swipe away new posts, my previous swipes are overwritten, bringing back the old hidden posts. I'll count that as progress.Please.
                     16/11/2020
                         Got it working as expected. You can hide multiple articles and they will remain hidden as you work your way through the website. I did this by simply adding a check on component mount that checks the local storage for a list of hidden posts. If it's there it checks the artice id and hides the relevant articles, if not it initialises the with an empty array.
-                        Ideally, you can add or remove posts from view one at a time.
+                        
                     
 
                 Swipe Left:
                     ✔ On mobile if you swipe to left -> Post Dissapears @started(20-11-04 15:44) @done(20-11-04 16:00) @lasted(16m26s)
                     
-                        // Used the libraru to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
+                        // Used the library to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
                         // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
                         ☐ Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
 
@@ -127,7 +127,9 @@ General Notes  Objectives:
                 ✔ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41) @done(20-11-05 13:56) @lasted(22h15m22s)
                     // Like an "x" in the corner for example.
                     ✔ Added UI for the X @done(20-11-05 13:55)
+                        ☐ What about hiding articles from WITHIN the article themselves? @started(20-11-30 12:20)
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)    
+                        ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears.
                     ☐ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00)
                 ☐ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45)
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
@@ -259,8 +261,8 @@ General Notes  Objectives:
                 ✔ Need to continue with 768px + res @done(20-10-27 17:36)
                 ☐ Large email addresses really mess with the look here @started(20-10-27 18:18)
                     ☐ The design should be more flexible and better able to handle large emails and names. @started(20-10-27 18:18)
-                ☐ Clickable Elements in article sub-header @started(20-10-26 18:39)
-                    ☐ When clicking Posted, go to a new page with all of the articles posted on that day
+                ✔ Clickable Elements in article sub-header @started(20-10-26 18:39) @done(20-11-30 12:39) @lasted(4w6d18h55s)
+                    ✔ When clicking Posted, go to a new page with all of the articles posted on that day @done(20-11-30 12:39)
                     ✔ When clicking on author, go to a new page with all of the articles posted by that author @done(20-11-25 17:56)
                     // 25/11/2020
                         //  Looks like I can just use the existing tag page and change the call from the database.
@@ -351,6 +353,8 @@ General Notes  Objectives:
 
 
                 /// can leave email and tags already has its own page
+            
+            ☐ The ability to mark an article as hidden from the article page instead of just the cross on the homepage @started(20-11-30 12:21)
                  
 
     theKnews:
@@ -456,7 +460,7 @@ Part 2 Implement Database functionality:
  -----
 
         Version 12 - Planned:
-            ☐ myKnews - The Return.
+            ☐ myKnews - The Return. 
 
         Version 11 (Future Version) - Planned Notes:
             ☐ Implement Mobile Menu using swipe
@@ -480,11 +484,13 @@ Part 2 Implement Database functionality:
             ✘ Dark Mode - In Progress @cancelled(20-11-25 16:41)
                 // My project isn't really set up to allow for the sort of thing that would make a dark mode button workable.
                 // Will circle back to this in later projects.
-            ☐ Clickable Author and Date Posted Links in Article Header
+            ✔ Clickable Author and Date Posted Links in Article Header @done(20-11-30 12:38)
             ☐ Steal someone elses article and see how it looks in my design.
             ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
             ☐ Add functionality to right swipe.
             ✔ Take a few weeks to do some freelance work @done(20-11-25 16:19)
+
+            ☐ TO ME: Clean up the article header before this release
 
 
 

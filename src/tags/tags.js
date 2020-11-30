@@ -16,7 +16,7 @@ class Tags extends React.Component{
             articlesArray: [],
             arrayStartState: 5,
             arrayEndState: 10,
-            test: this.props.location.state.tag || this.props.location.state.author,
+            test: this.props.location.state.tag || this.props.location.state.author || this.props.location.state.postdate,
             tagState: this.props.location.state.tag,
             searchDBFor: this.props.location.state.searchDBFor,
             databaseTest:"author",
