@@ -81,6 +81,7 @@ class MapDatabaseItems extends React.Component{
                     key: newsItem,
                     author: newsItems[newsItem].author,
                     title: newsItems[newsItem].title,
+                    text: newsItems[newsItem].text,
                     likes: newsItems[newsItem].likes,
                     dislikes: newsItems[newsItem].dislikes,
                     id:newsItems[newsItem].id
@@ -160,6 +161,7 @@ class MapDatabaseItems extends React.Component{
                        key: newsItem,
                        author: newsItems[newsItem].author,
                        title: newsItems[newsItem].title,
+                       text: newsItems[newsItem].text,
                        id:newsItems[newsItem].id
                    });
                }
@@ -237,12 +239,34 @@ class MapDatabaseItems extends React.Component{
 
     }
     
-    swipeLeftAction(){
+    swipeLeftAction(text, id){
+
+        const popupStyle = {
+            position: "fixed",
+            opacity: "2",
+            top: "0",
+            left: "0",
+            backgroundColor: "white",
+            height: "auto" ,
+            zIndex: "1000000000000000000",
+        }
+        console.log("text:: " + text)
+        
+        document.getElementById("popup" + id).style.display = "block";
+        // document.body.classList.add("no-scroll")
+        document.body.style.overflow = "hidden"
+
+
         console.log("Clear Local Storage")
         console.log(localStorage.getItem("hiddenPostList"));
         localStorage.clear();
 
     }
+        closePopup(id){
+            document.getElementById("popup" + id).style.display = "none";
+            document.body.style.overflow = "auto"
+        }
+
     swipeRightAction(id){
         
         console.log("Post Dissapearing is Post:: " + id)
@@ -325,15 +349,33 @@ class MapDatabaseItems extends React.Component{
 
                 // Enabling the Swipe Gesture for Mobile Only
                 // Could probably bring it back if I implement custom card sizes for the user.
+                
                 <div id={value.id} className="myClass">
+                    
                     <span id="thing" onClick={() => this.swipeRightAction(value.id)}>X</span>
+                    
                     {this.state.width < 1200 ? 
                         <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
                             
                             swipeLeft={{
-                            content: <div>Revealed content during swipe</div>,
-                            action: () => this.swipeLeftAction()
+                                
+                            content: 
+ 
+                                <div className="article-popup" id={"popup" + value.id}>
+
+                                    <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" />
+                                    <p>{value.title}</p>
+                                    <p>{value.author}</p>
+                                    <p>{value.text}</p>
+
+                                    <button onClick={()=> this.closePopup(value.id)}>    
+                                        <span>Close Popup</span>
+                                    </button>
+                                </div>
+,
+
+                            action: () => this.swipeLeftAction(value.text, value.id)
                             }}
                             
                             swipeRight={{

@@ -30,12 +30,14 @@ const ArticleArea = (props) => {
     return (
             
             <div className='article'>
+            {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
             {/* Article Header */}
 
                 
             <span className="__header-container">
                 <div className='__article-header __1600_style'>
                     <header><h1>{props.title}</h1></header>
+                    
                 </div>
 
                 <div className='__article-sub-header __1600_style'>
@@ -127,13 +129,11 @@ const ArticleArea = (props) => {
                         <div className="article-text">
                             <ParseHTML props={props.text}/>
                         </div>                     
+                       
 
                         <PageScore likes={props.likes} dislikes={props.dislikes} id={props.id}/>
-                        
-                    
-
-
-                    </article>
+                        </article>                  
+ 
 
                     <ExtraImageLoop />      
                        

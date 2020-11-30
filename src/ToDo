@@ -119,6 +119,16 @@ General Notes  Objectives:
 
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
                     ☐ Use swipe right to see only the article text in a popup @started(20-11-16 12:58)
+                        ✔ Display Text In Popup @done(20-11-30 18:02)
+                            ☐ It's currently displying the raw html tags as well. Which is not what I want.@started(20-11-30 18:21)
+                        ✔ Add Close Pop Up button @done(20-11-30 18:02)
+                            ☐ What about swiping again to close the popup? @started(20-11-30 18:04)
+                            //Just tried it, confused myself, stopped doing it and then went and cried in the corner. It was like looking into the eyes of cthulu himself.
+                        ☐ Add Link to Full Article
+                        ☐ What about images in popup?
+                            //misses the point of the popup i think.
+                        ☐ When scrolling in the popup, the main page scrolls in the background.
+                            ☐ I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
 
                 ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
                     5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
@@ -268,6 +278,8 @@ General Notes  Objectives:
                         //  Looks like I can just use the existing tag page and change the call from the database.
                         //  I can actually get an author page working but I can't get both working at the same time at the moment.
                         //  Did It. I just added another property to the the state-props describing what I was looking for eg, tags, author, date posted etc.
+                ☐ Replacing random images with my own S3 hosted images. @started(20-11-30 17:22)
+                    ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. @started(20-11-30 17:22)
 
             Actual Articles:
                 ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. @started(20-10-27 17:40)
@@ -485,7 +497,7 @@ Part 2 Implement Database functionality:
                 // My project isn't really set up to allow for the sort of thing that would make a dark mode button workable.
                 // Will circle back to this in later projects.
             ✔ Clickable Author and Date Posted Links in Article Header @done(20-11-30 12:38)
-            ☐ Steal someone elses article and see how it looks in my design.
+            ✔ Steal someone elses article and see how it looks in my design. @done(20-11-30 17:22)
             ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
             ☐ Add functionality to right swipe.
             ✔ Take a few weeks to do some freelance work @done(20-11-25 16:19)
