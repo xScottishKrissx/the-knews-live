@@ -38,11 +38,12 @@
             background-color: black;
             color: white;
             position: absolute;
-            z-index: 0;
+            z-index: 1;
             right: 5px;
             top: 5px;
             padding: 20px;
             cursor: pointer;
+
         }
         .tileSizeControls{
             background-color: grey;

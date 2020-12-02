@@ -70,7 +70,7 @@ export class NewsPage extends React.Component{
 
     render(){    
         // console.log(dbRef)
-        const ref = this.state.articlesArray;
+        // const ref = this.state.articlesArray;
         // console.log(ref)
         // const checkIdMap = ref.map((value) => {
         //     console.log("Something" + value.key)

@@ -59,7 +59,7 @@ class MapDatabaseItems extends React.Component{
         // console.log(localStorage.getItem("hiddenPostList").split(',').map(Number))
         // console.log(localStorage.getItem("hiddenPostList"));
         // console.log(localStorage.getItem("hiddenPosts"));
-        console.log("Posts Hidden: " + this.state.postsArray)
+        // console.log("Posts Hidden: " + this.state.postsArray)
         
     //const dbRef = fire.database().ref('articles').orderByChild("id");
     //const checkUser = fire.auth().currentUser;        
@@ -203,7 +203,7 @@ class MapDatabaseItems extends React.Component{
       }
 
     saveScrollPosition(){
-        console.log("Scroll is:: " + window.scrollY)
+        // console.log("Scroll is:: " + window.scrollY)
 
         const saveScrollPosition = window.scrollY;
         const saveArticlesLoaded = this.state.arrayStartState;
@@ -211,8 +211,8 @@ class MapDatabaseItems extends React.Component{
         localStorage.setItem("myScrollPos", saveScrollPosition);
         localStorage.setItem("articlesLoaded", saveArticlesLoaded)
 
-        console.log("Saved Scroll Position is:: " + localStorage.getItem("myScrollPos"));
-        console.log(localStorage.getItem("articlesLoaded") + " articles currently loaded");
+        // console.log("Saved Scroll Position is:: " + localStorage.getItem("myScrollPos"));
+        // console.log(localStorage.getItem("articlesLoaded") + " articles currently loaded");
     }
 
     scrollTo(){
@@ -225,51 +225,25 @@ class MapDatabaseItems extends React.Component{
         }
     }
 
-    flipSwitch(){
-        if(this.state.switch === 0){
-            this.setState({
-                switch:1
-            })
-        }else{
-            this.setState({
-                switch:0
-            })
-        }
-        console.log("Switch Flipped:: " + this.state.switch)
+   
+    swipeLeftAction(text,id){
 
-    }
-    
-    swipeLeftAction(text, id){
-
-        const popupStyle = {
-            position: "fixed",
-            opacity: "2",
-            top: "0",
-            left: "0",
-            backgroundColor: "white",
-            height: "auto" ,
-            zIndex: "1000000000000000000",
-        }
-        console.log("text:: " + text)
-        
         document.getElementById("popup" + id).style.display = "block";
+        // document.getElementsByClassName("hideArticleBtn").style.display = "none";
         document.getElementById("articlePopupBackground"  + id).style.display = "block";
         // document.body.classList.add("no-scroll")
-        document.body.style.overflow = "hidden"
-
-
-        console.log("Clear Local Storage")
-        console.log(localStorage.getItem("hiddenPostList"));
-        localStorage.clear();
+        document.body.style.overflow = "hidden";
+        // console.log(localStorage.getItem("hiddenPostList"));
+        
 
     }
         closePopup(id){
             document.getElementById("popup" + id).style.display = "none";
-            document.getElementById("articlePopupBackground" + id).style.display = "none";
-            
-            
+            document.getElementById("articlePopupBackground" + id).style.display = "none";            
             document.body.style.overflow = "auto"
         }
+
+
 
     swipeRightAction(id){
         
@@ -357,7 +331,7 @@ class MapDatabaseItems extends React.Component{
                 
                 <div id={value.id} className="myClass">
                     
-                    <span id="thing" onClick={() => this.swipeRightAction(value.id)}>X</span>
+                    <span id="thing" className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>X</span>
                     
                     {this.state.width < 1200 ? 
                         <SwipeableList threshold= {0.25} swipeStartThreshold={1}>

@@ -1,8 +1,8 @@
 import React from 'react';
+import ClearCache from '../utility_components/ClearCache';
 import './home.css';
 
 import NewsItemLoop from './news-item-loop/news-item-loop.js'
-
 export class Home extends React.Component{
 
     // componentDidMount(){
@@ -31,6 +31,7 @@ export class Home extends React.Component{
             <div className='home-wrapper' >                
                 {/* <h1>Home</h1> */}
                 <div className="news-item-wrapper">
+                    <ClearCache />
                     <NewsItemLoop />                   
                 </div>
             </div>

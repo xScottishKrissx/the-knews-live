@@ -506,10 +506,12 @@ Part 2 Implement Database functionality:
             ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
             ✔ Swiping right now opens up a popup with the text from the article.(currenlty not formatted correctly) @done(20-12-02 16:22)
             ✔ Take a few weeks to do some freelance work @done(20-11-25 16:19)
-            ☐ Add button to clear cache
+            ✔ Added button to clear cache, returning all previously hidden articles @done(20-12-02 16:47)
+                // This replaces the functionality that left swipe previously had.
 
-            ☐ TO ME: Clean up the article header before this release
-            ☐ TO ME: Make hide article cross button visible again.
+            ✔ TO ME: Clean up the article header before this release @done(20-12-02 16:56)
+            ✔ TO ME: Make hide article cross button visible again. @done(20-12-02 17:10)
+                // 2/12 - Now it's on top of the popup ---- i hate z-index.
 
 
 

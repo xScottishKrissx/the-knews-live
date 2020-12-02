@@ -58,7 +58,7 @@ export class NewsPageVIEW extends React.Component{
           this.setState({
             articlesArray: tempState
           })
-          console.log(this.props.params)
+          // console.log(this.props.params)
           //console.log(((this.state.articlesArray).length) + 1)
   
           
