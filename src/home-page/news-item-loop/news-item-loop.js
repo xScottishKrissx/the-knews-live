@@ -4,7 +4,7 @@ import '../news-item-loop/news-item-loop.css';
 import Caption from './news-item-caption/news-item-caption.js';
 
 import ScrollToTopButton from '../../utility_components/scrollToTop.js';
-
+import HeaderImage from '../../news-page/news-page-view/header-image/header-image.js';
 
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
@@ -253,6 +253,7 @@ class MapDatabaseItems extends React.Component{
         console.log("text:: " + text)
         
         document.getElementById("popup" + id).style.display = "block";
+        document.getElementById("articlePopupBackground"  + id).style.display = "block";
         // document.body.classList.add("no-scroll")
         document.body.style.overflow = "hidden"
 
@@ -264,14 +265,18 @@ class MapDatabaseItems extends React.Component{
     }
         closePopup(id){
             document.getElementById("popup" + id).style.display = "none";
+            document.getElementById("articlePopupBackground" + id).style.display = "none";
+            
+            
             document.body.style.overflow = "auto"
         }
 
     swipeRightAction(id){
         
-        console.log("Post Dissapearing is Post:: " + id)
+        console.log("Post Disappearing is Post:: " + id)
         console.log(this.state.postsArray)
         document.getElementById(id).style.display = "none";
+        
         this.state.postsArray.push(id)
         localStorage.setItem("hiddenPostList", this.state.postsArray);
 
@@ -361,25 +366,29 @@ class MapDatabaseItems extends React.Component{
                             swipeLeft={{
                                 
                             content: 
- 
-                                <div className="article-popup" id={"popup" + value.id}>
+                            <div>
+                                <div className="articlePopupBackground" id={"articlePopupBackground" + value.id} onClick={()=> this.closePopup(value.id)} ></div>
+                                    <div className="article-popup" id={"popup" + value.id}>
+                                    
+                                        {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
+                                        <HeaderImage props={value.id} />
+                                        <p>{value.title}</p>
+                                        <p>{value.author}</p>
+                                        <p>{value.text}</p>
 
-                                    <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" />
-                                    <p>{value.title}</p>
-                                    <p>{value.author}</p>
-                                    <p>{value.text}</p>
-
-                                    <button onClick={()=> this.closePopup(value.id)}>    
-                                        <span>Close Popup</span>
-                                    </button>
+                                        <button onClick={()=> this.closePopup(value.id)}>    
+                                            <span>Close Popup</span>
+                                        </button>
+                                    </div>
                                 </div>
+                                
 ,
 
                             action: () => this.swipeLeftAction(value.text, value.id)
                             }}
                             
                             swipeRight={{
-                            content: <div>Revealed content during swipe</div>,
+                            content: <div>Hiding article...</div>,
                             action: () => this.swipeRightAction(value.id),
                             }}
     

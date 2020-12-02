@@ -121,14 +121,19 @@ General Notes  Objectives:
                     ☐ Use swipe right to see only the article text in a popup @started(20-11-16 12:58)
                         ✔ Display Text In Popup @done(20-11-30 18:02)
                             ☐ It's currently displying the raw html tags as well. Which is not what I want.@started(20-11-30 18:21)
+                                // 2/12/2020 -  I'll circle back to this in a later release
                         ✔ Add Close Pop Up button @done(20-11-30 18:02)
                             ☐ What about swiping again to close the popup? @started(20-11-30 18:04)
                             //Just tried it, confused myself, stopped doing it and then went and cried in the corner. It was like looking into the eyes of cthulu himself.
+
+                            // For the moment I have 2 methods - clicking the close popup button and ckicking off the popup area. 
+
                         ☐ Add Link to Full Article
-                        ☐ What about images in popup?
+                        ✔ What about images in popup? @done(20-12-02 16:19)
                             //misses the point of the popup i think.
+                            // added image anyway/
                         ☐ When scrolling in the popup, the main page scrolls in the background.
-                            ☐ I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
+                            // I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
 
                 ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
                     5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
@@ -499,11 +504,12 @@ Part 2 Implement Database functionality:
             ✔ Clickable Author and Date Posted Links in Article Header @done(20-11-30 12:38)
             ✔ Steal someone elses article and see how it looks in my design. @done(20-11-30 17:22)
             ✔ Added a border when hovering over news squares. @done(20-11-05 13:17)
-            ☐ Add functionality to right swipe.
+            ✔ Swiping right now opens up a popup with the text from the article.(currenlty not formatted correctly) @done(20-12-02 16:22)
             ✔ Take a few weeks to do some freelance work @done(20-11-25 16:19)
+            ☐ Add button to clear cache
 
             ☐ TO ME: Clean up the article header before this release
-
+            ☐ TO ME: Make hide article cross button visible again.
 
 
 
