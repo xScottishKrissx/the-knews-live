@@ -17,48 +17,135 @@ class Tags extends React.Component{
             arrayStartState: 5,
             arrayEndState: 10,
             test: this.props.location.state.tag || this.props.location.state.author || this.props.location.state.postdate,
+            // test: this.props.location.state.tag,
             tagState: this.props.location.state.tag,
             searchDBFor: this.props.location.state.searchDBFor,
-            databaseTest:"author",
+            origin: this.props.location.state.origin,
+
+            
+            
         }
     }
 
 
     componentDidMount(){
-        console.log("Articles" + this.state.articlesArray)
-        console.log(this.state.test)
-        console.log(this.state.tagState)
-        console.log(this.state.authorState)
-        console.log(this.state.databaseTest)
+        // console.log("Articles" + this.state.articlesArray)
+        // console.log(this.state.searchDBFor)
+        // console.log("My Prop: " + this.props.myprop)
 
-    
-        const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
-
-
-        dbRef.on('value', (snapshot) => {
-            let newsItems = snapshot.val();
-            // console.log(newsItems);
-            let newState = [];
-            for(let newsItem in newsItems){
-                newState.push({
-                    key: newsItem,
-                    author: newsItems[newsItem].author,
-                    title: newsItems[newsItem].title,
-                    likes: newsItems[newsItem].likes,
-                    dislikes: newsItems[newsItem].dislikes,
-                    id:newsItems[newsItem].id,
-                    tag:newsItems[newsItem].tag
-                });
-            }
-
-            this.setState({
-                // articlesArray: newState.reverse(),
-                articlesArray: newState.slice(0,5)
-            })
-            // console.log(this.state.articlesArray);
-            window.addEventListener('scroll', this.scroll);
             
-        })
+
+            // Works for Article Tags
+                // const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
+            
+            // Works for Tagbar
+                // const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
+
+            // Something that works for both...please
+                // const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.searchDBFor).endAt(this.state.searchDBFor);
+
+
+
+
+            // const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
+    
+            // dbRef.on('value', (snapshot) => {
+            //     let newsItems = snapshot.val();
+            //     // console.log(newsItems);
+            //     let newState = [];
+            //     for(let newsItem in newsItems){
+            //         newState.push({
+            //             key: newsItem,
+            //             author: newsItems[newsItem].author,
+            //             title: newsItems[newsItem].title,
+            //             likes: newsItems[newsItem].likes,
+            //             dislikes: newsItems[newsItem].dislikes,
+            //             id:newsItems[newsItem].id,
+            //             tag:newsItems[newsItem].tag
+            //         });
+            //     }
+    
+            //     this.setState({
+            //         // articlesArray: newState.reverse(),
+            //         articlesArray: newState.slice(0,5)
+            //     })
+            //     console.log(this.state.articlesArray);
+            //     window.addEventListener('scroll', this.scroll);
+                
+            // })
+
+        // const conditionOne = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
+        // const conditionTwo = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
+
+        if(this.state.origin === "Article"){
+            console.log("Load Author or Post Date Page")
+
+            const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
+
+            dbRef.on('value', (snapshot) => {
+                let newsItems = snapshot.val();
+                // console.log(newsItems);
+                let newState = [];
+                for(let newsItem in newsItems){
+                    newState.push({
+                        key: newsItem,
+                        author: newsItems[newsItem].author,
+                        title: newsItems[newsItem].title,
+                        likes: newsItems[newsItem].likes,
+                        dislikes: newsItems[newsItem].dislikes,
+                        id:newsItems[newsItem].id,
+                        tag:newsItems[newsItem].tag
+                    });
+                }
+    
+                this.setState({
+                    // articlesArray: newState.reverse(),
+                    articlesArray: newState.slice(0,5)
+                })
+                // console.log(this.state.articlesArray);
+                window.addEventListener('scroll', this.scroll);
+                
+            })
+
+
+
+        }
+        if(this.state.origin === "Tagbar"){
+            console.log("Tag page Please")
+
+            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
+            
+            dbRef.on('value', (snapshot) => {
+                let newsItems = snapshot.val();
+                // console.log(newsItems);
+                let newState = [];
+                for(let newsItem in newsItems){
+                    newState.push({
+                        key: newsItem,
+                        author: newsItems[newsItem].author,
+                        title: newsItems[newsItem].title,
+                        likes: newsItems[newsItem].likes,
+                        dislikes: newsItems[newsItem].dislikes,
+                        id:newsItems[newsItem].id,
+                        tag:newsItems[newsItem].tag
+                    });
+                }
+    
+                this.setState({
+                    // articlesArray: newState.reverse(),
+                    articlesArray: newState.slice(0,5)
+                })
+                // console.log(this.state.articlesArray);
+                window.addEventListener('scroll', this.scroll);
+                
+            })
+
+        }
+
+
+
+       
+
     }
 
     // componentWillUnmount(){
@@ -89,7 +176,6 @@ class Tags extends React.Component{
         if(windowBottom >= docHeight){
             //console.log(this.state.newCount)
             const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
-            
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
@@ -143,6 +229,7 @@ class Tags extends React.Component{
         // const test1 = this.props.location.state.tag;
         // console.log("State Says::" + test1)
         const new1 = this.state.articlesArray;
+    //    console.log(this.state.articlesArray)
         const pageView = new1.map((value,key) => {
             
 
@@ -177,10 +264,11 @@ class Tags extends React.Component{
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
                         <NavControls props="only-home-button"/>
-                        <h1>
-                        {this.props.location.state.tag} 
-                        Article by {this.props.location.state.author}
-                        </h1>
+                        {this.props.location.state.author === undefined ?
+                        <h1>Showing articles from {this.props.location.state.searchDBFor}</h1>
+                        : 
+                        <h1>Showing articles from {this.props.location.state.author}</h1>
+                        }                        
                         {pageView}
                         
                 </div>

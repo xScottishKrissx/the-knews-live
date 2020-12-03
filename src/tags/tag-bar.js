@@ -62,15 +62,15 @@ class TagBar extends React.Component{
         return(
             <div className="tagbar-wrapper">
                 <ul>
-                <Link className="news-item-link" to={{pathname: '/theKnews/tags/sports' , state: {tag: "Sports", tag3:this.state.articlesArray } }}>                    
+                <Link myprop="Sports" className="news-item-link" to={{pathname: '/theKnews/tags/sports' , state: {searchDBFor: "Sports", tag3:this.state.articlesArray, origin: "Tagbar" } }}>                    
                     <li onClick={() => this.getTagArticles("Sports")} >Sports</li>
                 </Link>
 
-                <Link className="news-item-link" to={{pathname: '/theKnews/tags/news' , state: {tag: 'News', tag3:this.state.articlesArray }}}>
+                <Link className="news-item-link" to={{pathname: '/theKnews/tags/news' , state: {searchDBFor: "News", tag3:this.state.articlesArray,origin: "Tagbar" }}}>
                     <li onClick={() => this.getTagArticles("News")} >News</li>
                 </Link>
 
-                <Link className="news-item-link" to={{pathname: '/theKnews/tags/weather' , state: {tag: 'Weather', tag3:this.state.articlesArray}}}>
+                <Link className="news-item-link" to={{pathname: '/theKnews/tags/weather' , state: {searchDBFor: "Weather", tag3:this.state.articlesArray,origin: "Tagbar"}}}>
                     <li onClick={() => this.getTagArticles("Weather")} >Weather</li>
                 </Link>
                 

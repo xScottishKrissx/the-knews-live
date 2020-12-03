@@ -197,9 +197,9 @@ class MapDatabaseItems extends React.Component{
      fire.database().ref("items").off();
 
      localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
-     console.log(localStorage.getItem("hiddenPostList"));
-     console.log(localStorage.getItem("hiddenPosts"));
-     console.log(this.state.postsArray)
+    //  console.log(localStorage.getItem("hiddenPostList"));
+    //  console.log(localStorage.getItem("hiddenPosts"));
+    //  console.log(this.state.postsArray)
       }
 
     saveScrollPosition(){
@@ -329,12 +329,12 @@ class MapDatabaseItems extends React.Component{
                 // Enabling the Swipe Gesture for Mobile Only
                 // Could probably bring it back if I implement custom card sizes for the user.
                 
-                <div id={value.id} className="myClass">
+                <div id={value.id} key={value.id} className="myClass">
                     
-                    <span id="thing" className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>X</span>
+                    <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>
                     
-                    {this.state.width < 1200 ? 
-                        <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+                    
+                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
                             
                             swipeLeft={{
@@ -349,7 +349,7 @@ class MapDatabaseItems extends React.Component{
                                         <p>{value.title}</p>
                                         <p>{value.author}</p>
                                         <p>{value.text}</p>
-
+                                    
                                         <button onClick={()=> this.closePopup(value.id)}>    
                                             <span>Close Popup</span>
                                         </button>
@@ -384,9 +384,9 @@ class MapDatabaseItems extends React.Component{
                         </SwipeableListItem>
                         </SwipeableList>
 
-                        :
+                        
                     
-                        <div className='news-square'  key={key} id={value.id} style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
+                    {/* <div className='news-square'  key={key} id={value.id} style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
                         <Caption 
                             pageid={value.key} 
                             style={style} 
@@ -396,8 +396,8 @@ class MapDatabaseItems extends React.Component{
                             dislikes={value.dislikes}    
                          />
                          
-                    </div>
-                    }
+                    </div> */}
+                    
 
                 </div>
                         

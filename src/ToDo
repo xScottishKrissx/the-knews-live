@@ -512,6 +512,13 @@ Part 2 Implement Database functionality:
             ✔ TO ME: Clean up the article header before this release @done(20-12-02 16:56)
             ✔ TO ME: Make hide article cross button visible again. @done(20-12-02 17:10)
                 // 2/12 - Now it's on top of the popup ---- i hate z-index.
+            ✔ To ME: Now the tags pages are broken for some reason... @done(20-12-03 13:59)
+                // None of the pages are displaying the correct articles for their tags.
+                // Ok, I "fixed" the issue, so far as I have the tag pages working again.
+                // The issue is that I need to have 2 different database calls for the tagbar and for the article pages.
+                // But thats a bit crap so i'm going to look for a way to use a single database call.
+                // I think it has to be 2 separate calls for this to work.
+                // I am going to be doing a big cleanup of the code in the next update, so i will mark this as complete for now and come back to it as a part of the wider code cleanup
 
 
 
