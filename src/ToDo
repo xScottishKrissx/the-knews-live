@@ -115,10 +115,10 @@ General Notes  Objectives:
                     
                         // Used the library to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
                         // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
-                        ☐ Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
+                        // Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
 
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
-                    ☐ Use swipe right to see only the article text in a popup @started(20-11-16 12:58)
+                    ✔ Use swipe right to see only the article text in a popup @started(20-11-16 12:58) @done(20-12-03 15:37) @lasted(2w3d2h39m9s)
                         ✔ Display Text In Popup @done(20-11-30 18:02)
                             ☐ It's currently displying the raw html tags as well. Which is not what I want.@started(20-11-30 18:21)
                                 // 2/12/2020 -  I'll circle back to this in a later release
@@ -132,7 +132,7 @@ General Notes  Objectives:
                         ✔ What about images in popup? @done(20-12-02 16:19)
                             //misses the point of the popup i think.
                             // added image anyway/
-                        ☐ When scrolling in the popup, the main page scrolls in the background.
+                        ✔ When scrolling in the popup, the main page scrolls in the background. @done(20-12-03 15:41)
                             // I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
 
                 ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
@@ -146,7 +146,7 @@ General Notes  Objectives:
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)    
                         ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears.
                     ☐ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00)
-                ☐ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45)
+                ✔ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45) @done(20-12-03 15:41) @lasted(4w23h56m29s)
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
 
             ☐ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
@@ -441,7 +441,7 @@ Part 2 Implement Database functionality:
         ✔ Allow like/dislike ONLY for logged in users @started(18-08-29 11:25) @done(18-08-29 15:43) @lasted(4h18m58s)
             // I can now tell if someone is logged in, I just need to adjust the UI to represent this.
         ☐ Ensure users can only like/dislike ONCE per account @started(18-08-29 15:44)
-        ☐ Styling of Like and Dislike buttons are terrible, fix this @started(20-10-22 13:50)
+        ✔ Styling of Like and Dislike buttons are terrible, fix this @started(20-10-22 13:50) @done(20-12-03 16:22) @lasted(6w3h32m38s)
 
      ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
         ✔ Will need to complete User Auth before I can do Author @started(18-08-17 13:44) @done(18-08-22 17:02) @lasted(5d3h18m3s)
