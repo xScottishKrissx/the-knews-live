@@ -37,6 +37,11 @@ Known Bugs:
 
 Codebase:
     ☐ news-item-loop.js is way too big and needs to be split up into components. @started(20-11-16 13:09)
+        ☐ Move Card Size Controls to it's own component
+            // Main issue is figuring out how to move from children to parent.
+            // Done. 
+            // Now moving onto actually makeing the thing work.
+            // Had some issue with getting the style buttons to work but this was due to not formatting my state style correctly.
 
 General Notes  Objectives:
         Add some accessibility options:
@@ -484,6 +489,8 @@ Part 2 Implement Database functionality:
             
         Version 10.1 - Codebase Cleanup - Release Notes:
             ☐ A review of the codebase and separation of larger code chunks into smaller more easily manageable components.
+                ☐ Move the Custom Card Size to a separate component
+                    Main issue here is that I need to figure out how to pass values from Children to parents.
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)

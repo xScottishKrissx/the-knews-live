@@ -5,7 +5,6 @@ import '../news-item-loop/news-item-loop.css';
 import Caption from './news-item-caption/news-item-caption.js';
 import CustomCardSize from '../news-item-loop/custom-tile-size/custom-card-size.js';
 
-
 import ScrollToTopButton from '../../utility_components/scrollToTop.js';
 import HeaderImage from '../../news-page/news-page-view/header-image/header-image.js';
 
@@ -21,19 +20,20 @@ class MapDatabaseItems extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            title: "",
-            author: "",
-            id: "",
-            imgPath: "",
-            key: "",
-            articlesArray : [],
-            articlesArray2 : [],
-            arrayStartState: 21,
-            arrayEndState: 26,
-            testStyle:{
-                width: localStorage.getItem("myData")
-            },
-            switch:0,
+            // Article Information
+                title: "",
+                author: "",
+                id: "",
+                imgPath: "",
+                key: "",
+            // The Actual Article Array
+                articlesArray : [],
+                articlesArray2 : [],
+                arrayStartState: 21,
+                arrayEndState: 26,
+            // Card Size
+                startingCardSize:"",
+                changedCardSize:{width: localStorage.getItem("myData")},
             width:document.body.clientWidth,
             postsArray:[],
             hiddenPosts:localStorage.getItem("hiddenPostList")
@@ -41,17 +41,20 @@ class MapDatabaseItems extends React.Component{
         }
  
         this.onresize = this.onresize.bind(this);
-
-        this.getData = this.getData.bind(this);
+        this.getCardSize = this.getCardSize.bind(this);
 
     }
-    getData(val){
-        console.log(val)
+    getCardSize(value){
+        this.setState({
+            startingCardSize:{
+                width:value
+            }
+        })
     }
 
     
     componentDidMount(){
-        
+        // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
         if(localStorage.getItem("hiddenPostList") === null){
             this.setState({
                 postsArray:[]
@@ -63,7 +66,7 @@ class MapDatabaseItems extends React.Component{
             })
         }
 
-      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100);    
+     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100);    
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -93,6 +96,7 @@ class MapDatabaseItems extends React.Component{
     }
 
 
+    // I feel like this has to be here. It relies heavily on changing the array state and interacting with the view.
 
     scroll = () => {
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
@@ -147,17 +151,7 @@ class MapDatabaseItems extends React.Component{
         localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
       }
 
-    scrollTo(){
-        if(localStorage.getItem("myScrollPos") > 0){
-            window.scrollTo(0,localStorage.getItem("myScrollPos"));
-            console.log("Scroooooooooooooooooooooooooooooooooooooooooooooollling to " + localStorage.getItem("myScrollPos"))
-        }
-        else{
-            console.log("Don't scroll anywhere")
-        }
-    }
-
-   
+  
     swipeLeftAction(text,id){
 
         document.getElementById("popup" + id).style.display = "block";
@@ -196,7 +190,7 @@ class MapDatabaseItems extends React.Component{
     
     render(){
         const firebaseDB = this.state.articlesArray;     
-
+        
         const HomePageView = firebaseDB.map((value,key) => {           
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -229,10 +223,13 @@ class MapDatabaseItems extends React.Component{
 
                 }
             }, 100); // check every 100ms
-            
+
+
+
             return (
                 
                 <div id={value.id} key={value.id} className="myClass">
+                
                     
                     <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>
                     
@@ -271,7 +268,9 @@ class MapDatabaseItems extends React.Component{
     
                         >
                                 
-                                <div className='news-square'  key={key}  style={this.state.currentStyle || this.state.testStyle} onClick={() => this.saveScrollPosition()} >                    
+                                <div className='news-square'  key={key}  
+                                style={this.state.startingCardSize || this.state.changedCardSize
+                                } >                    
                                     <Caption 
                                         pageid={value.key} 
                                         style={style} 
@@ -296,15 +295,15 @@ class MapDatabaseItems extends React.Component{
             <div className="news-item-loop-wrapper"> 
 
 
-               
 
-                <CustomCardSize />
+
+                <CustomCardSize getCardSizeToParent={this.getCardSize}/>
 
                  
                  {HomePageView}      
              
               
-                <ScrollToTopButton  sendData={this.getData} />
+                <ScrollToTopButton   />
                 
             </div>
 
