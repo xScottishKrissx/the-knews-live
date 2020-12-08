@@ -37,11 +37,15 @@ Known Bugs:
 
 Codebase:
     ☐ news-item-loop.js is way too big and needs to be split up into components. @started(20-11-16 13:09)
-        ☐ Move Card Size Controls to it's own component
+        ✔ Move Card Size Controls to it's own component @done(20-12-08 14:10)
             // Main issue is figuring out how to move from children to parent.
             // Done. 
             // Now moving onto actually makeing the thing work.
             // Had some issue with getting the style buttons to work but this was due to not formatting my state style correctly.
+        ☐ Create a new file specifically for showing the card list.
+            // Well, i've moved the code and It's not totally broken. It's only a broken a lot.
+            ☐ Move the swiping code into this file.
+                // I think I want a file for this as well but one step at a time.
 
 General Notes  Objectives:
         Add some accessibility options:
