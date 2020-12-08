@@ -36,7 +36,7 @@ export class ScrollToTopBtn extends React.Component{
     render(){
         return (
             // <button id="scrollToTop" onClick={() => this.scrollToTop()}>Back to Top</button>
-            <div>
+            <div className="scrollToTopBtnWrapper">
                 {this.state.showScrollToTopButton === true ? 
                 <button id="scrollToTop" onClick={() => this.scrollToTop()}>Scroll Up</button>
                 :

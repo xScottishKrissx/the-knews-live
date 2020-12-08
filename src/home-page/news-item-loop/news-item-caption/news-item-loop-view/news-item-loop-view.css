@@ -1,0 +1,65 @@
+.news-item-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 79px;
+}
+    .news-item-loop-wrapper{
+    /* background-color: blue; */
+    /* border-radius: 10px; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin: 0 auto;
+    /* max-width: 1600px; */
+    }
+    .newsItemLoopViewWrapper{
+        /* background-color: blue; */
+        /* border-radius: 10px; */
+        /* width: 100%; */
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+        margin: 0 auto;
+        position: relative;
+        
+    }
+        .myClass{
+            display: flex;
+            flex: 1 1;
+            position: relative;
+        }
+    .hideArticleBtn{
+        background-color: black;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        right: 5px;
+        top: 5px;
+        padding: 20px;
+        cursor: pointer;
+
+    }
+    .tileSizeControls{
+        background-color: grey;
+        width:100%;
+    }
+
+        .controlBtns{
+            display: flex;
+        }
+            .controlBtns button{
+                margin: 5px;
+                padding: 0;
+                width: 5rem;
+            }
+
+@media (min-width: 768px) {
+.home-wrapper{
+    margin: 0 auto;
+    /* width: 90%; */
+}
+.news-item-wrapper{
+    margin-top: 119px;
+}
+}

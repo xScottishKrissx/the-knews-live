@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import '../custom-tile-size/custom-card-size.css';
 
 class CustomCardSize extends React.Component{
 
@@ -72,7 +72,7 @@ class CustomCardSize extends React.Component{
 
         return(
             
-            <div>
+            <div className="cardControlSizeWrapper">
                 {/* <div> 
                    
                     <button onClick={()=> this.flipSwitch()}>Flip</button>

@@ -37,14 +37,18 @@ Known Bugs:
 
 Codebase:
     ☐ news-item-loop.js is way too big and needs to be split up into components. @started(20-11-16 13:09)
+    // I've actually done quite a bit. I'm not sure how to get it smaller because I know that It CAN  be smaller. Regardless it's much more manageable now.
+    
         ✔ Move Card Size Controls to it's own component @done(20-12-08 14:10)
             // Main issue is figuring out how to move from children to parent.
             // Done. 
             // Now moving onto actually makeing the thing work.
             // Had some issue with getting the style buttons to work but this was due to not formatting my state style correctly.
-        ☐ Create a new file specifically for showing the card list.
+        ✔ Create a new file specifically for showing the card list. @done(20-12-08 16:18)
             // Well, i've moved the code and It's not totally broken. It's only a broken a lot.
-            ☐ Move the swiping code into this file.
+            ✔ The card size controls aren't working again. @done(20-12-08 16:07)
+            ✔ Move the swiping code into this file. @done(20-12-08 16:08)
+            ✔ The hide article button is invisible. @done(20-12-08 16:18)
                 // I think I want a file for this as well but one step at a time.
 
 General Notes  Objectives:

@@ -1,11 +1,15 @@
 import React from 'react';
-import fire from '../../../../fire.js'
-// import '../news-item-loop/news-item-loop.css';
-import '../../../news-item-loop/news-item-loop.css';
+
+
+import '../news-item-loop-view/news-item-loop-view.css';
+
+
+
 
 import Caption from '../../news-item-caption/news-item-caption.js';
-
+import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 import HeaderImage from '../../../../news-page/news-page-view/header-image/header-image.js';
+
 
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
@@ -22,7 +26,19 @@ class NewsItemLoopView extends React.Component{
 
         postsArray:[],
         }
+
+        this.getCardSize = this.getCardSize.bind(this);
+
     }
+
+    getCardSize(value){
+        this.setState({
+            startingCardSize:{
+                width:value
+            }
+        })
+    }
+
     swipeLeftAction(text,id){
 
         document.getElementById("popup" + id).style.display = "block";
@@ -150,7 +166,11 @@ class NewsItemLoopView extends React.Component{
             
       }) 
         return(
-            <div className="test1">{HomePageView}</div>
+            
+            <div className="newsItemLoopViewWrapper">
+                {HomePageView}
+                <CustomCardSize getCardSizeToParent={this.getCardSize}/>
+            </div>
         )
     }
 }

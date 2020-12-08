@@ -1,3 +1,9 @@
+.scrollToTopBtnWrapper{
+    display: block;
+    flex: none;
+    flex-wrap: unset;
+}
+
 #scrollToTop{
     background-color: white;
     bottom: -0.1vh;
@@ -12,6 +18,7 @@
 
 
 }
+
 
 @media (max-width: 768px){
     #scrollToTop{
