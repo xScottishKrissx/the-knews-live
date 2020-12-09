@@ -12,7 +12,9 @@ class NewsItemLoopView extends React.Component{
         this.state = {
         // Card Size
         // startingCardSize:"",
-        // changedCardSize:{width: localStorage.getItem("myData")},        
+        // changedCardSize:{width: localStorage.getItem("myData")},  
+        postsArray:[],
+        hiddenPosts:localStorage.getItem("hiddenPostList")     
         }
 
         // this.getCardSize = this.getCardSize.bind(this);
@@ -26,13 +28,28 @@ class NewsItemLoopView extends React.Component{
     //         }
     //     })
     // }
-
+    componentDidMount(){
+                // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
+                if(localStorage.getItem("hiddenPostList") === null){
+                    this.setState({
+                        postsArray:[]
+                    }) 
+                }else{
+                    this.setState({
+                        postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
+                    })
+                }
+    }
+    componentWillUnmount(){
+        localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
+        console.log(this.state.postsArray)
+    }
     render(){
         const HomePageView = this.props.databaseProp.map((value,key) => {           
   
 
             const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-
+            console.log(localStorageHiddenPosts)
             const checkExist = setInterval(function() {
                 
                 if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
@@ -42,7 +59,7 @@ class NewsItemLoopView extends React.Component{
 
                     for(var i = 0; i < formattedPostsArray.length; i++){
                         if(!!formattedPostsArray && formattedPostsArray[i].toString() === value.id.toString()){
-                            // console.log("Hidden Post Identified")
+                            console.log("Hidden Post Identified")
                             document.getElementById(value.id).style.display = "none";
                             console.log("Success: " + value.id + " hidden");
                             console.log(formattedPostsArray[i]);
@@ -57,7 +74,7 @@ class NewsItemLoopView extends React.Component{
                 <div id={value.id} key={value.id} className="myClass">
                 
                     
-                    <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>
+                    
                     
                     <CardView 
                         id={value.id}

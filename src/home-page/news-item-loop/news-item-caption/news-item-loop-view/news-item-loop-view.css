@@ -29,6 +29,9 @@
             flex: 1 1;
             position: relative;
         }
+            .myClass > div{
+                width: 100%;
+            }
     .hideArticleBtn{
         background-color: black;
         color: white;
@@ -38,8 +41,8 @@
         top: 5px;
         padding: 20px;
         cursor: pointer;
-
     }
+    
     .tileSizeControls{
         background-color: grey;
         width:100%;
