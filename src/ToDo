@@ -52,14 +52,9 @@ Codebase:
                 // I think I want a file for this as well but one step at a time.
     ☐ Split Up news-item-loop-view.js
         ☐ Can the swiping stuff can be moved to its own thing
-            ☐ Well it's broken right now, so it might help.
         ☐ Can the hidden post detection stuff be moved?
         ☐ What about a file for the cards themsevles?
             // Did it... but the card control sizes have stopped working....AGAIN!!!
-            // It broke me this time. When the button is pressed the state isn't updating and I don't know why.
-            // My fix for now is just to add a window.reload to the button methids.
-            // It's crap, but I'm not sure what's going on with this and I've spent too much time on this.
-        
 
 General Notes  Objectives:
         Add some accessibility options:

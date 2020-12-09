@@ -27,22 +27,22 @@ class MapDatabaseItems extends React.Component{
                 arrayStartState: 21,
                 arrayEndState: 26,
             // This is a record of the posts hidden.
-            // postsArray:[],
-            // hiddenPosts:localStorage.getItem("hiddenPostList")
+            postsArray:[],
+            hiddenPosts:localStorage.getItem("hiddenPostList")
         }
     }
 
     componentDidMount(){
-        // // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
-        // if(localStorage.getItem("hiddenPostList") === null){
-        //     this.setState({
-        //         postsArray:[]
-        //     }) 
-        // }else{
-        //     this.setState({
-        //         postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
-        //     })
-        // }
+        // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
+        if(localStorage.getItem("hiddenPostList") === null){
+            this.setState({
+                postsArray:[]
+            }) 
+        }else{
+            this.setState({
+                postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
+            })
+        }
 
     // This is the initial database query.
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(100);    
@@ -121,7 +121,7 @@ class MapDatabaseItems extends React.Component{
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
-        // localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
+        localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
       }
     
     render(){

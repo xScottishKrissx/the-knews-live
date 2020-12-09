@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './card-view.css';
-
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
@@ -18,32 +16,16 @@ class CardView extends React.Component{
             postsArray:[],
             startingCardSize:"",
             changedCardSize:{width: localStorage.getItem("myData")}, 
-            size:"medium"
         }
         this.getCardSize = this.getCardSize.bind(this);
-
-        this.makeCardBigger = this.makeCardBigger.bind(this);
     }
     getCardSize(value){
         this.setState({
             startingCardSize:{
                 width:value
-            },
-            changedCardSize:{
-                    width:"300rem"
             }
         })
     }
-
-    makeCardBigger(value){
-        this.setState({
-            size:"small"
-        })
-        console.log("Make " + value)
-        console.log("this.state.size is:: " + this.state.size)
-    }
-
-
     swipeLeftAction(text,id){
         document.getElementById("popup" + id).style.display = "block";
         document.getElementById("articlePopupBackground"  + id).style.display = "block";
@@ -82,12 +64,9 @@ class CardView extends React.Component{
             // width:"100%"
         } 
 
-        console.log(localStorage.getItem("myData"))
-
         return(
             
             <div>
-                <span className="hideArticleBtn" onClick={() => this.swipeRightAction(id)}>Hide</span>
                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
                             
@@ -118,9 +97,9 @@ class CardView extends React.Component{
                             action: () => this.swipeRightAction(id),
                             }}>
                                 
-                                <div className={'news-square' + ' ' + this.state.size} key={articleKey}  
-                                style={this.state.startingCardSize || this.state.changedCardSize  } 
-                                                           >                    
+                                <div className='news-square'  key={articleKey}  
+                                style={this.state.startingCardSize || this.state.changedCardSize
+                                }>                    
                                     <Caption 
                                         pageid={articleKey} 
                                         style={style} 
@@ -134,14 +113,10 @@ class CardView extends React.Component{
                         
                         </SwipeableListItem>
                         </SwipeableList>
-                        <CustomCardSize 
-                            getCardSizeToParent={() => this.getCardSize} 
-                            toParent={this.makeCardBigger}/>
+                        <CustomCardSize getCardSizeToParent={this.getCardSize}/>
             </div>
         )
     }
 }
 
 export default CardView
-
-  
