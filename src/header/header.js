@@ -23,26 +23,6 @@ export const Header = () => {
                         <div className="nav-icons next-button"><Link to='/theKnews' ><p className="large material-icons">arrow_forward</p><span>Next Article</span></Link></div>
                 </span>
                 </div> */}
-
-                <nav>
-                    <ul>
-                        {/* <li>
-                            <Link to="/theKnews/tags">Tags</Link>
-                        </li> */}
-
-                        {/* <li>
-                            <Link to="/theKnews">categories</Link>
-                        </li>
-
-                        <li>
-                            <Link to="/theKnews">filters</Link>
-                        </li>
-
-                        <li>
-                            <Link to="/theKnews/myKnews">my Knews</Link>
-                        </li> */}
-                    </ul>
-                </nav>
             </div>
         </div>
     )

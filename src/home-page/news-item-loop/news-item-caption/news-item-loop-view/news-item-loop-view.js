@@ -1,21 +1,15 @@
 import React from 'react';
-
-
 import '../news-item-loop-view/news-item-loop-view.css';
-
-
-
-
 import Caption from '../../news-item-caption/news-item-caption.js';
 import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
-import HeaderImage from '../../../../news-page/news-page-view/header-image/header-image.js';
-
 
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
-class NewsItemLoopView extends React.Component{
+import SwipeLeftContent from '../news-item-loop-view/swipe-views/swipe-left-content.js';
 
+
+class NewsItemLoopView extends React.Component{
 
     constructor(props){
         super(props);
@@ -23,12 +17,9 @@ class NewsItemLoopView extends React.Component{
         // Card Size
         startingCardSize:"",
         changedCardSize:{width: localStorage.getItem("myData")},
-
         postsArray:[],
         }
-
         this.getCardSize = this.getCardSize.bind(this);
-
     }
 
     getCardSize(value){
@@ -40,30 +31,24 @@ class NewsItemLoopView extends React.Component{
     }
 
     swipeLeftAction(text,id){
-
         document.getElementById("popup" + id).style.display = "block";
         document.getElementById("articlePopupBackground"  + id).style.display = "block";
         document.body.style.overflow = "hidden";       
     }
-        closePopup(id){
+        closePopup = (id) => {
             document.getElementById("popup" + id).style.display = "none";
             document.getElementById("articlePopupBackground" + id).style.display = "none";            
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = "auto";
+            console.log(id)
         }
 
-
-
-    swipeRightAction(id){
-        
+    swipeRightAction(id){   
         console.log("Post Disappearing is Post:: " + id)
         console.log(this.state.postsArray)
         document.getElementById(id).style.display = "none";
-        
         this.state.postsArray.push(id)
         localStorage.setItem("hiddenPostList", this.state.postsArray);
-
         console.log(localStorage.getItem("hiddenPostList"));
-
     }
 
     render(){
@@ -79,9 +64,10 @@ class NewsItemLoopView extends React.Component{
                 height: "400px",
                 // width:"100%"
             }    
-
+            
+            // This is checking to see if there are hidden posts in cache. If there are then they're set to be hidden before render.
+            
             const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-
             const checkExist = setInterval(function() {
                 if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
                 console.log("Exists!");
@@ -100,63 +86,41 @@ class NewsItemLoopView extends React.Component{
                 }
             }, 100); // check every 100ms
 
-
-
-            return (
-                
-                <div id={value.id} key={value.id} className="myClass">
-                
-                    
-                    <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>
-                    
-                    
+            return (         
+                      
+                <div id={value.id} key={value.id} className="myClass">                   
+                    <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>                    
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
                             
                             swipeLeft={{
-                                
-                            content: 
-                            <div>
-                                <div className="articlePopupBackground" id={"articlePopupBackground" + value.id} onClick={()=> this.closePopup(value.id)} ></div>
-                                    <div className="article-popup" id={"popup" + value.id}>
-                                    
-                                        {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
-                                        <HeaderImage props={value.id} />
-                                        <p>{value.title}</p>
-                                        <p>{value.author}</p>
-                                        <p>{value.text}</p>
-                                    
-                                        <button onClick={()=> this.closePopup(value.id)}>    
-                                            <span>Close Popup</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                
-,
-
-                            action: () => this.swipeLeftAction(value.text, value.id)
+                                content: <SwipeLeftContent 
+                                        id={value.id} 
+                                        title={value.title} 
+                                        author={value.author} 
+                                        text={value.text} 
+                                        closePopup={this.closePopup} 
+                                        headerImage={value.id} />,
+                                action: () => this.swipeLeftAction(value.text, value.id) 
                             }}
                             
                             swipeRight={{
-                            content: <div>Hiding article...</div>,
-                            action: () => this.swipeRightAction(value.id),
+                                content: <div>Hiding article...</div>, 
+                                action: () => this.swipeRightAction(value.id)
                             }}
-    
                         >
                                 
                                 <div className='news-square'  key={key}  
-                                style={this.state.startingCardSize || this.state.changedCardSize
-                                } >                    
+                                style={ this.state.startingCardSize || this.state.changedCardSize } >                    
                                     <Caption 
-                                        pageid={value.key} 
-                                        style={style} 
+                                        pageid={value.key}
+                                        style={style}
                                         title={value.title}
                                         author={value.author}
                                         likes={value.likes}
-                                        dislikes={value.dislikes}    
+                                        dislikes={value.dislikes}
                                         />
                                 </div>
-                            
                         
                         </SwipeableListItem>
                         </SwipeableList>
@@ -168,8 +132,9 @@ class NewsItemLoopView extends React.Component{
         return(
             
             <div className="newsItemLoopViewWrapper">
+                
                 {HomePageView}
-                <CustomCardSize getCardSizeToParent={this.getCardSize}/>
+                <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
         )
     }

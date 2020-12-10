@@ -46,6 +46,7 @@ Codebase:
             // Done. 
             // Now moving onto actually makeing the thing work.
             // Had some issue with getting the style buttons to work but this was due to not formatting my state style correctly.
+                ✔ Managed to get the code changing the size down from 37 lines to 7 @done(20-12-10 15:18)
         ✔ Create a new file specifically for showing the card list. @done(20-12-08 16:18)
             // Well, i've moved the code and It's not totally broken. It's only a broken a lot.
             ✔ The card size controls aren't working again. @done(20-12-08 16:07)
@@ -53,6 +54,10 @@ Codebase:
             ✔ The hide article button is invisible. @done(20-12-08 16:18)
                 // I think I want a file for this as well but one step at a time.
             //
+        ✔ Moved Swipe Left into it's own component @done(20-12-10 13:56)
+        ✔ Can the check for hidden posts in cache be moved? @started(20-12-10 13:58) @done(20-12-10 14:05) @lasted(7m54s)
+            // Dont think so, it uses the map to select id's, unless there's something im missing I think it needs to be where it is.
+        
 
 General Notes  Objectives:
         Add some accessibility options:
