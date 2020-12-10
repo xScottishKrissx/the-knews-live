@@ -511,6 +511,7 @@ Part 2 Implement Database functionality:
         Version 10.1 - Codebase Cleanup - Release Notes:
             ☐ A review of the codebase and separation of larger code chunks into smaller more easily manageable components.
             ✔ Fixed format of popup html @done(20-12-10 15:50)
+            ☐ Card Size Control Styles -> Let's get this done.
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)

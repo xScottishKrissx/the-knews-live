@@ -40,19 +40,7 @@
         cursor: pointer;
 
     }
-    .tileSizeControls{
-        background-color: grey;
-        width:100%;
-    }
 
-        .controlBtns{
-            display: flex;
-        }
-            .controlBtns button{
-                margin: 5px;
-                padding: 0;
-                width: 5rem;
-            }
 
 @media (min-width: 768px) {
 .home-wrapper{
