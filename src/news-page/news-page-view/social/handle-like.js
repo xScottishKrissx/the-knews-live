@@ -26,6 +26,8 @@ export class HandleLike extends React.Component{
         // const checkUser = fire.auth().currentUser;
         // console.log(fire.auth().currentUser.displayName)
 
+
+        // DON'T DELETE THIS -- IVE DISABLED THIS FOR TESTING -- DON'T DELETE THIS
        if(fire.auth().currentUser){
            console.log("User Logged In")
            this.setState({
@@ -37,6 +39,11 @@ export class HandleLike extends React.Component{
                loggedIn: false
            })
        }
+        // DON'T DELETE THIS -- IVE DISABLED THIS FOR TESTING -- DON'T DELETE THIS
+
+
+
+
 
         // const currentID = this.state.currentID
         // const dbRef = fire.database().ref("items").orderByKey().equalTo(currentID);
@@ -60,10 +67,10 @@ export class HandleLike extends React.Component{
         //   }) 
         //   console.log(this.state.user.displayName);
     }
-    clicked(e){
-        e.preventDefault();
+    clicked(opinion){
+        // e.preventDefault();
         // console.log("Clicked")
-        const getButtonClicked = document.getElementById(e.currentTarget.id).id;
+        // const getButtonClicked = document.getElementById(e.currentTarget.id).id;
         // console.log(getButtonClicked);
 
         const currentID = this.state.currentID
@@ -72,12 +79,12 @@ export class HandleLike extends React.Component{
         const updateLikes = {};
 
         if(this.state.loggedIn === true ){
-            if (getButtonClicked === "likeBtn" && this.state.isLike === false){
+            if (opinion === "like" && this.state.isLike === false){
                 console.log("UpVote")
                 this.setState({currentLikes: this.state.currentLikes + 1})
                 updateLikes[currentID + "/likes/"] = this.state.currentLikes + 1;
                 this.setState({isLike:true})
-            }else if(getButtonClicked === "dislikeBtn" && this.state.isLike === false){
+            }else if(opinion === "dislike" && this.state.isLike === false){
                 console.log("Downvote")
                 this.setState({currentDislikes: this.state.currentDislikes - 1})
                 updateLikes[currentID + "/dislikes/"] = this.state.currentDislikes - 1;
@@ -113,14 +120,14 @@ export class HandleLike extends React.Component{
             <div>        
                 <div className="article-likes">       
                             
-                    <p className="social-score pos" id="likeBtn" onClick={this.clicked}>
+                    <p className="social-score pos" id="likeBtn" onClick={() => this.clicked("like")}>
                         <span className="large material-icons">thumb_up</span>
                         {this.state.currentLikes}
                     </p>
                 </div>
 
                 <div className="article-dislikes">
-                    <p className="social-score neg" id="dislikeBtn" onClick={this.clicked}>
+                    <p className="social-score neg" id="dislikeBtn" onClick={() => this.clicked("dislike")}>
                         <span className="large material-icons">thumb_down</span>
                         {this.state.currentDislikes}
                     </p>

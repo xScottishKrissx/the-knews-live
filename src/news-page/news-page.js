@@ -69,46 +69,8 @@ export class NewsPage extends React.Component{
     
 
     render(){    
-        // console.log(dbRef)
-        // const ref = this.state.articlesArray;
-        // console.log(ref)
-        // const checkIdMap = ref.map((value) => {
-        //     console.log("Something" + value.key)
-        //     if(value.key === this.props.match.params.id){
-        //          console.log("ID")
-        //          console.log("Match" + this.props.match.params.id)
-        //     }
-        //     else{
-        //         console.log("Error")
-        //         console.log(this.props.match.params.id)
-        //     }
-            
-        // })
 
-        // ref.map((value) => {
-        //     console.log("Something" + value.key)
-        //     if(value){
-        //         console.log("hello")
-        //     }
-        //     else{
-        //         console.log("No hello")
-        //     }
-        //     if(value.key === this.props.match.params.id){
-        //          console.log("ID")
-        //          console.log("Match" + this.props.match.params.id)
-        //     }
-        //     else{
-        //         console.log("Error")
-        //         console.log(this.props.match.params.id)
-        //     }
-        // })
-
-    // console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
-    // console.log(this.state.articlesArray)
-    // console.log("Array Length is : " + Number(arrayLength))
-    // console.log(this.state.articlesArray)
-    // console.log(this.state.test1)
     const test = arrayLength;
     return (
         

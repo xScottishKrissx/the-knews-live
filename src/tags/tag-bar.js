@@ -2,10 +2,7 @@ import React from 'react';
 import fire from '../fire.js'
 import {Link} from 'react-router-dom';
 
-
 import '../tags/tag-bar.css';
-
-
 
 class TagBar extends React.Component{
     constructor(props){
@@ -14,19 +11,14 @@ class TagBar extends React.Component{
             articlesArray: [],
             test: "Sports",
         }
+
     }
-
-
-
     getTagArticles(chosenTag){
         console.log("Get " + chosenTag)
         this.setState({
             test:chosenTag
-        })
+    })
         
-
-        console.log(this.state.test)
-
         const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
 
         dbRef.on('value', (snapshot) => {
@@ -50,10 +42,7 @@ class TagBar extends React.Component{
                 articlesArray: newState.slice(0,50)
             })
             console.log("Articles Array is:: " + this.state.articlesArray);
-
         })
-        
-
     }
 
 
@@ -76,21 +65,9 @@ class TagBar extends React.Component{
                 
                 </ul>
                 
-            </div>
-            
+            </div> 
         )
     }
 }
 
-// class Tags1 extends React.Component{
-//     render(){
-//         return (
-//             <div>
-//                 <p>Thing - {this.state.test1}</p>
-//             </div>
-//         )
-//     }
-// }
-
-
-    export default TagBar;
+export default TagBar;

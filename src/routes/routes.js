@@ -10,16 +10,6 @@ import NewsPage from '../news-page/news-page.js';
 // import Form from '../myKnews/form.js';
 import { PracticeForm } from '../myKnews/practice-form';
 
-//  const TestLoop = (title) => {
-//     let i;
-//     let newsArray = [];
-//     for(i = 0; i< 9; i++){
-        
-//         newsArray.push(i)
-//     }
-//     return newsArray;
-// }
-
 export class Routes extends React.Component{
     render(){
         

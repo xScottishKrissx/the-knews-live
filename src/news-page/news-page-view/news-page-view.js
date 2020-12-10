@@ -114,13 +114,8 @@ export class NewsPageVIEW extends React.Component{
                        
                     />
 
-
-
                     <RecommendedReading />
-                    <ScrollToTopButton />
-
-    
-    
+                    <ScrollToTopButton />   
                 </div>
             )
         })

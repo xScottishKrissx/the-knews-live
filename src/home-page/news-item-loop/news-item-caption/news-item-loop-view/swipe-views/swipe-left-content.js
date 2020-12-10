@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderImage from '../../../../../news-page/news-page-view/header-image/header-image.js';
+import ParseHTML from '../../../../../utility_components/parse-database-html/parse-html.js';
 
 export const SwipeLeftContent = (props) => {
     const id = props.id;
@@ -17,8 +18,7 @@ export const SwipeLeftContent = (props) => {
                 <HeaderImage props={id} />
                 <p>{title}</p>
                 <p>{author}</p>
-                <p>{text}</p>
-            
+                <ParseHTML props={text}/>
                 <button onClick={()=> closePopup(id)}>    
                     <span>Close Popup</span>
                 </button>

@@ -223,8 +223,6 @@ class Tags extends React.Component{
       }
 
     render(){
-
-
         // this.filterArray("Sports", this.state.articlesArray);
         // const test1 = this.props.location.state.tag;
         // console.log("State Says::" + test1)

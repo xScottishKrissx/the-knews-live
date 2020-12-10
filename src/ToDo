@@ -57,6 +57,7 @@ Codebase:
         ✔ Moved Swipe Left into it's own component @done(20-12-10 13:56)
         ✔ Can the check for hidden posts in cache be moved? @started(20-12-10 13:58) @done(20-12-10 14:05) @lasted(7m54s)
             // Dont think so, it uses the map to select id's, unless there's something im missing I think it needs to be where it is.
+    ✔ Moved the html parser component into utility components folder @done(20-12-10 15:54)
         
 
 General Notes  Objectives:
@@ -141,8 +142,9 @@ General Notes  Objectives:
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
                     ✔ Use swipe right to see only the article text in a popup @started(20-11-16 12:58) @done(20-12-03 15:37) @lasted(2w3d2h39m9s)
                         ✔ Display Text In Popup @done(20-11-30 18:02)
-                            ☐ It's currently displying the raw html tags as well. Which is not what I want.@started(20-11-30 18:21)
+                            ✔ It's currently displying the raw html tags as well. Which is not what I want.@started(20-11-30 18:21) @done(20-12-10 15:50) @lasted(1w2d21h29m12s)
                                 // 2/12/2020 -  I'll circle back to this in a later release
+                                ✔ Used the HTML Parser component to solve this. @done(20-12-10 15:50)
                         ✔ Add Close Pop Up button @done(20-11-30 18:02)
                             ☐ What about swiping again to close the popup? @started(20-11-30 18:04)
                             //Just tried it, confused myself, stopped doing it and then went and cried in the corner. It was like looking into the eyes of cthulu himself.
@@ -327,6 +329,8 @@ General Notes  Objectives:
                         ☐ Do another pass on the styles here @started(20-10-13 13:34)
             Social Score Buttons:
                 ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
+                ☐ Let's try and get this working. it doesn't need to be a part of the myKnews update. Just enough functionality to work correctly with a valid email address. @started(20-12-10 15:58)
+
             Article Tags:
                 ✔ Each article should come with tags that can be filtered on the home page. @started(20-10-13 13:47) @done(20-10-20 14:40) @lasted(1w53m52s)
                 maybe even ability to search by tag
@@ -499,14 +503,14 @@ Part 2 Implement Database functionality:
 
         Version 12 - Planned:
             ☐ myKnews - The Return. 
+            ☐ Get Like and Dislike to work separate from myKnews
 
         Version 11 (Future Version) - Planned Notes:
             ☐ Implement Mobile Menu using swipe
             
         Version 10.1 - Codebase Cleanup - Release Notes:
             ☐ A review of the codebase and separation of larger code chunks into smaller more easily manageable components.
-                ☐ Move the Custom Card Size to a separate component
-                    Main issue here is that I need to figure out how to pass values from Children to parents.
+            ✔ Fixed format of popup html @done(20-12-10 15:50)
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
