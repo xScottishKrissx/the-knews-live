@@ -250,6 +250,10 @@ General Notes  Objectives:
             ✘ Maybe some kind of randomised news tile size @started(18-08-31 17:24) @cancelled(20-10-12 17:39) @wasted(2y6w1d15m59s)
             ✘ Work on controls appearance @started(18-09-04 12:29) @cancelled(20-10-12 17:39) @wasted(2y5w4d5h10m57s)
                 18/9/2020 - Removed sized controls, they're just adding too much work at the moment. Want to focus on the core of the project rather than the smaller details like this.
+                ✔ Controls Are back, get them done @done(20-12-11 17:04)
+                    ✔ So, the controls can be hidden if you want. However, there is a small BUG:: at the moment where if the controls are visible on load, you need to double click the button for it to work. @done(20-12-11 16:38)
+                    // Not a major problem, but this needs to be fixed for release.
+                    // Fixed it, looks like I was mutating state directly.
             ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
                 //Might not be possible without another library
                 .... or I could use local storage/session storage to remember user choice.
@@ -511,7 +515,8 @@ Part 2 Implement Database functionality:
         Version 10.1 - Codebase Cleanup - Release Notes:
             ☐ A review of the codebase and separation of larger code chunks into smaller more easily manageable components.
             ✔ Fixed format of popup html @done(20-12-10 15:50)
-            ☐ Card Size Control Styles -> Let's get this done.
+            ✔ Card Size Control Styles -> Let's get this done. @done(20-12-11 17:04)
+            ☐ Ability to hide articles from within article -> Like a mark as read button
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)

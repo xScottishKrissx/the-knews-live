@@ -62,7 +62,6 @@ export class NewsPage extends React.Component{
     }
     
     componentWillUnmount(){
-        // console.log("Unmounting news-page.js");
         fire.database().ref("items").off();
     }
 

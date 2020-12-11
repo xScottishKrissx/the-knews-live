@@ -7,66 +7,73 @@ class CustomCardSize extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            // Card Size Logic
             currentStyle:"",
-            switch:0,
             size: "",
-            style:{
-                bottom:""
-            },
-            showCardSizeOptionsPosition: false,
+
+            // Card Size Option Menu
+            style:{bottom:""},
+            cardSizeOptionMenu: "",
         }
         this.changeCardSize = this.changeCardSize.bind(this);
         this.showCardSizeOptions = this.showCardSizeOptions.bind(this);  
     }
     componentDidMount(){
-        console.log(this.state.showCardSizeOptionsPosition)
-        if(this.state.showCardSizeOptionsPosition === true || "true"){
-            this.setState({ style:{bottom:"0%"},})
-        }else{
-            this.setState({ style:{bottom:"-13%"},})
+        this.setState({style:{bottom: localStorage.getItem("cardStyleSetting") } })
+        if(this.state.cardSizeOptionMenu === ""){
+            this.setState({cardSizeOptionMenu: localStorage.getItem("savedCardOptionsPosition")  })
         }
     }
+
     changeCardSize(size){
-        // console.log(size)
         localStorage.clear("myData");
         localStorage.setItem("myData", size);
         localStorage.getItem("myData")
-        // console.log(localStorage.getItem("myData"));
         this.props.getCardSizeToParent(size);
     }
 
-    showCardSizeOptions(){
-        console.log(this.state.showCardSizeOptionsPosition)
-
-       if(this.state.showCardSizeOptionsPosition === true ){
-            console.log("Hide Options")
-            this.setState({
-                style:{bottom:"-13%"},
-                showCardSizeOptionsPosition: false
-            })
-            console.log("Should be False --> " + this.state.showCardSizeOptionsPosition)
-            
-       }else{
-            console.log("Show Options")
-            this.setState({ 
-                style:{ bottom:"0%"},
-                showCardSizeOptionsPosition: true
-             })
-             console.log("Should be True --> " + this.state.showCardSizeOptionsPosition)
-            
-       }
-    //    localStorage.setItem("cardSizeOptionsVisible", this.state.showCardSizeOptionsPosition);
+    showCardSizeOptions(style){
+        
+        if(this.state.cardSizeOptionMenu === "hideOptions"){
+            this.setState({cardSizeOptionMenu:"showOptions"})
+            localStorage.setItem("cardStyleSetting", style);
+            localStorage.setItem("savedCardOptionsPosition", "showOptions");
+            this.setState({style:{bottom:style}})
+        }else{
+            this.setState({cardSizeOptionMenu:"hideOptions"})
+            localStorage.setItem("cardStyleSetting", style);
+            localStorage.setItem("savedCardOptionsPosition", "hideOptions");
+            this.setState({style:{bottom:style}})
+        }
     }
 
     render(){
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
                 <div className="tileSizeControls" >
-                <h3 onClick={()=> this.showCardSizeOptions()}>Card Size</h3>
+
+                {this.state.cardSizeOptionMenu === "hideOptions" ? 
+                     <div onClick={()=> this.showCardSizeOptions("0%")}>
+                         <p className="large material-icons">arrow_drop_up</p>
+                     </div>
+                     :
+                     <div onClick={()=> this.showCardSizeOptions("-10rem")}> 
+                     <p className="large material-icons">arrow_drop_down</p>Card Size
+                     </div>    
+                }
+                
                     <span className="controlBtns">
-                        <button onClick={() => this.changeCardSize("10rem")}>S</button>
-                        <button onClick={() => this.changeCardSize("260px")}>M</button>
-                        <button onClick={() => this.changeCardSize("50rem")}>L</button>                      
+                        <button  onClick={() => this.changeCardSize("10rem")}>
+                            <span className="small-btn">S</span>
+                        </button>
+
+                        <button  onClick={() => this.changeCardSize("260px")}>
+                            <span className="medium-btn" >M</span>
+                        </button>
+                        
+                        <button  onClick={() => this.changeCardSize("50rem")}>
+                            <span className="large-btn" >L</span>
+                        </button>                      
                     </span>   
                 </div>
             </div>
