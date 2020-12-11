@@ -123,6 +123,8 @@ export class NewsPageVIEW extends React.Component{
         return (
             
             <div>
+
+                
                 <NavControls currentarticleid={this.props.params}/>
                 
                 {this.props.params === "5" ?

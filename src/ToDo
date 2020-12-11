@@ -166,6 +166,10 @@ General Notes  Objectives:
                     // Like an "x" in the corner for example.
                     ✔ Added UI for the X @done(20-11-05 13:55)
                         ☐ What about hiding articles from WITHIN the article themselves? @started(20-11-30 12:20)
+                            11/12/2020 - Let's find out.
+
+
+
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)    
                         ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears.
                     ☐ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00)

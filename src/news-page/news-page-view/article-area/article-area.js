@@ -11,6 +11,7 @@ import PageScore from '../social/page-score.js';
 // import EditArticle from './edit-article.js';
 
 import './article-area.css';
+import HideArticle from './hide-article-in-article/hide-article-in-article.js';
 // import ScrollToTopBtn from '../../../utility_components/scrollToTop.js';
 
 
@@ -39,6 +40,8 @@ const ArticleArea = (props) => {
                     <header><h1>{props.title}</h1></header>
                     
                 </div>
+                
+                <HideArticle />
 
                 <div className='__article-sub-header __1600_style'>
                    
