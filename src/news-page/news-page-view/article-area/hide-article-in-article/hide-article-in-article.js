@@ -3,41 +3,31 @@ import React from 'react';
 export class HideArticle extends React.Component{
     constructor(props){
         super(props);
+        this.state ={
+            postsArray:[],
+        }
         this.hideArticle = this.hideArticle.bind(this);
+
 
     }
 
     hideArticle(value){
         console.log("Hide Article Button Pressed");
         console.log(localStorage.getItem("hiddenPostList"));
+        console.log("Post Disappearing is Post:: " + value)
+        console.log(this.state.postsArray)
+        // document.getElementById(value).style.display = "none";
+        this.state.postsArray.push(value)
+        localStorage.setItem("hiddenPostList", this.state.postsArray);
+        console.log(localStorage.getItem("hiddenPostList"));
 
-        // This isn't setup yet...
-
-        const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-        const checkExist = setInterval(function() {
-            if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
-            console.log("Exists!");
-            clearInterval(checkExist);
-            const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
-
-                for(var i = 0; i < formattedPostsArray.length; i++){
-                    if(!!formattedPostsArray && formattedPostsArray[i].toString() === value.id.toString()){
-                        // console.log("Hidden Post Identified")
-                        document.getElementById(value.id).style.display = "none";
-                        console.log("Success: " + value.id + " hidden");
-                        console.log(formattedPostsArray[i]);
-                    }
-                }        
-
-            }
-        }, 100); // check every 100ms
 
     }
     render(){
-        
+        console.log("Hide Article -> " + this.props.articleId)
         return(
             <div>
-                <button onClick={()=> this.hideArticle(7)}>Hide Article</button>
+                <button onClick={()=> this.hideArticle(this.props.articleId)}>Hide Article</button>
             </div>
         )
     }

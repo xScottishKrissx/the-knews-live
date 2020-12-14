@@ -109,6 +109,7 @@ export class NewsPageVIEW extends React.Component{
                         likes={value.likes}
                         dislikes={value.dislikes}
                         id={value.key}
+                        articleId={value.id}
                         email={value.email}
                         owns={this.state.ownsArticle}
                        

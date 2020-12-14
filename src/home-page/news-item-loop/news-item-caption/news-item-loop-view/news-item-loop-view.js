@@ -85,7 +85,7 @@ class NewsItemLoopView extends React.Component{
 
                 }
             }, 100); // check every 100ms
-
+            // console.log(value.id)
             return (         
                       
                 <div id={value.id} key={value.id} className="myClass">                   
@@ -119,6 +119,7 @@ class NewsItemLoopView extends React.Component{
                                         author={value.author}
                                         likes={value.likes}
                                         dislikes={value.dislikes}
+                                        articleId={value.id}
                                         />
                                 </div>
                         

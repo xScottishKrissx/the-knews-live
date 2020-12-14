@@ -28,6 +28,7 @@ const ArticleArea = (props) => {
     // const loggedInEmail = fire.auth().currentUser?.email;
     //const loggedInEmail = "chrisdunne66@gmail.com"
     // const articleEmail = props.email;
+    console.log(props.articleId)
     return (
             
             <div className='article'>
@@ -41,7 +42,7 @@ const ArticleArea = (props) => {
                     
                 </div>
                 
-                <HideArticle />
+                <HideArticle articleId={props.articleId} />
 
                 <div className='__article-sub-header __1600_style'>
                    
