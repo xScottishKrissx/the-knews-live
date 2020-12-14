@@ -7,6 +7,7 @@ import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 import SwipeLeftContent from '../news-item-loop-view/swipe-views/swipe-left-content.js';
+import HideArticle from '../../../../news-page/news-page-view/article-area/hide-article-in-article/hide-article-in-article';
 
 
 class NewsItemLoopView extends React.Component{
@@ -66,7 +67,7 @@ class NewsItemLoopView extends React.Component{
             }    
             
             // This is checking to see if there are hidden posts in cache. If there are then they're set to be hidden before render.
-            
+            console.log("Home Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
             const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
             const checkExist = setInterval(function() {
                 if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
@@ -89,7 +90,9 @@ class NewsItemLoopView extends React.Component{
             return (         
                       
                 <div id={value.id} key={value.id} className="myClass">                   
-                    <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>                    
+                    {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
+
+                    <HideArticle articleId={value.id}/>             
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
                             

@@ -11,7 +11,7 @@ export class HideArticle extends React.Component{
 
     }
     componentDidMount(){
-        console.log("Current Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
+        console.log("Article Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
 
 
     }
@@ -25,13 +25,31 @@ export class HideArticle extends React.Component{
         // this.state.postsArray.push(value)
 
         const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-        const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
+        // const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
 
-        console.log(formattedPostsArray)
-        formattedPostsArray.push(value)
-        console.log(formattedPostsArray)
+        if(localStorageHiddenPosts != null){
+            const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
+            console.log(formattedPostsArray)
+            formattedPostsArray.push(value)
+            console.log(formattedPostsArray)
+    
+            localStorage.setItem("hiddenPostList", formattedPostsArray);
+            console.log(localStorage.getItem("hiddenPostList"));
+        }else{
+            localStorage.setItem("hiddenPostList", value);
+        }
 
-        localStorage.setItem("hiddenPostList", formattedPostsArray);
+       if(document.getElementById(value)) {
+        document.getElementById(value).style.display = "none";
+       }
+
+
+
+        // console.log(formattedPostsArray)
+        // formattedPostsArray.push(value)
+        // console.log(formattedPostsArray)
+
+        // localStorage.setItem("hiddenPostList", formattedPostsArray);
         console.log(localStorage.getItem("hiddenPostList"));
 
 

@@ -167,6 +167,17 @@ General Notes  Objectives:
                     ✔ Added UI for the X @done(20-11-05 13:55)
                         ☐ What about hiding articles from WITHIN the article themselves? @started(20-11-30 12:20)
                             11/12/2020 - Let's find out.
+                            14/12/2020 - Managed to createa button that lets you hide articles from the article page itself. I have run into an error that happens when there is nothing in local storage.
+                            I've put in some more work and managed to make progress but there's some weirdness going on...
+                                What works
+                                    Empty Cache -> Hiding on home  -> then hiding in article  - Works as intended
+                                    Empty Cache -> Hiding in article -> hide on home === home article doesnt stay hidden on page refresh (cache issue likely)
+                                    Empty Cache -> Hide Home -> Hide Home - Works As intended
+                                    Empty Cache -> Hide in Page -> hide in page -> Works as intended
+
+                            ... here's an idea. What if I just use the current article button in the article page as a component on the home page. Why don't I just replace the current div i'm using as a hide button with the same component in the article??
+                            ... Yeah thats much better. The styles are completley broken but the code works perfectly which it should as instead of messing around with different caches and updating state, i just use the same code base for the 2 "different" buttons.
+                                    
 
 
 
