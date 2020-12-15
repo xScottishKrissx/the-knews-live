@@ -130,8 +130,11 @@ General Notes  Objectives:
                     16/11/2020
                         Got it working as expected. You can hide multiple articles and they will remain hidden as you work your way through the website. I did this by simply adding a check on component mount that checks the local storage for a list of hidden posts. If it's there it checks the artice id and hides the relevant articles, if not it initialises the with an empty array.
                 ☐ Ability to undo last hide action @started(20-12-15 12:45)
-                ☐ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37)
-                        
+                ✔ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37) @done(20-12-15 15:17) @lasted(1h40m19s)
+                    ✔ Clear cache button should appear when hiding articles. @started(15/12/2020 15:18) @done(15:36 - 15/12/20) @lasted(18m29s)
+                ☐ Add Hide button to Tag Pages
+                    ☐ Tag pages should use the hidden post list in the cache.
+
                     
 
                 Swipe Left:
@@ -167,7 +170,7 @@ General Notes  Objectives:
                 ✔ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41) @done(20-11-05 13:56) @lasted(22h15m22s)
                     // Like an "x" in the corner for example.
                     ✔ Added UI for the X @done(20-11-05 13:55)
-                        ☐ What about hiding articles from WITHIN the article themselves? @started(20-11-30 12:20)
+                        ✔ What about hiding articles from WITHIN the article themselves? @started(20-11-30 12:20) @done(20-12-15 13:39) @lasted(2w1d1h19m34s)
                             11/12/2020 - Let's find out.
                             14/12/2020 - Managed to createa button that lets you hide articles from the article page itself. I have run into an error that happens when there is nothing in local storage.
                             I've put in some more work and managed to make progress but there's some weirdness going on...
@@ -180,7 +183,7 @@ General Notes  Objectives:
                             ... here's an idea. What if I just use the current article button in the article page as a component on the home page. Why don't I just replace the current div i'm using as a hide button with the same component in the article??
                             ... Yeah thats much better. The styles are completley broken but the code works perfectly which it should as instead of messing around with different caches and updating state, i just use the same code base for the 2 "different" buttons.
                             ✔ Fix the styling. @started(20-12-14 14:34) @done(20-12-15 13:31) @lasted(22h57m31s)
-                            ☐ Add Hide button to Tag Pages
+                   
                             
                         
                             
@@ -546,6 +549,7 @@ Part 2 Implement Database functionality:
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
             ✔ Removed Extra Image Loop from articles(as it's a bit pointless) @done(20-12-15 13:18)
             ✔ Fixed format of popup html @done(20-12-10 15:50)
+            ✔ Clear Cache button is now not shown if no articles are currently hidden @done(20-12-15 15:17)
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)

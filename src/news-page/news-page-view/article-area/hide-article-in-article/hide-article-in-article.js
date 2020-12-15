@@ -30,11 +30,12 @@ export class HideArticle extends React.Component{
             localStorage.setItem("hiddenPostList", value);
         }
 
-       if(document.getElementById(value)) {
-        document.getElementById(value).style.display = "none";
-       }
+       if(document.getElementById(value))document.getElementById(value).style.display = "none";
+       
 
-        // console.log(localStorage.getItem("hiddenPostList"));
+
+       // Display unhide btn if cache isn't empty
+       if(localStorage.getItem("hiddenPostList") != null)document.getElementById("clearCache").style.visibility = "visible";
 
     }
     render(){
