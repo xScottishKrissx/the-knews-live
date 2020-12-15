@@ -1,0 +1,49 @@
+/* Universal Style */
+.hideArticleButtonWrapper{
+    background-color: black;
+    color: white;
+
+
+}
+
+.hideArticleButtonWrapper button{
+    height: 2rem;
+    background-color: black;
+    color: white;
+
+    cursor: pointer;
+
+    width: 6rem;
+
+    margin: 0 auto;
+}
+
+
+/* Home Page Hide Button */
+
+.myClass .hideArticleButtonWrapper{
+    position: absolute;
+    z-index: 1;
+    right: 5px;
+    top: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Article Page Hide Button */
+
+.news-article-body .hideArticleButtonWrapper{
+    /* position: absolute; */
+    z-index: 1;
+    /* right: 5px; */
+    /* top: 5px; */
+    padding: 5px;
+    cursor: pointer;
+
+    width: 10rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+.news-article-body .hideArticleButtonWrapper button{
+    margin: 0 auto;
+}

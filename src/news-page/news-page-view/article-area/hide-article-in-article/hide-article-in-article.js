@@ -1,4 +1,5 @@
 import React from 'react';
+import '../hide-article-in-article/hide-article-in-article.css';
 
 export class HideArticle extends React.Component{
     constructor(props){
@@ -7,34 +8,24 @@ export class HideArticle extends React.Component{
             postsArray:[],
         }
         this.hideArticle = this.hideArticle.bind(this);
-
-
-    }
-    componentDidMount(){
-        console.log("Article Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
-
-
     }
 
     hideArticle(value){
         // console.log("Hide Article Button Pressed");
-        console.log(localStorage.getItem("hiddenPostList"));
-        console.log("Post Disappearing is Post:: " + value)
-        console.log(this.state.postsArray)
-        // document.getElementById(value).style.display = "none";
-        // this.state.postsArray.push(value)
+        // console.log(localStorage.getItem("hiddenPostList"));
+        // console.log("Post Disappearing is Post:: " + value)
+        // console.log(this.state.postsArray)
 
         const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-        // const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
 
         if(localStorageHiddenPosts != null){
             const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
-            console.log(formattedPostsArray)
+            // console.log(formattedPostsArray)
             formattedPostsArray.push(value)
-            console.log(formattedPostsArray)
+            // console.log(formattedPostsArray)
     
             localStorage.setItem("hiddenPostList", formattedPostsArray);
-            console.log(localStorage.getItem("hiddenPostList"));
+            // console.log(localStorage.getItem("hiddenPostList"));
         }else{
             localStorage.setItem("hiddenPostList", value);
         }
@@ -43,41 +34,14 @@ export class HideArticle extends React.Component{
         document.getElementById(value).style.display = "none";
        }
 
+        // console.log(localStorage.getItem("hiddenPostList"));
 
-
-        // console.log(formattedPostsArray)
-        // formattedPostsArray.push(value)
-        // console.log(formattedPostsArray)
-
-        // localStorage.setItem("hiddenPostList", formattedPostsArray);
-        console.log(localStorage.getItem("hiddenPostList"));
-
-
-
-        // const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-        // const checkExist = setInterval(function() {
-        //     if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
-        //     console.log("Exists!");
-        //     clearInterval(checkExist);
-        //     const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
-            
-        //         for(var i = 0; i < formattedPostsArray.length; i++){
-        //             if(!!formattedPostsArray && formattedPostsArray[i].toString() === value.id.toString()){
-        //                 // console.log("Hidden Post Identified")
-        //                 // document.getElementById(value.id).style.display = "none";
-        //                 console.log("Success: " + value.id + " hidden");
-        //                 console.log(formattedPostsArray[i]);
-        //             }
-        //         }        
-
-        //     }
-        // }, 100); // check every 100ms
     }
     render(){
         
 
         return(
-            <div>
+            <div className="hideArticleButtonWrapper ">
                 <button onClick={()=> this.hideArticle(this.props.articleId)}>Hide Article</button>
             </div>
         )

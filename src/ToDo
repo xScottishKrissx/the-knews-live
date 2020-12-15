@@ -129,6 +129,8 @@ General Notes  Objectives:
                         Well I've managed to get the swipe to hide multiple posts at a time... the only problem is that when i refresh and swipe away new posts, my previous swipes are overwritten, bringing back the old hidden posts. I'll count that as progress.Please.
                     16/11/2020
                         Got it working as expected. You can hide multiple articles and they will remain hidden as you work your way through the website. I did this by simply adding a check on component mount that checks the local storage for a list of hidden posts. If it's there it checks the artice id and hides the relevant articles, if not it initialises the with an empty array.
+                ☐ Ability to undo last hide action @started(20-12-15 12:45)
+                ☐ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37)
                         
                     
 
@@ -177,15 +179,22 @@ General Notes  Objectives:
 
                             ... here's an idea. What if I just use the current article button in the article page as a component on the home page. Why don't I just replace the current div i'm using as a hide button with the same component in the article??
                             ... Yeah thats much better. The styles are completley broken but the code works perfectly which it should as instead of messing around with different caches and updating state, i just use the same code base for the 2 "different" buttons.
+                            ✔ Fix the styling. @started(20-12-14 14:34) @done(20-12-15 13:31) @lasted(22h57m31s)
+                            ☐ Add Hide button to Tag Pages
+                            
+                        
+                            
+
                                     
 
 
 
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)    
                         ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears.
-                    ☐ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00)
+                    ✔ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00) @done(20-12-14 14:33) @lasted(4w33m55s)
                 ✔ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45) @done(20-12-03 15:41) @lasted(4w23h56m29s)
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
+                    
 
             ☐ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
             ☐ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29)
@@ -528,10 +537,15 @@ Part 2 Implement Database functionality:
             ☐ Implement Mobile Menu using swipe
             
         Version 10.1 - Codebase Cleanup - Release Notes:
+            // Feature Updates
             ☐ A review of the codebase and separation of larger code chunks into smaller more easily manageable components.
-            ✔ Fixed format of popup html @done(20-12-10 15:50)
             ✔ Card Size Control Styles -> Let's get this done. @done(20-12-11 17:04)
             ☐ Ability to hide articles from within article -> Like a mark as read button
+            
+            // Other Updates
+            ✔ Tweaks to Article Styles @done(20-12-15 13:18)
+            ✔ Removed Extra Image Loop from articles(as it's a bit pointless) @done(20-12-15 13:18)
+            ✔ Fixed format of popup html @done(20-12-10 15:50)
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)

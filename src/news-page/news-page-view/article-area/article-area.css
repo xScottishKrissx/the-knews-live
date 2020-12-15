@@ -86,7 +86,7 @@ section h3{
     /* padding: 5px; */
     line-height: 1.75rem;
     /* max-width: 600px; */
-    max-width: 35rem;
+    /* max-width: 35rem; */
     margin: 0 auto;
     white-space: pre-wrap;
     width: 80%;
@@ -104,7 +104,7 @@ section h3{
 
 @media (min-width: 1200px) {
     .news-article-body{
-        display: flex;
+        display: block;
     }
     .__article-sub-header{
         display: flex;
@@ -113,7 +113,7 @@ section h3{
 
 @media (min-width: 1600px) {
     .news-article-body{
-        display: flex;
+        /* display: flex; */
     }
 
     .__article-header{

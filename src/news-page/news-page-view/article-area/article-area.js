@@ -42,7 +42,7 @@ const ArticleArea = (props) => {
                     
                 </div>
                 
-                <HideArticle articleId={props.articleId} />
+                
 
                 <div className='__article-sub-header __1600_style'>
                    
@@ -97,10 +97,11 @@ const ArticleArea = (props) => {
                        
 
                         <PageScore likes={props.likes} dislikes={props.dislikes} id={props.id}/>
+                        
                         </article>                  
- 
+                        <HideArticle articleId={props.articleId} />
 
-                    <ExtraImageLoop />      
+                    {/* <ExtraImageLoop />       */}
                        
                 </div> 
                 

@@ -44,12 +44,12 @@ class NewsItemLoopView extends React.Component{
         }
 
     swipeRightAction(id){   
-        console.log("Post Disappearing is Post:: " + id)
-        console.log(this.state.postsArray)
+        // console.log("Post Disappearing is Post:: " + id)
+        // console.log(this.state.postsArray)
         document.getElementById(id).style.display = "none";
         this.state.postsArray.push(id)
         localStorage.setItem("hiddenPostList", this.state.postsArray);
-        console.log(localStorage.getItem("hiddenPostList"));
+        // console.log(localStorage.getItem("hiddenPostList"));
     }
 
     render(){
@@ -86,13 +86,14 @@ class NewsItemLoopView extends React.Component{
 
                 }
             }, 100); // check every 100ms
-            // console.log(value.id)
+
             return (         
                       
                 <div id={value.id} key={value.id} className="myClass">                   
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
 
-                    <HideArticle articleId={value.id}/>             
+                    <HideArticle articleId={value.id}/>     
+
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
                             
