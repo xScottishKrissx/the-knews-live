@@ -8,6 +8,7 @@ import NavControls from '../utility_components/navControls.js';
 
 import '../tags/tags.css';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
+import ScrollCheck from '../utility_components/ScrollCheck.js';
 
 class Tags extends React.Component{
 
@@ -27,59 +28,55 @@ class Tags extends React.Component{
             
         }
     }
+    // scroll = () => {
+    //     const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    //     const body = document.body;
+    //     const html = document.documentElement;
+    //     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+    //     const windowBottom = windowHeight + window.pageYOffset;
+        
+    //     this.setState({
+    //         scrollsaveScrollPosition: windowBottom
+    //     })
+        
+    //     if(windowBottom >= docHeight){
+    //         const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
+           
+    //        dbRef.on('value', (snapshot) => {
+    //            let newsItems = snapshot.val();
+    //            let newState = [];
+    //            for(let newsItem in newsItems){
+    //                newState.push({
+    //                    key: newsItem,
+    //                    author: newsItems[newsItem].author,
+    //                    title: newsItems[newsItem].title,
+    //                    id:newsItems[newsItem].id
+    //                });
+    //            }
 
+    //             const arrayStart = this.state.arrayStartState;
+    //             const arrayEnd = this.state.arrayEndState;
+    //             this.setState({               
+    //             articlesArray2: newState.slice(arrayStart,arrayEnd),
+    //             arrayStartState: this.state.arrayStartState + 5,
+    //             arrayEndState: this.state.arrayEndState + 5
+    //             })
+
+    //             const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
+    //             this.setState({
+    //                 articlesArray:renderNewArticlesOnScroll
+    //             })    
+                       
+    //        })
+    //         console.log("Bottom Reached")
+    //     }else{
+    //         console.log("Not At Bottom Yet")
+    //     }
+    // }
 
     componentDidMount(){
-        // console.log("Articles" + this.state.articlesArray)
-        // console.log(this.state.searchDBFor)
-        // console.log("My Prop: " + this.props.myprop)
-
-            
-
-            // Works for Article Tags
-                // const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
-            
-            // Works for Tagbar
-                // const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
-
-            // Something that works for both...please
-                // const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.searchDBFor).endAt(this.state.searchDBFor);
-
-
-
-
-            // const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
-    
-            // dbRef.on('value', (snapshot) => {
-            //     let newsItems = snapshot.val();
-            //     // console.log(newsItems);
-            //     let newState = [];
-            //     for(let newsItem in newsItems){
-            //         newState.push({
-            //             key: newsItem,
-            //             author: newsItems[newsItem].author,
-            //             title: newsItems[newsItem].title,
-            //             likes: newsItems[newsItem].likes,
-            //             dislikes: newsItems[newsItem].dislikes,
-            //             id:newsItems[newsItem].id,
-            //             tag:newsItems[newsItem].tag
-            //         });
-            //     }
-    
-            //     this.setState({
-            //         // articlesArray: newState.reverse(),
-            //         articlesArray: newState.slice(0,5)
-            //     })
-            //     console.log(this.state.articlesArray);
-            //     window.addEventListener('scroll', this.scroll);
-                
-            // })
-
-        // const conditionOne = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
-        // const conditionTwo = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
 
         if(this.state.origin === "Article"){
-            console.log("Load Author or Post Date Page")
 
             const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
 
@@ -98,22 +95,16 @@ class Tags extends React.Component{
                         tag:newsItems[newsItem].tag
                     });
                 }
-    
                 this.setState({
-                    // articlesArray: newState.reverse(),
                     articlesArray: newState.slice(0,5)
                 })
-                // console.log(this.state.articlesArray);
+                console.log(this.state.articlesArray)
                 window.addEventListener('scroll', this.scroll);
-                
             })
-
-
-
         }
-        if(this.state.origin === "Tagbar"){
-            console.log("Tag page Please")
 
+        if(this.state.origin === "Tagbar"){
+            
             const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
             
             dbRef.on('value', (snapshot) => {
@@ -133,114 +124,36 @@ class Tags extends React.Component{
                 }
     
                 this.setState({
-                    // articlesArray: newState.reverse(),
                     articlesArray: newState.slice(0,5)
                 })
-                // console.log(this.state.articlesArray);
+                console.log(this.state.articlesArray)
+                localStorage.setItem("articlesArray", this.state.articlesArray)
+                console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
-                
             })
-
         }
-
-
-
-       
-
+        console.log(this.state.articlesArray)
     }
 
-    // componentWillUnmount(){
-    //  fire.database().ref("items").off();
-    // }
+   
 
-    // filterArray(){
-
-    //     console.log()
-    //     const getArray = this.state.articlesArray;
-
-    //     const thing = getArray.find(o => o.tag === 'Sports');
-    //     console.log(thing)
-    
-    scroll = () => {
-        const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-        const body = document.body;
-        const html = document.documentElement;
-        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-        const windowBottom = windowHeight + window.pageYOffset;
-    //    console.log(docHeight);
-    //    console.log(windowBottom)
-        
-        this.setState({
-            scrollsaveScrollPosition: windowBottom
-        })
-
-        if(windowBottom >= docHeight){
-            //console.log(this.state.newCount)
-            const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
-           
-           dbRef.on('value', (snapshot) => {
-               let newsItems = snapshot.val();
-               // console.log(newsItems);
-               let newState = [];
-               for(let newsItem in newsItems){
-                   newState.push({
-                       key: newsItem,
-                       author: newsItems[newsItem].author,
-                       title: newsItems[newsItem].title,
-                       id:newsItems[newsItem].id
-                   });
-               }
-
-               const arrayStart = this.state.arrayStartState;
-               const arrayEnd = this.state.arrayEndState;
-               console.log(this.state.articlesArray2)
-               this.setState({               
-                articlesArray2: newState.slice(arrayStart,arrayEnd),
-                arrayStartState: this.state.arrayStartState + 5,
-                arrayEndState: this.state.arrayEndState + 5
-               })
-               console.log(this.state.articlesArray)
-            //    console.log(this.state.arrayStartState)
-            //    console.log(this.state.articlesArray2)
-               
-            const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
-               this.setState({
-                   articlesArray:renderNewArticlesOnScroll
-               })    
-                       
-           })
-
-            console.log("Bottom Reached")
-        }else{
-            console.log("Not At Bottom Yet")
-        }
-    }
 
     componentWillUnmount(){
-        // console.log("Unmount on news-item-loop.js")
-        // window.addEventListener('scroll', this.scroll);
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
       }
 
     render(){
-        // this.filterArray("Sports", this.state.articlesArray);
-        // const test1 = this.props.location.state.tag;
-        // console.log("State Says::" + test1)
         const new1 = this.state.articlesArray;
-    //    console.log(this.state.articlesArray)
+        console.log(new1)
         const pageView = new1.map((value,key) => {
-            
-
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            ///... and this.
             const style = {
                 backgroundImage: 'url(' + imgUrl + ')',
                 backgroundPosition: "bottom",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 height: "400px",
-                // width:"100%"
             }   
 
             return(
@@ -270,11 +183,19 @@ class Tags extends React.Component{
                         <h1>Showing articles from {this.props.location.state.author}</h1>
                         }                        
                         {pageView}
-                        
+
+
+                        <ScrollCheck 
+                            tagState={this.props.location.state.tag}
+                            authorState={this.props.location.state.author}
+                            postdateState={this.props.location.state.postdate}
+                            searchDBFor={this.props.location.state.searchDBFor}
+                            origin={this.props.location.state.origin}
+                            articleArray={this.state.articlesArray}
+                        />
                 </div>
             </div>
         )
     }
 }
-
 export default Tags;

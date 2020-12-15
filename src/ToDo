@@ -58,6 +58,9 @@ Codebase:
         ✔ Can the check for hidden posts in cache be moved? @started(20-12-10 13:58) @done(20-12-10 14:05) @lasted(7m54s)
             // Dont think so, it uses the map to select id's, unless there's something im missing I think it needs to be where it is.
     ✔ Moved the html parser component into utility components folder @done(20-12-10 15:54)
+    ☐ Can the Scroll code section be moved into a component? @started(15:57 - 15/12/20)
+        ☐ Let's try with the tag page as test case 
+            // 15/12 - I think it's possible, i just need to work out how to get the articles array into the correct format in and out of state across the components.
         
 
 General Notes  Objectives:
@@ -133,7 +136,11 @@ General Notes  Objectives:
                 ✔ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37) @done(20-12-15 15:17) @lasted(1h40m19s)
                     ✔ Clear cache button should appear when hiding articles. @started(15/12/2020 15:18) @done(15:36 - 15/12/20) @lasted(18m29s)
                     
-                ☐ Add Hide button to Tag Pages
+                ☐ Add Hide button to Tag Pages @started(15:49 - 15/12/20)
+                    ✔ Got the UI in and I can hide articles. @done(15:50 - 15/12/20)
+                    ☐ The tags page is so bloated, let's get this cleaned up before carrying on
+                        // 280 Lines --> 184 Lines -- There's still a lot of room for optimsation though. 
+                    ☐ Just need to get the cache integration working. @started(15:49 - 15/12/20)
                     ☐ Tag pages should use the hidden post list in the cache.
 
                     
