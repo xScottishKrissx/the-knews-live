@@ -7,7 +7,7 @@ import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 import SwipeLeftContent from '../news-item-loop-view/swipe-views/swipe-left-content.js';
-import HideArticle from '../../../../news-page/news-page-view/article-area/hide-article-in-article/hide-article-in-article';
+import HideArticle from '../../../../utility_components/hide-article/hide-article';
 
 
 class NewsItemLoopView extends React.Component{

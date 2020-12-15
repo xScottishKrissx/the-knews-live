@@ -11,7 +11,7 @@ import PageScore from '../social/page-score.js';
 // import EditArticle from './edit-article.js';
 
 import './article-area.css';
-import HideArticle from './hide-article-in-article/hide-article-in-article.js';
+import HideArticle from '../../../utility_components/hide-article/hide-article.js';
 // import ScrollToTopBtn from '../../../utility_components/scrollToTop.js';
 
 

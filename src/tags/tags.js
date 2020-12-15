@@ -7,6 +7,7 @@ import NavControls from '../utility_components/navControls.js';
 
 
 import '../tags/tags.css';
+import HideArticle from '../utility_components/hide-article/hide-article.js';
 
 class Tags extends React.Component{
 
@@ -243,7 +244,8 @@ class Tags extends React.Component{
             }   
 
             return(
-                <div className='news-square'  key={key}>                    
+                <div className='news-square'  key={key} id={value.id}>    
+                <HideArticle articleId={value.id}/>                
                 <Caption 
                     pageid={value.key} 
                     style={style} 

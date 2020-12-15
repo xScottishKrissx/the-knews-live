@@ -1,5 +1,5 @@
 import React from 'react';
-import '../hide-article-in-article/hide-article-in-article.css';
+import './hide-article.css';
 
 export class HideArticle extends React.Component{
     constructor(props){
@@ -11,9 +11,9 @@ export class HideArticle extends React.Component{
     }
 
     hideArticle(value){
-        // console.log("Hide Article Button Pressed");
+        console.log("Hide Article Button Pressed");
         // console.log(localStorage.getItem("hiddenPostList"));
-        // console.log("Post Disappearing is Post:: " + value)
+        console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
         const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
@@ -35,7 +35,9 @@ export class HideArticle extends React.Component{
 
 
        // Display unhide btn if cache isn't empty
-       if(localStorage.getItem("hiddenPostList") != null)document.getElementById("clearCache").style.visibility = "visible";
+       if(localStorage.getItem("hiddenPostList") != null && document.getElementById("clearCache")){
+           document.getElementById("clearCache").style.visibility = "visible";
+       }
 
     }
     render(){
