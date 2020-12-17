@@ -65,6 +65,8 @@ Codebase:
             // This seems to have done the trick, with the array now being passed as an actual array and not objects.
             // This doesnt mean I'm anywhere finished with this, as the scrolling isnt working correctly which I think is the same issue as above. Arrays not actually being arrays.
             Progress at least.
+            // so.... it's possible that I have actually succeeded in moving the scroll component to it's own thing. My problem is that the tags page may never have been working correctly in the first place so I'm not 100% sure what's right or wrong. I'm going to leave this for today because I'm so utterly confused by what I've done that I'm not sure what's up or down anymore.
+            Tommorow i'll plug the scroll component into the homepage(because I know that's actually working) or fix the tags page.
         
 
 General Notes  Objectives:

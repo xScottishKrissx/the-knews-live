@@ -9,12 +9,14 @@ class ScrollCheck extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articlesArray: localStorage.getItem("articlesArray"),
+            articlesArray: [],
             arrayStartState: 5,
             arrayEndState: 10,
             test: props.tagState || props.authorState || props.postdateState,
             // test: this.props.location.state.tag,
             tagState: props.tagState,
+            authorState: props.authorState,
+            postdateState: props.postdateState,
             searchDBFor: props.searchDBFor,
             origin: props.origin,
             articlesArray2:[],
@@ -30,13 +32,15 @@ class ScrollCheck extends React.Component{
         console.log(JSON.parse(articles))
 
         window.addEventListener('scroll', this.scroll);
-        console.log(this.props.articlesArray)
-        console.log(localStorage.getItem("articlesArray"))
+        // console.log(this.props.articlesArray)
+        // console.log(localStorage.getItem("articlesArray"))
         
-        const thing = localStorage.getItem("articlesArray")
-        console.log("Articles Array --> " + thing)
+        // const thing = localStorage.getItem("articlesArray")
+        // console.log("Articles Array --> " + thing)
 
+        console.log("SearchDBFor -> " + this.state.searchDBFor)
 
+        console.log("Current Tag --> " + this.props.tagState)
     }
 
     scroll = () => {
@@ -48,8 +52,10 @@ class ScrollCheck extends React.Component{
         
         
         
+
+
         if(windowBottom >= docHeight){
-            console.log(this.state.articlesArray)
+            
             const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
            
            dbRef.on('value', (snapshot) => {
@@ -72,9 +78,19 @@ class ScrollCheck extends React.Component{
                 arrayEndState: this.state.arrayEndState + 5
                 })
 
-                const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
+               
+                
+                const articles = localStorage.getItem("articlesArray")
+                console.log(JSON.parse(articles))
+                const thing12 = JSON.parse(articles)
+
+
+                console.log(Array.isArray(thing12))
+                console.log(this.state.articlesArray2)
+
+                const renderNewArticlesOnScroll = thing12.concat(this.state.articlesArray2);
                 this.setState({
-                    articlesArray3:renderNewArticlesOnScroll
+                    articlesArray:renderNewArticlesOnScroll
                 })    
 
 
@@ -86,10 +102,16 @@ class ScrollCheck extends React.Component{
             console.log("Not At Bottom Yet")
         }
     }
-    render(){
-        console.log(this.state.articlesArray3)
 
-        const new1 = Array.from(this.state.articlesArray3);
+    componentWillUnmount(){
+        window.removeEventListener('scroll',this.scroll);
+        fire.database().ref("items").off();
+      }
+
+    render(){
+        // console.log(this.state.articlesArray3)
+
+        const new1 = this.state.articlesArray;
         console.log(new1)
 
         // const result = Object.entries(this.state.articlesArray);
@@ -97,13 +119,13 @@ class ScrollCheck extends React.Component{
         //     console.log('key is:- ', item[0], ' and value is:- ', item[1]); 
         // });
 
-        const articles = localStorage.getItem("articlesArray")
-        console.log(JSON.parse(articles))
-        const thing12 = JSON.parse(articles)
-        console.log(Array.isArray(thing12))
+        // const articles = localStorage.getItem("articlesArray")
+        // console.log(JSON.parse(articles))
+        // const thing12 = JSON.parse(articles)
+        // console.log(Array.isArray(thing12))
         
         
-        const pageView = thing12.map((value,key) => {
+        const pageView = new1.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             const style = {
                 backgroundImage: 'url(' + imgUrl + ')',

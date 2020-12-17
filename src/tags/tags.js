@@ -28,54 +28,65 @@ class Tags extends React.Component{
             
         }
     }
-    // scroll = () => {
-    //     const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-    //     const body = document.body;
-    //     const html = document.documentElement;
-    //     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-    //     const windowBottom = windowHeight + window.pageYOffset;
+    // 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    scroll = () => {
+        const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+        const body = document.body;
+        const html = document.documentElement;
+        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+        const windowBottom = windowHeight + window.pageYOffset;
         
-    //     this.setState({
-    //         scrollsaveScrollPosition: windowBottom
-    //     })
+        this.setState({
+            scrollsaveScrollPosition: windowBottom
+        })
         
-    //     if(windowBottom >= docHeight){
-    //         const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
+        if(windowBottom >= docHeight){
+            const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
            
-    //        dbRef.on('value', (snapshot) => {
-    //            let newsItems = snapshot.val();
-    //            let newState = [];
-    //            for(let newsItem in newsItems){
-    //                newState.push({
-    //                    key: newsItem,
-    //                    author: newsItems[newsItem].author,
-    //                    title: newsItems[newsItem].title,
-    //                    id:newsItems[newsItem].id
-    //                });
-    //            }
+           dbRef.on('value', (snapshot) => {
+               let newsItems = snapshot.val();
+               let newState = [];
+               for(let newsItem in newsItems){
+                   newState.push({
+                       key: newsItem,
+                       author: newsItems[newsItem].author,
+                       title: newsItems[newsItem].title,
+                       id:newsItems[newsItem].id
+                   });
+               }
 
-    //             const arrayStart = this.state.arrayStartState;
-    //             const arrayEnd = this.state.arrayEndState;
-    //             this.setState({               
-    //             articlesArray2: newState.slice(arrayStart,arrayEnd),
-    //             arrayStartState: this.state.arrayStartState + 5,
-    //             arrayEndState: this.state.arrayEndState + 5
-    //             })
+                const arrayStart = this.state.arrayStartState;
+                const arrayEnd = this.state.arrayEndState;
+                this.setState({               
+                articlesArray2: newState.slice(arrayStart,arrayEnd),
+                arrayStartState: this.state.arrayStartState + 5,
+                arrayEndState: this.state.arrayEndState + 5
+                })
 
-    //             const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
-    //             this.setState({
-    //                 articlesArray:renderNewArticlesOnScroll
-    //             })    
+                const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
+                this.setState({
+                    articlesArray:renderNewArticlesOnScroll
+                })    
                        
-    //        })
-    //         console.log("Bottom Reached")
-    //     }else{
-    //         console.log("Not At Bottom Yet")
-    //     }
-    // }
+           })
+            console.log("Bottom Reached")
+        }else{
+            console.log("Not At Bottom Yet")
+        }
+    }
 
     componentDidMount(){
-
+        console.log(this.props.location.state.tag)
         if(this.state.origin === "Article"){
 
             const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
@@ -99,6 +110,7 @@ class Tags extends React.Component{
                     articlesArray: newState.slice(0,5)
                 })
                 console.log(this.state.articlesArray)
+                localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 window.addEventListener('scroll', this.scroll);
             })
         }
@@ -133,6 +145,8 @@ class Tags extends React.Component{
             })
         }
         console.log(this.state.articlesArray)
+
+        console.log("Current Tag --> " + this.state.tagState)
     }
 
    
@@ -147,10 +161,14 @@ class Tags extends React.Component{
         const new1 = this.state.articlesArray;
         console.log(new1)
 
-        const result = Object.entries(new1);
-        result.map((item, index)=>{
-            console.log('key is:- ', item[0], ' and value is:- ', item[1]); 
-        });
+                
+        console.log("SearchDBFor -> " + this.state.searchDBFor)
+
+
+        // const result = Object.entries(new1);
+        // result.map((item, index)=>{
+        //     console.log('key is:- ', item[0], ' and value is:- ', item[1]); 
+        // });
 
         const pageView = new1.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -191,14 +209,14 @@ class Tags extends React.Component{
                         {pageView}
 
 
-                        <ScrollCheck 
+                        {/* <ScrollCheck 
                             tagState={this.props.location.state.tag}
                             authorState={this.props.location.state.author}
                             postdateState={this.props.location.state.postdate}
                             searchDBFor={this.props.location.state.searchDBFor}
                             origin={this.props.location.state.origin}
                             articleArray={this.state.articlesArray}
-                        />
+                        /> */}
                 </div>
             </div>
         )
