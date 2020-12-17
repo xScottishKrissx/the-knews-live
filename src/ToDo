@@ -61,6 +61,10 @@ Codebase:
     ☐ Can the Scroll code section be moved into a component? @started(15:57 - 15/12/20)
         ☐ Let's try with the tag page as test case 
             // 15/12 - I think it's possible, i just need to work out how to get the articles array into the correct format in and out of state across the components.
+            // 17/12 - Breakthrough...maybe? Passing the array as a prop just gives me object object which is where I've been stuck. Getting it into an array to be used for the .map was the sticking point here. However, a stackOverflow user suggested turning the array into a string before setting it into localstorage, and then parsing it back into an array.
+            // This seems to have done the trick, with the array now being passed as an actual array and not objects.
+            // This doesnt mean I'm anywhere finished with this, as the scrolling isnt working correctly which I think is the same issue as above. Arrays not actually being arrays.
+            Progress at least.
         
 
 General Notes  Objectives:

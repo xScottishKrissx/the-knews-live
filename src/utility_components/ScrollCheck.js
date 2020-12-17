@@ -18,20 +18,25 @@ class ScrollCheck extends React.Component{
             searchDBFor: props.searchDBFor,
             origin: props.origin,
             articlesArray2:[],
-            articlesArray3:[]
+            articlesArray3:[],
+            thing5: props.articleArray
 
             
             
         }
     }
     componentDidMount(){
-        localStorage.getItem("articlesArray")
+        const articles = localStorage.getItem("articlesArray")
+        console.log(JSON.parse(articles))
+
         window.addEventListener('scroll', this.scroll);
         console.log(this.props.articlesArray)
         console.log(localStorage.getItem("articlesArray"))
         
         const thing = localStorage.getItem("articlesArray")
         console.log("Articles Array --> " + thing)
+
+
     }
 
     scroll = () => {
@@ -71,6 +76,9 @@ class ScrollCheck extends React.Component{
                 this.setState({
                     articlesArray3:renderNewArticlesOnScroll
                 })    
+
+
+        
                        
            })
             console.log("Bottom Reached")
@@ -83,7 +91,19 @@ class ScrollCheck extends React.Component{
 
         const new1 = Array.from(this.state.articlesArray3);
         console.log(new1)
-        const pageView = new1.map((value,key) => {
+
+        // const result = Object.entries(this.state.articlesArray);
+        // result.map((item, index)=>{
+        //     console.log('key is:- ', item[0], ' and value is:- ', item[1]); 
+        // });
+
+        const articles = localStorage.getItem("articlesArray")
+        console.log(JSON.parse(articles))
+        const thing12 = JSON.parse(articles)
+        console.log(Array.isArray(thing12))
+        
+        
+        const pageView = thing12.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             const style = {
                 backgroundImage: 'url(' + imgUrl + ')',
@@ -97,7 +117,7 @@ class ScrollCheck extends React.Component{
                     {/* <HideArticle articleId={value.id}/>                 */}
                     <Caption 
                         pageid={value.key} 
-                        // style={style} 
+                        style={style} 
                         title={value.title}
                         author={value.author}
                         likes={value.likes}
