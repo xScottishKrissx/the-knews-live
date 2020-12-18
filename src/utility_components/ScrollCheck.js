@@ -28,8 +28,8 @@ class ScrollCheck extends React.Component{
         }
     }
     componentDidMount(){
-        const articles = localStorage.getItem("articlesArray")
-        console.log(JSON.parse(articles))
+        // const articles = localStorage.getItem("articlesArray")
+        // console.log(JSON.parse(articles))
 
         window.addEventListener('scroll', this.scroll);
         // console.log(this.props.articlesArray)
@@ -41,6 +41,18 @@ class ScrollCheck extends React.Component{
         console.log("SearchDBFor -> " + this.state.searchDBFor)
 
         console.log("Current Tag --> " + this.props.tagState)
+
+        const articles = localStorage.getItem("articlesArray")
+        console.log(JSON.parse(articles))
+        const thing12 = JSON.parse(articles)
+
+        this.setState({
+            articleArray:thing12
+        })
+
+
+        console.log(Array.isArray(thing12))
+        console.log(this.state.articlesArray2)
     }
 
     scroll = () => {
@@ -56,7 +68,7 @@ class ScrollCheck extends React.Component{
 
         if(windowBottom >= docHeight){
             
-            const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test)
+            const dbRef = fire.database().ref('items').orderByChild("tag").startAt("Sports").endAt("Sports")
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
@@ -80,18 +92,19 @@ class ScrollCheck extends React.Component{
 
                
                 
-                const articles = localStorage.getItem("articlesArray")
-                console.log(JSON.parse(articles))
-                const thing12 = JSON.parse(articles)
+                // const articles = localStorage.getItem("articlesArray")
+                // console.log(JSON.parse(articles))
+                // const thing12 = JSON.parse(articles)
 
 
-                console.log(Array.isArray(thing12))
-                console.log(this.state.articlesArray2)
+                // console.log(Array.isArray(thing12))
+                // console.log(this.state.articlesArray2)
 
-                const renderNewArticlesOnScroll = thing12.concat(this.state.articlesArray2);
+                const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
                 this.setState({
                     articlesArray:renderNewArticlesOnScroll
                 })    
+                console.log(this.state.articlesArray)
 
 
         
@@ -110,7 +123,7 @@ class ScrollCheck extends React.Component{
 
     render(){
         // console.log(this.state.articlesArray3)
-
+        console.log(this.state.articlesArray)
         const new1 = this.state.articlesArray;
         console.log(new1)
 
@@ -151,7 +164,10 @@ class ScrollCheck extends React.Component{
             )
         })
         return(
-            <div>{pageView}</div>
+            <React.Fragment>
+            <div>Scroll Component</div>
+            {pageView}
+            </React.Fragment>
         )
     }
 }

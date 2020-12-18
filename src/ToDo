@@ -67,6 +67,9 @@ Codebase:
             Progress at least.
             // so.... it's possible that I have actually succeeded in moving the scroll component to it's own thing. My problem is that the tags page may never have been working correctly in the first place so I'm not 100% sure what's right or wrong. I'm going to leave this for today because I'm so utterly confused by what I've done that I'm not sure what's up or down anymore.
             Tommorow i'll plug the scroll component into the homepage(because I know that's actually working) or fix the tags page.
+            18/12 - Priority is to get the tags page working -> It should only be showing articles with the current tag (ie sports page should only show sports tagged pages)
+            // Ok some progress. I can get the tags page working as expected by hardcoding the database values into the query. Not a solution but at least I know what the problem is. The ScrollCheck component can also be configured to work this way although instead of loading new articles it's loading the same articles already on the page. Again, not a solution but I know what I need to work on.
+            // It's working...mostly. It's now outputting the correct articles from the database onto the page and not overwriting everything as it was previously. The only catch is that the database query is still hardcoded in so i'll need to fix that next.
         
 
 General Notes  Objectives:
