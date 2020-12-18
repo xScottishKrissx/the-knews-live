@@ -139,9 +139,9 @@ class Tags extends React.Component{
                 this.setState({
                     articlesArray: newState.slice(0,5)
                 })
-                console.log(this.state.articlesArray)
+                // console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
-                console.log(localStorage.getItem("articlesArray"))
+                // console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
             })
         }
@@ -160,16 +160,6 @@ class Tags extends React.Component{
 
     render(){
         const new1 = this.state.articlesArray;
-        // console.log(new1)
-
-                
-        // console.log("SearchDBFor -> " + this.state.searchDBFor)
-
-
-        // const result = Object.entries(new1);
-        // result.map((item, index)=>{
-        //     console.log('key is:- ', item[0], ' and value is:- ', item[1]); 
-        // });
 
         const pageView = new1.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;

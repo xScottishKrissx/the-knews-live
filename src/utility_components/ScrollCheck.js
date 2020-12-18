@@ -19,40 +19,22 @@ class ScrollCheck extends React.Component{
             postdateState: props.postdateState,
             searchDBFor: props.searchDBFor,
             origin: props.origin,
-            articlesArray2:[],
-            articlesArray3:[],
-            thing5: props.articleArray
-
-            
-            
+            articlesArray2:[],            
         }
     }
     componentDidMount(){
-        // const articles = localStorage.getItem("articlesArray")
-        // console.log(JSON.parse(articles))
-
         window.addEventListener('scroll', this.scroll);
-        // console.log(this.props.articlesArray)
-        // console.log(localStorage.getItem("articlesArray"))
-        
-        // const thing = localStorage.getItem("articlesArray")
-        // console.log("Articles Array --> " + thing)
 
         console.log("SearchDBFor -> " + this.state.searchDBFor)
-
         console.log("Current Tag --> " + this.props.tagState)
 
-        const articles = localStorage.getItem("articlesArray")
-        console.log(JSON.parse(articles))
-        const thing12 = JSON.parse(articles)
+        const articlesFromCache = localStorage.getItem("articlesArray")
+        const parsedArticleArray = JSON.parse(articlesFromCache)
 
         this.setState({
-            articleArray:thing12
+            articleArray:parsedArticleArray
         })
 
-
-        console.log(Array.isArray(thing12))
-        console.log(this.state.articlesArray2)
     }
 
     scroll = () => {
@@ -61,14 +43,10 @@ class ScrollCheck extends React.Component{
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset;
-        
-        
-        
-
-
+          
         if(windowBottom >= docHeight){
             
-            const dbRef = fire.database().ref('items').orderByChild("tag").startAt("Sports").endAt("Sports")
+            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.searchDBFor).endAt(this.state.searchDBFor)
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
@@ -90,25 +68,11 @@ class ScrollCheck extends React.Component{
                 arrayEndState: this.state.arrayEndState + 5
                 })
 
-               
-                
-                // const articles = localStorage.getItem("articlesArray")
-                // console.log(JSON.parse(articles))
-                // const thing12 = JSON.parse(articles)
-
-
-                // console.log(Array.isArray(thing12))
-                // console.log(this.state.articlesArray2)
-
                 const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
                 this.setState({
                     articlesArray:renderNewArticlesOnScroll
                 })    
-                console.log(this.state.articlesArray)
-
-
-        
-                       
+                console.log(this.state.articlesArray)       
            })
             console.log("Bottom Reached")
         }else{
@@ -123,19 +87,9 @@ class ScrollCheck extends React.Component{
 
     render(){
         // console.log(this.state.articlesArray3)
-        console.log(this.state.articlesArray)
+        // console.log(this.state.articlesArray)
         const new1 = this.state.articlesArray;
-        console.log(new1)
-
-        // const result = Object.entries(this.state.articlesArray);
-        // result.map((item, index)=>{
-        //     console.log('key is:- ', item[0], ' and value is:- ', item[1]); 
-        // });
-
-        // const articles = localStorage.getItem("articlesArray")
-        // console.log(JSON.parse(articles))
-        // const thing12 = JSON.parse(articles)
-        // console.log(Array.isArray(thing12))
+        // console.log(new1)
         
         
         const pageView = new1.map((value,key) => {
@@ -163,10 +117,10 @@ class ScrollCheck extends React.Component{
                 </div>
             )
         })
+
         return(
             <React.Fragment>
-            <div>Scroll Component</div>
-            {pageView}
+                {pageView}
             </React.Fragment>
         )
     }
