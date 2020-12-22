@@ -51,15 +51,15 @@ class TagBar extends React.Component{
         return(
             <div className="tagbar-wrapper">
                 <ul>
-                <Link myprop="Sports" className="news-item-link" to={{pathname: '/theKnews/tags/sports' , state: {searchDBFor: "Sports", tag3:this.state.articlesArray, origin: "Tagbar" } }}>                    
+                <Link myprop="Sports" className="news-item-link" to={{pathname: '/theKnews/tags/sports' , state: {searchDBFor: "Sports", tag3:this.state.articlesArray, origin: "Tagbar", orderByChild: "tag" } }}>                    
                     <li onClick={() => this.getTagArticles("Sports")} >Sports</li>
                 </Link>
 
-                <Link className="news-item-link" to={{pathname: '/theKnews/tags/news' , state: {searchDBFor: "News", tag3:this.state.articlesArray,origin: "Tagbar" }}}>
+                <Link className="news-item-link" to={{pathname: '/theKnews/tags/news' , state: {searchDBFor: "News", tag3:this.state.articlesArray,origin: "Tagbar",orderByChild: "tag" }}}>
                     <li onClick={() => this.getTagArticles("News")} >News</li>
                 </Link>
 
-                <Link className="news-item-link" to={{pathname: '/theKnews/tags/weather' , state: {searchDBFor: "Weather", tag3:this.state.articlesArray,origin: "Tagbar"}}}>
+                <Link className="news-item-link" to={{pathname: '/theKnews/tags/weather' , state: {searchDBFor: "Weather", tag3:this.state.articlesArray,origin: "Tagbar", orderByChild: "tag"}}}>
                     <li onClick={() => this.getTagArticles("Weather")} >Weather</li>
                 </Link>
                 

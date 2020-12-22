@@ -73,9 +73,9 @@ Codebase:
             ✔ The scrolling works from all of the tag page but NOT when accessing tags via the article page @done(11:14 - 22/12/20)
                 // The issue is that the scrollCheck code isn't searching the database for "Sports" etc, its searching for "tag".
                 // Solved this by using a simple or check for both the options the database can search for.
-            ☐ How does the scrollcheck work with:
-                ☐ Post Date
-                ☐ Author
+            ✔ How does the scrollcheck work with: @done(11:37 - 22/12/20)
+                ✔ Post Date @done(11:37 - 22/12/20)
+                ✔ Author @done(11:37 - 22/12/20)
         
 
 General Notes  Objectives:

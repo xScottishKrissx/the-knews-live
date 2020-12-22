@@ -14,19 +14,17 @@ class ScrollCheck extends React.Component{
             arrayEndState: 10,
             test: props.tagState || props.authorState || props.postdateState,
             // test: this.props.location.state.tag,
-            tagState: props.tagState,
-            authorState: props.authorState,
-            postdateState: props.postdateState,
             searchDBFor: props.searchDBFor,
             origin: props.origin,
-            articlesArray2:[],            
+            articlesArray2:[],     
+            orderByChild:props.orderByChild       
         }
     }
     componentDidMount(){
         window.addEventListener('scroll', this.scroll);
 
-        console.log("SearchDBFor -> " + this.state.searchDBFor)
-        console.log("Current Tag --> " + this.props.tagState)
+        // console.log("SearchDBFor -> " + this.state.searchDBFor)
+        // console.log("Current Tag --> " + this.props.tagState)
 
         const articlesFromCache = localStorage.getItem("articlesArray")
         const parsedArticleArray = JSON.parse(articlesFromCache)
@@ -34,7 +32,10 @@ class ScrollCheck extends React.Component{
         this.setState({
             articleArray:parsedArticleArray
         })
-        console.log(this.state.authorState)
+        // console.log(this.state.authorState)
+
+        // console.log("Order Database By 1 --> " + this.state.searchDBFor)
+        // console.log("Order Database By 2 --> " + this.state.orderByChild)
     }
 
     scroll = () => {
@@ -47,9 +48,13 @@ class ScrollCheck extends React.Component{
         if(windowBottom >= docHeight){
             // console.log("SearchDBFor -> " + this.state.searchDBFor || this.state.authorState)
             // console.log("SearchDBFor -> " + this.state.authorState)
+            // console.log(this.state.searchDBFor)
+            // console.log("Post Date State --> " + this.state.postdateState)
+            
+            // console.log("Order Database By --> " + this.state.orderByChild)
             const getNewArticlesUsing = this.state.authorState || this.state.searchDBFor;
             // console.log(getNewArticlesUsing)
-            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(getNewArticlesUsing).endAt(getNewArticlesUsing)
+            const dbRef = fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(getNewArticlesUsing).endAt(getNewArticlesUsing)
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();

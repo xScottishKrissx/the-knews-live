@@ -48,7 +48,7 @@ const ArticleArea = (props) => {
                    
                     <h2 className="__article-subtitle">
                         <span>Posted</span>
-                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/postdate' , state: {author: props.postdate, searchDBFor: "postdate",origin: "Article"}}}>
+                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/postdate' , state: {author: props.postdate, searchDBFor: "postdate",origin: "Article", orderByChild: "postdate"}}}>
                             {props.postdate}
                         </Link>
                     </h2>
@@ -56,7 +56,7 @@ const ArticleArea = (props) => {
                     
                     <h3 className="__article-author">
                         <span>Author</span>
-                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/author' , state: {author: props.author, searchDBFor: "author",origin: "Article"}}}>
+                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/author' , state: {author: props.author, searchDBFor: "author",origin: "Article", orderByChild: "author"}}}>
                                 {props.author}
                         </Link>
                     </h3>
