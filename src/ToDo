@@ -58,8 +58,8 @@ Codebase:
         ✔ Can the check for hidden posts in cache be moved? @started(20-12-10 13:58) @done(20-12-10 14:05) @lasted(7m54s)
             // Dont think so, it uses the map to select id's, unless there's something im missing I think it needs to be where it is.
     ✔ Moved the html parser component into utility components folder @done(20-12-10 15:54)
-    ☐ Can the Scroll code section be moved into a component? @started(15:57 - 15/12/20)
-        ☐ Let's try with the tag page as test case 
+    ✔ Can the Scroll code section be moved into a component? @started(15:57 - 15/12/20) @done(12:27 - 22/12/20) @lasted(6d20h30m59s)
+        ✔ Let's try with the tag page as test case @done(12:28 - 22/12/20)
             // 15/12 - I think it's possible, i just need to work out how to get the articles array into the correct format in and out of state across the components.
             // 17/12 - Breakthrough...maybe? Passing the array as a prop just gives me object object which is where I've been stuck. Getting it into an array to be used for the .map was the sticking point here. However, a stackOverflow user suggested turning the array into a string before setting it into localstorage, and then parsing it back into an array.
             // This seems to have done the trick, with the array now being passed as an actual array and not objects.
@@ -89,6 +89,10 @@ Codebase:
                     // Well it worked for the most part. Got a few presentational glitches but the actual component is working as expected.
                 ☐ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves.
                     ☐ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20)
+    ☐ Create a new component for rendering the card view @started(12:28 - 22/12/20)
+            
+                
+                
         
 
 General Notes  Objectives:
