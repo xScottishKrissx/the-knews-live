@@ -76,7 +76,7 @@ Codebase:
             ✔ How does the scrollcheck work with: @done(11:37 - 22/12/20)
                 ✔ Post Date @done(11:37 - 22/12/20)
                 ✔ Author @done(11:37 - 22/12/20)
-            ☐ Would passing the dbRef as a prop make the query step much simpler?
+            ✔ Would passing the dbRef as a prop make the query step much simpler? @done(12:16 - 22/12/20)
                 // So doing this via tagbar
                     -- Everything works as expected.
                 // via the article page
@@ -85,7 +85,10 @@ Codebase:
                         -- Page just breaks on load - Path Undefined
                             -- Forgot to add the orderbyChild
                     -- 
-                ☐ So now that that works, what about plugging the home page scroll into the scrollcheck component?
+                ✔ So now that that works, what about plugging the home page scroll into the scrollcheck component? @done(12:16 - 22/12/20)
+                    // Well it worked for the most part. Got a few presentational glitches but the actual component is working as expected.
+                ☐ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves.
+                    ☐ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20)
         
 
 General Notes  Objectives:

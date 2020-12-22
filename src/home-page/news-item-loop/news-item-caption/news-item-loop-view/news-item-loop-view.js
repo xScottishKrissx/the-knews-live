@@ -1,4 +1,5 @@
 import React from 'react';
+import fire from '../../../../fire.js'
 import '../news-item-loop-view/news-item-loop-view.css';
 import Caption from '../../news-item-caption/news-item-caption.js';
 import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
@@ -8,6 +9,7 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 import SwipeLeftContent from '../news-item-loop-view/swipe-views/swipe-left-content.js';
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
+import ScrollCheck from '../../../../utility_components/ScrollCheck';
 
 
 class NewsItemLoopView extends React.Component{
@@ -88,7 +90,9 @@ class NewsItemLoopView extends React.Component{
             }, 100); // check every 100ms
 
             return (         
-                      
+                
+                // <RenderCards />
+                
                 <div id={value.id} key={value.id} className="myClass">                   
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
 
@@ -130,7 +134,7 @@ class NewsItemLoopView extends React.Component{
                         </SwipeableListItem>
                         </SwipeableList>
                 </div>
-                        
+                      
             );
             
       }) 
@@ -139,6 +143,7 @@ class NewsItemLoopView extends React.Component{
             <div className="newsItemLoopViewWrapper">
                 
                 {HomePageView}
+                <ScrollCheck databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) } />
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
         )
