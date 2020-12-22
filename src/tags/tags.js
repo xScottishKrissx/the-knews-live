@@ -24,15 +24,16 @@ class Tags extends React.Component{
             searchDBFor: this.props.location.state.searchDBFor,
             origin: this.props.location.state.origin,
 
-            orderByChild: this.props.location.state.orderByChild
+            orderByChild: this.props.location.state.orderByChild,
 
-            
+            getNewArticlesUsing: this.props.location.state.author || this.props.location.state.searchDBFor
             
         }
     }
  
     componentDidMount(){
         console.log(this.props.location.state.tag)
+        
         
         if(this.state.origin === "Article"){
             console.log("Search Database for Tag --> " + this.props.location.state.author)
@@ -157,6 +158,8 @@ class Tags extends React.Component{
                             articleArray={this.state.articlesArray}
 
                             orderByChild={this.state.orderByChild}
+
+                            databaseReference = {fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}
                         />
                 </div>
             </div>

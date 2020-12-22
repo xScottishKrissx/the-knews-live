@@ -73,6 +73,7 @@ class MapDatabaseItems extends React.Component{
 
     // I feel like this has to be here. It relies heavily on changing the array state and interacting with the view.
     // This is checking if the page has been scrolled to the bottom, if it has, it will then load new articles onto the page.
+    
     scroll = () => {
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
         const body = document.body;

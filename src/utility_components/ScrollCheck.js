@@ -15,9 +15,11 @@ class ScrollCheck extends React.Component{
             test: props.tagState || props.authorState || props.postdateState,
             // test: this.props.location.state.tag,
             searchDBFor: props.searchDBFor,
+            authorState:props.authorState,
             origin: props.origin,
             articlesArray2:[],     
-            orderByChild:props.orderByChild       
+            orderByChild:props.orderByChild,
+            dbRef: props.databaseReference    
         }
     }
     componentDidMount(){
@@ -36,6 +38,8 @@ class ScrollCheck extends React.Component{
 
         // console.log("Order Database By 1 --> " + this.state.searchDBFor)
         // console.log("Order Database By 2 --> " + this.state.orderByChild)
+
+        console.log(this.state.dbRef)
     }
 
     scroll = () => {
@@ -54,8 +58,11 @@ class ScrollCheck extends React.Component{
             // console.log("Order Database By --> " + this.state.orderByChild)
             const getNewArticlesUsing = this.state.authorState || this.state.searchDBFor;
             // console.log(getNewArticlesUsing)
-            const dbRef = fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(getNewArticlesUsing).endAt(getNewArticlesUsing)
+
+
+            // const dbRef = fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(getNewArticlesUsing).endAt(getNewArticlesUsing)
            
+                const dbRef = this.state.dbRef;
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
                let newState = [];
