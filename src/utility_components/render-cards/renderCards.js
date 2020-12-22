@@ -8,7 +8,12 @@ class RenderCards extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-
+            id:props.id,
+            title: props.title,
+            author: props.author,
+            text: props.text,
+            closePopup: props.closePopup,
+            headerImage:props.id
         }
         this.getCardSize = this.getCardSize.bind(this);
     }

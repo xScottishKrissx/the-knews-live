@@ -9,6 +9,7 @@ import NavControls from '../utility_components/navControls.js';
 import '../tags/tags.css';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
 import ScrollCheck from '../utility_components/ScrollCheck.js';
+import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
 
 class Tags extends React.Component{
 
@@ -138,6 +139,7 @@ class Tags extends React.Component{
         })
 
         return(
+            
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
                         <NavControls props="only-home-button"/>
@@ -145,7 +147,9 @@ class Tags extends React.Component{
                         <h1>Showing articles from {this.props.location.state.searchDBFor}</h1>
                         : 
                         <h1>Showing articles from {this.props.location.state.author}</h1>
-                        }                        
+                        }              
+
+                        <NewsItemLoopView databaseProp={new1}/>          
                         {pageView}
 
 

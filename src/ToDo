@@ -90,6 +90,8 @@ Codebase:
                 ☐ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves.
                     ☐ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20)
     ☐ Create a new component for rendering the card view @started(12:28 - 22/12/20)
+        ☐ Wait... didn't I already do this? Why not just use the news-item-loop-view from before?  
+            // Just chucking the component in there threw up an error. 
             
                 
                 
