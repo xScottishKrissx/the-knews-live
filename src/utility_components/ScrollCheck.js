@@ -34,7 +34,7 @@ class ScrollCheck extends React.Component{
         this.setState({
             articleArray:parsedArticleArray
         })
-
+        console.log(this.state.authorState)
     }
 
     scroll = () => {
@@ -45,8 +45,11 @@ class ScrollCheck extends React.Component{
         const windowBottom = windowHeight + window.pageYOffset;
           
         if(windowBottom >= docHeight){
-            
-            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.searchDBFor).endAt(this.state.searchDBFor)
+            // console.log("SearchDBFor -> " + this.state.searchDBFor || this.state.authorState)
+            // console.log("SearchDBFor -> " + this.state.authorState)
+            const getNewArticlesUsing = this.state.authorState || this.state.searchDBFor;
+            // console.log(getNewArticlesUsing)
+            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(getNewArticlesUsing).endAt(getNewArticlesUsing)
            
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
@@ -56,7 +59,8 @@ class ScrollCheck extends React.Component{
                        key: newsItem,
                        author: newsItems[newsItem].author,
                        title: newsItems[newsItem].title,
-                       id:newsItems[newsItem].id
+                       id:newsItems[newsItem].id,
+                       tag:newsItems[newsItem].tag
                    });
                }
 

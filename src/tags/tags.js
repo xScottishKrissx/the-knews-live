@@ -88,8 +88,11 @@ class Tags extends React.Component{
 
     componentDidMount(){
         console.log(this.props.location.state.tag)
+        
         if(this.state.origin === "Article"){
-
+            console.log("Search Database for Tag --> " + this.props.location.state.author)
+            console.log(this.state.test)
+            console.log(this.state.searchDBFor)
             const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
 
             dbRef.on('value', (snapshot) => {
@@ -117,7 +120,7 @@ class Tags extends React.Component{
         }
 
         if(this.state.origin === "Tagbar"){
-            
+           
             const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
             
             dbRef.on('value', (snapshot) => {
