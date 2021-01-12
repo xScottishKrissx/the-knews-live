@@ -149,7 +149,7 @@ class Tags extends React.Component{
                         <h1>Showing articles from {this.props.location.state.author}</h1>
                         }              
 
-                        <NewsItemLoopView databaseProp={new1}/>          
+                        {/* <NewsItemLoopView databaseProp={new1}/>           */}
                         {pageView}
 
 

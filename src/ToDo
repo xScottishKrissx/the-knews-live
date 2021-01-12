@@ -94,7 +94,16 @@ Codebase:
             // Just chucking the component in there threw up an error. 
             
                 
-                
+    2021 Restart:
+        ☐ Oh good lord, it's been a while since I worked on this. I know that it's broken... i just don't know how.
+        ☐ God Help Me @started(12:37 - 12/01/21)
+            ☐ So it look's like I was messing around with the tag component because that's where the error is.
+            (NOTE:: i am using my github version to look at what i've done, Im just talking myself through my process and trying to jog the memory. I can revert the push but that won't really help me remember what I was doing.)
+            // Ok got it kind of. 
+                // The problem code is in tags.js - <NewsItemLoopView databaseProp={new1}/>
+                    ...now why that code a problem I aint the foggiest but I'm back and in the mood for programming...
+                    ... so let's stop for the day while I go and look for a job that will help me buy stuff.
+                    ... in the middle of a global pandemic while being out of work for about 6 months...easy.
         
 
 General Notes  Objectives:
