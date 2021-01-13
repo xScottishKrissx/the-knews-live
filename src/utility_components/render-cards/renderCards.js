@@ -21,7 +21,7 @@ class RenderCards extends React.Component{
     render(){
         return(
                 
-            <div id={value.id} key={value.id} className="myClass">                   
+            <div id={this.props.id} key={value.id} className="myClass">                   
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
 
                     <HideArticle articleId={value.id}/>     

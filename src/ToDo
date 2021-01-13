@@ -53,6 +53,7 @@ Codebase:
             ✔ Move the swiping code into this file. @done(20-12-08 16:08)
             ✔ The hide article button is invisible. @done(20-12-08 16:18)
                 // I think I want a file for this as well but one step at a time.
+
             //
         ✔ Moved Swipe Left into it's own component @done(20-12-10 13:56)
         ✔ Can the check for hidden posts in cache be moved? @started(20-12-10 13:58) @done(20-12-10 14:05) @lasted(7m54s)
@@ -104,7 +105,30 @@ Codebase:
                     ...now why that code a problem I aint the foggiest but I'm back and in the mood for programming...
                     ... so let's stop for the day while I go and look for a job that will help me buy stuff.
                     ... in the middle of a global pandemic while being out of work for about 6 months...easy.
-        
+            13/1/2021
+                // Back for more and trying to figure out what I was doing with the component in tags.js
+                    // I think was attempting to create a new component for rendering the cards.
+                    // Yeah, im drawing a blank. Going to do other stuff while I get properly back into the swing of things.
+
+                    // I think I know what has happeneed. I was in the middle of creating a new component responsible for the output of the cards. This could be used on the homepage and in tags which would reduce duplication and simplify the workflow. 
+                    
+                    // However, in the middle of creating this component I noticed that newsitemloopview.js was the exact thing I was trying to create. All I needed to do was make sure the database call coming in was correct. When I added <NewsItemLoopView databaseProp={new1}/> to the tags.js file, it broke and I couldn't figure out why which is where I stopped for Christmas and New Year.
+
+                    // Knowing all of that I still don't know why it's not working, but I'm convinced it can work and will save me a lot of headache when working with the cards.
+
+                    // Aha, the issue is in the Parser component. This is the component I'm using to properly format my text from the database. If I disable it, the tags page works as expected albeit with no article text.
+
+                    // So the problem is coming from the swipe-left-content.js file where ParseHTML is located. Now to figure out what the issue is.
+
+                    // There's something going wrong the value.text prop, showing as undefined which it shouldnt.
+
+                    // I didn't add the text field to the original database query in tags.js. That's what caused this entire problem.
+
+                    // Yup, the tags page is loading without an error after fixing the database query in tags.js
+
+                    // With that fixed i still think the render cards component is a good idea. The newsitemloopview is still a chunky piece of code. Splitting the actual view of the cards into their own thing will cut down on the size of the file and make it more manageable.
+
+                    // Alhtough now the tags page isn't loading the new articles properly... it's neverending is it? Let's move on.
 
 General Notes  Objectives:
         Add some accessibility options:
@@ -178,6 +202,10 @@ General Notes  Objectives:
                 ☐ Ability to undo last hide action @started(20-12-15 12:45)
                 ✔ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37) @done(20-12-15 15:17) @lasted(1h40m19s)
                     ✔ Clear cache button should appear when hiding articles. @started(15/12/2020 15:18) @done(15:36 - 15/12/20) @lasted(18m29s)
+                
+                ☐ Hide button not appearing on newly loaded articles on home page @started(13:30 - 13/01/21)
+                    // Looks like I was in the middle of a new render cards component that would be responsible for the output of cards and everything with them. I didn't complete it which is why newly loaded articles don't have a hide button.
+                    // The solution is to complete and implement the new component.
                     
                 ☐ Add Hide button to Tag Pages @started(15:49 - 15/12/20)
                     ✔ Got the UI in and I can hide articles. @done(15:50 - 15/12/20)
@@ -584,7 +612,9 @@ Part 2 Implement Database functionality:
  -----
 
         Version 12 - Planned:
-            ☐ myKnews - The Return. 
+            ✘ myKnews - The Return. @cancelled(13:10 - 13/01/21)
+                // I need to move on from this project so i'm cancelling this. It's time to move on, i'll incorporate this into other projects.
+
             ☐ Get Like and Dislike to work separate from myKnews
 
         Version 11 (Future Version) - Planned Notes:

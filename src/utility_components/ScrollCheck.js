@@ -28,12 +28,16 @@ class ScrollCheck extends React.Component{
         // console.log("SearchDBFor -> " + this.state.searchDBFor)
         // console.log("Current Tag --> " + this.props.tagState)
 
+        
         const articlesFromCache = localStorage.getItem("articlesArray")
+        
         const parsedArticleArray = JSON.parse(articlesFromCache)
 
         this.setState({
             articleArray:parsedArticleArray
         })
+
+
         // console.log(this.state.authorState)
 
         // console.log("Order Database By 1 --> " + this.state.searchDBFor)
@@ -107,7 +111,7 @@ class ScrollCheck extends React.Component{
         const new1 = this.state.articlesArray;
         // console.log(new1)
         
-        
+        // Load new Articles into view on scroll.
         const pageView = new1.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             const style = {
@@ -119,6 +123,7 @@ class ScrollCheck extends React.Component{
             }   
             return(
                 <div className='news-square'  key={key} id={value.id}>    
+                
                     {/* <HideArticle articleId={value.id}/>                 */}
                     <Caption 
                         pageid={value.key} 
@@ -137,6 +142,7 @@ class ScrollCheck extends React.Component{
         return(
             <React.Fragment>
                 {pageView}
+                   
             </React.Fragment>
         )
     }

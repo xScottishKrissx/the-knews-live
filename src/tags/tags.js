@@ -54,7 +54,8 @@ class Tags extends React.Component{
                         likes: newsItems[newsItem].likes,
                         dislikes: newsItems[newsItem].dislikes,
                         id:newsItems[newsItem].id,
-                        tag:newsItems[newsItem].tag
+                        tag:newsItems[newsItem].tag,
+                        text:newsItems[newsItem].text
                     });
                 }
                 this.setState({
@@ -82,7 +83,8 @@ class Tags extends React.Component{
                         likes: newsItems[newsItem].likes,
                         dislikes: newsItems[newsItem].dislikes,
                         id:newsItems[newsItem].id,
-                        tag:newsItems[newsItem].tag
+                        tag:newsItems[newsItem].tag,
+                        text:newsItems[newsItem].text
                     });
                 }
     
@@ -110,6 +112,7 @@ class Tags extends React.Component{
 
     render(){
         const new1 = this.state.articlesArray;
+        console.log(new1)
 
         const pageView = new1.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -149,8 +152,8 @@ class Tags extends React.Component{
                         <h1>Showing articles from {this.props.location.state.author}</h1>
                         }              
 
-                        {/* <NewsItemLoopView databaseProp={new1}/>           */}
-                        {pageView}
+                        <NewsItemLoopView databaseProp={new1}/>          
+                        {/* {pageView} */}
 
 
                         <ScrollCheck 

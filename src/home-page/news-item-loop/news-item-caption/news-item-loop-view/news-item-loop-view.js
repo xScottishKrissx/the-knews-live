@@ -55,7 +55,9 @@ class NewsItemLoopView extends React.Component{
     }
 
     render(){
-        const HomePageView = this.props.databaseProp.map((value,key) => {           
+        console.log(this.props.databaseProp)
+        const HomePageView = this.props.databaseProp.map((value,key) => {        
+
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             ///... and this.
@@ -95,9 +97,10 @@ class NewsItemLoopView extends React.Component{
                 
                 <div id={value.id} key={value.id} className="myClass">                   
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
-
+                    
+                    
                     <HideArticle articleId={value.id}/>     
-
+                    
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
                             
