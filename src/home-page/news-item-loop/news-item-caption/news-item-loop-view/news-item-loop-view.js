@@ -10,6 +10,8 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import SwipeLeftContent from '../news-item-loop-view/swipe-views/swipe-left-content.js';
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheck from '../../../../utility_components/ScrollCheck';
+import RenderCards from '../../../../utility_components/render-cards/renderCards.js';
+import RenderCardStyle from '../../../../utility_components/render-cards/renderCardStyles.js';
 
 
 class NewsItemLoopView extends React.Component{
@@ -55,9 +57,11 @@ class NewsItemLoopView extends React.Component{
     }
 
     render(){
-        console.log(this.props.databaseProp)
+        // console.log(this.props.databaseProp)
         const HomePageView = this.props.databaseProp.map((value,key) => {        
 
+
+            
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             ///... and this.
@@ -69,6 +73,7 @@ class NewsItemLoopView extends React.Component{
                 height: "400px",
                 // width:"100%"
             }    
+            
             
             // This is checking to see if there are hidden posts in cache. If there are then they're set to be hidden before render.
             console.log("Home Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
@@ -93,7 +98,22 @@ class NewsItemLoopView extends React.Component{
 
             return (         
                 
-                // <RenderCards />
+                // <RenderCards 
+                //     id={value.id}
+                //     title={value.title}
+                //     author={value.author}
+                //     text={value.text}
+                //     likes={value.likes}
+                //     dislikes={value.dislikes}
+                //     closePopup={this.closePopup}
+                //     headerImage={value.id}
+                //     key1={key}
+                //     key2={value.key}
+                    
+                //     // startingCardSize={this.state.startingCardSize}
+                //     // changedCardSize={this.state.changedCardSize}
+                //     // style={style}
+                // />
                 
                 <div id={value.id} key={value.id} className="myClass">                   
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}

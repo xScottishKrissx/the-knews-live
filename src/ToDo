@@ -90,16 +90,20 @@ Codebase:
                     // Well it worked for the most part. Got a few presentational glitches but the actual component is working as expected.
                 ☐ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves.
                     ☐ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20)
-    ☐ Create a new component for rendering the card view @started(12:28 - 22/12/20)
-        ☐ Wait... didn't I already do this? Why not just use the news-item-loop-view from before?  
+    ✘ Create a new component for rendering the card view @started(12:28 - 22/12/20) @cancelled(13:27 - 14/01/21) @wasted(3w2d59m36s)
+        ✔ Wait... didn't I already do this? Why not just use the news-item-loop-view from before? @done(11:59 - 14/01/21)
             // Just chucking the component in there threw up an error. 
+        ✘ Go even further, just have the view for the cards and nothing else in it's own thing @cancelled(13:27 - 14/01/21)
+            ✘ The RenderCards component has been created but now the custom card size controls aren't working correctly. @cancelled(13:27 - 14/01/21)
+                // You need to refresh the page for the changes to take effect.
+        // I don't think the RenderCard component is necessary at this point. The file is large because it needs to be. I'm not sure there's a whole lot I can do about it.
             
                 
     2021 Restart:
-        ☐ Oh good lord, it's been a while since I worked on this. I know that it's broken... i just don't know how.
-        ☐ God Help Me @started(12:37 - 12/01/21)
-            ☐ So it look's like I was messing around with the tag component because that's where the error is.
-            (NOTE:: i am using my github version to look at what i've done, Im just talking myself through my process and trying to jog the memory. I can revert the push but that won't really help me remember what I was doing.)
+        // Oh good lord, it's been a while since I worked on this. I know that it's broken... i just don't know how.
+        //    God Help Me @started(12:37 - 12/01/21)
+            //So it look's like I was messing around with the tag component because that's where the error is.
+            (NOTE:: i am using github to look at what i've done, Im just talking myself through my process and trying to jog the memory. I can revert the push but that won't really help me remember what I was doing.)
             // Ok got it kind of. 
                 // The problem code is in tags.js - <NewsItemLoopView databaseProp={new1}/>
                     ...now why that code a problem I aint the foggiest but I'm back and in the mood for programming...

@@ -4,6 +4,7 @@ import fire from '../fire.js';
 
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
+import RenderCards from './render-cards/renderCards.js';
 
 class ScrollCheck extends React.Component{
     constructor(props){
@@ -113,6 +114,8 @@ class ScrollCheck extends React.Component{
         
         // Load new Articles into view on scroll.
         const pageView = new1.map((value,key) => {
+            
+        // <RenderCards id={value.id} />
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             const style = {
                 backgroundImage: 'url(' + imgUrl + ')',
@@ -140,8 +143,10 @@ class ScrollCheck extends React.Component{
         })
 
         return(
+            
             <React.Fragment>
                 {pageView}
+                
                    
             </React.Fragment>
         )
