@@ -114,32 +114,32 @@ class Tags extends React.Component{
         const new1 = this.state.articlesArray;
         console.log(new1)
 
-        const pageView = new1.map((value,key) => {
-            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            const style = {
-                backgroundImage: 'url(' + imgUrl + ')',
-                backgroundPosition: "bottom",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-            }   
+        // const pageView = new1.map((value,key) => {
+        //     const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
+        //     const style = {
+        //         backgroundImage: 'url(' + imgUrl + ')',
+        //         backgroundPosition: "bottom",
+        //         backgroundRepeat: "no-repeat",
+        //         backgroundSize: "cover",
+        //         height: "400px",
+        //     }   
 
-            return(
-                <div className='news-square'  key={key} id={value.id}>    
-                <HideArticle articleId={value.id}/>                
-                <Caption 
-                    pageid={value.key} 
-                    style={style} 
-                    title={value.title}
-                    author={value.author}
-                    likes={value.likes}
-                    dislikes={value.dislikes}
+        //     return(
+        //         <div className='news-square'  key={key} id={value.id}>    
+        //         <HideArticle articleId={value.id}/>                
+        //         <Caption 
+        //             pageid={value.key} 
+        //             style={style} 
+        //             title={value.title}
+        //             author={value.author}
+        //             likes={value.likes}
+        //             dislikes={value.dislikes}
                     
-                    />
+        //             />
                     
-        </div>
-            )
-        })
+        // </div>
+        //     )
+        // })
 
         return(
             

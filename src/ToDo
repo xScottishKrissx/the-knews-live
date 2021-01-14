@@ -97,6 +97,11 @@ Codebase:
             ✘ The RenderCards component has been created but now the custom card size controls aren't working correctly. @cancelled(13:27 - 14/01/21)
                 // You need to refresh the page for the changes to take effect.
         // I don't think the RenderCard component is necessary at this point. The file is large because it needs to be. I'm not sure there's a whole lot I can do about it.
+        // Right I'm now going around in circles as I realise how messed up my code is. I would benefit from a single render card component but creating that will break other stuff that I can't figure out how to fix. Everything works, I could carry on and be content with what I have but it's not ideal.
+        // This is one of the reasons I want to move on from this project. It's a project started literally years ago, and everytime I come back to it I learn new stuff and forget other stuff. This is still the first major react project I have done so it doesnt help that It's put together over time periods with different knowledge bases.
+        // I think the best course of action is to stop trying to fix older stuff, take what I've learned from this and apply it to the next project, one which I wont do bit's and pieces spaced years apart. 
+        // There are good things about this project but I think it's beginning to get in the way of learning React properly.
+        
             
                 
     2021 Restart:

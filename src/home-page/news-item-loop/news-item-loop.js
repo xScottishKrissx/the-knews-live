@@ -132,12 +132,15 @@ class MapDatabaseItems extends React.Component{
          return (
             
             <div className="news-item-loop-wrapper"> 
+            <React.Fragment>
                 <NewsItemLoopView databaseProp={firebaseDB} />     
                   
                 <ScrollToTopButton   />
                 {/* <ScrollCheck 
                     databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100)}
-                /> */}
+                // /> */}
+                {/* <ScrollCheck databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) } /> */}
+                </React.Fragment>
             </div>
         );  
     }       

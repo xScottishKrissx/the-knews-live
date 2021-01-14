@@ -4,6 +4,7 @@ import fire from '../fire.js';
 
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
+import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
 import RenderCards from './render-cards/renderCards.js';
 
 class ScrollCheck extends React.Component{
@@ -116,29 +117,41 @@ class ScrollCheck extends React.Component{
         const pageView = new1.map((value,key) => {
             
         // <RenderCards id={value.id} />
-            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            const style = {
-                backgroundImage: 'url(' + imgUrl + ')',
-                backgroundPosition: "bottom",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-            }   
+        
+            // const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
+            // const style = {
+            //     backgroundImage: 'url(' + imgUrl + ')',
+            //     backgroundPosition: "bottom",
+            //     backgroundRepeat: "no-repeat",
+            //     backgroundSize: "cover",
+            //     height: "400px",
+            // }   
             return(
-                <div className='news-square'  key={key} id={value.id}>    
+                <RenderCards 
+                    key={key}
+                    key2={value.key}
+                    id={value.id}
+                    title={value.title}
+                    author={value.author}
+                    likes={value.likes}
+                    dislikes={value.dislikes}
+
+                />
+
+                // <div className='news-square'  key={key} id={value.id}>    
                 
-                    {/* <HideArticle articleId={value.id}/>                 */}
-                    <Caption 
-                        pageid={value.key} 
-                        style={style} 
-                        title={value.title}
-                        author={value.author}
-                        likes={value.likes}
-                        dislikes={value.dislikes}
+                //     {/* <HideArticle articleId={value.id}/>                 */}
+                //     <Caption 
+                //         pageid={value.key} 
+                //         style={style} 
+                //         title={value.title}
+                //         author={value.author}
+                //         likes={value.likes}
+                //         dislikes={value.dislikes}
                         
-                        />
+                //         />
                         
-                </div>
+                // </div>
             )
         })
 
@@ -146,6 +159,7 @@ class ScrollCheck extends React.Component{
             
             <React.Fragment>
                 {pageView}
+                {/* <NewsItemLoopView databaseProp={new1} /> */}
                 
                    
             </React.Fragment>

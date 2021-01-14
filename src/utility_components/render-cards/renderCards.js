@@ -35,55 +35,12 @@ class RenderCards extends React.Component{
             postsArray:[],
             // style: props.style
         }
-        this.getCardSize = this.getCardSize.bind(this);
-    }
-    getCardSize(value){
-        this.setState({
-            startingCardSize:{
-                width:value
-            }
-        })
+        // this.getCardSize = this.getCardSize.bind(this);
     }
 
-    swipeLeftAction(text,id){
-        document.getElementById("popup" + id).style.display = "block";
-        document.getElementById("articlePopupBackground"  + id).style.display = "block";
-        document.body.style.overflow = "hidden";       
-    }
-        closePopup = (id) => {
-            document.getElementById("popup" + id).style.display = "none";
-            document.getElementById("articlePopupBackground" + id).style.display = "none";            
-            document.body.style.overflow = "auto";
-            console.log(id)
-        }
-
-    swipeRightAction(id){   
-        // console.log("Post Disappearing is Post:: " + id)
-        // console.log(this.state.postsArray)
-        document.getElementById(id).style.display = "none";
-        this.state.postsArray.push(id)
-        localStorage.setItem("hiddenPostList", this.state.postsArray);
-        // console.log(localStorage.getItem("hiddenPostList"));
-    }
     render(){
 
-
-        const id = this.state.id;
-        const title = this.state.title;
-        const author = this.state.author;
-        const text = this.state.text;
-        const likes = this.state.likes;
-        const dislikes = this.state.dislikes;
-        const closePopup = this.state.closePopup;
-        const headerImageId = this.props.id
-        const key = this.state.key;
-        const key2 = this.state.key2;
-        const startingCardSize = this.state.startingCardSize;
-        const changedCardSize = this.state.changedCardSize;
-        // const style = this.state.style;
-
-        // There is probably a better way of doing this...
-        const imgUrl = "https://unsplash.it/500/200?random=" + id;
+        const imgUrl = "https://unsplash.it/500/200?random=" + this.state.id;
         ///... and this.
         const style = {
             backgroundImage: 'url(' + imgUrl + ')',
@@ -95,50 +52,25 @@ class RenderCards extends React.Component{
         }   
         return(
            
-            <div id={id} key={id} className="myClass">                   
-                    {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
-                    <CustomCardSize getCardSizeToParent={this.getCardSize} />
-                    <HideArticle articleId={id}/> 
-                    
-
-                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                        <SwipeableListItem 
-                            
-                            swipeLeft={{
-                                content: <SwipeLeftContent 
-                                        id={id} 
-                                        title={title} 
-                                        author={author} 
-                                        text={text} 
-                                        closePopup={this.closePopup} 
-                                        headerImage={headerImageId} />,
-                                action: () => this.swipeLeftAction(text, id) 
-                            }}
-                            
-                            swipeRight={{
-                                content: <div>Hiding article...</div>, 
-                                action: () => this.swipeRightAction(id)
-                            }}
-                        >
-                                
-                                <div className='news-square'  key={key}  
-                                style={startingCardSize || changedCardSize } >                    
-                                    <Caption 
-                                        pageid={key2}
-                                        style={style}
-                                        title={title}
-                                        author={author}
-                                        likes={likes}
-                                        dislikes={dislikes}
-                                        articleId={id}
-                                        />
+                  
+            <div className='news-square'  key={this.state.key} id={this.state.id}>    
+                
+            <HideArticle articleId={this.state.id}/>                
+            <Caption 
+                pageid={this.state.key2} 
+                style={style} 
+                title={this.state.title}
+                author={this.state.author}
+                likes={this.state.likes}
+                dislikes={this.state.dislikes}
+            />
+                
+        </div>
                                         
-                                </div>
+                                
                         
-                        </SwipeableListItem>
-                        </SwipeableList>
-                        
-                </div>
+
+                
         )
         
     }
