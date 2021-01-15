@@ -10,6 +10,8 @@ import '../tags/tags.css';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
 import ScrollCheck from '../utility_components/ScrollCheck.js';
 import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
+import ClearCache from '../utility_components/ClearCache.js';
+import CheckCache from '../utility_components/checkCache.js';
 
 class Tags extends React.Component{
 
@@ -114,37 +116,67 @@ class Tags extends React.Component{
         const new1 = this.state.articlesArray;
         console.log(new1)
 
-        // const pageView = new1.map((value,key) => {
-        //     const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-        //     const style = {
-        //         backgroundImage: 'url(' + imgUrl + ')',
-        //         backgroundPosition: "bottom",
-        //         backgroundRepeat: "no-repeat",
-        //         backgroundSize: "cover",
-        //         height: "400px",
-        //     }   
+        const pageView = new1.map((value,key) => {
+            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
+            const style = {
+                backgroundImage: 'url(' + imgUrl + ')',
+                backgroundPosition: "bottom",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                height: "400px",
+            }   
 
-        //     return(
-        //         <div className='news-square'  key={key} id={value.id}>    
-        //         <HideArticle articleId={value.id}/>                
-        //         <Caption 
-        //             pageid={value.key} 
-        //             style={style} 
-        //             title={value.title}
-        //             author={value.author}
-        //             likes={value.likes}
-        //             dislikes={value.dislikes}
-                    
-        //             />
-                    
-        // </div>
-        //     )
-        // })
+            // console.log("Home Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
+            // const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
+            // const checkExist = setInterval(function() {
+            //     if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
+            //     console.log("Exists!");
+            //     clearInterval(checkExist);
+            //     const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
+
+            //         for(var i = 0; i < formattedPostsArray.length; i++){
+            //             if(!!formattedPostsArray && formattedPostsArray[i].toString() === value.id.toString()){
+            //                 // console.log("Hidden Post Identified")
+            //                 document.getElementById(value.id).style.display = "none";
+            //                 console.log("Success: " + value.id + " hidden");
+            //                 console.log(formattedPostsArray[i]);
+            //             }
+            //         }        
+
+            //     }
+            // }, 100); // check every 100ms
+
+            
+
+            return(
+                
+                   
+                <div id={value.id} key={value.id} className="myClass">   
+                    <div className='news-square'  key={key} id={value.id}>    
+                    <HideArticle articleId={value.id}/>  
+                    <CheckCache id={value.id}/>  
+                    <Caption 
+                        pageid={value.key} 
+                        style={style} 
+                        title={value.title}
+                        author={value.author}
+                        likes={value.likes}
+                        dislikes={value.dislikes}
+                        
+                        />
+                        
+                    </div>
+                </div>
+                
+            )
+        })
 
         return(
             
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
+                        <ClearCache />
+                        
                         <NavControls props="only-home-button"/>
                         {this.props.location.state.author === undefined ?
                         <h1>Showing articles from {this.props.location.state.searchDBFor}</h1>
@@ -152,8 +184,8 @@ class Tags extends React.Component{
                         <h1>Showing articles from {this.props.location.state.author}</h1>
                         }              
 
-                        <NewsItemLoopView databaseProp={new1}/>          
-                        {/* {pageView} */}
+                        {/* <NewsItemLoopView databaseProp={new1}/>           */}
+                        {pageView}
 
 
                         <ScrollCheck 

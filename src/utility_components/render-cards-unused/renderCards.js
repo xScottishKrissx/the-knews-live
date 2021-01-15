@@ -63,18 +63,10 @@ class RenderCards extends React.Component{
                 author={this.state.author}
                 likes={this.state.likes}
                 dislikes={this.state.dislikes}
-            />
-                
-        </div>
-                                        
-                                
-                        
-
-                
+            />           
+        </div>                                
         )
-        
     }
-    
 }
 
-export default RenderCards;
+// export default RenderCards;

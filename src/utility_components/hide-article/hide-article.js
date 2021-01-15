@@ -6,10 +6,15 @@ export class HideArticle extends React.Component{
         super(props);
         this.state ={
             postsArray:[],
+            articleId:props.articleId,
+            articleHidden:""
         }
         this.hideArticle = this.hideArticle.bind(this);
     }
 
+    componentDidMount(){
+        console.log(this.state.articleId)
+    }
     hideArticle(value){
         console.log("Hide Article Button Pressed");
         // console.log(localStorage.getItem("hiddenPostList"));
@@ -31,6 +36,7 @@ export class HideArticle extends React.Component{
         }
 
        if(document.getElementById(value))document.getElementById(value).style.display = "none";
+       if(document.getElementById("btn"+value))document.getElementById("btn"+value).style.display = "block";
        
 
 
@@ -39,13 +45,26 @@ export class HideArticle extends React.Component{
            document.getElementById("clearCache").style.visibility = "visible";
        }
 
+
+       this.setState({
+           articleHidden: true
+       })
     }
+
+
     render(){
         
 
         return(
-            <div className="hideArticleButtonWrapper ">
-                <button onClick={()=> this.hideArticle(this.props.articleId)}>Hide Article</button>
+            <div>
+                {this.state.articleHidden === true ?
+                <button>You won't see this article again :)</button>
+
+                :
+                <div className="hideArticleButtonWrapper ">
+                    <button id={this.state.articleId} onClick={()=> this.hideArticle(this.props.articleId)}>Hide Article</button>
+                </div>
+                }
             </div>
         )
     }

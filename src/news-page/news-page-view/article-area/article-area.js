@@ -99,6 +99,7 @@ const ArticleArea = (props) => {
                         <PageScore likes={props.likes} dislikes={props.dislikes} id={props.id}/>
                         
                         </article>                  
+                        
                         <HideArticle articleId={props.articleId} />
 
                     {/* <ExtraImageLoop />       */}

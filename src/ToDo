@@ -101,7 +101,8 @@ Codebase:
         // This is one of the reasons I want to move on from this project. It's a project started literally years ago, and everytime I come back to it I learn new stuff and forget other stuff. This is still the first major react project I have done so it doesnt help that It's put together over time periods with different knowledge bases.
         // I think the best course of action is to stop trying to fix older stuff, take what I've learned from this and apply it to the next project, one which I wont do bit's and pieces spaced years apart. 
         // There are good things about this project but I think it's beginning to get in the way of learning React properly.
-        
+    ✔ Created Component for Checking Cache for hidden posts and then hiding them. @done(15:49 - 15/01/21)
+
             
                 
     2021 Restart:
@@ -386,7 +387,7 @@ General Notes  Objectives:
             // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
 
     
-        Article Page:
+        Article:
             ✔ Basic Structure @done(18-08-13 18:03)
                 ✔ Large Header Image at top @done(18-08-01 11:50)
                 ✔   Main Header Below @done(18-08-13 18:03)
@@ -412,6 +413,7 @@ General Notes  Objectives:
                 ✘ More research needed here @started(20-10-27 17:53) @cancelled(20-11-25 17:28) @wasted(4w23h35m34s)
                 // Too much work and i'm not sure how to fit into this project.
                 // Circle back in later projects.
+            ✔ Added ability to hide article from article page @done(16:56 - 15/01/21)
 
             Header Image and Article Info Area:
                 ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
@@ -515,7 +517,7 @@ General Notes  Objectives:
 
                 /// can leave email and tags already has its own page
             
-            ☐ The ability to mark an article as hidden from the article page instead of just the cross on the homepage @started(20-11-30 12:21)
+            ✔ The ability to mark an article as hidden from the article page instead of just the cross on the homepage @started(20-11-30 12:21) @done(16:57 - 15/01/21) @lasted(-3h23m54s)
                  
 
     theKnews:
@@ -631,9 +633,9 @@ Part 2 Implement Database functionality:
             
         Version 10.1 - Codebase Cleanup - Release Notes:
             // Feature Updates
-            ☐ A review of the codebase and separation of larger code chunks into smaller more easily manageable components.
+            ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components. @done(15:04 - 15/01/21)
             ✔ Card Size Control Styles -> Let's get this done. @done(20-12-11 17:04)
-            ☐ Ability to hide articles from within article -> Like a mark as read button
+            ✔ Ability to hide articles from within article -> Like a mark as read button @done(15:04 - 15/01/21)
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)

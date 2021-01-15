@@ -5,7 +5,8 @@ import fire from '../fire.js';
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
-import RenderCards from './render-cards/renderCards.js';
+import RenderCards from './render-cards-unused/renderCards.js';
+import HideArticle from '../utility_components/hide-article/hide-article.js';
 
 class ScrollCheck extends React.Component{
     constructor(props){
@@ -62,7 +63,7 @@ class ScrollCheck extends React.Component{
             // console.log("Post Date State --> " + this.state.postdateState)
             
             // console.log("Order Database By --> " + this.state.orderByChild)
-            const getNewArticlesUsing = this.state.authorState || this.state.searchDBFor;
+            // const getNewArticlesUsing = this.state.authorState || this.state.searchDBFor;
             // console.log(getNewArticlesUsing)
 
 
@@ -118,40 +119,33 @@ class ScrollCheck extends React.Component{
             
         // <RenderCards id={value.id} />
         
-            // const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            // const style = {
-            //     backgroundImage: 'url(' + imgUrl + ')',
-            //     backgroundPosition: "bottom",
-            //     backgroundRepeat: "no-repeat",
-            //     backgroundSize: "cover",
-            //     height: "400px",
-            // }   
-            return(
-                <RenderCards 
-                    key={key}
-                    key2={value.key}
-                    id={value.id}
-                    title={value.title}
-                    author={value.author}
-                    likes={value.likes}
-                    dislikes={value.dislikes}
-
-                />
-
-                // <div className='news-square'  key={key} id={value.id}>    
+            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
+            const style = {
+                backgroundImage: 'url(' + imgUrl + ')',
+                backgroundPosition: "bottom",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                height: "400px",
+            }   
+            return(            
                 
-                //     {/* <HideArticle articleId={value.id}/>                 */}
-                //     <Caption 
-                //         pageid={value.key} 
-                //         style={style} 
-                //         title={value.title}
-                //         author={value.author}
-                //         likes={value.likes}
-                //         dislikes={value.dislikes}
-                        
-                //         />
-                        
-                // </div>
+                <div id={value.id} key={value.id} className="myClass">   
+                    <div className='news-square'  key={key} id={value.id}>    
+                    <HideArticle articleId={value.id}/>    
+                                    
+                        <Caption 
+                            pageid={value.key} 
+                            style={style} 
+                            title={value.title}
+                            author={value.author}
+                            likes={value.likes}
+                            dislikes={value.dislikes}
+                            
+                            />
+                            
+                    </div>
+                </div>
+                
             )
         })
 
@@ -163,6 +157,7 @@ class ScrollCheck extends React.Component{
                 
                    
             </React.Fragment>
+            
         )
     }
 }

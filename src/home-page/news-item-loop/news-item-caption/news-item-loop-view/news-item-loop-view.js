@@ -10,8 +10,9 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import SwipeLeftContent from '../news-item-loop-view/swipe-views/swipe-left-content.js';
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheck from '../../../../utility_components/ScrollCheck';
-import RenderCards from '../../../../utility_components/render-cards/renderCards.js';
-import RenderCardStyle from '../../../../utility_components/render-cards/renderCardStyles.js';
+import RenderCards from '../../../../utility_components/render-cards-unused/renderCards.js';
+import RenderCardStyle from '../../../../utility_components/render-cards-unused/renderCardStyles.js';
+import CheckCache from '../../../../utility_components/checkCache.js';
 
 
 class NewsItemLoopView extends React.Component{
@@ -74,50 +75,10 @@ class NewsItemLoopView extends React.Component{
                 // width:"100%"
             }    
             
-            
-            // This is checking to see if there are hidden posts in cache. If there are then they're set to be hidden before render.
-            console.log("Home Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
-            const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-            const checkExist = setInterval(function() {
-                if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
-                console.log("Exists!");
-                clearInterval(checkExist);
-                const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
-
-                    for(var i = 0; i < formattedPostsArray.length; i++){
-                        if(!!formattedPostsArray && formattedPostsArray[i].toString() === value.id.toString()){
-                            // console.log("Hidden Post Identified")
-                            document.getElementById(value.id).style.display = "none";
-                            console.log("Success: " + value.id + " hidden");
-                            console.log(formattedPostsArray[i]);
-                        }
-                    }        
-
-                }
-            }, 100); // check every 100ms
-
             return (         
-                
-                // <RenderCards 
-                //     id={value.id}
-                //     title={value.title}
-                //     author={value.author}
-                //     text={value.text}
-                //     likes={value.likes}
-                //     dislikes={value.dislikes}
-                //     closePopup={this.closePopup}
-                //     headerImage={value.id}
-                //     key1={key}
-                //     key2={value.key}
-                    
-                //     // startingCardSize={this.state.startingCardSize}
-                //     // changedCardSize={this.state.changedCardSize}
-                //     // style={style}
-                // />
-                
                 <div id={value.id} key={value.id} className="myClass">                   
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
-                    
+                    <CheckCache id={value.id}/>
                     
                     <HideArticle articleId={value.id}/>     
                     
