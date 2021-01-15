@@ -7,7 +7,7 @@ import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
-import SwipeLeftContent from '../news-item-loop-view/swipe-views/swipe-left-content.js';
+import SwipeLeftContent from './swipe-views/article-modal.js';
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheck from '../../../../utility_components/ScrollCheck';
 import RenderCards from '../../../../utility_components/render-cards-unused/renderCards.js';

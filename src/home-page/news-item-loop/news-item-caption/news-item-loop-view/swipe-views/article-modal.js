@@ -2,6 +2,8 @@ import React from 'react';
 import HeaderImage from '../../../../../news-page/news-page-view/header-image/header-image.js';
 import ParseHTML from '../../../../../utility_components/parse-database-html/parse-html.js';
 
+import "../swipe-views/article-modal.css";
+
 export const SwipeLeftContent = (props) => {
     const id = props.id;
     const title = props.title;
@@ -16,12 +18,15 @@ export const SwipeLeftContent = (props) => {
             
                 {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
                 <HeaderImage props={id} />
-                <p>{title}</p>
-                <p>{author}</p>
-                <ParseHTML props={text}/>
-                <button onClick={()=> closePopup(id)}>    
-                    <span>Close Popup</span>
-                </button>
+                <section>
+                        <h2>{title}</h2>
+                        <h3>{author}</h3>
+                        <p><ParseHTML props={text}/></p>
+                </section>
+                    <button onClick={()=> closePopup(id)}>    
+                        <span>Close Popup</span>
+                    </button>
+                
                 
             </div>
         </div>

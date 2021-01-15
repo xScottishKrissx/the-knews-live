@@ -36,7 +36,7 @@ Known Bugs:
             ☐ I could repopulate the database, ensuring my own rules, which might help solve the problem. @started(20-10-27 17:44)
 
 Codebase:
-    ☐ news-item-loop.js is way too big and needs to be split up into components. @started(20-11-16 13:09)
+    ✔ news-item-loop.js is way too big and needs to be split up into components. @started(13:09 20-11-16) @done(17:06 - 15/01/21) @lasted()
     // I've actually done quite a bit. I'm not sure how to get it smaller because I know that It CAN  be smaller. Regardless it's much more manageable now.
     // I have ended up reverting back to an earlier state after yes, you guessed it, braking the website. I struggled to juggle the various states and props and stuff. It just got a bit compplicated so i ran away. You know, the adult option.
     // I'll give it another go and see if I can be more careful. There is still too much going on in news-item-loop-view.js for me to be happy with.
@@ -251,6 +251,11 @@ General Notes  Objectives:
                             // added image anyway/
                         ✔ When scrolling in the popup, the main page scrolls in the background. @done(20-12-03 15:41)
                             // I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
+                        ✔ Format popup to be not terrible at larger window sizes. @started(17:12 - 15/01/21) @done(17:29 - 15/01/21) @lasted(17m58s)
+                        ☐ Make author text clickable like the article page. @started(17:30 - 15/01/21)
+                        ☐ How about hiding the article from the popup?
+                        ☐ What about moving to the next article from the popup?
+                        ☐ BUG:: When you open the popup, you can keep dragging to hide the article...which is not ideal.
 
                 ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
                     5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
@@ -513,6 +518,7 @@ General Notes  Objectives:
                             // I don't know how to get this to work in this project. Look at this in a dedicated project
                         ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
                 ☐ I think the nav controls should be in the same place regardless of screen size @started(20-10-27 18:22)
+                ☐ These controls don't account for articles that are hidden @started(17:56 - 15/01/21)
 
 
                 /// can leave email and tags already has its own page
@@ -606,6 +612,8 @@ Part 2 Implement Database functionality:
             ✔ not sure what this was from, the page does auto refresh when article is deleted. @done(20-07-28 13:21)
         //☐ ISSUE:: The key that is now used is +1 the number of objects in the database. Not an issue I think but might cause some problems
      ✔ Look into loading a limited number of news items on the home page. The scroll could be used to detect the scroll position and load more things from the database. @done(18-08-31 17:22)
+        ☐ BUG:: There's an issue where the scroll doesn't trigger new load when scrolled all the way to the bottom.
+            //YOu need to scroll up and then back down to get it to work
      ☐ Ability to approve posts made by unauthorized users @started(18-08-22 16:04)
      ✔ Organise Components a bit neater @done(18-08-13 18:02)
         ✔ Organise CSS into neater file @done(18-08-14 13:52)
@@ -642,6 +650,10 @@ Part 2 Implement Database functionality:
             ✔ Removed Extra Image Loop from articles(as it's a bit pointless) @done(20-12-15 13:18)
             ✔ Fixed format of popup html @done(20-12-10 15:50)
             ✔ Clear Cache button is now not shown if no articles are currently hidden @done(20-12-15 15:17)
+            ✔ Tweaks to popup appearance. @done(17:55 - 15/01/21)
+
+            // Known Issues
+            ☐ When scrolling down, sometimes the page won't load new pages. You need to scroll up and the back down to get it to load articles.
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
