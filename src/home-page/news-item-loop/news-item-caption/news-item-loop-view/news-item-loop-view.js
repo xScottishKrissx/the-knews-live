@@ -78,7 +78,7 @@ class NewsItemLoopView extends React.Component{
             return (         
                 <div id={value.id} key={value.id} className="myClass">                   
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
-                    <CheckCache id={value.id}/>
+                    {/* <CheckCache id={value.id}/> */}
                     
                     <HideArticle articleId={value.id}/>     
                     

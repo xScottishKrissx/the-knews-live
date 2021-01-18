@@ -395,6 +395,7 @@ General Notes  Objectives:
 
             // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
             ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
+                // Probably the same reason you can't swipe new cards...it's 2 different files with different codebases.
 
     
         Article:

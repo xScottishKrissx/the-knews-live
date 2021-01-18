@@ -8,6 +8,11 @@ import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news
 import RenderCards from './render-cards-unused/renderCards.js';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
 
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import CheckCache from './checkCache.js';
+import SwipeLeftContent from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
+
 class ScrollCheck extends React.Component{
     constructor(props){
         super(props);
@@ -47,16 +52,21 @@ class ScrollCheck extends React.Component{
         // console.log("Order Database By 2 --> " + this.state.orderByChild)
 
         console.log(this.state.dbRef)
+
+
+        const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
+        console.log(localStorageHiddenPosts)
     }
 
     scroll = () => {
+       
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
         const body = document.body;
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset + 100;
-        console.log("windowBottom " + windowBottom)
-        console.log("Window.PageYOffset " + window.pageYOffset)
+        // console.log("windowBottom " + windowBottom)
+        // console.log("Window.PageYOffset " + window.pageYOffset)
           
         if(windowBottom >= docHeight){
             // console.log("SearchDBFor -> " + this.state.searchDBFor || this.state.authorState)
@@ -81,9 +91,15 @@ class ScrollCheck extends React.Component{
                        author: newsItems[newsItem].author,
                        title: newsItems[newsItem].title,
                        id:newsItems[newsItem].id,
-                       tag:newsItems[newsItem].tag
+                       tag:newsItems[newsItem].tag,
+                       text:newsItems[newsItem].text
+
                    });
                }
+               
+               
+
+
 
                 const arrayStart = this.state.arrayStartState;
                 const arrayEnd = this.state.arrayEndState;
@@ -97,7 +113,32 @@ class ScrollCheck extends React.Component{
                 this.setState({
                     articlesArray:renderNewArticlesOnScroll
                 })    
-                console.log(this.state.articlesArray)       
+
+
+
+        //How about instead of hiding artcles after they load, I remove them before they render by removing them from the array?
+
+        // So the idea is to loop through the list of hidden posts and check that against the articles array. Then remove anything that matches before feeding it to the render.
+
+        // Should do this in the the main view but will also be ideal for getting this to work on scroll.
+                console.log(this.state.articlesArray[0].id)
+                // console.log(localStorage.getItem("hiddenPostList"))   
+                const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
+                const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number) 
+                console.log(this.state.articlesArray[0].id)
+                console.log(formattedPostsArray)
+                for(var i = 0; i < this.state.articlesArray.length; i++){
+                    console.log(i)
+                    if(this.state.articlesArray[i].id === 19){
+                        console.log("Match!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    }
+                    else{
+                        // console.log("No")
+                        console.log("this.state.articles: " + this.state.articlesArray[i].id)
+                        console.log("formatted posts array: " + formattedPostsArray[i])
+                    }
+                }
+                
            })
             console.log("Bottom Reached")
         }else{
@@ -112,13 +153,19 @@ class ScrollCheck extends React.Component{
 
     render(){
         // console.log(this.state.articlesArray3)
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
         const new1 = this.state.articlesArray;
-        // console.log(new1)
+
+        //How about instead of hiding artcles after they load, I remove them before they render by removing them from the array?
+
         
+        
+
+
         // Load new Articles into view on scroll.
         const pageView = new1.map((value,key) => {
-            
+            // console.log(this.state.articlesArray[0].author)   
+        
         // <RenderCards id={value.id} />
         
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -133,17 +180,44 @@ class ScrollCheck extends React.Component{
                 
                 <div id={value.id} key={value.id} className="myClass">   
                     <div className='news-square'  key={key} id={value.id}>    
+                    {/* <CheckCache id={value.id} /> */}
                     <HideArticle articleId={value.id}/>    
                                     
-                        <Caption 
-                            pageid={value.key} 
-                            style={style} 
-                            title={value.title}
-                            author={value.author}
-                            likes={value.likes}
-                            dislikes={value.dislikes}
+                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+                        <SwipeableListItem 
                             
-                            />
+                            swipeLeft={{
+                                content: <SwipeLeftContent 
+                                        id={value.id} 
+                                        title={value.title} 
+                                        author={value.author} 
+                                        text={value.text} 
+                                        closePopup={this.closePopup} 
+                                        headerImage={value.id} />,
+                                action: () => this.swipeLeftAction(value.text, value.id) 
+                            }}
+                            
+                            swipeRight={{
+                                content: <div>Hiding article...</div>, 
+                                action: () => this.swipeRightAction(value.id)
+                            }}
+                        >
+                                
+                                <div className='news-square'  key={key}  
+                                style={ this.state.startingCardSize || this.state.changedCardSize } >                    
+                                    <Caption 
+                                        pageid={value.key}
+                                        style={style}
+                                        title={value.title}
+                                        author={value.author}
+                                        likes={value.likes}
+                                        dislikes={value.dislikes}
+                                        articleId={value.id}
+                                        />
+                                </div>
+                        
+                        </SwipeableListItem>
+                        </SwipeableList>
                             
                     </div>
                 </div>

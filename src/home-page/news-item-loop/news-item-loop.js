@@ -78,7 +78,8 @@ class MapDatabaseItems extends React.Component{
       }
     
     render(){
-        const firebaseDB = this.state.articlesArray;  
+        const firebaseDB = this.state.articlesArray; 
+        console.log(firebaseDB) 
      
          return (
             
