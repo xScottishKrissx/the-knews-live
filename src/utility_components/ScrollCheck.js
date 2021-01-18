@@ -54,7 +54,9 @@ class ScrollCheck extends React.Component{
         const body = document.body;
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-        const windowBottom = windowHeight + window.pageYOffset;
+        const windowBottom = windowHeight + window.pageYOffset + 100;
+        console.log("windowBottom " + windowBottom)
+        console.log("Window.PageYOffset " + window.pageYOffset)
           
         if(windowBottom >= docHeight){
             // console.log("SearchDBFor -> " + this.state.searchDBFor || this.state.authorState)
