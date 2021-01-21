@@ -1,4 +1,4 @@
-export const CheckCache = (props) =>{
+export const CheckCache = (props) => {
         // This is checking to see if there are hidden posts in cache. If there are then they're set to be hidden
         
         // console.log("Home Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
@@ -17,7 +17,7 @@ export const CheckCache = (props) =>{
                     // console.log("Hidden Post Identified")
                     document.getElementById(props.id).style.display = "none";
                     // console.log("Success: " + props.id + " hidden");
-                    // console.log(formattedPostsArray[i]);
+                    console.log(formattedPostsArray[i]);
                 }
             }        
 
