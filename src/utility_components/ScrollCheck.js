@@ -4,8 +4,8 @@ import fire from '../fire.js';
 
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
-import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
-import RenderCards from './render-cards-unused/renderCards.js';
+// import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
+// import RenderCards from './render-cards-unused/renderCards.js';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
 
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
@@ -51,7 +51,7 @@ class ScrollCheck extends React.Component{
         // console.log("Order Database By 1 --> " + this.state.searchDBFor)
         // console.log("Order Database By 2 --> " + this.state.orderByChild)
 
-        console.log(this.state.dbRef)
+        // console.log(this.state.dbRef)
 
 
         const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
