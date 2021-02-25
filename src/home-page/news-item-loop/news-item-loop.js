@@ -28,10 +28,7 @@ class MapDatabaseItems extends React.Component{
                 arrayEndState: 26,
             // This is a record of the posts hidden.
             postsArray:[],
-            hiddenPosts:localStorage.getItem("hiddenPostList"),
-
-            // New Checking Cache
-            testNewArray:[]
+            hiddenPosts:localStorage.getItem("hiddenPostList")
         }
     }
 
@@ -48,7 +45,7 @@ class MapDatabaseItems extends React.Component{
         }
 
     // This is the initial database query.
-     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(10);    
+     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(35);    
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -80,55 +77,15 @@ class MapDatabaseItems extends React.Component{
         localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
       }
     
-
     render(){
-
         const firebaseDB = this.state.articlesArray; 
         console.log(firebaseDB) 
-
-        const array = this.state.articlesArray;
-        console.log(array.splice(1,1))
-
-        console.log(array)
-
-        const removeIfHidden = function(array, attribute, value){
-            var i = array.length;
-            while(i--){
-                if(array[i]
-                    && array[i].hasOwnProperty(attribute)
-                    && (arguments.length > 2 && array[i][attribute] === value)
-                    ){
-                        array.splice(i,1)
-                    }
-            }
-            return array;
-        }
-
-        console.log(removeIfHidden(this.state.articlesArray, "id",319))
-        console.log(this.state.postsArray)
-        const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-        const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
-        console.log(formattedPostsArray)
-        const newArray = removeIfHidden(this.state.articlesArray, "id",formattedPostsArray[2]);
-
-        const thing1 = function(originalArray,formattedArray){
-            var i = formattedArray.length;
-            for(var i = 0; i < formattedPostsArray.length; i++){
-                console.log(formattedArray[i])
-                console.log(removeIfHidden(originalArray,"id",formattedArray[i]))
-            }
-            return removeIfHidden(originalArray,"id",formattedArray[i]);
-        }
-        console.log(thing1(this.state.articlesArray,formattedPostsArray))
-        const thing2  = thing1(this.state.articlesArray,formattedPostsArray);
-        console.log(thing2)
-        console.log(newArray)
      
          return (
             
             <div className="news-item-loop-wrapper"> 
             <React.Fragment>
-                <NewsItemLoopView databaseProp={thing2} />     
+                <NewsItemLoopView databaseProp={firebaseDB} />     
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>

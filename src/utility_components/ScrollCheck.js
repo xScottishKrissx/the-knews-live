@@ -121,28 +121,28 @@ class ScrollCheck extends React.Component{
         // So the idea is to loop through the list of hidden posts and check that against the articles array. Then remove anything that matches before feeding it to the render.
 
         // Should do this in the the main view but will also be ideal for getting this to work on scroll.
-                // console.log(this.state.articlesArray[0].id)
-                // // console.log(localStorage.getItem("hiddenPostList"))   
-                // const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-                // const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number) 
-                // console.log(this.state.articlesArray[0].id)
-                // console.log(formattedPostsArray)
-                // for(var i = 0; i < this.state.articlesArray.length; i++){
-                //     console.log(i)
-                //     if(this.state.articlesArray[i].id === 546){
-                //         console.log("Match!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                //     }
-                //     else{
-                //         // console.log("No")
-                //         console.log("this.state.articles: " + this.state.articlesArray[i].id)
-                //         console.log("formatted posts array: " + formattedPostsArray[i])
-                //     }
-                // }
+                console.log(this.state.articlesArray[0].id)
+                // console.log(localStorage.getItem("hiddenPostList"))   
+                const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
+                const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number) 
+                console.log(this.state.articlesArray[0].id)
+                console.log(formattedPostsArray)
+                for(var i = 0; i < this.state.articlesArray.length; i++){
+                    console.log(i)
+                    if(this.state.articlesArray[i].id === 19){
+                        console.log("Match!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    }
+                    else{
+                        // console.log("No")
+                        console.log("this.state.articles: " + this.state.articlesArray[i].id)
+                        console.log("formatted posts array: " + formattedPostsArray[i])
+                    }
+                }
                 
            })
             console.log("Bottom Reached")
         }else{
-            // console.log("Not At Bottom Yet")
+            console.log("Not At Bottom Yet")
         }
     }
 
@@ -153,9 +153,9 @@ class ScrollCheck extends React.Component{
 
     render(){
         // console.log(this.state.articlesArray3)
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
         const new1 = this.state.articlesArray;
-        
+
         //How about instead of hiding artcles after they load, I remove them before they render by removing them from the array?
 
         
@@ -180,7 +180,7 @@ class ScrollCheck extends React.Component{
                 
                 <div id={value.id} key={value.id} className="myClass">   
                     <div className='news-square'  key={key} id={value.id}>    
-                    <CheckCache id={value.id} />
+                    {/* <CheckCache id={value.id} /> */}
                     <HideArticle articleId={value.id}/>    
                                     
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
