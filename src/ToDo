@@ -382,10 +382,6 @@ General Notes  Objectives:
             // Currently limited to last 20 in database.
             // Infinite Scrolling is the term Im looking for...
             // After some looking around I think I would need to build the design around this feature. At the very least I don't think trying to learn this while fitting it around the current project will help me too much. Will leave this until a future project.
-        
-        On Scroll:
-            ✔ When scrolling down, sometimes the page won't load new pages. You need to scroll up and the back down to get it to load articles. @done(16:15 - 18/01/21)
-            // Fixed this by adding +100 to windowBottom variable.
 
         News Items:
             ✘ Create Hover/Click caption @started(18-07-25 15:13) @cancelled(20-10-12 17:40) @wasted(2y11w3d2h27m3s)
@@ -394,8 +390,11 @@ General Notes  Objectives:
             // 5/11/2020 - A hover caption might not work but what about a nice effect for mousing over stuff?? Right? Sounds Amazing.
 
             // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
+<<<<<<< HEAD
             ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
                 // Probably the same reason you can't swipe new cards...it's 2 different files with different codebases.
+=======
+>>>>>>> parent of bce042d3 (Fixed Issue with scroll check not loading articles when at bottom of page.)
 
     
         Article:
@@ -657,9 +656,9 @@ Part 2 Implement Database functionality:
             ✔ Fixed format of popup html @done(20-12-10 15:50)
             ✔ Clear Cache button is now not shown if no articles are currently hidden @done(20-12-15 15:17)
             ✔ Tweaks to popup appearance. @done(17:55 - 15/01/21)
-            ✔ Fixed issue with loading new articles on scroll @done(16:16 - 18/01/21)
-     
 
+            // Known Issues
+            ☐ When scrolling down, sometimes the page won't load new pages. You need to scroll up and the back down to get it to load articles.
 
         Version 10 - Swipe(Next Release) - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
