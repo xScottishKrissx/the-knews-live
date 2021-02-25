@@ -10,9 +10,9 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import SwipeLeftContent from './swipe-views/article-modal.js';
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheck from '../../../../utility_components/ScrollCheck';
-// import RenderCards from '../../../../utility_components/render-cards-unused/renderCards.js';
-// import RenderCardStyle from '../../../../utility_components/render-cards-unused/renderCardStyles.js';
-// import CheckCache from '../../../../utility_components/checkCache.js';
+import RenderCards from '../../../../utility_components/render-cards-unused/renderCards.js';
+import RenderCardStyle from '../../../../utility_components/render-cards-unused/renderCardStyles.js';
+import CheckCache from '../../../../utility_components/checkCache.js';
 
 
 class NewsItemLoopView extends React.Component{

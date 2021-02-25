@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Link} from 'react-router-dom';
-// import ExtraImageLoop from './extra-image-loop/extra-image-loop.js';
+import ExtraImageLoop from './extra-image-loop/extra-image-loop.js';
 import ParseHTML from '../../../utility_components/parse-database-html/parse-html.js';
 import PageScore from '../social/page-score.js';
 // import Share from '../social/share.js';

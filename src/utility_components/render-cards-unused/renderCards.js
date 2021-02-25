@@ -1,14 +1,14 @@
 import React from 'react';
-// import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
-// import SwipeLeftContent from '../../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
+import SwipeLeftContent from '../../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
 
 
 import HideArticle from '../hide-article/hide-article.js';
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
-// import RenderCardStyle from './renderCardStyles.js';
-// import CustomCardSize from '../../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
+import RenderCardStyle from './renderCardStyles.js';
+import CustomCardSize from '../../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
 
 
 

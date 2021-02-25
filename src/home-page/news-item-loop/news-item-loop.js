@@ -36,8 +36,6 @@ class MapDatabaseItems extends React.Component{
     }
 
     componentDidMount(){
-
-       
         // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
         if(localStorage.getItem("hiddenPostList") === null){
             this.setState({
@@ -72,19 +70,11 @@ class MapDatabaseItems extends React.Component{
                 articlesArray: newState.slice(0,50)
             })
 
-
-            // Maybe put the check in here?
-            console.log(this.state.articlesArray)
-
         })        
         window.addEventListener('scroll', this.scroll);   
-
-
-        
     }
 
      componentWillUnmount(){
-         
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
         localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
@@ -96,7 +86,11 @@ class MapDatabaseItems extends React.Component{
         const firebaseDB = this.state.articlesArray; 
         console.log(firebaseDB) 
 
-        
+        const array = this.state.articlesArray;
+        console.log(array.splice(1,1))
+
+        console.log(array)
+
         const removeIfHidden = function(array, attribute, value){
             var i = array.length;
             while(i--){
@@ -110,37 +104,31 @@ class MapDatabaseItems extends React.Component{
             return array;
         }
 
-        // This works fine as long as there's something in the cache.
-        // If the cache is empty, it throws an
+        console.log(removeIfHidden(this.state.articlesArray, "id",319))
         console.log(this.state.postsArray)
-        console.log(localStorage.getItem("hiddenPostList"))
         const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-
-
         const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
         console.log(formattedPostsArray)
-
+        const newArray = removeIfHidden(this.state.articlesArray, "id",formattedPostsArray[2]);
 
         const thing1 = function(originalArray,formattedArray){
             var i = formattedArray.length;
-            for(i = 0; i < formattedPostsArray.length; i++){
-                // console.log(formattedArray[i])
-                removeIfHidden(originalArray,"id",formattedArray[i])
+            for(var i = 0; i < formattedPostsArray.length; i++){
+                console.log(formattedArray[i])
+                console.log(removeIfHidden(originalArray,"id",formattedArray[i]))
             }
             return removeIfHidden(originalArray,"id",formattedArray[i]);
         }
         console.log(thing1(this.state.articlesArray,formattedPostsArray))
-        const thing2 = thing1(this.state.articlesArray,formattedPostsArray);
+        const thing2  = thing1(this.state.articlesArray,formattedPostsArray);
         console.log(thing2)
-
-
-
+        console.log(newArray)
      
          return (
             
             <div className="news-item-loop-wrapper"> 
             <React.Fragment>
-                <NewsItemLoopView databaseProp={this.state.articlesArray} />     
+                <NewsItemLoopView databaseProp={thing2} />     
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>
