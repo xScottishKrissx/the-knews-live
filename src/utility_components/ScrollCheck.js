@@ -68,7 +68,9 @@ class ScrollCheck extends React.Component{
         const windowBottom = windowHeight + window.pageYOffset + 100;
         // console.log("windowBottom " + windowBottom)
         // console.log("Window.PageYOffset " + window.pageYOffset)
-
+// =======
+        const windowBottom = windowHeight + window.pageYOffset;
+// >>>>>>> parent of bce042d3 (Fixed Issue with scroll check not loading articles when at bottom of page.)
           
         if(windowBottom >= docHeight){
             // console.log("SearchDBFor -> " + this.state.searchDBFor || this.state.authorState)
@@ -143,7 +145,6 @@ class ScrollCheck extends React.Component{
                 
            })
             console.log("Bottom Reached")
-            console.log(this.state.articlesArray2)
         }else{
             // console.log("Not At Bottom Yet")
         }
