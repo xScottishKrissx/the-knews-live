@@ -657,6 +657,11 @@ Part 2 Implement Database functionality:
             ✔ Clear Cache button is now not shown if no articles are currently hidden @done(20-12-15 15:17)
             ✔ Tweaks to popup appearance. @done(17:55 - 15/01/21)
             ✔ Fixed issue with loading new articles on scroll @done(16:16 - 18/01/21)
+
+            // Feb Return Issues
+            ☐ Loading new articles on scroll is again loading duplicate articles
+            ☐ The unhide all button isn't showing as soon as you hide an article
+            ☐ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article.
      
 
 
