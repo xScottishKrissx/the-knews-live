@@ -13,13 +13,11 @@ export class HideArticle extends React.Component{
     }
 
     componentDidMount(){
-        // console.log(this.state.articleId)
-        // console.log(localStorage.getItem("hiddenPostList"));
+        console.log(this.state.articleId)
     }
-    
     hideArticle(value){
         console.log("Hide Article Button Pressed");
-        console.log(localStorage.getItem("hiddenPostList"));
+        // console.log(localStorage.getItem("hiddenPostList"));
         console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
