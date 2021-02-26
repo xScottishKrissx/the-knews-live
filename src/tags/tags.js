@@ -39,9 +39,9 @@ class Tags extends React.Component{
         
         
         if(this.state.origin === "Article"){
-            console.log("Search Database for Tag --> " + this.props.location.state.author)
-            console.log(this.state.test)
-            console.log(this.state.searchDBFor)
+            // console.log("Search Database for Tag --> " + this.props.location.state.author)
+            // console.log(this.state.test)
+            // console.log(this.state.searchDBFor)
             const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
 
             dbRef.on('value', (snapshot) => {
@@ -61,7 +61,7 @@ class Tags extends React.Component{
                     });
                 }
                 this.setState({
-                    articlesArray: newState.slice(0,5)
+                    articlesArray: newState.slice(0,50)
                 })
                 console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -72,6 +72,7 @@ class Tags extends React.Component{
         if(this.state.origin === "Tagbar"){
            
             const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
+            
             
             dbRef.on('value', (snapshot) => {
                 let newsItems = snapshot.val();
@@ -91,7 +92,7 @@ class Tags extends React.Component{
                 }
     
                 this.setState({
-                    articlesArray: newState.slice(0,5)
+                    articlesArray: newState.slice(0,50)
                 })
                 // console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))

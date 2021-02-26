@@ -658,10 +658,12 @@ Part 2 Implement Database functionality:
             ✔ Tweaks to popup appearance. @done(17:55 - 15/01/21)
             ✔ Fixed issue with loading new articles on scroll @done(16:16 - 18/01/21)
 
-            // Feb Return Issues
+            // V10.1.1 Feb Return Issues 
             ☐ Loading new articles on scroll is again loading duplicate articles
-            ☐ The unhide all button isn't showing as soon as you hide an article
-            ☐ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article.
+            ✔ The unhide all button isn't showing as soon as you hide an article @done(15:54 - 26/02/21)
+                ✔ Welp, now it's working all on its own. @done(15:54 - 26/02/21)
+            ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
+                ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(16:08 - 26/02/21)
      
 
 
