@@ -13,8 +13,8 @@ class ScrollCheck extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            arrayStartState: 5,
-            arrayEndState: 10,
+            arrayStartState: 10,
+            arrayEndState: 15,
             test: props.tagState || props.authorState || props.postdateState,
             // test: this.props.location.state.tag,
             searchDBFor: props.searchDBFor,
@@ -36,17 +36,18 @@ class ScrollCheck extends React.Component{
         
         const parsedArticleArray = JSON.parse(articlesFromCache)
 
+        console.log(parsedArticleArray)
         this.setState({
-            articleArray:parsedArticleArray
+            articlesArray:parsedArticleArray
         })
-
+        console.log(this.state.articlesArray)
 
         // console.log(this.state.authorState)
 
         // console.log("Order Database By 1 --> " + this.state.searchDBFor)
         // console.log("Order Database By 2 --> " + this.state.orderByChild)
 
-        console.log(this.state.dbRef)
+        // console.log(this.state.dbRef)
     }
 
     scroll = () => {
@@ -54,9 +55,9 @@ class ScrollCheck extends React.Component{
         const body = document.body;
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-        const windowBottom = windowHeight + window.pageYOffset + 100;
-        console.log("windowBottom " + windowBottom)
-        console.log("Window.PageYOffset " + window.pageYOffset)
+        const windowBottom = windowHeight + window.pageYOffset + 10;
+        // console.log("windowBottom " + windowBottom)
+        // console.log("Window.PageYOffset " + window.pageYOffset)
           
         if(windowBottom >= docHeight){
             // console.log("SearchDBFor -> " + this.state.searchDBFor || this.state.authorState)
@@ -70,8 +71,8 @@ class ScrollCheck extends React.Component{
 
 
             // const dbRef = fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(getNewArticlesUsing).endAt(getNewArticlesUsing)
-           
-                const dbRef = this.state.dbRef;
+           console.log(this.state.articlesArray)
+            const dbRef = this.state.dbRef;
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
                let newState = [];
@@ -94,10 +95,11 @@ class ScrollCheck extends React.Component{
                 })
 
                 const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
+                console.log(renderNewArticlesOnScroll)
                 this.setState({
                     articlesArray:renderNewArticlesOnScroll
                 })    
-                console.log(this.state.articlesArray)       
+                // console.log(this.state.articlesArray)       
            })
             console.log("Bottom Reached")
         }else{

@@ -58,7 +58,7 @@ class NewsItemLoopView extends React.Component{
     }
 
     render(){
-        // console.log(this.props.databaseProp)
+        console.log(this.props.databaseProp)
         const HomePageView = this.props.databaseProp.map((value,key) => {        
 
 

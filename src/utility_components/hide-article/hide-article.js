@@ -13,7 +13,7 @@ export class HideArticle extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.state.articleId)
+        // console.log(this.state.articleId)
     }
     hideArticle(value){
         console.log("Hide Article Button Pressed");

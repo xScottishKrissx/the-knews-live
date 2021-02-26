@@ -39,10 +39,10 @@ class Tags extends React.Component{
         
         
         if(this.state.origin === "Article"){
-            // console.log("Search Database for Tag --> " + this.props.location.state.author)
-            // console.log(this.state.test)
-            // console.log(this.state.searchDBFor)
-            const dbRef = fire.database().ref('items').orderByChild(this.state.searchDBFor).startAt(this.state.test).endAt(this.state.test);
+            const dbRef = fire.database().ref('items')
+                .orderByChild(this.state.searchDBFor)
+                .startAt(this.state.test)
+                .endAt(this.state.test);
 
             dbRef.on('value', (snapshot) => {
                 let newsItems = snapshot.val();
@@ -63,7 +63,7 @@ class Tags extends React.Component{
                 this.setState({
                     articlesArray: newState.slice(0,50)
                 })
-                console.log(this.state.articlesArray)
+                // console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 window.addEventListener('scroll', this.scroll);
             })
@@ -71,9 +71,11 @@ class Tags extends React.Component{
 
         if(this.state.origin === "Tagbar"){
            
-            const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.props.location.state.searchDBFor).endAt(this.props.location.state.searchDBFor);
-            
-            
+            const dbRef = fire.database().ref('items')
+                .orderByChild("tag")
+                .startAt(this.props.location.state.searchDBFor)
+                .endAt(this.props.location.state.searchDBFor);
+
             dbRef.on('value', (snapshot) => {
                 let newsItems = snapshot.val();
                 // console.log(newsItems);
@@ -95,7 +97,7 @@ class Tags extends React.Component{
                     articlesArray: newState.slice(0,50)
                 })
                 // console.log(this.state.articlesArray)
-                localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+                // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 // console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
             })
@@ -115,7 +117,7 @@ class Tags extends React.Component{
 
     render(){
         const new1 = this.state.articlesArray;
-        console.log(new1)
+        // console.log(new1)
 
         const pageView = new1.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;

@@ -62,11 +62,12 @@ class MapDatabaseItems extends React.Component{
                     id:newsItems[newsItem].id
                 });
             }
-
+            console.log("Initial Load:: " + newState.slice(0,10))
             this.setState({
-                articlesArray: newState.slice(0,50)
+                //Set's the initial number of articles loaded into home.
+                articlesArray: newState.slice(0,10)
             })
-
+            
         })        
         window.addEventListener('scroll', this.scroll);   
     }
@@ -79,7 +80,8 @@ class MapDatabaseItems extends React.Component{
     
     render(){
         const firebaseDB = this.state.articlesArray;  
-     
+        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        console.log(firebaseDB)
          return (
             
             <div className="news-item-loop-wrapper"> 
