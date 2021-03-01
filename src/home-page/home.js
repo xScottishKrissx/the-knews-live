@@ -2,6 +2,7 @@ import React from 'react';
 import ClearCache from '../utility_components/ClearCache';
 import './home.css';
 
+
 import NewsItemLoop from './news-item-loop/news-item-loop.js'
 export class Home extends React.Component{
 
@@ -11,7 +12,7 @@ export class Home extends React.Component{
                 
                 <div className="news-item-wrapper">
                     <ClearCache />
-                    <NewsItemLoop />                   
+                    <NewsItemLoop />        
                 </div>
             </div>
         )

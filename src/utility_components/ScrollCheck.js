@@ -1,12 +1,17 @@
 import React from 'react';
 
 import fire from '../fire.js';
-
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
 import RenderCards from './render-cards-unused/renderCards.js';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
+import CheckCache from '../utility_components/checkCache.js';
+import SwipeLeftContent from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
+import CustomCardSize from '../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
+
 
 class ScrollCheck extends React.Component{
     constructor(props){
@@ -22,9 +27,25 @@ class ScrollCheck extends React.Component{
             origin: props.origin,
             articlesArray2:[],     
             orderByChild:props.orderByChild,
-            dbRef: props.databaseReference    
+            dbRef: props.databaseReference,
+
+            // Custom Card Size
+            startingCardSize:"",
+            changedCardSize:{width: localStorage.getItem("myData")}
+
         }
+        this.getCardSize = this.getCardSize.bind(this);
+        
     }
+    getCardSize(value){
+        this.setState({
+            startingCardSize:{
+                width:value
+            }
+        })
+    }
+
+
     componentDidMount(){
         window.addEventListener('scroll', this.scroll);
 
@@ -48,6 +69,7 @@ class ScrollCheck extends React.Component{
         // console.log("Order Database By 2 --> " + this.state.orderByChild)
 
         // console.log(this.state.dbRef)
+        console.log(localStorage.getItem("myData"));
     }
 
     scroll = () => {
@@ -81,6 +103,7 @@ class ScrollCheck extends React.Component{
                        key: newsItem,
                        author: newsItems[newsItem].author,
                        title: newsItems[newsItem].title,
+                       text: newsItems[newsItem].text,
                        id:newsItems[newsItem].id,
                        tag:newsItems[newsItem].tag
                    });
@@ -133,11 +156,48 @@ class ScrollCheck extends React.Component{
             }   
             return(            
                 
-                <div id={value.id} key={value.id} className="myClass">   
+                <div id={value.id} key={value.id} className="myClass" name="new-articles">   
+
                     <div className='news-square'  key={key} id={value.id}>    
+                    <CheckCache id={value.id}/>
                     <HideArticle articleId={value.id}/>    
-                                    
-                        <Caption 
+                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+                        <SwipeableListItem 
+                            
+                            swipeLeft={{
+                                content: <SwipeLeftContent 
+                                        id={value.id} 
+                                        title={value.title} 
+                                        author={value.author} 
+                                        text={value.text} 
+                                        closePopup={this.props.closePopup} 
+                                        headerImage={value.id} />,
+                                action: () => this.props.swipeLeftAction(value.text, value.id) 
+                            }}
+                            
+                            swipeRight={{
+                                content: <div>Hiding article...</div>, 
+                                action: () => this.swipeRightAction(value.id)
+                            }}
+                        >
+                                
+                                <div className='news-square'  key={key}  
+                                style={ this.props.startingCardSize || this.props.changedCardSize } >                    
+                                    <Caption 
+                                        pageid={value.key}
+                                        style={style}
+                                        title={value.title}
+                                        author={value.author}
+                                        likes={value.likes}
+                                        dislikes={value.dislikes}
+                                        articleId={value.id}
+                                        />
+                                </div>
+                        
+                        </SwipeableListItem>
+                        </SwipeableList>
+
+                        {/* <Caption 
                             pageid={value.key} 
                             style={style} 
                             title={value.title}
@@ -145,7 +205,7 @@ class ScrollCheck extends React.Component{
                             likes={value.likes}
                             dislikes={value.dislikes}
                             
-                            />
+                            /> */}
                             
                     </div>
                 </div>
@@ -158,9 +218,10 @@ class ScrollCheck extends React.Component{
             <React.Fragment>
                 {pageView}
                 {/* <NewsItemLoopView databaseProp={new1} /> */}
-                
-                   
+               
+            {/* <CustomCardSize getCardSizeToParent={this.getCardSize} />        */}
             </React.Fragment>
+            
             
         )
     }

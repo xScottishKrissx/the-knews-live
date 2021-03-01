@@ -30,6 +30,7 @@ class CustomCardSize extends React.Component{
         localStorage.setItem("myData", size);
         localStorage.getItem("myData")
         this.props.getCardSizeToParent(size);
+        console.log(localStorage.getItem("myData"));
     }
 
     showCardSizeOptions(style){

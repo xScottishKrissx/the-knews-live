@@ -665,6 +665,11 @@ Part 2 Implement Database functionality:
                 ✔ Welp, now it's working all on its own. @done(15:54 - 26/02/21)
             ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
                 ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(16:08 - 26/02/21)
+            ✔ Card Size Selector is not affecting newly loaded articles. @done(17:03 - 01/03/21)
+            // Fixed this by adding the startingCardSize and changedCardSize properties to the ScrollCheck component in news-item-loop-view. @done(17:04 - 01/03/21)
+                ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
+                    // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
+
      
 
 

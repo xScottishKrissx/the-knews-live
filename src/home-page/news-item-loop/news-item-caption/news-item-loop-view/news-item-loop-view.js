@@ -127,7 +127,14 @@ class NewsItemLoopView extends React.Component{
             <div className="newsItemLoopViewWrapper">
                 
                 {HomePageView}
-                <ScrollCheck databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) } />
+                <ScrollCheck 
+                    databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }
+                    swipeLeftAction={this.swipeLeftAction}
+                    closePopup={this.closePopup}
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                    
+                    />
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
         )
