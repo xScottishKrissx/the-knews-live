@@ -45,7 +45,7 @@ class NewsItemLoopView extends React.Component{
             document.getElementById("popup" + id).style.display = "none";
             document.getElementById("articlePopupBackground" + id).style.display = "none";            
             document.body.style.overflow = "auto";
-            console.log(id)
+            // console.log(id)
         }
 
     swipeRightAction(id){   
@@ -58,7 +58,6 @@ class NewsItemLoopView extends React.Component{
     }
 
     render(){
-        console.log(this.props.databaseProp)
         const HomePageView = this.props.databaseProp.map((value,key) => {        
 
 
@@ -103,7 +102,7 @@ class NewsItemLoopView extends React.Component{
                         >
                                 
                                 <div className='news-square'  key={key}  
-                                style={ this.state.startingCardSize || this.state.changedCardSize } >                    
+                                style={ this.state.startingCardSize || this.state.changedCardSize} >                    
                                     <Caption 
                                         pageid={value.key}
                                         style={style}

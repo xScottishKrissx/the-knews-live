@@ -657,6 +657,10 @@ Part 2 Implement Database functionality:
             ✔ Clear Cache button is now not shown if no articles are currently hidden @done(20-12-15 15:17)
             ✔ Tweaks to popup appearance. @done(17:55 - 15/01/21)
             ✔ Fixed issue with loading new articles on scroll @done(16:16 - 18/01/21)
+            ✔ Fixed issue with duplicate articles loading on scroll @done(17:35 - 01/03/21)
+            ✔ Adjusted number of articles appearing on tags page to be more inline with other pages. @done(17:35 - 01/03/21)
+            ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
+            ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
 
             // V10.1.1 Feb Return Issues 
             ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)
@@ -667,6 +671,9 @@ Part 2 Implement Database functionality:
                 ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(16:08 - 26/02/21)
             ✔ Card Size Selector is not affecting newly loaded articles. @done(17:03 - 01/03/21)
             // Fixed this by adding the startingCardSize and changedCardSize properties to the ScrollCheck component in news-item-loop-view. @done(17:04 - 01/03/21)
+                ✔ Ok, not fixed. If you clear cache the cards just get really small. @started(17:21 - 01/03/21) @done(17:28 - 01/03/21) @lasted(7m12s)
+                    // Setting a default size in css prevents the cards changing size for  some reason.
+                    // Looks like I had an extra div in there, messing things up.
                 ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
                     // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
 

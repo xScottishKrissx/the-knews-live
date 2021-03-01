@@ -45,7 +45,7 @@ class MapDatabaseItems extends React.Component{
         }
 
     // This is the initial database query.
-     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(35);    
+     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(37);    
         
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -62,10 +62,9 @@ class MapDatabaseItems extends React.Component{
                     id:newsItems[newsItem].id
                 });
             }
-            console.log("Initial Load:: " + newState.slice(0,10))
             this.setState({
                 //Set's the initial number of articles loaded into home.
-                articlesArray: newState.slice(0,10)
+                articlesArray: newState.slice(0,12)
             })
             
         })        
@@ -81,7 +80,6 @@ class MapDatabaseItems extends React.Component{
     render(){
         const firebaseDB = this.state.articlesArray;  
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
-        console.log(firebaseDB)
          return (
             
             <div className="news-item-loop-wrapper"> 
