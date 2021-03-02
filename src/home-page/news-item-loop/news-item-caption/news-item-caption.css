@@ -21,7 +21,13 @@
             display: block;
             font-size:18px;
             height: 75px;
+            overflow: hidden;
             padding: 5px;
+        }
+
+        .news-item-link-text p{
+            font-style: italic;
+            text-align: right;
         }
 
         .hover-caption{
