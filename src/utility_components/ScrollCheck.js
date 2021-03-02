@@ -16,8 +16,13 @@ class ScrollCheck extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            arrayStartState: 10,
-            arrayEndState: 15,
+            // The array start and end state should start depending on where the initial load call ends
+            //  articlesArray: newState.slice(0,35)
+            // example - newState.slice(0,20) ---> arrayStartState should start at 20 
+            // arrayEndState --> Determines how many articles should load per bottom of window scroll.
+            //  if you want 10 per load then it should be 10 higher than array start state.
+            arrayStartState: 35,
+            arrayEndState: 40,
             test: props.tagState || props.authorState || props.postdateState,
             searchDBFor: props.searchDBFor,
             authorState:props.authorState,
@@ -72,7 +77,7 @@ class ScrollCheck extends React.Component{
                 })
 
                 const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
-                // console.log(renderNewArticlesOnScroll)
+                console.log(renderNewArticlesOnScroll)
                 this.setState({
                     articlesArray:renderNewArticlesOnScroll
                 })       
