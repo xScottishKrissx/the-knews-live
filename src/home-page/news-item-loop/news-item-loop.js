@@ -44,6 +44,8 @@ class MapDatabaseItems extends React.Component{
             })
         }
 
+        
+
     // This is the initial database query.
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(60);    
         
@@ -70,17 +72,21 @@ class MapDatabaseItems extends React.Component{
             
         })        
         window.addEventListener('scroll', this.scroll);   
+        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
     }
 
      componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
         localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
+        
       }
     
     render(){
         const firebaseDB = this.state.articlesArray;  
+        console.log(firebaseDB)
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        // console.log(localStorage.getItem("articlesArray"))
          return (
             
             <div className="news-item-loop-wrapper"> 

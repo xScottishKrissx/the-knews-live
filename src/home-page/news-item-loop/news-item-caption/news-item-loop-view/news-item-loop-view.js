@@ -84,7 +84,7 @@ class NewsItemLoopView extends React.Component{
                             }}
                         >
                                 
-                                <div className='news-square'  key={key}  
+                                <div className='news-square'  key={key}  name="news-item-loop-view.js"
                                 style={ this.state.startingCardSize || this.state.changedCardSize} >                    
                                     <Caption 
                                         pageid={value.key}

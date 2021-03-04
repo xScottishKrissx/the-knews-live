@@ -36,13 +36,24 @@ class ScrollCheck extends React.Component{
 
     componentDidMount(){
         window.addEventListener('scroll', this.scroll);
+
+        console.log(this.state.searchDBFor)
+        console.log(this.state.origin)
+        console.log(this.state.dbRef)
+        console.log(this.state.articlesArray)
         
         const articlesFromCache = localStorage.getItem("articlesArray")
+        // console.log(articlesFromCache)
         const parsedArticleArray = JSON.parse(articlesFromCache)
 
         this.setState({
             articlesArray:parsedArticleArray
         })
+        console.log(this.state.articlesArray)
+
+        if(this.state.articlesArray === null){
+            console.log("Articles Array Empty")
+        }
     }
 
     scroll = () => {
@@ -92,11 +103,15 @@ class ScrollCheck extends React.Component{
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
+        console.log(this.state.articlesArray)
       }
 
     render(){
         const new1 = this.state.articlesArray;
-        
+        if(this.state.articlesArray === null){
+            console.log("Articles Array Empty")
+        }
+        console.log(new1)
         // Load new Articles into view on scroll.
         const pageView = new1.map((value,key) => {
         
@@ -136,7 +151,7 @@ class ScrollCheck extends React.Component{
                             }}
                         >
                                 
-                                <div className='news-square'  key={key}  
+                                <div className='news-square' name="scroll-check.js" key={key}  
                                 style={ this.props.startingCardSize || this.props.changedCardSize } >                    
                                     <Caption 
                                         pageid={value.key}

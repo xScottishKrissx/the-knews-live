@@ -53,7 +53,7 @@ class RenderCards extends React.Component{
         return(
            
                   
-            <div className='news-square'  key={this.state.key} id={this.state.id}>    
+            <div className='news-square' name="render-cards.js" key={this.state.key} id={this.state.id}>    
                 
             <HideArticle articleId={this.state.id}/>                
             <Caption 

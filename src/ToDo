@@ -665,7 +665,10 @@ Part 2 Implement Database functionality:
             ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
 
             Known 10.1 Issues:
-                ☐ Tags pages are currently repeating articles from other tags after it displays all available tags of that page(i.e there are 9 articles with a weather tag but about 30 articles on the weather page.
+                ☐ Tags pages are currently repeating articles from other tags after it displays all available tags of that page(i.e there are 9 articles with a weather tag but about 30 articles on the weather page. @started(16:38 - 04/03/21)
+                ☐ Tags - Pressing a card size and refreshing the page will always throw an error. @started(16:37 - 04/03/21)
+                    // Looks like the issue might actually be the scrollCheck.js file.
+                    // Yup, disabling the scrollCheck component let's the page load and the card controls work as expected(although not saving to localstorage but that's expected for the moment)
                 )
             // V10.1.1 Feb Return Issues 
             ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)

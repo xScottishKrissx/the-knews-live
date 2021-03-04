@@ -20,6 +20,7 @@ import SwipeLeftContent from '../home-page/news-item-loop/news-item-caption/news
 import swipeLeftAction from '../utility_components/swipeLeftAction.js';
 import closePopup from '../utility_components/closePopup.js';
 import swipeRightAction from '../utility_components/swipeRightAction.js';
+import CustomCardSize from '../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
 
 class Tags extends React.Component{
 
@@ -41,12 +42,29 @@ class Tags extends React.Component{
             
             // Hiding Posts
             postsArray:[],
+
+            // Custom Card Size
+            startingCardSize:"",
+            changedCardSize:{width: localStorage.getItem("myData")},
         }
+        this.getCardSize = this.getCardSize.bind(this);
     }
- 
+
+    // There must be a way to only have one of these across the entire project.
+    getCardSize(value){
+        this.setState({
+            startingCardSize:{
+                width:value
+            }
+        })
+    }
+
     componentDidMount(){
-        console.log(this.props.location.state.tag)
-        
+        // console.log(this.state.articlesArray)
+        // console.log(this.state.origin)
+        // console.log(this.state.searchDBFor)
+        // console.log(this.state.orderByChild)
+
         
         if(this.state.origin === "Article"){
             const dbRef = fire.database().ref('items')
@@ -80,12 +98,13 @@ class Tags extends React.Component{
         }
 
         if(this.state.origin === "Tagbar"){
-           
+           console.log("Origin is Tagbar")
+
             const dbRef = fire.database().ref('items')
                 .orderByChild("tag")
                 .startAt(this.props.location.state.searchDBFor)
                 .endAt(this.props.location.state.searchDBFor);
-
+           
             dbRef.on('value', (snapshot) => {
                 let newsItems = snapshot.val();
                 // console.log(newsItems);
@@ -101,6 +120,7 @@ class Tags extends React.Component{
                         tag:newsItems[newsItem].tag,
                         text:newsItems[newsItem].text
                     });
+                    // console.log(newState)
                 }
     
                 this.setState({
@@ -111,10 +131,12 @@ class Tags extends React.Component{
                 // console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
             })
-        }
-        console.log(this.state.articlesArray)
+        }else{
 
-        console.log("Current Tag --> " + this.state.tagState)
+        }
+        // console.log(this.state.articlesArray)
+
+        // console.log("Current Tag --> " + this.state.tagState)
     }
 
    
@@ -126,10 +148,10 @@ class Tags extends React.Component{
       }
 
     render(){
-        const new1 = this.state.articlesArray;
+        const mapTags = this.state.articlesArray;
         // console.log(new1)
 
-        const pageView = new1.map((value,key) => {
+        const pageView = mapTags.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             const style = {
                 backgroundImage: 'url(' + imgUrl + ')',
@@ -164,8 +186,8 @@ class Tags extends React.Component{
             return(
                 
                    
-                <div id={value.id} key={value.id} className="myClass">   
-                    <div className='news-square'  key={key} id={value.id}> 
+                <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
+                
 
                                        <CheckCache id={value.id}/>
 
@@ -191,8 +213,8 @@ class Tags extends React.Component{
                             }}
                         >
                                 
-                                <div className='news-square'  key={key}  
-                                style={ this.props.startingCardSize || this.props.changedCardSize } >                    
+                                <div className='news-square' name="tags-original-load-news"  key={key}  
+                                style={ this.state.startingCardSize || this.props.changedCardSize } >                    
                                     <Caption 
                                         pageid={value.key}
                                         style={style}
@@ -207,24 +229,14 @@ class Tags extends React.Component{
                         </SwipeableListItem>
                         </SwipeableList>
 
-                    {/* <HideArticle articleId={value.id}/>  
-                    <CheckCache id={value.id}/>  
-                    <Caption 
-                        pageid={value.key} 
-                        style={style} 
-                        title={value.title}
-                        author={value.author}
-                        likes={value.likes}
-                        dislikes={value.dislikes}
-                        
-                        /> */}
-                        
-                    </div>
+
                 </div>
                 
             )
         })
-
+        console.log(this.props.location.state.searchDBFor)
+        console.log(this.props.location.state.origin)
+        console.log(this.state.articlesArray)
         return(
             
             <div className="tags-wrapper">
@@ -252,10 +264,17 @@ class Tags extends React.Component{
 
                             orderByChild={this.state.orderByChild}
 
-                            databaseReference = {fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}
+                            databaseReference = {
+                                fire.database().ref('items')
+                                .orderByChild(this.state.orderByChild)
+                                .startAt(this.state.getNewArticlesUsing)
+                                .endAt(this.state.getNewArticlesUsing)}
                         />
                 </div>
+                <CustomCardSize getCardSizeToParent={this.getCardSize}/>
             </div>
+            
+            
         )
     }
 }
