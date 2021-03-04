@@ -4,16 +4,20 @@ import '../news-item-loop-view/news-item-loop-view.css';
 import Caption from '../../news-item-caption/news-item-caption.js';
 import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
-import SwipeLeftContent from './swipe-views/article-modal.js';
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheck from '../../../../utility_components/ScrollCheck';
 import RenderCards from '../../../../utility_components/render-cards-unused/renderCards.js';
 import RenderCardStyle from '../../../../utility_components/render-cards-unused/renderCardStyles.js';
 import CheckCache from '../../../../utility_components/checkCache.js';
 
+// Swiping
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import SwipeLeftContent from './swipe-views/article-modal.js';
+import swipeLeftAction from '../../../../utility_components/swipeLeftAction.js';
+import swipeRightAction from '../../../../utility_components/swipeRightAction.js';
+import closePopup from '../../../../utility_components/closePopup.js';
 
 class NewsItemLoopView extends React.Component{
 
@@ -34,27 +38,6 @@ class NewsItemLoopView extends React.Component{
                 width:value
             }
         })
-    }
-
-    swipeLeftAction(text,id){
-        document.getElementById("popup" + id).style.display = "block";
-        document.getElementById("articlePopupBackground"  + id).style.display = "block";
-        document.body.style.overflow = "hidden";       
-    }
-        closePopup = (id) => {
-            document.getElementById("popup" + id).style.display = "none";
-            document.getElementById("articlePopupBackground" + id).style.display = "none";            
-            document.body.style.overflow = "auto";
-            // console.log(id)
-        }
-
-    swipeRightAction(id){   
-        // console.log("Post Disappearing is Post:: " + id)
-        // console.log(this.state.postsArray)
-        document.getElementById(id).style.display = "none";
-        this.state.postsArray.push(id)
-        localStorage.setItem("hiddenPostList", this.state.postsArray);
-        // console.log(localStorage.getItem("hiddenPostList"));
     }
 
     render(){
@@ -90,14 +73,14 @@ class NewsItemLoopView extends React.Component{
                                         title={value.title} 
                                         author={value.author} 
                                         text={value.text} 
-                                        closePopup={this.closePopup} 
+                                        closePopup={closePopup} 
                                         headerImage={value.id} />,
-                                action: () => this.swipeLeftAction(value.text, value.id) 
+                                action: () => swipeLeftAction(value.text, value.id) 
                             }}
                             
                             swipeRight={{
                                 content: <div>Hiding article...</div>, 
-                                action: () => this.swipeRightAction(value.id)
+                                action: () => swipeRightAction(value.id, this.state.postsArray)
                             }}
                         >
                                 
@@ -128,8 +111,8 @@ class NewsItemLoopView extends React.Component{
                 {HomePageView}
                 <ScrollCheck 
                     databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }
-                    swipeLeftAction={this.swipeLeftAction}
-                    closePopup={this.closePopup}
+                    swipeLeftAction={swipeLeftAction}
+                    closePopup={closePopup}
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
                     

@@ -649,6 +649,8 @@ Part 2 Implement Database functionality:
             ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components. @done(15:04 - 15/01/21)
             ✔ Card Size Control Styles -> Let's get this done. @done(20-12-11 17:04)
             ✔ Ability to hide articles from within article -> Like a mark as read button @done(15:04 - 15/01/21)
+            ✔ Add swipe to Tags Page. @started(16:58 - 02/03/21) @done(17:35 - 02/03/21) @lasted(37m48s)
+            ☐ Add Card Size Controls to tag page
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
@@ -662,6 +664,9 @@ Part 2 Implement Database functionality:
             ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
             ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
 
+            Known 10.1 Issues:
+                ☐ Tags pages are currently repeating articles from other tags after it displays all available tags of that page(i.e there are 9 articles with a weather tag but about 30 articles on the weather page.
+                )
             // V10.1.1 Feb Return Issues 
             ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)
                 ✔ Looks like the issue was not correctly splicing the array of articles from the database. @done(17:30 - 26/02/21)
