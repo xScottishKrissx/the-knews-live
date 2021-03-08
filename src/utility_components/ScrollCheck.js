@@ -50,7 +50,7 @@ class ScrollCheck extends React.Component{
             articlesArray:parsedArticleArray
         })
         console.log(this.state.articlesArray)
-
+        console.log(localStorage.getItem("articlesArray"))
         if(this.state.articlesArray === null){
             console.log("Articles Array Empty")
         }
@@ -110,6 +110,9 @@ class ScrollCheck extends React.Component{
         const new1 = this.state.articlesArray;
         if(this.state.articlesArray === null){
             console.log("Articles Array Empty")
+        }
+        else{
+            console.log("Article Array NOT Empty.")
         }
         console.log(new1)
         // Load new Articles into view on scroll.

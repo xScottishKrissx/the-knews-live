@@ -60,12 +60,12 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
         // console.log(this.state.origin)
         // console.log(this.state.searchDBFor)
         // console.log(this.state.orderByChild)
 
-        
+        console.log(localStorage.getItem("articlesArray"))
         if(this.state.origin === "Article"){
             const dbRef = fire.database().ref('items')
                 .orderByChild(this.state.searchDBFor)
@@ -126,13 +126,14 @@ class Tags extends React.Component{
                 this.setState({
                     articlesArray: newState.slice(0,50)
                 })
-                // console.log(this.state.articlesArray)
-                // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+                console.log(this.state.articlesArray)
+                localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 // console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
             })
+            console.log(this.state.articlesArray)
         }else{
-
+            console.log("Something is wrong.")
         }
         // console.log(this.state.articlesArray)
 
@@ -149,7 +150,7 @@ class Tags extends React.Component{
 
     render(){
         const mapTags = this.state.articlesArray;
-        // console.log(new1)
+        console.log(mapTags)
 
         const pageView = mapTags.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -269,7 +270,7 @@ class Tags extends React.Component{
                                 .orderByChild(this.state.orderByChild)
                                 .startAt(this.state.getNewArticlesUsing)
                                 .endAt(this.state.getNewArticlesUsing)}
-                        />
+                        /> 
                 </div>
                 <CustomCardSize getCardSizeToParent={this.getCardSize}/>
             </div>

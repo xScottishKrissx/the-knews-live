@@ -4,7 +4,8 @@ import '../utility_components/ClearCache.css';
 export class ClearCache extends React.Component{
 
     clearCache(){
-        localStorage.clear();
+        // localStorage.clear();
+        localStorage.removeItem("hiddenPostList")
         console.log("Local Storage Cleared.")
         window.location.reload();
     }
@@ -22,3 +23,14 @@ export class ClearCache extends React.Component{
 }
 
 export default ClearCache;
+
+// Things that have been set
+
+// articlesArray
+// hiddenPosts
+// hiddenPostList
+// myData
+// CardStyleSetting
+// savedCardOptionsPosition
+// DarkMode (Disabled)
+// 
