@@ -60,12 +60,12 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.state.articlesArray)
+        // console.log(this.state.articlesArray)
         // console.log(this.state.origin)
         // console.log(this.state.searchDBFor)
         // console.log(this.state.orderByChild)
 
-        console.log(localStorage.getItem("articlesArray"))
+        // console.log(localStorage.getItem("articlesArray"))
         if(this.state.origin === "Article"){
             const dbRef = fire.database().ref('items')
                 .orderByChild(this.state.searchDBFor)
@@ -89,7 +89,7 @@ class Tags extends React.Component{
                     });
                 }
                 this.setState({
-                    articlesArray: newState.slice(0,50)
+                    articlesArray: newState.slice(0,35)
                 })
                 // console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -103,7 +103,9 @@ class Tags extends React.Component{
             const dbRef = fire.database().ref('items')
                 .orderByChild("tag")
                 .startAt(this.props.location.state.searchDBFor)
-                .endAt(this.props.location.state.searchDBFor);
+                .endAt(this.props.location.state.searchDBFor)
+                .limitToFirst(60)
+                ;
            
             dbRef.on('value', (snapshot) => {
                 let newsItems = snapshot.val();
@@ -124,9 +126,9 @@ class Tags extends React.Component{
                 }
     
                 this.setState({
-                    articlesArray: newState.slice(0,50)
+                    articlesArray: newState.slice(0,35)
                 })
-                console.log(this.state.articlesArray)
+                // console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 // console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
@@ -150,7 +152,7 @@ class Tags extends React.Component{
 
     render(){
         const mapTags = this.state.articlesArray;
-        console.log(mapTags)
+        // console.log(mapTags)
 
         const pageView = mapTags.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -224,6 +226,7 @@ class Tags extends React.Component{
                                         likes={value.likes}
                                         dislikes={value.dislikes}
                                         articleId={value.id}
+                                        tag={value.tag}
                                         />
                                 </div>
                         
@@ -237,7 +240,7 @@ class Tags extends React.Component{
         })
         console.log(this.props.location.state.searchDBFor)
         console.log(this.props.location.state.origin)
-        console.log(this.state.articlesArray)
+        // console.log(this.state.articlesArray)
         return(
             
             <div className="tags-wrapper">
@@ -261,15 +264,14 @@ class Tags extends React.Component{
                             postdateState={this.props.location.state.postdate}
                             searchDBFor={this.props.location.state.searchDBFor}
                             origin={this.props.location.state.origin}
-                            articleArray={this.state.articlesArray}
+                            articlesArray={this.state.articlesArray}
 
                             orderByChild={this.state.orderByChild}
+                            startAt={this.state.getNewArticlesUsing}
 
                             databaseReference = {
-                                fire.database().ref('items')
-                                .orderByChild(this.state.orderByChild)
-                                .startAt(this.state.getNewArticlesUsing)
-                                .endAt(this.state.getNewArticlesUsing)}
+                                fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}
+                         
                         /> 
                 </div>
                 <CustomCardSize getCardSizeToParent={this.getCardSize}/>

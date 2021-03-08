@@ -6,7 +6,7 @@ export class ClearCache extends React.Component{
     clearCache(){
         // localStorage.clear();
         localStorage.removeItem("hiddenPostList")
-        console.log("Local Storage Cleared.")
+        console.log("hiddenPostList -- Removed.")
         window.location.reload();
     }
 

@@ -642,7 +642,7 @@ Part 2 Implement Database functionality:
             ☐ Get Like and Dislike to work separate from myKnews
 
         Version 11 (Future Version) - Planned Notes:
-            ☐ Implement Mobile Menu using swipe
+            ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
             
         Version 10.1 - Codebase Cleanup - Release Notes:
             // Feature Updates
@@ -672,6 +672,11 @@ Part 2 Implement Database functionality:
                     // I may have solved it. I think the issue was with the clearCache component that triggers on clearing the cache. Previously I was clearing everything but I have changed the button to only clear the hiddenPostList from cache. With that the page is working as expected although there are some issues
                         1 - I dont fully know what effect my clearCache change has had. So i'll need to be careful and check everything is working.
                         2 - The tags page is duplicating articles again.
+                            // I have no idea what is going on here. I am almost at a stage where I want to create a new scrollCheck component from scratch just for tags to compare what is going on.
+                    ☐ Another error. If you change card size on home and go to the tags page, it throws the same error as before. @started(15:48 - 08/03/21)
+                    // This also works going tags --> home    
+                    // If you refresh the page the card sizes have all reset with no error so there's a clue at least. 
+                    // Also if you disable the scrollCheck component you get no issues.
                 )
             // V10.1.1 Feb Return Issues 
             ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)

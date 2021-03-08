@@ -19,6 +19,7 @@ export class Caption extends React.Component{
         const style = this.props.style;
         const title = this.props.title;
         const author = this.props.author;
+        const tag = this.props.tag;
 
         return (            
 
@@ -29,6 +30,7 @@ export class Caption extends React.Component{
                 <div style={style}>
                     <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
                         <span>{title}</span>
+                        <span>{tag}</span>
                         <p>by {author}</p>
                     </div>                    
                 </div> 

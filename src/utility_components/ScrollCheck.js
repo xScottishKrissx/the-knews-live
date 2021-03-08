@@ -38,9 +38,12 @@ class ScrollCheck extends React.Component{
         window.addEventListener('scroll', this.scroll);
 
         console.log(this.state.searchDBFor)
-        console.log(this.state.origin)
-        console.log(this.state.dbRef)
+        // console.log(this.state.origin)
+        // console.log(this.state.dbRef)
         console.log(this.state.articlesArray)
+
+        console.log("Order By -> " + this.props.orderByChild);
+        console.log("StartAt ->" + this.props.startAt)
         
         const articlesFromCache = localStorage.getItem("articlesArray")
         // console.log(articlesFromCache)
@@ -50,7 +53,7 @@ class ScrollCheck extends React.Component{
             articlesArray:parsedArticleArray
         })
         console.log(this.state.articlesArray)
-        console.log(localStorage.getItem("articlesArray"))
+        // console.log(localStorage.getItem("articlesArray"))
         if(this.state.articlesArray === null){
             console.log("Articles Array Empty")
         }
@@ -62,9 +65,11 @@ class ScrollCheck extends React.Component{
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset + 10;
-
+        // console.log(windowBottom)
           
+        // 
         if(windowBottom >= docHeight){
+            // if(windowBottom > 1200){
             const dbRef = this.state.dbRef;
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
@@ -89,10 +94,8 @@ class ScrollCheck extends React.Component{
                 })
 
                 const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
-                console.log(renderNewArticlesOnScroll)
-                this.setState({
-                    articlesArray:renderNewArticlesOnScroll
-                })       
+                // console.log(renderNewArticlesOnScroll)
+                this.setState({articlesArray:renderNewArticlesOnScroll})       
            })
             // console.log("Bottom Reached")
         }else{
@@ -103,18 +106,14 @@ class ScrollCheck extends React.Component{
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
-        console.log(this.state.articlesArray)
+        // console.log(this.state.articlesArray)
       }
 
     render(){
         const new1 = this.state.articlesArray;
-        if(this.state.articlesArray === null){
-            console.log("Articles Array Empty")
-        }
-        else{
-            console.log("Article Array NOT Empty.")
-        }
-        console.log(new1)
+        console.log(this.state.articlesArray)
+
+        // console.log(new1)
         // Load new Articles into view on scroll.
         const pageView = new1.map((value,key) => {
         
@@ -164,6 +163,7 @@ class ScrollCheck extends React.Component{
                                         likes={value.likes}
                                         dislikes={value.dislikes}
                                         articleId={value.id}
+                                        tag={value.tag}
                                         />
                                 </div>
                         

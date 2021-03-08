@@ -40,6 +40,9 @@ class NewsItemLoopView extends React.Component{
         })
     }
 
+    componentWillUnmount(){
+        fire.database().ref("items").off();
+    }
     render(){
         const HomePageView = this.props.databaseProp.map((value,key) => {        
 
@@ -94,6 +97,7 @@ class NewsItemLoopView extends React.Component{
                                         likes={value.likes}
                                         dislikes={value.dislikes}
                                         articleId={value.id}
+                                        tag={value.tag}
                                         />
                                 </div>
                         

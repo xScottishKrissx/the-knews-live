@@ -61,6 +61,7 @@ class MapDatabaseItems extends React.Component{
                     text: newsItems[newsItem].text,
                     likes: newsItems[newsItem].likes,
                     dislikes: newsItems[newsItem].dislikes,
+                    tag: newsItems[newsItem].tag,
                     id:newsItems[newsItem].id
                 });
             }
