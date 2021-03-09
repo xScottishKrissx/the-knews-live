@@ -73,7 +73,7 @@ class MapDatabaseItems extends React.Component{
             
         })        
         window.addEventListener('scroll', this.scroll);   
-        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
     }
 
      componentWillUnmount(){
@@ -86,7 +86,7 @@ class MapDatabaseItems extends React.Component{
     render(){
         const firebaseDB = this.state.articlesArray;  
         console.log(firebaseDB)
-        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
         // console.log(localStorage.getItem("articlesArray"))
          return (
             

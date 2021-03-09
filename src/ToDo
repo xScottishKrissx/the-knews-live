@@ -677,6 +677,7 @@ Part 2 Implement Database functionality:
                     // This also works going tags --> home    
                     // If you refresh the page the card sizes have all reset with no error so there's a clue at least. 
                     // Also if you disable the scrollCheck component you get no issues.
+                    // I think i've narrowed it down to the line in scrollCheck that sets state to the articles stored in cache. These articles are correct to the previous page but not the current.
                 )
             // V10.1.1 Feb Return Issues 
             ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)

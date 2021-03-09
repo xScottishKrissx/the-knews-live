@@ -94,8 +94,9 @@ class ScrollCheck extends React.Component{
                 })
 
                 const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
-                // console.log(renderNewArticlesOnScroll)
-                this.setState({articlesArray:renderNewArticlesOnScroll})       
+                console.log(renderNewArticlesOnScroll)
+                this.setState({
+                    articlesArray:renderNewArticlesOnScroll})       
            })
             // console.log("Bottom Reached")
         }else{

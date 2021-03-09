@@ -60,10 +60,10 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        // console.log(this.state.articlesArray)
-        // console.log(this.state.origin)
-        // console.log(this.state.searchDBFor)
-        // console.log(this.state.orderByChild)
+        console.log(this.state.articlesArray)
+        console.log(this.state.origin)
+        console.log(this.state.searchDBFor)
+        console.log(this.state.orderByChild)
 
         // console.log(localStorage.getItem("articlesArray"))
         if(this.state.origin === "Article"){
@@ -99,13 +99,17 @@ class Tags extends React.Component{
 
         if(this.state.origin === "Tagbar"){
            console.log("Origin is Tagbar")
-
+            console.log("Search DB For --> " + this.props.location.state.searchDBFor)
             const dbRef = fire.database().ref('items')
                 .orderByChild("tag")
                 .startAt(this.props.location.state.searchDBFor)
                 .endAt(this.props.location.state.searchDBFor)
                 .limitToFirst(60)
                 ;
+            const dbref = fire.database().ref('items')
+                            .orderByChild(this.state.orderByChild)
+                            .startAt(this.state.getNewArticlesUsing)
+                            .endAt(this.state.getNewArticlesUsing)
            
             dbRef.on('value', (snapshot) => {
                 let newsItems = snapshot.val();
@@ -241,6 +245,7 @@ class Tags extends React.Component{
         console.log(this.props.location.state.searchDBFor)
         console.log(this.props.location.state.origin)
         // console.log(this.state.articlesArray)
+        console.log("Get New Articles Using --> " + this.state.getNewArticlesUsing)
         return(
             
             <div className="tags-wrapper">
