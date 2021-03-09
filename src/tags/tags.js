@@ -8,7 +8,7 @@ import NavControls from '../utility_components/navControls.js';
 
 import '../tags/tags.css';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
-import ScrollCheck from '../utility_components/ScrollCheck.js';
+import ScrollCheckTags from '../utility_components/ScrollCheckTags.js';
 import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
 import ClearCache from '../utility_components/ClearCache.js';
 import CheckCache from '../utility_components/checkCache.js';
@@ -28,8 +28,6 @@ class Tags extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            arrayStartState: 5,
-            arrayEndState: 10,
             test: this.props.location.state.tag || this.props.location.state.author || this.props.location.state.postdate,
             // test: this.props.location.state.tag,
             tagState: this.props.location.state.tag,
@@ -89,7 +87,7 @@ class Tags extends React.Component{
                     });
                 }
                 this.setState({
-                    articlesArray: newState.slice(0,35)
+                    articlesArray: newState.slice(0,10)
                 })
                 // console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -130,7 +128,7 @@ class Tags extends React.Component{
                 }
     
                 this.setState({
-                    articlesArray: newState.slice(0,35)
+                    articlesArray: newState.slice(0,10)
                 })
                 // console.log(this.state.articlesArray)
                 localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -141,7 +139,7 @@ class Tags extends React.Component{
         }else{
             console.log("Something is wrong.")
         }
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
 
         // console.log("Current Tag --> " + this.state.tagState)
     }
@@ -156,7 +154,8 @@ class Tags extends React.Component{
 
     render(){
         const mapTags = this.state.articlesArray;
-        // console.log(mapTags)
+        
+        console.log(mapTags)
 
         const pageView = mapTags.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -263,7 +262,7 @@ class Tags extends React.Component{
                         {pageView}
 
 
-                        <ScrollCheck 
+                        <ScrollCheckTags 
                             tagState={this.props.location.state.tag}
                             authorState={this.props.location.state.author}
                             postdateState={this.props.location.state.postdate}
@@ -279,7 +278,7 @@ class Tags extends React.Component{
                          
                         /> 
                 </div>
-                <CustomCardSize getCardSizeToParent={this.getCardSize}/>
+                {/* <CustomCardSize getCardSizeToParent={this.getCardSize}/> */}
             </div>
             
             

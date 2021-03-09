@@ -12,7 +12,7 @@ import SwipeLeftContent from '../home-page/news-item-loop/news-item-caption/news
 
 
 
-class ScrollCheck extends React.Component{
+class ScrollCheckTags extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -22,8 +22,8 @@ class ScrollCheck extends React.Component{
             // example - newState.slice(0,20) ---> arrayStartState should start at 20 
             // arrayEndState --> Determines how many articles should load per bottom of window scroll.
             //  if you want 10 per load then it should be 10 higher than array start state.
-            arrayStartState: 35,
-            arrayEndState: 40,
+            arrayStartState: 10,
+            arrayEndState: 15,
             test: props.tagState || props.authorState || props.postdateState,
             searchDBFor: props.searchDBFor,
             authorState:props.authorState,
@@ -37,26 +37,88 @@ class ScrollCheck extends React.Component{
     componentDidMount(){
         window.addEventListener('scroll', this.scroll);
 
-        // console.log(this.state.searchDBFor)
+        // const dbRef = fire.database().ref('items').orderByKey().limitToFirst(60);    
+        // const dbRef2 = this.state.dbRef;
+        
+        // console.log(dbRef2)
+
+        // dbRef2.on('value', (snapshot) => {
+        //     let newsItems = snapshot.val();
+        //     // console.log(newsItems);
+        //     let newState = [];
+        //     for(let newsItem in newsItems){
+        //         newState.push({
+        //             key: newsItem,
+        //             author: newsItems[newsItem].author,
+        //             title: newsItems[newsItem].title,
+        //             text: newsItems[newsItem].text,
+        //             likes: newsItems[newsItem].likes,
+        //             dislikes: newsItems[newsItem].dislikes,
+        //             tag: newsItems[newsItem].tag,
+        //             id:newsItems[newsItem].id
+        //         });
+        //     }
+        //     // this.setState({
+        //     //     //Set's the initial number of articles loaded into home.
+        //     //     articlesArray: newState.slice(0,1)
+        //     // })
+        //     console.log(this.state.articlesArray)
+            
+        // })     
+
+
+        // the bottom is actually used on the tags page but i'm just using this to think out loud... via words.
+        // const exp1 = fire.database().ref('items').orderByChild("tag").equalTo("Weather");
+
+        // exp1.on('value', (snapshot) => {
+        //     let newsItems = snapshot.val();
+        //     // console.log(newsItems);
+        //     let newState = [];
+        //     for(let newsItem in newsItems){
+        //         newState.push({
+        //             key: newsItem,
+        //             author: newsItems[newsItem].author,
+        //             title: newsItems[newsItem].title,
+        //             text: newsItems[newsItem].text,
+        //             likes: newsItems[newsItem].likes,
+        //             dislikes: newsItems[newsItem].dislikes,
+        //             tag: newsItems[newsItem].tag,
+        //             id:newsItems[newsItem].id
+        //         });
+        //     }
+
+        //     console.log(newState);
+        //     this.setState({
+        //         //Set's the initial number of articles loaded into home.
+        //         articlesArray2: newState
+        //     })
+        //     console.log(this.state.articlesArray2)
+            
+        // })     
+
+        console.log(this.state.searchDBFor)
         // console.log(this.state.origin)
         // console.log(this.state.dbRef)
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
 
-        // console.log("Order By -> " + this.props.orderByChild);
-        // console.log("StartAt ->" + this.props.startAt)
+        console.log("Order By -> " + this.props.orderByChild);
+        console.log("StartAt ->" + this.props.startAt)
         
         const articlesFromCache = localStorage.getItem("articlesArray")
         // console.log(articlesFromCache)
         const parsedArticleArray = JSON.parse(articlesFromCache)
 
         this.setState({
-            articlesArray:parsedArticleArray
+            // articlesArray:parsedArticleArray
+            // articlesArray: this.props.articlesArray
         })
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
         // console.log(localStorage.getItem("articlesArray"))
         if(this.state.articlesArray === null){
-            // console.log("Articles Array Empty")
+            console.log("Articles Array Empty")
         }
+
+
     }
 
     scroll = () => {
@@ -66,8 +128,9 @@ class ScrollCheck extends React.Component{
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset + 10;
         // console.log(windowBottom)
-          
+
         // 
+        // console.log(this.state.dbRef)
         if(windowBottom >= docHeight){
             // if(windowBottom > 1200){
             const dbRef = this.state.dbRef;
@@ -94,7 +157,7 @@ class ScrollCheck extends React.Component{
                 })
 
                 const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
-                // console.log(renderNewArticlesOnScroll)
+                console.log(renderNewArticlesOnScroll)
                 this.setState({
                     articlesArray:renderNewArticlesOnScroll})       
            })
@@ -102,6 +165,8 @@ class ScrollCheck extends React.Component{
         }else{
             // console.log("Not At Bottom Yet")
         }
+
+        
     }
 
     componentWillUnmount(){
@@ -112,10 +177,11 @@ class ScrollCheck extends React.Component{
 
     render(){
         const new1 = this.state.articlesArray;
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
 
         // console.log(new1)
         // Load new Articles into view on scroll.
+        const pageView2 = this.state.scrollCheckView;
         const pageView = new1.map((value,key) => {
         
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -186,4 +252,4 @@ class ScrollCheck extends React.Component{
     }
 }
 
-export default ScrollCheck;
+export default ScrollCheckTags;
