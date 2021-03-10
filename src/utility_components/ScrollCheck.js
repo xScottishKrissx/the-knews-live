@@ -22,8 +22,8 @@ class ScrollCheck extends React.Component{
             // example - newState.slice(0,20) ---> arrayStartState should start at 20 
             // arrayEndState --> Determines how many articles should load per bottom of window scroll.
             //  if you want 10 per load then it should be 10 higher than array start state.
-            arrayStartState: 20,
-            arrayEndState: 25,
+            arrayStartState: 10,
+            arrayEndState: 15,
             test: props.tagState || props.authorState || props.postdateState,
             searchDBFor: props.searchDBFor,
             authorState:props.authorState,
@@ -38,8 +38,6 @@ class ScrollCheck extends React.Component{
         window.addEventListener('scroll', this.scroll);      
 
         if(this.state.origin === undefined){
-            console.log(this.state.origin)
-            console.log("Not on tags page!")
             this.setState({
                 articlesArray: this.props.articlesArray
             })

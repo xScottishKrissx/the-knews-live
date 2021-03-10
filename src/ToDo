@@ -682,6 +682,9 @@ Part 2 Implement Database functionality:
                     // I think i solved the problem... even if im not sure how. I think it was down to incorrectly setting the parameters of the newstate.slice in the tags page and arrayStart and End state in scrollCheck.js. Not 100% certain so i'll play around and see if I can figure it out exactly.
                     // In regards to article duplication on the home page i manage to fix the issue by changing the newstate.slice and arraystart to be more in line with each other across news-item-loop.js and scrollcheck.js
                     ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload. @started(16:38 - 10/03/21)
+                    ☐ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21)
+                        // Ive completed most of the work with both tags and home using the same scrollCheck component.
+                        // The only issue is how i'm slicing the arrays and where the start point for render on scroll should be. Luckily this is only a problem because the number of articles with tags is uneven and low, so if I add more tags then there should be no issue. The issue is that the number of sports tags is lower than the initially loaded homepage articles, which would cut off articles. Again, if I add more tags to articles this isn't an issue and is only a problem because the project is still in development and there's a lack of actual content,.
 
 
                 )
@@ -789,3 +792,22 @@ https://material.io/resources/icons/?style=baseline
 
 Images
 ...
+
+
+// Random Notes
+    ->Tags.js
+    -->newState.slice(0,10)
+
+    ->scrollCheckTags.js
+    --> arrayStartState:10
+    --> arrayEndState:15
+
+    -----
+    ->news-item-loop.js
+    -->newState.slice(0,20)
+    -->arrayStartState:21
+    -->arrayEndState:26
+
+    ->scrollCheck.js
+    -->arrayStartState:20
+    -->arrayEndState:25
