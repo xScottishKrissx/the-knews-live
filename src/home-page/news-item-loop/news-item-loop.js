@@ -86,9 +86,9 @@ class MapDatabaseItems extends React.Component{
     render(){
 
         const firebaseDB = this.state.articlesArray;  
-        console.log(firebaseDB)
+        // console.log(firebaseDB)
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
-        console.log(localStorage.getItem("articlesArray"))
+        // console.log(localStorage.getItem("articlesArray"))
 
          return (
             

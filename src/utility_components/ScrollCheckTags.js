@@ -36,89 +36,14 @@ class ScrollCheckTags extends React.Component{
 
     componentDidMount(){
         window.addEventListener('scroll', this.scroll);
-
-        // const dbRef = fire.database().ref('items').orderByKey().limitToFirst(60);    
-        // const dbRef2 = this.state.dbRef;
-        
-        // console.log(dbRef2)
-
-        // dbRef2.on('value', (snapshot) => {
-        //     let newsItems = snapshot.val();
-        //     // console.log(newsItems);
-        //     let newState = [];
-        //     for(let newsItem in newsItems){
-        //         newState.push({
-        //             key: newsItem,
-        //             author: newsItems[newsItem].author,
-        //             title: newsItems[newsItem].title,
-        //             text: newsItems[newsItem].text,
-        //             likes: newsItems[newsItem].likes,
-        //             dislikes: newsItems[newsItem].dislikes,
-        //             tag: newsItems[newsItem].tag,
-        //             id:newsItems[newsItem].id
-        //         });
-        //     }
-        //     // this.setState({
-        //     //     //Set's the initial number of articles loaded into home.
-        //     //     articlesArray: newState.slice(0,1)
-        //     // })
-        //     console.log(this.state.articlesArray)
-            
-        // })     
-
-
-        // the bottom is actually used on the tags page but i'm just using this to think out loud... via words.
-        // const exp1 = fire.database().ref('items').orderByChild("tag").equalTo("Weather");
-
-        // exp1.on('value', (snapshot) => {
-        //     let newsItems = snapshot.val();
-        //     // console.log(newsItems);
-        //     let newState = [];
-        //     for(let newsItem in newsItems){
-        //         newState.push({
-        //             key: newsItem,
-        //             author: newsItems[newsItem].author,
-        //             title: newsItems[newsItem].title,
-        //             text: newsItems[newsItem].text,
-        //             likes: newsItems[newsItem].likes,
-        //             dislikes: newsItems[newsItem].dislikes,
-        //             tag: newsItems[newsItem].tag,
-        //             id:newsItems[newsItem].id
-        //         });
-        //     }
-
-        //     console.log(newState);
-        //     this.setState({
-        //         //Set's the initial number of articles loaded into home.
-        //         articlesArray2: newState
-        //     })
-        //     console.log(this.state.articlesArray2)
-            
-        // })     
-
-        console.log(this.state.searchDBFor)
-        // console.log(this.state.origin)
-        // console.log(this.state.dbRef)
-        console.log(this.state.articlesArray)
-
-        console.log("Order By -> " + this.props.orderByChild);
-        console.log("StartAt ->" + this.props.startAt)
-        
-        const articlesFromCache = localStorage.getItem("articlesArray")
-        // console.log(articlesFromCache)
-        const parsedArticleArray = JSON.parse(articlesFromCache)
-
-        this.setState({
-            // articlesArray:parsedArticleArray
-            // articlesArray: this.props.articlesArray
-        })
-        console.log(this.state.articlesArray)
-        // console.log(localStorage.getItem("articlesArray"))
-        if(this.state.articlesArray === null){
-            console.log("Articles Array Empty")
+        if(this.state.origin != null){
+            console.log("Not on tags page!")
+        }else{
+            console.log("On Tags Page")
         }
-
-
+        this.setState({
+            articlesArray:[]
+        })
     }
 
     scroll = () => {
@@ -127,10 +52,7 @@ class ScrollCheckTags extends React.Component{
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset + 10;
-        // console.log(windowBottom)
 
-        // 
-        // console.log(this.state.dbRef)
         if(windowBottom >= docHeight){
             // if(windowBottom > 1200){
             const dbRef = this.state.dbRef;

@@ -9,6 +9,7 @@ import NavControls from '../utility_components/navControls.js';
 import '../tags/tags.css';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
 import ScrollCheckTags from '../utility_components/ScrollCheckTags.js';
+import ScrollCheck from '../utility_components/ScrollCheck.js';
 import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
 import ClearCache from '../utility_components/ClearCache.js';
 import CheckCache from '../utility_components/checkCache.js';
@@ -166,36 +167,13 @@ class Tags extends React.Component{
                 backgroundSize: "cover",
                 height: "400px",
             }   
-
-            // console.log("Home Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
-            // const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
-            // const checkExist = setInterval(function() {
-            //     if (!!localStorageHiddenPosts && document.getElementById(value.id)) {
-            //     console.log("Exists!");
-            //     clearInterval(checkExist);
-            //     const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
-
-            //         for(var i = 0; i < formattedPostsArray.length; i++){
-            //             if(!!formattedPostsArray && formattedPostsArray[i].toString() === value.id.toString()){
-            //                 // console.log("Hidden Post Identified")
-            //                 document.getElementById(value.id).style.display = "none";
-            //                 console.log("Success: " + value.id + " hidden");
-            //                 console.log(formattedPostsArray[i]);
-            //             }
-            //         }        
-
-            //     }
-            // }, 100); // check every 100ms
-
             
-
             return(
                 
                    
                 <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
-                
 
-                                       <CheckCache id={value.id}/>
+                    <CheckCache id={value.id}/>
 
                     <HideArticle articleId={value.id}/>    
 
@@ -241,10 +219,10 @@ class Tags extends React.Component{
                 
             )
         })
-        console.log(this.props.location.state.searchDBFor)
-        console.log(this.props.location.state.origin)
-        // console.log(this.state.articlesArray)
-        console.log("Get New Articles Using --> " + this.state.getNewArticlesUsing)
+        // console.log(this.props.location.state.searchDBFor)
+        // console.log(this.props.location.state.origin)
+        // // console.log(this.state.articlesArray)
+        // console.log("Get New Articles Using --> " + this.state.getNewArticlesUsing)
         return(
             
             <div className="tags-wrapper">
@@ -261,8 +239,7 @@ class Tags extends React.Component{
                         {/* <NewsItemLoopView databaseProp={new1}/>           */}
                         {pageView}
 
-
-                        <ScrollCheckTags 
+                        <ScrollCheck
                             tagState={this.props.location.state.tag}
                             authorState={this.props.location.state.author}
                             postdateState={this.props.location.state.postdate}
@@ -275,8 +252,28 @@ class Tags extends React.Component{
 
                             databaseReference = {
                                 fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}
+
+                            
                          
                         /> 
+
+                        {/* <ScrollCheckTags 
+                            tagState={this.props.location.state.tag}
+                            authorState={this.props.location.state.author}
+                            postdateState={this.props.location.state.postdate}
+                            searchDBFor={this.props.location.state.searchDBFor}
+                            origin={this.props.location.state.origin}
+                            articlesArray={this.state.articlesArray}
+
+                            orderByChild={this.state.orderByChild}
+                            startAt={this.state.getNewArticlesUsing}
+
+                            databaseReference = {
+                                fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}
+
+                            
+                         
+                        />  */}
                 </div>
                 <CustomCardSize getCardSizeToParent={this.getCardSize}/>
             </div>

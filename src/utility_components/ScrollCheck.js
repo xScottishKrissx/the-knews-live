@@ -35,32 +35,19 @@ class ScrollCheck extends React.Component{
     }
 
     componentDidMount(){
-        window.addEventListener('scroll', this.scroll);
+        window.addEventListener('scroll', this.scroll);      
 
-        // console.log(this.state.searchDBFor)
-        // console.log(this.state.origin)
-        // console.log(this.state.dbRef)
-        // console.log(this.state.articlesArray)
-
-        // console.log("Order By -> " + this.props.orderByChild);
-        // console.log("StartAt ->" + this.props.startAt)
-        
-        const articlesFromCache = localStorage.getItem("articlesArray")
-        // console.log(articlesFromCache)
-        const parsedArticleArray = JSON.parse(articlesFromCache)
-        console.log(this.props.articlesArray)
-        this.setState({
-            // This is causing the article duplication but is used for outpitting the non hidden articles.
-            // If I clear the cache, then i get an error because this is the only thing allowing the scrollCheck to output content. 
-            // I should consider just passing the parsed articles through props instead of local storage.
-            // articlesArray:parsedArticleArray
-            articlesArray: this.props.articlesArray
-        })
-        // console.log(this.state.articlesArray)
-        // console.log(localStorage.getItem("articlesArray"))
-        if(this.state.articlesArray === null){
-            // console.log("Articles Array Empty")
+        if(this.state.origin === undefined){
+            console.log(this.state.origin)
+            console.log("Not on tags page!")
+            this.setState({
+                articlesArray: this.props.articlesArray
+            })
+        }else{
+            console.log("On Tags Page")
         }
+  
+
     }
 
     scroll = () => {
@@ -116,6 +103,10 @@ class ScrollCheck extends React.Component{
 
     render(){
         const new1 = this.state.articlesArray;
+        const homeScroll = this.props.databaseRefHome;
+        const tagsScroll = this.props.databaseRefTags;
+
+
         console.log(this.state.articlesArray)
 
         // console.log(new1)
