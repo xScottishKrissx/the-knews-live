@@ -680,6 +680,7 @@ Part 2 Implement Database functionality:
                     // I think i've narrowed it down to the line in scrollCheck that sets state to the articles stored in cache. These articles are correct to the previous page but not the current.
                     // I thin the duplication is down to the scrollCheck having a render component that immediately displays its contents as soon as the component is mounted. I want the contents of the scrollCheck component to only show when the page is scrolled.
                     // I think i solved the problem... even if im not sure how. I think it was down to incorrectly setting the parameters of the newstate.slice in the tags page and arrayStart and End state in scrollCheck.js. Not 100% certain so i'll play around and see if I can figure it out exactly.
+                    // In regards to article duplication on the home page i manage to fix the issue by changing the newstate.slice and arraystart to be more in line with each other across news-item-loop.js and scrollcheck.js
 
                 )
             // V10.1.1 Feb Return Issues 

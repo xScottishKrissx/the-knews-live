@@ -22,8 +22,8 @@ class ScrollCheck extends React.Component{
             // example - newState.slice(0,20) ---> arrayStartState should start at 20 
             // arrayEndState --> Determines how many articles should load per bottom of window scroll.
             //  if you want 10 per load then it should be 10 higher than array start state.
-            arrayStartState: 35,
-            arrayEndState: 40,
+            arrayStartState: 20,
+            arrayEndState: 25,
             test: props.tagState || props.authorState || props.postdateState,
             searchDBFor: props.searchDBFor,
             authorState:props.authorState,
@@ -48,9 +48,13 @@ class ScrollCheck extends React.Component{
         const articlesFromCache = localStorage.getItem("articlesArray")
         // console.log(articlesFromCache)
         const parsedArticleArray = JSON.parse(articlesFromCache)
-
+        console.log(this.props.articlesArray)
         this.setState({
-            articlesArray:parsedArticleArray
+            // This is causing the article duplication but is used for outpitting the non hidden articles.
+            // If I clear the cache, then i get an error because this is the only thing allowing the scrollCheck to output content. 
+            // I should consider just passing the parsed articles through props instead of local storage.
+            // articlesArray:parsedArticleArray
+            articlesArray: this.props.articlesArray
         })
         // console.log(this.state.articlesArray)
         // console.log(localStorage.getItem("articlesArray"))
@@ -112,7 +116,7 @@ class ScrollCheck extends React.Component{
 
     render(){
         const new1 = this.state.articlesArray;
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
 
         // console.log(new1)
         // Load new Articles into view on scroll.

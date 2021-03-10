@@ -119,6 +119,7 @@ class NewsItemLoopView extends React.Component{
                     closePopup={closePopup}
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
+                    articlesArray={this.props.databaseProp}
                     
                     />
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />

@@ -67,7 +67,7 @@ class MapDatabaseItems extends React.Component{
             }
             this.setState({
                 //Set's the initial number of articles loaded into home.
-                articlesArray: newState.slice(0,35)
+                articlesArray: newState.slice(0,20)
             })
             console.log(this.state.articlesArray)
             
@@ -84,10 +84,12 @@ class MapDatabaseItems extends React.Component{
       }
     
     render(){
+
         const firebaseDB = this.state.articlesArray;  
         console.log(firebaseDB)
-        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
-        // console.log(localStorage.getItem("articlesArray"))
+        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        console.log(localStorage.getItem("articlesArray"))
+
          return (
             
             <div className="news-item-loop-wrapper"> 

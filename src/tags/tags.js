@@ -90,7 +90,7 @@ class Tags extends React.Component{
                     articlesArray: newState.slice(0,10)
                 })
                 // console.log(this.state.articlesArray)
-                localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+                // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 window.addEventListener('scroll', this.scroll);
             })
         }
@@ -131,7 +131,7 @@ class Tags extends React.Component{
                     articlesArray: newState.slice(0,10)
                 })
                 // console.log(this.state.articlesArray)
-                localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+                // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 // console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
             })
@@ -278,7 +278,7 @@ class Tags extends React.Component{
                          
                         /> 
                 </div>
-                {/* <CustomCardSize getCardSizeToParent={this.getCardSize}/> */}
+                <CustomCardSize getCardSizeToParent={this.getCardSize}/>
             </div>
             
             
