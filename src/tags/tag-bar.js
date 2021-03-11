@@ -9,7 +9,7 @@ class TagBar extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            test: "Sports",
+            // test: "Sports",
         }
 
     }
@@ -41,7 +41,7 @@ class TagBar extends React.Component{
                 // articlesArray: newState.reverse(),
                 articlesArray: newState.slice(0,50)
             })
-            console.log("Articles Array is:: " + this.state.articlesArray);
+            console.log(this.state.articlesArray);
         })
     }
 

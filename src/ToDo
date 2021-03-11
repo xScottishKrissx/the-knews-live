@@ -89,7 +89,7 @@ Codebase:
                 ✔ So now that that works, what about plugging the home page scroll into the scrollcheck component? @done(12:16 - 22/12/20)
                     // Well it worked for the most part. Got a few presentational glitches but the actual component is working as expected.
                 ☐ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves.
-                    ☐ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20)
+                    ✔ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20) @done(16:31 - 11/03/21) @lasted(11w2d4h13m42s)
     ✘ Create a new component for rendering the card view @started(12:28 - 22/12/20) @cancelled(13:27 - 14/01/21) @wasted(3w2d59m36s)
         ✔ Wait... didn't I already do this? Why not just use the news-item-loop-view from before? @done(11:59 - 14/01/21)
             // Just chucking the component in there threw up an error. 
@@ -212,17 +212,21 @@ General Notes  Objectives:
                 ☐ Ability to undo last hide action @started(20-12-15 12:45)
                 ✔ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37) @done(20-12-15 15:17) @lasted(1h40m19s)
                     ✔ Clear cache button should appear when hiding articles. @started(15/12/2020 15:18) @done(15:36 - 15/12/20) @lasted(18m29s)
+                ✔ The unhide all button isn't showing as soon as you hide an article @done(15:54 - 26/02/21)
+                    // Welp, now it's working all on its own. @done(15:54 - 26/02/21)
                 
-                ☐ Hide button not appearing on newly loaded articles on home page @started(13:30 - 13/01/21)
+                ✔ Hide button not appearing on newly loaded articles on home page @started(13:30 - 13/01/21) @done(16:32 - 11/03/21) @lasted(8w1d3h2m7s)
                     // Looks like I was in the middle of a new render cards component that would be responsible for the output of cards and everything with them. I didn't complete it which is why newly loaded articles don't have a hide button.
                     // The solution is to complete and implement the new component.
                     
                 ☐ Add Hide button to Tag Pages @started(15:49 - 15/12/20)
                     ✔ Got the UI in and I can hide articles. @done(15:50 - 15/12/20)
-                    ☐ The tags page is so bloated, let's get this cleaned up before carrying on
+                    ✔ The tags file is so bloated, let's get this cleaned up before carrying on @done(16:32 - 11/03/21)
                         // 280 Lines --> 184 Lines -- There's still a lot of room for optimsation though. 
-                    ☐ Just need to get the cache integration working. @started(15:49 - 15/12/20)
-                    ☐ Tag pages should use the hidden post list in the cache.
+                    ✔ Just need to get the cache integration working. @started(15:49 - 15/12/20) @done(16:32 - 11/03/21) @lasted(12w2d43m39s)
+                    ✔ Tag pages should use the hidden post list in the cache. @done(16:32 - 11/03/21)
+                
+
 
                     
 
@@ -252,7 +256,7 @@ General Notes  Objectives:
                         ✔ When scrolling in the popup, the main page scrolls in the background. @done(20-12-03 15:41)
                             // I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
                         ✔ Format popup to be not terrible at larger window sizes. @started(17:12 - 15/01/21) @done(17:29 - 15/01/21) @lasted(17m58s)
-                        ☐ Make author text clickable like the article page. @started(17:30 - 15/01/21)
+                        ✔ Make author text clickable like the article page. @started(17:30 - 15/01/21) @done(16:32 - 11/03/21) @lasted(7w5d23h3m)
                         ☐ How about hiding the article from the popup?
                         ☐ What about moving to the next article from the popup?
                         ☐ BUG:: When you open the popup, you can keep dragging to hide the article...which is not ideal.
@@ -378,6 +382,13 @@ General Notes  Objectives:
             ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
                 //Might not be possible without another library
                 .... or I could use local storage/session storage to remember user choice.
+            ✔ Card Size Selector is not affecting newly loaded articles. @done(17:03 - 01/03/21)
+            // Fixed this by adding the startingCardSize and changedCardSize properties to the ScrollCheck component in news-item-loop-view. @done(17:04 - 01/03/21)
+                ✔ Ok, not fixed. If you clear cache the cards just get really small. @started(17:21 - 01/03/21) @done(17:28 - 01/03/21) @lasted(7m12s)
+                    // Setting a default size in css prevents the cards changing size for  some reason.
+                    // Looks like I had an extra div in there, messing things up.
+                ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
+                    // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
         ✘ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24) @cancelled(18-09-11 13:57) @wasted(1w3d20h33m16s)
             // Currently limited to last 20 in database.
             // Infinite Scrolling is the term Im looking for...
@@ -385,7 +396,9 @@ General Notes  Objectives:
         
         On Scroll:
             ✔ When scrolling down, sometimes the page won't load new pages. You need to scroll up and the back down to get it to load articles. @done(16:15 - 18/01/21)
-            // Fixed this by adding +100 to windowBottom variable.
+                // Fixed this by adding +100 to windowBottom variable.
+            ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)
+                // Looks like the issue was not correctly splicing the array of articles from the database. @done(17:30 - 26/02/21)
 
         News Items:
             ✘ Create Hover/Click caption @started(18-07-25 15:13) @cancelled(20-10-12 17:40) @wasted(2y11w3d2h27m3s)
@@ -395,8 +408,20 @@ General Notes  Objectives:
 
             // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
             ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
+            
+            ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload. @started(16:38 - 10/03/21)
+                 ☐ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21)
+                 ☐ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21)
 
-    
+            ✔ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21) @done(16:33 - 11/03/21) @lasted(22h42m42s)
+                // Ive completed most of the work with both tags and home using the same scrollCheck component.
+                // The only issue is how i'm slicing the arrays and where the start point for render on scroll should be. Luckily this is only a problem because the number of articles with tags is uneven and low, so if I add more tags then there should be no issue. The issue is that the number of sports tags is lower than the initially loaded homepage articles, which would cut off articles. Again, if I add more tags to articles this isn't an issue and is only a problem because the project is still in development and there's a lack of actual content,.
+        Images:
+            ☐ Replacing random images with my own S3 hosted images. @started(20-11-30 17:22)
+                ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. @started(20-11-30 17:22)
+            ☐ Investigate a separate component for getting and stytling the image. @started(16:08 - 11/03/21)
+                // Having the same exact code across 10 files seems a bit redundant.
+
         Article:
             ✔ Basic Structure @done(18-08-13 18:03)
                 ✔ Large Header Image at top @done(18-08-01 11:50)
@@ -417,6 +442,7 @@ General Notes  Objectives:
 
             ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
                  ✔ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions @started(20-10-26 18:39) @done(20-10-27 17:36) @lasted(22h57m3s)
+                 // I don't think I will ever be happy with how the articles look so I am just going to leave this open until it's the last thing I close. - 11/3/2021
                 
             ✘ Dark Mode? @started(20-10-27 17:53) @cancelled(20-11-25 17:29) @wasted(4w23h36m3s)
                 //What even constitutes a dark mode?
@@ -437,8 +463,7 @@ General Notes  Objectives:
                         //  Looks like I can just use the existing tag page and change the call from the database.
                         //  I can actually get an author page working but I can't get both working at the same time at the moment.
                         //  Did It. I just added another property to the the state-props describing what I was looking for eg, tags, author, date posted etc.
-                ☐ Replacing random images with my own S3 hosted images. @started(20-11-30 17:22)
-                    ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. @started(20-11-30 17:22)
+
 
             Actual Articles:
                 ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. @started(20-10-27 17:40)
@@ -501,6 +526,7 @@ General Notes  Objectives:
                         ✔ Add the tag bar to the fixed header bar @started(20-10-15 16:41) @done(20-10-15 16:49) @lasted(9m)
                         ✔ Instead of going to a new page, how about just re-rerendering the current page with the relevant items? @started(20-10-15 16:41) @done(20-10-20 14:40) @lasted(4d21h59m58s)
                         ✔ I really need to add more tags to the database. I've delayed this for too long. @done(20-10-16 13:56)
+                    
             Article to Article Nav Controls:
                 ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
                     23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
@@ -524,12 +550,30 @@ General Notes  Objectives:
                         ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
                 ☐ I think the nav controls should be in the same place regardless of screen size @started(20-10-27 18:22)
                 ☐ These controls don't account for articles that are hidden @started(17:56 - 15/01/21)
-
-
-                /// can leave email and tags already has its own page
+                    // They currently just linearly go through every article in the array.
             
             ✔ The ability to mark an article as hidden from the article page instead of just the cross on the homepage @started(20-11-30 12:21) @done(16:57 - 15/01/21) @lasted(-3h23m54s)
-                 
+     
+    Tags Page:
+        ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
+             ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(15:42 - 11/03/21)
+        ✔ Tags pages are currently repeating articles from other tags after it displays all available tags of that page(i.e there are 9 articles with a weather tag but about 30 articles on the weather page. @started(16:38 - 04/03/21) @done(16:38 - 10/03/21) @lasted(6d48s)
+        ☐ Tags - Pressing a card size and emptying the cache the page will always throw an error. @started(16:37 - 04/03/21)
+            // Looks like the issue might actually be the scrollCheck.js file.
+            // Yup, disabling the scrollCheck component let's the page load and the card controls work as expected(although not saving to localstorage but that's expected for the moment)
+            // I may have solved it. I think the issue was with the clearCache component that triggers on clearing the cache. Previously I was clearing everything but I have changed the button to only clear the hiddenPostList from cache. With that the page is working as expected although there are some issues
+                1 - I dont fully know what effect my clearCache change has had. So i'll need to be careful and check everything is working.
+                2 - The tags page is duplicating articles again.
+                    // I have no idea what is going on here. I am almost at a stage where I want to create a new scrollCheck component from scratch just for tags to compare what is going on.
+            ☐ If you change card size on home and go to the tags page, it throws the same error as before. @started(15:48 - 08/03/21)
+                // This also works going tags --> home    
+                // If you refresh the page the card sizes have all reset with no error so there's a clue at least. 
+                // Also if you disable the scrollCheck component you get no issues.
+                // I think i've narrowed it down to the line in scrollCheck that sets state to the articles stored in cache. These articles are correct to the previous page but not the current.
+                // I thin the duplication is down to the scrollCheck having a render component that immediately displays its contents as soon as the component is mounted. I want the contents of the scrollCheck component to only show when the page is scrolled.
+                // I think i solved the problem... even if im not sure how. I think it was down to incorrectly setting the parameters of the newstate.slice in the tags page and arrayStart and End state in scrollCheck.js. Not 100% certain so i'll play around and see if I can figure it out exactly.
+                // In regards to article duplication on the home page i manage to fix the issue by changing the newstate.slice and arraystart to be more in line with each other across news-item-loop.js and scrollcheck.js
+        ☐ Add the custom card controls to tags page. @started(16:37 - 11/03/21)
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -638,24 +682,27 @@ Part 2 Implement Database functionality:
         Version 12 - Planned:
             ✘ myKnews - The Return. @cancelled(13:10 - 13/01/21)
                 // I need to move on from this project so i'm cancelling this. It's time to move on, i'll incorporate this into other projects.
+                // 11 March 2021 - ...is it though?
 
             ☐ Get Like and Dislike to work separate from myKnews
 
         Version 11 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
             
-        Version 10.1 - Codebase Cleanup - Release Notes:
+        Version 10.1 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
-            ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components. @done(15:04 - 15/01/21)
-            ✔ Card Size Control Styles -> Let's get this done. @done(20-12-11 17:04)
-            ✔ Ability to hide articles from within article -> Like a mark as read button @done(15:04 - 15/01/21)
-            ✔ Add swipe to Tags Page. @started(16:58 - 02/03/21) @done(17:35 - 02/03/21) @lasted(37m48s)
+            ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components
+            ✔ Adjusted Card Size Control Styles
+            ✔ Ability to hide articles from within article
+            ✔ Added swipe to Tags Page.
+            ✔ Added Article Tag to Card
             ☐ Add Card Size Controls to tag page
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
+            ✔ Minor style tweaks to Cards @done(17:14 - 11/03/21)
             ✔ Removed Extra Image Loop from articles(as it's a bit pointless) @done(20-12-15 13:18)
-            ✔ Fixed format of popup html @done(20-12-10 15:50)
+            ✔ Adjusted format of popup html @done(20-12-10 15:50)
             ✔ Clear Cache button is now not shown if no articles are currently hidden @done(20-12-15 15:17)
             ✔ Tweaks to popup appearance. @done(17:55 - 15/01/21)
             ✔ Fixed issue with loading new articles on scroll @done(16:16 - 18/01/21)
@@ -664,49 +711,14 @@ Part 2 Implement Database functionality:
             ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
             ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
 
-            Known 10.1 Issues:
-                ✔ Tags pages are currently repeating articles from other tags after it displays all available tags of that page(i.e there are 9 articles with a weather tag but about 30 articles on the weather page. @started(16:38 - 04/03/21) @done(16:38 - 10/03/21) @lasted(6d48s)
-                ☐ Tags - Pressing a card size and emptying the cache the page will always throw an error. @started(16:37 - 04/03/21)
-                    // Looks like the issue might actually be the scrollCheck.js file.
-                    // Yup, disabling the scrollCheck component let's the page load and the card controls work as expected(although not saving to localstorage but that's expected for the moment)
-                    // I may have solved it. I think the issue was with the clearCache component that triggers on clearing the cache. Previously I was clearing everything but I have changed the button to only clear the hiddenPostList from cache. With that the page is working as expected although there are some issues
-                        1 - I dont fully know what effect my clearCache change has had. So i'll need to be careful and check everything is working.
-                        2 - The tags page is duplicating articles again.
-                            // I have no idea what is going on here. I am almost at a stage where I want to create a new scrollCheck component from scratch just for tags to compare what is going on.
-                    ☐ Another error. If you change card size on home and go to the tags page, it throws the same error as before. @started(15:48 - 08/03/21)
-                    // This also works going tags --> home    
-                    // If you refresh the page the card sizes have all reset with no error so there's a clue at least. 
-                    // Also if you disable the scrollCheck component you get no issues.
-                    // I think i've narrowed it down to the line in scrollCheck that sets state to the articles stored in cache. These articles are correct to the previous page but not the current.
-                    // I thin the duplication is down to the scrollCheck having a render component that immediately displays its contents as soon as the component is mounted. I want the contents of the scrollCheck component to only show when the page is scrolled.
-                    // I think i solved the problem... even if im not sure how. I think it was down to incorrectly setting the parameters of the newstate.slice in the tags page and arrayStart and End state in scrollCheck.js. Not 100% certain so i'll play around and see if I can figure it out exactly.
-                    // In regards to article duplication on the home page i manage to fix the issue by changing the newstate.slice and arraystart to be more in line with each other across news-item-loop.js and scrollcheck.js
-                    ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload. @started(16:38 - 10/03/21)
-                    ☐ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21)
-                        // Ive completed most of the work with both tags and home using the same scrollCheck component.
-                        // The only issue is how i'm slicing the arrays and where the start point for render on scroll should be. Luckily this is only a problem because the number of articles with tags is uneven and low, so if I add more tags then there should be no issue. The issue is that the number of sports tags is lower than the initially loaded homepage articles, which would cut off articles. Again, if I add more tags to articles this isn't an issue and is only a problem because the project is still in development and there's a lack of actual content,.
 
+            Known Issues:
+                ☐ Newly loaded articles are not being hidden on reload. @started(16:29 - 11/03/21)
+                ☐ Card Controls have no effect on tags page articles @started(16:30 - 11/03/21)
+                    // Although they are affecting the home page. So that's a win.
+  
 
-                )
-            // V10.1.1 Feb Return Issues 
-            ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)
-                ✔ Looks like the issue was not correctly splicing the array of articles from the database. @done(17:30 - 26/02/21)
-            ✔ The unhide all button isn't showing as soon as you hide an article @done(15:54 - 26/02/21)
-                ✔ Welp, now it's working all on its own. @done(15:54 - 26/02/21)
-            ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
-                ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(16:08 - 26/02/21)
-            ✔ Card Size Selector is not affecting newly loaded articles. @done(17:03 - 01/03/21)
-            // Fixed this by adding the startingCardSize and changedCardSize properties to the ScrollCheck component in news-item-loop-view. @done(17:04 - 01/03/21)
-                ✔ Ok, not fixed. If you clear cache the cards just get really small. @started(17:21 - 01/03/21) @done(17:28 - 01/03/21) @lasted(7m12s)
-                    // Setting a default size in css prevents the cards changing size for  some reason.
-                    // Looks like I had an extra div in there, messing things up.
-                ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
-                    // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
-
-     
-
-
-        Version 10 - Swipe(Next Release) - Release Notes:
+        Version 10 - Swipe - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
             ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page @cancelled(20-10-26 16:30)
             ✔ Add keyboard control @done(20-10-27 17:28)
@@ -794,20 +806,15 @@ Images
 ...
 
 
-// Random Notes
+// Random Notes - Make sure the below follow a similiar numbering structure
     ->Tags.js
-    -->newState.slice(0,10)
+    -->newState.slice(0,30)
 
-    ->scrollCheckTags.js
-    --> arrayStartState:10
-    --> arrayEndState:15
-
-    -----
     ->news-item-loop.js
-    -->newState.slice(0,20)
-    -->arrayStartState:21
-    -->arrayEndState:26
+    -->newState.slice(0,30)
+    -->arrayStartState:30
+    -->arrayEndState:35
 
     ->scrollCheck.js
-    -->arrayStartState:20
-    -->arrayEndState:25
+    -->arrayStartState:30
+    -->arrayEndState:35

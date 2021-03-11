@@ -3,16 +3,14 @@ import fire from '../fire.js';
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 import NavControls from '../utility_components/navControls.js';
-
-
-
 import '../tags/tags.css';
-import HideArticle from '../utility_components/hide-article/hide-article.js';
-import ScrollCheckTags from '../utility_components/ScrollCheckTags.js';
+import CustomCardSize from '../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
 import ScrollCheck from '../utility_components/ScrollCheck.js';
-import NewsItemLoopView from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/news-item-loop-view.js';
+
+// Working with Cache 
 import ClearCache from '../utility_components/ClearCache.js';
 import CheckCache from '../utility_components/checkCache.js';
+import HideArticle from '../utility_components/hide-article/hide-article.js';
 
 // Swiping
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
@@ -21,7 +19,8 @@ import SwipeLeftContent from '../home-page/news-item-loop/news-item-caption/news
 import swipeLeftAction from '../utility_components/swipeLeftAction.js';
 import closePopup from '../utility_components/closePopup.js';
 import swipeRightAction from '../utility_components/swipeRightAction.js';
-import CustomCardSize from '../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
+
+
 
 class Tags extends React.Component{
 
@@ -59,10 +58,11 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.state.articlesArray)
-        console.log(this.state.origin)
-        console.log(this.state.searchDBFor)
-        console.log(this.state.orderByChild)
+        // console.log(this.state.articlesArray)
+        console.log("Origin:: " + this.state.origin)
+        console.log("Order Database By:: " + this.state.orderByChild)
+        console.log("Search Database For:: " + this.state.searchDBFor)
+
 
         // console.log(localStorage.getItem("articlesArray"))
         if(this.state.origin === "Article"){
@@ -88,7 +88,7 @@ class Tags extends React.Component{
                     });
                 }
                 this.setState({
-                    articlesArray: newState.slice(0,10)
+                    articlesArray: newState.slice(0,30)
                 })
                 // console.log(this.state.articlesArray)
                 // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -97,18 +97,12 @@ class Tags extends React.Component{
         }
 
         if(this.state.origin === "Tagbar"){
-           console.log("Origin is Tagbar")
-            console.log("Search DB For --> " + this.props.location.state.searchDBFor)
             const dbRef = fire.database().ref('items')
                 .orderByChild("tag")
                 .startAt(this.props.location.state.searchDBFor)
                 .endAt(this.props.location.state.searchDBFor)
                 .limitToFirst(60)
                 ;
-            const dbref = fire.database().ref('items')
-                            .orderByChild(this.state.orderByChild)
-                            .startAt(this.state.getNewArticlesUsing)
-                            .endAt(this.state.getNewArticlesUsing)
            
             dbRef.on('value', (snapshot) => {
                 let newsItems = snapshot.val();
@@ -129,20 +123,17 @@ class Tags extends React.Component{
                 }
     
                 this.setState({
-                    articlesArray: newState.slice(0,10)
+                    articlesArray: newState.slice(0,30)
                 })
                 // console.log(this.state.articlesArray)
                 // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
                 // console.log(localStorage.getItem("articlesArray"))
                 window.addEventListener('scroll', this.scroll);
             })
-            console.log(this.state.articlesArray)
+
         }else{
             console.log("Something is wrong.")
         }
-        console.log(this.state.articlesArray)
-
-        // console.log("Current Tag --> " + this.state.tagState)
     }
 
    
@@ -156,7 +147,7 @@ class Tags extends React.Component{
     render(){
         const mapTags = this.state.articlesArray;
         
-        console.log(mapTags)
+        // console.log(mapTags)
 
         const pageView = mapTags.map((value,key) => {
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
@@ -219,10 +210,7 @@ class Tags extends React.Component{
                 
             )
         })
-        // console.log(this.props.location.state.searchDBFor)
-        // console.log(this.props.location.state.origin)
-        // // console.log(this.state.articlesArray)
-        // console.log("Get New Articles Using --> " + this.state.getNewArticlesUsing)
+
         return(
             
             <div className="tags-wrapper">
@@ -236,7 +224,6 @@ class Tags extends React.Component{
                         <h1>Showing articles from {this.props.location.state.author}</h1>
                         }              
 
-                        {/* <NewsItemLoopView databaseProp={new1}/>           */}
                         {pageView}
 
                         <ScrollCheck
@@ -256,24 +243,6 @@ class Tags extends React.Component{
                             
                          
                         /> 
-
-                        {/* <ScrollCheckTags 
-                            tagState={this.props.location.state.tag}
-                            authorState={this.props.location.state.author}
-                            postdateState={this.props.location.state.postdate}
-                            searchDBFor={this.props.location.state.searchDBFor}
-                            origin={this.props.location.state.origin}
-                            articlesArray={this.state.articlesArray}
-
-                            orderByChild={this.state.orderByChild}
-                            startAt={this.state.getNewArticlesUsing}
-
-                            databaseReference = {
-                                fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}
-
-                            
-                         
-                        />  */}
                 </div>
                 <CustomCardSize getCardSizeToParent={this.getCardSize}/>
             </div>

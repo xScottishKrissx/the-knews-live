@@ -5,8 +5,8 @@ import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
-import HideArticle from '../utility_components/hide-article/hide-article.js';
-import CheckCache from '../utility_components/checkCache.js';
+import HideArticle from './hide-article/hide-article.js';
+import CheckCache from './checkCache.js';
 
 import SwipeLeftContent from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
 

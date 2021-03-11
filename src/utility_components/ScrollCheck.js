@@ -22,8 +22,8 @@ class ScrollCheck extends React.Component{
             // example - newState.slice(0,20) ---> arrayStartState should start at 20 
             // arrayEndState --> Determines how many articles should load per bottom of window scroll.
             //  if you want 10 per load then it should be 10 higher than array start state.
-            arrayStartState: 10,
-            arrayEndState: 15,
+            arrayStartState: 30,
+            arrayEndState: 35,
             test: props.tagState || props.authorState || props.postdateState,
             searchDBFor: props.searchDBFor,
             authorState:props.authorState,
@@ -96,20 +96,13 @@ class ScrollCheck extends React.Component{
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
-        // console.log(this.state.articlesArray)
       }
 
     render(){
-        const new1 = this.state.articlesArray;
-        const homeScroll = this.props.databaseRefHome;
-        const tagsScroll = this.props.databaseRefTags;
+        const articlesArray = this.state.articlesArray;
 
-
-        console.log(this.state.articlesArray)
-
-        // console.log(new1)
         // Load new Articles into view on scroll.
-        const pageView = new1.map((value,key) => {
+        const pageView = articlesArray.map((value,key) => {
         
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             const style = {

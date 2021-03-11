@@ -7,8 +7,6 @@ import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheck from '../../../../utility_components/ScrollCheck';
-import RenderCards from '../../../../utility_components/render-cards-unused/renderCards.js';
-import RenderCardStyle from '../../../../utility_components/render-cards-unused/renderCardStyles.js';
 import CheckCache from '../../../../utility_components/checkCache.js';
 
 // Swiping
@@ -44,10 +42,8 @@ class NewsItemLoopView extends React.Component{
         fire.database().ref("items").off();
     }
     render(){
-        const HomePageView = this.props.databaseProp.map((value,key) => {        
+        const HomePageView = this.props.databaseProp.map((value,key) => {
 
-
-            
             // There is probably a better way of doing this...
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             ///... and this.

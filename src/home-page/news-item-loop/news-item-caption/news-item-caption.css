@@ -17,7 +17,7 @@
             background-color: #000000b8;
             color: white;
         }
-        .news-item-link-text span{
+        #news-item-link-text-title{
             display: block;
             font-size:18px;
             height: 75px;
@@ -29,11 +29,28 @@
             font-style: italic;
             text-align: right;
         }
+            #news-item-link-text-title{}
+            #news-item-link-text-tag-author-wrapper{
+                display: flex;
+               
+            }
+                #news-item-link-text-tag, #news-item-link-text-author{
+                    flex: 1;
+                    padding-bottom: 10px;
+                    padding-top: 10px;
+                    text-align: center;
+
+                }
+            
 
         .hover-caption{
             visibility: hidden;
         }
 
+
+@media (min-width: 765px){
+    /*  */
+}
 @media (min-width: 1000px){
     .hover-caption{
         visibility: visible;

@@ -2,7 +2,6 @@ import React from 'react';
 import './header.css';
 
 import {Link} from 'react-router-dom';
-// import DarkModeToggle from '../utility_components/darkModeToggle.js';
 import TagBar from '../tags/tag-bar';
 
 
@@ -11,7 +10,7 @@ export const Header = () => {
     return (
         <div id="header" className='header-container'>
             <div className="header-wrapper">
-            <span className="brand"><Link id="header-text" to="/theKnews/home">the Knews</Link></span>
+            <span className="brand"><Link id="header-text" to="/theKnews/home">theKnews</Link></span>
             {/* <DarkModeToggle /> */}
             
             <TagBar />

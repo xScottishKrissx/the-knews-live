@@ -29,9 +29,11 @@ export class Caption extends React.Component{
             >
                 <div style={style}>
                     <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
-                        <span>{title}</span>
-                        <span>{tag}</span>
-                        <p>by {author}</p>
+                        <span id="news-item-link-text-title">{title}</span>
+                        <span id="news-item-link-text-tag-author-wrapper">
+                            <span id="news-item-link-text-tag">{tag}</span>
+                            <span id="news-item-link-text-author">by {author}</span>
+                        </span>
                     </div>                    
                 </div> 
             </Link>

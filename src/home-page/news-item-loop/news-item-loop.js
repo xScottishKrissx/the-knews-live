@@ -24,8 +24,8 @@ class MapDatabaseItems extends React.Component{
             // The Actual Article Array
                 articlesArray : [],
                 articlesArray2 : [],
-                arrayStartState: 10,
-                arrayEndState: 15,
+                arrayStartState: 30,
+                arrayEndState: 35,
             // This is a record of the posts hidden.
             postsArray:[],
             hiddenPosts:localStorage.getItem("hiddenPostList")
@@ -67,7 +67,7 @@ class MapDatabaseItems extends React.Component{
             }
             this.setState({
                 //Set's the initial number of articles loaded into home.
-                articlesArray: newState.slice(0,10)
+                articlesArray: newState.slice(0,30)
             })
             console.log(this.state.articlesArray)
             
