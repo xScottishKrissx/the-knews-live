@@ -11,7 +11,7 @@
     "jshint": "^2.12.0",
     "node-fetch": "^2.6.1",
     "react": "^16.13.1",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.13.1",
     "react-hotkeys": "^2.0.0",
     "react-router": "^4.3.1",
