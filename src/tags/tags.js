@@ -150,15 +150,6 @@ class Tags extends React.Component{
         // console.log(mapTags)
 
         const pageView = mapTags.map((value,key) => {
-            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            const style = {
-                backgroundImage: 'url(' + imgUrl + ')',
-                backgroundPosition: "bottom",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-            }   
-            
             return(
                 
                    
@@ -192,13 +183,13 @@ class Tags extends React.Component{
                                 style={ this.state.startingCardSize || this.state.changedCardSize } >                    
                                     <Caption 
                                         pageid={value.key}
-                                        style={style}
                                         title={value.title}
                                         author={value.author}
                                         likes={value.likes}
                                         dislikes={value.dislikes}
                                         articleId={value.id}
                                         tag={value.tag}
+                                        imageId={value.id}
                                         />
                                 </div>
                         

@@ -15,17 +15,31 @@ export class Caption extends React.Component{
     }
     
     render(){
-        const pageid = this.props.pageid;
-        const style = this.props.style;
+        const pageId = this.props.pageId;
+        // const style = this.props.style;
         const title = this.props.title;
         const author = this.props.author;
         const tag = this.props.tag;
+        const imageId = this.props.imageId;
+
+        const imgUrl = "https://unsplash.it/2560/1440?random=" + imageId;
+    
+        const style = {
+            backgroundImage: 'url(' + imgUrl + ')',
+            backgroundPosition: "bottom",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            height: "400px",
+            maxWidth:"1200px",
+            width:"100%"
+            
+        }
 
         return (            
 
             <Link 
                 className="news-item-link" 
-                to={{pathname: '/articles/news-page/' + pageid}}
+                to={{pathname: '/articles/news-page/' + pageId}}
             >
                 <div style={style}>
                     <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>

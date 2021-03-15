@@ -718,6 +718,7 @@ Part 2 Implement Database functionality:
 
             Known Issues:
                 ☐ Newly loaded articles are not being hidden on reload. @started(16:29 - 11/03/21)
+                    // 15/3/2021 - Unable to repeat this issue.
 
   
 

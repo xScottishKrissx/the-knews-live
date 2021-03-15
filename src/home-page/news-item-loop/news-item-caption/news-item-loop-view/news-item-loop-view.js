@@ -42,22 +42,13 @@ class NewsItemLoopView extends React.Component{
         fire.database().ref("items").off();
     }
     render(){
-        const HomePageView = this.props.databaseProp.map((value,key) => {
-
-            // There is probably a better way of doing this...
-            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            ///... and this.
-            const style = {
-                backgroundImage: 'url(' + imgUrl + ')',
-                backgroundPosition: "bottom",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-                // width:"100%"
-            }    
+        
+        const HomePageView = this.props.databaseProp.map((value,key) => {                 
             
             return (         
-                <div id={value.id} key={value.id} className="myClass">                   
+                
+                <div id={value.id} key={value.id} className="myClass">   
+                              
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
@@ -86,14 +77,14 @@ class NewsItemLoopView extends React.Component{
                                 <div className='news-square'  key={key}  name="news-item-loop-view.js"
                                 style={ this.state.startingCardSize || this.state.changedCardSize} >                    
                                     <Caption 
-                                        pageid={value.key}
-                                        style={style}
+                                        pageId={value.key}                                        
                                         title={value.title}
                                         author={value.author}
                                         likes={value.likes}
                                         dislikes={value.dislikes}
                                         articleId={value.id}
                                         tag={value.tag}
+                                        imageId={value.id}
                                         />
                                 </div>
                         
@@ -109,6 +100,7 @@ class NewsItemLoopView extends React.Component{
             <div className="newsItemLoopViewWrapper">
                 
                 {HomePageView}
+                
                 <ScrollCheck 
                     databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }
                     swipeLeftAction={swipeLeftAction}
