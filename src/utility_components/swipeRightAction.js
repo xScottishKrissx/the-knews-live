@@ -11,6 +11,11 @@ export const swipeRightAction = (id, postsArray) =>{
     document.getElementById(id).style.display = "none";
     postsArray.push(id)
     localStorage.setItem("hiddenPostList", postsArray);
+
+    // Display unhide btn if cache isn't empty
+    if(localStorage.getItem("hiddenPostList") != null && document.getElementById("clearCache")){
+        document.getElementById("clearCache").style.visibility = "visible";
+    }
 }
 
 export default swipeRightAction;

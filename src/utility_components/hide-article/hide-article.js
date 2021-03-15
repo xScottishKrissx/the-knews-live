@@ -25,7 +25,7 @@ export class HideArticle extends React.Component{
 
         if(localStorageHiddenPosts != null){
             const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
-            // console.log(formattedPostsArray)
+            console.log(formattedPostsArray)
             formattedPostsArray.push(value)
             // console.log(formattedPostsArray)
     
