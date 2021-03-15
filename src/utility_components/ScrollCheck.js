@@ -45,10 +45,23 @@ class ScrollCheck extends React.Component{
             console.log("On Tags Page")
         }
   
+        // Detect if scroll bar necessary
+            // Still doesn't solve the issue of what happens when the initally loaded new articles are hidden, if there are no articles, then no scroll. 
+        // var root = document.compatMode === 'BackCompat'? document.body : document.documentElement;
+        // var isVerticalScrollbar = root.scrollHeight>root.clientHeight;
+        // var isHorizontalScrollbar = root.scrollWidth>root.clientWidth;
+        // console.log(isHorizontalScrollbar)
+        // console.log(isVerticalScrollbar)
 
+
+        // if(isVerticalScrollbar === false){
+        //     this.scroll();
+        // }
     }
 
     scroll = () => {
+
+
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
         const body = document.body;
         const html = document.documentElement;

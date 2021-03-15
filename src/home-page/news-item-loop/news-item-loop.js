@@ -43,7 +43,7 @@ class MapDatabaseItems extends React.Component{
                 postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
             })
         }
-
+        console.log("Hidden Articles -> " + localStorage.getItem("hiddenPostList"));
         
 
     // This is the initial database query.
@@ -56,13 +56,16 @@ class MapDatabaseItems extends React.Component{
             for(let newsItem in newsItems){
                 newState.push({
                     key: newsItem,
+                    id:newsItems[newsItem].id,
+                    hidden:newsItems[newsItem].hidden,
                     author: newsItems[newsItem].author,
                     title: newsItems[newsItem].title,
                     text: newsItems[newsItem].text,
                     likes: newsItems[newsItem].likes,
                     dislikes: newsItems[newsItem].dislikes,
-                    tag: newsItems[newsItem].tag,
-                    id:newsItems[newsItem].id
+                    tag: newsItems[newsItem].tag
+                    
+                    
                 });
             }
             this.setState({
@@ -74,6 +77,12 @@ class MapDatabaseItems extends React.Component{
         })        
         window.addEventListener('scroll', this.scroll);   
         // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+
+        this.setState({
+            
+          });
+        console.log(this.state.data)
+
     }
 
      componentWillUnmount(){

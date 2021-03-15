@@ -30,7 +30,7 @@ export class HideArticle extends React.Component{
             // console.log(formattedPostsArray)
     
             localStorage.setItem("hiddenPostList", formattedPostsArray);
-            // console.log(localStorage.getItem("hiddenPostList"));
+            console.log(localStorage.getItem("hiddenPostList"));
         }else{
             localStorage.setItem("hiddenPostList", value);
         }

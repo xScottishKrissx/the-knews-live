@@ -49,9 +49,9 @@ Codebase:
                 ✔ Managed to get the code changing the size down from 37 lines to 7 @done(20-12-10 15:18)
         ✔ Create a new file specifically for showing the card list. @done(20-12-08 16:18)
             // Well, i've moved the code and It's not totally broken. It's only a broken a lot.
-            ✔ The card size controls aren't working again. @done(20-12-08 16:07)
-            ✔ Move the swiping code into this file. @done(20-12-08 16:08)
-            ✔ The hide article button is invisible. @done(20-12-08 16:18)
+            ✔ The card size controls aren't working again.
+            ✔ Move the swiping code into this file. 
+            ✔ The hide article button is invisible. 
                 // I think I want a file for this as well but one step at a time.
 
             //
@@ -404,8 +404,17 @@ General Notes  Objectives:
             ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
             
             ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload. @started(16:38 - 10/03/21)
+                ☐  This is fundamentally a flaw in how the website works and needs to be resolved before moving onto the more cosmetic issues of blank pages and dodgy user feedback. @started(16:53 - 15/03/21)
+                    // If there are no articles on screen initally, then the scrollCheck component won't work as it only activates on a scroll event. No Artiles => No Scrolling.
+                    // This might open a can of worms...i'm just saying.
+                    // Some solutions
+                        // Looks like using immutability-helper is a good place to start, with my first idea being to simply update the state of articles array everytime the hide article button is clicked. When clicked, the array updates with a new value added to the relevant field. If this field is found in the initial array, it's just removed from the array.
+                        This is different from the current solution as the articles are just hidden via css, updating state allows me to fill a full array with objects that don't have "hidden" in them....i think. That's my idea.
+                        // Whether it's viable I will probably spend the next month finding out -- CD 15/3/2021
+
                  ☐ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21)
                  ☐ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21)
+                 
 
             ✔ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21) @done(16:33 - 11/03/21) @lasted(22h42m42s)
                 // Ive completed most of the work with both tags and home using the same scrollCheck component.
@@ -696,7 +705,9 @@ Part 2 Implement Database functionality:
             ✔ Added swipe to Tags Page.
             ✔ Added Article Tag to Card
             ✔ Add Card Size Controls to tag page 
-            ☐ Don't show a blank page when all articles are hidden
+            ☐ Improved handling of hiding all articles
+
+
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
@@ -716,6 +727,7 @@ Part 2 Implement Database functionality:
             Known Issues:
                 ☐ Newly loaded articles are not being hidden on reload. @started(16:29 - 11/03/21)
                     // 15/3/2021 - Unable to repeat this issue.
+                ☐ If you hide all articles you get nothing but a blank page @started(16:44 - 15/03/21)
                 
 
   
