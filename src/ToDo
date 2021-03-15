@@ -558,14 +558,14 @@ General Notes  Objectives:
         ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
              ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(15:42 - 11/03/21)
         ✔ Tags pages are currently repeating articles from other tags after it displays all available tags of that page(i.e there are 9 articles with a weather tag but about 30 articles on the weather page. @started(16:38 - 04/03/21) @done(16:38 - 10/03/21) @lasted(6d48s)
-        ☐ Tags - Pressing a card size and emptying the cache the page will always throw an error. @started(16:37 - 04/03/21)
+        ✔ Tags - Pressing a card size and emptying the cache the page will always throw an error. @started(16:37 - 04/03/21) @done(15:25 - 15/03/21) @lasted(1w3d22h48m43s)
             // Looks like the issue might actually be the scrollCheck.js file.
             // Yup, disabling the scrollCheck component let's the page load and the card controls work as expected(although not saving to localstorage but that's expected for the moment)
             // I may have solved it. I think the issue was with the clearCache component that triggers on clearing the cache. Previously I was clearing everything but I have changed the button to only clear the hiddenPostList from cache. With that the page is working as expected although there are some issues
                 1 - I dont fully know what effect my clearCache change has had. So i'll need to be careful and check everything is working.
                 2 - The tags page is duplicating articles again.
                     // I have no idea what is going on here. I am almost at a stage where I want to create a new scrollCheck component from scratch just for tags to compare what is going on.
-            ☐ If you change card size on home and go to the tags page, it throws the same error as before. @started(15:48 - 08/03/21)
+            ✔ If you change card size on home and go to the tags page, it throws the same error as before. @started(15:48 - 08/03/21) @done(15:25 - 15/03/21) @lasted(6d23h37m40s)
                 // This also works going tags --> home    
                 // If you refresh the page the card sizes have all reset with no error so there's a clue at least. 
                 // Also if you disable the scrollCheck component you get no issues.
@@ -573,7 +573,10 @@ General Notes  Objectives:
                 // I thin the duplication is down to the scrollCheck having a render component that immediately displays its contents as soon as the component is mounted. I want the contents of the scrollCheck component to only show when the page is scrolled.
                 // I think i solved the problem... even if im not sure how. I think it was down to incorrectly setting the parameters of the newstate.slice in the tags page and arrayStart and End state in scrollCheck.js. Not 100% certain so i'll play around and see if I can figure it out exactly.
                 // In regards to article duplication on the home page i manage to fix the issue by changing the newstate.slice and arraystart to be more in line with each other across news-item-loop.js and scrollcheck.js
-        ☐ Add the custom card controls to tags page. @started(16:37 - 11/03/21)
+        ✔ Add the custom card controls to tags page. @started(16:37 - 11/03/21) @done(15:25 - 15/03/21) @lasted(3d22h48m55s)
+        ✔ Card Controls have no effect on tags page articles @started(16:30 - 11/03/21) @done(15:25 - 15/03/21) @lasted(3d22h55m21s)
+        // Chanhed this.props.changedCardSize in tags.js to this.state.changedCardSize.
+        // Although they are affecting the home page. So that's a win.
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -696,7 +699,7 @@ Part 2 Implement Database functionality:
             ✔ Ability to hide articles from within article
             ✔ Added swipe to Tags Page.
             ✔ Added Article Tag to Card
-            ☐ Add Card Size Controls to tag page
+            ✔ Add Card Size Controls to tag page @done(15:24 - 15/03/21)
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
@@ -710,12 +713,12 @@ Part 2 Implement Database functionality:
             ✔ Adjusted number of articles appearing on tags page to be more inline with other pages. @done(17:35 - 01/03/21)
             ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
             ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
+            ☐ Change Image code to be a component on its own.
 
 
             Known Issues:
                 ☐ Newly loaded articles are not being hidden on reload. @started(16:29 - 11/03/21)
-                ☐ Card Controls have no effect on tags page articles @started(16:30 - 11/03/21)
-                    // Although they are affecting the home page. So that's a win.
+
   
 
         Version 10 - Swipe - Release Notes:

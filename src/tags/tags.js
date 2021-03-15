@@ -189,7 +189,7 @@ class Tags extends React.Component{
                         >
                                 
                                 <div className='news-square' name="tags-original-load-news"  key={key}  
-                                style={ this.state.startingCardSize || this.props.changedCardSize } >                    
+                                style={ this.state.startingCardSize || this.state.changedCardSize } >                    
                                     <Caption 
                                         pageid={value.key}
                                         style={style}
