@@ -411,6 +411,17 @@ General Notes  Objectives:
                         // Looks like using immutability-helper is a good place to start, with my first idea being to simply update the state of articles array everytime the hide article button is clicked. When clicked, the array updates with a new value added to the relevant field. If this field is found in the initial array, it's just removed from the array.
                         This is different from the current solution as the articles are just hidden via css, updating state allows me to fill a full array with objects that don't have "hidden" in them....i think. That's my idea.
                         // Whether it's viable I will probably spend the next month finding out -- CD 15/3/2021
+                        // I've figured out how to edit individual properities in an array of objects which is cool...
+                        // ...but it doesn't solve the problem of not having enough articles in the initial load.
+                        // Ideally it works like:
+                            Initial Load from database -> 
+                            Removal of matching object value -> 
+                            Remove from array -> 
+                            Go to next record -> 
+                            Repeat until 30 records in array -> 
+                            Pass Array to News Item Loop View
+                        // I just removed an object from one array and appended a record from a second array to the end of the first, keeping the number of obejects in the array at maximum.
+                        //  Is there something here? Could I just run a loop that ensures the array length remains at 30 on load?
 
                  ☐ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21)
                  ☐ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21)

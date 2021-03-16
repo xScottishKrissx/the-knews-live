@@ -17,6 +17,8 @@ import swipeLeftAction from '../../../../utility_components/swipeLeftAction.js';
 import swipeRightAction from '../../../../utility_components/swipeRightAction.js';
 import closePopup from '../../../../utility_components/closePopup.js';
 
+import update from 'immutability-helper';
+
 class NewsItemLoopView extends React.Component{
 
     constructor(props){
@@ -42,7 +44,12 @@ class NewsItemLoopView extends React.Component{
         fire.database().ref("items").off();
     }
     render(){
-        
+        console.log(this.props.databaseProp)
+        // const collection2 = this.props.databaseProp;
+        // const newCollection2 = update(collection2, {0:{"hidden": {$set: 5}}});
+        // console.log(newCollection2)
+
+
         const HomePageView = this.props.databaseProp.map((value,key) => {                 
             
             return (         
