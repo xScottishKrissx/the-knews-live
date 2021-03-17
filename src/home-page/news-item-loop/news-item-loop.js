@@ -43,6 +43,7 @@ class MapDatabaseItems extends React.Component{
 
             // Testing Stuff
             articlesArray4:[],
+            articlesArray5:[],
             leftoverArticles:[]
         }
     }
@@ -99,7 +100,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                articlesArray4:articlesArrayCopy 
              }) 
-            console.log(this.state.articlesArray4)
+            // console.log(this.state.articlesArray4)
         })        
         window.addEventListener('scroll', this.scroll);   
         // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -129,6 +130,8 @@ class MapDatabaseItems extends React.Component{
           console.log(this.state.todoItems)
 
         // const newCollection = update(this.state.articlesArray)
+
+        
 
     }
 
@@ -174,7 +177,7 @@ class MapDatabaseItems extends React.Component{
         // !IMPORTANT = Updating a record in array
         const collection = [1, 2,3];
         const newCollection = update(collection, {0: {$set: 5}});
-        console.log(newCollection)
+        // console.log(newCollection)
 
         // Next - Update Record in Object in array
         // const collection2 = this.state.articlesArray;
@@ -183,25 +186,145 @@ class MapDatabaseItems extends React.Component{
 
         // console.log(this.state.articlesArray)
         const firebaseDB = this.state.articlesArray;  
-        console.log(firebaseDB)
+        // console.log(firebaseDB)
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
         // console.log(localStorage.getItem("articlesArray"))
 
         if(this.state.articlesArray.length != 0){
-            console.log("Empty Array")
+            // console.log("Empty Array")
             const collection2 = this.state.articlesArray;
             const newCollection2 = update(collection2, {0:{"hidden": {$set: true}}});
-            console.log(newCollection2)
+            // console.log(newCollection2)
             // I guess this does what I want...but how does it help?
 
-            const key = "6"
-            const myArr = this.state.articlesArray.filter(obj => obj.key !== key);
-            console.log(myArr)
-            console.log(this.state.leftoverArticles)
-            const myArr2 = myArr.concat(this.state.leftoverArticles[0])
-            console.log(myArr2)
+            // console.log(this.state.articlesArray.length)
+
+            
+            // for(var i = 0; i < 30; i++){
+            //     console.log(i)
+            // }
+
+
+
+
+
+
+
+            // !!!! DONT REMOVE VERY IMPORTANT -- START
+            // const key = "6"
+            // const myArr = this.state.articlesArray.filter(obj => obj.key !== key);
+            // console.log(myArr)
+
+            // console.log(this.state.leftoverArticles)
+            // const myArr2 = myArr.concat(this.state.leftoverArticles[0])
+            // console.log(myArr2)
             // So here I've managed to remove the first object from the main array and append the first object of the leftover artices...
             // .. is there something here?
+            // !!!! DONT REMOVE VERY IMPORTANT -- END
+
+            // for(var i = 0; i <= 15; i++){
+            //     console.log(i)
+            //     // const myArr = this.state.articlesArray.filter(obj => obj.index !== i );
+            //     // console.log(myArr)
+                
+            //     // this.state.articlesArray.forEach(element => console.log(element));
+            //     // console.log(this.state.articlesArray[i])
+            //     // console.log(this.state.articlesArray[i]);
+
+            //     const key = true;
+            //     const myArr = this.state.articlesArray.filter(obj => obj.hidden !== key);
+            //     // console.log(myArr)
+
+            // // console.log(this.state.leftoverArticles)
+            // // const myArr2 = myArr.concat(this.state.leftoverArticles[i])
+            // // console.log(myArr2)
+            //     const newArray = [];
+            //     if(this.state.articlesArray[i].hidden === true){
+            //         console.log(this.state.articlesArray[i])
+            //         newArray.push(this.state.articlesArray[i])
+            //     }
+            //     console.log(newArray[1])
+            // }
+
+            // const index = 0
+            // const myArr3 = this.state.articlesArray.filter(obj => obj.index !== index);
+            // console.log(myArr3)
+            // console.log(this.state.articlesArray4)
+
+            // const key = true
+            // const myArr = this.state.articlesArray.filter(obj => obj.hidden !== key);
+            // const myArr3= this.state.leftoverArticles.filter(obj => obj.hidden !== key);
+            // console.log(myArr)
+
+            // console.log(this.state.leftoverArticles)
+            // const myArr2 = myArr.concat(myArr3)
+            // console.log(myArr2)
+
+                        // !!!! DONT REMOVE VERY IMPORTANT -- START
+            const key = true
+            const myArr = this.state.articlesArray.filter(obj => obj.hidden !== key);
+            const myArr3= this.state.leftoverArticles.filter(obj => obj.hidden !== key);
+            console.log(myArr)
+    
+            console.log(this.state.leftoverArticles)
+            const myArr2 = myArr.concat(myArr3)
+            console.log(myArr2)
+            console.log(this.state.articlesArray5)
+            if(this.state.articlesArray5.length === 0)
+            this.setState({
+                articlesArray5:myArr2
+            })
+            console.log(this.state.articlesArray5)
+
+
+            // So this might be what i want. I now have an array filtered for stuff I DONT WANT.
+            // I would need to however, compare the hidden post list for post id instead of an object...i think.
+
+                        // !!!! DONT REMOVE VERY IMPORTANT -- END
+
+            const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
+                                    // !!!! DONT REMOVE VERY IMPORTANT -- Start
+            const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
+            // console.log(formattedPostsArray)
+            const myArr4 = this.state.articlesArray.filter(obj => obj.id !== formattedPostsArray);
+            console.log(myArr4)
+
+                        
+            // for(var i = 0; i < 30; i++){
+            //     const myArr4 = this.state.articlesArray.filter(obj => obj.id !== formattedPostsArray[i]);
+            //     console.log(myArr4)
+            // }
+            // const myArr5 = this.state.articlesArray.filter(obj => obj.id !== formattedPostsArray);
+            const myArr5=this.state.articlesArray;
+            const checkExist = setInterval(function() {
+        
+                if (!!localStorageHiddenPosts) {
+                // console.log("Exists!");
+                clearInterval(checkExist);
+            
+                const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
+                console.log(formattedPostsArray)
+                console.log(myArr5)
+    
+                for(var i = 0; i < formattedPostsArray.length; i++){
+                    if(!!formattedPostsArray && formattedPostsArray[i].toString() === myArr5[i].id.toString()){
+                        console.log("Hidden Post Identified " + formattedPostsArray[i])
+                        console.log(myArr5[i].id.toString())
+                        console.log(formattedPostsArray[i])
+                        console.log(formattedPostsArray[i].toString())
+                        // document.getElementById(props.id).style.display = "none";
+                        // console.log("Success: " + props.id + " hidden");
+                        // console.log(formattedPostsArray[i]);
+                    }
+                }        
+    
+                }
+            }, 100);
+            // Ok so i now have a successul comparison between the filtered array and the hidden post list.
+            // I don't know if that's a good thing but it can't be a bad thing...right
+                                    // !!!! DONT REMOVE VERY IMPORTANT -- END
+
+              
         }
 
 
