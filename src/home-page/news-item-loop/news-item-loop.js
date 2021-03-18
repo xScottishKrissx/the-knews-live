@@ -44,7 +44,11 @@ class MapDatabaseItems extends React.Component{
             // Testing Stuff
             articlesArray4:[],
             articlesArray5:[],
-            leftoverArticles:[]
+            articlesArray6:[],
+            articlesArray7:[],
+            leftoverArticles:[],
+            secondSlicePoint:0,
+            secondSlicePoint:30,
         }
     }
 
@@ -87,7 +91,7 @@ class MapDatabaseItems extends React.Component{
             }
             this.setState({
                 //Set's the initial number of articles loaded into home.
-                articlesArray: newState.slice(0,30),
+                articlesArray: newState.slice(0,this.state.secondSlicePoint),
                 leftoverArticles: newState.slice(30,60)
             })
 
@@ -265,6 +269,79 @@ class MapDatabaseItems extends React.Component{
             const myArr = this.state.articlesArray.filter(obj => obj.hidden !== key);
             const myArr3= this.state.leftoverArticles.filter(obj => obj.hidden !== key);
             console.log(myArr)
+            console.log(myArr3[0])
+            console.log(myArr3[1])
+            console.log(myArr3[2])
+
+            // if(myArr.length < 30){
+            
+            // const thing2 = 30 - myArr.length; // How Many articles needed to be added
+            // console.log(thing2)
+  
+
+            // for(var i = 0; i < thing2; i++){
+            //     // var myArr6={};
+            //     console.log(i)
+            // //    const myArr6 = myArr.concat(myArr3[i])
+
+            // //  const myArr6 = myArr.concat(myArr3[i]) // This will add the correct records to the array but overwrites each time.
+
+            // //  const myArr6 = myArr.push.apply(myArr3[i])
+            //     // const myArr6 = [...myArr,myArr3[i]]
+            //     console.log(myArr3[i])
+            //     var newArray = [];
+            //     newArray.push(myArr3[i]);
+            //     console.log(newArray)
+                
+
+            //     // console.log(myArr6)
+            // }
+            //     // console.log("Add Something to Array")
+            //     // const myArr6 = myArr.concat(myArr3)
+            //     // console.log(myArr6)
+            // }
+
+            const thing2 = this.state.secondSlicePoint - myArr.length; // How Many articles needed to be added
+            console.log(thing2)
+  
+            var newArray = [];
+            for(var i = 0; i < thing2; i++){
+                // var myArr6={};
+                console.log(i)
+            //    const myArr6 = myArr.concat(myArr3[i])
+
+            //  const myArr6 = myArr.concat(myArr3[i]) // This will add the correct records to the array but overwrites each time.
+
+            //  const myArr6 = myArr.push.apply(myArr3[i])
+                // const myArr6 = [...myArr,myArr3[i]]
+                console.log(myArr3[i])
+                newArray.push(myArr3[i]); // THIS DOES WHAT I WANT!!!!, COMBINES THE 3 NEW ARTICLES INTO ONE ARRAY
+                console.log(newArray)
+                
+
+                // console.log(myArr6)
+            }
+            // COMBINE THE FILTERED ARRAY WITH THE NEW ARTICLES FROM NEWARRAY
+            // COMBINE myArr with newArray
+            console.log(newArray)
+            console.log(myArr)
+            console.log(myArr.concat(newArray)) // HOLY HELL --- THIS IS IT!!!!! MAYBE.PROBABLY
+    
+            if(this.state.articlesArray7.length === 0){
+                this.setState({
+                    articlesArray7:myArr.concat(newArray)
+                    // This gives me an initial, filtered array that can be used for the rest of the website.
+                    // I need to think about how to deal with scrollCheck because i can think of a few issues of the top of my head.
+                })
+                localStorage.setItem("articleArray7",this.state.articlesArray7)
+            }
+            console.log(this.state.articlesArray7)
+            
+            // var arr = [];
+            // for(var i = 0; i < 5; i++){
+            //     arr.push(i);
+            // }
+            // console.log(arr)
     
             console.log(this.state.leftoverArticles)
             const myArr2 = myArr.concat(myArr3)
@@ -324,7 +401,16 @@ class MapDatabaseItems extends React.Component{
             // I don't know if that's a good thing but it can't be a bad thing...right
                                     // !!!! DONT REMOVE VERY IMPORTANT -- END
 
-              
+              // initialize array
+                    var arr = ["Hi", "Hello", "Bonjour", "Hola"];
+
+                    // append multiple values to the array
+                    arr.push("Salut", "Hey");
+
+                    // display all values
+                    for (var i = 0; i < arr.length; i++) {
+                    console.log(arr[i]);
+                    }
         }
 
 
@@ -334,7 +420,7 @@ class MapDatabaseItems extends React.Component{
             
             <div className="news-item-loop-wrapper"> 
             <React.Fragment>
-                <NewsItemLoopView databaseProp={firebaseDB} />     
+                <NewsItemLoopView databaseProp={this.state.articlesArray7 || firebaseDB} />     
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>
