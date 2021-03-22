@@ -153,9 +153,18 @@ class MapDatabaseItems extends React.Component{
                     // This gives me an initial, filtered array that can be used for the rest of the website.
                     // I need to think about how to deal with scrollCheck because i can think of a few issues of the top of my head.
                 })
-                localStorage.setItem("articleArray7",this.state.filteredPostArray)
+                // localStorage.setItem("articleArray7",this.state.filteredPostArray)
             }
             console.log(this.state.filteredPostArray)
+            // Prepare filtered article array for use in other parts of website.
+            localStorage.setItem("articleArray8",JSON.stringify(this.state.filteredPostArray))
+            // console.log(localStorage.getItem("articleArray8"))
+            
+
+
+
+
+            
         }
         
          return (

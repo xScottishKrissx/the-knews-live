@@ -59,7 +59,7 @@ class NewsItemLoopView extends React.Component{
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id}/>     
+                    <HideArticle articleId={value.id} test1={this.props.databaseProp}/>     
                     
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
