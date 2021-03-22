@@ -30,7 +30,7 @@ export class HideArticle extends React.Component{
         const index4 = value;
         var newData = parsedLatestPostArray.map(el => {
             if(el.id == index4)
-                return Object.assign({}, el, {hidden:"apple"})
+                return Object.assign({}, el, {hidden:true})
                     return el
         });
         console.log(newData)

@@ -6,13 +6,14 @@ export class ClearCache extends React.Component{
     clearCache(){
         // localStorage.clear();
         localStorage.removeItem("hiddenPostList")
+        localStorage.removeItem("articleArray8")
         // localStorage.removeItem("articlesArray")
         console.log("hiddenPostList -- Removed.")
         window.location.reload();
     }
 
     componentDidMount(){
-        if(localStorage.getItem("hiddenPostList") === null)document.getElementById("clearCache").style.visibility = "hidden";
+        if(localStorage.getItem("hiddenPostList") === null)document.getElementById("clearCache").style.visibility = "visible";
     }
 
     render(){

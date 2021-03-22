@@ -423,6 +423,8 @@ General Notes  Objectives:
                         // I just removed an object from one array and appended a record from a second array to the end of the first, keeping the number of obejects in the array at maximum.
                         //  Is there something here? Could I just run a loop that ensures the array length remains at 30 on load?
 
+                        // 22/3/2021 - Ok, so i have the new code working as intended. The only small probem is that I can't figure out how to undo it. I can hide an article and have it replaced with another, ensuring a minimum of 30 articles in the initial array, but I can't get the website to load a fresh array. 
+
                  ☐ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21)
                  ☐ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21)
                  
@@ -490,6 +492,8 @@ General Notes  Objectives:
                     // Step 3 - Upload and save article to database when ready
                     // Step 4 - Switch view back, with update article on page.
                     // Will NOT be as easy as that but a guy can dream...
+
+
             Recommended Reading Area:
                  ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
                 It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.

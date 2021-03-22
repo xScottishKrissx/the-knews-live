@@ -108,23 +108,26 @@ class MapDatabaseItems extends React.Component{
 
         // !!! IMPORTANT -- Update Record in Object in array
         // This is how i see the hide button functioning, only not from this file.
-        const collection2 = this.state.articlesArray;
+        const arrayWithMarkedAsHiddenArticles = JSON.parse(localStorage.getItem("articleArray8"));
+        const collection2 = arrayWithMarkedAsHiddenArticles || this.state.articlesArray;
         console.log(collection2)
+        console.log(arrayWithMarkedAsHiddenArticles)
 
             // This might be my answer to updating a single object in the array.
             // If it is then i can look at integrating this into the hide article button
-            const index4 = 319
-            var newData = collection2.map(el => {
-                if(el.id == index4)
-                    return Object.assign({}, el, {hidden:"CHANGE"})
-                        return el
-            });
-            console.log(newData)
+            // const index4 = 319
+            // var newData = collection2.map(el => {
+            //     if(el.id == index4)
+            //         return Object.assign({}, el, {hidden:"CHANGE"})
+            //             return el
+            // });
+            // console.log(newData)
 
 
             // This is where the array would be filtered for hidden articles.
             const key = true
-            const myArr = newData.filter(obj => obj.hidden !== key);
+            // const myArr = newData.filter(obj => obj.hidden !== key);
+            const myArr = collection2.filter(obj => obj.hidden !== key);
             const myArr3= this.state.leftoverArticles.filter(obj => obj.hidden !== key);
             console.log(myArr)
             // console.log(myArr3[0])
@@ -158,7 +161,7 @@ class MapDatabaseItems extends React.Component{
             console.log(this.state.filteredPostArray)
             // Prepare filtered article array for use in other parts of website.
             localStorage.setItem("articleArray8",JSON.stringify(this.state.filteredPostArray))
-            // console.log(localStorage.getItem("articleArray8"))
+            console.log(JSON.parse(localStorage.getItem("articleArray8")))
             
 
 
@@ -166,12 +169,13 @@ class MapDatabaseItems extends React.Component{
 
             
         }
-        
+        const thingymajig = JSON.parse(localStorage.getItem("articleArray8"));
+        console.log(thingymajig)
          return (
             
             <div className="news-item-loop-wrapper"> 
             <React.Fragment>
-                <NewsItemLoopView databaseProp={this.state.filteredPostArray || firebaseDB} />     
+                <NewsItemLoopView databaseProp={thingymajig|| this.state.filteredPostArray || firebaseDB} />     
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>
