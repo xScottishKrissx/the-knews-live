@@ -28,7 +28,12 @@ export class HideArticle extends React.Component{
         console.log(parsedLatestPostArray)
 
         const index4 = value;
-        var newData = parsedLatestPostArray.map(el => {
+        var filtered3 = parsedLatestPostArray.filter(function (el) {
+            return el != null;
+          });
+
+        console.log(filtered3)
+        var newData = filtered3.map(el => {
             if(el.id == index4)
                 return Object.assign({}, el, {hidden:true})
                     return el
@@ -77,14 +82,14 @@ export class HideArticle extends React.Component{
 
         return(
             <div>
-                {this.state.articleHidden === true ?
-                <button>You won't see this article again :)</button>
+                {/* {this.state.articleHidden === true ?
+                <button>You won't see this article again :)</button> */}
 
-                :
+                {/* // : */}
                 <div className="hideArticleButtonWrapper ">
                     <button id={this.state.articleId} onClick={()=> this.hideArticle(this.props.articleId)}>Hide Article</button>
                 </div>
-                }
+                {/* // } */}
             </div>
         )
     }

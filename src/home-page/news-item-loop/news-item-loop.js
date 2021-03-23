@@ -36,7 +36,8 @@ class MapDatabaseItems extends React.Component{
             leftoverArticles:[],
             firstSlicePoint:0,
             secondSlicePoint:30,
-            data:[]
+            data:[],
+            fullDatabaseCall:[]
         }
     }
 
@@ -80,10 +81,12 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 //Set's the initial number of articles loaded into home.
                 articlesArray: newState.slice(0,this.state.secondSlicePoint),
-                leftoverArticles: newState.slice(this.state.secondSlicePoint,60)
+                leftoverArticles: newState.slice(this.state.secondSlicePoint,60),
+                fullDatabaseCall: newState
             })
 
             console.log(this.state.articlesArray)
+            console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
         // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -103,6 +106,10 @@ class MapDatabaseItems extends React.Component{
         // console.log(firebaseDB)
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
         // console.log(localStorage.getItem("articlesArray"))
+        console.log(this.state.articlesArray)
+        
+        console.log(this.state.leftoverArticles)
+        console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
 
         if(this.state.articlesArray.length != 0){
 
@@ -127,24 +134,47 @@ class MapDatabaseItems extends React.Component{
             // This is where the array would be filtered for hidden articles.
             const key = true
             // const myArr = newData.filter(obj => obj.hidden !== key);
-            const myArr = collection2.filter(obj => obj.hidden !== key);
-            const myArr3= this.state.leftoverArticles.filter(obj => obj.hidden !== key);
+
+            var filtered2 = collection2.filter(function (el) {
+                return el != null;
+              });
+    
+            console.log(filtered2)
+
+            const myArr = filtered2.filter(obj => obj.hidden !== key);
             console.log(myArr)
+
+            let leftOverArticles = JSON.parse(localStorage.getItem("newLeftOverArticles")) || this.state.leftoverArticles;
+            // const leftOverArticles = this.state.leftoverArticles;
+            console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
+            console.log(this.state.leftoverArticles)
+            const myArr3 = leftOverArticles.filter(obj => obj.hidden !== key);
+            console.log(myArr)
+            console.log(myArr3)
             // console.log(myArr3[0])
             // console.log(myArr3[1])
             // console.log(myArr3[2])
 
             const articlesToBeAddedToArray = this.state.secondSlicePoint - myArr.length; // How Many articles needed to be added
-            // console.log(articlesToBeAddedToArray)
+            console.log(this.state.secondSlicePoint + ":" + myArr.length)
+            console.log(articlesToBeAddedToArray)
   
             var newArray = [];
             for(var i = 0; i < articlesToBeAddedToArray; i++){
                 newArray.push(myArr3[i]); // COMBINE THE 3 NEW ARTICLES INTO ONE new ARRAY
-                // console.log(newArray)
+                console.log(myArr3[i])
+                // console.log(i)
+                console.log(articlesToBeAddedToArray)
+
             }
+            const testSlice = leftOverArticles.slice(1);
+            console.log(testSlice)
+            localStorage.setItem("newLeftOverArticles",JSON.stringify(testSlice))
+            console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
+
             // COMBINE THE FILTERED ARRAY WITH THE NEW ARTICLES FROM NEWARRAY
             // COMBINE myArr with newArray
-            // console.log(newArray)
+            console.log(newArray)
             // console.log(myArr)
             // console.log(myArr.concat(newArray)) // HOLY HELL --- THIS IS IT!!!!! MAYBE.PROBABLY
             // console.log(...myArr,newArray)
@@ -152,7 +182,8 @@ class MapDatabaseItems extends React.Component{
             if(this.state.filteredPostArray.length === 0){
                
                 this.setState({
-                    filteredPostArray:myArr.concat(newArray)
+                    filteredPostArray:myArr.concat(newArray),
+                    
                     // This gives me an initial, filtered array that can be used for the rest of the website.
                     // I need to think about how to deal with scrollCheck because i can think of a few issues of the top of my head.
                 })
@@ -170,12 +201,17 @@ class MapDatabaseItems extends React.Component{
             
         }
         const thingymajig = JSON.parse(localStorage.getItem("articleArray8"));
-        console.log(thingymajig)
+
+        var filtered = thingymajig.filter(function (el) {
+            return el != null;
+          });
+
+        console.log(filtered)
          return (
             
             <div className="news-item-loop-wrapper"> 
             <React.Fragment>
-                <NewsItemLoopView databaseProp={thingymajig|| this.state.filteredPostArray || firebaseDB} />     
+                <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} />     
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>

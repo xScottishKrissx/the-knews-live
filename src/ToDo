@@ -425,6 +425,11 @@ General Notes  Objectives:
 
                         // 22/3/2021 - Ok, so i have the new code working as intended. The only small probem is that I can't figure out how to undo it. I can hide an article and have it replaced with another, ensuring a minimum of 30 articles in the initial array, but I can't get the website to load a fresh array. 
 
+                        23/3/2021 -
+                        ☐ If you hide an article, the article added to the array is pulled from the same static array of leftover articles. This is a problem as it means the same articles are just duplicated over and over again. 
+                            // I might need to filter the array from the database THEN splice them.
+                            
+
                  ☐ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21)
                  ☐ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21)
                  
