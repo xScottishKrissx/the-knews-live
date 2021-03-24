@@ -44,7 +44,7 @@ class NewsItemLoopView extends React.Component{
         fire.database().ref("items").off();
     }
     render(){
-        console.log(this.props.databaseProp)
+        // console.log(this.props.databaseProp)
         // const collection2 = this.props.databaseProp;
         // const newCollection2 = update(collection2, {0:{"hidden": {$set: 5}}});
         // console.log(newCollection2)

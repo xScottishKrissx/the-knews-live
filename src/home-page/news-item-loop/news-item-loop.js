@@ -86,10 +86,16 @@ class MapDatabaseItems extends React.Component{
             })
 
             console.log(this.state.articlesArray)
+            console.log(this.state.leftoverArticles)
+            localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
             console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
-        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+
+        console.log(this.state.articlesArray)
+        console.log(this.state.leftoverArticles)
+        // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
     }
 
      componentWillUnmount(){
@@ -105,108 +111,22 @@ class MapDatabaseItems extends React.Component{
         const firebaseDB = this.state.articlesArray;  
         // console.log(firebaseDB)
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
-        // console.log(localStorage.getItem("articlesArray"))
+        // console.log(JSON.parse(localStorage.getItem("articlesArray")))
         // console.log(this.state.articlesArray)
         
         // console.log(this.state.leftoverArticles)
         // console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
 
-        if(this.state.articlesArray.length != 0){
-
-        // !!! IMPORTANT -- Update Record in Object in array
-        // This is how i see the hide button functioning, only not from this file.
-        const arrayWithMarkedAsHiddenArticles = JSON.parse(localStorage.getItem("articleArray8"));
-        const collection2 = arrayWithMarkedAsHiddenArticles || this.state.articlesArray;
-        // console.log(collection2)
-        // console.log(arrayWithMarkedAsHiddenArticles)
-
-            // This might be my answer to updating a single object in the array.
-            // If it is then i can look at integrating this into the hide article button
-            // const index4 = 319
-            // var newData = collection2.map(el => {
-            //     if(el.id == index4)
-            //         return Object.assign({}, el, {hidden:"CHANGE"})
-            //             return el
-            // });
-            // console.log(newData)
-
-
-            // This is where the array would be filtered for hidden articles.
-            const key = true
-            // const myArr = newData.filter(obj => obj.hidden !== key);
-
-            var filtered2 = collection2.filter(function (el) {
-                return el != null;
-              });
-    
-            console.log(filtered2)
-
-            const myArr = filtered2.filter(obj => obj.hidden !== key);
-            console.log(myArr)
-
-            let leftOverArticles = JSON.parse(localStorage.getItem("newLeftOverArticles")) || this.state.leftoverArticles;
-            // const leftOverArticles = this.state.leftoverArticles;
-            // console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
-            // console.log(this.state.leftoverArticles)
-            const myArr3 = leftOverArticles.filter(obj => obj.hidden !== key);
-            // console.log(myArr)
-            // console.log(myArr3)
-            // console.log(myArr3[0])
-            // console.log(myArr3[1])
-            // console.log(myArr3[2])
-
-            const articlesToBeAddedToArray = this.state.secondSlicePoint - myArr.length; // How Many articles needed to be added
-            // console.log(this.state.secondSlicePoint + ":" + myArr.length)
-            // console.log(articlesToBeAddedToArray)
-  
-            var newArray = [];
-            for(var i = 0; i < articlesToBeAddedToArray; i++){
-                newArray.push(myArr3[i]); // COMBINE THE 3 NEW ARTICLES INTO ONE new ARRAY
-                // console.log(myArr3[i])
-                // console.log(i)
-                // console.log(articlesToBeAddedToArray)
-
-            }
-            const testSlice = leftOverArticles.slice(1);
-            console.log(testSlice)
-            localStorage.setItem("newLeftOverArticles",JSON.stringify(testSlice))
-            console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
-
-            // COMBINE THE FILTERED ARRAY WITH THE NEW ARTICLES FROM NEWARRAY
-            // COMBINE myArr with newArray
-            console.log(newArray)
-            // console.log(myArr)
-            // console.log(myArr.concat(newArray)) // HOLY HELL --- THIS IS IT!!!!! MAYBE.PROBABLY
-            // console.log(...myArr,newArray)
-    
-            if(this.state.filteredPostArray.length === 0){
-               
-                this.setState({
-                    filteredPostArray:myArr.concat(newArray),
-                    
-                    // This gives me an initial, filtered array that can be used for the rest of the website.
-                    // I need to think about how to deal with scrollCheck because i can think of a few issues of the top of my head.
-                })
-                // localStorage.setItem("articleArray7",this.state.filteredPostArray)
-            }
-            // console.log(this.state.filteredPostArray)
-            // Prepare filtered article array for use in other parts of website.
-            localStorage.setItem("articleArray8",JSON.stringify(this.state.filteredPostArray))
-            // console.log(JSON.parse(localStorage.getItem("articleArray8")))
-            
-
-
-
-
-            
-        }
+        
         const thingymajig = JSON.parse(localStorage.getItem("articleArray8"));
-
+        const thing4 = JSON.parse(localStorage.getItem("articleArray9"))
         var filtered = thingymajig.filter(function (el) {
             return el != null;
           });
-
-        // console.log(filtered)
+        console.log(thing4)
+        console.log(filtered)
+        console.log(this.state.filteredPostArray)
+        console.log(firebaseDB)
          return (
             
             <div className="news-item-loop-wrapper"> 
