@@ -60,7 +60,7 @@ export class HideArticle extends React.Component{
             // localStorage.setItem("hiddenPostList", value);
         }
 
-    //    if(document.getElementById(value))document.getElementById(value).style.display = "none";
+       if(document.getElementById(value))document.getElementById(value).style.display = "none";
     //    if(document.getElementById("btn"+value))document.getElementById("btn"+value).style.display = "block";
        
 

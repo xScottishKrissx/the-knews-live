@@ -52,7 +52,7 @@ class MapDatabaseItems extends React.Component{
                 postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
             })
         }
-        console.log("Hidden Articles -> " + localStorage.getItem("hiddenPostList"));
+        // console.log("Hidden Articles -> " + localStorage.getItem("hiddenPostList"));
         
 
     // This is the initial database query.
@@ -106,10 +106,10 @@ class MapDatabaseItems extends React.Component{
         // console.log(firebaseDB)
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
         // console.log(localStorage.getItem("articlesArray"))
-        console.log(this.state.articlesArray)
+        // console.log(this.state.articlesArray)
         
-        console.log(this.state.leftoverArticles)
-        console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
+        // console.log(this.state.leftoverArticles)
+        // console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
 
         if(this.state.articlesArray.length != 0){
 
@@ -117,8 +117,8 @@ class MapDatabaseItems extends React.Component{
         // This is how i see the hide button functioning, only not from this file.
         const arrayWithMarkedAsHiddenArticles = JSON.parse(localStorage.getItem("articleArray8"));
         const collection2 = arrayWithMarkedAsHiddenArticles || this.state.articlesArray;
-        console.log(collection2)
-        console.log(arrayWithMarkedAsHiddenArticles)
+        // console.log(collection2)
+        // console.log(arrayWithMarkedAsHiddenArticles)
 
             // This might be my answer to updating a single object in the array.
             // If it is then i can look at integrating this into the hide article button
@@ -146,25 +146,25 @@ class MapDatabaseItems extends React.Component{
 
             let leftOverArticles = JSON.parse(localStorage.getItem("newLeftOverArticles")) || this.state.leftoverArticles;
             // const leftOverArticles = this.state.leftoverArticles;
-            console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
-            console.log(this.state.leftoverArticles)
+            // console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
+            // console.log(this.state.leftoverArticles)
             const myArr3 = leftOverArticles.filter(obj => obj.hidden !== key);
-            console.log(myArr)
-            console.log(myArr3)
+            // console.log(myArr)
+            // console.log(myArr3)
             // console.log(myArr3[0])
             // console.log(myArr3[1])
             // console.log(myArr3[2])
 
             const articlesToBeAddedToArray = this.state.secondSlicePoint - myArr.length; // How Many articles needed to be added
-            console.log(this.state.secondSlicePoint + ":" + myArr.length)
-            console.log(articlesToBeAddedToArray)
+            // console.log(this.state.secondSlicePoint + ":" + myArr.length)
+            // console.log(articlesToBeAddedToArray)
   
             var newArray = [];
             for(var i = 0; i < articlesToBeAddedToArray; i++){
                 newArray.push(myArr3[i]); // COMBINE THE 3 NEW ARTICLES INTO ONE new ARRAY
-                console.log(myArr3[i])
+                // console.log(myArr3[i])
                 // console.log(i)
-                console.log(articlesToBeAddedToArray)
+                // console.log(articlesToBeAddedToArray)
 
             }
             const testSlice = leftOverArticles.slice(1);
@@ -189,10 +189,10 @@ class MapDatabaseItems extends React.Component{
                 })
                 // localStorage.setItem("articleArray7",this.state.filteredPostArray)
             }
-            console.log(this.state.filteredPostArray)
+            // console.log(this.state.filteredPostArray)
             // Prepare filtered article array for use in other parts of website.
             localStorage.setItem("articleArray8",JSON.stringify(this.state.filteredPostArray))
-            console.log(JSON.parse(localStorage.getItem("articleArray8")))
+            // console.log(JSON.parse(localStorage.getItem("articleArray8")))
             
 
 
@@ -206,7 +206,7 @@ class MapDatabaseItems extends React.Component{
             return el != null;
           });
 
-        console.log(filtered)
+        // console.log(filtered)
          return (
             
             <div className="news-item-loop-wrapper"> 
