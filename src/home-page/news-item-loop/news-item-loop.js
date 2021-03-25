@@ -1,5 +1,5 @@
 import React from 'react';
-import update from 'immutability-helper';
+// import update from 'immutability-helper';
 import fire from '../../fire.js'
 import '../news-item-loop/news-item-loop.css';
 
@@ -82,13 +82,13 @@ class MapDatabaseItems extends React.Component{
                 //Set's the initial number of articles loaded into home.
                 articlesArray: newState.slice(0,this.state.secondSlicePoint),
                 leftoverArticles: newState.slice(this.state.secondSlicePoint,60),
-                fullDatabaseCall: newState
+                // fullDatabaseCall: newState
             })
 
-            console.log(this.state.articlesArray)
-            console.log(this.state.leftoverArticles)
+            // console.log(this.state.articlesArray)
+            // console.log(this.state.leftoverArticles)
             // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
-            console.log(this.state.fullDatabaseCall)
+            // console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
         localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -106,11 +106,11 @@ class MapDatabaseItems extends React.Component{
       }
     
     render(){
-
+        console.log("Render")
         // console.log(this.state.articlesArray)
-        const firebaseDB = this.state.articlesArray;  
+        // const firebaseDB = this.state.articlesArray;  
         // console.log(firebaseDB)
-        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
         // console.log(JSON.parse(localStorage.getItem("articlesArray")))
         // console.log(this.state.articlesArray)
         
@@ -127,13 +127,15 @@ class MapDatabaseItems extends React.Component{
         // console.log(filtered)
         // console.log(this.state.filteredPostArray)
         // console.log(firebaseDB)
+        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray"));
          return (
             
             <div className="news-item-loop-wrapper"> 
             <React.Fragment>
                 {/* <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} /> 
                      */}
-                     <NewsItemLoopView databaseProp={firebaseDB} /> 
+                     <NewsItemLoopView databaseProp={arrayWithArticlesHidden || this.state.articlesArray} /> 
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>

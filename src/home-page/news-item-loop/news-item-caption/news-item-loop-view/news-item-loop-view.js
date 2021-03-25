@@ -17,7 +17,7 @@ import swipeLeftAction from '../../../../utility_components/swipeLeftAction.js';
 import swipeRightAction from '../../../../utility_components/swipeRightAction.js';
 import closePopup from '../../../../utility_components/closePopup.js';
 
-import update from 'immutability-helper';
+// import update from 'immutability-helper';
 
 class NewsItemLoopView extends React.Component{
 
@@ -59,7 +59,7 @@ class NewsItemLoopView extends React.Component{
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id} test1={this.props.databaseProp}/>     
+                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp}/>     
                     
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
