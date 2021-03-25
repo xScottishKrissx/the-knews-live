@@ -13,7 +13,7 @@
 
     cursor: pointer;
 
-    width: 6rem;
+    width: 2rem;
 
     margin: 0 auto;
 }
@@ -24,9 +24,9 @@
 .myClass .hideArticleButtonWrapper{
     position: absolute;
     z-index: 1;
-    right: 5px;
-    top: 5px;
-    padding: 5px;
+    right: 3px;
+    top: 3px;
+    padding: 0px;
     cursor: pointer;
 }
 

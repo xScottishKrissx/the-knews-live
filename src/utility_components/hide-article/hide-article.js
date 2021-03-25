@@ -32,26 +32,36 @@ export class HideArticle extends React.Component{
         const mainArray = editedArray || this.props.arrayFromDatabase;
         
         const index = value;
-        var hideObjectInArray = mainArray.map(el => {
+        var markArticleForRemoval = mainArray.map(el => {
             if(el.id === index)
                 return Object.assign({}, el, {hidden:true})
                 return el
         });
-        // console.log(hideObjectInArray)
+        // console.log(markArticleForRemoval)
 
         // Check for Articles marked as hidden -> then remove from array
         const key = true
-        const arrayWithArticlesRemoved = hideObjectInArray.filter(obj => obj.hidden !== key);
+        const arrayWithArticlesRemoved = markArticleForRemoval.filter(obj => obj.hidden !== key);
         console.log(arrayWithArticlesRemoved)
+
+        // Get something to add to the reduced array
+        
+        // Add Something to reduced array (not the actual step but Im taking this very slowly)
+            // You don't need to declare a const, .push just works as is.
+        arrayWithArticlesRemoved.push(arrayWithArticlesRemoved[0]);
+
 
 
         // Array with articles marked as hidden:true
-            // localStorage.setItem("editedArticleArray",JSON.stringify(hideObjectInArray))
+            // localStorage.setItem("editedArticleArray",JSON.stringify(markArticleForRemoval))
 
         // Array with hidden articles removed from array
-        localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
+            // localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
 
-        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        // Array with Articles added to reduced array
+            localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
+        
+            console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
 
 
 
@@ -99,7 +109,7 @@ export class HideArticle extends React.Component{
 
                 {/* // : */}
                 <div className="hideArticleButtonWrapper ">
-                    <button id={this.state.articleId} onClick={()=> this.hideArticle(this.props.articleId)}>Hide Article</button>
+                    <button id={this.state.articleId} onClick={()=> this.hideArticle(this.props.articleId)}>X</button>
                 </div>
                 {/* // } */}
             </div>

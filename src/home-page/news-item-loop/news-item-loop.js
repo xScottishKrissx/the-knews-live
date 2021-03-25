@@ -135,7 +135,7 @@ class MapDatabaseItems extends React.Component{
             <React.Fragment>
                 {/* <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} /> 
                      */}
-                     <NewsItemLoopView databaseProp={arrayWithArticlesHidden || this.state.articlesArray} /> 
+                     <NewsItemLoopView databaseProp={ arrayWithArticlesHidden || this.state.articlesArray} /> 
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>
