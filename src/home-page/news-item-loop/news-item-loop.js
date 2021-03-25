@@ -87,7 +87,7 @@ class MapDatabaseItems extends React.Component{
 
             console.log(this.state.articlesArray)
             console.log(this.state.leftoverArticles)
-            localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
+            // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
             console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
@@ -118,20 +118,22 @@ class MapDatabaseItems extends React.Component{
         // console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
 
         
-        const thingymajig = JSON.parse(localStorage.getItem("articleArray8"));
-        const thing4 = JSON.parse(localStorage.getItem("articleArray9"))
-        var filtered = thingymajig.filter(function (el) {
-            return el != null;
-          });
-        console.log(thing4)
-        console.log(filtered)
-        console.log(this.state.filteredPostArray)
-        console.log(firebaseDB)
+        // const thingymajig = JSON.parse(localStorage.getItem("articleArray8"));
+        // const thing4 = JSON.parse(localStorage.getItem("articleArray9"))
+        // var filtered = thingymajig.filter(function (el) {
+        //     return el != null;
+        //   });
+        // console.log(thing4)
+        // console.log(filtered)
+        // console.log(this.state.filteredPostArray)
+        // console.log(firebaseDB)
          return (
             
             <div className="news-item-loop-wrapper"> 
             <React.Fragment>
-                <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} />     
+                {/* <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} /> 
+                     */}
+                     <NewsItemLoopView databaseProp={firebaseDB} /> 
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>
