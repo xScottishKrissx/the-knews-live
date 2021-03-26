@@ -110,7 +110,7 @@ class NewsItemLoopView extends React.Component{
                 
                 {HomePageView}
                 
-                {/* <ScrollCheck 
+                <ScrollCheck 
                     databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }
                     swipeLeftAction={swipeLeftAction}
                     closePopup={closePopup}
@@ -120,7 +120,7 @@ class NewsItemLoopView extends React.Component{
 
                     
                     
-                    /> */}
+                    />
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
         )

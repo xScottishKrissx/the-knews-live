@@ -44,6 +44,8 @@ class ScrollCheck extends React.Component{
         }else{
             console.log("On Tags Page")
         }
+        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        console.log(this.state.dbRef)
   
         // Detect if scroll bar necessary
             // Still doesn't solve the issue of what happens when the initally loaded new articles are hidden, if there are no articles, then no scroll. 
@@ -72,7 +74,7 @@ class ScrollCheck extends React.Component{
         // 
         if(windowBottom >= docHeight){
             // if(windowBottom > 1200){
-            const dbRef = this.state.dbRef;
+            const dbRef =  this.state.dbRef;
            dbRef.on('value', (snapshot) => {
                let newsItems = snapshot.val();
                let newState = [];
@@ -164,6 +166,7 @@ class ScrollCheck extends React.Component{
                                         dislikes={value.dislikes}
                                         articleId={value.id}
                                         tag={value.tag}
+                                        imageId={value.id}
                                         />
                                 </div>
                         

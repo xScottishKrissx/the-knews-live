@@ -56,7 +56,7 @@ class MapDatabaseItems extends React.Component{
         
 
     // This is the initial database query.
-     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(60);    
+     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);    
     //  const dbRef = fire.database().ref('items').orderByChild("hidden").equalTo(false).limitToFirst(60);   
         
         dbRef.on('value', (snapshot) => {
@@ -81,7 +81,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 //Set's the initial number of articles loaded into home.
                 articlesArray: newState.slice(0,this.state.secondSlicePoint),
-                leftoverArticles: newState.slice(30,60),
+                leftoverArticles: newState.slice(30,97),
                 // fullDatabaseCall: newState
             })
 
