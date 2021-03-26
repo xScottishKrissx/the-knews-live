@@ -406,8 +406,8 @@ General Notes  Objectives:
             ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload. @started(16:38 - 10/03/21)
                 ☐  This is fundamentally a flaw in how the website works and needs to be resolved before moving onto the more cosmetic issues of blank pages and dodgy user feedback. @started(16:53 - 15/03/21)
                 ☐ My main requirements for this are:
-                    ☐ There must be a minimum number of articles on the page on load.
-                        ☐ Articles don't need to load in as you hide articles(for the moment, could replace infinit scroll later on.)
+                    ✔ There must be a minimum number of articles on the page on load. @done(17:52 - 26/03/21)
+                        ✔ Articles don't need to load in as you hide articles(for the moment, could replace infinit scroll later on.) @done(17:52 - 26/03/21)
                     ☐ If you get through all articles, display a message informing there are no articles currently available.
                     ☐ Must work with infinite scroll
                     // If there are no articles on screen initally, then the scrollCheck component won't work as it only activates on a scroll event. No Artiles => No Scrolling.
@@ -433,12 +433,25 @@ General Notes  Objectives:
 
                         23/3/2021 -
                         ✔ If you hide an article, the article added to the array is pulled from the same static array of leftover articles. This is a problem as it means the same articles are just duplicated over and over again. 
-                            ☐ I fixed the above by changing the way the 2 arrays (current articles and leftover articles) are spliced together. So now the articles I would expect to be added to the page are. However, i'm still seing some instances where hiding an article sort of resets the array so it starts repeating seqences of articles. I have been unable to replicate this issue. @started(15:59 - 24/03/21)
-                            ☐ I am also seeing random null id errors popping up. Again, I have been unable to replicate these but I think they may have something to do with when i restart the server each day. @started(15:59 - 24/03/21)
-                            ☐ When loading a new article, the sequence is skipping the first article in the array, always loading the second article. @started(16:10 - 24/03/21)
+                            ✔ I fixed the above by changing the way the 2 arrays (current articles and leftover articles) are spliced together. So now the articles I would expect to be added to the page are. However, i'm still seing some instances where hiding an article sort of resets the array so it starts repeating seqences of articles. I have been unable to replicate this issue. @started(15:59 - 24/03/21) @done(17:51 - 26/03/21) @lasted(2d1h52m49s)
+                            ✔ I am also seeing random null id errors popping up. Again, I have been unable to replicate these but I think they may have something to do with when i restart the server each day. @started(15:59 - 24/03/21) @done(17:51 - 26/03/21) @lasted(2d1h52m46s)
+                            ✔ When loading a new article, the sequence is skipping the first article in the array, always loading the second article. @started(16:10 - 24/03/21) @done(17:51 - 26/03/21) @lasted(2d1h41m43s)
                         
                             // I might need to filter the array from the database THEN splice them.
-                            ☐ ....IT MIGHT BE BECAUSE I HAVE ALL OF THE CODE RUNNING WHEN THE PAGE RENDERS INSTEAD OF IN THE HIDE ARTICLE COMPONENT BECAUSE CLEARLY THAT'S TOO HARD FOR ME TO WORK OUT SO EVERYTIME THE PAGE RENDERS THE SLICING CODE AND ARRAY APPENDING HAPPENS REGARDLESS OF WHETHER THE HIDE ARTICLE BUTTON WAS CLICKED WHICH IS THE ENTIRE PURPOSE OF WHAT IVE BEEN DOING THAT LAST WEEK. HOW HAS IT TAKEN ME THIS LONG TO NOTICE THIS!!!??!?!?!?!?!??!??!?!?!?!?
+                            ✔ ....IT MIGHT BE BECAUSE I HAVE ALL OF THE CODE RUNNING WHEN THE PAGE RENDERS INSTEAD OF IN THE HIDE ARTICLE COMPONENT BECAUSE CLEARLY THAT'S TOO HARD FOR ME TO WORK OUT SO EVERYTIME THE PAGE RENDERS THE SLICING CODE AND ARRAY APPENDING HAPPENS REGARDLESS OF WHETHER THE HIDE ARTICLE BUTTON WAS CLICKED WHICH IS THE ENTIRE PURPOSE OF WHAT IVE BEEN DOING THAT LAST WEEK. HOW HAS IT TAKEN ME THIS LONG TO NOTICE THIS!!!??!?!?!?!?!??!??!?!?!?!? @done(17:58 - 26/03/21)
+
+                        ✔ I have completed the meat of the problem, you can hide articles with an article replacing it at the end of the array. My main method was to break it down, step by step and work through the problem. My main failure was initially building the codebase in the render of news-item-loop-view.js. This caused major issues so my second attempt at this, primarily inside the hide-article.js proved much easier and less troublesome.
+                            ☐ Integrate the following with the new hide functionality:
+                                ☐ The in article hide article button
+                                ☐ Swiping to hide
+                                ☐ Scroll Check
+                                ☐ Next/Prev 
+                                    // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
+                            ☐ Bugs / Errors / Issues:
+                                ☐ Hiding all articles will eventually return a null id error.
+                                ☐ If the database has more than 60 articles(it does) the code currently doesn't support rendering those articles.
+                                ☐ Loading replacement articles as articles are hidden would be a good addition.(but i don't know how to do that)
+                                
                             
 
                  ☐ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21)

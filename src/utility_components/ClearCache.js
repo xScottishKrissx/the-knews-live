@@ -9,6 +9,7 @@ export class ClearCache extends React.Component{
         // localStorage.removeItem("articleArray8")
         // localStorage.removeItem("articlesArray")
         localStorage.removeItem("editedArticleArray")
+        localStorage.removeItem("editedLeftoverArticlesArray")
         console.log("hiddenPostList -- Removed.")
         
 

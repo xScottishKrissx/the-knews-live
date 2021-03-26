@@ -45,13 +45,25 @@ export class HideArticle extends React.Component{
         console.log(arrayWithArticlesRemoved)
 
         // Get something to add to the reduced array
-        
-        // Add Something to reduced array (not the actual step but Im taking this very slowly)
-            // You don't need to declare a const, .push just works as is.
-        arrayWithArticlesRemoved.push(arrayWithArticlesRemoved[0]);
+        const editedLeftoverArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"))
+        const arrayWithArticlesToBeAddedToMain = editedLeftoverArticlesArray || this.props.leftoverArticles;
+        // console.log(arrayWithArticlesToBeAddedToMain)
 
+        // Remove 1st element from leftoverArticles Array
+            // !! Remember, the below console.log is actually changing the array.
+        // console.log(arrayWithArticlesToBeAddedToMain.shift())
 
+            // removed 1st element from leftover article array to reduced main array
+            arrayWithArticlesRemoved.push(arrayWithArticlesToBeAddedToMain.shift());
 
+        //Get Rest of leftoverArticles Array
+        // console.log(arrayWithArticlesToBeAddedToMain.slice(0,30))
+
+        // With 1st object removed, set remaining leftover article array into local storage.
+        localStorage.setItem("editedLeftoverArticlesArray",JSON.stringify(arrayWithArticlesToBeAddedToMain))
+        console.log(localStorage.getItem("editedLeftoverArticlesArray"))
+    
+     
         // Array with articles marked as hidden:true
             // localStorage.setItem("editedArticleArray",JSON.stringify(markArticleForRemoval))
 

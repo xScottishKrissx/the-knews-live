@@ -48,6 +48,8 @@ class NewsItemLoopView extends React.Component{
         // const collection2 = this.props.databaseProp;
         // const newCollection2 = update(collection2, {0:{"hidden": {$set: 5}}});
         // console.log(newCollection2)
+        console.log("LeftOver Articles Below...")
+        console.log(this.props.leftoverArticles)
 
 
         const HomePageView = this.props.databaseProp.map((value,key) => {                 
@@ -59,7 +61,7 @@ class NewsItemLoopView extends React.Component{
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp}/>     
+                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} />     
                     
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 

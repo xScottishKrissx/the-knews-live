@@ -81,7 +81,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 //Set's the initial number of articles loaded into home.
                 articlesArray: newState.slice(0,this.state.secondSlicePoint),
-                leftoverArticles: newState.slice(this.state.secondSlicePoint,60),
+                leftoverArticles: newState.slice(30,60),
                 // fullDatabaseCall: newState
             })
 
@@ -91,10 +91,10 @@ class MapDatabaseItems extends React.Component{
             // console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
-        localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
 
-        console.log(this.state.articlesArray)
-        console.log(this.state.leftoverArticles)
+
         // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
     }
 
@@ -115,7 +115,7 @@ class MapDatabaseItems extends React.Component{
         // console.log(this.state.articlesArray)
         
         // console.log(this.state.leftoverArticles)
-        // console.log(JSON.parse(localStorage.getItem("newLeftOverArticles")))
+        // console.log(JSON.parse(localStorage.getItem("newLeftoverArticles")))
 
         
         // const thingymajig = JSON.parse(localStorage.getItem("articleArray8"));
@@ -135,7 +135,7 @@ class MapDatabaseItems extends React.Component{
             <React.Fragment>
                 {/* <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} /> 
                      */}
-                     <NewsItemLoopView databaseProp={ arrayWithArticlesHidden || this.state.articlesArray} /> 
+                     <NewsItemLoopView databaseProp={ arrayWithArticlesHidden || this.state.articlesArray} leftoverArticles={this.state.leftoverArticles}/> 
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>
