@@ -7,6 +7,7 @@ import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheck from '../../../../utility_components/ScrollCheck';
+import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import CheckCache from '../../../../utility_components/checkCache.js';
 
 // Swiping
@@ -110,7 +111,7 @@ class NewsItemLoopView extends React.Component{
                 
                 {HomePageView}
                 
-                <ScrollCheck 
+                {/* <ScrollCheck 
                     databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }
                     swipeLeftAction={swipeLeftAction}
                     closePopup={closePopup}
@@ -119,11 +120,13 @@ class NewsItemLoopView extends React.Component{
                     articlesArray={this.props.databaseProp}
 
                     // Testing Stuff
-                    testProp = {JSON.parse(localStorage.getItem("editedArticleArray"))}
-
-                    
-                    
-                    />
+                    testProp = {JSON.parse(localStorage.getItem("editedArticleArray"))}                    
+                /> */}
+                <ScrollCheckV2 
+                    articlesArray={this.props.databaseProp}
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                />
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
         )

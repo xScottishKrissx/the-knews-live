@@ -106,7 +106,7 @@ class MapDatabaseItems extends React.Component{
       }
     
     render(){
-        console.log("Render")
+        // console.log("Render")
         // console.log(this.state.articlesArray)
         // const firebaseDB = this.state.articlesArray;  
         // console.log(firebaseDB)
@@ -127,7 +127,7 @@ class MapDatabaseItems extends React.Component{
         // console.log(filtered)
         // console.log(this.state.filteredPostArray)
         // console.log(firebaseDB)
-        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray"));
          return (
             
@@ -135,7 +135,11 @@ class MapDatabaseItems extends React.Component{
             <React.Fragment>
                 {/* <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} /> 
                      */}
-                     <NewsItemLoopView databaseProp={ arrayWithArticlesHidden || this.state.articlesArray} leftoverArticles={this.state.leftoverArticles}/> 
+                     <NewsItemLoopView 
+                        databaseProp={arrayWithArticlesHidden || this.state.articlesArray} 
+                        leftoverArticles={this.state.leftoverArticles}
+                    /> 
+
                 <ScrollToTopButton   />
             </React.Fragment>
             </div>

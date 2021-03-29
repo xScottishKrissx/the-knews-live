@@ -22,22 +22,24 @@ export class HideArticle extends React.Component{
         
     }
     hideArticle(value){
-        // console.log("Hide Article Button Pressed");
+        console.log("Hide Article Button Pressed");
         // console.log(localStorage.getItem("hiddenPostList"));
-        // console.log("Post Disappearing is Post:: " + value)
+        console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
-        // console.log(this.props.arrayFromDatabase)
+
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         const mainArray = editedArray || this.props.arrayFromDatabase;
         
+        // console.log(mainArray)
         const index = value;
         var markArticleForRemoval = mainArray.map(el => {
             if(el.id === index)
                 return Object.assign({}, el, {hidden:true})
+                
                 return el
         });
-        // console.log(markArticleForRemoval)
+        
 
         // Check for Articles marked as hidden -> then remove from array
         const key = true
@@ -61,7 +63,7 @@ export class HideArticle extends React.Component{
 
         // With 1st object removed, set remaining leftover article array into local storage.
         localStorage.setItem("editedLeftoverArticlesArray",JSON.stringify(arrayWithArticlesToBeAddedToMain))
-        console.log(localStorage.getItem("editedLeftoverArticlesArray"))
+        // console.log(localStorage.getItem("editedLeftoverArticlesArray"))
     
      
         // Array with articles marked as hidden:true

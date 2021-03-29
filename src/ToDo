@@ -444,7 +444,8 @@ General Notes  Objectives:
                             ☐ Integrate the following with the new hide functionality:
                                 ☐ The in article hide article button
                                 ☐ Swiping to hide
-                                ☐ Scroll Check
+                                ☐ Scroll Check @started(18:45 - 29/03/21)
+                                    // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                 ☐ Next/Prev 
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
                             ☐ Bugs / Errors / Issues:
