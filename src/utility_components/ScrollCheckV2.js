@@ -41,7 +41,6 @@ class ScrollCheck extends React.Component{
         window.addEventListener('scroll', this.scroll);      
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         console.log(editedArticlesArray)
-        
         if(editedArticlesArray != null)this.setState({articlesArray:editedArticlesArray})
 
         if(this.state.origin === undefined){

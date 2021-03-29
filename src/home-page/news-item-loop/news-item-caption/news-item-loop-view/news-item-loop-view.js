@@ -118,6 +118,9 @@ class NewsItemLoopView extends React.Component{
                     changedCardSize={this.state.changedCardSize}
                     articlesArray={this.props.databaseProp}
 
+                    // Testing Stuff
+                    testProp = {JSON.parse(localStorage.getItem("editedArticleArray"))}
+
                     
                     
                     />
