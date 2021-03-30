@@ -106,6 +106,10 @@ class MapDatabaseItems extends React.Component{
       }
     
     render(){
+        // NUCLEAR OPTION -> Just in case anything goes wrong...
+        // localStorage.removeItem("editedArticleArray")
+        // localStorage.removeItem("editedLeftoverArticlesArray")
+
         // console.log("Render")
         // console.log(this.state.articlesArray)
         // const firebaseDB = this.state.articlesArray;  

@@ -53,7 +53,14 @@ class NewsItemLoopView extends React.Component{
         console.log(this.props.leftoverArticles)
 
 
-        const HomePageView = this.props.databaseProp.map((value,key) => {                 
+
+        // something daft but I want to see what happens...
+        const thing4 = this.props.databaseProp;
+        const key = null
+        const thing5 = thing4.filter(obj => obj !== key);
+
+
+        const HomePageView = thing5.map((value,key) => {                 
             
             return (         
                 

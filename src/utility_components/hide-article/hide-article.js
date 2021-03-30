@@ -33,13 +33,18 @@ export class HideArticle extends React.Component{
         const scrollCheckArticles = this.props.scrollCheckHide;
         console.log(scrollCheckArticles)
         
+        console.log(mainArray)
+
+        const key3 = null
+        const thing5 = mainArray.filter(obj => obj !== key3);
         // Filter Initial Load Articles
         const index = value;
-        var markArticleForRemoval = mainArray.map(el => {
-            if(el.id === index)
+        var markArticleForRemoval = thing5.map(el => {
+            if(el.id === index && el != null)
                 return Object.assign({}, el, {hidden:true})
                 
                 return el
+                
         });
         
 
@@ -85,9 +90,11 @@ export class HideArticle extends React.Component{
         const prepLeftoverArticlesForFilter = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
         console.log(prepLeftoverArticlesForFilter)
 
+        if(prepLeftoverArticlesForFilter === null)console.log("handle null")
         const index2 = value;
         var markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
-            if(el.id === index2)
+            console.log(el.id)
+            if(el.id === index2 && el != null)
                 return Object.assign({}, el, {hidden:true})
                 
                 return el
