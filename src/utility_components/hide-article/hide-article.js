@@ -30,10 +30,10 @@ export class HideArticle extends React.Component{
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         const mainArray = editedArray || this.props.arrayFromDatabase;
-        const scrollCheckArticles = this.props.scrollCheck;
+        const scrollCheckArticles = this.props.scrollCheckHide;
         console.log(scrollCheckArticles)
         
-        // console.log(mainArray)
+        // Filter Initial Load Articles
         const index = value;
         var markArticleForRemoval = mainArray.map(el => {
             if(el.id === index)
@@ -77,7 +77,47 @@ export class HideArticle extends React.Component{
         // Array with Articles added to reduced array
             localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
         
-            console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+            
+
+        // Scroll Check Filter --> Check for ID in leftover articles array, remove and then return to local storage.
+        console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
+        console.log(this.props.articleId)
+        const prepLeftoverArticlesForFilter = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
+        console.log(prepLeftoverArticlesForFilter)
+
+        const index2 = value;
+        var markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
+            if(el.id === index2)
+                return Object.assign({}, el, {hidden:true})
+                
+                return el
+        });
+        console.log(markScrollCheckArticleForRemoval)
+
+        // Check for Articles marked as hidden -> then remove from array
+        const key2 = true
+        const filteredLeftoverArticlesForScrollCheck = markScrollCheckArticleForRemoval.filter(obj => obj.hidden !== key2);
+        console.log(filteredLeftoverArticlesForScrollCheck)
+
+        // Set newly filtered leftover articles in storage.
+        localStorage.setItem("editedLeftoverArticlesArray",JSON.stringify(filteredLeftoverArticlesForScrollCheck))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

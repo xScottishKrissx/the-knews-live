@@ -156,7 +156,7 @@ class ScrollCheckV2 extends React.Component{
         const articlesArray = this.state.articlesArray;
         const testArticlesArray = this.state.teststate;
         // console.log(articlesArray)
-        // console.log(testArticlesArray)
+        console.log(testArticlesArray)
         // const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
 
         // Load new Articles into view on scroll.
@@ -176,7 +176,7 @@ class ScrollCheckV2 extends React.Component{
 
                     <CheckCache id={value.id}/>
 
-                    <HideArticle articleId={value.id} />    
+                    <HideArticle articleId={value.id} scrollCheckHide={testArticlesArray} />    
 
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
