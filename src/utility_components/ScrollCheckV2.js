@@ -91,7 +91,15 @@ class ScrollCheckV2 extends React.Component{
 
             // Get the articles that should be rendered on scroll...
             // console.log(editedArticlesArray.splice(0,5))
-            const renderNewArticlesOnScroll = this.state.teststate.concat(editedArticlesArray.splice(this.state.arrayStartState,this.state.arrayEndState));
+            // const renderNewArticlesOnScroll = this.state.teststate.concat(editedArticlesArray.splice(this.state.arrayStartState,this.state.arrayEndState));
+
+            const renderNewArticlesOnScroll = editedArticlesArray;
+            console.log(renderNewArticlesOnScroll)
+            console.log(editedArticlesArray.splice(this.state.arrayStartState,this.state.arrayEndState))
+
+
+
+            
             this.setState({
                 teststate:renderNewArticlesOnScroll,
                 arrayStartState: this.state.arrayStartState + 5,
@@ -101,6 +109,7 @@ class ScrollCheckV2 extends React.Component{
             console.log(this.state.arrayEndState)
 
             console.log(this.state.articlesArray)
+            console.log(this.state.teststate)
             // console.log(editedArticlesArray.slice(5))
             //Save the rest to local storage
             // localStorage.setItem("testNewArticlesOnRender",JSON.stringify(editedArticlesArray))

@@ -30,6 +30,8 @@ export class HideArticle extends React.Component{
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         const mainArray = editedArray || this.props.arrayFromDatabase;
+        const scrollCheckArticles = this.props.scrollCheck;
+        console.log(scrollCheckArticles)
         
         // console.log(mainArray)
         const index = value;
