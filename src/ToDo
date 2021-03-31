@@ -447,6 +447,7 @@ General Notes  Objectives:
                                 ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                     ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
+                                        ☐ I am seriously considering redoing the entire tags things as well. Repeating the scrollCheck, remove the direct call to the database and just edit a single master array and filter out the tag I'm looking for.
                                     
                                 
                                 ☐ Next/Prev 
@@ -638,6 +639,20 @@ General Notes  Objectives:
         ✔ Card Controls have no effect on tags page articles @started(16:30 - 11/03/21) @done(15:25 - 15/03/21) @lasted(3d22h55m21s)
         // Chanhed this.props.changedCardSize in tags.js to this.state.changedCardSize.
         // Although they are affecting the home page. So that's a win.
+        
+        ☐ Having just redid how I load articles using a single database call and then splicing that into arrays, I am considering redoing the tags page along the same line.
+            ☐ For example >
+                ☐ Get the database
+                ☐ Filter to array
+                ☐ Filter out objects with a "Sports" tag to a new array
+                ☐ Use that array for the sport tag.
+            ☐ It would mean a total redo of the entire tags page but I think it might be better. 
+                ☐ 1 - It removes the need to call the database as I have already done that when the page loads.
+                ☐ 2 - It falls in line with my primary method of displaying information. It seems bizarre to have different methods of retrieving data.
+                ☐ 3 - I (without any real actual knowledge) it would be easier on performance as I'm not calling the same information mulitple times.
+                ☐ 4 - It removes code duplication, especially the dbref.on that happens. I've already done this and assigned the database items to values, so it seems bad to do this again.
+        ☐ It think redoing tags in line with the above is the best way forward. God Help Me. @started(18:04 - 31/03/21)
+            
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -762,6 +777,7 @@ Part 2 Implement Database functionality:
             ✔ Added Article Tag to Card
             ✔ Add Card Size Controls to tag page 
             ☐ Improved handling of hiding all articles
+            ☐ Redo the entire bloody tags page.
 
 
             

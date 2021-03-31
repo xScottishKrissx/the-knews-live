@@ -123,7 +123,7 @@ class Tags extends React.Component{
                 }
     
                 this.setState({
-                    articlesArray: newState.slice(0,30)
+                    articlesArray: newState.slice(0,7)
                 })
                 // console.log(this.state.articlesArray)
                 // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
@@ -218,15 +218,8 @@ class Tags extends React.Component{
                         {pageView}
 
                         <ScrollCheck
-                            tagState={this.props.location.state.tag}
-                            authorState={this.props.location.state.author}
-                            postdateState={this.props.location.state.postdate}
-                            searchDBFor={this.props.location.state.searchDBFor}
                             origin={this.props.location.state.origin}
                             articlesArray={this.state.articlesArray}
-
-                            orderByChild={this.state.orderByChild}
-                            startAt={this.state.getNewArticlesUsing}
 
                             databaseReference = {
                                 fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}

@@ -35,11 +35,11 @@ export class HideArticle extends React.Component{
         
         console.log(mainArray)
 
-        const key3 = null
-        const thing5 = mainArray.filter(obj => obj !== key3);
+        const nullKey = null
+        const filterForNull = mainArray.filter(obj => obj !== nullKey);
         // Filter Initial Load Articles
         const index = value;
-        var markArticleForRemoval = thing5.map(el => {
+        var markArticleForRemoval = filterForNull.map(el => {
             if(el.id === index && el != null)
                 return Object.assign({}, el, {hidden:true})
                 
@@ -102,8 +102,7 @@ export class HideArticle extends React.Component{
         console.log(markScrollCheckArticleForRemoval)
 
         // Check for Articles marked as hidden -> then remove from array
-        const key2 = true
-        const filteredLeftoverArticlesForScrollCheck = markScrollCheckArticleForRemoval.filter(obj => obj.hidden !== key2);
+        const filteredLeftoverArticlesForScrollCheck = markScrollCheckArticleForRemoval.filter(obj => obj.hidden !== key);
         console.log(filteredLeftoverArticlesForScrollCheck)
 
         // Set newly filtered leftover articles in storage.

@@ -24,16 +24,10 @@ class ScrollCheck extends React.Component{
             //  if you want 10 per load then it should be 10 higher than array start state.
             arrayStartState: 30,
             arrayEndState: 35,
-            test: props.tagState || props.authorState || props.postdateState,
-            searchDBFor: props.searchDBFor,
-            authorState:props.authorState,
             origin: props.origin,
             articlesArray2:[],     
-            orderByChild:props.orderByChild,
             dbRef: props.databaseReference,
 
-            // testing
-            teststate:[]
         }
     }
 
