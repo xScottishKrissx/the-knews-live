@@ -444,14 +444,20 @@ General Notes  Objectives:
                             ☐ Integrate the following with the new hide functionality:
                                 ☐ The in article hide article button
                                 ☐ Swiping to hide
-                                ☐ Scroll Check @started(18:45 - 29/03/21)
+                                ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
+                                    ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
+                                
                                 ☐ Next/Prev 
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
                             ☐ Bugs / Errors / Issues:
-                                ☐ Hiding all articles will eventually return a null id error.
+                                ✔ Hiding all articles will eventually return a null id error. done(16:15 - 31/03/21)
+                                    ✔ Solution - Included a filter that removes any null objects from the object array @done(16:15 - 31/03/21)
                                 ☐ If the database has more than 60 articles(it does) the code currently doesn't support rendering those articles.
                                 ☐ Loading replacement articles as articles are hidden would be a good addition.(but i don't know how to do that)
+                                ✔ The new scroll check has an issue where you can't hide all articles. Pressing the hide button does nothing @done(16:14 - 31/03/21)
+                                    ✔ Solution - My data had duplicate ID's in the database. Changing these solved this issue. @done(16:15 - 31/03/21)
+                                ☐ If you attempt to load more articles on scroll with an empty cache, you will get an error. @started(16:16 - 31/03/21)
                                 
                             
 
