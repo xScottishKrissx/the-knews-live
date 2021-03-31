@@ -82,7 +82,7 @@ class MapDatabaseItems extends React.Component{
                 //Set's the initial number of articles loaded into home.
                 articlesArray: newState.slice(0,this.state.secondSlicePoint),
                 leftoverArticles: newState.slice(30,97),
-                // fullDatabaseCall: newState
+                fullDatabaseCall: newState
             })
 
             // console.log(this.state.articlesArray)
@@ -114,7 +114,7 @@ class MapDatabaseItems extends React.Component{
         // console.log(this.state.articlesArray)
         // const firebaseDB = this.state.articlesArray;  
         // console.log(firebaseDB)
-        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+        localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
         // console.log(JSON.parse(localStorage.getItem("articlesArray")))
         // console.log(this.state.articlesArray)
         

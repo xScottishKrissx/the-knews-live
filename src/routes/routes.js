@@ -5,7 +5,8 @@ import {Route, Redirect, Switch} from 'react-router-dom';
 import './routes.css';
 
 import Home from '../home-page/home.js';
-import Tags from '../tags/tags.js';
+// import Tags from '../tags/tags.js';
+import Tags from '../tags/tagsv2.js';
 import NewsPage from '../news-page/news-page.js';
 // import Form from '../myKnews/form.js';
 import { PracticeForm } from '../myKnews/practice-form';

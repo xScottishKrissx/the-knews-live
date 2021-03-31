@@ -652,6 +652,11 @@ General Notes  Objectives:
                 ☐ 3 - I (without any real actual knowledge) it would be easier on performance as I'm not calling the same information mulitple times.
                 ☐ 4 - It removes code duplication, especially the dbref.on that happens. I've already done this and assigned the database items to values, so it seems bad to do this again.
         ☐ It think redoing tags in line with the above is the best way forward. God Help Me. @started(18:04 - 31/03/21)
+            ☐ Let's start by attempting to call a database to the tags page, filtering that array and rendering that filtered array @started(18:32 - 31/03/21)
+            ☐ Bugs / Issues
+                ☐ The current code relies on a database call made when the news-item-page-view mounts. This will cause an issue if you skip this(i.e bookmarking the tags page will render a blank page.)
+                    ☐ Solution - Consider changning the initial database call to be earlier in the render process. (like app.js, index.js etc) @started(18:31 - 31/03/21)
+        
             
 
     theKnews:
