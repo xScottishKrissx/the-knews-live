@@ -55,6 +55,7 @@ class NewsItemLoopView extends React.Component{
 
 
         // something daft but I want to see what happens...
+        // important !! - Responsible for removing null objects from array.
         const thing4 = this.props.databaseProp;
         const key = null
         const thing5 = thing4.filter(obj => obj !== key);

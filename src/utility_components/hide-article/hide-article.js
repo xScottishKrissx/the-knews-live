@@ -93,7 +93,7 @@ export class HideArticle extends React.Component{
         if(prepLeftoverArticlesForFilter === null)console.log("handle null")
         const index2 = value;
         var markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
-            console.log(el.id)
+            // console.log(el.id)
             if(el.id === index2 && el != null)
                 return Object.assign({}, el, {hidden:true})
                 

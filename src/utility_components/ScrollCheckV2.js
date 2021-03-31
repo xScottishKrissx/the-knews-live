@@ -17,23 +17,11 @@ class ScrollCheckV2 extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            // The array start and end state should start depending on where the initial load call ends
-            //  articlesArray: newState.slice(0,35)
-            // example - newState.slice(0,20) ---> arrayStartState should start at 20 
-            // arrayEndState --> Determines how many articles should load per bottom of window scroll.
-            //  if you want 10 per load then it should be 10 higher than array start state.
             arrayStartState: 0,
             arrayEndState: 5,
-            test: props.tagState || props.authorState || props.postdateState,
-            searchDBFor: props.searchDBFor,
-            authorState:props.authorState,
             origin: props.origin,
-            articlesArray2:[],     
-            orderByChild:props.orderByChild,
-            dbRef: props.databaseReference,
-
-            // testing
-            teststate:[]
+            // dbRef: props.databaseReference,
+            mainArray:[]
         }
     }
 
@@ -51,38 +39,23 @@ class ScrollCheckV2 extends React.Component{
             console.log("On Tags Page")
         }
 
-        // console.log(this.state.dbRef)
-  
-        // Detect if scroll bar necessary
-            // Still doesn't solve the issue of what happens when the initally loaded new articles are hidden, if there are no articles, then no scroll. 
-        // var root = document.compatMode === 'BackCompat'? document.body : document.documentElement;
-        // var isVerticalScrollbar = root.scrollHeight>root.clientHeight;
-        // var isHorizontalScrollbar = root.scrollWidth>root.clientWidth;
-        // console.log(isHorizontalScrollbar)
-        // console.log(isVerticalScrollbar)
-
-
-        // if(isVerticalScrollbar === false){
-        //     this.scroll();
-        // }
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-        // console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
+        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
+        console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
     }
 
     scroll = () => {
 
-
+        // A bunch of stuff used to detect the current scroll position...
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
         const body = document.body;
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+        // ...this is what is actually used.
         const windowBottom = windowHeight + window.pageYOffset;
-        
-        // console.log("DocHeight:" + docHeight + " " + "WindowBottom: " + windowBottom)
     
-        //WARNING:: IF CACHE IS EMPTY THIS WILL THROW AN ERROR!!!!
-        const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")) ;
+        // Grabbing the articles used for the on scroll event. If the event has been triggered and an article has been hidden then I used the array in local storage, if not then I use the default leftover article array from props.
+        const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")) || this.props.leftoverArticles;
 
         if(windowBottom >= docHeight){
             console.log("Load New Articles")
@@ -91,55 +64,17 @@ class ScrollCheckV2 extends React.Component{
 
             // Get the articles that should be rendered on scroll...
             // console.log(editedArticlesArray.splice(0,5))
-            const renderNewArticlesOnScroll = this.state.teststate.concat(editedArticlesArray.slice(this.state.arrayStartState,this.state.arrayEndState));
+
+            // Then join with the main array
+            const renderNewArticlesOnScroll = this.state.mainArray.concat(editedArticlesArray.slice(this.state.arrayStartState,this.state.arrayEndState));
             console.log(renderNewArticlesOnScroll)
+
+            // Setting state will then update the page with the new articles attached to the end of the array.
             this.setState({
-                teststate:renderNewArticlesOnScroll,
+                mainArray:renderNewArticlesOnScroll,
                 arrayStartState: this.state.arrayStartState + 5,
                 arrayEndState: this.state.arrayEndState + 5
             })    
-            // console.log(this.state.arrayStartState)  
-            // console.log(this.state.arrayEndState)
-
-            // console.log(this.state.articlesArray)
-            // console.log(editedArticlesArray.slice(5))
-            //Save the rest to local storage
-            // localStorage.setItem("testNewArticlesOnRender",JSON.stringify(editedArticlesArray))
-            // console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
-         
-            
-            // if(windowBottom > 1200){
-            // const dbRef =  this.state.dbRef;
-        //    dbRef.on('value', (snapshot) => {
-        //        let newsItems = snapshot.val();
-        //        let newState = [];
-        //        for(let newsItem in newsItems){
-        //            newState.push({
-        //                key: newsItem,
-        //                author: newsItems[newsItem].author,
-        //                title: newsItems[newsItem].title,
-        //                text: newsItems[newsItem].text,
-        //                id:newsItems[newsItem].id,
-        //                tag:newsItems[newsItem].tag
-        //            });
-        //        }
-
-        //         const arrayStart = this.state.arrayStartState;
-        //         const arrayEnd = this.state.arrayEndState;
-        //         this.setState({               
-        //         articlesArray2: newState.slice(arrayStart,arrayEnd),
-        //         arrayStartState: this.state.arrayStartState + 5,
-        //         arrayEndState: this.state.arrayEndState + 5
-        //         })
-
-        //         const renderNewArticlesOnScroll = this.state.articlesArray.concat(this.state.articlesArray2);
-        //         console.log(this.state.articlesArray2)
-                // this.setState({
-                //     articlesArray:renderNewArticlesOnScroll
-                // })       
-        //    })
-            // console.log("Bottom Reached")
-
         }else{
             // console.log("Not At Bottom Yet")
         }
@@ -151,16 +86,11 @@ class ScrollCheckV2 extends React.Component{
       }
 
     render(){
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
         console.log("Render Scroll Check")
-        const articlesArray = this.state.articlesArray;
-        const testArticlesArray = this.state.teststate;
-        // console.log(articlesArray)
-        // console.log(testArticlesArray)
-        // const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
+        const mainArray = this.state.mainArray;
 
         // Load new Articles into view on scroll.
-        const pageView = testArticlesArray.map((value,key) => {
+        const pageView = mainArray.map((value,key) => {
         
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
             const style = {
@@ -179,9 +109,9 @@ class ScrollCheckV2 extends React.Component{
 
                     <HideArticle 
                         articleId={value.id} 
-                        scrollCheckHide={testArticlesArray}
-                        // arrayFromDatabase={this.props.articlesArray}
-                        // leftoverArticles={this.props.leftoverArticles}
+                        scrollCheckHide={mainArray}
+                        arrayFromDatabase={this.props.articlesArray}
+                        leftoverArticles={this.props.leftoverArticles}
                         />    
 
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
@@ -230,7 +160,6 @@ class ScrollCheckV2 extends React.Component{
             <React.Fragment>
                 {pageView}
                 {/* <NewsItemLoopView databaseProp={new1} /> */}
-                
             </React.Fragment>
             
             
