@@ -49,8 +49,8 @@ class NewsItemLoopView extends React.Component{
         // const collection2 = this.props.databaseProp;
         // const newCollection2 = update(collection2, {0:{"hidden": {$set: 5}}});
         // console.log(newCollection2)
-        console.log("LeftOver Articles Below...")
-        console.log(this.props.leftoverArticles)
+        // console.log("LeftOver Articles Below...")
+        // console.log(this.props.leftoverArticles)
 
 
 
@@ -133,6 +133,7 @@ class NewsItemLoopView extends React.Component{
                     articlesArray={this.props.databaseProp}
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
+                    leftoverArticles={this.props.leftoverArticles}
                 />
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>

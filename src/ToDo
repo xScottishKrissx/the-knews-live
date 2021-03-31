@@ -447,6 +447,7 @@ General Notes  Objectives:
                                 ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                     ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
+                                    ☐ 
                                 
                                 ☐ Next/Prev 
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
@@ -458,6 +459,8 @@ General Notes  Objectives:
                                 ✔ The new scroll check has an issue where you can't hide all articles. Pressing the hide button does nothing @done(16:14 - 31/03/21)
                                     ✔ Solution - My data had duplicate ID's in the database. Changing these solved this issue. @done(16:15 - 31/03/21)
                                 ☐ If you attempt to load more articles on scroll with an empty cache, you will get an error. @started(16:16 - 31/03/21)
+                                ✔ OnScrollLoaded articles don't have any article info associated with them, showing a blank page on load. @started(16:36 - 31/03/21) @done(17:04 - 31/03/21) @lasted(28m11s)
+                                    ✔ SOlution - I had the prop "pageid" when it needed to be "pageId". @done(17:04 - 31/03/21)
                                 
                             
 

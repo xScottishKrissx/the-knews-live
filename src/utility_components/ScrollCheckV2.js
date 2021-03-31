@@ -65,9 +65,9 @@ class ScrollCheckV2 extends React.Component{
         // if(isVerticalScrollbar === false){
         //     this.scroll();
         // }
-        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-        console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
+        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
+        // console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
     }
 
     scroll = () => {
@@ -82,7 +82,7 @@ class ScrollCheckV2 extends React.Component{
         // console.log("DocHeight:" + docHeight + " " + "WindowBottom: " + windowBottom)
     
         //WARNING:: IF CACHE IS EMPTY THIS WILL THROW AN ERROR!!!!
-        const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
+        const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")) ;
 
         if(windowBottom >= docHeight){
             console.log("Load New Articles")
@@ -156,7 +156,7 @@ class ScrollCheckV2 extends React.Component{
         const articlesArray = this.state.articlesArray;
         const testArticlesArray = this.state.teststate;
         // console.log(articlesArray)
-        console.log(testArticlesArray)
+        // console.log(testArticlesArray)
         // const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
 
         // Load new Articles into view on scroll.
@@ -170,13 +170,19 @@ class ScrollCheckV2 extends React.Component{
                 backgroundSize: "cover",
                 height: "400px",
             }   
+            
             return(            
                 <div id={value.id} key={value.id} className="myClass" name="new-articles">   
 
 
                     <CheckCache id={value.id}/>
 
-                    <HideArticle articleId={value.id} scrollCheckHide={testArticlesArray} />    
+                    <HideArticle 
+                        articleId={value.id} 
+                        scrollCheckHide={testArticlesArray}
+                        // arrayFromDatabase={this.props.articlesArray}
+                        // leftoverArticles={this.props.leftoverArticles}
+                        />    
 
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
@@ -201,7 +207,7 @@ class ScrollCheckV2 extends React.Component{
                                 <div className='news-square' name="scroll-check.js" key={key}  
                                 style={ this.props.startingCardSize || this.props.changedCardSize } >                    
                                     <Caption 
-                                        pageid={value.key}
+                                        pageId={value.key}
                                         style={style}
                                         title={value.title}
                                         author={value.author}
