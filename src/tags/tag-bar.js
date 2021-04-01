@@ -39,7 +39,7 @@ class TagBar extends React.Component{
 
             this.setState({
                 // articlesArray: newState.reverse(),
-                articlesArray: newState.slice(0,50)
+                articlesArray: newState.slice(0,100)
             })
             console.log(this.state.articlesArray);
         })
