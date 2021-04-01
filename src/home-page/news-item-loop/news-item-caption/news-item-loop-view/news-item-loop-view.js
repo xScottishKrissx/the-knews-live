@@ -81,7 +81,7 @@ class NewsItemLoopView extends React.Component{
                                         title={value.title} 
                                         author={value.author} 
                                         text={value.text} 
-                                        // closePopup={closePopup} 
+                                        closePopup={closePopup} 
                                         headerImage={value.id} />,
                                 action: () => swipeLeftAction(value.text, value.id) 
                             }}
@@ -119,14 +119,24 @@ class NewsItemLoopView extends React.Component{
                 
                 {HomePageView}
                 
+                {/* <ScrollCheck 
+                    databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }
+                    swipeLeftAction={swipeLeftAction}
+                    closePopup={closePopup}
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                    articlesArray={this.props.databaseProp}
 
+                    // Testing Stuff
+                    testProp = {JSON.parse(localStorage.getItem("editedArticleArray"))}                    
+                /> */}
                 <ScrollCheckV2 
                     articlesArray={this.props.databaseProp}
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
                     leftoverArticles={this.props.leftoverArticles}
                 />
-                {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
+                <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
         )
     }

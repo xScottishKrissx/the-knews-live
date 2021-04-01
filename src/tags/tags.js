@@ -216,15 +216,17 @@ class Tags extends React.Component{
                         }              
 
                         {pageView}
-{/* 
+
                         <ScrollCheck
                             origin={this.props.location.state.origin}
                             articlesArray={this.state.articlesArray}
 
+                            databaseReference = {
+                                fire.database().ref('items').orderByChild(this.state.orderByChild).startAt(this.state.getNewArticlesUsing).endAt(this.state.getNewArticlesUsing)}
 
                             
                          
-                        />  */}
+                        /> 
                 </div>
                 <CustomCardSize getCardSizeToParent={this.getCardSize}/>
             </div>

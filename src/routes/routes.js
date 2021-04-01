@@ -13,29 +13,17 @@ import { PracticeForm } from '../myKnews/practice-form';
 
 export class Routes extends React.Component{
     render(){
-        console.log(this.props.databaseProp)
+        
         return (
             <div className="body-wrapper">
                 <Switch>            
                     <Redirect exact from="/" to="/theKnews/home" /> 
                     <Redirect exact from="/theKnews/" to="/theKnews/home" /> 
-                    
-                    <Route 
-                        exact path="/theKnews/home" 
-                        render={(props) => (
-                            <Home {...props} databaseProp={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} />
-                        )}
-                    /> 
-                    
+                    <Route exact path="/theKnews/home" component={Home} /> 
                 </Switch> 
 
-                <Route 
-                    path="/theKnews/tags/" 
-                    component={ (props) => (
-                        <Tags timestamp={new Date().toString()} {...props} 
-                        databaseProp={this.props.databaseProp} 
-                        leftoverArticles={this.props.leftoverArticles}
-                        />
+                <Route path="/theKnews/tags/" component={ (props) => (
+                    <Tags timestamp={new Date().toString()} {...props} />
                 )}/>
 
                 <Route path="/theKnews/myKnews" component={PracticeForm} />
