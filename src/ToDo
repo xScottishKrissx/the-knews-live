@@ -545,6 +545,8 @@ General Notes  Objectives:
                     // 13/10/2020 - Right now the area is populated with the first 4 articles in order of key. I want to be able to specify whatever article I want directly from the database.
                     // 13/10 - I have bascally copy and pasted the first main query to the database and then appended the results to the state. It is working as intended but i think there is definitley a better way of doing this.
                         ☐ Do another pass on the styles here @started(20-10-13 13:34)
+                
+                ☐ The current database call should be replaced with a filtered array(like in scroll check, tags etc)
             Social Score Buttons:
                 ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
                 ☐ Let's try and get this working. it doesn't need to be a part of the myKnews update. Just enough functionality to work correctly with a valid email address. @started(20-12-10 15:58)
@@ -786,6 +788,7 @@ Part 2 Implement Database functionality:
             ☐ Redo the entire bloody tags page.
 
 
+
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
@@ -800,6 +803,7 @@ Part 2 Implement Database functionality:
             ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
             ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
             ☐ Fixed Issue where clear cache button failed to appear when swiping articles right.✔ @done(16:33 - 15/03/21)
+            ☐ Tweak to Recommended Reading area
 
 
             Known Issues:
