@@ -29,6 +29,7 @@ class Tags extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
+            leftoverArticles:[],
             searchDBFor: this.props.location.state.searchDBFor,
             
             // Hiding Posts
@@ -38,12 +39,8 @@ class Tags extends React.Component{
             startingCardSize:"",
             changedCardSize:{width: localStorage.getItem("myData")},       
             
-            //test
-            test1:1,
-            test2:1
         }
         this.getCardSize = this.getCardSize.bind(this);
-        this.clickyButton = this.clickyButton.bind(this);
     }
 
     // There must be a way to only have one of these across the entire project.
@@ -56,7 +53,7 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        // console.log(this.state.articlesArray)
+        console.log(this.state.articlesArray)
 
         // console.log("Search Database For:: " + this.state.searchDBFor)
 
@@ -82,7 +79,7 @@ class Tags extends React.Component{
 
         //.. use that joined array as the reference for tags or grab a fresh database call.
         const mainArray = combinedEditedArrayFromStorage || JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
-        // console.log(mainArray)
+        console.log(mainArray)
 
 
         // Filter for the correct tag
@@ -94,9 +91,9 @@ class Tags extends React.Component{
         // store the array with the articles into state.
         this.setState({
             articlesArray:filteredTagArray.slice(0,19),
-            leftoverArticles:filteredTagArray.slice(21),
+            leftoverArticles:filteredTagArray.slice(21)
         })
-
+        console.log(this.state.articlesArray)
     }
 
     clickyButton(){
@@ -112,6 +109,9 @@ class Tags extends React.Component{
 
     render(){
         console.log("Render Tags.v2")
+        console.log(this.state.articlesArray)
+        console.log(this.state.leftoverArticles)
+
         const mapTags = this.state.articlesArray;
         // console.log(this.props.location.state.tag3)
         console.log(mapTags)
@@ -174,7 +174,8 @@ class Tags extends React.Component{
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
                         <ClearCache />
-                        <button onClick={() => this.clickyButton()}>Click</button>
+
+
                         <NavControls props="only-home-button"/>
                         {this.props.location.state.author === undefined ?
                         <h1>Showing articles from {this.props.location.state.searchDBFor}</h1>
