@@ -36,7 +36,10 @@ class Tags extends React.Component{
 
             // Custom Card Size
             startingCardSize:"",
-            changedCardSize:{width: localStorage.getItem("myData")},            
+            changedCardSize:{width: localStorage.getItem("myData")},   
+            
+            // testing
+            grabLeftoverArticles:[]
         }
         this.getCardSize = this.getCardSize.bind(this);
     }
@@ -70,12 +73,15 @@ class Tags extends React.Component{
         if(JSON.parse(localStorage.getItem("editedArticleArray")) === null){
             console.log("handle null")
         }
-        const combinedEditedArrayFromStorage = JSON.parse(localStorage.getItem("editedArticleArray")).concat(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")));
-        console.log(combinedEditedArrayFromStorage)
+
+
+        // const combinedEditedArrayFromStorage = JSON.parse(localStorage.getItem("editedArticleArray")).concat(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")));
+        // console.log(combinedEditedArrayFromStorage)
 
 
         //.. use that joined array as the reference for tags or grab a fresh database call.
-        const mainArray = combinedEditedArrayFromStorage || JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
+        // const mainArray = combinedEditedArrayFromStorage || JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
+        const mainArray = JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
         console.log(mainArray)
 
 
