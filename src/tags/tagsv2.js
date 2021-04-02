@@ -52,6 +52,7 @@ class Tags extends React.Component{
 
     componentDidMount(){
         // console.log(this.state.articlesArray)
+        console.log(this.props.databaseProp)
 
         console.log("Search Database For:: " + this.state.searchDBFor)
 
@@ -70,7 +71,8 @@ class Tags extends React.Component{
         if(JSON.parse(localStorage.getItem("editedArticleArray")) === null){
             console.log("handle null")
         }
-        const combinedEditedArrayFromStorage = JSON.parse(localStorage.getItem("editedArticleArray")).concat(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")));
+        const combinedEditedArrayFromStorage = this.props.databaseProp || JSON.parse(localStorage.getItem("editedArticleArray")).concat(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")));
+
         console.log(combinedEditedArrayFromStorage)
 
 
@@ -113,7 +115,7 @@ class Tags extends React.Component{
 
                     <CheckCache id={value.id}/>
 
-                    <HideArticle articleId={value.id}/>    
+                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles}/>    
 
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
