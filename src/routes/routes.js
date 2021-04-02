@@ -14,7 +14,6 @@ import { PracticeForm } from '../myKnews/practice-form';
 export class Routes extends React.Component{
     render(){
         console.log(this.props.databaseProp)
-        console.log("Render Routes.js")
         return (
             <div className="body-wrapper">
                 <Switch>            
