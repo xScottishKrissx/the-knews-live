@@ -660,6 +660,9 @@ General Notes  Objectives:
         
     ☐ The tags pages are no longer chaning their contents on clicking the relevant button
         ☐ I.e - clicking sports to news displays the sports articles. You need to reload the page to see the change. @started(17:19 - 02/04/21)
+        ✔ Articles dont have any information. I dont know what's going on. @started(17:32 - 02/04/21) @done(17:46 - 02/04/21) @lasted(14m16s)
+            ✔ Fixed a small typo @done(17:46 - 02/04/21)
+        ☐ I don't know whats going on with this. I haven't changed anything that should affect this. I am considering redoing the tags as a filter for the home page. That would be much simpler and I could use the same arrays. It would also remove the need for routes and as long as I do it right I can also ensure bookmarks would work.
         
             
 

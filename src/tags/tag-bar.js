@@ -10,15 +10,18 @@ class TagBar extends React.Component{
         this.state = {
             articlesArray: [],
             // test: "Sports",
+            test:""
         }
 
     }
     getTagArticles(chosenTag){
+
         console.log("Get " + chosenTag)
         this.setState({
             test:chosenTag
-    })
-        
+         })
+    
+
         const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
 
         dbRef.on('value', (snapshot) => {

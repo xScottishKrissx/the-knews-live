@@ -36,12 +36,14 @@ class Tags extends React.Component{
 
             // Custom Card Size
             startingCardSize:"",
-            changedCardSize:{width: localStorage.getItem("myData")},   
+            changedCardSize:{width: localStorage.getItem("myData")},       
             
-            // testing
-            grabLeftoverArticles:[]
+            //test
+            test1:1,
+            test2:1
         }
         this.getCardSize = this.getCardSize.bind(this);
+        this.clickyButton = this.clickyButton.bind(this);
     }
 
     // There must be a way to only have one of these across the entire project.
@@ -56,7 +58,8 @@ class Tags extends React.Component{
     componentDidMount(){
         // console.log(this.state.articlesArray)
 
-        console.log("Search Database For:: " + this.state.searchDBFor)
+        // console.log("Search Database For:: " + this.state.searchDBFor)
+
 
 
         // console.log(localStorage.getItem("unchangedFullDatabaseCall"))
@@ -66,38 +69,39 @@ class Tags extends React.Component{
 
 
         //  I need to get the 2 separate arrays - The Initial load and the leftover articles after editing.
-        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
+        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
 
         // ...join those 2 arrays together
         if(JSON.parse(localStorage.getItem("editedArticleArray")) === null){
             console.log("handle null")
         }
-
-
-        // const combinedEditedArrayFromStorage = JSON.parse(localStorage.getItem("editedArticleArray")).concat(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")));
+        const combinedEditedArrayFromStorage = JSON.parse(localStorage.getItem("editedArticleArray")).concat(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")));
         // console.log(combinedEditedArrayFromStorage)
 
 
         //.. use that joined array as the reference for tags or grab a fresh database call.
-        // const mainArray = combinedEditedArrayFromStorage || JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
-        const mainArray = JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
-        console.log(mainArray)
+        const mainArray = combinedEditedArrayFromStorage || JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
+        // console.log(mainArray)
 
 
         // Filter for the correct tag
         const key = this.state.searchDBFor;
         var filteredTagArray = mainArray.filter(obj => obj.tag == key);
         console.log(filteredTagArray)
-        console.log(filteredTagArray.slice(21))
+        // console.log(filteredTagArray.slice(21))
 
         // store the array with the articles into state.
         this.setState({
             articlesArray:filteredTagArray.slice(0,19),
-            leftoverArticles:filteredTagArray.slice(21)
+            leftoverArticles:filteredTagArray.slice(21),
         })
+
     }
 
+    clickyButton(){
+        console.log("Refresh Something")
+    }
    
 
 
@@ -107,16 +111,17 @@ class Tags extends React.Component{
       }
 
     render(){
+        console.log("Render Tags.v2")
         const mapTags = this.state.articlesArray;
-        
-        // console.log(mapTags)
+        // console.log(this.props.location.state.tag3)
+        console.log(mapTags)
 
         const pageView = mapTags.map((value,key) => {
             return(
                 
                    
                 <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
-
+                    
                     <CheckCache id={value.id}/>
 
                     <HideArticle articleId={value.id}/>    
@@ -144,7 +149,7 @@ class Tags extends React.Component{
                                 <div className='news-square' name="tags-original-load-news"  key={key}  
                                 style={ this.state.startingCardSize || this.state.changedCardSize } >                    
                                     <Caption 
-                                        pageid={value.key}
+                                        pageId={value.key}
                                         title={value.title}
                                         author={value.author}
                                         likes={value.likes}
@@ -169,14 +174,14 @@ class Tags extends React.Component{
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
                         <ClearCache />
-                        
+                        <button onClick={() => this.clickyButton()}>Click</button>
                         <NavControls props="only-home-button"/>
                         {this.props.location.state.author === undefined ?
                         <h1>Showing articles from {this.props.location.state.searchDBFor}</h1>
                         : 
                         <h1>Showing articles from {this.props.location.state.author}</h1>
                         }              
-
+                        
                         {pageView}
 
                         <ScrollCheckV2 

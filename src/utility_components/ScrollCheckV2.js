@@ -39,9 +39,9 @@ class ScrollCheckV2 extends React.Component{
             console.log("On Tags Page")
         }
 
-        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-        console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
+        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
+        // console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
     }
 
     scroll = () => {
@@ -86,7 +86,7 @@ class ScrollCheckV2 extends React.Component{
       }
 
     render(){
-        console.log("Render Scroll Check")
+        // console.log("Render Scroll Check")
         const mainArray = this.state.mainArray;
 
         // Load new Articles into view on scroll.
