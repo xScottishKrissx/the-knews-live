@@ -20,6 +20,7 @@ class App extends Component {
     }
 }
 componentDidMount(){    
+
     // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
     if(localStorage.getItem("hiddenPostList") === null){
         this.setState({
@@ -72,17 +73,17 @@ render(){
   return(
     <div>
       {/* <h1>the Knews - Live</h1> */}
-    {/* <DeploymentMessage /> */}
+      {/* <DeploymentMessage /> */}
     
-    <Header 
-      databaseProp={arrayWithArticlesHidden || this.state.articlesArray} 
-      leftoverArticles={this.state.leftoverArticles} />
-    <Routes 
-      databaseProp={arrayWithArticlesHidden || this.state.articlesArray} 
-      leftoverArticles={this.state.leftoverArticles} 
-    />
-      {/* <Footer /> */}
-      
+      <Header 
+        databaseProp={arrayWithArticlesHidden || this.state.articlesArray} 
+        leftoverArticles={this.state.leftoverArticles} />
+      <Routes 
+        databaseProp={arrayWithArticlesHidden || this.state.articlesArray} 
+        leftoverArticles={this.state.leftoverArticles} 
+      />
+        {/* <Footer /> */}
+        
     </div>
     )
   }

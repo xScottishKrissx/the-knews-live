@@ -103,6 +103,16 @@ Codebase:
         // There are good things about this project but I think it's beginning to get in the way of learning React properly.
     ✔ Created Component for Checking Cache for hidden posts and then hiding them. @done(15:49 - 15/01/21)
 
+    ☐ Moving database call from news-item-loop.js to app.js
+        ☐ I have decided to change the basic structure of the main database call. Previously, I needed to load the news-item-loop component to properly render articles. Now, with the call higher up the render chain, I can easier and reliably get information to different parts of the website without needing to rely on localstorage.
+        ☐ Bugs / Issues:
+            ☐ With the new database call in place in the hide-article functionality with tagse is behaving differently. Previously, the tags page would respect a hide button press on home page by hiding the relevant article on load. Now a page refresh is required before the article will hide. @started(15:37 - 02/04/21)
+            ☐ When clicking the clear cache button on tags, you get a blank screen. Articles should appear immediatley clearing the cache but you now need to refresh the page to see anything (like above) @started(15:37 - 02/04/21)
+            ☐ Functions are not valid as a React child. This may happen if you return a Component instead of <Component /> from render. Or maybe you meant to call this function rather than return it. @started(15:46 - 02/04/21)
+                ☐ The issue is in checkcache.js - Investigating @started(15:54 - 02/04/21)
+            ☐ Warning: validateDOMNesting(...): <p> cannot appear as a descendant of <p>. @started(15:46 - 02/04/21)
+                ✔ Solution - The isue was in with HTML parser. I had the component wrapped in a <p> tag. I also have <p> tags in the database so the solution was to wrap the component in the <article> tag @done(16:28 - 02/04/21)
+
             
                 
     2021 Restart:
@@ -192,6 +202,8 @@ General Notes  Objectives:
          4/11/2020
         // I found a potentially useful library on github that might help me with this.
             https://github.com/sandstreamdev/react-swipeable-list
+        
+        
     
         Implementing Swipe:
             ✔ Added the New Swipe Library(see above)and managed to get it integrated ok, it's totally messed up the styling due to the addition of a new div but that's a minor issue. @started(20-11-04 15:39) @done(20-11-04 17:48) @lasted(2h9m5s)

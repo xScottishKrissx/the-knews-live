@@ -32,6 +32,7 @@ export const CheckCache = (props) =>{
 
             }
         }, 100); // check every 100ms
+        
         return CheckCache;
     }
 

@@ -21,7 +21,7 @@ export const SwipeLeftContent = (props) => {
                 <section>
                         <h2>{title}</h2>
                         <h3>{author}</h3>
-                        <p><ParseHTML props={text}/></p>
+                        <article><ParseHTML props={text}/></article>
                 </section>
                     <button onClick={()=> closePopup(id)}>    
                         <span>Close Popup</span>
@@ -34,3 +34,4 @@ export const SwipeLeftContent = (props) => {
 }
 
 export default SwipeLeftContent;
+

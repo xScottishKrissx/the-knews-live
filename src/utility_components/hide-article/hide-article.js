@@ -150,9 +150,9 @@ export class HideArticle extends React.Component{
 
 
        // Display unhide btn if cache isn't empty
-       if(localStorage.getItem("hiddenPostList") != null && document.getElementById("clearCache")){
-           document.getElementById("clearCache").style.visibility = "visible";
-       }
+    //    if(localStorage.getItem("hiddenPostList") != null && document.getElementById("clearCache")){
+        //    document.getElementById("clearCache").style.visibility = "visible";
+    //    }
 
 
        this.setState({
