@@ -8,7 +8,7 @@ import App from './App';
 
 
 import {BrowserRouter} from 'react-router-dom';
-console.log("Render App.js")
+
 
 ReactDOM.render(
     <BrowserRouter>

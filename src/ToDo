@@ -657,7 +657,6 @@ General Notes  Objectives:
                 ☐ The current code relies on a database call made when the news-item-page-view mounts. This will cause an issue if you skip this(i.e bookmarking the tags page will render a blank page.)
                     ☐ Solution - Consider changning the initial database call to be earlier in the render process. (like app.js, index.js etc) @started(18:31 - 31/03/21)
             ☐ There's another database call in the tagbar. I think removing this from there and moving it database call higher up the render order will allow me to use a single call for the entite website. @started(15:33 - 01/04/21)
-                ☐ What about index.js?
         
             
 
