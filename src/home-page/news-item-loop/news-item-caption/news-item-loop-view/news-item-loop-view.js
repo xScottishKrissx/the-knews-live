@@ -57,6 +57,9 @@ class NewsItemLoopView extends React.Component{
         }
         // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
         console.log(localStorage.getItem("filterOption"))
+
+        // Remember filter option.
+        this.getArticlesBy(localStorage.getItem("filterOption"))
     }
 
     getArticlesBy(value){

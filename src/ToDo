@@ -650,7 +650,8 @@ General Notes  Objectives:
             Bugs / Issues / Notes:
                 ✔ If you clear cache you get an empty page until you select a filter option @started(16:39 - 05/04/21) @done(17:40 - 05/04/21) @lasted(1h1m)
                     ✔ Solution - Basically just placed a number of fall backs and checks to check see if I need to load a default database. @done(17:40 - 05/04/21)
-                ☐ Clicking on an article and retunring home will always reset the filter. Make sure the chosen filter is maintained until cleared. @started(17:42 - 05/04/21)
+                ✔ Clicking on an article and retunring home will always reset the filter. Make sure the chosen filter is maintained until cleared. @started(17:42 - 05/04/21) @done(17:58 - 05/04/21) @lasted(16m41s)
+                    ✔ Solution - Added the getArticle by function to component did mount. Then retrieved the option from local storage. @done(18:02 - 05/04/21)
 
         
         
