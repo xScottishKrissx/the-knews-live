@@ -2,7 +2,7 @@ import React from 'react';
 import './header.css';
 
 import {Link} from 'react-router-dom';
-import TagBar from '../tags/tag-bar';
+// import TagBar from '../tags/tag-bar';
 
 
 export const Header = () => {
@@ -13,7 +13,7 @@ export const Header = () => {
             <span className="brand"><Link id="header-text" to="/theKnews/home">theKnews</Link></span>
             {/* <DarkModeToggle /> */}
             
-            <TagBar />
+            {/* <TagBar /> */}
                 {/* <div className="nav-controls">
                 <span className="brand"><Link to="/theKnews/home">the Knews</Link></span>
                 <span className="icons-wrapper">

@@ -29,16 +29,66 @@ class NewsItemLoopView extends React.Component{
         startingCardSize:"",
         changedCardSize:{width: localStorage.getItem("myData")},
         postsArray:[],
+
+        //testing
+        getArticleBy:"",
+        renderArray:[]
+        
+
+
+
         }
         this.getCardSize = this.getCardSize.bind(this);
+        this.getArticlesBy = this.getArticlesBy.bind(this);
     }
 
     getCardSize(value){
+
+
+
         this.setState({
             startingCardSize:{
-                width:value
+                width:value,
+                
             }
         })
+        
+    }
+
+
+
+    componentDidMount(){
+        if(this.state.getArticleBy === ""){
+            console.log("Load Default View")
+            this.setState({
+                renderArray:this.props.databaseProp
+            })
+        }
+        
+    }
+
+    getArticlesBy(value){
+        const fullDatabaseCall = JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"))
+        const key = null
+        const thing5 = fullDatabaseCall.filter(obj => obj !== key);
+
+        // Filter Article By Tag or Not
+        console.log(value)
+        const filterArticlesBy = thing5.filter(obj => obj.tag === value);
+        console.log(filterArticlesBy)
+
+        this.setState({
+            getArticleBy:value,
+            renderArray:filterArticlesBy
+        })
+        if(value === "Clear"){
+            this.setState({
+                renderArray:this.props.databaseProp
+            })
+        }
+        console.log("Set Tag" + this.state.getArticleBy)
+        console.log(value)
+        
     }
 
     componentWillUnmount(){
@@ -51,17 +101,29 @@ class NewsItemLoopView extends React.Component{
         // console.log(newCollection2)
         // console.log("LeftOver Articles Below...")
         // console.log(this.props.leftoverArticles)
-
+        const fullDatabaseCall = JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"))
 
 
         // something daft but I want to see what happens...
         // important !! - Responsible for removing null objects from array.
         const thing4 = this.props.databaseProp;
         const key = null
-        const thing5 = thing4.filter(obj => obj !== key);
+        const thing5 = fullDatabaseCall.filter(obj => obj !== key);
+        const defaultLoad = thing4.filter(obj => obj !== key);
+        console.log(thing5)
+
+        // Filter Article By Tag or Not
+        // const key2 = this.state.getArticleBy;
+        // console.log(key2)
+        // const filterArticlesBy = thing5.filter(obj => obj.tag === key2);
+        // console.log(filterArticlesBy)
+
+        // const renderToPage = defaultLoad || filterArticlesBy;
+        console.log(this.state.renderArray)
+        const renderToPage = this.state.renderArray;
 
 
-        const HomePageView = thing5.map((value,key) => {                 
+        const HomePageView = renderToPage.map((value,key) => {                 
             
             return (         
                 
@@ -117,6 +179,10 @@ class NewsItemLoopView extends React.Component{
             
             <div className="newsItemLoopViewWrapper">
                 
+                <button onClick={() => this.getArticlesBy("News")} >News</button>
+                <button onClick={() => this.getArticlesBy("Sports")} >Sports</button>
+                <button onClick={() => this.getArticlesBy("Weather")} >Weather</button>
+                <button onClick={() => this.getArticlesBy("Clear")} >Clear</button>
                 {HomePageView}
                 
                 {/* <ScrollCheck 
