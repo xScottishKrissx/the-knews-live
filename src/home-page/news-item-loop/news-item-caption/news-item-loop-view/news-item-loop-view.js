@@ -32,11 +32,8 @@ class NewsItemLoopView extends React.Component{
 
         //testing
         getArticleBy:"",
-        renderArray:[]
+        renderArray:[],
         
-
-
-
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.getArticlesBy = this.getArticlesBy.bind(this);
@@ -50,27 +47,26 @@ class NewsItemLoopView extends React.Component{
         })
     }
 
-
-
     componentDidMount(){
-        if(this.state.getArticleBy === ""){
+        // console.log(this.props.databaseProp)
+        if(this.state.getArticleBy === "" || null){
             console.log("Load Default View")
             this.setState({
                 renderArray:this.props.databaseProp
             })
         }
-        
+        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
+        console.log(localStorage.getItem("filterOption"))
     }
 
     getArticlesBy(value){
-        const fullDatabaseCall = JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"))
-        const key = null
-        const thing5 = fullDatabaseCall.filter(obj => obj !== key);
+        const fullDatabaseCall = this.props.fullDatabaseCall;
+        const filteredFullDatabaseCall = fullDatabaseCall.filter(obj => obj !== null);
 
         // Filter Article By Tag or Not
-        console.log(value)
-        const filterArticlesBy = thing5.filter(obj => obj.tag === value);
-        console.log(filterArticlesBy)
+        // console.log(value)
+        const filterArticlesBy = filteredFullDatabaseCall.filter(obj => obj.tag === value);
+        // console.log(filterArticlesBy)
 
         this.setState({
             getArticleBy:value,
@@ -78,20 +74,19 @@ class NewsItemLoopView extends React.Component{
         })
         if(value === "All")this.setState({renderArray:this.props.databaseProp})
         
-        console.log("Set Tag" + this.state.getArticleBy)
-        console.log(value)
+        console.log("Filter Articles By " + value)
+
+        // Set Filter Option into local storage
+        localStorage.setItem("filterOption",value)
         
     }
 
-    componentWillUnmount(){
-        fire.database().ref("items").off();
-    }
     render(){
   
+        const thing = this.state.renderArray;
+        const renderToPage = thing || this.props.databaseProp ;
         
 
-
-        const renderToPage = this.state.renderArray;
 
 
         const HomePageView = renderToPage.map((value,key) => {                 
@@ -155,7 +150,16 @@ class NewsItemLoopView extends React.Component{
                 <button onClick={() => this.getArticlesBy("Weather")} >Weather</button>
                 <button onClick={() => this.getArticlesBy("All")} >Clear</button>
                 <p>Showing {this.state.getArticleBy} Articles</p>
-                {HomePageView}
+
+
+
+                {this.props.databaseProp.length === 30 ? 
+                 HomePageView
+                :
+                
+                <p>Loading News Item Loop View</p> 
+                }
+                
                 
                 {/* <ScrollCheck 
                     databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }

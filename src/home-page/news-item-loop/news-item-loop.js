@@ -51,9 +51,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
             })
-        }
-        // console.log("Hidden Articles -> " + localStorage.getItem("hiddenPostList"));
-        
+        }        
 
     // This is the initial database query.
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);    
@@ -84,68 +82,47 @@ class MapDatabaseItems extends React.Component{
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })
-
-            // console.log(this.state.articlesArray)
-            // console.log(this.state.leftoverArticles)
-            // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
-            // console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
-        // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
-        // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
 
 
-        // localStorage.setItem("leftoverArticlesArray", JSON.stringify(this.state.leftoverArticles))
     }
 
      componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
         localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
-        
+
       }
-    
+
+
     render(){
         // NUCLEAR OPTION -> Just in case anything goes wrong...
         // localStorage.removeItem("editedArticleArray")
         // localStorage.removeItem("editedLeftoverArticlesArray")
 
-        // console.log("Render")
-        // console.log(this.state.articlesArray)
-        // const firebaseDB = this.state.articlesArray;  
-        // console.log(firebaseDB)
         localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
-        // console.log(JSON.parse(localStorage.getItem("articlesArray")))
-        // console.log(this.state.articlesArray)
-        
-        // console.log(this.state.leftoverArticles)
-        // console.log(JSON.parse(localStorage.getItem("newLeftoverArticles")))
 
-        
-        // const thingymajig = JSON.parse(localStorage.getItem("articleArray8"));
-        // const thing4 = JSON.parse(localStorage.getItem("articleArray9"))
-        // var filtered = thingymajig.filter(function (el) {
-        //     return el != null;
-        //   });
-        // console.log(thing4)
-        // console.log(filtered)
-        // console.log(this.state.filteredPostArray)
-        // console.log(firebaseDB)
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray"));
+        const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
+
          return (
-            
-            <div className="news-item-loop-wrapper"> 
-            <React.Fragment>
-                {/* <NewsItemLoopView databaseProp={filtered|| this.state.filteredPostArray || firebaseDB} /> 
-                     */}
-                     <NewsItemLoopView 
-                        databaseProp={arrayWithArticlesHidden || this.state.articlesArray} 
-                        leftoverArticles={this.state.leftoverArticles}
-                    /> 
+         <div className="news-item-loop-wrapper"> 
+        
+            {this.state.articlesArray.length === 30 ? 
+                    <React.Fragment>
+                        
+                        <NewsItemLoopView 
+                            databaseProp={arrayWithArticlesHidden } 
+                            leftoverArticles={this.state.leftoverArticles}
+                            fullDatabaseCall={this.state.fullDatabaseCall}
+                        /> 
+        
+                        <ScrollToTopButton   />
+                    </React.Fragment>
+                :
+                    <p>Loading News Item Loop</p>
+            }
 
-                <ScrollToTopButton   />
-            </React.Fragment>
             </div>
         );  
     }       

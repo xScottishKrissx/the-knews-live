@@ -639,34 +639,19 @@ General Notes  Objectives:
         ✔ Card Controls have no effect on tags page articles @started(16:30 - 11/03/21) @done(15:25 - 15/03/21) @lasted(3d22h55m21s)
         // Chanhed this.props.changedCardSize in tags.js to this.state.changedCardSize.
         // Although they are affecting the home page. So that's a win.
-        
-        ☐ Having just redid how I load articles using a single database call and then splicing that into arrays, I am considering redoing the tags page along the same line.
-            ☐ For example >
-                ☐ Get the database
-                ☐ Filter to array
-                ☐ Filter out objects with a "Sports" tag to a new array
-                ☐ Use that array for the sport tag.
-            ☐ It would mean a total redo of the entire tags page but I think it might be better. 
-                ☐ 1 - It removes the need to call the database as I have already done that when the page loads.
-                ☐ 2 - It falls in line with my primary method of displaying information. It seems bizarre to have different methods of retrieving data.
-                ☐ 3 - I (without any real actual knowledge) it would be easier on performance as I'm not calling the same information mulitple times.
-                ☐ 4 - It removes code duplication, especially the dbref.on that happens. I've already done this and assigned the database items to values, so it seems bad to do this again.
-        ☐ It think redoing tags in line with the above is the best way forward. God Help Me. @started(18:04 - 31/03/21)
-            ☐ Let's start by attempting to call a database to the tags page, filtering that array and rendering that filtered array @started(18:32 - 31/03/21)
-            ☐ Bugs / Issues
-                ☐ The current code relies on a database call made when the news-item-page-view mounts. This will cause an issue if you skip this(i.e bookmarking the tags page will render a blank page.)
-                    ☐ Solution - Consider changning the initial database call to be earlier in the render process. (like app.js, index.js etc) @started(18:31 - 31/03/21)
-            ☐ There's another database call in the tagbar. I think removing this from there and moving it database call higher up the render order will allow me to use a single call for the entite website. @started(15:33 - 01/04/21)
-        
-    ☐ The tags pages are no longer chaning their contents on clicking the relevant button
-        ☐ I.e - clicking sports to news displays the sports articles. You need to reload the page to see the change. @started(17:19 - 02/04/21)
-        ✔ Articles dont have any information. I dont know what's going on. @started(17:32 - 02/04/21) @done(17:46 - 02/04/21) @lasted(14m16s)
-            ✔ Fixed a small typo @done(17:46 - 02/04/21)
-        ☐ I don't know whats going on with this. I haven't changed anything that should affect this. I am considering redoing the tags as a filter for the home page. That would be much simpler and I could use the same arrays. It would also remove the need for routes and as long as I do it right I can also ensure bookmarks would work.
-        ☐ I'm losing my freaking mind here. Why is this not working??? I havent done anything??????
-        ☐ The old tags.js file also doesnt work.....WHY????????
-        ☐ Im calling it a day.
-        ☐ Redo the entire component from scratch on Monday. Even look at the tags bar because that might also be causing the problem
+        ☐ I've decided to redo the tags page... and by redo I mean remove altogether. Instead I have switched to using filters. The upside is that everything happens in one page and I don't need to worry about passing props an working with routes. It's a much simpler solution and uses 1 less call to the database. The major downside is that you can no longer directly go to a tag page. There is also more work being added to the news-item-loop-view. @started(16:02 - 05/04/21)
+            Plan of Action:
+                ☐ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21)
+                ☐ There might actually be a way doing url accessible tags using routes and props. @started(16:05 - 05/04/21)
+                ☐ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21)
+                ☐ All current tags functionality should be retained @started(16:41 - 05/04/21)
+                    ☐ Author and Date Pages for example.
+            
+            Bugs / Issues / Notes:
+                ✔ If you clear cache you get an empty page until you select a filter option @started(16:39 - 05/04/21) @done(17:40 - 05/04/21) @lasted(1h1m)
+                    ✔ Solution - Basically just placed a number of fall backs and checks to check see if I need to load a default database. @done(17:40 - 05/04/21)
+                ☐ Clicking on an article and retunring home will always reset the filter. Make sure the chosen filter is maintained until cleared. @started(17:42 - 05/04/21)
+
         
         
             
