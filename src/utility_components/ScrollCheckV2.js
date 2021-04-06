@@ -27,6 +27,7 @@ class ScrollCheckV2 extends React.Component{
 
     componentDidMount(){
         window.addEventListener('scroll', this.scroll);      
+
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         // console.log(editedArticlesArray)
         if(editedArticlesArray != null)this.setState({articlesArray:editedArticlesArray})
@@ -88,7 +89,7 @@ class ScrollCheckV2 extends React.Component{
     render(){
         // console.log("Render Scroll Check")
         const mainArray = this.state.mainArray;
-
+        console.log(this.props.leftoverArticles)
         // Load new Articles into view on scroll.
         const pageView = mainArray.map((value,key) => {
         

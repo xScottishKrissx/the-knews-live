@@ -112,7 +112,6 @@ class MapDatabaseItems extends React.Component{
         
             {this.state.articlesArray.length === 30 ? 
                     <React.Fragment>
-
                         <NewsItemLoopView 
                             databaseProp={arrayWithArticlesHidden } 
                             leftoverArticles={this.state.leftoverArticles}
@@ -122,7 +121,6 @@ class MapDatabaseItems extends React.Component{
                         <ScrollToTopButton   />
                     </React.Fragment>
                 :
-                    
                     <img src={loading} />
             }
 

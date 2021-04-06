@@ -510,6 +510,8 @@ General Notes  Objectives:
                 // Too much work and i'm not sure how to fit into this project.
                 // Circle back in later projects.
             ✔ Added ability to hide article from article page @done(16:56 - 15/01/21)
+            ☐ Why does each news article need it's own separate datatabase call? @started(16:03 - 06/04/21)
+                ☐ Surely all of the information from the master array is enough? @started(16:03 - 06/04/21)
 
             Header Image and Article Info Area:
                 ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
@@ -643,7 +645,7 @@ General Notes  Objectives:
             Plan of Action:
                 ☐ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21)
                 ☐ There might actually be a way doing url accessible tags using routes and props. @started(16:05 - 05/04/21)
-                ☐ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21)
+                ✔ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21) @done(16:20 - 06/04/21) @lasted(1d14m31s)
                 ☐ All current tags functionality should be retained @started(16:41 - 05/04/21)
                     ☐ Author and Date Pages for example.
             
@@ -652,6 +654,7 @@ General Notes  Objectives:
                     ✔ Solution - Basically just placed a number of fall backs and checks to check see if I need to load a default database. @done(17:40 - 05/04/21)
                 ✔ Clicking on an article and retunring home will always reset the filter. Make sure the chosen filter is maintained until cleared. @started(17:42 - 05/04/21) @done(17:58 - 05/04/21) @lasted(16m41s)
                     ✔ Solution - Added the getArticle by function to component did mount. Then retrieved the option from local storage. @done(18:02 - 05/04/21)
+                
 
         
         
@@ -783,6 +786,7 @@ Part 2 Implement Database functionality:
             ☐ Redo the entire bloody tags page.
 
 
+
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
@@ -797,6 +801,7 @@ Part 2 Implement Database functionality:
             ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
             ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
             ☐ Fixed Issue where clear cache button failed to appear when swiping articles right.✔ @done(16:33 - 15/03/21)
+            ☐ Remove the database call in news-page.js.
 
 
             Known Issues:

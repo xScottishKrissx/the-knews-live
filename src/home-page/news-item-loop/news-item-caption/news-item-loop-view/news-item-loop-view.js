@@ -63,7 +63,9 @@ class NewsItemLoopView extends React.Component{
     }
 
     getArticlesBy(value){
-        const fullDatabaseCall = this.props.fullDatabaseCall;
+        const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
+        console.log(editedArticleArray)
+        const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
         const filteredFullDatabaseCall = fullDatabaseCall.filter(obj => obj !== null);
 
         // Filter Article By Tag or Not
@@ -71,9 +73,15 @@ class NewsItemLoopView extends React.Component{
         const filterArticlesBy = filteredFullDatabaseCall.filter(obj => obj.tag === value);
         // console.log(filterArticlesBy)
 
+        // change leftover articles to include only relevant articles
+        // const leftoverArticles = this.props.fullDatabaseCall.filter(obj => obj.tag === value);
+        // console.log(leftoverArticles.slice(20))
+        
+
         this.setState({
             getArticleBy:value,
-            renderArray:filterArticlesBy
+            renderArray:filterArticlesBy,
+            // leftoverArticles:leftoverArticles.slice(20)
         })
         if(value === "All")this.setState({renderArray:this.props.databaseProp})
         
