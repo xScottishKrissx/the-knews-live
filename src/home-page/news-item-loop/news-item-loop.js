@@ -66,14 +66,15 @@ class MapDatabaseItems extends React.Component{
             for(let newsItem in newsItems){
                 newState.push({
                     key: newsItem,
+                    tag: newsItems[newsItem].tag,
                     id:newsItems[newsItem].id,
                     hidden:newsItems[newsItem].hidden,
                     author: newsItems[newsItem].author,
                     title: newsItems[newsItem].title,
                     text: newsItems[newsItem].text,
                     likes: newsItems[newsItem].likes,
-                    dislikes: newsItems[newsItem].dislikes,
-                    tag: newsItems[newsItem].tag
+                    dislikes: newsItems[newsItem].dislikes
+                    
                     
                     
                 });
@@ -84,6 +85,7 @@ class MapDatabaseItems extends React.Component{
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })
+            console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
 

@@ -49,10 +49,13 @@ class NewsItemLoopView extends React.Component{
 
     componentDidMount(){
         // console.log(this.props.databaseProp)
+        const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
+        console.log(editedArticleArray)
+        const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
         if(this.state.getArticleBy === "" || null){
             console.log("Load Default View")
             this.setState({
-                renderArray:this.props.databaseProp
+                renderArray:fullDatabaseCall
             })
         }
         // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
@@ -92,13 +95,9 @@ class NewsItemLoopView extends React.Component{
         
     }
 
-    render(){
-  
+    render(){  
         const thing = this.state.renderArray;
-        const renderToPage = thing || this.props.databaseProp ;
-        
-
-
+        const renderToPage = thing || this.props.databaseProp ;    
 
         const HomePageView = renderToPage.map((value,key) => {                 
             
@@ -188,6 +187,7 @@ class NewsItemLoopView extends React.Component{
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
                     leftoverArticles={this.props.leftoverArticles}
+                    getArticleBy={this.state.getArticleBy}
                 />
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>

@@ -58,6 +58,7 @@ class ScrollCheckV2 extends React.Component{
         // Grabbing the articles used for the on scroll event. If the event has been triggered and an article has been hidden then I used the array in local storage, if not then I use the default leftover article array from props.
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")) || this.props.leftoverArticles;
 
+
         if(windowBottom >= docHeight){
             console.log("Load New Articles")
             
@@ -68,7 +69,7 @@ class ScrollCheckV2 extends React.Component{
 
             // Then join with the main array
             const renderNewArticlesOnScroll = this.state.mainArray.concat(editedArticlesArray.slice(this.state.arrayStartState,this.state.arrayEndState));
-            console.log(renderNewArticlesOnScroll)
+            // console.log(renderNewArticlesOnScroll)
 
             // Setting state will then update the page with the new articles attached to the end of the array.
             this.setState({
@@ -89,8 +90,12 @@ class ScrollCheckV2 extends React.Component{
     render(){
         // console.log("Render Scroll Check")
         const mainArray = this.state.mainArray;
-        console.log(this.props.leftoverArticles)
+        console.log(this.props.getArticleBy)
         // Load new Articles into view on scroll.
+
+        const filterArticlesBy = mainArray.filter(obj => obj.tag === this.props.getArticleBy);
+        console.log(filterArticlesBy)
+
         const pageView = mainArray.map((value,key) => {
         
             const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
