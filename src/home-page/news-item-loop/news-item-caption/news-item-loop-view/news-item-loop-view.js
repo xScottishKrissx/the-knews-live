@@ -50,7 +50,7 @@ class NewsItemLoopView extends React.Component{
     componentDidMount(){
         // console.log(this.props.databaseProp)
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
-        console.log(editedArticleArray)
+        // console.log(editedArticleArray)
         const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
         if(this.state.getArticleBy === "" || null){
             console.log("Load Default View")
@@ -63,11 +63,13 @@ class NewsItemLoopView extends React.Component{
 
         // Remember filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
+
+
     }
 
     getArticlesBy(value){
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
-        console.log(editedArticleArray)
+        // console.log(editedArticleArray)
         const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
         const filteredFullDatabaseCall = fullDatabaseCall.filter(obj => obj !== null);
 
@@ -97,7 +99,14 @@ class NewsItemLoopView extends React.Component{
 
     render(){  
         const thing = this.state.renderArray;
-        const renderToPage = thing || this.props.databaseProp ;    
+        const renderToPage = thing || this.props.databaseProp ;  
+        // console.log(this.props.databaseProp)  
+
+        const filterArticlesBy = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy);
+        
+        console.log(filterArticlesBy)
+        console.log(thing)
+        console.log(this.props.databaseProp)
 
         const HomePageView = renderToPage.map((value,key) => {                 
             
@@ -163,7 +172,7 @@ class NewsItemLoopView extends React.Component{
 
 
 
-                {this.props.databaseProp.length === 30 ? 
+                {this.props.databaseProp.length >= 30 ? 
                  HomePageView
                 :
                 
@@ -182,13 +191,18 @@ class NewsItemLoopView extends React.Component{
                     // Testing Stuff
                     testProp = {JSON.parse(localStorage.getItem("editedArticleArray"))}                    
                 /> */}
-                <ScrollCheckV2 
-                    articlesArray={this.props.databaseProp}
-                    startingCardSize={this.state.startingCardSize}
-                    changedCardSize={this.state.changedCardSize}
-                    leftoverArticles={this.props.leftoverArticles}
-                    getArticleBy={this.state.getArticleBy}
-                />
+                {this.state.getArticleBy === "All" ?
+                    <ScrollCheckV2 
+                        articlesArray={this.props.databaseProp}
+                        startingCardSize={this.state.startingCardSize}
+                        changedCardSize={this.state.changedCardSize}
+                        leftoverArticles={this.props.leftoverArticles}
+                        getArticleBy={this.state.getArticleBy}
+                    />   
+                :
+                <p>No More Articles. Come Back Later</p>
+                }
+ 
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
         )

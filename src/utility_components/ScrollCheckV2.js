@@ -69,7 +69,11 @@ class ScrollCheckV2 extends React.Component{
 
             // Then join with the main array
             const renderNewArticlesOnScroll = this.state.mainArray.concat(editedArticlesArray.slice(this.state.arrayStartState,this.state.arrayEndState));
-            // console.log(renderNewArticlesOnScroll)
+
+            const filterArticlesBy = renderNewArticlesOnScroll.filter(obj => obj.tag === localStorage.getItem("filterOption"));
+
+            console.log(renderNewArticlesOnScroll)
+            console.log(filterArticlesBy)
 
             // Setting state will then update the page with the new articles attached to the end of the array.
             this.setState({
@@ -77,6 +81,11 @@ class ScrollCheckV2 extends React.Component{
                 arrayStartState: this.state.arrayStartState + 5,
                 arrayEndState: this.state.arrayEndState + 5
             })    
+
+
+
+
+
         }else{
             // console.log("Not At Bottom Yet")
         }
@@ -90,11 +99,12 @@ class ScrollCheckV2 extends React.Component{
     render(){
         // console.log("Render Scroll Check")
         const mainArray = this.state.mainArray;
-        console.log(this.props.getArticleBy)
         // Load new Articles into view on scroll.
 
-        const filterArticlesBy = mainArray.filter(obj => obj.tag === this.props.getArticleBy);
-        console.log(filterArticlesBy)
+        // const filterArticlesBy = mainArray.filter(obj => obj.tag === this.props.getArticleBy);
+        // console.log(filterArticlesBy)
+
+        console.log(this.props.leftoverArticles)
 
         const pageView = mainArray.map((value,key) => {
         
