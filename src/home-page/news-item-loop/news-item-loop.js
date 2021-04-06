@@ -7,6 +7,8 @@ import ScrollToTopButton from '../../utility_components/scrollToTop.js';
 
 import NewsItemLoopView from './news-item-caption/news-item-loop-view/news-item-loop-view.js';
 
+import loading from '../../img/loading5.gif';
+
 export const NewsItemLoop = () => {
     return <MapDatabaseItems />;    
 }
@@ -110,7 +112,7 @@ class MapDatabaseItems extends React.Component{
         
             {this.state.articlesArray.length === 30 ? 
                     <React.Fragment>
-                        
+
                         <NewsItemLoopView 
                             databaseProp={arrayWithArticlesHidden } 
                             leftoverArticles={this.state.leftoverArticles}
@@ -120,7 +122,8 @@ class MapDatabaseItems extends React.Component{
                         <ScrollToTopButton   />
                     </React.Fragment>
                 :
-                    <p>Loading News Item Loop</p>
+                    
+                    <img src={loading} />
             }
 
             </div>
