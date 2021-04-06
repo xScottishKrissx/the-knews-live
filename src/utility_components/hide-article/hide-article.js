@@ -19,28 +19,29 @@ export class HideArticle extends React.Component{
         // console.log(this.state.articleId)
         // console.log(this.props.test1)
         
+        // console.log(this.props.testFilteredArray)
         
     }
     hideArticle(value){
-        console.log("Hide Article Button Pressed");
+        // console.log("Hide Article Button Pressed");
         // console.log(localStorage.getItem("hiddenPostList"));
-        console.log("Post Disappearing is Post:: " + value)
+        // console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         const mainArray = editedArray || this.props.arrayFromDatabase;
         const scrollCheckArticles = this.props.scrollCheckHide;
-        console.log(scrollCheckArticles)
+        // console.log(scrollCheckArticles)
         
-        console.log(mainArray)
+        // console.log(mainArray)
 
         const nullKey = null
         const filterForNull = mainArray.filter(obj => obj !== nullKey);
         // Filter Initial Load Articles
         const index = value;
         var markArticleForRemoval = filterForNull.map(el => {
-            if(el.id === index && el != null)
+            if(el.id === index && el != null )
                 return Object.assign({}, el, {hidden:true})
                 
                 return el
@@ -51,7 +52,7 @@ export class HideArticle extends React.Component{
         // Check for Articles marked as hidden -> then remove from array
         const key = true
         const arrayWithArticlesRemoved = markArticleForRemoval.filter(obj => obj.hidden !== key);
-        console.log(arrayWithArticlesRemoved)
+        // console.log(arrayWithArticlesRemoved)
 
         // Get something to add to the reduced array
         const editedLeftoverArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"))
@@ -82,13 +83,14 @@ export class HideArticle extends React.Component{
         // Array with Articles added to reduced array
             localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
         
+        // Filter Options
             
 
         // Scroll Check Filter --> Check for ID in leftover articles array, remove and then return to local storage.
-        console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-        console.log(this.props.articleId)
+        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
+        // console.log(this.props.articleId)
         const prepLeftoverArticlesForFilter = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
-        console.log(prepLeftoverArticlesForFilter)
+        // console.log(prepLeftoverArticlesForFilter)
 
         if(prepLeftoverArticlesForFilter === null)console.log("handle null")
         const index2 = value;
@@ -99,11 +101,11 @@ export class HideArticle extends React.Component{
                 
                 return el
         });
-        console.log(markScrollCheckArticleForRemoval)
+        // console.log(markScrollCheckArticleForRemoval)
 
         // Check for Articles marked as hidden -> then remove from array
         const filteredLeftoverArticlesForScrollCheck = markScrollCheckArticleForRemoval.filter(obj => obj.hidden !== key);
-        console.log(filteredLeftoverArticlesForScrollCheck)
+        // console.log(filteredLeftoverArticlesForScrollCheck)
 
         // Set newly filtered leftover articles in storage.
         localStorage.setItem("editedLeftoverArticlesArray",JSON.stringify(filteredLeftoverArticlesForScrollCheck))

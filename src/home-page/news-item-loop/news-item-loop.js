@@ -85,7 +85,7 @@ class MapDatabaseItems extends React.Component{
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })
-            console.log(this.state.fullDatabaseCall)
+            // console.log(this.state.fullDatabaseCall)
         })        
         window.addEventListener('scroll', this.scroll);   
 

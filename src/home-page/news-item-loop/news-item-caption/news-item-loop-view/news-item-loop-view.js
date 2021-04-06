@@ -48,11 +48,14 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
+        console.log(localStorage.getItem("filterOption"))
         // console.log(this.props.databaseProp)
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
         // console.log(editedArticleArray)
         const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
-        if(this.state.getArticleBy === "" || null){
+        console.log(fullDatabaseCall)
+
+        if(this.state.getArticleBy === "" || null ){
             console.log("Load Default View")
             this.setState({
                 renderArray:fullDatabaseCall
@@ -69,7 +72,7 @@ class NewsItemLoopView extends React.Component{
 
     getArticlesBy(value){
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
-        // console.log(editedArticleArray)
+        console.log(editedArticleArray)
         const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
         const filteredFullDatabaseCall = fullDatabaseCall.filter(obj => obj !== null);
 
@@ -88,6 +91,8 @@ class NewsItemLoopView extends React.Component{
             renderArray:filterArticlesBy,
             // leftoverArticles:leftoverArticles.slice(20)
         })
+
+        console.log(this.props.databaseProp)
         if(value === "All")this.setState({renderArray:this.props.databaseProp})
         
         console.log("Filter Articles By " + value)
@@ -99,15 +104,22 @@ class NewsItemLoopView extends React.Component{
 
     render(){  
         const thing = this.state.renderArray;
-        const renderToPage = thing || this.props.databaseProp ;  
-        // console.log(this.props.databaseProp)  
+            console.log(thing)
 
-        const filterArticlesBy = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy);
-        
-        console.log(filterArticlesBy)
-        console.log(thing)
-        console.log(this.props.databaseProp)
+        console.log(this.props.databaseProp)  
 
+        const filterArticlesBy = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy); 
+            console.log(filterArticlesBy)
+
+
+        console.log(this.state.getArticleBy)
+        const filterArticlesBy2 = this.props.fullDatabaseCall.filter(obj => obj.tag === this.state.getArticleBy); 
+        console.log(filterArticlesBy2)
+
+
+
+        const renderToPage = filterArticlesBy || thing || this.props.databaseProp ;
+        console.log(renderToPage)  
         const HomePageView = renderToPage.map((value,key) => {                 
             
             return (         
@@ -117,7 +129,7 @@ class NewsItemLoopView extends React.Component{
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} />     
+                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} testFilterOption={this.state.getArticleBy}/>     
                     
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 
@@ -167,7 +179,7 @@ class NewsItemLoopView extends React.Component{
                 <button onClick={() => this.getArticlesBy("News")} >News</button>
                 <button onClick={() => this.getArticlesBy("Sports")} >Sports</button>
                 <button onClick={() => this.getArticlesBy("Weather")} >Weather</button>
-                <button onClick={() => this.getArticlesBy("All")} >Clear</button>
+                <button onClick={() => this.getArticlesBy("All")} >No Filter</button>
                 <p>Showing {this.state.getArticleBy} Articles</p>
 
 
@@ -175,22 +187,10 @@ class NewsItemLoopView extends React.Component{
                 {this.props.databaseProp.length >= 30 ? 
                  HomePageView
                 :
-                
-                <p>Loading News Item Loop View</p> 
+                <p>Something has gone wrong. Contact your nearest guardian of light</p> 
                 }
                 
                 
-                {/* <ScrollCheck 
-                    databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) }
-                    swipeLeftAction={swipeLeftAction}
-                    closePopup={closePopup}
-                    startingCardSize={this.state.startingCardSize}
-                    changedCardSize={this.state.changedCardSize}
-                    articlesArray={this.props.databaseProp}
-
-                    // Testing Stuff
-                    testProp = {JSON.parse(localStorage.getItem("editedArticleArray"))}                    
-                /> */}
                 {this.state.getArticleBy === "All" ?
                     <ScrollCheckV2 
                         articlesArray={this.props.databaseProp}
