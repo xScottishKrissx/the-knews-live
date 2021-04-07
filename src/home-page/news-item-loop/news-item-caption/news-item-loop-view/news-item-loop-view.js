@@ -49,7 +49,13 @@ class NewsItemLoopView extends React.Component{
 
     componentDidMount(){
         // console.log(this.props.fullDatabaseCall)
-        localStorage.setItem("filterOption","All")
+       
+        if(localStorage.getItem("filterOption") === null){
+            console.log("Set FilterOption as All")
+            localStorage.setItem("filterOption","All")
+        }else{
+            console.log(localStorage.getItem("filterOption"))
+        }
         // console.log(localStorage.getItem("filterOption"))
         // console.log(this.props.databaseProp)
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
@@ -124,7 +130,7 @@ class NewsItemLoopView extends React.Component{
 
 
         const renderToPage =  thing || this.props.databaseProp ;
-        // console.log(renderToPage)  
+        console.log(renderToPage)  
         const HomePageView = renderToPage.map((value,key) => {                 
             
             return (         
