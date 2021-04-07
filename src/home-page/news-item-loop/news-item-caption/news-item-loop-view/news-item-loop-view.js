@@ -48,14 +48,10 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
-        // console.log(this.props.fullDatabaseCall)
-       
-        if(localStorage.getItem("filterOption") === null){
-            console.log("Set FilterOption as All")
-            localStorage.setItem("filterOption","All")
-        }else{
-            console.log(localStorage.getItem("filterOption"))
-        }
+        console.log(this.props.fullDatabaseCall)
+        // If no filter option exists in storage, set as All to display a default view.
+        if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
+
         // console.log(localStorage.getItem("filterOption"))
         // console.log(this.props.databaseProp)
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
@@ -68,7 +64,7 @@ class NewsItemLoopView extends React.Component{
             // console.log("Load Default View")
             this.setState({
                 renderArray:fullDatabaseCall,
-                getArticleBy:"All"
+                
             })
         }
         // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
@@ -82,13 +78,18 @@ class NewsItemLoopView extends React.Component{
 
     getArticlesBy(value){
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        console.log(fullDatabaseCallFromStorage)
         // console.log(editedArticleArray)
-        const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
+        // const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
+        const fullDatabaseCall = fullDatabaseCallFromStorage || this.props.fullDatabaseCall;
+        // console.log(fullDatabaseCall)
         const filteredFullDatabaseCall = fullDatabaseCall.filter(obj => obj !== null);
+        const hideForFilter = filteredFullDatabaseCall.filter(obj => obj.hidden !== true)
 
         // Filter Article By Tag or Not
         // console.log(value)
-        const filterArticlesBy = filteredFullDatabaseCall.filter(obj => obj.tag === value);
+        const filterArticlesBy = hideForFilter.filter(obj => obj.tag === value);
         // console.log(filterArticlesBy)
 
         // change leftover articles to include only relevant articles
@@ -103,7 +104,7 @@ class NewsItemLoopView extends React.Component{
         })
 
         // console.log(this.props.databaseProp)
-        if(value === "All")this.setState({renderArray:this.props.databaseProp})
+        if(value === "All")this.setState({renderArray:hideForFilter || this.props.databaseProp})
         
         // console.log("Filter Articles By " + value)
 
@@ -140,7 +141,9 @@ class NewsItemLoopView extends React.Component{
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} specialFilter={filterArticlesBy}/>     
+                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} specialFilter={filterArticlesBy}
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                    />     
                     
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 

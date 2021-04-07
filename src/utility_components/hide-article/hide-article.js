@@ -124,7 +124,20 @@ export class HideArticle extends React.Component{
 
 
 
+        // Hiding For Filter Views
+        const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        const cleanFullDatabaseCall =  dirtyFullDatabaseCall || this.props.fullDatabaseCall;
+        console.log(cleanFullDatabaseCall)
 
+        var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
+            if(el.id === value && el != null )
+                return Object.assign({}, el, {hidden:true})
+                
+                return el
+                
+        });
+        console.log(changedFullDatabaseCall)
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changedFullDatabaseCall))
 
 
 
