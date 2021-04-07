@@ -28,18 +28,6 @@ export class HideArticle extends React.Component{
         // console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
-        console.log(this.props.specialFilter)
-        var filterFilter = this.props.specialFilter.map(el => {
-            if(el.id === value && el != null )
-                return Object.assign({}, el, {hidden:true})
-                
-                return el
-                
-        });
-        const outputFilterFilter = filterFilter.filter(obj => obj.hidden !== true);
-        console.log(outputFilterFilter)
-        localStorage.setItem("filterFilterView", JSON.stringify(outputFilterFilter));
-
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         const mainArray = editedArray || this.props.arrayFromDatabase;
         const scrollCheckArticles = this.props.scrollCheckHide;
@@ -127,16 +115,14 @@ export class HideArticle extends React.Component{
         // Hiding For Filter Views
         const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const cleanFullDatabaseCall =  dirtyFullDatabaseCall || this.props.fullDatabaseCall;
-        console.log(cleanFullDatabaseCall)
+        // console.log(cleanFullDatabaseCall)
 
         var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
             if(el.id === value && el != null )
                 return Object.assign({}, el, {hidden:true})
-                
                 return el
-                
         });
-        console.log(changedFullDatabaseCall)
+        // console.log(changedFullDatabaseCall)
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changedFullDatabaseCall))
 
 

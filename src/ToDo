@@ -403,13 +403,14 @@ General Notes  Objectives:
             // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
             ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
             
-            ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload. @started(16:38 - 10/03/21)
-                ☐  This is fundamentally a flaw in how the website works and needs to be resolved before moving onto the more cosmetic issues of blank pages and dodgy user feedback. @started(16:53 - 15/03/21)
+            Handling All Articles Being Hidden: @started(16:38 - 10/03/21)
+                ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload.
+                ☐  This is a fundamental flaw in how the website works and needs to be resolved before moving onto the more cosmetic issues of blank pages and dodgy user feedback. @started(16:53 - 15/03/21)
                 ☐ My main requirements for this are:
                     ✔ There must be a minimum number of articles on the page on load. @done(17:52 - 26/03/21)
                         ✔ Articles don't need to load in as you hide articles(for the moment, could replace infinit scroll later on.) @done(17:52 - 26/03/21)
-                    ☐ If you get through all articles, display a message informing there are no articles currently available.
-                    ☐ Must work with infinite scroll
+                    ✔ If you get through all articles, display a message informing there are no articles currently available. @done(17:55 - 07/04/21)
+                    ✔ Must work with infinite scroll @done(17:55 - 07/04/21)
                     // If there are no articles on screen initally, then the scrollCheck component won't work as it only activates on a scroll event. No Artiles => No Scrolling.
                     // This might open a can of worms...i'm just saying.
                     // Some solutions
@@ -448,8 +449,9 @@ General Notes  Objectives:
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                     ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
                                         ☐ I am seriously considering redoing the entire tags things as well. Repeating the scrollCheck, remove the direct call to the database and just edit a single master array and filter out the tag I'm looking for.
-                                    
-                                
+                                    ✔ Scroll Check now works without no filter, but has been removed for filtered views. @done(17:54 - 07/04/21)
+                                        ☐ I am looking into getting scroll check to work with tags.
+
                                 ☐ Next/Prev 
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
                                 ☐ Re-activate the card size controls.
@@ -641,7 +643,8 @@ General Notes  Objectives:
         ✔ Card Controls have no effect on tags page articles @started(16:30 - 11/03/21) @done(15:25 - 15/03/21) @lasted(3d22h55m21s)
         // Chanhed this.props.changedCardSize in tags.js to this.state.changedCardSize.
         // Although they are affecting the home page. So that's a win.
-        ☐ I've decided to redo the tags page... and by redo I mean remove altogether. Instead I have switched to using filters. The upside is that everything happens in one page and I don't need to worry about passing props an working with routes. It's a much simpler solution and uses 1 less call to the database. The major downside is that you can no longer directly go to a tag page. There is also more work being added to the news-item-loop-view. @started(16:02 - 05/04/21)
+        Rethinking Tags:
+             ☐ I've decided to redo the tags page... and by redo I mean remove altogether. Instead I have switched to using filters. The upside is that everything happens in one page and I don't need to worry about passing props an working with routes. It's a much simpler solution and uses 1 less call to the database. The major downside is that you can no longer directly go to a tag page. There is also more work being added to the news-item-loop-view. @started(16:02 - 05/04/21)
             Plan of Action:
                 ☐ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21)
                     ✔ I have removed the scroll check from the filter options for now. I haven't yet worked out how to properly integrate the filtered array into the the hide functionality. The No Filter works as normal. @done(17:46 - 06/04/21)
@@ -656,9 +659,10 @@ General Notes  Objectives:
                     ✔ Solution - Basically just placed a number of fall backs and checks to check see if I need to load a default database. @done(17:40 - 05/04/21)
                 ✔ Clicking on an article and retunring home will always reset the filter. Make sure the chosen filter is maintained until cleared. @started(17:42 - 05/04/21) @done(17:58 - 05/04/21) @lasted(16m41s)
                     ✔ Solution - Added the getArticle by function to component did mount. Then retrieved the option from local storage. @done(18:02 - 05/04/21)
-                ☐ Hiding an article removes half of the array on reload. Not sure what's going on here.
-                    ☐ It's because the hide button returns an array that has other tags in it. These are then filtered out of the array in getArticles. I need a way of getting back just an array with the correct tags. I may need to tweak the hide-article component.
-                        ☐ There is all sorts of weirdness going on here. I'm leaving this for now and sleeping on it. @started(18:46 - 06/04/21)
+                ✔ Hiding an article removes half of the array on reload. Not sure what's going on here. @done(17:49 - 07/04/21)
+                    ✔ It's because the hide button returns an array that has other tags in it. These are then filtered out of the array in getArticles. I need a way of getting back just an array with the correct tags. I may need to tweak the hide-article component. @done(17:49 - 07/04/21)
+                        ✔ There is all sorts of weirdness going on here. I'm leaving this for now and sleeping on it. @started(18:46 - 06/04/21) @done(17:47 - 07/04/21) @lasted(23h1m16s)
+                        ✔ Solution - Added code into the hide-article file that retrieves and edits a full database call, sets the article to hidden, and returns that array to the page to be rendered. THis is also stored in local storage and is the main array used for rendering tags(after being filtered), so it works with both filter and no filter. @done(17:49 - 07/04/21)
                 
 
         
@@ -787,8 +791,11 @@ Part 2 Implement Database functionality:
             ✔ Added swipe to Tags Page.
             ✔ Added Article Tag to Card
             ✔ Add Card Size Controls to tag page 
+            
+            // Finish these and get a new release to the portfolio.
             ☐ Improved handling of hiding all articles
-            ☐ Redo the entire bloody tags page.
+            ☐ Tags rethink
+            
 
 
 
@@ -808,12 +815,7 @@ Part 2 Implement Database functionality:
             ☐ Fixed Issue where clear cache button failed to appear when swiping articles right.✔ @done(16:33 - 15/03/21)
             ☐ Remove the database call in news-page.js.
 
-
-            Known Issues:
-                ☐ Newly loaded articles are not being hidden on reload. @started(16:29 - 11/03/21)
-                    // 15/3/2021 - Unable to repeat this issue.
-                ☐ If you hide all articles you get nothing but a blank page @started(16:44 - 15/03/21)
-                
+              
 
   
 

@@ -114,7 +114,7 @@ class NewsItemLoopView extends React.Component{
     }
 
     render(){  
-        localStorage.getItem("filterFilterView")
+
         const thing = this.state.renderArray;
             // console.log(thing)
 
@@ -125,10 +125,6 @@ class NewsItemLoopView extends React.Component{
 
 
         // console.log(this.state.getArticleBy)
-        const filterArticlesBy2 = this.props.fullDatabaseCall.filter(obj => obj.tag === this.state.getArticleBy); 
-        // console.log(filterArticlesBy2)
-
-
 
         const renderToPage =  thing || this.props.databaseProp ;
         console.log(renderToPage)  
