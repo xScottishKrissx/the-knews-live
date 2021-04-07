@@ -663,7 +663,8 @@ General Notes  Objectives:
                     ✔ It's because the hide button returns an array that has other tags in it. These are then filtered out of the array in getArticles. I need a way of getting back just an array with the correct tags. I may need to tweak the hide-article component. @done(17:49 - 07/04/21)
                         ✔ There is all sorts of weirdness going on here. I'm leaving this for now and sleeping on it. @started(18:46 - 06/04/21) @done(17:47 - 07/04/21) @lasted(23h1m16s)
                         ✔ Solution - Added code into the hide-article file that retrieves and edits a full database call, sets the article to hidden, and returns that array to the page to be rendered. THis is also stored in local storage and is the main array used for rendering tags(after being filtered), so it works with both filter and no filter. @done(17:49 - 07/04/21)
-                
+                ☐ I am once again seeing duplicate articles in the unfiltered view. @started(18:11 - 07/04/21)
+                    // One of the classics...
 
         
         
@@ -791,7 +792,7 @@ Part 2 Implement Database functionality:
             ✔ Added swipe to Tags Page.
             ✔ Added Article Tag to Card
             ✔ Add Card Size Controls to tag page 
-            
+
             // Finish these and get a new release to the portfolio.
             ☐ Improved handling of hiding all articles
             ☐ Tags rethink

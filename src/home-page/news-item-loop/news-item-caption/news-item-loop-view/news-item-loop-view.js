@@ -1,12 +1,10 @@
 import React from 'react';
-import fire from '../../../../fire.js'
 import '../news-item-loop-view/news-item-loop-view.css';
 import Caption from '../../news-item-caption/news-item-caption.js';
 import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 
 
 import HideArticle from '../../../../utility_components/hide-article/hide-article';
-import ScrollCheck from '../../../../utility_components/ScrollCheck';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import CheckCache from '../../../../utility_components/checkCache.js';
 
@@ -30,7 +28,7 @@ class NewsItemLoopView extends React.Component{
         changedCardSize:{width: localStorage.getItem("myData")},
         postsArray:[],
 
-        //testing
+        //hiding articles for filter views
         getArticleBy:"All",
         renderArray:[],
         
@@ -48,66 +46,42 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.fullDatabaseCall)
+        // console.log(this.props.fullDatabaseCall)
         // If no filter option exists in storage, set as All to display a default view.
         if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
 
-        // console.log(localStorage.getItem("filterOption"))
-        // console.log(this.props.databaseProp)
-        const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
-        // console.log(editedArticleArray)
-        const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
-        // console.log(fullDatabaseCall)
-
-        console.log(this.state.getArticleBy)
-        if(this.state.getArticleBy === "" || null ){
-            // console.log("Load Default View")
-            this.setState({
-                renderArray:fullDatabaseCall,
-                
-            })
-        }
-        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-        // console.log(localStorage.getItem("filterOption"))
-
         // Remember filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
-
-
     }
 
     getArticlesBy(value){
-        const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
-        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        console.log(fullDatabaseCallFromStorage)
-        // console.log(editedArticleArray)
-        // const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
-        const fullDatabaseCall = fullDatabaseCallFromStorage || this.props.fullDatabaseCall;
-        // console.log(fullDatabaseCall)
-        const filteredFullDatabaseCall = fullDatabaseCall.filter(obj => obj !== null);
-        const hideForFilter = filteredFullDatabaseCall.filter(obj => obj.hidden !== true)
 
-        // Filter Article By Tag or Not
-        // console.log(value)
-        const filterArticlesBy = hideForFilter.filter(obj => obj.tag === value);
-        // console.log(filterArticlesBy)
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        const fullDatabaseCallFromProp = this.props.fullDatabaseCall
+
+        const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
+        // Filter array for null objects and remove anything marked as hidden.
+        const filteredForHiddenArticlesDB = fullDatabaseCall.filter(obj => 
+            obj !== null && 
+            obj.hidden !== true
+        );
+        
+        // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
+        const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
 
         // change leftover articles to include only relevant articles
         // const leftoverArticles = this.props.fullDatabaseCall.filter(obj => obj.tag === value);
         // console.log(leftoverArticles.slice(20))
         
-
         this.setState({
             getArticleBy:value,
-            renderArray:filterArticlesBy,
+            renderArray:filteredByTag,
             // leftoverArticles:leftoverArticles.slice(20)
         })
 
         // console.log(this.props.databaseProp)
-        if(value === "All")this.setState({renderArray:hideForFilter || this.props.databaseProp})
+        if(value === "All")this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
         
-        // console.log("Filter Articles By " + value)
-
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value)
         
@@ -115,19 +89,9 @@ class NewsItemLoopView extends React.Component{
 
     render(){  
 
-        const thing = this.state.renderArray;
-            // console.log(thing)
-
-        // console.log(this.props.databaseProp)  
-
-        const filterArticlesBy = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy); 
-            // console.log(filterArticlesBy)
-
-
-        // console.log(this.state.getArticleBy)
-
-        const renderToPage =  thing || this.props.databaseProp ;
-        console.log(renderToPage)  
+        const latestToRender = this.state.renderArray;
+        const renderToPage =  latestToRender || this.props.databaseProp ;
+ 
         const HomePageView = renderToPage.map((value,key) => {                 
             
             return (         
@@ -137,7 +101,7 @@ class NewsItemLoopView extends React.Component{
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} specialFilter={filterArticlesBy}
+                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} 
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     />     
                     
