@@ -31,7 +31,7 @@ class NewsItemLoopView extends React.Component{
         postsArray:[],
 
         //testing
-        getArticleBy:"",
+        getArticleBy:"All",
         renderArray:[],
         
         }
@@ -48,21 +48,25 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
-        console.log(localStorage.getItem("filterOption"))
+        // console.log(this.props.fullDatabaseCall)
+        localStorage.setItem("filterOption","All")
+        // console.log(localStorage.getItem("filterOption"))
         // console.log(this.props.databaseProp)
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
         // console.log(editedArticleArray)
         const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
-        console.log(fullDatabaseCall)
+        // console.log(fullDatabaseCall)
 
+        console.log(this.state.getArticleBy)
         if(this.state.getArticleBy === "" || null ){
-            console.log("Load Default View")
+            // console.log("Load Default View")
             this.setState({
-                renderArray:fullDatabaseCall
+                renderArray:fullDatabaseCall,
+                getArticleBy:"All"
             })
         }
         // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-        console.log(localStorage.getItem("filterOption"))
+        // console.log(localStorage.getItem("filterOption"))
 
         // Remember filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
@@ -72,7 +76,7 @@ class NewsItemLoopView extends React.Component{
 
     getArticlesBy(value){
         const editedArticleArray =JSON.parse(localStorage.getItem("editedArticleArray"))
-        console.log(editedArticleArray)
+        // console.log(editedArticleArray)
         const fullDatabaseCall = editedArticleArray || this.props.fullDatabaseCall;
         const filteredFullDatabaseCall = fullDatabaseCall.filter(obj => obj !== null);
 
@@ -92,10 +96,10 @@ class NewsItemLoopView extends React.Component{
             // leftoverArticles:leftoverArticles.slice(20)
         })
 
-        console.log(this.props.databaseProp)
+        // console.log(this.props.databaseProp)
         if(value === "All")this.setState({renderArray:this.props.databaseProp})
         
-        console.log("Filter Articles By " + value)
+        // console.log("Filter Articles By " + value)
 
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value)
@@ -103,23 +107,24 @@ class NewsItemLoopView extends React.Component{
     }
 
     render(){  
+        localStorage.getItem("filterFilterView")
         const thing = this.state.renderArray;
-            console.log(thing)
+            // console.log(thing)
 
-        console.log(this.props.databaseProp)  
+        // console.log(this.props.databaseProp)  
 
         const filterArticlesBy = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy); 
-            console.log(filterArticlesBy)
+            // console.log(filterArticlesBy)
 
 
-        console.log(this.state.getArticleBy)
+        // console.log(this.state.getArticleBy)
         const filterArticlesBy2 = this.props.fullDatabaseCall.filter(obj => obj.tag === this.state.getArticleBy); 
-        console.log(filterArticlesBy2)
+        // console.log(filterArticlesBy2)
 
 
 
-        const renderToPage = filterArticlesBy || thing || this.props.databaseProp ;
-        console.log(renderToPage)  
+        const renderToPage =  thing || this.props.databaseProp ;
+        // console.log(renderToPage)  
         const HomePageView = renderToPage.map((value,key) => {                 
             
             return (         
@@ -129,7 +134,7 @@ class NewsItemLoopView extends React.Component{
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
                     <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} testFilterOption={this.state.getArticleBy}/>     
+                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} specialFilter={filterArticlesBy}/>     
                     
                     <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                         <SwipeableListItem 

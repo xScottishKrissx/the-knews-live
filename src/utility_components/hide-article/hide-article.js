@@ -28,6 +28,17 @@ export class HideArticle extends React.Component{
         // console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
+        console.log(this.props.specialFilter)
+        var filterFilter = this.props.specialFilter.map(el => {
+            if(el.id === value && el != null )
+                return Object.assign({}, el, {hidden:true})
+                
+                return el
+                
+        });
+        const outputFilterFilter = filterFilter.filter(obj => obj.hidden !== true);
+        console.log(outputFilterFilter)
+        localStorage.setItem("filterFilterView", JSON.stringify(outputFilterFilter));
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         const mainArray = editedArray || this.props.arrayFromDatabase;

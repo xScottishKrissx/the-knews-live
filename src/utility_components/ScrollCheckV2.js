@@ -104,7 +104,7 @@ class ScrollCheckV2 extends React.Component{
         // const filterArticlesBy = mainArray.filter(obj => obj.tag === this.props.getArticleBy);
         // console.log(filterArticlesBy)
 
-        console.log(this.props.leftoverArticles)
+        // console.log(this.props.leftoverArticles)
 
         const pageView = mainArray.map((value,key) => {
         
