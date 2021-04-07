@@ -653,6 +653,9 @@ General Notes  Objectives:
                 ✔ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21) @done(16:20 - 06/04/21) @lasted(1d14m31s)
                 ☐ All current tags functionality should be retained @started(16:41 - 05/04/21)
                     ☐ Author and Date Pages for example.
+                    ☐ To do this I need work with routes and use the old tags page as a place to go
+                        Bugs / Issues / To-do:
+                            ☐ To Start -> Get a prop from the article page to the new tags-v3 file.
             
             Bugs / Issues / Notes:
                 ✔ If you clear cache you get an empty page until you select a filter option @started(16:39 - 05/04/21) @done(17:40 - 05/04/21) @lasted(1h1m)
