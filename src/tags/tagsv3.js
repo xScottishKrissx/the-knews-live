@@ -112,8 +112,12 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        const author = this.props.location.state.author
-        const dbRef = fire.database().ref('items').orderByChild("author").equalTo(author);
+        const orderQueryByChild = this.props.location.state.orderByChild
+        const searchDBFor = this.props.location.state.author
+        const thingFromArticle = this.props.location.state.thingFromArticle;
+        console.log(orderQueryByChild + " " + searchDBFor)
+        console.log(this.props.location.state.orderByChild)
+        const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).equalTo(searchDBFor);
 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
