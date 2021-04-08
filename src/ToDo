@@ -653,9 +653,16 @@ General Notes  Objectives:
                 ✔ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21) @done(16:20 - 06/04/21) @lasted(1d14m31s)
                 ☐ All current tags functionality should be retained @started(16:41 - 05/04/21)
                     ☐ Author and Date Pages for example.
-                    ☐ To do this I need work with routes and use the old tags page as a place to go
+                        ☐ I don't think there is a way around needing a database call for this if I want these pages to be directly accessible @started(17:53 - 08/04/21)
+
+                    ✔ To do this I need work with routes and use the old tags page as a place to go @done(17:52 - 08/04/21)
+                        I may need another database call here If I want to be able to access each page without needing to go through home. This would be the 3rd required call
+                            1st - Home | 2nd - Article | 3rd - Tags
+                            ✔ I feel like this would just bring me back to where I was before redoing the tags page in the first place. @done(17:52 - 08/04/21)
+                                ✔ What If I pass a parameter from a url like theKnews.com/tags/news into state. Would that render the news tags the same as the getArticle button? @done(17:52 - 08/04/21)
+                                    ✔ Yup. I have created a redirect that allows me to pass a url param as a prop(news,weather, sports) and set the render view in news-item-loop-view.js as if I was pressing one of the filter buttons. @done(17:52 - 08/04/21)
                         Bugs / Issues / To-do:
-                            ☐ To Start -> Get a prop from the article page to the new tags-v3 file.
+                            ✔ To Start -> Get a prop from the article page to the new tags-v3 file. @done(17:54 - 08/04/21)
             
             Bugs / Issues / Notes:
                 ✔ If you clear cache you get an empty page until you select a filter option @started(16:39 - 05/04/21) @done(17:40 - 05/04/21) @lasted(1h1m)
@@ -795,6 +802,7 @@ Part 2 Implement Database functionality:
             ✔ Added swipe to Tags Page.
             ✔ Added Article Tag to Card
             ✔ Add Card Size Controls to tag page 
+            ✔ Filter Views can now be directly accessed, function as tag pages.
 
             // Finish these and get a new release to the portfolio.
             ☐ Improved handling of hiding all articles

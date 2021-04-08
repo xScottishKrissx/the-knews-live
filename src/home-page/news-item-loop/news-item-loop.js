@@ -9,8 +9,8 @@ import NewsItemLoopView from './news-item-caption/news-item-loop-view/news-item-
 
 import loading from '../../img/loading5.gif';
 
-export const NewsItemLoop = () => {
-    return <MapDatabaseItems />;    
+export const NewsItemLoop = (props) => {
+    return <MapDatabaseItems props={props.urlTagProp}/>;    
 }
 
 class MapDatabaseItems extends React.Component{
@@ -44,6 +44,8 @@ class MapDatabaseItems extends React.Component{
     }
 
     componentDidMount(){
+        // console.log(this.props.location.search)
+        console.log(this.props.props)
         // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
         if(localStorage.getItem("hiddenPostList") === null){
             this.setState({
@@ -101,6 +103,9 @@ class MapDatabaseItems extends React.Component{
 
 
     render(){
+
+
+
         // NUCLEAR OPTION -> Just in case anything goes wrong...
         // localStorage.removeItem("editedArticleArray")
         // localStorage.removeItem("editedLeftoverArticlesArray")
@@ -118,6 +123,7 @@ class MapDatabaseItems extends React.Component{
                             databaseProp={arrayWithArticlesHidden } 
                             leftoverArticles={this.state.leftoverArticles}
                             fullDatabaseCall={this.state.fullDatabaseCall}
+                            urlTagProp={this.props.props}
                         /> 
         
                         <ScrollToTopButton   />

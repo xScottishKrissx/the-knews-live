@@ -50,7 +50,15 @@ class NewsItemLoopView extends React.Component{
         // If no filter option exists in storage, set as All to display a default view.
         if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
 
-        // Remember filter option.
+        // Detect url params and set the view as appropriate. This functions as the tag page.
+        // console.log(this.props.urlTagProp)
+        const urlTagProp = this.props.urlTagProp;  
+        if(urlTagProp && urlTagProp.includes("news" || "News"))localStorage.setItem("filterOption","News");
+        if(urlTagProp && urlTagProp.includes("sports"||"Sports"))localStorage.setItem("filterOption","Sports");
+        if(urlTagProp && urlTagProp.includes("weather"||"weather"))localStorage.setItem("filterOption","Weather");
+        if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
+
+        // Set filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
     }
 

@@ -19,6 +19,7 @@ export class Routes extends React.Component{
                 <Switch>            
                     <Redirect exact from="/" to="/theKnews/home" /> 
                     <Redirect exact from="/theKnews/" to="/theKnews/home" /> 
+                    <Redirect exact from="/theKnews/home/tags/:tagname" to="/theKnews/home" /> 
                     <Route exact path="/theKnews/home" component={Home} /> 
                 </Switch> 
 
@@ -35,6 +36,7 @@ export class Routes extends React.Component{
                 {/* <Route path="/news-page/:id" component={NewsPage}/> */}
 
                 <Route path="/articles/news-page/:id" component={NewsPage}/>
+                <Route path="/tags/:tagname" component={Home}/>
                 {/* <Route path=":id" component={NewsPage}/> */}
                 
             </div>

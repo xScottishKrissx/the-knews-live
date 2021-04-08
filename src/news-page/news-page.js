@@ -73,7 +73,6 @@ export class NewsPage extends React.Component{
     render(){    
 
     const arrayLength = this.state.articlesArray.length;
-    const test = arrayLength;
     return (
         
         <span>
@@ -89,7 +88,7 @@ export class NewsPage extends React.Component{
         */}
 
 
-        {test >= 1 ?         
+        {arrayLength >= 1 ?         
             <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  /> 
 
         
