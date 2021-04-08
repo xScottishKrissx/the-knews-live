@@ -63,6 +63,7 @@ const ArticleArea = (props) => {
                                 pathname: '/theKnews/tags/author' , 
                                 state:{
                                     author: props.author, 
+                                    tag:props.tag,
                                     searchDBFor: "author",
                                     origin: "Article", 
                                     orderByChild: "author"

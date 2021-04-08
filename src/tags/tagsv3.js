@@ -21,6 +21,65 @@ import closePopup from '../utility_components/closePopup.js';
 import swipeRightAction from '../utility_components/swipeRightAction.js';
 import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
 
+export const MapItemsTest = (props) => {
+        const mapTags = props.database;
+        console.log(props.database)
+        // console.log(this.props.location.state.tag3)
+        console.log(mapTags)
+        const pageView = mapTags.map((value,key) => {
+            return(
+                
+                   
+                <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
+                    
+                    <CheckCache id={value.id}/>
+
+                    <HideArticle articleId={value.id}/>    
+
+                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+                        <SwipeableListItem 
+                            
+                            swipeLeft={{
+                                content: <SwipeLeftContent 
+                                        id={value.id} 
+                                        title={value.title} 
+                                        author={value.author} 
+                                        text={value.text} 
+                                        closePopup={closePopup} 
+                                        headerImage={value.id} />,
+                                action: () => swipeLeftAction(value.text, value.id) 
+                            }}
+                            
+                            swipeRight={{
+                                content: <div>Hiding article...</div>, 
+                                action: () => swipeRightAction(value.id, props.postsArray)
+                            }}
+                        >
+                                
+                                <div className='news-square' name="tags-original-load-news"  key={key}  
+                                style={ props.startingCardSize || props.changedCardSize } >                    
+                                    <Caption 
+                                        pageId={value.key}
+                                        title={value.title}
+                                        author={value.author}
+                                        likes={value.likes}
+                                        dislikes={value.dislikes}
+                                        articleId={value.id}
+                                        tag={value.tag}
+                                        imageId={value.id}
+                                        />
+                                </div>
+                        
+                        </SwipeableListItem>
+                        </SwipeableList>
+
+
+                </div>
+                
+            )
+        })
+        return pageView;
+    }   
 
 
 class Tags extends React.Component{
@@ -53,72 +112,101 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        
+        const author = this.props.location.state.author
+        const dbRef = fire.database().ref('items').orderByChild("author").equalTo(author);
+
+        dbRef.on('value', (snapshot) => {
+            let newsItems = snapshot.val();
+            // console.log(newsItems);
+            let newState = [];
+            for(let newsItem in newsItems){
+                newState.push({
+                    key: newsItem,
+                    author: newsItems[newsItem].author,
+                    title: newsItems[newsItem].title,
+                    likes: newsItems[newsItem].likes,
+                    dislikes: newsItems[newsItem].dislikes,
+                    id:newsItems[newsItem].id,
+                    tag:newsItems[newsItem].tag,
+                    text:newsItems[newsItem].text
+                });
+                // console.log(newState)
+            }
+
+            this.setState({
+                articlesArray: newState
+            })
+            // console.log(this.state.articlesArray)
+            // localStorage.setItem("articlesArray", JSON.stringify(this.state.articlesArray))
+            // console.log(localStorage.getItem("articlesArray"))
+            
+        })
     }
 
 
     render(){
         console.log("Render Tags.v3")
-        console.log(this.state.articlesArray)
-        console.log(this.state.leftoverArticles)
-        console.log(this.props.location.state.author)
+        // console.log(this.state.articlesArray)
+        // console.log(this.state.leftoverArticles)
+
+        // console.log("Author : " + this.props.location.state.author)
 
         const mapTags = this.state.articlesArray;
         // console.log(this.props.location.state.tag3)
         console.log(mapTags)
 
-        const pageView = mapTags.map((value,key) => {
-            return(
+        // const pageView = mapTags.map((value,key) => {
+        //     return(
                 
                    
-                <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
+        //         <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
                     
-                    <CheckCache id={value.id}/>
+        //             <CheckCache id={value.id}/>
 
-                    <HideArticle articleId={value.id}/>    
+        //             <HideArticle articleId={value.id}/>    
 
-                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                        <SwipeableListItem 
+        //             <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+        //                 <SwipeableListItem 
                             
-                            swipeLeft={{
-                                content: <SwipeLeftContent 
-                                        id={value.id} 
-                                        title={value.title} 
-                                        author={value.author} 
-                                        text={value.text} 
-                                        closePopup={closePopup} 
-                                        headerImage={value.id} />,
-                                action: () => swipeLeftAction(value.text, value.id) 
-                            }}
+        //                     swipeLeft={{
+        //                         content: <SwipeLeftContent 
+        //                                 id={value.id} 
+        //                                 title={value.title} 
+        //                                 author={value.author} 
+        //                                 text={value.text} 
+        //                                 closePopup={closePopup} 
+        //                                 headerImage={value.id} />,
+        //                         action: () => swipeLeftAction(value.text, value.id) 
+        //                     }}
                             
-                            swipeRight={{
-                                content: <div>Hiding article...</div>, 
-                                action: () => swipeRightAction(value.id, this.state.postsArray)
-                            }}
-                        >
+        //                     swipeRight={{
+        //                         content: <div>Hiding article...</div>, 
+        //                         action: () => swipeRightAction(value.id, this.state.postsArray)
+        //                     }}
+        //                 >
                                 
-                                <div className='news-square' name="tags-original-load-news"  key={key}  
-                                style={ this.state.startingCardSize || this.state.changedCardSize } >                    
-                                    <Caption 
-                                        pageId={value.key}
-                                        title={value.title}
-                                        author={value.author}
-                                        likes={value.likes}
-                                        dislikes={value.dislikes}
-                                        articleId={value.id}
-                                        tag={value.tag}
-                                        imageId={value.id}
-                                        />
-                                </div>
+        //                         <div className='news-square' name="tags-original-load-news"  key={key}  
+        //                         style={ this.state.startingCardSize || this.state.changedCardSize } >                    
+        //                             <Caption 
+        //                                 pageId={value.key}
+        //                                 title={value.title}
+        //                                 author={value.author}
+        //                                 likes={value.likes}
+        //                                 dislikes={value.dislikes}
+        //                                 articleId={value.id}
+        //                                 tag={value.tag}
+        //                                 imageId={value.id}
+        //                                 />
+        //                         </div>
                         
-                        </SwipeableListItem>
-                        </SwipeableList>
+        //                 </SwipeableListItem>
+        //                 </SwipeableList>
 
 
-                </div>
+        //         </div>
                 
-            )
-        })
+        //     )
+        // })
 
         return(
             
@@ -134,10 +222,17 @@ class Tags extends React.Component{
                         <h1>Showing articles from {this.props.location.state.author}</h1>
                         }              
                         
-                        {pageView}
+                        {/* {pageView} */}
+                        <MapItemsTest 
+                            database={this.state.articlesArray}
+                            startingCardSize={this.state.startingCardSize}
+                            changedCardSize={this.state.changedCardSize}
+                            postsArray={this.state.postsArray}
+                        />
 
                         <ScrollCheckV2 
                             leftoverArticles={this.state.leftoverArticles}
+    
                         />
                 </div>
                 <CustomCardSize getCardSizeToParent={this.getCardSize}/>

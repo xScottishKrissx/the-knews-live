@@ -654,6 +654,9 @@ General Notes  Objectives:
                 ☐ All current tags functionality should be retained @started(16:41 - 05/04/21)
                     ☐ Author and Date Pages for example.
                         ☐ I don't think there is a way around needing a database call for this if I want these pages to be directly accessible @started(17:53 - 08/04/21)
+                        SIDE PROJECT:
+                            ☐ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21)
+                                ☐ Looks like I can. I have the .map for tagsv3 as a functional component outputting a database query for articles matching an author. I'll see if this can be applied to the other similiar .maps I have. Would save a lot of space and be a lot more convenient if I can get this working
 
                     ✔ To do this I need work with routes and use the old tags page as a place to go @done(17:52 - 08/04/21)
                         I may need another database call here If I want to be able to access each page without needing to go through home. This would be the 3rd required call
