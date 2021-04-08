@@ -52,12 +52,16 @@ class Tags extends React.Component{
         })
     }
 
+    componentDidMount(){
+        
+    }
 
 
     render(){
         console.log("Render Tags.v3")
         console.log(this.state.articlesArray)
         console.log(this.state.leftoverArticles)
+        console.log(this.props.location.state.author)
 
         const mapTags = this.state.articlesArray;
         // console.log(this.props.location.state.tag3)

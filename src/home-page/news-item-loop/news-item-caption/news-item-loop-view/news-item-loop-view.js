@@ -91,11 +91,11 @@ class NewsItemLoopView extends React.Component{
 
         const latestToRender = this.state.renderArray;
         const renderToPage =  latestToRender || this.props.databaseProp ;
- 
+        // console.log(renderToPage)
         const HomePageView = renderToPage.map((value,key) => {                 
             
             return (         
-                
+            
                 <div id={value.id} key={value.id} className="myClass">   
                               
                     {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
@@ -136,6 +136,8 @@ class NewsItemLoopView extends React.Component{
                                         articleId={value.id}
                                         tag={value.tag}
                                         imageId={value.id}
+
+                                        test={renderToPage.filter(obj => obj.id === value.id)}
                                         />
                                 </div>
                         

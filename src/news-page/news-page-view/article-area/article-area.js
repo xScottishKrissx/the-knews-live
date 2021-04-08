@@ -28,6 +28,8 @@ const ArticleArea = (props) => {
     //const loggedInEmail = "chrisdunne66@gmail.com"
     // const articleEmail = props.email;
     console.log(props.articleId)
+    
+    
     return (
             
             <div className='article'>
@@ -55,7 +57,17 @@ const ArticleArea = (props) => {
                     
                     <h3 className="__article-author">
                         <span>Author</span>
-                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/author' , state: {author: props.author, searchDBFor: "author",origin: "Article", orderByChild: "author"}}}>
+                        <Link 
+                            className="__news-item-link" 
+                            to={{
+                                pathname: '/theKnews/tags/author' , 
+                                state:{
+                                    author: props.author, 
+                                    searchDBFor: "author",
+                                    origin: "Article", 
+                                    orderByChild: "author"
+                                    }
+                                }}>
                                 {props.author}
                         </Link>
                     </h3>

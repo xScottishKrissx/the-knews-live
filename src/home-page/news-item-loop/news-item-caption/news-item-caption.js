@@ -34,6 +34,7 @@ export class Caption extends React.Component{
             width:"100%"
             
         }
+    
 
         
 
@@ -41,7 +42,13 @@ export class Caption extends React.Component{
 
             <Link 
                 className="news-item-link" 
-                to={{pathname: '/articles/news-page/' + pageId}}
+                to={{
+                    pathname: '/articles/news-page/' + pageId,
+                    state:{
+                        articleObject: this.props.test, 
+                        }
+                }}
+                testProp={this.props.test}
             >
                 <div style={style}>
                     <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>

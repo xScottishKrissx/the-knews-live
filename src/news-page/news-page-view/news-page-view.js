@@ -31,6 +31,7 @@ export class NewsPageVIEW extends React.Component{
     }
     componentDidMount(){
         this.setState({ownsArticle: false})
+        console.log("News-Page-View.js")
 
         const dbRef = fire.database().ref("items");   
        // console.log("db-ref: " + dbRef);
@@ -58,7 +59,9 @@ export class NewsPageVIEW extends React.Component{
           this.setState({
             articlesArray: tempState
           })
-          // console.log(this.props.params)
+          console.log(this.props.params)
+          // console.log(this.props.testProp)
+         
           //console.log(((this.state.articlesArray).length) + 1)
   
           
@@ -80,10 +83,12 @@ export class NewsPageVIEW extends React.Component{
 
     componentWillUnmount(){
         console.log("Unmount on practice-form.js")
-        fire.database().ref("items").off();      
+        fire.database().ref("items").off();     
       }
     render(){
         const database = this.props.database;
+        console.log(database)
+        
         //console.log(this.props.scrollpos)
         //console.log({GeneratePostDate})
         //console.log(Number(database))
