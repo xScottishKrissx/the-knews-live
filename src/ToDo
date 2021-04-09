@@ -666,7 +666,19 @@ General Notes  Objectives:
                                  ☐ hiding @started(11:42 - 09/04/21)
                                     ✔ Progress - I can hide articles and the rest of the website respects the hide, but refreshing the page renders the articles that should be hidden.
                                     ☐ Hidden Articles should be hidden
+                                        A couple of issus here with the code meant to solve this:
+                                            ☐ Sometimes nothing appears on the post date page. I haven't been able to reliably replicate the issue. @started(12:46 - 09/04/21)
+                                            ☐ Random articles being added to the home filters. @started(12:46 - 09/04/21)
+                                                ☐ They don't have tags
+                                                ☐ They're the same 4 articles every time it happens
+                                                ☐ Clearing cache removes them
+                                                ☐ Appear after hiding anything on a tags page
+                                                ☐ Reloading the page removes them
+                                            ☐ Sometimes extra articles are added to the tags page. @started(12:56 - 09/04/21)
+
                                  ☐ url redirects for tags
+                                        ☐ My current attempt is to use another component(modified version of tags), would it not be easier to use redirects instead here?
+                                        ☐ If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
 
                         SIDE PROJECT:
                             ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)

@@ -7,6 +7,7 @@ import './routes.css';
 import Home from '../home-page/home.js';
 // import Tags from '../tags/tags.js';
 import Tags from '../tags/tagsv3.js';
+import TagsURL from '../tags/tagsv3.1.js';
 import NewsPage from '../news-page/news-page.js';
 // import Form from '../myKnews/form.js';
 import { PracticeForm } from '../myKnews/practice-form';
@@ -37,6 +38,7 @@ export class Routes extends React.Component{
 
                 <Route path="/articles/news-page/:id" component={NewsPage}/>
                 <Route path="/tags/:tagname" component={Home}/>
+                <Route path="/search/:x" component={TagsURL}/>
                 {/* <Route path=":id" component={NewsPage}/> */}
                 
             </div>

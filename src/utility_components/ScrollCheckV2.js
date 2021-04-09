@@ -85,6 +85,7 @@ class ScrollCheckV2 extends React.Component{
       }
 
     render(){
+        console.log(this.state.mainArray)
         return(
             <React.Fragment>
                 {/* {pageView} */}

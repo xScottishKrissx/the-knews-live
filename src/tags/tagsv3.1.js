@@ -18,14 +18,17 @@ class Tags extends React.Component{
         this.state = {
             articlesArray: [],
             leftoverArticles:[],
-            searchDBFor: this.props.location.state.searchDBFor,
+            searchDBFor: this.props.match.params.x || this.props.location.state.searchDBFor,
             
             // Hiding Posts
             postsArray:[],
 
             // Custom Card Size
             startingCardSize:"",
-            changedCardSize:{width: localStorage.getItem("myData")},       
+            changedCardSize:{width: localStorage.getItem("myData")},    
+            
+            //Testing
+            fullDatabaseCall:[]
             
         }
         this.getCardSize = this.getCardSize.bind(this);
@@ -41,12 +44,15 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        const orderQueryByChild = this.props.location.state.orderByChild
-        const searchDBFor = this.props.location.state.author
-        const thingFromArticle = this.props.location.state.thingFromArticle;
+        console.log(this.props.match.params.x)
+        const orderQueryByChild = "author" || this.props.location.state.orderByChild
+        const searchDBFor = this.props.match.params.x || this.props.location.state.author
+        // const thingFromArticle = this.props.location.state.thingFromArticle;
         console.log(orderQueryByChild + " " + searchDBFor)
-        console.log(this.props.location.state.orderByChild)
-        const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).equalTo(searchDBFor);
+        // console.log(this.props.location.state.orderByChild)
+        const dbRef =
+        fire.database().ref('items').orderByChild("author").equalTo(searchDBFor) ||
+        fire.database().ref('items').orderByKey().limitToFirst(97); 
 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -68,28 +74,35 @@ class Tags extends React.Component{
             }
 
             this.setState({
-                articlesArray: newState
+                articlesArray: newState,
+                fullDatabaseCall: newState,
+                leftoverArticles:newState.slice(30,97)
             })            
         })
+
+        
     }
 
 
     render(){
-        console.log("Render Tags.v3")
-        console.log(this.props.location.state.author)
-        console.log(this.props.location.state.arrayFromDatabase)
-        console.log(this.props.location.state.leftoverArticles)
-        console.log(this.props.location.state.fullDatabaseCall)
         
+        console.log("Render Tags.v3")
+        console.log(this.state.articlesArray)
+        console.log(this.props.match.params.x)
+        
+        console.log(this.props.match.params.x || this.props.location.state.author)
+        console.log(this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase)
+        console.log(this.state.leftoverArticles || this.props.location.state.leftoverArticles)
+        // console.log(this.props.location.state.fullDatabaseCall)
         
 
-        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.location.state.fullDatabaseCall;
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall;
 
         console.log(fullDatabaseCallFromStorage) 
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
             obj.hidden !== true &&
-            obj.author === this.props.location.state.author ||
-            obj.postdate === this.props.location.state.author
+            obj.author === this.props.match.params.x || this.props.location.state.author ||
+            obj.postdate === this.props.match.params.x || this.props.location.state.author
         ) || this.props.location.state.arrayFromDatabase;
         const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
         console.log(renderTags)
@@ -100,10 +113,10 @@ class Tags extends React.Component{
                         <ClearCache />
 
                         <NavControls props="only-home-button"/>
-                        {this.props.location.state.author === undefined ?
-                        <h1>Showing articles from {this.props.location.state.searchDBFor}</h1>
+                        {this.props.match.params.x || this.props.location.state.author === undefined ?
+                        <h1>Showing articles from {this.props.match.params.x || this.props.location.state.searchDBFor}</h1>
                         : 
-                        <h1>Showing articles from {this.props.location.state.author}</h1>
+                        <h1>Showing articles from {this.props.match.params.x || this.props.location.state.author}</h1>
                         }              
                         
                         <RenderCard 
@@ -113,9 +126,9 @@ class Tags extends React.Component{
                             postsArray={this.state.postsArray}
 
                             // This needs to be clean database call
-                            arrayFromDatabase={this.props.location.state.arrayFromDatabase}
-                            leftoverArticles={this.props.location.state.leftoverArticles}
-                            fullDatabaseCall={this.props.location.state.fullDatabaseCall}
+                            arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
+                            leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
+                            fullDatabaseCall={this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall}
                         />
 
                         <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} />

@@ -84,6 +84,7 @@ class NewsItemLoopView extends React.Component{
     render(){  
 
         const renderToPage = this.state.renderArray || this.props.databaseProp ;
+        console.log(renderToPage)
         return(
             
             <div className="newsItemLoopViewWrapper">
