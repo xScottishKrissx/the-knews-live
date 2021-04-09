@@ -19,16 +19,7 @@
 }
 
 
-/* Home Page Hide Button */
 
-.myClass .hideArticleButtonWrapper{
-    position: absolute;
-    z-index: 1;
-    right: 3px;
-    top: 3px;
-    padding: 0px;
-    cursor: pointer;
-}
 
 /* Article Page Hide Button */
 

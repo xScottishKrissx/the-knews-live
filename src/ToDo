@@ -102,6 +102,7 @@ Codebase:
         // I think the best course of action is to stop trying to fix older stuff, take what I've learned from this and apply it to the next project, one which I wont do bit's and pieces spaced years apart. 
         // There are good things about this project but I think it's beginning to get in the way of learning React properly.
     ✔ Created Component for Checking Cache for hidden posts and then hiding them. @done(15:49 - 15/01/21)
+    ☐ I'm pretty sure my css is all over the place with with styles not appearing in their correct corresponding styles file. Go through everything and make sure styles are placed where you would expect. @started(10:32 - 09/04/21)
 
             
                 
@@ -659,8 +660,9 @@ General Notes  Objectives:
                                  ☐ hiding
                                  ☐ url redirects for tags
                         SIDE PROJECT:
-                            ☐ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21)
-                                ☐ Looks like I can. I have the .map for tagsv3 as a functional component outputting a database query for articles matching an author. I'll see if this can be applied to the other similiar .maps I have. Would save a lot of space and be a lot more convenient if I can get this working
+                            ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)
+                                ✔ Looks like I can. I have the .map for tagsv3 as a functional component outputting a database query for articles matching an author. I'll see if this can be applied to the other similiar .maps I have. Would save a lot of space and be a lot more convenient if I can get this working @done(10:24 - 09/04/21)
+                                ✔ I have moved the home page over to the new component and everything is working as expected. @done(10:25 - 09/04/21)
                         ☐ 
                     ✔ To do this I need work with routes and use the old tags page as a place to go @done(17:52 - 08/04/21)
                         I may need another database call here If I want to be able to access each page without needing to go through home. This would be the 3rd required call

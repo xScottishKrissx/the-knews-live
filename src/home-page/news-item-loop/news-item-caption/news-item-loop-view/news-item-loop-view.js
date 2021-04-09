@@ -1,23 +1,8 @@
 import React from 'react';
 import '../news-item-loop-view/news-item-loop-view.css';
-// import Caption from '../../news-item-caption/news-item-caption.js';
 import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
-
-
-// import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
-// import CheckCache from '../../../../utility_components/checkCache.js';
-
-// Swiping
-// import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-// import '@sandstreamdev/react-swipeable-list/dist/styles.css';
-// import SwipeLeftContent from './swipe-views/article-modal.js';
-// import swipeLeftAction from '../../../../utility_components/swipeLeftAction.js';
-// import swipeRightAction from '../../../../utility_components/swipeRightAction.js';
-// import closePopup from '../../../../utility_components/closePopup.js';
 import RenderCard from '../../../../utility_components/renderCard/renderCard';
-
-// import update from 'immutability-helper';
 
 class NewsItemLoopView extends React.Component{
 
@@ -56,7 +41,7 @@ class NewsItemLoopView extends React.Component{
         const urlTagProp = this.props.urlTagProp;  
         if(urlTagProp && urlTagProp.includes("news" || "News"))localStorage.setItem("filterOption","News");
         if(urlTagProp && urlTagProp.includes("sports"||"Sports"))localStorage.setItem("filterOption","Sports");
-        if(urlTagProp && urlTagProp.includes("weather"||"weather"))localStorage.setItem("filterOption","Weather");
+        if(urlTagProp && urlTagProp.includes("weather"||"Weather"))localStorage.setItem("filterOption","Weather");
         if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
 
         // Set filter option.
@@ -98,66 +83,7 @@ class NewsItemLoopView extends React.Component{
 
     render(){  
 
-        const latestToRender = this.state.renderArray;
-        const renderToPage =  latestToRender || this.props.databaseProp ;
-        // console.log(renderToPage)
-    //     const HomePageView = renderToPage.map((value,key) => {                 
-            
-    //         return (         
-            
-    //             <div id={value.id} key={value.id} className="myClass">   
-                              
-    //                 {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
-    //                 <CheckCache id={value.id}/>
-                    
-    //                 <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} 
-    //                 fullDatabaseCall={this.props.fullDatabaseCall}
-    //                 />     
-                    
-    //                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-    //                     <SwipeableListItem 
-                            
-    //                         swipeLeft={{
-    //                             content: <SwipeLeftContent 
-    //                                     id={value.id} 
-    //                                     title={value.title} 
-    //                                     author={value.author} 
-    //                                     text={value.text} 
-    //                                     closePopup={closePopup} 
-    //                                     headerImage={value.id} />,
-    //                             action: () => swipeLeftAction(value.text, value.id) 
-    //                         }}
-                            
-    //                         swipeRight={{
-    //                             content: <div>Hiding article...</div>, 
-    //                             action: () => swipeRightAction(value.id, this.state.postsArray)
-    //                         }}
-    //                     >
-                                
-    //                             <div className='news-square'  key={key}  name="news-item-loop-view.js"
-    //                             style={ this.state.startingCardSize || this.state.changedCardSize} >                    
-    //                                 <Caption 
-    //                                     pageId={value.key}                                        
-    //                                     title={value.title}
-    //                                     author={value.author}
-    //                                     likes={value.likes}
-    //                                     dislikes={value.dislikes}
-    //                                     articleId={value.id}
-    //                                     tag={value.tag}
-    //                                     imageId={value.id}
-
-    //                                     test={renderToPage.filter(obj => obj.id === value.id)}
-    //                                     />
-    //                             </div>
-                        
-    //                     </SwipeableListItem>
-    //                     </SwipeableList>
-    //             </div>
-                      
-    //         );
-            
-    //   }) 
-
+        const renderToPage = this.state.renderArray || this.props.databaseProp ;
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -168,10 +94,7 @@ class NewsItemLoopView extends React.Component{
                 <button onClick={() => this.getArticlesBy("All")} >No Filter</button>
                 <p>Showing {this.state.getArticleBy} Articles</p>
 
-
-
                 {this.props.databaseProp.length >= 30 ? 
-                //  HomePageView
                  <RenderCard
                  database={renderToPage}
                  startingCardSize={this.state.startingCardSize}
@@ -183,7 +106,7 @@ class NewsItemLoopView extends React.Component{
                  postsArray={this.state.postsArray}
                  />
                 :
-                <p>Something has gone wrong. Contact your nearest guardian of light</p> 
+                <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 }
                 
                 
