@@ -18,6 +18,8 @@ export class NewsPageVIEW extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
+            leftoverArticles:[],
+            fullDatabaseCall:[],
             author:'',
             email:'',
             title:'',
@@ -39,9 +41,9 @@ export class NewsPageVIEW extends React.Component{
            
         dbRef.on('value', (snapshot) => {
           let dbObjects = snapshot.val();
-          let tempState = [];
+          let newState = [];
           for (let dbObject in dbObjects){
-            tempState.push({
+            newState.push({
               author: dbObjects[dbObject].author,
               email:dbObjects[dbObject].email,
               text:dbObjects[dbObject].text,
@@ -57,8 +59,11 @@ export class NewsPageVIEW extends React.Component{
             })
           }
           this.setState({
-            articlesArray: tempState
+            articlesArray: newState.slice(0,30),
+            leftoverArticles: newState.slice(30,97),
+            fullDatabaseCall: newState
           })
+          console.log(this.state.articlesArray)
           console.log(this.props.params)
           // console.log(this.props.testProp)
          
@@ -87,11 +92,13 @@ export class NewsPageVIEW extends React.Component{
       }
     render(){
         const database = this.props.database;
-        console.log(database)
+        // console.log(this.state.articlesArray)
+        // console.log(database)
         
         //console.log(this.props.scrollpos)
         //console.log({GeneratePostDate})
         //console.log(Number(database))
+        console.log(this.state.leftoverArticles)
         const NewsPageView = database.map((value) => {
             // console.log(value)
             //console.log("current author email:: " + value.email)
@@ -117,6 +124,11 @@ export class NewsPageVIEW extends React.Component{
                         articleId={value.id}
                         email={value.email}
                         owns={this.state.ownsArticle}
+
+                        //Hiding
+                        arrayFromDatabase={this.state.articlesArray}
+                        leftoverArticles={this.state.leftoverArticles}
+                        fullDatabaseCall={this.state.fullDatabaseCall}
                        
                     />
 

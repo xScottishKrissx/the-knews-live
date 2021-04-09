@@ -75,6 +75,9 @@ class Tags extends React.Component{
 
     render(){
         console.log("Render Tags.v3")
+        console.log(this.props.location.state.arrayFromDatabase)
+        console.log(this.props.location.state.leftoverArticles)
+        console.log(this.props.location.state.fullDatabaseCall)
         return(
             
             <div className="tags-wrapper">
@@ -93,6 +96,11 @@ class Tags extends React.Component{
                             startingCardSize={this.state.startingCardSize}
                             changedCardSize={this.state.changedCardSize}
                             postsArray={this.state.postsArray}
+
+                            // This needs to be clean database call
+                            arrayFromDatabase={this.props.location.state.arrayFromDatabase}
+                            leftoverArticles={this.props.location.state.leftoverArticles}
+                            fullDatabaseCall={this.props.location.state.fullDatabaseCall}
                         />
 
                         <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} />

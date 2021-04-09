@@ -28,6 +28,8 @@ const ArticleArea = (props) => {
     //const loggedInEmail = "chrisdunne66@gmail.com"
     // const articleEmail = props.email;
     console.log(props.articleId)
+    console.log(props.leftoverArticles)
+    console.log(props.fullDatabaseCall)
     
     
     return (
@@ -57,7 +59,10 @@ const ArticleArea = (props) => {
                                     author: props.postdate, 
                                     searchDBFor: "postdate",
                                     origin: "Article", 
-                                    orderByChild: "postdate"
+                                    orderByChild: "postdate",
+                                    arrayFromDatabase:props.arrayFromDatabase,
+                                    leftoverArticles:props.leftoverArticles,
+                                    fullDatabaseCall:props.fullDatabaseCall
                                 }
                             }}>
                             {props.postdate}
@@ -77,7 +82,10 @@ const ArticleArea = (props) => {
                                     searchDBFor: "author",
                                     origin: "Article", 
                                     orderByChild: "author",
-                                    thingFromArticle:props.tag
+                                    thingFromArticle:props.tag,
+                                    arrayFromDatabase:props.arrayFromDatabase,
+                                    leftoverArticles:props.leftoverArticles,
+                                    fullDatabaseCall:props.fullDatabaseCall
                                     }
                                 }}>
                                 {props.author}

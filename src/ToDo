@@ -663,9 +663,11 @@ General Notes  Objectives:
                             ✔ After some though I think this is correct and I will need to query the database @done(11:36 - 09/04/21)
                         ☐ I have restored functionality to click on author, postdate and tags to take you to a new page.
                             ☐ These will all need to be integrated into:
-                                 ☐ hiding
+                                 ☐ hiding @started(11:42 - 09/04/21)
+                                    ✔ Progress - I can hide articles and the rest of the website respects the hide, but refreshing the page renders the articles that should be hidden.
+                                    ☐ Hidden Articles should be hidden
                                  ☐ url redirects for tags
-                                 
+
                         SIDE PROJECT:
                             ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)
                                 ✔ Looks like I can. I have the .map for tagsv3 as a functional component outputting a database query for articles matching an author. I'll see if this can be applied to the other similiar .maps I have. Would save a lot of space and be a lot more convenient if I can get this working @done(10:24 - 09/04/21)
