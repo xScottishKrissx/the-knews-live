@@ -1,20 +1,21 @@
 import React from 'react';
 import '../news-item-loop-view/news-item-loop-view.css';
-import Caption from '../../news-item-caption/news-item-caption.js';
+// import Caption from '../../news-item-caption/news-item-caption.js';
 import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 
 
-import HideArticle from '../../../../utility_components/hide-article/hide-article';
+// import HideArticle from '../../../../utility_components/hide-article/hide-article';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
-import CheckCache from '../../../../utility_components/checkCache.js';
+// import CheckCache from '../../../../utility_components/checkCache.js';
 
 // Swiping
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
-import SwipeLeftContent from './swipe-views/article-modal.js';
-import swipeLeftAction from '../../../../utility_components/swipeLeftAction.js';
-import swipeRightAction from '../../../../utility_components/swipeRightAction.js';
-import closePopup from '../../../../utility_components/closePopup.js';
+// import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+// import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+// import SwipeLeftContent from './swipe-views/article-modal.js';
+// import swipeLeftAction from '../../../../utility_components/swipeLeftAction.js';
+// import swipeRightAction from '../../../../utility_components/swipeRightAction.js';
+// import closePopup from '../../../../utility_components/closePopup.js';
+import RenderCard from '../../../../utility_components/renderCard/renderCard';
 
 // import update from 'immutability-helper';
 
@@ -100,62 +101,63 @@ class NewsItemLoopView extends React.Component{
         const latestToRender = this.state.renderArray;
         const renderToPage =  latestToRender || this.props.databaseProp ;
         // console.log(renderToPage)
-        const HomePageView = renderToPage.map((value,key) => {                 
+    //     const HomePageView = renderToPage.map((value,key) => {                 
             
-            return (         
+    //         return (         
             
-                <div id={value.id} key={value.id} className="myClass">   
+    //             <div id={value.id} key={value.id} className="myClass">   
                               
-                    {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
-                    <CheckCache id={value.id}/>
+    //                 {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
+    //                 <CheckCache id={value.id}/>
                     
-                    <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} 
-                    fullDatabaseCall={this.props.fullDatabaseCall}
-                    />     
+    //                 <HideArticle articleId={value.id} arrayFromDatabase={this.props.databaseProp} leftoverArticles={this.props.leftoverArticles} 
+    //                 fullDatabaseCall={this.props.fullDatabaseCall}
+    //                 />     
                     
-                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                        <SwipeableListItem 
+    //                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+    //                     <SwipeableListItem 
                             
-                            swipeLeft={{
-                                content: <SwipeLeftContent 
-                                        id={value.id} 
-                                        title={value.title} 
-                                        author={value.author} 
-                                        text={value.text} 
-                                        closePopup={closePopup} 
-                                        headerImage={value.id} />,
-                                action: () => swipeLeftAction(value.text, value.id) 
-                            }}
+    //                         swipeLeft={{
+    //                             content: <SwipeLeftContent 
+    //                                     id={value.id} 
+    //                                     title={value.title} 
+    //                                     author={value.author} 
+    //                                     text={value.text} 
+    //                                     closePopup={closePopup} 
+    //                                     headerImage={value.id} />,
+    //                             action: () => swipeLeftAction(value.text, value.id) 
+    //                         }}
                             
-                            swipeRight={{
-                                content: <div>Hiding article...</div>, 
-                                action: () => swipeRightAction(value.id, this.state.postsArray)
-                            }}
-                        >
+    //                         swipeRight={{
+    //                             content: <div>Hiding article...</div>, 
+    //                             action: () => swipeRightAction(value.id, this.state.postsArray)
+    //                         }}
+    //                     >
                                 
-                                <div className='news-square'  key={key}  name="news-item-loop-view.js"
-                                style={ this.state.startingCardSize || this.state.changedCardSize} >                    
-                                    <Caption 
-                                        pageId={value.key}                                        
-                                        title={value.title}
-                                        author={value.author}
-                                        likes={value.likes}
-                                        dislikes={value.dislikes}
-                                        articleId={value.id}
-                                        tag={value.tag}
-                                        imageId={value.id}
+    //                             <div className='news-square'  key={key}  name="news-item-loop-view.js"
+    //                             style={ this.state.startingCardSize || this.state.changedCardSize} >                    
+    //                                 <Caption 
+    //                                     pageId={value.key}                                        
+    //                                     title={value.title}
+    //                                     author={value.author}
+    //                                     likes={value.likes}
+    //                                     dislikes={value.dislikes}
+    //                                     articleId={value.id}
+    //                                     tag={value.tag}
+    //                                     imageId={value.id}
 
-                                        test={renderToPage.filter(obj => obj.id === value.id)}
-                                        />
-                                </div>
+    //                                     test={renderToPage.filter(obj => obj.id === value.id)}
+    //                                     />
+    //                             </div>
                         
-                        </SwipeableListItem>
-                        </SwipeableList>
-                </div>
+    //                     </SwipeableListItem>
+    //                     </SwipeableList>
+    //             </div>
                       
-            );
+    //         );
             
-      }) 
+    //   }) 
+
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -169,7 +171,17 @@ class NewsItemLoopView extends React.Component{
 
 
                 {this.props.databaseProp.length >= 30 ? 
-                 HomePageView
+                //  HomePageView
+                 <RenderCard
+                 database={renderToPage}
+                 startingCardSize={this.state.startingCardSize}
+                 changedCardSize={this.state.changedCardSize}
+                 postsArray={this.state.postsArray}
+                 arrayFromDatabase={this.props.databaseProp} 
+                 leftoverArticles={this.props.leftoverArticles}  
+                 fullDatabaseCall={this.props.fullDatabaseCall}
+                 postsArray={this.state.postsArray}
+                 />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of light</p> 
                 }

@@ -15,19 +15,13 @@ import HideArticle from '../../utility_components/hide-article/hide-article.js';
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
 export const RenderCard = (props) => {
-    const mapTags = props.database;
-    console.log(props.database)
-    // console.log(this.props.location.state.tag3)
-    console.log(mapTags)
-    const pageView = mapTags.map((value,key) => {
-        return(
-            
-               
+    const pageView = props.database.map((value,key) => {
+        return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
                 
                 <CheckCache id={value.id}/>
 
-                <HideArticle articleId={value.id}/>    
+                <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>    
 
                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                     <SwipeableListItem 
