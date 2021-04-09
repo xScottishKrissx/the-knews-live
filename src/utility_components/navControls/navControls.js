@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../utility_components/navControls.css';
+import './navControls.css';
 
 export class NavControls extends React.Component{
     constructor(props){

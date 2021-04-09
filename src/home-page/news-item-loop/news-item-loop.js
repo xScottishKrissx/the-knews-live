@@ -3,7 +3,7 @@ import React from 'react';
 import fire from '../../fire.js'
 import '../news-item-loop/news-item-loop.css';
 
-import ScrollToTopButton from '../../utility_components/scrollToTop.js';
+import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
 
 import NewsItemLoopView from './news-item-caption/news-item-loop-view/news-item-loop-view.js';
 

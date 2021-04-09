@@ -7,7 +7,7 @@ import SwipeLeftContent from '../../home-page/news-item-loop/news-item-caption/n
 import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 import closePopup from '../../utility_components/closePopup.js';
 import swipeRightAction from '../../utility_components/swipeRightAction.js';
-import CheckCache from '../../utility_components/checkCache.js';
+import CheckCache from '../../utility_components/handleCache/checkCache.js';
 import HideArticle from '../../utility_components/hide-article/hide-article.js';
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 

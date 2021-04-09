@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utility_components/ClearCache.css';
+import './ClearCache.css'
 
 export class ClearCache extends React.Component{
 

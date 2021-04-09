@@ -24,6 +24,17 @@ section h3{
     margin-top: 10px;
 }
 
+.article{
+    /* outline: 1px solid #ececec; */
+    /* border-left: 1px solid grey; */
+    /* border-right: 1px solid grey; */
+    /* background-color: black; */
+    /* color: white; */
+    max-width: 112rem;
+    margin: 0 auto;
+    /* box-shadow: -20px 14px #56505059; */
+}
+
 .__article-header{
     /* border: 1px solid black; */
     margin: 0 auto;
@@ -68,10 +79,7 @@ section h3{
 
 .article-author{}
 
-.__news-item-link{
-    /* padding-bottom: 0; */
-    display: contents;
-}
+
 .article-tag{
     background-color: #000000b3;
     color: white;

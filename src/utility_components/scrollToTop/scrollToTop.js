@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utility_components/scrollToTop.css';
+import './scrollToTop.css';
 
 export class ScrollToTopBtn extends React.Component{
 

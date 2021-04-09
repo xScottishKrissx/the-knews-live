@@ -1,13 +1,13 @@
 import React from 'react';
 import fire from '../fire.js';
 
-import NavControls from '../utility_components/navControls.js';
+import NavControls from '../utility_components/navControls/navControls.js';
 import '../tags/tags.css';
 import CustomCardSize from '../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
 import ScrollCheck from '../utility_components/ScrollCheck.js';
 
 // Working with Cache 
-import ClearCache from '../utility_components/ClearCache.js';
+import ClearCache from '../utility_components/handleCache/ClearCache.js';
 import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
 import RenderCard from '../utility_components/renderCard/renderCard.js';
 

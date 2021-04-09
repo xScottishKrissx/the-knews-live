@@ -1,5 +1,5 @@
 import React from 'react';
-import ClearCache from '../utility_components/ClearCache';
+import ClearCache from '../utility_components/handleCache/ClearCache';
 import './home.css';
 
 

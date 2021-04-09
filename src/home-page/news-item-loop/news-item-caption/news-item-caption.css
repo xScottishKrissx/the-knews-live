@@ -2,7 +2,9 @@
 .news-item-link{
     width: 100%;
     background-color: white;
+    display: contents;
 }
+
     .news-item-link{
         position: relative;
     }

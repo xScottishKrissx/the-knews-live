@@ -8,8 +8,8 @@ import CustomCardSize from '../home-page/news-item-loop/custom-tile-size/custom-
 import ScrollCheck from '../utility_components/ScrollCheck.js';
 
 // Working with Cache 
-import ClearCache from '../utility_components/ClearCache.js';
-import CheckCache from '../utility_components/checkCache.js';
+import ClearCache from '../utility_components/handleCache/ClearCache.js';
+import CheckCache from '../utility_components/handleCache/checkCache.js';
 import HideArticle from '../utility_components/hide-article/hide-article.js';
 
 // Swiping

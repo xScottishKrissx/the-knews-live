@@ -5,8 +5,8 @@ import HeaderImage from './header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 
 
-import ScrollToTopButton from '../../utility_components/scrollToTop.js';
-import NavControls from '../../utility_components/navControls.js';
+import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
+import NavControls from '../../utility_components/navControls/navControls.js';
 import RecommendedReading from './social/recommended-reading/recommended-reading.js';
 
 import './news-page-view.css';
