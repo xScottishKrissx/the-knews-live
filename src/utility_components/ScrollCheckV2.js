@@ -1,18 +1,8 @@
 import React from 'react';
-
 import fire from '../fire.js';
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
-import Caption from '../home-page/news-item-loop/news-item-caption/news-item-caption.js';
-import HideArticle from '../utility_components/hide-article/hide-article.js';
-
-//HandleCache
-import CheckCache from '../utility_components/handleCache/checkCache.js';
-
-import SwipeLeftContent from '../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
-
-
+// Render Card
+import RenderCard from './renderCard/renderCard.js';
 
 class ScrollCheckV2 extends React.Component{
     constructor(props){
@@ -84,10 +74,6 @@ class ScrollCheckV2 extends React.Component{
                 arrayEndState: this.state.arrayEndState + 5
             })    
 
-
-
-
-
         }else{
             // console.log("Not At Bottom Yet")
         }
@@ -99,88 +85,22 @@ class ScrollCheckV2 extends React.Component{
       }
 
     render(){
-        // console.log("Render Scroll Check")
-        const mainArray = this.state.mainArray;
-        // Load new Articles into view on scroll.
-
-        // const filterArticlesBy = mainArray.filter(obj => obj.tag === this.props.getArticleBy);
-        // console.log(filterArticlesBy)
-
-        // console.log(this.props.leftoverArticles)
-
-        const pageView = mainArray.map((value,key) => {
-        
-            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            const style = {
-                backgroundImage: 'url(' + imgUrl + ')',
-                backgroundPosition: "bottom",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-            }   
-            
-            return(            
-                <div id={value.id} key={value.id} className="myClass" name="new-articles">   
-
-
-                    <CheckCache id={value.id}/>
-
-                    <HideArticle 
-                        articleId={value.id} 
-                        scrollCheckHide={mainArray}
-                        arrayFromDatabase={this.props.articlesArray}
-                        leftoverArticles={this.props.leftoverArticles}
-                        />    
-
-                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                        <SwipeableListItem 
-                            
-                            swipeLeft={{
-                                content: <SwipeLeftContent 
-                                        id={value.id} 
-                                        title={value.title} 
-                                        author={value.author} 
-                                        text={value.text} 
-                                        closePopup={this.props.closePopup} 
-                                        headerImage={value.id} />,
-                                action: () => this.props.swipeLeftAction(value.text, value.id) 
-                            }}
-                            
-                            swipeRight={{
-                                content: <div>Hiding article...</div>, 
-                                action: () => this.swipeRightAction(value.id)
-                            }}
-                        >
-                                
-                                <div className='news-square' name="scroll-check.js" key={key}  
-                                style={ this.props.startingCardSize || this.props.changedCardSize } >                    
-                                    <Caption 
-                                        pageId={value.key}
-                                        style={style}
-                                        title={value.title}
-                                        author={value.author}
-                                        likes={value.likes}
-                                        dislikes={value.dislikes}
-                                        articleId={value.id}
-                                        tag={value.tag}
-                                        imageId={value.id}
-                                        />
-                                </div>
-                        
-                        </SwipeableListItem>
-                        </SwipeableList>
-                    </div>                
-            )
-        })
-
         return(
-            
             <React.Fragment>
-                {pageView}
+                {/* {pageView} */}
+                <RenderCard 
+                    database={this.state.mainArray}
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                    postsArray={this.state.postsArray}
+                    arrayFromDatabase={this.props.databaseProp} 
+                    leftoverArticles={this.props.leftoverArticles}  
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                    postsArray={this.state.postsArray}
+                
+                />
                 {/* <NewsItemLoopView databaseProp={new1} /> */}
-            </React.Fragment>
-            
-            
+            </React.Fragment>   
         )
     }
 }

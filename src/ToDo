@@ -102,7 +102,7 @@ Codebase:
         // I think the best course of action is to stop trying to fix older stuff, take what I've learned from this and apply it to the next project, one which I wont do bit's and pieces spaced years apart. 
         // There are good things about this project but I think it's beginning to get in the way of learning React properly.
     ✔ Created Component for Checking Cache for hidden posts and then hiding them. @done(15:49 - 15/01/21)
-    ☐ I'm pretty sure my css is all over the place with with styles not appearing in their correct corresponding styles file. Go through everything and make sure styles are placed where you would expect. @started(10:32 - 09/04/21)
+    ✔ I'm pretty sure my css is all over the place with with styles not appearing in their correct corresponding styles file. Go through everything and make sure styles are placed where you would expect. @started(10:32 - 09/04/21) @done(11:24 - 09/04/21) @lasted(52m48s)
 
             
                 
@@ -463,15 +463,15 @@ General Notes  Objectives:
                                 ☐ Loading replacement articles as articles are hidden would be a good addition.(but i don't know how to do that)
                                 ✔ The new scroll check has an issue where you can't hide all articles. Pressing the hide button does nothing @done(16:14 - 31/03/21)
                                     ✔ Solution - My data had duplicate ID's in the database. Changing these solved this issue. @done(16:15 - 31/03/21)
-                                ☐ If you attempt to load more articles on scroll with an empty cache, you will get an error. @started(16:16 - 31/03/21)
+                                ✔ If you attempt to load more articles on scroll with an empty cache, you will get an error. @started(16:16 - 31/03/21) @done(11:28 - 09/04/21) @lasted(1w1d19h12m25s)
                                 ✔ OnScrollLoaded articles don't have any article info associated with them, showing a blank page on load. @started(16:36 - 31/03/21) @done(17:04 - 31/03/21) @lasted(28m11s)
                                     ✔ SOlution - I had the prop "pageid" when it needed to be "pageId". @done(17:04 - 31/03/21)
-                                ☐ Hiding an loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   @started(17:11 - 31/03/21)
+                                ☐ Hiding a loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   @started(17:11 - 31/03/21)
                                 
                             
 
-                 ☐ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21)
-                 ☐ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21)
+                 ✔ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21) @done(11:28 - 09/04/21) @lasted(4w18h43m50s)
+                 ✔ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21) @done(11:28 - 09/04/21) @lasted(4w18h43m54s)
                  
 
             ✔ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21) @done(16:33 - 11/03/21) @lasted(22h42m42s)
@@ -485,6 +485,7 @@ General Notes  Objectives:
                 // Having the same exact code across 10 files seems a bit redundant.
                 ✔ Instead of this, I moved the code into the news-item-caption file. @done(16:15 - 15/03/21)
                     // Not a separte component but does what I wanted, remove code duplication and allowing for easier editing later on.
+                    ✔ I have since created a separate component for getting an image. @done(11:29 - 09/04/21)
         Article:
             ✔ Basic Structure @done(18-08-13 18:03)
                 ✔ Large Header Image at top @done(18-08-01 11:50)
@@ -513,8 +514,9 @@ General Notes  Objectives:
                 // Too much work and i'm not sure how to fit into this project.
                 // Circle back in later projects.
             ✔ Added ability to hide article from article page @done(16:56 - 15/01/21)
-            ☐ Why does each news article need it's own separate datatabase call? @started(16:03 - 06/04/21)
-                ☐ Surely all of the information from the master array is enough? @started(16:03 - 06/04/21)
+            ✔ Why does each news article need it's own separate datatabase call? @started(16:03 - 06/04/21) @done(11:31 - 09/04/21) @lasted(2d19h28m56s)
+                ✘ Surely all of the information from the master array is enough? @started(16:03 - 06/04/21) @cancelled(11:31 - 09/04/21) @wasted(2d19h28m52s)
+                    ✔ Answer - It's unreasonable to load an entire database of articles everytime the website loads. It's fine for the home page because that's a limited amount of articles but if you always call the entire database to the array when the website loads you get a massive array. Think about the bbc website or amazon or whatever, @done(11:31 - 09/04/21)
 
             Header Image and Article Info Area:
                 ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
@@ -646,19 +648,24 @@ General Notes  Objectives:
         // Although they are affecting the home page. So that's a win.
         Rethinking Tags:
              ☐ I've decided to redo the tags page... and by redo I mean remove altogether. Instead I have switched to using filters. The upside is that everything happens in one page and I don't need to worry about passing props an working with routes. It's a much simpler solution and uses 1 less call to the database. The major downside is that you can no longer directly go to a tag page. There is also more work being added to the news-item-loop-view. @started(16:02 - 05/04/21)
+                ✔ So i ended up doing this and then undoing in. The "news/weather/sports" now function as a filter on the home page. The author and postdate in article will use a modified version of the old tags method of using routes to pass props. @done(11:33 - 09/04/21)
+                ✔ You can still go to "news" tag page via url params setting state. @done(11:34 - 09/04/21)
             Plan of Action:
                 ☐ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21)
                     ✔ I have removed the scroll check from the filter options for now. I haven't yet worked out how to properly integrate the filtered array into the the hide functionality. The No Filter works as normal. @done(17:46 - 06/04/21)
 
-                ☐ There might actually be a way doing url accessible tags using routes and props. @started(16:05 - 05/04/21)
+                ✔ There might actually be a way doing url accessible tags using routes and props. @started(16:05 - 05/04/21) @done(11:34 - 09/04/21) @lasted(3d19h29m53s)
+                    ✔ Yup, got it working by passing a url parameter from "../tags/:tagname" to state when the news-item-loop-view.js mounts @done(11:36 - 09/04/21)
                 ✔ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21) @done(16:20 - 06/04/21) @lasted(1d14m31s)
                 ☐ All current tags functionality should be retained @started(16:41 - 05/04/21)
                     ☐ Author and Date Pages for example.
-                        ☐ I don't think there is a way around needing a database call for this if I want these pages to be directly accessible @started(17:53 - 08/04/21)
+                        ✔ I don't think there is a way around needing a database call for this if I want these pages to be directly accessible @started(17:53 - 08/04/21) @done(11:36 - 09/04/21) @lasted(17h43m58s)
+                            ✔ After some though I think this is correct and I will need to query the database @done(11:36 - 09/04/21)
                         ☐ I have restored functionality to click on author, postdate and tags to take you to a new page.
                             ☐ These will all need to be integrated into:
                                  ☐ hiding
                                  ☐ url redirects for tags
+                                 
                         SIDE PROJECT:
                             ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)
                                 ✔ Looks like I can. I have the .map for tagsv3 as a functional component outputting a database query for articles matching an author. I'll see if this can be applied to the other similiar .maps I have. Would save a lot of space and be a lot more convenient if I can get this working @done(10:24 - 09/04/21)
