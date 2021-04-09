@@ -122,7 +122,7 @@ export class HideArticle extends React.Component{
                 return Object.assign({}, el, {hidden:true})
                 return el
         });
-        // console.log(changedFullDatabaseCall)
+        console.log(changedFullDatabaseCall)
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changedFullDatabaseCall))
 
 

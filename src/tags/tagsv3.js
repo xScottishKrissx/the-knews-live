@@ -55,6 +55,7 @@ class Tags extends React.Component{
             for(let newsItem in newsItems){
                 newState.push({
                     key: newsItem,
+                    hidden:newsItems[newsItem].hidden,
                     author: newsItems[newsItem].author,
                     title: newsItems[newsItem].title,
                     likes: newsItems[newsItem].likes,
@@ -78,6 +79,17 @@ class Tags extends React.Component{
         console.log(this.props.location.state.arrayFromDatabase)
         console.log(this.props.location.state.leftoverArticles)
         console.log(this.props.location.state.fullDatabaseCall)
+
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.location.state.fullDatabaseCall;
+
+        console.log(fullDatabaseCallFromStorage) 
+        const filterTags = fullDatabaseCallFromStorage.filter(obj => 
+            obj.hidden !== true &&
+            obj.author === this.props.location.state.author ||
+            obj.postdate ===this.props.location.state.author
+        ) || this.props.location.state.arrayFromDatabase;
+        const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
+        console.log(renderTags)
         return(
             
             <div className="tags-wrapper">
@@ -92,7 +104,7 @@ class Tags extends React.Component{
                         }              
                         
                         <RenderCard 
-                            database={this.state.articlesArray}
+                            database={renderTags}
                             startingCardSize={this.state.startingCardSize}
                             changedCardSize={this.state.changedCardSize}
                             postsArray={this.state.postsArray}

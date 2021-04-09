@@ -35,7 +35,7 @@ export class NewsPageVIEW extends React.Component{
         this.setState({ownsArticle: false})
         console.log("News-Page-View.js")
 
-        const dbRef = fire.database().ref("items");   
+        const dbRef = fire.database().ref("items").orderByKey();   
        // console.log("db-ref: " + dbRef);
 
            
@@ -45,6 +45,7 @@ export class NewsPageVIEW extends React.Component{
           for (let dbObject in dbObjects){
             newState.push({
               author: dbObjects[dbObject].author,
+              hidden:dbObjects[dbObject].hidden,
               email:dbObjects[dbObject].email,
               text:dbObjects[dbObject].text,
               title:dbObjects[dbObject].title,
