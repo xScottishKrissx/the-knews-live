@@ -29,8 +29,10 @@ class Tags extends React.Component{
             changedCardSize:{width: localStorage.getItem("myData")},    
             
             //Testing
-            fullDatabaseCall:[]
-            
+            fullDatabaseCall:[],
+            queryDBForAuthor:[],
+            queryDBForTag:[],
+            orderByChild: this.props.match.params.x || this.props.location.state.orderByChild
             
         }
         this.getCardSize = this.getCardSize.bind(this);
@@ -46,7 +48,7 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
-        
+        console.log(this.state.searchDBFor)
         console.log(this.props.match.params.x)
         // console.log(this.props.location.state.orderByChild)
         // console.log(this.props.location.state.author)
@@ -56,22 +58,35 @@ class Tags extends React.Component{
         
         console.log(orderQueryByChild)
         // if(urlTagProp && urlTagProp.includes("news" || "News"))localStorage.setItem("filterOption","News");
-        if(orderQueryByChild.includes("news"))console.log("Search Tags for Article Tag")
-        if(orderQueryByChild.includes("News"))console.log("Search Tags for Article Tag")
-        if(orderQueryByChild.includes("Sports"))console.log("Search Tags for Article Tag")
-        if(orderQueryByChild.includes("sports"))console.log("Search Tags for Article Tag")
-        if(orderQueryByChild.includes("Weather"))console.log("Search Tags for Article Tag")
-        if(orderQueryByChild.includes("weather"))console.log("Search Tags for Article Tag")
+        if(orderQueryByChild.includes("news")){
+            console.log("Set as Tag")
+            this.setState({articleTag:"tag"})
+        }
+        // if(orderQueryByChild.includes("News"))console.log("Search Tags for Article Tag")
+        // if(orderQueryByChild.includes("Sports"))console.log("Search Tags for Article Tag")
+        // if(orderQueryByChild.includes("sports"))console.log("Search Tags for Article Tag")
+        // if(orderQueryByChild.includes("Weather"))console.log("Search Tags for Article Tag")
+        // if(orderQueryByChild.includes("weather"))console.log("Search Tags for Article Tag")
 
-
+        console.log(this.state.articleTag)
+        const orderByChild =  this.state.articleTag || "author";
+        console.log(orderByChild)
 
         // const thingFromArticle = this.props.location.state.thingFromArticle;
         console.log(orderQueryByChild + " " + searchDBFor)
         // console.log(this.props.location.state.orderByChild)
-        const dbRef =
-        fire.database().ref('items').orderByChild("author").equalTo(searchDBFor) ||
-        fire.database().ref('items').orderByKey().limitToFirst(97); 
+        
+        // const dbRef = fire.database().ref('items').orderByChild("author").equalTo(searchDBFor) ||fire.database().ref('items').orderByKey().limitToFirst(97); 
 
+        const dbRef = fire.database().ref('items').orderByChild("author").equalTo(searchDBFor)
+        
+        // If I can find a way of alternating between these 2 references, then I might have a solution to having both search and directly accessible pages from 1 component
+            // const dbRef = fire.database().ref('items').orderByChild("author").equalTo("PA Media")
+            // const dbRef = fire.database().ref('items').orderByChild("tag").equalTo("News")
+
+        // console.log(fire.database().ref('items').orderByChild("author").equalTo("PA Media"))
+        // console.log(fire.database().ref('items').orderByChild("tag").equalTo("news"))
+        
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
             // console.log(newsItems);
@@ -103,17 +118,10 @@ class Tags extends React.Component{
 
 
     render(){
+        console.log(this.state.articleTag)
         console.log(fetch('/home/search/' + this.props.match.params.x))
         if(this.props.location.state === undefined){
             console.log("error")    
-            fetch('/home/search/' + this.props.match.params.x).then((obj) => {
-                // check if you have 404 error
-                if (obj.statusCode === 404) {
-                //   this.props.history.push('/');
-                console.log("Error 2")
-                }
-              })
-                      
         }
 
         console.log("Render Tags.v3")

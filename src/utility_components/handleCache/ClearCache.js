@@ -35,7 +35,7 @@ export class ClearCache extends React.Component{
         // localStorage.removeItem("newLeftOverArticles")
 
         
-        // window.location.reload();
+        window.location.reload();
     }
 
     componentDidMount(){
