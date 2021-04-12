@@ -102,7 +102,7 @@ const ArticleArea = (props) => {
 
                     <h3 className="__article-tag">
                         <span>Topic</span>
-                        <Link className="__news-item-link" to={{pathname: '/theKnews/tags/weather' , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
+                        <Link className="__news-item-link" to={{pathname: '/tags/' + props.tag.toLowerCase() , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
                             {props.tag}
                         </Link>
                     </h3>

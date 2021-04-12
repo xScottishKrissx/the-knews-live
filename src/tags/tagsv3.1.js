@@ -28,7 +28,9 @@ class Tags extends React.Component{
             changedCardSize:{width: localStorage.getItem("myData")},    
             
             //Testing
-            fullDatabaseCall:[]
+            fullDatabaseCall:[],
+            checkAuthorPropExists:[],
+            author:""
             
         }
         this.getCardSize = this.getCardSize.bind(this);
@@ -44,15 +46,20 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
+        console.log(this.props.location.state)
+        if(this.props.location === undefined){
+            this.setState({checkAuthorPropExists:false})
+        }else{
+            this.setState({author:"this.props.location.state.author"})
+        }
         console.log(this.props.match.params.x)
         const orderQueryByChild = "author" || this.props.location.state.orderByChild
         const searchDBFor = this.props.match.params.x || this.props.location.state.author
         // const thingFromArticle = this.props.location.state.thingFromArticle;
         console.log(orderQueryByChild + " " + searchDBFor)
         // console.log(this.props.location.state.orderByChild)
-        const dbRef =
-        fire.database().ref('items').orderByChild("author").equalTo(searchDBFor) ||
-        fire.database().ref('items').orderByKey().limitToFirst(97); 
+        // const dbRef = fire.database().ref('items').orderByChild("author").equalTo(searchDBFor) || fire.database().ref('items').orderByKey().limitToFirst(97); 
+        const dbRef = fire.database().ref('items');
 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -88,7 +95,8 @@ class Tags extends React.Component{
         
         console.log("Render Tags.v3")
         console.log(this.state.articlesArray)
-        console.log(this.props.match.params.x)
+        console.log("URL Says = " + this.props.match.params.x)
+        console.log("Prop Says" + this.props.location.state)
         
         console.log(this.props.match.params.x || this.props.location.state.author)
         console.log(this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase)
@@ -98,14 +106,29 @@ class Tags extends React.Component{
 
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall;
 
+        if(this.props.location.state === undefined)console.log(this.props.location.state)
         console.log(fullDatabaseCallFromStorage) 
+
+        // const filterTags = fullDatabaseCallFromStorage.filter(obj => 
+        //     obj.hidden !== true &&
+        //     obj.author === this.state.author || this.props.match.params.x ||
+        //     obj.postdate === this.props.match.params.x 
+        // ) || this.props.location.state.arrayFromDatabase;
+
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
             obj.hidden !== true &&
             obj.author === this.props.match.params.x ||
             obj.postdate === this.props.match.params.x 
         ) || this.props.location.state.arrayFromDatabase;
+
         const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
         console.log(renderTags)
+
+        console.log(this.state.fullDatabaseCall)
+        console.log(this.state.leftoverArticles)
+
+
+
         return(
             
             <div className="tags-wrapper">
@@ -118,7 +141,7 @@ class Tags extends React.Component{
                         : 
                         <h1>Showing articles from {this.props.match.params.x || this.props.location.state.author}</h1>
                         }              
-                        
+
                         <RenderCard 
                             database={renderTags}
                             startingCardSize={this.state.startingCardSize}
@@ -127,7 +150,7 @@ class Tags extends React.Component{
 
                             // This needs to be clean database call
                             arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
-                            leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
+                            leftoverArticles={this.state.leftoverArticles|| this.props.location.state.leftoverArticles}
                             fullDatabaseCall={this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall}
                         />
 

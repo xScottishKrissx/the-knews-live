@@ -76,6 +76,7 @@ class Tags extends React.Component{
 
     render(){
         console.log("Render Tags.v3")
+        console.log(this.props.location.state)
         console.log(this.props.location.state.author)
         console.log(this.props.location.state.arrayFromDatabase)
         console.log(this.props.location.state.leftoverArticles)
@@ -85,7 +86,7 @@ class Tags extends React.Component{
 
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.location.state.fullDatabaseCall;
 
-        console.log(fullDatabaseCallFromStorage) 
+        // console.log(fullDatabaseCallFromStorage) 
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
             obj.hidden !== true &&
             obj.author === this.props.location.state.author ||

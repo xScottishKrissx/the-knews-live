@@ -12,7 +12,9 @@ import HideArticle from '../../utility_components/hide-article/hide-article.js';
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
 export const RenderCard = (props) => {
+   
     const pageView = props.database.map((value,key) => {
+        // console.log(props)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
                 

@@ -25,7 +25,7 @@ export class Routes extends React.Component{
                 </Switch> 
 
                 <Route path="/theKnews/tags/" component={ (props) => (
-                    <Tags timestamp={new Date().toString()} {...props} />
+                    <TagsURL timestamp={new Date().toString()} {...props} />
                 )}/>
 
                 <Route path="/theKnews/myKnews" component={PracticeForm} />
@@ -39,6 +39,10 @@ export class Routes extends React.Component{
                 <Route path="/articles/news-page/:id" component={NewsPage}/>
                 <Route path="/tags/:tagname" component={Home}/>
                 <Route path="/search/:x" component={TagsURL}/>
+                {/* <Route path="/search/:x" component={(props) => (
+                    <TagsURL testProp={"testProp"} {...props} />
+                )}/> */}
+
                 {/* <Route path=":id" component={NewsPage}/> */}
                 
             </div>
