@@ -75,7 +75,7 @@ const ArticleArea = (props) => {
                         <Link 
                             className="__news-item-link" 
                             to={{
-                                pathname: '/home/tags/author' , 
+                                pathname: '/home/search/' + props.author , 
                                 state:{
                                     author: props.author, 
                                     tag:props.tag,

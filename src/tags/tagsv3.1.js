@@ -11,6 +11,7 @@ import ClearCache from '../utility_components/handleCache/ClearCache.js';
 import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
 import RenderCard from '../utility_components/renderCard/renderCard.js';
 
+import {Route, Redirect, Switch, Link} from 'react-router-dom';
 class Tags extends React.Component{
 
     constructor(props){
@@ -30,6 +31,7 @@ class Tags extends React.Component{
             //Testing
             fullDatabaseCall:[]
             
+            
         }
         this.getCardSize = this.getCardSize.bind(this);
     }
@@ -44,9 +46,25 @@ class Tags extends React.Component{
     }
 
     componentDidMount(){
+        
         console.log(this.props.match.params.x)
-        const orderQueryByChild = "author" || this.props.location.state.orderByChild
+        // console.log(this.props.location.state.orderByChild)
+        // console.log(this.props.location.state.author)
+        
+        const orderQueryByChild = this.props.match.params.x || this.props.location.state.orderByChild
         const searchDBFor = this.props.match.params.x || this.props.location.state.author
+        
+        console.log(orderQueryByChild)
+        // if(urlTagProp && urlTagProp.includes("news" || "News"))localStorage.setItem("filterOption","News");
+        if(orderQueryByChild.includes("news"))console.log("Search Tags for Article Tag")
+        if(orderQueryByChild.includes("News"))console.log("Search Tags for Article Tag")
+        if(orderQueryByChild.includes("Sports"))console.log("Search Tags for Article Tag")
+        if(orderQueryByChild.includes("sports"))console.log("Search Tags for Article Tag")
+        if(orderQueryByChild.includes("Weather"))console.log("Search Tags for Article Tag")
+        if(orderQueryByChild.includes("weather"))console.log("Search Tags for Article Tag")
+
+
+
         // const thingFromArticle = this.props.location.state.thingFromArticle;
         console.log(orderQueryByChild + " " + searchDBFor)
         // console.log(this.props.location.state.orderByChild)
@@ -85,7 +103,19 @@ class Tags extends React.Component{
 
 
     render(){
-        
+        console.log(fetch('/home/search/' + this.props.match.params.x))
+        if(this.props.location.state === undefined){
+            console.log("error")    
+            fetch('/home/search/' + this.props.match.params.x).then((obj) => {
+                // check if you have 404 error
+                if (obj.statusCode === 404) {
+                //   this.props.history.push('/');
+                console.log("Error 2")
+                }
+              })
+                      
+        }
+
         console.log("Render Tags.v3")
         console.log(this.state.articlesArray)
         console.log(this.props.match.params.x)
@@ -118,8 +148,10 @@ class Tags extends React.Component{
                         : 
                         <h1>Showing articles from {this.props.match.params.x || this.props.location.state.author}</h1>
                         }              
-                        
-                        <RenderCard 
+                        {renderTags.length === 0 ?
+                        <div>Nothing here</div>    
+                        :
+                            <RenderCard 
                             database={renderTags}
                             startingCardSize={this.state.startingCardSize}
                             changedCardSize={this.state.changedCardSize}
@@ -130,6 +162,8 @@ class Tags extends React.Component{
                             leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
                             fullDatabaseCall={this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall}
                         />
+                        }
+
 
                         <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} />
                 </div>

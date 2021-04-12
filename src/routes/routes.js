@@ -20,7 +20,7 @@ export class Routes extends React.Component{
                 <Switch>            
                     <Redirect exact from="/" to="/home" /> 
                     {/* <Redirect exact from="/theKnews/" to="/" />  */}
-                    <Redirect exact from="home/tags/:tagname" to="/home" /> 
+                    <Redirect exact from="/home/tags/:tagname" to="/home" /> 
                     <Route exact path="/home" component={Home} /> 
                 </Switch> 
 
