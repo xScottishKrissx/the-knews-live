@@ -25,7 +25,7 @@ export class Routes extends React.Component{
                 </Switch> 
 
                 <Route path="/theKnews/tags/" component={ (props) => (
-                    <Tags timestamp={new Date().toString()} {...props} />
+                    <TagsURL timestamp={new Date().toString()} {...props} />
                 )}/>
 
                 <Route path="/theKnews/myKnews" component={PracticeForm} />
