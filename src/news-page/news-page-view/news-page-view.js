@@ -148,7 +148,7 @@ export class NewsPageVIEW extends React.Component{
                 
                 {this.props.params === "5" ?
                 
-                <Redirect to='/theKnews' />
+                <Redirect to='/home' />
                 :  
                 NewsPageView
                 }

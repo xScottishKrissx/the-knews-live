@@ -1,6 +1,8 @@
 import React from 'react';
 import './ClearCache.css'
 
+import {Link} from 'react-router-dom';
+
 export class ClearCache extends React.Component{
 
     clearCache(){
@@ -37,13 +39,19 @@ export class ClearCache extends React.Component{
     }
 
     componentDidMount(){
-        if(localStorage.getItem("hiddenPostList") === null)document.getElementById("clearCache").style.visibility = "visible";
+        // if(localStorage.getItem("hiddenPostList") === null)document.getElementById("clearCache").style.visibility = "visible";
     }
 
     render(){
         // console.log(localStorage.getItem("hiddenPostList"))
         return (
-            <button onClick={()=> this.clearCache()} id="clearCache">Unhide All</button>
+            // <button onClick={()=> this.clearCache()} id="clearCache">Unhide All</button>
+            <div>            
+            <Link to='/home' onClick={()=> this.clearCache()}>
+                <button id="clearCache">Unhide All</button>
+             </Link>
+             </div>
+
         );
     }
 }

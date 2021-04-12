@@ -18,17 +18,17 @@ export class Routes extends React.Component{
         return (
             <div className="body-wrapper">
                 <Switch>            
-                    <Redirect exact from="/" to="/theKnews/home" /> 
-                    <Redirect exact from="/theKnews/" to="/theKnews/home" /> 
-                    <Redirect exact from="/theKnews/home/tags/:tagname" to="/theKnews/home" /> 
-                    <Route exact path="/theKnews/home" component={Home} /> 
+                    <Redirect exact from="/" to="/home" /> 
+                    {/* <Redirect exact from="/theKnews/" to="/" />  */}
+                    <Redirect exact from="home/tags/:tagname" to="/home" /> 
+                    <Route exact path="/home" component={Home} /> 
                 </Switch> 
 
-                <Route path="/theKnews/tags/" component={ (props) => (
+                <Route path="/tags/" component={ (props) => (
                     <TagsURL timestamp={new Date().toString()} {...props} />
                 )}/>
 
-                <Route path="/theKnews/myKnews" component={PracticeForm} />
+                <Route path="/myKnews" component={PracticeForm} />
                 
                 <Route path="/filters" component={Home} />  
                 {/* <Route  path="/home" component={Home}/> */}
@@ -36,9 +36,9 @@ export class Routes extends React.Component{
                 
                 {/* <Route path="/news-page/:id" component={NewsPage}/> */}
 
-                <Route path="/articles/news-page/:id" component={NewsPage}/>
-                <Route path="/tags/:tagname" component={Home}/>
-                <Route path="/search/:x" component={TagsURL}/>
+                <Route path="/home/articles/news-page/:id" component={NewsPage}/>
+                <Route path="/home/tags/:tagname" component={Home}/>
+                <Route path="/home/search/:x" component={TagsURL}/>
                 {/* <Route path=":id" component={NewsPage}/> */}
                 
             </div>
