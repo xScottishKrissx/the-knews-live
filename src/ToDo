@@ -678,6 +678,10 @@ General Notes  Objectives:
 
                                  ☐ url redirects for tags
                                         ☐ My current attempt is to use another component(modified version of tags), would it not be easier to use redirects instead here?
+                                            ✔ A bit of both, removed the props from the code and instead just used parameters to query the search term. I'm also using 2 separate components, one for search(tags3.1) and another for clicking through the article(TagsV3). @done(10:03 - 12/04/21)
+                                            ✔ The end result is that you can type search in the bar along with an author and go straight to that page if it exists. @done(10:03 - 12/04/21)
+                                            ☐ I would like to see if I can unify these so that's my next step. @started(10:03 - 12/04/21)
+                                        
                                         ☐ If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
 
                         SIDE PROJECT:

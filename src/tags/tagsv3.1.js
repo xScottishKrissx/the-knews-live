@@ -101,8 +101,8 @@ class Tags extends React.Component{
         console.log(fullDatabaseCallFromStorage) 
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
             obj.hidden !== true &&
-            obj.author === this.props.match.params.x || this.props.location.state.author ||
-            obj.postdate === this.props.match.params.x || this.props.location.state.author
+            obj.author === this.props.match.params.x ||
+            obj.postdate === this.props.match.params.x 
         ) || this.props.location.state.arrayFromDatabase;
         const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
         console.log(renderTags)
