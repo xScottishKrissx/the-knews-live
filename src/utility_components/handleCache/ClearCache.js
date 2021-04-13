@@ -35,7 +35,7 @@ export class ClearCache extends React.Component{
         // localStorage.removeItem("newLeftOverArticles")
 
         
-        window.location.reload();
+        // window.location.reload();
     }
 
     componentDidMount(){
@@ -47,7 +47,7 @@ export class ClearCache extends React.Component{
         return (
             // <button onClick={()=> this.clearCache()} id="clearCache">Unhide All</button>
             <div>            
-            <Link to='/home' onClick={()=> this.clearCache()}>
+            <Link to='/' onClick={()=> this.clearCache()}>
                 <button id="clearCache">Unhide All</button>
              </Link>
              </div>
