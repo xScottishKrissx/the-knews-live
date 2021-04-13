@@ -9,6 +9,8 @@ export class Home extends React.Component{
     render(){
         console.log(this.props.location.search)
         console.log(this.props.match.params.tagname)
+        console.log(this.props.match.params.searchterm)
+
 
         return(
             <div className='home-wrapper' >                
@@ -16,7 +18,7 @@ export class Home extends React.Component{
                 <div className="news-item-wrapper">
                     <ClearCache />
                    
-                    <NewsItemLoop urlTagProp={this.props.match.params.tagname}/>        
+                    <NewsItemLoop urlTagProp={this.props.match.params.tagname }/>        
                 </div>
             </div>
         )

@@ -24,6 +24,7 @@ export class Routes extends React.Component{
                     <Route exact path="/home" component={Home} /> 
                 </Switch> 
 
+
                 <Route path="/tags/" component={ (props) => (
                     <TagsURL timestamp={new Date().toString()} {...props} />
                 )}/>
@@ -38,7 +39,12 @@ export class Routes extends React.Component{
 
                 <Route path="/home/articles/news-page/:id" component={NewsPage}/>
                 <Route path="/home/tags/:tagname" component={Home}/>
-                <Route path="/home/search/:x" component={TagsURL}/>
+{/* 
+                <Switch>
+                <Redirect exact from="/home/search/tag/news" to="/home/search/tag/News" /> 
+                <Route path="/home/search/:a/:b" component={TagsURL}/>
+                </Switch> */}
+                <Route path="/home/search/:a/:b" component={TagsURL}/>
                 {/* <Route path=":id" component={NewsPage}/> */}
                 
             </div>
