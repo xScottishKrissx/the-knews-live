@@ -681,8 +681,17 @@ General Notes  Objectives:
                                             ✔ A bit of both, removed the props from the code and instead just used parameters to query the search term. I'm also using 2 separate components, one for search(tags3.1) and another for clicking through the article(TagsV3). @done(10:03 - 12/04/21)
                                             ✔ The end result is that you can type search in the bar along with an author and go straight to that page if it exists. @done(10:03 - 12/04/21)
                                             ☐ I would like to see if I can unify these so that's my next step. @started(10:03 - 12/04/21)
+                                                ☐ Possible Breakthrough - So my attempt at using url params and switching the database call was being difficult due to needing 2 different database calls. I may have gotten around this requirement by simply adding a second required parameter to the url path. This allows me to specify which records to query much more precisely than before. It is case sensitive so home/search/tag/news will not work unless News is capitalised.
+                                                Bugs / Issues:
+                                                    ☐ Post Date might not work well here @started(11:56 - 13/04/21)
+                                                        ☐ My dates are in the wrong format so...
+                                                        ☐ ...not sure what do about this. It does work if I remove the slashes in the database...
+                                                    ☐ Case sensitivity for url params(news will not work but News will) @started(11:56 - 13/04/21)
+                                                    ☐ Make sure hiding articlesworks @started(11:57 - 13/04/21)
+                                                    ☐ Integrate Next/Prev controls @started(11:57 - 13/04/21)
                                         
                                         ☐ If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
+                                        ☐
 
                         SIDE PROJECT:
                             ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)

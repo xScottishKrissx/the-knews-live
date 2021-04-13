@@ -49,12 +49,13 @@ const ArticleArea = (props) => {
 
                 <div className='__article-sub-header __1600_style'>
                    
-                    <h2 className="__article-subtitle">
+                    <h3 className="__article-postdate">
                         <span>Posted</span>
-                        <Link 
+                        {/* Removed Until I can work out the date format issue */}
+                        {/* <Link 
                             className="__news-item-link" 
                             to={{
-                                pathname: '/home/tags/postdate' , 
+                                pathname: '/home/search/postdate/' + props.postdate, 
                                 state: {
                                     author: props.postdate, 
                                     searchDBFor: "postdate",
@@ -64,10 +65,10 @@ const ArticleArea = (props) => {
                                     leftoverArticles:props.leftoverArticles,
                                     fullDatabaseCall:props.fullDatabaseCall
                                 }
-                            }}>
+                            }}> */}
                             {props.postdate}
-                        </Link>
-                    </h2>
+                        {/* </Link> */}
+                    </h3>
 
                     
                     <h3 className="__article-author">
@@ -75,7 +76,7 @@ const ArticleArea = (props) => {
                         <Link 
                             className="__news-item-link" 
                             to={{
-                                pathname: '/home/search/' + props.author , 
+                                pathname: '/home/search/author/' + props.author , 
                                 state:{
                                     author: props.author, 
                                     tag:props.tag,
@@ -102,7 +103,7 @@ const ArticleArea = (props) => {
 
                     <h3 className="__article-tag">
                         <span>Topic</span>
-                        <Link className="__news-item-link" to={{pathname: '/home/tags/' + props.tag.toLowerCase() , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
+                        <Link className="__news-item-link" to={{pathname: '/home/search/tag/' + props.tag , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
                             {props.tag}
                         </Link>
                     </h3>

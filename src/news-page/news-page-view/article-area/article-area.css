@@ -53,6 +53,8 @@ section h3{
     margin: 0 auto;
 
 }
+.__article-sub-header h3 a{border-bottom: 5px solid black;}
+.__article-sub-header h3 a:hover{border-bottom: 7px solid black;}
 
     .__article-sub-header > *, .__article-tag{
         /* border: 1px solid black; */

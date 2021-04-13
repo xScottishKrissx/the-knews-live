@@ -19,9 +19,11 @@ export class Routes extends React.Component{
             <div className="body-wrapper">
                 <Switch>            
                     <Redirect exact from="/" to="/home" /> 
+                    <Redirect exact from="/home/search" to="/home" /> 
                     {/* <Redirect exact from="/theKnews/" to="/" />  */}
                     <Redirect exact from="/home/tags/:tagname" to="/home" /> 
                     <Route exact path="/home" component={Home} /> 
+                    
                 </Switch> 
 
 
@@ -46,7 +48,11 @@ export class Routes extends React.Component{
                 </Switch> */}
                 <Route path="/home/search/:a/:b" component={TagsURL}/>
                 {/* <Route path=":id" component={NewsPage}/> */}
+
                 
+                {/* <Switch>
+                <Route render={() => <Redirect to={{pathname: "/"}} />} />
+                </Switch> */}
             </div>
         )
     }

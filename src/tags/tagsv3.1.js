@@ -11,7 +11,6 @@ import ClearCache from '../utility_components/handleCache/ClearCache.js';
 import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
 import RenderCard from '../utility_components/renderCard/renderCard.js';
 
-import {Route, Redirect, Switch, Link} from 'react-router-dom';
 class Tags extends React.Component{
 
     constructor(props){
@@ -20,94 +19,32 @@ class Tags extends React.Component{
             articlesArray: [],
             leftoverArticles:[],
             searchDBFor: this.props.match.params.a || this.props.location.state.searchDBFor,
-            
+            fullDatabaseCall:[],
+
             // Hiding Posts
             postsArray:[],
 
             // Custom Card Size
             startingCardSize:"",
-            changedCardSize:{width: localStorage.getItem("myData")},    
-            
-            //Testing
-            fullDatabaseCall:[],
-            queryDBForAuthor:[],
-            queryDBForTag:[],
-            orderByChild: this.props.match.params.a || this.props.location.state.orderByChild,
-            
-            
+            changedCardSize:{width: localStorage.getItem("myData")},                 
         }
         this.getCardSize = this.getCardSize.bind(this);
     }
-
     // There must be a way to only have one of these across the entire project.
-    getCardSize(value){
-        this.setState({
-            startingCardSize:{
-                width:value
-            }
-        })
-    }
+    getCardSize(value){this.setState({startingCardSize:{width:value}})}
 
     componentDidMount(){
-        // console.log(this.state.searchDBFor)
-        // console.log(this.state.searchDBFor)
         console.log(this.props.match.params.a)
         console.log(this.props.match.params.b)
-        // console.log(this.props.location.state.orderByChild)
-        // console.log(this.props.location.state.author)
         
         const orderQueryByChild = this.props.match.params.a || this.props.location.state.orderByChild
         const searchDBFor = this.props.match.params.b || this.props.location.state.author
-        console.log(searchDBFor)
-        console.log(orderQueryByChild)
-        console.log(orderQueryByChild + " " + searchDBFor)
-
-        // this is whatever the user decides...
-        // const databaseSearchTermTwo = "PA Media" || "news"
-       
-
-        // This is static, determined by me....
-        // const databaseSearchTermOne = "author" || "news"
-
-        // console.log(databaseSearchTermOne +" "+ databaseSearchTermTwo)
-
-        // fire.database().ref('items').orderByChild("author").equalTo("PA Media")
-        // fire.database().ref('items').orderByChild(databaseSearchTermOne).equalTo(databaseSearchTermTwo)
-
-
-        // if(urlTagProp && urlTagProp.includes("news" || "News"))localStorage.setItem("filterOption","News");
-        // if(orderQueryByChild.includes("news")){
-        //     console.log("Set as Tag")
-        //     this.setState({articleTag:"tag"})
-        // }
-        // if(orderQueryByChild === undefined){
-        //     console.log("Display Error Message")
-        // }
-        // if(orderQueryByChild.includes("News"))console.log("Search Tags for Article Tag")
-        // if(orderQueryByChild.includes("Sports"))console.log("Search Tags for Article Tag")
-        // if(orderQueryByChild.includes("sports"))console.log("Search Tags for Article Tag")
-        // if(orderQueryByChild.includes("Weather"))console.log("Search Tags for Article Tag")
-        // if(orderQueryByChild.includes("weather"))console.log("Search Tags for Article Tag")
-
-        // console.log(this.state.articleTag)
-        // const orderByChild =  this.state.articleTag || "author";
-        // console.log(orderByChild)
-
-        // const thingFromArticle = this.props.location.state.thingFromArticle;
+        // console.log(searchDBFor)
+        // console.log(orderQueryByChild)
         // console.log(orderQueryByChild + " " + searchDBFor)
-        // console.log(this.props.location.state.orderByChild)
-        
-        // const dbRef = fire.database().ref('items').orderByChild("author").equalTo(searchDBFor) ||fire.database().ref('items').orderByKey().limitToFirst(97); 
 
         const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).equalTo(searchDBFor)
-        
-        // If I can find a way of alternating between these 2 references, then I might have a solution to having both search and directly accessible pages from 1 component
-            // const dbRef = fire.database().ref('items').orderByChild("author").equalTo("PA Media")
-            // const dbRef = fire.database().ref('items').orderByChild("tag").equalTo("News")
-
-        // console.log(fire.database().ref('items').orderByChild("author").equalTo("PA Media"))
-        // console.log(fire.database().ref('items').orderByChild("tag").equalTo("news"))
-        
+                
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
             // console.log(newsItems);
@@ -132,28 +69,10 @@ class Tags extends React.Component{
                 fullDatabaseCall: newState,
                 leftoverArticles:newState.slice(30,97)
             })            
-        })
-
-        
+        })        
     }
 
-
     render(){
-        // console.log(this.state.articleTag)
-        // console.log(fetch('/home/search/' + this.props.match.params.x))
-        // if(this.props.location.state === undefined){
-        //     console.log("error")    
-        // }
-
-        // console.log("Render Tags.v3")
-        // console.log(this.state.articlesArray)
-        // console.log(this.props.match.params.x)
-        
-        // console.log(this.props.match.params.x || this.props.location.state.author)
-        // console.log(this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase)
-        // console.log(this.state.leftoverArticles || this.props.location.state.leftoverArticles)
-        // console.log(this.props.location.state.fullDatabaseCall)
-        
 
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall;
 

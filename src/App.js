@@ -18,6 +18,7 @@ class App extends Component {
 
 
   render(){
+    // console.log("Render App!")
     return(
       <div>
         {/* <h1>the Knews - Live</h1> */}
