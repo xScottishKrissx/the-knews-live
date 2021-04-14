@@ -31,8 +31,8 @@ export class NewsPage extends React.Component{
         const dave = this.props.match.params.id;
 
         // console.log(this.props.location.state.articleObject)
-        console.log(this.props.location.search)
-        console.log(this.props.match.params.id)
+        // console.log(this.props.location.search)
+        // console.log(this.props.match.params.id)
         // console.log(dave)
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
         // console.log(dbRef)

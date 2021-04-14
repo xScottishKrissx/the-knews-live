@@ -27,9 +27,9 @@ const ArticleArea = (props) => {
     // const loggedInEmail = fire.auth().currentUser?.email;
     //const loggedInEmail = "chrisdunne66@gmail.com"
     // const articleEmail = props.email;
-    console.log(props.articleId)
-    console.log(props.leftoverArticles)
-    console.log(props.fullDatabaseCall)
+    // console.log(props.articleId)
+    // console.log(props.leftoverArticles)
+    // console.log(props.fullDatabaseCall)
     
     
     return (

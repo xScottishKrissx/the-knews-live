@@ -45,7 +45,7 @@ class MapDatabaseItems extends React.Component{
 
     componentDidMount(){
         // console.log(this.props.location.search)
-        console.log(this.props.props)
+        // console.log(this.props.props)
         // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
         if(localStorage.getItem("hiddenPostList") === null){
             this.setState({

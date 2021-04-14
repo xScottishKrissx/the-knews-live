@@ -33,7 +33,7 @@ export class NewsPageVIEW extends React.Component{
     }
     componentDidMount(){
         this.setState({ownsArticle: false})
-        console.log("News-Page-View.js")
+        // console.log("News-Page-View.js")
 
         const dbRef = fire.database().ref("items").orderByKey();   
        // console.log("db-ref: " + dbRef);
@@ -64,8 +64,8 @@ export class NewsPageVIEW extends React.Component{
             leftoverArticles: newState.slice(30,97),
             fullDatabaseCall: newState
           })
-          console.log(this.state.articlesArray)
-          console.log(this.props.params)
+          // console.log(this.state.articlesArray)
+          // console.log(this.props.params)
           // console.log(this.props.testProp)
          
           //console.log(((this.state.articlesArray).length) + 1)
@@ -99,7 +99,7 @@ export class NewsPageVIEW extends React.Component{
         //console.log(this.props.scrollpos)
         //console.log({GeneratePostDate})
         //console.log(Number(database))
-        console.log(this.state.leftoverArticles)
+        // console.log(this.state.leftoverArticles)
         const NewsPageView = database.map((value) => {
             // console.log(value)
             //console.log("current author email:: " + value.email)

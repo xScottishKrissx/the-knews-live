@@ -18,23 +18,7 @@ export class ClearCache extends React.Component{
         
        
         console.log("hiddenPostList -- Removed.")
-        
-
-        // const thingymajig = JSON.parse(localStorage.getItem("articlesArray"));
-        // console.log(thingymajig)
-
-        // const index4 = value;
-        // var newData = thingymajig.map(el => {
-        //     if(el.hidden == true)
-        //         return Object.assign({}, el, {hidden:false})
-        //             return el
-        // });
-        // console.log(newData)
-        // localStorage.setItem('articleArray8', JSON.stringify(newData));
-
-        // localStorage.removeItem("newLeftOverArticles")
-
-        
+                
         // window.location.reload();
     }
 

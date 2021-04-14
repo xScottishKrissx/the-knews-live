@@ -680,18 +680,23 @@ General Notes  Objectives:
                                         ☐ My current attempt is to use another component(modified version of tags), would it not be easier to use redirects instead here?
                                             ✔ A bit of both, removed the props from the code and instead just used parameters to query the search term. I'm also using 2 separate components, one for search(tags3.1) and another for clicking through the article(TagsV3). @done(10:03 - 12/04/21)
                                             ✔ The end result is that you can type search in the bar along with an author and go straight to that page if it exists. @done(10:03 - 12/04/21)
-                                            ☐ I would like to see if I can unify these so that's my next step. @started(10:03 - 12/04/21)
-                                                ☐ Possible Breakthrough - So my attempt at using url params and switching the database call was being difficult due to needing 2 different database calls. I may have gotten around this requirement by simply adding a second required parameter to the url path. This allows me to specify which records to query much more precisely than before. It is case sensitive so home/search/tag/news will not work unless News is capitalised.
+                                            ✔ I would like to see if I can unify these so that's my next step. @started(10:03 - 12/04/21) @done(12:50 - 14/04/21) @lasted(2d2h47m37s)
+                                                ✔ Possible Breakthrough - So my attempt at using url params and switching the database call was being difficult due to needing 2 different database calls. I may have gotten around this requirement by simply adding a second required parameter to the url path. This allows me to specify which records to query much more precisely than before. It is case sensitive so home/search/tag/news will not work unless News is capitalised.
+                                                ✔ While not full complete, I do consider having the 2 tags files merged as complete. There are issues to be resolved but i am happy with the overall solution and so marking this section as done. @done(12:50 - 14/04/21)
                                                 Bugs / Issues:
                                                     ☐ Post Date might not work well here @started(11:56 - 13/04/21)
                                                         ☐ My dates are in the wrong format so...
                                                         ☐ ...not sure what do about this. It does work if I remove the slashes in the database...
                                                     ☐ Case sensitivity for url params(news will not work but News will) @started(11:56 - 13/04/21)
-                                                    ☐ Make sure hiding articlesworks @started(11:57 - 13/04/21)
+                                                    ✔ Make sure hiding articlesworks @started(11:57 - 13/04/21) @done(12:45 - 14/04/21) @lasted(1d48m12s)
+                                                        ✔ Hiding works one way at the moment, if you hide an article on home it will be hidden if you go straight to tags. Howerver, if you do it the other way, things break down. @done(12:43 - 14/04/21)
+                                                        ✔ The reason being that the database call in tags3.1 is only calling the records specific to that page. In order for hiding to properly work, there needs to be at least 1 full call of the database articles. Without that populted array, the hide component takes that single article array, hides the objects(as expected) and renders the array on home(again as expected) @done(12:43 - 14/04/21)
+                                                        ✔ I might just need to add a separate database call to set the full datatbase call array. @started(12:55 - 13/04/21) @done(12:43 - 14/04/21) @lasted(23h48m44s)
+                                                            ☐ Yeah, that worked but I'm not happy about mutliple database calls on the same page. 
                                                     ☐ Integrate Next/Prev controls @started(11:57 - 13/04/21)
                                         
-                                        ☐ If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
-                                        ☐
+                                        //If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
+                                                    this proved to be irrelevant as I fixed the issue.
 
                         SIDE PROJECT:
                             ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)

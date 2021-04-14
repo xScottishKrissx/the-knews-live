@@ -44,6 +44,7 @@ class Tags extends React.Component{
         // console.log(orderQueryByChild + " " + searchDBFor)
 
         const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).equalTo(searchDBFor)
+        // const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).startAt(searchDBFor.toUppercase).endAt(searchDBFor.toLowerCase+ "\uf8ff")
                 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -66,22 +67,50 @@ class Tags extends React.Component{
 
             this.setState({
                 articlesArray: newState,
-                fullDatabaseCall: newState,
+                // fullDatabaseCall: newState,
                 leftoverArticles:newState.slice(30,97)
             })            
+        }) 
+        
+        
+        const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
+                
+        cleanDB.on('value', (snapshot) => {
+            let newsItems = snapshot.val();
+            // console.log(newsItems);
+            let newState = [];
+            for(let newsItem in newsItems){
+                newState.push({
+                    key: newsItem,
+                    hidden:newsItems[newsItem].hidden,
+                    author: newsItems[newsItem].author,
+                    title: newsItems[newsItem].title,
+                    likes: newsItems[newsItem].likes,
+                    dislikes: newsItems[newsItem].dislikes,
+                    id:newsItems[newsItem].id,
+                    tag:newsItems[newsItem].tag,
+                    text:newsItems[newsItem].text
+                });
+                // console.log(newState)
+            }
+            this.setState({fullDatabaseCall: newState})            
         })        
     }
-
+    
     render(){
 
-        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall;
+        const fullDatabaseCallFromStorage = 
+                JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || 
+                this.state.fullDatabaseCall;
 
         // console.log(fullDatabaseCallFromStorage) 
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
             obj.hidden !== true &&
-            obj.author === this.props.match.params.x ||
-            obj.postdate === this.props.match.params.x 
+            obj.author === this.props.match.params.b || 
+            obj.tag === this.props.match.params.b ||
+            obj.postdate === this.props.match.params.b 
         ) || this.props.location.state.arrayFromDatabase;
+
         const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
         // console.log(renderTags)
         return(
@@ -91,11 +120,12 @@ class Tags extends React.Component{
                         <ClearCache />
 
                         <NavControls props="only-home-button"/>
-                        {this.props.match.params.a || this.props.location.state.author === undefined ?
-                        <h1>Showing articles from {this.props.match.params.a || this.props.location.state.searchDBFor}</h1>
+                        {this.props.match.params.b || this.props.location.state.author === undefined ?
+                        <h1>Showing articles from {this.props.match.params.b || this.props.location.state.searchDBFor}</h1>
                         : 
-                        <h1>Showing articles from {this.props.match.params.a || this.props.location.state.author}</h1>
-                        }              
+                        <h1>Showing articles from {this.props.match.params.b || this.props.location.state.author}</h1>
+                        }        
+                         
                         {renderTags.length === 0 ?
                         <div>Nothing here</div>    
                         :
@@ -108,7 +138,7 @@ class Tags extends React.Component{
                             // This needs to be clean database call
                             arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
                             leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
-                            fullDatabaseCall={this.state.fullDatabaseCall || this.props.location.state.fullDatabaseCall}
+                            fullDatabaseCall={this.state.fullDatabaseCall}
                         />
                         }
 
