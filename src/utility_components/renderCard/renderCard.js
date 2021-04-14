@@ -20,15 +20,19 @@ export const RenderCard = (props) => {
 
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle2(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+        console.log(arrayFromDatabase.length)
     }
     const pageView = props.database.map((value,key) => {
+        console.log(props.arrayFromDatabase.length)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
                 
                 {/* <CheckCache id={value.id}/> */}
 
-                {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
-                <div className="hideArticleButtonWrapper">
+                <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>  
+
+            
+                <div className="">
                     <button id={value.id} onClick={() => handleClick(value.id, props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
                 </div>
 

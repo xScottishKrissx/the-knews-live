@@ -702,7 +702,15 @@ General Notes  Objectives:
                                                         ✔ The reason being that the database call in tags3.1 is only calling the records specific to that page. In order for hiding to properly work, there needs to be at least 1 full call of the database articles. Without that populted array, the hide component takes that single article array, hides the objects(as expected) and renders the array on home(again as expected) @done(12:43 - 14/04/21)
                                                         ✔ I might just need to add a separate database call to set the full datatbase call array. @started(12:55 - 13/04/21) @done(12:43 - 14/04/21) @lasted(23h48m44s)
                                                             Yeah, that worked but I'm not happy about mutliple database calls on the same page. 
-                                                        ☐ I have encountered the same issue again. Hiding on tags/news then going to home gives you a blank page @started(16:42 - 14/04/21)
+                                                        ✔ I have encountered the same issue again. Hiding on tags/news then going to home gives you a blank page @started(16:42 - 14/04/21) @done(18:11 - 14/04/21) @lasted(1h29m7s)
+                                                            --You don't get a blank page if the you've already hidden something home before going to tags hiding and then home.
+                                                            
+                                                            --editedArticleArray = something is happening here. It's returning a single item in the array when it should be returning a full 30 item array.
+                                                            
+                                                            --Reenabling the old hidearticle component and it doesn't have this issue so that at least narrows it somewhat.
+
+                                                            ✔ Looks like the problem was incorrect parameters passed through the function. Removed the offending parameter and the hide button is working as expected @done(18:10 - 14/04/21)
+
                                                     ☐ Integrate Next/Prev controls @started(11:57 - 13/04/21)
                                         
                                         //If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.

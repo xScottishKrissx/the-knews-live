@@ -49,9 +49,9 @@ class NewsItemLoopView extends React.Component{
     }
 
     getArticlesBy(value){
-
+        // console.log(value)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(fullDatabaseCallFromStorage)
+        console.log(fullDatabaseCallFromStorage)
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
 
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
@@ -85,7 +85,8 @@ class NewsItemLoopView extends React.Component{
     render(){  
 
         const renderToPage = this.state.renderArray || this.props.databaseProp ;
-        // console.log(renderToPage)
+        console.log(renderToPage)
+        // console.log(this.props.databaseProp)
         return(
             
             <div className="newsItemLoopViewWrapper">

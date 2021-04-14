@@ -1,21 +1,25 @@
 import React from 'react';
 import './hide-article.css';
 
-export const HideArticle2  = (value,id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
+export const HideArticle2  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
 
-    
+        
         console.log("Hide Article Button Pressed");
         // console.log(localStorage.getItem("hiddenPostList"));
         console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
+        console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
+        console.log(arrayFromDatabase)
+        console.log(arrayFromDatabase.length)
+        console.log(fullDatabaseCall)
         const mainArray = editedArray || arrayFromDatabase;
         // const scrollCheckArticles = this.props.scrollCheckHide;
         // console.log(scrollCheckArticles)
         
         console.log(mainArray)
-
+    
         const nullKey = null
         const filterForNull = mainArray.filter(obj => obj !== nullKey);
         // Filter Initial Load Articles
@@ -23,9 +27,7 @@ export const HideArticle2  = (value,id, postsArray,arrayFromDatabase,leftoverArt
         var markArticleForRemoval = filterForNull.map(el => {
             if(el.id === index && el != null )
                 return Object.assign({}, el, {hidden:true})
-                
                 return el
-                
         });
         
 
@@ -61,6 +63,7 @@ export const HideArticle2  = (value,id, postsArray,arrayFromDatabase,leftoverArt
             // localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
 
         // Array with Articles added to reduced array
+        console.log(arrayWithArticlesRemoved)
             localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
         
         // Filter Options
@@ -96,20 +99,20 @@ export const HideArticle2  = (value,id, postsArray,arrayFromDatabase,leftoverArt
         // Hiding For Filter Views
         const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         
-        console.log(dirtyFullDatabaseCall)
-        console.log(fullDatabaseCall)
-        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+        // console.log(dirtyFullDatabaseCall)
+        // console.log(fullDatabaseCall)
+        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
 
         const cleanFullDatabaseCall =  dirtyFullDatabaseCall || JSON.parse(localStorage.getItem("cleanDatabaseCall"));
         
-        console.log(cleanFullDatabaseCall)
+        // console.log(cleanFullDatabaseCall)
 
         var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
             if(el.id === value && el != null )
                 return Object.assign({}, el, {hidden:true})
                 return el
         });
-        console.log(changedFullDatabaseCall)
+        // console.log(changedFullDatabaseCall)
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changedFullDatabaseCall))
 
         // This is for hiding the article in UI - Might remove later 24/3/2021

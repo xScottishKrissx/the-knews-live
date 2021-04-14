@@ -87,7 +87,8 @@ class MapDatabaseItems extends React.Component{
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })
-            console.log(this.state.fullDatabaseCall)
+            // console.log(this.state.fullDatabaseCall)
+            // console.log(this.state.articlesArray)
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
         })        
         window.addEventListener('scroll', this.scroll);   
@@ -114,6 +115,8 @@ class MapDatabaseItems extends React.Component{
         localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
 
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
+        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        // console.log(this.state.articlesArray)
 
          return (
          <div className="news-item-loop-wrapper"> 
