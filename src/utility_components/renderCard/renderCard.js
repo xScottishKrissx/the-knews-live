@@ -8,19 +8,29 @@ import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 import closePopup from '../../utility_components/closePopup.js';
 import swipeRightAction from '../../utility_components/swipeRightAction.js';
 import CheckCache from '../../utility_components/handleCache/checkCache.js';
+
 import HideArticle from '../../utility_components/hide-article/hide-article.js';
+import HideArticle2 from '../../utility_components/hide-article/hide-articlev2.js';
+
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
 export const RenderCard = (props) => {
     // console.log(props.database)
     // console.log(props.arrayFromDatabase)
+
+    function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
+        HideArticle2(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+    }
     const pageView = props.database.map((value,key) => {
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
                 
                 {/* <CheckCache id={value.id}/> */}
 
-                <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>    
+                {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
+                <div className="hideArticleButtonWrapper">
+                    <button id={value.id} onClick={() => handleClick(value.id, props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
+                </div>
 
                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                     <SwipeableListItem 
@@ -46,6 +56,7 @@ export const RenderCard = (props) => {
                                 props.fullDatabaseCall
                             )
                         }}
+                        
                     >
                             
                             <div className='news-square' name="tags-original-load-news"  key={key}  

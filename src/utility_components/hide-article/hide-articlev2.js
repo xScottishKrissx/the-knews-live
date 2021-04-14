@@ -1,7 +1,7 @@
 import React from 'react';
 import './hide-article.css';
 
-export const HideArticle  = (value,id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
+export const HideArticle2  = (value,id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
 
     
         console.log("Hide Article Button Pressed");
@@ -136,7 +136,10 @@ export const HideArticle  = (value,id, postsArray,arrayFromDatabase,leftoverArti
        if(localStorage.getItem("hiddenPostList") != null && document.getElementById("clearCache")){
            document.getElementById("clearCache").style.visibility = "visible";
        }
-    }
+
+    
+}
+    
 
 
-export default HideArticle;
+export default HideArticle2;

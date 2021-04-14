@@ -447,8 +447,9 @@ General Notes  Objectives:
                                 ☐ The in article hide article button
                                 ☐ Swiping to hide @started(13:11 - 14/04/21)
                                     bugs/issues:
-                                        ☐ Swiping does hide the article, however if you reloead the page you are met with an infite loop error.
-                                    
+                                        ✔ Swiping does hide the article, however if you reloead the page you are met with an infite loop error. @done(15:48 - 14/04/21)
+                                            ✔ Solution - Removed the checkCache component as it is no longer necessary due to changes with hideArticle component @done(15:48 - 14/04/21)
+                                        ☐ 
                                 ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                     ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
@@ -470,6 +471,9 @@ General Notes  Objectives:
                                 ✔ OnScrollLoaded articles don't have any article info associated with them, showing a blank page on load. @started(16:36 - 31/03/21) @done(17:04 - 31/03/21) @lasted(28m11s)
                                     ✔ SOlution - I had the prop "pageid" when it needed to be "pageId". @done(17:04 - 31/03/21)
                                 ☐ Hiding a loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   @started(17:11 - 31/03/21)
+                            
+                            ☐ Switch to hideArticlev2 component @started(15:52 - 14/04/21)
+                            ☐ Move the UI for hiding articles on click into the renderCard component.
                                 
                             
 
@@ -698,6 +702,7 @@ General Notes  Objectives:
                                                         ✔ The reason being that the database call in tags3.1 is only calling the records specific to that page. In order for hiding to properly work, there needs to be at least 1 full call of the database articles. Without that populted array, the hide component takes that single article array, hides the objects(as expected) and renders the array on home(again as expected) @done(12:43 - 14/04/21)
                                                         ✔ I might just need to add a separate database call to set the full datatbase call array. @started(12:55 - 13/04/21) @done(12:43 - 14/04/21) @lasted(23h48m44s)
                                                             Yeah, that worked but I'm not happy about mutliple database calls on the same page. 
+                                                        ☐ I have encountered the same issue again. Hiding on tags/news then going to home gives you a blank page @started(16:42 - 14/04/21)
                                                     ☐ Integrate Next/Prev controls @started(11:57 - 13/04/21)
                                         
                                         //If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.

@@ -27,6 +27,9 @@ export class HideArticle extends React.Component{
         // console.log(localStorage.getItem("hiddenPostList"));
         console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
+        
+
+
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         const mainArray = editedArray || this.props.arrayFromDatabase;
