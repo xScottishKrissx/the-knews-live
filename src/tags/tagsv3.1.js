@@ -74,7 +74,6 @@ class Tags extends React.Component{
         
         
         const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
-                
         cleanDB.on('value', (snapshot) => {
             let newsItems = snapshot.val();
             // console.log(newsItems);

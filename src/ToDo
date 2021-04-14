@@ -445,7 +445,10 @@ General Notes  Objectives:
                         ✔ I have completed the meat of the problem, you can hide articles with an article replacing it at the end of the array. My main method was to break it down, step by step and work through the problem. My main failure was initially building the codebase in the render of news-item-loop-view.js. This caused major issues so my second attempt at this, primarily inside the hide-article.js proved much easier and less troublesome.
                             ☐ Integrate the following with the new hide functionality:
                                 ☐ The in article hide article button
-                                ☐ Swiping to hide
+                                ☐ Swiping to hide @started(13:11 - 14/04/21)
+                                    bugs/issues:
+                                        ☐ Swiping does hide the article, however if you reloead the page you are met with an infite loop error.
+                                    
                                 ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                     ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
@@ -647,9 +650,10 @@ General Notes  Objectives:
         // Chanhed this.props.changedCardSize in tags.js to this.state.changedCardSize.
         // Although they are affecting the home page. So that's a win.
         Rethinking Tags:
-             ☐ I've decided to redo the tags page... and by redo I mean remove altogether. Instead I have switched to using filters. The upside is that everything happens in one page and I don't need to worry about passing props an working with routes. It's a much simpler solution and uses 1 less call to the database. The major downside is that you can no longer directly go to a tag page. There is also more work being added to the news-item-loop-view. @started(16:02 - 05/04/21)
+             ✔ I've decided to redo the tags page... and by redo I mean remove altogether. Instead I have switched to using filters. The upside is that everything happens in one page and I don't need to worry about passing props an working with routes. It's a much simpler solution and uses 1 less call to the database. The major downside is that you can no longer directly go to a tag page. There is also more work being added to the news-item-loop-view. @started(16:02 - 05/04/21) @done(13:04 - 14/04/21) @lasted(1w1d21h2m26s)
                 ✔ So i ended up doing this and then undoing in. The "news/weather/sports" now function as a filter on the home page. The author and postdate in article will use a modified version of the old tags method of using routes to pass props. @done(11:33 - 09/04/21)
                 ✔ You can still go to "news" tag page via url params setting state. @done(11:34 - 09/04/21)
+                ✔ I also have as many database calls as I did when I started. However, the new tags3.1 component is much more flexible by allowing you to access tag pages via articles or url all from one component. @done(13:04 - 14/04/21)
             Plan of Action:
                 ☐ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21)
                     ✔ I have removed the scroll check from the filter options for now. I haven't yet worked out how to properly integrate the filtered array into the the hide functionality. The No Filter works as normal. @done(17:46 - 06/04/21)
@@ -661,12 +665,13 @@ General Notes  Objectives:
                     ☐ Author and Date Pages for example.
                         ✔ I don't think there is a way around needing a database call for this if I want these pages to be directly accessible @started(17:53 - 08/04/21) @done(11:36 - 09/04/21) @lasted(17h43m58s)
                             ✔ After some though I think this is correct and I will need to query the database @done(11:36 - 09/04/21)
-                        ☐ I have restored functionality to click on author, postdate and tags to take you to a new page.
+                        ✔ I have not yet included post date in this. Although that is more of a data format issue than a code thing. The code is there but I haven't yet decided how to move forward here. @done(13:09 - 14/04/21)
+                        ☐ I have restored functionality to click on author and tags to take you to a new page.
                             ☐ These will all need to be integrated into:
-                                 ☐ hiding @started(11:42 - 09/04/21)
+                                 ✔ hiding @started(11:42 - 09/04/21) @done(13:08 - 14/04/21) @lasted(5d1h26m54s)
                                     ✔ Progress - I can hide articles and the rest of the website respects the hide, but refreshing the page renders the articles that should be hidden.
-                                    ☐ Hidden Articles should be hidden
-                                        A couple of issus here with the code meant to solve this:
+                                    Hidden Articles should be hidden:
+                                        Issues:
                                             ☐ Sometimes nothing appears on the post date page. I haven't been able to reliably replicate the issue. @started(12:46 - 09/04/21)
                                             ☐ Random articles being added to the home filters. @started(12:46 - 09/04/21)
                                                 ☐ They don't have tags
@@ -676,8 +681,8 @@ General Notes  Objectives:
                                                 ☐ Reloading the page removes them
                                             ☐ Sometimes extra articles are added to the tags page. @started(12:56 - 09/04/21)
 
-                                 ☐ url redirects for tags
-                                        ☐ My current attempt is to use another component(modified version of tags), would it not be easier to use redirects instead here?
+                                    url redirects for tags:
+                                        ✔ My current attempt is to use another component(modified version of tags), would it not be easier to use redirects instead here? @done(13:06 - 14/04/21)
                                             ✔ A bit of both, removed the props from the code and instead just used parameters to query the search term. I'm also using 2 separate components, one for search(tags3.1) and another for clicking through the article(TagsV3). @done(10:03 - 12/04/21)
                                             ✔ The end result is that you can type search in the bar along with an author and go straight to that page if it exists. @done(10:03 - 12/04/21)
                                             ✔ I would like to see if I can unify these so that's my next step. @started(10:03 - 12/04/21) @done(12:50 - 14/04/21) @lasted(2d2h47m37s)
@@ -685,14 +690,14 @@ General Notes  Objectives:
                                                 ✔ While not full complete, I do consider having the 2 tags files merged as complete. There are issues to be resolved but i am happy with the overall solution and so marking this section as done. @done(12:50 - 14/04/21)
                                                 Bugs / Issues:
                                                     ☐ Post Date might not work well here @started(11:56 - 13/04/21)
-                                                        ☐ My dates are in the wrong format so...
-                                                        ☐ ...not sure what do about this. It does work if I remove the slashes in the database...
+                                                        My dates are in the wrong format so...
+                                                        ...not sure what do about this. It does work if I remove the slashes in the database...
                                                     ☐ Case sensitivity for url params(news will not work but News will) @started(11:56 - 13/04/21)
                                                     ✔ Make sure hiding articlesworks @started(11:57 - 13/04/21) @done(12:45 - 14/04/21) @lasted(1d48m12s)
                                                         ✔ Hiding works one way at the moment, if you hide an article on home it will be hidden if you go straight to tags. Howerver, if you do it the other way, things break down. @done(12:43 - 14/04/21)
                                                         ✔ The reason being that the database call in tags3.1 is only calling the records specific to that page. In order for hiding to properly work, there needs to be at least 1 full call of the database articles. Without that populted array, the hide component takes that single article array, hides the objects(as expected) and renders the array on home(again as expected) @done(12:43 - 14/04/21)
                                                         ✔ I might just need to add a separate database call to set the full datatbase call array. @started(12:55 - 13/04/21) @done(12:43 - 14/04/21) @lasted(23h48m44s)
-                                                            ☐ Yeah, that worked but I'm not happy about mutliple database calls on the same page. 
+                                                            Yeah, that worked but I'm not happy about mutliple database calls on the same page. 
                                                     ☐ Integrate Next/Prev controls @started(11:57 - 13/04/21)
                                         
                                         //If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
@@ -702,7 +707,7 @@ General Notes  Objectives:
                             ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)
                                 ✔ Looks like I can. I have the .map for tagsv3 as a functional component outputting a database query for articles matching an author. I'll see if this can be applied to the other similiar .maps I have. Would save a lot of space and be a lot more convenient if I can get this working @done(10:24 - 09/04/21)
                                 ✔ I have moved the home page over to the new component and everything is working as expected. @done(10:25 - 09/04/21)
-                        ☐ 
+                         
                     ✔ To do this I need work with routes and use the old tags page as a place to go @done(17:52 - 08/04/21)
                         I may need another database call here If I want to be able to access each page without needing to go through home. This would be the 3rd required call
                             1st - Home | 2nd - Article | 3rd - Tags

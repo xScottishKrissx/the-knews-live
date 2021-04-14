@@ -4,12 +4,12 @@ export const CheckCache = (props) =>{
         // This is checking to see if there are hidden posts in cache. If there are then they're set to be hidden
         
         // console.log("Home Page Hidden Post List -> " + localStorage.getItem("hiddenPostList"));
-        const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
+        // const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
         // const localStorageHiddenPosts2 = localStorage.getItem("articleArray7");
 
         const checkExist = setInterval(function() {
-        
-            if (!!localStorageHiddenPosts && document.getElementById(props.id)) {
+            // if (!!localStorageHiddenPosts && document.getElementById(props.id)) {
+            if (document.getElementById(props.id)) {
             // console.log("Exists!");
             clearInterval(checkExist);
         

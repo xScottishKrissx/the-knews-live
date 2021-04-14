@@ -12,11 +12,13 @@ import HideArticle from '../../utility_components/hide-article/hide-article.js';
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
 export const RenderCard = (props) => {
+    // console.log(props.database)
+    // console.log(props.arrayFromDatabase)
     const pageView = props.database.map((value,key) => {
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
                 
-                <CheckCache id={value.id}/>
+                {/* <CheckCache id={value.id}/> */}
 
                 <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>    
 
@@ -36,7 +38,13 @@ export const RenderCard = (props) => {
                         
                         swipeRight={{
                             content: <div>Hiding article...</div>, 
-                            action: () => swipeRightAction(value.id, props.postsArray)
+                            action: () => swipeRightAction(
+                                value.id, 
+                                props.postsArray,
+                                props.arrayFromDatabase,
+                                props.leftoverArticles,
+                                props.fullDatabaseCall
+                            )
                         }}
                     >
                             

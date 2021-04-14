@@ -15,6 +15,7 @@ export class ClearCache extends React.Component{
         localStorage.removeItem("testNewArticlesOnRender")
         localStorage.removeItem("filterOption")
         localStorage.removeItem("changedFullDatabaseCall")
+        localStorage.removeItem("cleanDatabaseCall")
         
        
         console.log("hiddenPostList -- Removed.")

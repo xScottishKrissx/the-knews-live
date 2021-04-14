@@ -1,35 +1,16 @@
 import React from 'react';
 import './hide-article.css';
 
-export class HideArticle extends React.Component{
-    constructor(props){
-        super(props);
-        this.state ={
-            postsArray:[],
-            articleId:props.articleId,
-            articleHidden:"",
+export const HideArticle  = (value,id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
 
-            //testing
-            filteredPostArray:[],
-        }
-        this.hideArticle = this.hideArticle.bind(this);
-    }
-
-    componentDidMount(){
-        // console.log(this.state.articleId)
-        // console.log(this.props.test1)
-        
-        // console.log(this.props.testFilteredArray)
-        
-    }
-    hideArticle(value){
+    
         console.log("Hide Article Button Pressed");
         // console.log(localStorage.getItem("hiddenPostList"));
         console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
-        const mainArray = editedArray || this.props.arrayFromDatabase;
+        const mainArray = editedArray || arrayFromDatabase;
         // const scrollCheckArticles = this.props.scrollCheckHide;
         // console.log(scrollCheckArticles)
         
@@ -55,7 +36,7 @@ export class HideArticle extends React.Component{
 
         // Get something to add to the reduced array
         const editedLeftoverArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"))
-        const arrayWithArticlesToBeAddedToMain = editedLeftoverArticlesArray || this.props.leftoverArticles;
+        const arrayWithArticlesToBeAddedToMain = editedLeftoverArticlesArray || leftoverArticles;
         // console.log(arrayWithArticlesToBeAddedToMain)
 
         // Remove 1st element from leftoverArticles Array
@@ -114,7 +95,13 @@ export class HideArticle extends React.Component{
 
         // Hiding For Filter Views
         const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        const cleanFullDatabaseCall =  dirtyFullDatabaseCall || this.props.fullDatabaseCall;
+        
+        console.log(dirtyFullDatabaseCall)
+        console.log(fullDatabaseCall)
+        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+
+        const cleanFullDatabaseCall =  dirtyFullDatabaseCall || JSON.parse(localStorage.getItem("cleanDatabaseCall"));
+        
         console.log(cleanFullDatabaseCall)
 
         var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
@@ -124,22 +111,6 @@ export class HideArticle extends React.Component{
         });
         console.log(changedFullDatabaseCall)
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changedFullDatabaseCall))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // This is for hiding the article in UI - Might remove later 24/3/2021
         const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
@@ -165,30 +136,7 @@ export class HideArticle extends React.Component{
        if(localStorage.getItem("hiddenPostList") != null && document.getElementById("clearCache")){
            document.getElementById("clearCache").style.visibility = "visible";
        }
-
-
-       this.setState({
-           articleHidden: true
-       })
     }
 
-
-    render(){
-        
-
-        return(
-            <div>
-                {/* {this.state.articleHidden === true ?
-                <button>You won't see this article again :)</button> */}
-
-                {/* // : */}
-                <div className="hideArticleButtonWrapper ">
-                    <button id={this.state.articleId} onClick={()=> this.hideArticle(this.props.articleId)}>X</button>
-                </div>
-                {/* // } */}
-            </div>
-        )
-    }
-}
 
 export default HideArticle;
