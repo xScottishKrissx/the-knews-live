@@ -711,6 +711,8 @@ General Notes  Objectives:
 
                                                             ✔ Looks like the problem was incorrect parameters passed through the function. Removed the offending parameter and the hide button is working as expected @done(18:10 - 14/04/21)
 
+                                                            
+
                                                     ☐ Integrate Next/Prev controls @started(11:57 - 13/04/21)
                                         
                                         //If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.

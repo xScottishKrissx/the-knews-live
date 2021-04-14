@@ -51,7 +51,7 @@ class NewsItemLoopView extends React.Component{
     getArticlesBy(value){
         // console.log(value)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        console.log(fullDatabaseCallFromStorage)
+        // console.log(fullDatabaseCallFromStorage)
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
 
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;

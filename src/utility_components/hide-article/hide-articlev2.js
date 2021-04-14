@@ -1,4 +1,3 @@
-import React from 'react';
 import './hide-article.css';
 
 export const HideArticle2  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
@@ -10,15 +9,15 @@ export const HideArticle2  = (value,postsArray,arrayFromDatabase,leftoverArticle
         // console.log(this.state.postsArray)
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
-        console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
-        console.log(arrayFromDatabase)
-        console.log(arrayFromDatabase.length)
-        console.log(fullDatabaseCall)
+        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
+        // console.log(arrayFromDatabase)
+        // console.log(arrayFromDatabase.length)
+        // console.log(fullDatabaseCall)
         const mainArray = editedArray || arrayFromDatabase;
         // const scrollCheckArticles = this.props.scrollCheckHide;
         // console.log(scrollCheckArticles)
         
-        console.log(mainArray)
+        // console.log(mainArray)
     
         const nullKey = null
         const filterForNull = mainArray.filter(obj => obj !== nullKey);
@@ -63,7 +62,7 @@ export const HideArticle2  = (value,postsArray,arrayFromDatabase,leftoverArticle
             // localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
 
         // Array with Articles added to reduced array
-        console.log(arrayWithArticlesRemoved)
+        // console.log(arrayWithArticlesRemoved)
             localStorage.setItem("editedArticleArray",JSON.stringify(arrayWithArticlesRemoved))
         
         // Filter Options
