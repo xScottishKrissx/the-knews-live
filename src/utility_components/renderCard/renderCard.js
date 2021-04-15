@@ -57,7 +57,7 @@ export const RenderCard = (props) => {
                     <button id={value.id} onClick={() => handleClick(value.id, props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
                 </div>
 
-                <div onClick={() => showArticle(value.id)}>Show Article</div>
+                {/* <div onClick={() => showArticle(value.id)}>Show Article1</div> */}
                 
 
                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
@@ -65,10 +65,10 @@ export const RenderCard = (props) => {
                         
                         swipeLeft={{
                             content: <SwipeLeftContent 
-                                    id={props.changeId} 
-                                    title={props.changeTitle} 
-                                    author={props.changeAuthor} 
-                                    text={props.changeText} 
+                                    id={value.id} 
+                                    title={value.title} 
+                                    author={value.author} 
+                                    text={value.text} 
                                     closePopup={closePopup} 
                                     headerImage={value.id} />,
                             action: () => swipeLeftAction(value.text, value.id) 
@@ -98,6 +98,9 @@ export const RenderCard = (props) => {
                                     articleId={value.id}
                                     tag={value.tag}
                                     imageId={value.id}
+
+                                    // Testing
+                                    showArticle={props.showArticle}
                                     />
                             </div>
                     

@@ -105,6 +105,17 @@ class NewsItemLoopView extends React.Component{
             })
             
         }
+        document.getElementById("test__articleWrapper").style.display = "none";
+    }
+
+    showArticle(x){
+        console.log("Show Article")
+        console.log(x)
+        document.getElementById("test__articleWrapper").style.display = "block";
+        this.setState({
+            
+            showArticle:true
+        })
     }
 
     render(){  
@@ -119,8 +130,28 @@ class NewsItemLoopView extends React.Component{
         return(
             
             <div className="newsItemLoopViewWrapper">
-                
-                <div className="test__articleWrapper">
+            {this.state.showArticle === true ?
+                <div>                
+                    <div id="test__articleWrapper" >
+                        {this.state.showArticle === false ?
+                        <p>Show All Cards</p>
+                        :
+                        <div className="test__articleContainer">
+                            <h2>Display an article here</h2>
+                            <h3>Title: {renderToPage[this.state.articleNumber].title}</h3>
+                            <h3>Title: {renderToPage[this.state.articleNumber].author}</h3>
+                        </div>
+                        }
+
+                        <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                        <button onClick={() => this.changeArticle(-1)}>Prev Article</button>
+                        <button onClick={this.hideArticle}>Hide Article</button>
+                    </div>
+                </div>
+            :
+            <p>Error</p>
+            }
+                <div id="test__articleWrapper" >
                     {this.state.showArticle === false ?
                     <p>Show All Cards</p>
                     :
@@ -161,12 +192,13 @@ class NewsItemLoopView extends React.Component{
                  changeTitle={renderToPage[this.state.articleNumber].title}
                  changeAuthor={renderToPage[this.state.articleNumber].author}
                  changeText={renderToPage[this.state.articleNumber].text}
+                 showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 }
                 
-                
+               
                 {this.state.getArticleBy === "All" ?
                     <ScrollCheckV2 
                         articlesArray={this.props.databaseProp}

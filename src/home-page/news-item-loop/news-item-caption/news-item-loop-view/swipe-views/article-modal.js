@@ -16,7 +16,7 @@ export const SwipeLeftContent = (props) => {
             <div 
             className="articlePopupBackground" 
             id={"articlePopupBackground" + id} 
-            // onClick={() => closePopup(id)} 
+            onClick={() => closePopup(id)} 
             ></div>
 
 

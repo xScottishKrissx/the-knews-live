@@ -46,10 +46,18 @@
     }
 
 
-.test__articleWrapper{
-    display: block;
+#test__articleWrapper{
+    background-color: red;
+    display: none;
+    height: 94vh;
+    position: fixed;
     text-align: center;
+    top: 5.5vh;
     width: 100%;
+    z-index: 10000;
+    
+    
+   
 }
 
 @media (min-width: 768px) {
