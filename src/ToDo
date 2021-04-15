@@ -405,8 +405,9 @@ General Notes  Objectives:
             ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
             
             Handling All Articles Being Hidden: @started(16:38 - 10/03/21)
-                ☐ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload.
-                ☐  This is a fundamental flaw in how the website works and needs to be resolved before moving onto the more cosmetic issues of blank pages and dodgy user feedback. @started(16:53 - 15/03/21)
+                ✔ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload @done(18:14 - 15/04/21)
+                ✔  This is a fundamental flaw in how the website works and needs to be resolved before moving onto the more cosmetic issues of blank pages and dodgy user feedback. @started(16:53 - 15/03/21) @done(18:12 - 15/04/21) @lasted(4w3d19m56s)
+                    ✔ See below for more information but I have implemented a system that ensures a minium number of articles on page when rendering. @done(18:12 - 15/04/21)
                 ☐ My main requirements for this are:
                     ✔ There must be a minimum number of articles on the page on load. @done(17:52 - 26/03/21)
                         ✔ Articles don't need to load in as you hide articles(for the moment, could replace infinit scroll later on.) @done(17:52 - 26/03/21)
@@ -453,7 +454,7 @@ General Notes  Objectives:
                                 ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                     ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
-                                        ☐ I am seriously considering redoing the entire tags things as well. Repeating the scrollCheck, remove the direct call to the database and just edit a single master array and filter out the tag I'm looking for.
+
                                     ✔ Scroll Check now works without no filter, but has been removed for filtered views. @done(17:54 - 07/04/21)
                                         ☐ I am looking into getting scroll check to work with tags.
 
@@ -461,8 +462,12 @@ General Notes  Objectives:
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
 
                                     // Let's see how this goes...
+                                    See "Rethink Articles" for more info but I removed these controls from the main article pages and integrated them into a new view, something I'm calling speedKnews, that quickly allows for switching between articles. 
+
+                                    ☐ However, this section has not yet been updated to include a hide article button as I'm not sure it will actually include one yet.
 
                                 ☐ Re-activate the card size controls.
+                                
                             ☐ Bugs / Errors / Issues:
                                 ✔ Hiding all articles will eventually return a null id error. done(16:15 - 31/03/21)
                                     ✔ Solution - Included a filter that removes any null objects from the object array @done(16:15 - 31/03/21)
@@ -626,29 +631,34 @@ General Notes  Objectives:
                         ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page. @started(20-10-16 12:10) @cancelled(20-10-26 17:27) @wasted(1w3d6h17m24s)
                             ✘ Having another go at this @started(20-10-26 15:51) @cancelled(20-10-26 16:30) @wasted(39m20s)
                             // I don't know how to get this to work in this project. Look at this in a dedicated project
-                        ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
-                ☐ I think the nav controls should be in the same place regardless of screen size @started(20-10-27 18:22)
-                ☐ These controls don't account for articles that are hidden @started(17:56 - 15/01/21)
+                        ✘ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10) @cancelled(18:07 - 15/04/21) @wasted(-2h2m54s)
+                ✘ I think the nav controls should be in the same place regardless of screen size @started(20-10-27 18:22) @cancelled(18:07 - 15/04/21) @wasted(-2h14m38s)
+                ✘ These controls don't account for articles that are hidden @started(17:56 - 15/01/21) @cancelled(18:07 - 15/04/21) @wasted(12w5d23h11m31s)
                     // They currently just linearly go through every article in the array.
-            
+                ✔ The article to article nav controls have been removed from the main articles and currently only appear on the speedKnews section @done(18:08 - 15/04/21)
             ✔ The ability to mark an article as hidden from the article page instead of just the cross on the homepage @started(20-11-30 12:21) @done(16:57 - 15/01/21) @lasted(-3h23m54s)
 
     Rethink Articles:
         ☐ This little project might not go anywhere but I want see if I can take what I've learned from tags and apply that to the article pages. More specifically I want to see if I can design a method by which articles can be loaded and switched on a button press. Currently, articles are loaded using a rigid set of props being passed through components and while this might be the best solution, it makes it difficult to switch between articles wthout using redirects(which i would like to avoid). Basically, i want to make it as easy to switch between articles as it is to switch between the tag filters on the home page. Like I said, this might not work but I want to give it a go and see what happens.
             To-Do:
                 ✔ Get a very basic article switching component up and running(changing id's on button press etc) @done(13:42 - 15/04/21)
-                ☐ Getting a basic article switcher is simple enough, it's how to advance from here that is befuddling me. Ideally it would work like
-                    ☐ All Cards are rendered as normal
-                    ☐ Click on card
-                    ☐ All Card view is removed
-                    ☐ View with article is displayed
-                    ☐ The popup does actually function like this, so perhaps I could modify that to just be the default article view.
-                    ☐ It might also be easier to switch articles.
+                --Getting a basic article switcher is simple enough, it's how to advance from here that is befuddling me. Ideally it would work like
+                     All Cards are rendered as normal
+                     Click on card
+                     All Card view is removed
+                     View with article is displayed
+                    ✔ The popup does actually function like this, so perhaps I could modify that to just be the default article view. @done(18:05 - 15/04/21)
+                    It might also be easier to switch articles.
 
-                ☐ My above method is actually looking pretty encouraging. I can open up an article and switch back and forward on button press.
-                
+                ✔ My above method is actually looking pretty encouraging. I can open up an article and switch back and forward on button press. @done(18:03 - 15/04/21)
+                ✔ So having created my idea, i'm now seeing a problem -- accessible url links. I'm not sure how to ensure you can also have shareable links. Thinking back it's the reason tags have both filters and a tag page. Perhaps I can have both. This new article view could be a more advanced popup, with just the barebones of the article, while still having the full article, with shareable links, social aspects etc. I would essentially be back to where i started and I would have to decide what to do withe next/prev nav controls. I might have another go at making them work seeing as I have what I wanted with the new popup/article view. @done(18:03 - 15/04/21)
+                    ✔ So i've gone ahead and replaced the old popup with this new system. It's a lot better and allows me to have both quick switching low clutter articles as well as more feature rich, shareable article pages. @done(18:03 - 15/04/21)
+                ☐ Add link to full article
+                ☐ Can i use the swiping stuff here?
+                 
             Known Issues / Bugs:
                 ☐ Probably like a million
+                ☐ Add 
      
     Tags Page:
         ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)

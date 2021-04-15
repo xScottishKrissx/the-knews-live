@@ -3,6 +3,8 @@ import '../news-item-loop-view/news-item-loop-view.css';
 import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import RenderCard from '../../../../utility_components/renderCard/renderCard';
+import ParseHTML from '../../../../utility_components/parse-database-html/parse-html';
+import HeaderImage from '../../../../news-page/news-page-view/header-image/header-image';
 
 class NewsItemLoopView extends React.Component{
 
@@ -90,8 +92,9 @@ class NewsItemLoopView extends React.Component{
         
     }
 
-    changeArticle(x){
+    changeArticle(x,y){
         console.log("Change Article")
+        console.log(y)
         this.setState({
             articleNumber: this.state.articleNumber + x,
             showArticle:true
@@ -110,7 +113,7 @@ class NewsItemLoopView extends React.Component{
 
     showArticle(x){
         console.log("Show Article")
-        console.log(x)
+        console.log(x + -1)
        
         this.setState({
             showArticle:true
@@ -132,27 +135,47 @@ class NewsItemLoopView extends React.Component{
         console.log(thing)
 
         console.log(this.state.showArticle)
-
+        console.log( renderToPage[0])
         return(
             
             <div className="newsItemLoopViewWrapper">
             {this.state.showArticle === true ?
                 <div>                
-                    <div id="test__articleWrapper" >
-                        <div className="test__articleContainer">
-                            <h2>Display an article here</h2>
-                            <h3>Title: {renderToPage[this.state.articleNumber].title}</h3>
-                            <h3>Title: {renderToPage[this.state.articleNumber].author}</h3>
+                    <div id="speedKnewsWrapper" >
+                        <div className="speedKnewsArticleContainer">
+                            
+                                <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
+                                <h2>{renderToPage[this.state.articleNumber].title}</h2>
+                                <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
+                                {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
+                                <ParseHTML props={renderToPage[this.state.articleNumber].text}/>
+                         
+
                         </div>
                         
-
-                        <button onClick={() => this.changeArticle(+1)}>Next Article</button>
-                        <button onClick={() => this.changeArticle(-1)}>Prev Article</button>
-                        <button onClick={this.hideArticle}>Hide Article</button>
+                        <div id="speedKnewsControls">
+                        {renderToPage[this.state.articleNumber].id === 319 ? 
+                           <span>
+                            <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                            <button onClick={this.hideArticle}>Exit</button>
+                           </span>
+                            :
+                            <span>
+                                <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}>Prev Article</button>
+                                <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                                <button onClick={this.hideArticle}>Exit</button>
+                            </span>
+                        }
+                            {/* <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                            <button onClick={this.hideArticle}>Exit</button> */}
+                        </div>
                     </div>
                 </div>
             :
             <div>
+                <div id="speedKnewsButtonWrapper">
+                     <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>speedKnews</button>
+                </div>
                 <button onClick={() => this.getArticlesBy("News")} >News</button>
                 <button onClick={() => this.getArticlesBy("Sports")} >Sports</button>
                 <button onClick={() => this.getArticlesBy("Weather")} >Weather</button>

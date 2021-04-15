@@ -71,7 +71,8 @@ export const RenderCard = (props) => {
                                     text={value.text} 
                                     closePopup={closePopup} 
                                     headerImage={value.id} />,
-                            action: () => swipeLeftAction(value.text, value.id) 
+                            // action: () => swipeLeftAction(value.text, value.id) 
+                            action: () => props.showArticle() 
                         }}
                         
                         swipeRight={{

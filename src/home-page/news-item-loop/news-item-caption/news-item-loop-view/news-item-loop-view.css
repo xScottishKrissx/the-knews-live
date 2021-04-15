@@ -50,6 +50,7 @@
     }
 
 
+
 #test__articleWrapper{
     background-color: red;
     display: block;
@@ -63,7 +64,36 @@
     
    
 }
+#speedKnewsControls{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+#speedKnewsControls span{
+    display: flex;
+    width: 100%;
 
+}
+
+#speedKnewsButtonWrapper {
+    position: relative;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+
+    #speedKnewsButtonWrapper button{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        font-size: 2rem;
+        width: 100%;
+        
+    }
+
+    
 @media (min-width: 768px) {
 .home-wrapper{
     margin: 0 auto;

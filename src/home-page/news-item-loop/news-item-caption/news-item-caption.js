@@ -8,7 +8,7 @@ export class Caption extends React.Component{
     constructor(props){
         super(props);
         this.dragFriendlyCaption = this.dragFriendlyCaption.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
     }
 
     dragFriendlyCaption(e){
@@ -44,39 +44,39 @@ export class Caption extends React.Component{
         return (            
 
  
-            <div style={style}>
-                <button onClick={this.props.showArticle}>Open Article</button>
-                <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
-                    <span id="news-item-link-text-title">{title}</span>
-                    <span id="news-item-link-text-tag-author-wrapper">
-                        <span id="news-item-link-text-tag">{tag}</span>
-                        <span id="news-item-link-text-author">by {author}</span>
-                    </span>
-                </div>                    
-            </div> 
+            // <div style={style}>
+            //     <button onClick={this.props.showArticle}>Open Article</button>
+            //     <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
+            //         <span id="news-item-link-text-title">{title}</span>
+            //         <span id="news-item-link-text-tag-author-wrapper">
+            //             <span id="news-item-link-text-tag">{tag}</span>
+            //             <span id="news-item-link-text-author">by {author}</span>
+            //         </span>
+            //     </div>                    
+            // </div> 
         
 
-            // <Link 
-            //     className="news-item-link" 
-            //     to={{
-            //         pathname: '/home/articles/news-page/' + pageId,
-            //         state:{
-            //             articleObject: this.props.test, 
-            //             }
-            //     }}
-            //     testProp={this.props.test}
-            // >
-            //     <div style={style}>
-            //         <button>Open Article</button>
-            //         <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
-            //             <span id="news-item-link-text-title">{title}</span>
-            //             <span id="news-item-link-text-tag-author-wrapper">
-            //                 <span id="news-item-link-text-tag">{tag}</span>
-            //                 <span id="news-item-link-text-author">by {author}</span>
-            //             </span>
-            //         </div>                    
-            //     </div> 
-            // </Link>
+            <Link 
+                className="news-item-link" 
+                to={{
+                    pathname: '/home/articles/news-page/' + pageId,
+                    state:{
+                        articleObject: this.props.test, 
+                        }
+                }}
+                testProp={this.props.test}
+            >
+                <div style={style}>
+                {/* <button onClick={this.props.showArticle}>Open Article</button> */}
+                    <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
+                        <span id="news-item-link-text-title">{title}</span>
+                        <span id="news-item-link-text-tag-author-wrapper">
+                            <span id="news-item-link-text-tag">{tag}</span>
+                            <span id="news-item-link-text-author">by {author}</span>
+                        </span>
+                    </div>                    
+                </div> 
+            </Link>
         );
     }
 } 
