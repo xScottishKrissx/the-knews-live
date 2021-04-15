@@ -53,6 +53,8 @@ export class Routes extends React.Component{
                 {/* <Switch>
                 <Route render={() => <Redirect to={{pathname: "/"}} />} />
                 </Switch> */}
+
+                
             </div>
         )
     }

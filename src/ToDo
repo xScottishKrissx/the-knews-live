@@ -457,8 +457,11 @@ General Notes  Objectives:
                                     ✔ Scroll Check now works without no filter, but has been removed for filtered views. @done(17:54 - 07/04/21)
                                         ☐ I am looking into getting scroll check to work with tags.
 
-                                ☐ Next/Prev 
+                                ☐ Next/Prev @started(10:34 - 15/04/21)
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
+
+                                    // Let's see how this goes...
+                                    
                                 ☐ Re-activate the card size controls.
                             ☐ Bugs / Errors / Issues:
                                 ✔ Hiding all articles will eventually return a null id error. done(16:15 - 31/03/21)

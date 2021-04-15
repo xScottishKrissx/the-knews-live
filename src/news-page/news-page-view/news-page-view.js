@@ -92,16 +92,17 @@ export class NewsPageVIEW extends React.Component{
         fire.database().ref("items").off();     
       }
     render(){
+      console.log("Render news-page-view.js")
         const database = this.props.database;
         // console.log(this.state.articlesArray)
-        // console.log(database)
+        console.log(database)
         
         //console.log(this.props.scrollpos)
         //console.log({GeneratePostDate})
         //console.log(Number(database))
         // console.log(this.state.leftoverArticles)
         const NewsPageView = database.map((value) => {
-            // console.log(value)
+            console.log(value)
             //console.log("current author email:: " + value.email)
             
             return(
@@ -144,7 +145,7 @@ export class NewsPageVIEW extends React.Component{
             <div>
 
                 
-                <NavControls currentarticleid={this.props.params}/>
+                <NavControls currentarticleid={this.props.params} arrayFromDatabase={this.state.articlesArray}/>
                 
                 {this.props.params === "5" ?
                 

@@ -57,7 +57,9 @@ export class NewsPage extends React.Component{
             }
 
             this.setState({
-                articlesArray: newState
+                articlesArray: newState.slice(0,30),
+                leftoverArticles: newState.slice(30,97),
+                fullDatabaseCall: newState
             })
             // console.log(this.state.articlesArray[0].id);
             // console.log("DB: " + this.state.articlesArray)
@@ -71,7 +73,7 @@ export class NewsPage extends React.Component{
     
 
     render(){    
-
+        console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
     return (
         
@@ -89,7 +91,7 @@ export class NewsPage extends React.Component{
 
 
         {arrayLength >= 1 ?         
-            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  /> 
+            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} fullDatabaseCall={this.state.fullDatabaseCall} leftoverArticles={this.state.leftoverArticles}  /> 
 
         
             : 
