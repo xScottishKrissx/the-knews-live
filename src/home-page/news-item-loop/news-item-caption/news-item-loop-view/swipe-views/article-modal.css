@@ -4,22 +4,22 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 100%;
-    background-color: #00000075;
+    /* width: 100%;
+    background-color: #00000075; */
 }
+
 .article-popup{
-    border: 10px solid black;
+    /* border: 10px solid black; */
     display: none;
-    width: 90%;
+    width: 100%;
     margin: 0px auto;
     background-color: white;
     overflow: auto;
-    height: 60vh;
     z-index: 10;
     position: fixed;
-    top: 0;
-    left: 4vw;
-    height: 100vh;
+    top: 30vh;
+    left: 0;
+    height: 60vh;
 }
     .article-popup img{
         width: 100%;

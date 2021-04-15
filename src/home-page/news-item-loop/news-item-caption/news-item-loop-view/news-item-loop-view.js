@@ -78,6 +78,7 @@ class NewsItemLoopView extends React.Component{
         this.setState({
             getArticleBy:value,
             renderArray:filteredByTag,
+            
             // leftoverArticles:leftoverArticles.slice(20)
         })
 
@@ -89,10 +90,10 @@ class NewsItemLoopView extends React.Component{
         
     }
 
-    changeArticle(){
+    changeArticle(x){
         console.log("Change Article")
         this.setState({
-            articleNumber: this.state.articleNumber + 1,
+            articleNumber: this.state.articleNumber + x,
             showArticle:true
         })
     }
@@ -110,7 +111,11 @@ class NewsItemLoopView extends React.Component{
 
         const renderToPage = this.state.renderArray || this.props.databaseProp ;
         console.log(renderToPage)
-        console.log(this.props.databaseProp[0])
+        // console.log(this.props.databaseProp)
+        // console.log(renderToPage[this.state.articleNumber] || renderToPage[0])
+        // console.log(renderToPage[this.state.articleNumber])
+        const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
+        console.log(thing)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -121,12 +126,13 @@ class NewsItemLoopView extends React.Component{
                     :
                     <div className="test__articleContainer">
                         <h2>Display an article here</h2>
-                        <h3>Title: {this.props.databaseProp[this.state.articleNumber].title}</h3>
-                        <h3>Title: {this.props.databaseProp[this.state.articleNumber].author}</h3>
+                        <h3>Title: {renderToPage[this.state.articleNumber].title}</h3>
+                        <h3>Title: {renderToPage[this.state.articleNumber].author}</h3>
                     </div>
                     }
 
-                    <button onClick={this.changeArticle}>Change Article</button>
+                    <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                    <button onClick={() => this.changeArticle(-1)}>Prev Article</button>
                     <button onClick={this.hideArticle}>Hide Article</button>
                 </div>
 
@@ -139,7 +145,7 @@ class NewsItemLoopView extends React.Component{
 
 
 
-                {this.props.databaseProp.length >= 30 ? 
+                {this.props.databaseProp.length >= 30 && thing ? 
                  <RenderCard
                  database={renderToPage}
                  startingCardSize={this.state.startingCardSize}
@@ -149,6 +155,12 @@ class NewsItemLoopView extends React.Component{
                  leftoverArticles={this.props.leftoverArticles}  
                  fullDatabaseCall={this.props.fullDatabaseCall}
                  postsArray={this.state.postsArray}
+
+                 // Test
+                 changeId={renderToPage[this.state.articleNumber].id}
+                 changeTitle={renderToPage[this.state.articleNumber].title}
+                 changeAuthor={renderToPage[this.state.articleNumber].author}
+                 changeText={renderToPage[this.state.articleNumber].text}
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 

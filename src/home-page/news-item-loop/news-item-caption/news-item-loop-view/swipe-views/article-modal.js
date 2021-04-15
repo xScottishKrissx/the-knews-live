@@ -13,11 +13,17 @@ export const SwipeLeftContent = (props) => {
 
     return(
         <div>
-            <div className="articlePopupBackground" id={"articlePopupBackground" + id} onClick={() => closePopup(id)} ></div>
+            <div 
+            className="articlePopupBackground" 
+            id={"articlePopupBackground" + id} 
+            // onClick={() => closePopup(id)} 
+            ></div>
+
+
             <div className="article-popup" id={"popup" + id}>
             
                 {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
-                <HeaderImage props={id} />
+                {/* <HeaderImage props={id} /> */}
                 <section>
                         <h2>{title}</h2>
                         <h3>{author}</h3>

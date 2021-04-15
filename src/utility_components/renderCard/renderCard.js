@@ -13,16 +13,37 @@ import CheckCache from '../../utility_components/handleCache/checkCache.js';
 import HideArticle from '../../utility_components/hide-article/hide-articlev2.js';
 
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
+import { ShowArticleTest } from '../showArticleTest';
 
 export const RenderCard = (props) => {
     // console.log(props.database)
     // console.log(props.arrayFromDatabase)
+    
+    // console.log(props.changeTitle)
+    if(props.changeTitle != undefined){
+        console.log(props.changeTitle)
+    }
+
 
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
     }
+
+    function showArticle(id){
+        console.log("Show Article")
+        console.log(id)
+        // console.log(props.changeTitle)
+        // console.log(props.database[0])
+        const filterThing = props.database.filter(obj => obj.id === id);
+        console.log(filterThing[0].title)
+        console.log(filterThing[0].author)
+        ShowArticleTest(id)
+        
+    }
+    
     const pageView = props.database.map((value,key) => {
+        
         // console.log(props.arrayFromDatabase.length)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
@@ -36,15 +57,18 @@ export const RenderCard = (props) => {
                     <button id={value.id} onClick={() => handleClick(value.id, props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
                 </div>
 
+                <div onClick={() => showArticle(value.id)}>Show Article</div>
+                
+
                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                     <SwipeableListItem 
                         
                         swipeLeft={{
                             content: <SwipeLeftContent 
-                                    id={value.id} 
-                                    title={value.title} 
-                                    author={value.author} 
-                                    text={value.text} 
+                                    id={props.changeId} 
+                                    title={props.changeTitle} 
+                                    author={props.changeAuthor} 
+                                    text={props.changeText} 
                                     closePopup={closePopup} 
                                     headerImage={value.id} />,
                             action: () => swipeLeftAction(value.text, value.id) 
@@ -85,6 +109,7 @@ export const RenderCard = (props) => {
             
         )
     })
+    
     return pageView;
 }   
 

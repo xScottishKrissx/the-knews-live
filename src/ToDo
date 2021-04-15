@@ -636,7 +636,17 @@ General Notes  Objectives:
     Rethink Articles:
         ☐ This little project might not go anywhere but I want see if I can take what I've learned from tags and apply that to the article pages. More specifically I want to see if I can design a method by which articles can be loaded and switched on a button press. Currently, articles are loaded using a rigid set of props being passed through components and while this might be the best solution, it makes it difficult to switch between articles wthout using redirects(which i would like to avoid). Basically, i want to make it as easy to switch between articles as it is to switch between the tag filters on the home page. Like I said, this might not work but I want to give it a go and see what happens.
             To-Do:
-                ☐ Get a very basic article switching component up and running(changing id's on button press etc)
+                ✔ Get a very basic article switching component up and running(changing id's on button press etc) @done(13:42 - 15/04/21)
+                ☐ Getting a basic article switcher is simple enough, it's how to advance from here that is befuddling me. Ideally it would work like
+                    ☐ All Cards are rendered as normal
+                    ☐ Click on card
+                    ☐ All Card view is removed
+                    ☐ View with article is displayed
+                    ☐ The popup does actually function like this, so perhaps I could modify that to just be the default article view.
+                    ☐ It might also be easier to switch articles.
+
+                ☐ My above method is actually looking pretty encouraging. I can open up an article and switch back and forward on button press.
+                
             Known Issues / Bugs:
                 ☐ Probably like a million
      
