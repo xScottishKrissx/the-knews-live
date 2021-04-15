@@ -10,7 +10,7 @@ import swipeRightAction from '../../utility_components/swipeRightAction.js';
 import CheckCache from '../../utility_components/handleCache/checkCache.js';
 
 // import HideArticle from '../../utility_components/hide-article/hide-article.js';
-import HideArticle2 from '../../utility_components/hide-article/hide-articlev2.js';
+import HideArticle from '../../utility_components/hide-article/hide-articlev2.js';
 
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
@@ -19,7 +19,7 @@ export const RenderCard = (props) => {
     // console.log(props.arrayFromDatabase)
 
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
-        HideArticle2(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+        HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
     }
     const pageView = props.database.map((value,key) => {

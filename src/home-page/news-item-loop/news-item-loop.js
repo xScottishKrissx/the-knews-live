@@ -18,28 +18,13 @@ class MapDatabaseItems extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            // Article Information
-                title: "",
-                author: "",
-                id: "",
-                imgPath: "",
-                key: "",
             // The Actual Article Array
                 articlesArray : [],
-                articlesArray2 : [],
-                arrayStartState: 30,
-                arrayEndState: 35,
-                filteredPostArray:[],
+                leftoverArticles:[],
+                fullDatabaseCall:[],
             // This is a record of the posts hidden.
             postsArray:[],
             hiddenPosts:localStorage.getItem("hiddenPostList"),
-
-            // Testing Stuff
-            leftoverArticles:[],
-            firstSlicePoint:0,
-            secondSlicePoint:30,
-            data:[],
-            fullDatabaseCall:[]
         }
     }
 
@@ -83,7 +68,7 @@ class MapDatabaseItems extends React.Component{
             }
             this.setState({
                 //Set's the initial number of articles loaded into home.
-                articlesArray: newState.slice(0,this.state.secondSlicePoint),
+                articlesArray: newState.slice(0,30),
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })

@@ -444,8 +444,8 @@ General Notes  Objectives:
 
                         ✔ I have completed the meat of the problem, you can hide articles with an article replacing it at the end of the array. My main method was to break it down, step by step and work through the problem. My main failure was initially building the codebase in the render of news-item-loop-view.js. This caused major issues so my second attempt at this, primarily inside the hide-article.js proved much easier and less troublesome.
                             ☐ Integrate the following with the new hide functionality:
-                                ☐ The in article hide article button
-                                ☐ Swiping to hide @started(13:11 - 14/04/21)
+                                ✔ The in article hide article button @started(10:03 - 15/04/21) @done(10:30 - 15/04/21) @lasted(27m47s)
+                                ✔ Swiping to hide @started(13:11 - 14/04/21) @done(10:03 - 15/04/21) @lasted(20h52m37s)
                                     bugs/issues:
                                         ✔ Swiping does hide the article, however if you reloead the page you are met with an infite loop error. @done(15:48 - 14/04/21)
                                             ✔ Solution - Removed the checkCache component as it is no longer necessary due to changes with hideArticle component @done(15:48 - 14/04/21)

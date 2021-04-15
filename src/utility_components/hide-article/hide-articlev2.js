@@ -1,11 +1,17 @@
 import './hide-article.css';
 
-export const HideArticle2  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
+export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
 
-        
+        // console.log(value)
+        // console.log(postsArray)
+        // console.log(arrayFromDatabase)
+        // console.log(leftoverArticles)
+        // console.log(fullDatabaseCall)
+
+
         console.log("Hide Article Button Pressed");
         // console.log(localStorage.getItem("hiddenPostList"));
-        console.log("Post Disappearing is Post:: " + value)
+        // console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
@@ -144,4 +150,4 @@ export const HideArticle2  = (value,postsArray,arrayFromDatabase,leftoverArticle
     
 
 
-export default HideArticle2;
+export default HideArticle;

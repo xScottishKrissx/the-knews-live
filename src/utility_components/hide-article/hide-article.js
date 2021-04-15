@@ -129,6 +129,8 @@ export class HideArticle extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changedFullDatabaseCall))
 
 
+
+
         // This is for hiding the article in UI - Might remove later 24/3/2021
         const localStorageHiddenPosts = localStorage.getItem("hiddenPostList");
 

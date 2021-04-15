@@ -6,13 +6,13 @@
 //     localStorage.setItem("hiddenPostList", this.state.postsArray);
 //     // console.log(localStorage.getItem("hiddenPostList"));
 // }
-import HideArticle2 from '../utility_components/hide-article/hide-articlev2.js';
+import HideArticle from '../utility_components/hide-article/hide-articlev2.js';
 export const swipeRightAction = (id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
     document.getElementById(id).style.display = "none";
     // postsArray.push(id)
     // localStorage.setItem("hiddenPostList", postsArray);
 
-    HideArticle2(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+    HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
 
 
     // Display unhide btn if cache isn't empty

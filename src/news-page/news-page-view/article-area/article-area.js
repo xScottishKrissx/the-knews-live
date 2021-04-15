@@ -10,7 +10,7 @@ import PageScore from '../social/page-score.js';
 // import EditArticle from './edit-article.js';
 
 import './article-area.css';
-import HideArticle from '../../../utility_components/hide-article/hide-article.js';
+import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
 
 
 
@@ -30,7 +30,10 @@ const ArticleArea = (props) => {
     // console.log(props.articleId)
     // console.log(props.leftoverArticles)
     // console.log(props.fullDatabaseCall)
-    
+    function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
+        HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+        // console.log(arrayFromDatabase.length)
+    }
     
     return (
             
@@ -132,7 +135,20 @@ const ArticleArea = (props) => {
                         
                         </article>                  
                         
-                        <HideArticle articleId={props.articleId} />
+                        {/* <HideArticle articleId={props.articleId} /> */}
+
+                        
+                         {/* <HideArticle articleId={props.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
+
+                        <div className="hideArticleButtonWrapper">
+                            <button id={props.id} onClick={() => handleClick(
+                                                                    props.articleId, 
+                                                                    props.postsArray,
+                                                                    props.arrayFromDatabase,
+                                                                    props.leftoverArticles,
+                                                                    props.fullDatabaseCall)}>
+                                                                    Hide Article</button>
+                        </div>
 
                     {/* <ExtraImageLoop />       */}
                        
