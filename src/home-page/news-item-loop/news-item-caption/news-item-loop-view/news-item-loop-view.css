@@ -46,6 +46,12 @@
     }
 
 
+.test__articleWrapper{
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
 @media (min-width: 768px) {
 .home-wrapper{
     margin: 0 auto;

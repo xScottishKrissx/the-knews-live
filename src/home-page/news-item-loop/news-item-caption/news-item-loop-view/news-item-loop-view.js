@@ -18,9 +18,16 @@ class NewsItemLoopView extends React.Component{
         getArticleBy:"All",
         renderArray:[],
         
+        //testing
+        articleNumber:0,
+        showArticle:false
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.getArticlesBy = this.getArticlesBy.bind(this);
+
+        //Testing
+        this.changeArticle = this.changeArticle.bind(this);
+        this.hideArticle = this.hideArticle.bind(this);
     }
 
     getCardSize(value){
@@ -82,20 +89,55 @@ class NewsItemLoopView extends React.Component{
         
     }
 
+    changeArticle(){
+        console.log("Change Article")
+        this.setState({
+            articleNumber: this.state.articleNumber + 1,
+            showArticle:true
+        })
+    }
+    hideArticle(){
+        if(this.state.showArticle === true){
+            this.setState({
+                showArticle:false,
+                articleNumber: 0
+            })
+            
+        }
+    }
+
     render(){  
 
         const renderToPage = this.state.renderArray || this.props.databaseProp ;
         console.log(renderToPage)
-        // console.log(this.props.databaseProp)
+        console.log(this.props.databaseProp[0])
         return(
             
             <div className="newsItemLoopViewWrapper">
                 
+                <div className="test__articleWrapper">
+                    {this.state.showArticle === false ?
+                    <p>Show All Cards</p>
+                    :
+                    <div className="test__articleContainer">
+                        <h2>Display an article here</h2>
+                        <h3>Title: {this.props.databaseProp[this.state.articleNumber].title}</h3>
+                        <h3>Title: {this.props.databaseProp[this.state.articleNumber].author}</h3>
+                    </div>
+                    }
+
+                    <button onClick={this.changeArticle}>Change Article</button>
+                    <button onClick={this.hideArticle}>Hide Article</button>
+                </div>
+
+
                 <button onClick={() => this.getArticlesBy("News")} >News</button>
                 <button onClick={() => this.getArticlesBy("Sports")} >Sports</button>
                 <button onClick={() => this.getArticlesBy("Weather")} >Weather</button>
                 <button onClick={() => this.getArticlesBy("All")} >No Filter</button>
                 <p>Showing {this.state.getArticleBy} Articles</p>
+
+
 
                 {this.props.databaseProp.length >= 30 ? 
                  <RenderCard

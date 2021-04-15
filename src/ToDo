@@ -461,7 +461,7 @@ General Notes  Objectives:
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
 
                                     // Let's see how this goes...
-                                    
+
                                 ☐ Re-activate the card size controls.
                             ☐ Bugs / Errors / Issues:
                                 ✔ Hiding all articles will eventually return a null id error. done(16:15 - 31/03/21)
@@ -632,6 +632,13 @@ General Notes  Objectives:
                     // They currently just linearly go through every article in the array.
             
             ✔ The ability to mark an article as hidden from the article page instead of just the cross on the homepage @started(20-11-30 12:21) @done(16:57 - 15/01/21) @lasted(-3h23m54s)
+
+    Rethink Articles:
+        ☐ This little project might not go anywhere but I want see if I can take what I've learned from tags and apply that to the article pages. More specifically I want to see if I can design a method by which articles can be loaded and switched on a button press. Currently, articles are loaded using a rigid set of props being passed through components and while this might be the best solution, it makes it difficult to switch between articles wthout using redirects(which i would like to avoid). Basically, i want to make it as easy to switch between articles as it is to switch between the tag filters on the home page. Like I said, this might not work but I want to give it a go and see what happens.
+            To-Do:
+                ☐ Get a very basic article switching component up and running(changing id's on button press etc)
+            Known Issues / Bugs:
+                ☐ Probably like a million
      
     Tags Page:
         ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
@@ -877,7 +884,8 @@ Part 2 Implement Database functionality:
 
             // Finish these and get a new release to the portfolio.
             ☐ Improved handling of hiding all articles
-            ☐ Tags rethink
+            ✔ Tags rethink @done(12:00 - 15/04/21)
+            ☐ Article Page rethink @started(12:00 - 15/04/21)
             
 
 
