@@ -28,6 +28,10 @@
         position: relative;
         
     }
+    .newsItemLoopViewWrapper > div{
+        display: flex;
+        flex-wrap: wrap;
+    }
         .myClass{
             display: flex;
             flex: 1 1;
@@ -48,7 +52,7 @@
 
 #test__articleWrapper{
     background-color: red;
-    display: none;
+    display: block;
     height: 94vh;
     position: fixed;
     text-align: center;
