@@ -63,9 +63,9 @@ class NewsItemLoopView extends React.Component{
     getArticlesBy(value){
         // console.log(value)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        console.log(fullDatabaseCallFromStorage)
+        // console.log(fullDatabaseCallFromStorage)
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
-        console.log(fullDatabaseCallFromProp)
+        // console.log(fullDatabaseCallFromProp)
 
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
         // Filter array for null objects and remove anything marked as hidden.
@@ -76,7 +76,7 @@ class NewsItemLoopView extends React.Component{
         
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
-        console.log(filteredByTag)
+        // console.log(filteredByTag)
         // change leftover articles to include only relevant articles
         // const leftoverArticles = this.props.fullDatabaseCall.filter(obj => obj.tag === value);
         // console.log(leftoverArticles.slice(20))
@@ -119,8 +119,8 @@ class NewsItemLoopView extends React.Component{
  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         // const renderToPage = this.props.databaseProp
-        console.log(this.state.renderArray.slice(0,30))
-        console.log(this.props.databaseProp)
+        // console.log(this.state.renderArray.slice(0,30))
+        // console.log(this.props.databaseProp)
         // console.log(this.props.databaseProp)
         // console.log(renderToPage[this.state.articleNumber] || renderToPage[0])
         // console.log(renderToPage[this.state.articleNumber])

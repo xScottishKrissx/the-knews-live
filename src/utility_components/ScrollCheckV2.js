@@ -18,7 +18,7 @@ class ScrollCheckV2 extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.articlesArray)
+        // console.log(this.props.articlesArray)
 
         window.addEventListener('scroll', this.scroll);      
 
@@ -66,8 +66,8 @@ class ScrollCheckV2 extends React.Component{
 
             const filterArticlesBy = renderNewArticlesOnScroll.filter(obj => obj.tag === localStorage.getItem("filterOption"));
 
-            console.log(renderNewArticlesOnScroll)
-            console.log(filterArticlesBy)
+            // console.log(renderNewArticlesOnScroll)
+            // console.log(filterArticlesBy)
 
             // Setting state will then update the page with the new articles attached to the end of the array.
             this.setState({
@@ -87,8 +87,8 @@ class ScrollCheckV2 extends React.Component{
       }
 
     render(){
-        console.log(this.state.mainArray)
-        console.log(this.props.databaseProp)
+        // console.log(this.state.mainArray)
+        // console.log(this.props.databaseProp)
         return(
             <React.Fragment>
                 {/* {pageView} */}

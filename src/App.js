@@ -50,7 +50,7 @@ componentDidMount(){
 
   render(){
     
-    console.log("Render App!")
+    // console.log("Render App!")
     return(
       <div>
         {/* <h1>the Knews - Live</h1> */}
