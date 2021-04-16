@@ -24,6 +24,11 @@ export const RenderCard = (props) => {
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
     }
+
+    function swipe(x){
+        console.log("Swipe")
+        console.log(x)
+    }
    
     const pageView = props.database.map((value,key) => {
         
@@ -55,7 +60,9 @@ export const RenderCard = (props) => {
                                     closePopup={closePopup} 
                                     headerImage={value.id} />,
                             // action: () => swipeLeftAction(value.text, value.id) 
-                            action: () => props.showArticle() 
+                            // action: () => props.showArticle() 
+                            action: () => console.log('swipe action triggered'),
+                            
                         }}
                         
                         swipeRight={{

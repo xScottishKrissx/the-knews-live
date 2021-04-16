@@ -1,10 +1,13 @@
 import React from 'react';
 import '../news-item-loop-view/news-item-loop-view.css';
-import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
+import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-size.js';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import RenderCard from '../../../../utility_components/renderCard/renderCard';
 import ParseHTML from '../../../../utility_components/parse-database-html/parse-html';
 import HeaderImage from '../../../../utility_components/header-image/header-image';
+
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 class NewsItemLoopView extends React.Component{
 
@@ -143,16 +146,17 @@ class NewsItemLoopView extends React.Component{
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>speedKnews</h1>
+                    
                         <div className="speedKnewsArticleContainer">
-                            
-                                <header>
-                                <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
-                                <h2>{renderToPage[this.state.articleNumber].title}</h2>
-                                <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
-                                <span>Full Article Page</span>
-                                {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
-                                </header>
-                                <article><ParseHTML props={renderToPage[this.state.articleNumber].text}/></article>
+
+                            <header>
+                            <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
+                            <h2>{renderToPage[this.state.articleNumber].title}</h2>
+                            <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
+                            <span>Full Article Page</span>
+                            {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
+                            </header>
+                            <article><ParseHTML props={renderToPage[this.state.articleNumber].text}/></article>
                          
 
                         </div>
@@ -165,7 +169,13 @@ class NewsItemLoopView extends React.Component{
                            </span>
                             :
                             <span>
-                                <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}>Prev Article</button>
+                                <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)
+                                    
+                                    }>
+                                        
+                                        
+                                        
+                                        Prev Article</button>
                                 <button onClick={() => this.changeArticle(+1)}>Next Article</button>
                                 <button onClick={this.hideArticle}>Exit</button>
                             </span>

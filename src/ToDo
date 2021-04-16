@@ -466,7 +466,7 @@ General Notes  Objectives:
 
                                     ☐ However, this section has not yet been updated to include a hide article button as I'm not sure it will actually include one yet.
 
-                                ☐ Re-activate the card size controls.
+                                ✔ Re-activate the card size controls. @done(13:51 - 16/04/21)
                                 
                             ☐ Bugs / Errors / Issues:
                                 ✔ Hiding all articles will eventually return a null id error. done(16:15 - 31/03/21)

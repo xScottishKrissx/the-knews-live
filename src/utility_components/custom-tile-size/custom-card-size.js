@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../custom-tile-size/custom-card-size.css';
+import './custom-card-size.css';
 
 class CustomCardSize extends React.Component{
 
@@ -51,7 +51,7 @@ class CustomCardSize extends React.Component{
     render(){
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
-                {/* <div className="tileSizeControls" >
+                <div className="tileSizeControls" >
 
                 {this.state.cardSizeOptionMenu === "hideOptions" ? 
                      <div onClick={()=> this.showCardSizeOptions("0%")}>
@@ -76,7 +76,7 @@ class CustomCardSize extends React.Component{
                             <span className="large-btn" >L</span>
                         </button>                      
                     </span>   
-                </div> */}
+                </div>
             </div>
         )
     }
