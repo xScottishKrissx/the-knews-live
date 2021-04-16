@@ -17,8 +17,8 @@ import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-
 // import { ShowArticleTest } from '../showArticleTest-OLD';
 
 export const RenderCard = (props) => {
-    // console.log(props.database)
-    // console.log(props.arrayFromDatabase)
+    console.log(props.database)
+    console.log(props.arrayFromDatabase)
     
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);

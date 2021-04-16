@@ -18,6 +18,8 @@ class ScrollCheckV2 extends React.Component{
     }
 
     componentDidMount(){
+        console.log(this.props.articlesArray)
+
         window.addEventListener('scroll', this.scroll);      
 
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedArticleArray"));
@@ -86,6 +88,7 @@ class ScrollCheckV2 extends React.Component{
 
     render(){
         console.log(this.state.mainArray)
+        console.log(this.props.databaseProp)
         return(
             <React.Fragment>
                 {/* {pageView} */}
@@ -94,7 +97,7 @@ class ScrollCheckV2 extends React.Component{
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
                     postsArray={this.state.postsArray}
-                    arrayFromDatabase={this.props.databaseProp} 
+                    arrayFromDatabase={this.props.articlesArray} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     

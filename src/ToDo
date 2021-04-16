@@ -458,10 +458,9 @@ General Notes  Objectives:
                                     ✔ Scroll Check now works without no filter, but has been removed for filtered views. @done(17:54 - 07/04/21)
                                         ☐ I am looking into getting scroll check to work with tags.
                                     
-                                    ☐ Hiding newly loaded articles is completley broken.Articles don't hide and if they do you get an error. @started(13:59 - 16/04/21)
-                                        ☐ This issue isn't with scrollCheck, it's with the getArticle method responsible for getting articles to render.
-                                        ☐ Solution(?) - I've added a slice to the renderToPage const in newsitem-loop-view that takes the first 30 articles from the full database array. The scroll check starts with the 31st article from the same array so that should work.
-                                        ☐ I will need to pay attention here.
+                                    ✔ Hiding newly loaded articles is completley broken.Articles don't hide and if they do you get an error. @started(13:59 - 16/04/21) @done(16:51 - 16/04/21) @lasted(2h52m38s)
+                                        -- Hiding newly scrolled article with an empty cache will throw an error.
+                                        ✔ Solution - I was missing a prop in the scrolLCheck component in news-item-loop-view.js. @done(16:51 - 16/04/21)
 
                                 ☐ Next/Prev @started(10:34 - 15/04/21)
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
@@ -485,6 +484,7 @@ General Notes  Objectives:
                                 ✔ OnScrollLoaded articles don't have any article info associated with them, showing a blank page on load. @started(16:36 - 31/03/21) @done(17:04 - 31/03/21) @lasted(28m11s)
                                     ✔ SOlution - I had the prop "pageid" when it needed to be "pageId". @done(17:04 - 31/03/21)
                                 ☐ Hiding a loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   @started(17:11 - 31/03/21)
+                                ✔ There are 97 articles being rendered initially, causing article duplication - Solution - I've added a slice to the renderToPage const in newsitem-loop-view that takes the first 30 articles from the full database array. The scroll check starts with the 31st article from the same array so that should work. @done(16:36 - 16/04/21)
                             
                             ☐ Switch to hideArticlev2 component @started(15:52 - 14/04/21)
                             ☐ Move the UI for hiding articles on click into the renderCard component.

@@ -199,10 +199,10 @@ class NewsItemLoopView extends React.Component{
                  
 
                  // Test
-                 changeId={renderToPage[this.state.articleNumber].id}
-                 changeTitle={renderToPage[this.state.articleNumber].title}
-                 changeAuthor={renderToPage[this.state.articleNumber].author}
-                 changeText={renderToPage[this.state.articleNumber].text}
+                //  changeId={renderToPage[this.state.articleNumber].id}
+                //  changeTitle={renderToPage[this.state.articleNumber].title}
+                //  changeAuthor={renderToPage[this.state.articleNumber].author}
+                //  changeText={renderToPage[this.state.articleNumber].text}
                  showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
                  />
                 :
@@ -216,6 +216,8 @@ class NewsItemLoopView extends React.Component{
                         changedCardSize={this.state.changedCardSize}
                         leftoverArticles={this.props.leftoverArticles}
                         getArticleBy={this.state.getArticleBy}
+
+                        
                     />   
                 :
                 <p>No More Articles. Come Back Later</p>
