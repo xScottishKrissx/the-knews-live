@@ -121,6 +121,7 @@ class ScrollCheck extends React.Component{
         // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
         // console.log("Render Scroll Check")
         const articlesArray = this.state.articlesArray;
+        console.log(articlesArray)
         
 
         // Load new Articles into view on scroll.

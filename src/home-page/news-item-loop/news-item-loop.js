@@ -100,8 +100,8 @@ class MapDatabaseItems extends React.Component{
         localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
 
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        // console.log(this.state.articlesArray)
+        console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
+        console.log(this.state.articlesArray)
 
          return (
          <div className="news-item-loop-wrapper"> 

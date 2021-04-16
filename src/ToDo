@@ -457,6 +457,11 @@ General Notes  Objectives:
 
                                     ✔ Scroll Check now works without no filter, but has been removed for filtered views. @done(17:54 - 07/04/21)
                                         ☐ I am looking into getting scroll check to work with tags.
+                                    
+                                    ☐ Hiding newly loaded articles is completley broken.Articles don't hide and if they do you get an error. @started(13:59 - 16/04/21)
+                                        ☐ This issue isn't with scrollCheck, it's with the getArticle method responsible for getting articles to render.
+                                        ☐ Solution(?) - I've added a slice to the renderToPage const in newsitem-loop-view that takes the first 30 articles from the full database array. The scroll check starts with the 31st article from the same array so that should work.
+                                        ☐ I will need to pay attention here.
 
                                 ☐ Next/Prev @started(10:34 - 15/04/21)
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
@@ -465,6 +470,7 @@ General Notes  Objectives:
                                     See "Rethink Articles" for more info but I removed these controls from the main article pages and integrated them into a new view, something I'm calling speedKnews, that quickly allows for switching between articles. 
 
                                     ☐ However, this section has not yet been updated to include a hide article button as I'm not sure it will actually include one yet.
+                                        ☐ Thinking about a hide as you read option.
 
                                 ✔ Re-activate the card size controls. @done(13:51 - 16/04/21)
                                 
@@ -655,10 +661,7 @@ General Notes  Objectives:
                     ✔ So i've gone ahead and replaced the old popup with this new system. It's a lot better and allows me to have both quick switching low clutter articles as well as more feature rich, shareable article pages. @done(18:03 - 15/04/21)
                 ☐ Add link to full article
                 ☐ Can i use the swiping stuff here?
-                 
-            Known Issues / Bugs:
-                ☐ Probably like a million
-                ☐ Add 
+                    ☐ I think so but I might need a new separate component for speedKnews before I get to that.
      
     Tags Page:
         ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
@@ -743,7 +746,7 @@ General Notes  Objectives:
 
                                                             
 
-                                                    ☐ Integrate Next/Prev controls @started(11:57 - 13/04/21)
+                                                    ✔ Integrate Next/Prev controls @started(11:57 - 13/04/21) @done(13:57 - 16/04/21) @lasted(3d2h25s)
                                         
                                         //If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
                                                     this proved to be irrelevant as I fixed the issue.
@@ -905,7 +908,7 @@ Part 2 Implement Database functionality:
             // Finish these and get a new release to the portfolio.
             ☐ Improved handling of hiding all articles
             ✔ Tags rethink @done(12:00 - 15/04/21)
-            ☐ Article Page rethink @started(12:00 - 15/04/21)
+            ✔ Article Page rethink @started(12:00 - 15/04/21) @done(13:57 - 16/04/21) @lasted(1d1h57m35s)
             
 
 
