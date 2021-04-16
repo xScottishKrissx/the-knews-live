@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 
-import HeaderImage from './header-image/header-image.js';
+import HeaderImage from '../../utility_components/header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 
 

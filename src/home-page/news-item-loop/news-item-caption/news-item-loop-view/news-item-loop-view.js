@@ -4,7 +4,7 @@ import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import RenderCard from '../../../../utility_components/renderCard/renderCard';
 import ParseHTML from '../../../../utility_components/parse-database-html/parse-html';
-import HeaderImage from '../../../../news-page/news-page-view/header-image/header-image';
+import HeaderImage from '../../../../utility_components/header-image/header-image';
 
 class NewsItemLoopView extends React.Component{
 
@@ -142,13 +142,17 @@ class NewsItemLoopView extends React.Component{
             {this.state.showArticle === true ?
                 <div>                
                     <div id="speedKnewsWrapper" >
+                    <h1>speedKnews</h1>
                         <div className="speedKnewsArticleContainer">
                             
+                                <header>
                                 <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
                                 <h2>{renderToPage[this.state.articleNumber].title}</h2>
                                 <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
+                                <span>Full Article Page</span>
                                 {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
-                                <ParseHTML props={renderToPage[this.state.articleNumber].text}/>
+                                </header>
+                                <article><ParseHTML props={renderToPage[this.state.articleNumber].text}/></article>
                          
 
                         </div>
