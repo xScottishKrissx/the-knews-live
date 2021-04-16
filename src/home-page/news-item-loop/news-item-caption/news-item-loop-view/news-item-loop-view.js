@@ -140,7 +140,7 @@ class NewsItemLoopView extends React.Component{
             
             <div className="newsItemLoopViewWrapper">
             {this.state.showArticle === true ?
-                <div>                
+                <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>speedKnews</h1>
                         <div className="speedKnewsArticleContainer">
@@ -173,6 +173,7 @@ class NewsItemLoopView extends React.Component{
                             {/* <button onClick={() => this.changeArticle(+1)}>Next Article</button>
                             <button onClick={this.hideArticle}>Exit</button> */}
                         </div>
+                        
                     </div>
                 </div>
             :
