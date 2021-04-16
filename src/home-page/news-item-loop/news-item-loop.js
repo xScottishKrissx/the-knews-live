@@ -118,7 +118,7 @@ class MapDatabaseItems extends React.Component{
                         <ScrollToTopButton   />
                     </React.Fragment>
                 :
-                    <img src={loading} />
+                    <img alt="now loading" src={loading} />
             }
 
             </div>

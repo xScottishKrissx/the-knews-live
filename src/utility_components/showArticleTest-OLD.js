@@ -6,7 +6,7 @@
 //     localStorage.setItem("hiddenPostList", this.state.postsArray);
 //     // console.log(localStorage.getItem("hiddenPostList"));
 // }
-
+import React from 'react';
 export const ShowArticleTest = (id,title) =>{
 
     console.log("ShowArticleTest " + id)

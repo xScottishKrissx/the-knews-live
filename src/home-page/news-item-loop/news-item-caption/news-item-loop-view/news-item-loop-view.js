@@ -191,7 +191,7 @@ class NewsItemLoopView extends React.Component{
                  arrayFromDatabase={this.props.databaseProp} 
                  leftoverArticles={this.props.leftoverArticles}  
                  fullDatabaseCall={this.props.fullDatabaseCall}
-                 postsArray={this.state.postsArray}
+                 
 
                  // Test
                  changeId={renderToPage[this.state.articleNumber].id}

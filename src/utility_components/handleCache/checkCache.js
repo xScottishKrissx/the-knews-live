@@ -13,12 +13,12 @@ export const CheckCache = (props) =>{
             // console.log("Exists!");
             clearInterval(checkExist);
         
-            const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
+            // const formattedPostsArray = localStorageHiddenPosts.split(',').map(Number)
             // const formattedPostsArray2 = localStorageHiddenPosts2.split(',').map(Number)
             
 
-            for(var i = 0; i < formattedPostsArray.length; i++){
-                if(!!formattedPostsArray && formattedPostsArray[i].toString() === props.id.toString()){
+            // for(var i = 0; i < formattedPostsArray.length; i++){
+                // if(!!formattedPostsArray && formattedPostsArray[i].toString() === props.id.toString()){
                     // console.log("Hidden Post Identified")
                     document.getElementById(props.id).style.display = "none";
                     // console.log("Success: " + props.id + " hidden");
@@ -28,8 +28,8 @@ export const CheckCache = (props) =>{
                     // console.log(formattedPostsArray2)
                     // const newCollection2 = update(collection2, {0:{"hidden": {$set: 5}}});
                     // console.log(newCollection2)
-                }
-            }        
+                // }
+            // }        
 
             }
         }, 100); // check every 100ms

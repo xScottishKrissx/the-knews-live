@@ -1,47 +1,30 @@
+import React from 'react'
 import './renderCard.css';
 // Things needed for map items test
 // Swiping
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import SwipeLeftContent from '../../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
-import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
+// import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 import closePopup from '../../utility_components/closePopup.js';
 import swipeRightAction from '../../utility_components/swipeRightAction.js';
-import CheckCache from '../../utility_components/handleCache/checkCache.js';
+// import CheckCache from '../../utility_components/handleCache/checkCache.js';
 
 // import HideArticle from '../../utility_components/hide-article/hide-article.js';
 import HideArticle from '../../utility_components/hide-article/hide-articlev2.js';
 
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
-import { ShowArticleTest } from '../showArticleTest';
+// import { ShowArticleTest } from '../showArticleTest-OLD';
 
 export const RenderCard = (props) => {
     // console.log(props.database)
     // console.log(props.arrayFromDatabase)
     
-    // console.log(props.changeTitle)
-    if(props.changeTitle != undefined){
-        console.log(props.changeTitle)
-    }
-
-
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
     }
-
-    function showArticle(id){
-        console.log("Show Article")
-        console.log(id)
-        // console.log(props.changeTitle)
-        // console.log(props.database[0])
-        const filterThing = props.database.filter(obj => obj.id === id);
-        console.log(filterThing[0].title)
-        console.log(filterThing[0].author)
-        ShowArticleTest(id)
-        
-    }
-    
+   
     const pageView = props.database.map((value,key) => {
         
         // console.log(props.arrayFromDatabase.length)

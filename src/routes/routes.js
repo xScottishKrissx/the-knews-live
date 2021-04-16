@@ -5,9 +5,8 @@ import {Route, Redirect, Switch} from 'react-router-dom';
 import './routes.css';
 
 import Home from '../home-page/home.js';
-// import Tags from '../tags/tags.js';
-import Tags from '../tags/tagsv3.js';
-import TagsURL from '../tags/tagsv3.1.js';
+
+import Tags from '../tags/tagsv3.1.js';
 import NewsPage from '../news-page/news-page.js';
 // import Form from '../myKnews/form.js';
 import { PracticeForm } from '../myKnews/practice-form';
@@ -28,7 +27,7 @@ export class Routes extends React.Component{
 
 
                 <Route path="/tags/" component={ (props) => (
-                    <TagsURL timestamp={new Date().toString()} {...props} />
+                    <Tags timestamp={new Date().toString()} {...props} />
                 )}/>
 
                 <Route path="/myKnews" component={PracticeForm} />
@@ -46,7 +45,7 @@ export class Routes extends React.Component{
                 <Redirect exact from="/home/search/tag/news" to="/home/search/tag/News" /> 
                 <Route path="/home/search/:a/:b" component={TagsURL}/>
                 </Switch> */}
-                <Route path="/home/search/:a/:b" component={TagsURL}/>
+                <Route path="/home/search/:a/:b" component={Tags}/>
                 {/* <Route path=":id" component={NewsPage}/> */}
 
                 

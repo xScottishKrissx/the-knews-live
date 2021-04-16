@@ -4,7 +4,7 @@ import fire from '../fire.js';
 import NavControls from '../utility_components/navControls/navControls.js';
 import '../tags/tags.css';
 import CustomCardSize from '../home-page/news-item-loop/custom-tile-size/custom-card-size.js';
-import ScrollCheck from '../utility_components/ScrollCheck.js';
+// import ScrollCheck from '../utility_components/ScrollCheck.js';
 
 // Working with Cache 
 import ClearCache from '../utility_components/handleCache/ClearCache.js';
@@ -105,9 +105,9 @@ class Tags extends React.Component{
         // console.log(fullDatabaseCallFromStorage) 
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
             obj.hidden !== true &&
-            obj.author === this.props.match.params.b || 
+            (obj.author === this.props.match.params.b || 
             obj.tag === this.props.match.params.b ||
-            obj.postdate === this.props.match.params.b 
+            obj.postdate === this.props.match.params.b )
         ) || this.props.location.state.arrayFromDatabase;
 
         const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray

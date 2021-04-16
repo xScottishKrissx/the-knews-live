@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './navControls.css';
 
-import { Redirect } from 'react-router';
+// import { Redirect } from 'react-router';
 
 
 
@@ -21,10 +21,10 @@ export class NavControls extends React.Component{
 
       
     render(){
-        const convertArticleIdFromString = Number(this.state.currentArticle)
-        const nextArticle = convertArticleIdFromString + 1;
-        const previousArticle = convertArticleIdFromString - 1;
-        console.log(this.props)
+        // const convertArticleIdFromString = Number(this.state.currentArticle)
+        // const nextArticle = convertArticleIdFromString + 1;
+        // const previousArticle = convertArticleIdFromString - 1;
+        // console.log(this.props)
 
       
 
@@ -32,8 +32,8 @@ export class NavControls extends React.Component{
         
 
         
-        console.log(localStorage.getItem("changedFullDatabaseCall"))
-        console.log(this.props.arrayFromDatabase)
+        // console.log(localStorage.getItem("changedFullDatabaseCall"))
+        // console.log(this.props.arrayFromDatabase)
         return (
             <div className="nav-controls">
             <span className="icons-wrapper">

@@ -97,7 +97,7 @@ class ScrollCheckV2 extends React.Component{
                     arrayFromDatabase={this.props.databaseProp} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
-                    postsArray={this.state.postsArray}
+                    
                 
                 />
                 {/* <NewsItemLoopView databaseProp={new1} /> */}

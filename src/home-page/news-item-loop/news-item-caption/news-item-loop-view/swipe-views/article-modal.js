@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderImage from '../../../../../news-page/news-page-view/header-image/header-image.js';
+// import HeaderImage from '../../../../../news-page/news-page-view/header-image/header-image.js';
 import ParseHTML from '../../../../../utility_components/parse-database-html/parse-html.js';
 
 import "../swipe-views/article-modal.css";
