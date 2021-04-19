@@ -49,6 +49,9 @@ class CustomCardSize extends React.Component{
     }
 
     render(){
+        var width = window.innerWidth || document.documentElement.clientWidth|| document.body.clientWidth;
+        var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        console.log(width,height)
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
                 <div className="tileSizeControls" >
@@ -58,7 +61,7 @@ class CustomCardSize extends React.Component{
                          <p className="large material-icons">arrow_drop_up</p>
                      </div>
                      :
-                     <div onClick={()=> this.showCardSizeOptions("-10rem")}> 
+                     <div onClick={()=> this.showCardSizeOptions("-105px")}> 
                      <p className="large material-icons">arrow_drop_down</p>Card Size
                      </div>    
                 }
@@ -72,9 +75,12 @@ class CustomCardSize extends React.Component{
                             <span className="medium-btn" >M</span>
                         </button>
                         
-                        <button  onClick={() => this.changeCardSize("50rem")}>
+                        {/* <button id="cardControlsLargeBtn" onClick={() => this.changeCardSize("50rem")}>
                             <span className="large-btn" >L</span>
-                        </button>                      
+                        </button>   */}
+                        
+                   
+                    
                     </span>   
                 </div>
             </div>

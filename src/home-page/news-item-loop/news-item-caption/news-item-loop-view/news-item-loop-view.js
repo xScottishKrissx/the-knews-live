@@ -285,7 +285,7 @@ class NewsItemLoopView extends React.Component{
                 <p>No More Articles. Come Back Later</p>
                 } */}
  
-                <CustomCardSize getCardSizeToParent={this.getCardSize} />
+                {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
             </div>
         )
     }

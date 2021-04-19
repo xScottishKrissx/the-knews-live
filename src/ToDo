@@ -894,7 +894,10 @@ Part 2 Implement Database functionality:
 
         Version 11 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
-            
+            ☐ Add Options Menu for card control sizes, clearing cache etc
+            ☐ Redo the card controls to improve the usablity of cards.
+            ☐ 
+
         Version 10.1 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
             ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components
@@ -911,11 +914,12 @@ Part 2 Implement Database functionality:
             ✔ Article Page rethink @started(12:00 - 15/04/21) @done(13:57 - 16/04/21) @lasted(1d1h57m35s)
             
             let's finally move to a release, but first:
-                ☐ The card size controls are ugly. Redo them
-                ☐ Make sure they work as well
+                ✔ The card size controls are ugly. Redo them @done(12:06 - 19/04/21)
+                ✔ Make sure they work as well @done(12:06 - 19/04/21)
                 ☐ the access of speedKnews is just... not good. Finish this
                 ☐ The filter buttons need to have a finished UI
                 ☐ The home button overlaps the clear cache button on tags pages
+                ☐ The in article home button is awful
                 ☐ Add loading gifs to:
                     ☐ Loading author specific page
                     ☐ Loading tag specifc page
