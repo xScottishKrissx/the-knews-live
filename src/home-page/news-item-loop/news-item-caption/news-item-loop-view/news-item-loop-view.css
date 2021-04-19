@@ -95,7 +95,7 @@
 #speedKnews{max-width:1500px; width: 100%;}
 #speedKnewsWrapper{width: inherit;}
     .speedKnewsArticleContainer{
-        margin-bottom: 100px;
+        margin-bottom: 300px;
     }
     .speedKnewsArticleContainer header {
         margin-bottom: 2.5rem;
@@ -126,6 +126,13 @@
     width: 100%;
 
 }
+    #speedKnewsControls span button{
+        background-color: black;
+        color: white;
+        margin: 0;
+        outline: 1px solid white;
+        width: 100%;
+    }
 
 #speedKnewsButtonWrapper {
     position: relative;
@@ -201,9 +208,20 @@
         /* border: 10px solid black; */
         display: flow-root;
     }
-    #speedKnewsButtonWrapper{
-        
+    #speedKnewsControls{
+        bottom: 100px;
+        max-width: 1500px;
     }
+    #speedKnewsControls span{
+        margin: 0 auto;
+        width: 50%;
+    }
+        #speedKnewsControls span button{
+            background-color: white;
+            color: black;
+            outline: 5px solid black;
+            bottom: 10px;
+        }
 } 
 
 @media (min-width: 1024px) {

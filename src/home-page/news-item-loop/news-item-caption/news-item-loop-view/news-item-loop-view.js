@@ -142,6 +142,11 @@ class NewsItemLoopView extends React.Component{
         //     color:'white'      
         // }
 
+        // Integrate this into the render...
+        console.log(this.state.articleNumber)
+        if(this.state.articleNumber > 0 && this.state.articleNumber === renderToPage.length){
+            console.log("Handle Error")
+        }
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -153,11 +158,11 @@ class NewsItemLoopView extends React.Component{
                         <div className="speedKnewsArticleContainer">
 
                             <header>
-                            <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
-                            <h2>{renderToPage[this.state.articleNumber].title}</h2>
-                            <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
-                            <span>Full Article Page</span>
-                            {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
+                                <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
+                                <h2>{renderToPage[this.state.articleNumber].title}</h2>
+                                <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
+                                <span>Full Article Page</span>
+                                {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
                             </header>
                             <article><ParseHTML props={renderToPage[this.state.articleNumber].text}/></article>
                          
@@ -167,20 +172,16 @@ class NewsItemLoopView extends React.Component{
                         <div id="speedKnewsControls">
                         {renderToPage[this.state.articleNumber].id === 319 ? 
                            <span>
+                            <button onClick={this.hideArticle}>X - Exit</button>
                             <button onClick={() => this.changeArticle(+1)}>Next Article</button>
-                            <button onClick={this.hideArticle}>Exit</button>
+                            
                            </span>
                             :
                             <span>
-                                <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)
-                                    
-                                    }>
-                                        
-                                        
-                                        
-                                        Prev Article</button>
+                                <button onClick={this.hideArticle}>X - Exit</button>
+                                <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}> Prev Article</button>
                                 <button onClick={() => this.changeArticle(+1)}>Next Article</button>
-                                <button onClick={this.hideArticle}>Exit</button>
+                                
                             </span>
                         }
                             {/* <button onClick={() => this.changeArticle(+1)}>Next Article</button>
@@ -193,7 +194,7 @@ class NewsItemLoopView extends React.Component{
             <div>
                 <div id="topPageButtonWrapper">
                     <div id="speedKnewsButtonWrapper">
-                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>speedKnews |<span> just theKnews, nothing else</span></button>
+                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>view liteKnews </button>
                     </div>
                     
                     <div id="filterButtonWrapper">
@@ -248,7 +249,8 @@ class NewsItemLoopView extends React.Component{
                         
                     />   
                 :
-                <img alt="now loading" src={loading} />
+                // <img alt="now loading" src={loading} />
+                <p>Loading...</p>
                 }
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>

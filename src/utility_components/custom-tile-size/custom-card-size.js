@@ -49,9 +49,9 @@ class CustomCardSize extends React.Component{
     }
 
     render(){
-        var width = window.innerWidth || document.documentElement.clientWidth|| document.body.clientWidth;
-        var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        console.log(width,height)
+        // var width = window.innerWidth || document.documentElement.clientWidth|| document.body.clientWidth;
+        // var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        // console.log(width,height)
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
                 <div className="tileSizeControls" >
