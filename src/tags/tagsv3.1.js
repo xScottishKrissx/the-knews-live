@@ -11,6 +11,8 @@ import ClearCache from '../utility_components/handleCache/ClearCache.js';
 import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
 import RenderCard from '../utility_components/renderCard/renderCard.js';
 
+import loading from '../img/loading5.gif';
+
 class Tags extends React.Component{
 
     constructor(props){
@@ -126,7 +128,8 @@ class Tags extends React.Component{
                         }        
                          
                         {renderTags.length === 0 ?
-                        <div>Nothing here</div>    
+                        // <div>Nothing here</div>
+                        <span> <img alt="now loading" src={loading} /> Loading   </span>
                         :
                             <RenderCard 
                             database={renderTags}

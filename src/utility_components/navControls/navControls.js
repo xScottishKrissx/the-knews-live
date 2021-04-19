@@ -40,7 +40,7 @@ export class NavControls extends React.Component{
                 <div className="nav-icons home-button">
                         <Link to='/home' >
                             <p className="large material-icons">home</p>
-                            <span>Home</span>
+                            {/* <span>Home</span> */}
                         </Link>
                 </div>
                 {/* {this.props.props === 'only-home-button' ? 

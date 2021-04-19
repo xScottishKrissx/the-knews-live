@@ -896,7 +896,7 @@ Part 2 Implement Database functionality:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
             ☐ Add Options Menu for card control sizes, clearing cache etc
             ☐ Redo the card controls to improve the usablity of cards.
-            ☐ 
+            ☐ Add proper back button to articles(i.e go back one page, not just home)
 
         Version 10.1 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
@@ -919,11 +919,12 @@ Part 2 Implement Database functionality:
                 ✔ the access of speedKnews is just... not good. Finish this @done(15:48 - 19/04/21)
                 ✔ The filter buttons need to have a finished UI @done(15:48 - 19/04/21)
                 ✔ The home button overlaps the clear cache button on tags pages @done(15:50 - 19/04/21)
-                ☐ The in article home button is awful on mobile
-                ☐ Add loading gifs to:
-                    ☐ Loading author specific page
-                    ☐ Loading tag specifc page
-                    ☐ Clicking the header
+                ✔ The in article home button is awful on mobile @done(16:01 - 19/04/21)
+                    //Temp tweak, going to add breadcrumbs to articles in fututre
+                ✔ Add loading gifs to: @done(16:07 - 19/04/21)
+                    ✔ Loading author specific page @done(16:06 - 19/04/21)
+                    ✔ Loading tag specifc page @done(16:07 - 19/04/21)
+                    ✔ Clicking the header @done(16:07 - 19/04/21)
                 ☐ speedKnews:
                     ☐ Improve UI for next/prev/exit buttons
                     ☐ Add link to full article

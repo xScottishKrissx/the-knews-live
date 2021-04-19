@@ -1,16 +1,17 @@
     /* Navigation Control */
     .nav-controls{
         bottom: 0;
+        left: 0;
         display: block;
         /* height: 110px; */
         position: fixed;
-        width: 100%;
+        /* width: 100%; */
         z-index: 100;
     }
 
         .icons-wrapper{
             display: flex;
-            height: 75px;
+            /* height: 75px; */
         }
             .full-nav-bar{
                 display: flex;
@@ -21,7 +22,7 @@
             margin: 0 auto;
             /* border-left: 1px solid white; */
             background: black;
-            width: 33%;
+            width: auto;
             text-align: center;
         }
         .back-button{           
@@ -59,7 +60,7 @@
     .home-button, .back-button, .next-button{
         position: fixed;
         top: 0vh;
-        width: auto;
+        width: 75px;
     }
         .home-button{
             left: 0;

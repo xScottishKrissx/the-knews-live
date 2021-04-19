@@ -9,6 +9,8 @@ import HeaderImage from '../../../../utility_components/header-image/header-imag
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
+import loading from '../../../../img/loading5.gif';
+
 class NewsItemLoopView extends React.Component{
 
     constructor(props){
@@ -246,7 +248,7 @@ class NewsItemLoopView extends React.Component{
                         
                     />   
                 :
-                <p>No More Articles. Come Back Later</p>
+                <img alt="now loading" src={loading} />
                 }
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
