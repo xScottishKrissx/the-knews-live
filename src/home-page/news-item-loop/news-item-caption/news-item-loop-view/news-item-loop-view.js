@@ -191,7 +191,7 @@ class NewsItemLoopView extends React.Component{
             <div>
                 <div id="topPageButtonWrapper">
                     <div id="speedKnewsButtonWrapper">
-                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>speedKnews</button>
+                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>speedKnews |<span> just theKnews, nothing else</span></button>
                     </div>
                     
                     <div id="filterButtonWrapper">

@@ -140,9 +140,13 @@
         color: white;
         cursor: pointer;
         font-size: 2rem;
+        outline: 1px solid black;
         width: 100%;
         
     }
+        #speedKnewsButtonWrapper button span{
+            font-size: 1rem;
+        }
 #filterButtonWrapper{
     display: flex;
     flex-wrap: wrap;
@@ -154,7 +158,7 @@
         outline: 1px solid black;
         width: 50%;
     }
-    .filterButton:active, .filterButton:focus{
+    .filterButton:active, .filterButton:focus, .filterButton:hover{
         background-color: black;
         color: white;
     }
