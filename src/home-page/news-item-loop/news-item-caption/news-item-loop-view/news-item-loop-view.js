@@ -128,7 +128,7 @@ class NewsItemLoopView extends React.Component{
         // console.log(thing)
 
         // console.log(this.state.showArticle)
-        // console.log( renderToPage[0])
+        // console.log( renderToPage.length)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -178,16 +178,29 @@ class NewsItemLoopView extends React.Component{
                 </div>
             :
             <div>
-                <div id="speedKnewsButtonWrapper">
-                     <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>speedKnews</button>
-                </div>
-                <button onClick={() => this.getArticlesBy("News")} >News</button>
-                <button onClick={() => this.getArticlesBy("Sports")} >Sports</button>
-                <button onClick={() => this.getArticlesBy("Weather")} >Weather</button>
-                <button onClick={() => this.getArticlesBy("All")} >No Filter</button>
-                <p>Showing {this.state.getArticleBy} Articles</p>
+                <div id="topPageButtonWrapper">
+                    <div id="speedKnewsButtonWrapper">
+                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>speedKnews</button>
+                    </div>
+                    <div id="filterButtonWrapper">
+                        <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News")} >News</button>
+                        <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports")} >Sports</button>
+                        <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather")} >Weather</button>
+                        <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All")} >No Filter</button>
+                    </div>
 
+                    
+
+                </div>
+                <div id="filterOptionDisplay">
+                    {this.state.getArticleBy === "All" ? 
+                        <p>Displaying <span>{this.state.getArticleBy}</span> Articles</p>
+                        :
+                        <p>Displaying {renderToPage.length}<span>{this.state.getArticleBy}</span> Articles</p>
+                    }
+                </div>
                 {this.props.databaseProp.length >= 30 && thing ? 
+                
                  <RenderCard
                  database={renderToPage}
                  startingCardSize={this.state.startingCardSize}
