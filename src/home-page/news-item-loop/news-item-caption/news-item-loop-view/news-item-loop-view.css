@@ -68,8 +68,12 @@
 }
 /* Speed Knews and Filter Wrapper */
 #topPageButtonWrapper{
+    
     width: 100%;
     display: block;
+    
+    max-width: 1500px;
+
     position: relative;
 }
 
@@ -150,6 +154,10 @@
         outline: 1px solid black;
         width: 50%;
     }
+    .filterButton:active, .filterButton:focus{
+        background-color: black;
+        color: white;
+    }
         #noFilterBtn{
             /* font-weight: 600;
             text-decoration: underline; */
@@ -193,10 +201,14 @@
         
     }
 } 
+
 @media (min-width: 1024px) {
     #topPageButtonWrapper{
         display: flex;
+        margin: 0 auto;
     }
+        #speedKnewsButtonWrapper{width: 50%;}
+        #filterButtonWrapper{width: 50%;}
 }
 @media (min-width: 768px) {
 .home-wrapper{
