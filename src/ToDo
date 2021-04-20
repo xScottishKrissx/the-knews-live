@@ -928,7 +928,7 @@ Part 2 Implement Database functionality:
                 ☐ speedKnews:
                     ✔ Improve UI for next/prev/exit buttons @done(17:49 - 19/04/21)
                     ☐ Add link to full article
-                    ☐ account for running out of articles
+                    ✔ account for running out of articles @done(11:45 - 20/04/21)
                 ☐ the clear cache button is ugly, look at this
                 ☐ Clearing cache should reset card sizes
                 ☐ User feedback for hiding an article

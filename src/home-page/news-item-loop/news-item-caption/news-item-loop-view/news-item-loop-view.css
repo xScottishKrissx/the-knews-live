@@ -131,6 +131,9 @@
         color: white;
         margin: 0;
         outline: 1px solid white;
+        width: 50%;
+    }
+    #speedKnewsControls span span{
         width: 100%;
     }
 
@@ -154,6 +157,9 @@
         #speedKnewsButtonWrapper button span{
             font-size: 1rem;
         }
+.mutedBtn{
+    background-color: #bbbbbb !important;
+}
 #filterButtonWrapper{
     display: flex;
     flex-wrap: wrap;

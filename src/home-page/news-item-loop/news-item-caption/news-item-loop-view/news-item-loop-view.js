@@ -143,10 +143,13 @@ class NewsItemLoopView extends React.Component{
         // }
 
         // Integrate this into the render...
-        console.log(this.state.articleNumber)
-        if(this.state.articleNumber > 0 && this.state.articleNumber === renderToPage.length){
-            console.log("Handle Error")
-        }
+        // console.log(this.state.articleNumber)
+        // console.log(renderToPage.length - 1)
+        // // console.log(renderToPage[0])
+        // if(this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1){
+        //     console.log("Handle Error")
+        // }
+
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -170,18 +173,33 @@ class NewsItemLoopView extends React.Component{
                         </div>
                         
                         <div id="speedKnewsControls">
-                        {renderToPage[this.state.articleNumber].id === 319 ? 
+                        {this.state.articleNumber === 0 ? 
                            <span>
                             <button onClick={this.hideArticle}>X - Exit</button>
+
+                            <button className="mutedBtn">Prev Article</button>
                             <button onClick={() => this.changeArticle(+1)}>Next Article</button>
-                            
                            </span>
+    
                             :
                             <span>
-                                <button onClick={this.hideArticle}>X - Exit</button>
-                                <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}> Prev Article</button>
-                                <button onClick={() => this.changeArticle(+1)}>Next Article</button>
                                 
+
+                                <button onClick={this.hideArticle}>X - Exit</button>
+                                {this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1 ? 
+                                <span>
+                                    
+                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}> Prev Article</button>
+                                    <button className="mutedBtn">Next Article</button>
+                                </span>
+                                :
+                                <span>
+                                    
+                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}> Prev Article</button>
+                                    <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                                </span>
+                                }
+
                             </span>
                         }
                             {/* <button onClick={() => this.changeArticle(+1)}>Next Article</button>
@@ -250,7 +268,7 @@ class NewsItemLoopView extends React.Component{
                     />   
                 :
                 // <img alt="now loading" src={loading} />
-                <p>Loading...</p>
+                <p>There be dragons.</p>
                 }
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
