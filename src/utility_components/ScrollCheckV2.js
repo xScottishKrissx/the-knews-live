@@ -94,8 +94,8 @@ class ScrollCheckV2 extends React.Component{
                 {/* {pageView} */}
                 <RenderCard 
                     database={this.state.mainArray}
-                    startingCardSize={this.state.startingCardSize}
-                    changedCardSize={this.state.changedCardSize}
+                    startingCardSize={this.props.startingCardSize}
+                    changedCardSize={this.props.changedCardSize}
                     postsArray={this.state.postsArray}
                     arrayFromDatabase={this.props.articlesArray} 
                     leftoverArticles={this.props.leftoverArticles}  

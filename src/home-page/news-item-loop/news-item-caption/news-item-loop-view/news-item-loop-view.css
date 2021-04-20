@@ -186,6 +186,26 @@
         }
 
 
+
+/* Hide Article Message  */
+#hideArticleMessageWrapper{
+    background-color: white;
+    border: 10px solid #a0a0a0;
+    bottom: 10px;
+    right: 0;
+    max-width: 300px;
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+    z-index: 30;
+}
+    #hideArticleMessage{
+        font-weight: 900;
+        visibility: hidden;
+    }
+
+
+
 @media (min-width: 1700px) {
     #speedKnewsWrapper{
         

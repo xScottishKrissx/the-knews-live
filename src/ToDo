@@ -88,7 +88,7 @@ Codebase:
                     -- 
                 ✔ So now that that works, what about plugging the home page scroll into the scrollcheck component? @done(12:16 - 22/12/20)
                     // Well it worked for the most part. Got a few presentational glitches but the actual component is working as expected.
-                ☐ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves.
+                ✔ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves. @done(13:52 - 20/04/21)
                     ✔ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20) @done(16:31 - 11/03/21) @lasted(11w2d4h13m42s)
     ✘ Create a new component for rendering the card view @started(12:28 - 22/12/20) @cancelled(13:27 - 14/01/21) @wasted(3w2d59m36s)
         ✔ Wait... didn't I already do this? Why not just use the news-item-loop-view from before? @done(11:59 - 14/01/21)
@@ -220,7 +220,7 @@ General Notes  Objectives:
                     // Looks like I was in the middle of a new render cards component that would be responsible for the output of cards and everything with them. I didn't complete it which is why newly loaded articles don't have a hide button.
                     // The solution is to complete and implement the new component.
                     
-                ☐ Add Hide button to Tag Pages @started(15:49 - 15/12/20)
+                ✔ Add Hide button to Tag Pages @started(15:49 - 15/12/20) @done(13:52 - 20/04/21) @lasted(17w6d21h3m6s)
                     ✔ Got the UI in and I can hide articles. @done(15:50 - 15/12/20)
                     ✔ The tags file is so bloated, let's get this cleaned up before carrying on @done(16:32 - 11/03/21)
                         // 280 Lines --> 184 Lines -- There's still a lot of room for optimsation though. 
@@ -250,7 +250,7 @@ General Notes  Objectives:
 
                             // For the moment I have 2 methods - clicking the close popup button and ckicking off the popup area. 
 
-                        ☐ Add Link to Full Article
+                        ✔ Add Link to Full Article @done(13:51 - 20/04/21)
                         ✔ What about images in popup? @done(20-12-02 16:19)
                             //misses the point of the popup i think.
                             // added image anyway/
@@ -259,7 +259,7 @@ General Notes  Objectives:
                         ✔ Format popup to be not terrible at larger window sizes. @started(17:12 - 15/01/21) @done(17:29 - 15/01/21) @lasted(17m58s)
                         ✔ Make author text clickable like the article page. @started(17:30 - 15/01/21) @done(16:32 - 11/03/21) @lasted(7w5d23h3m)
                         ☐ How about hiding the article from the popup?
-                        ☐ What about moving to the next article from the popup?
+                        ✔ What about moving to the next article from the popup? @done(13:51 - 20/04/21)
                         ☐ BUG:: When you open the popup, you can keep dragging to hide the article...which is not ideal.
 
                     ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
@@ -498,6 +498,14 @@ General Notes  Objectives:
             ✔ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21) @done(16:33 - 11/03/21) @lasted(22h42m42s)
                 // Ive completed most of the work with both tags and home using the same scrollCheck component.
                 // The only issue is how i'm slicing the arrays and where the start point for render on scroll should be. Luckily this is only a problem because the number of articles with tags is uneven and low, so if I add more tags then there should be no issue. The issue is that the number of sports tags is lower than the initially loaded homepage articles, which would cut off articles. Again, if I add more tags to articles this isn't an issue and is only a problem because the project is still in development and there's a lack of actual content,.
+                
+            ☐ Add user feedback for hiding article @started(13:48 - 20/04/21)
+                ☐ I've already added a message that appears if you hide an article on the home page. The next step is to convert this into a component so it can be used wherever you can hide an article. @started(13:49 - 20/04/21)
+                    To-Do:
+                        ☐ Convert current banner into separate component
+                        ☐ Add new component to home page
+                        ☐ Add new component to author page
+                        ☐ Add new component to tags page
         Images:
             ☐ Replacing random images with my own S3 hosted images. @started(20-11-30 17:22)
                 ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. @started(20-11-30 17:22)
@@ -930,7 +938,7 @@ Part 2 Implement Database functionality:
                     ✔ account for running out of articles @done(11:45 - 20/04/21)
                 ✔ the clear cache button is ugly, look at this @done(12:41 - 20/04/21)
                 ✔ Clearing cache should reset card sizes @done(12:47 - 20/04/21)
-                ☐ Card controls are not affecting newly loaded articles with scrollCheck
+                ✔ Card controls are not affecting newly loaded articles with scrollCheck @done(12:54 - 20/04/21)
                 ☐ User feedback for hiding an article
                 ☐ Fix recommended reading links in articles.
                 

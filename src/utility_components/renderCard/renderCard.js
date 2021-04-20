@@ -23,6 +23,7 @@ export const RenderCard = (props) => {
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
+        props.handleHideArticleFeedback(id);
     }
 
     function swipe(x){

@@ -35,7 +35,7 @@ class NewsItemLoopView extends React.Component{
 
         //Testing
         this.changeArticle = this.changeArticle.bind(this);
-        this.hideArticle = this.hideArticle.bind(this);
+        this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);
     }
 
     getCardSize(value){
@@ -111,7 +111,7 @@ class NewsItemLoopView extends React.Component{
             showArticle:true
         })
     }
-    hideArticle(){
+    closeLiteKnewsView(){
         if(this.state.showArticle === true){
             this.setState({
                 showArticle:false,
@@ -123,6 +123,22 @@ class NewsItemLoopView extends React.Component{
     }
 
     showArticle(){this.setState({showArticle:true})}
+
+    handleHideArticleFeedback(){
+        console.log("handleHideArticleFeedback")
+        const messageWrapper = document.getElementById("hideArticleMessageWrapper");
+        const messageActual = document.getElementById("hideArticleMessage")
+        messageWrapper.style.visibility = "visible" ;
+        messageActual.style.visibility = "visible" ;
+        if(messageWrapper && messageActual){
+            setTimeout(function() {
+                messageWrapper.style.visibility = 'hidden';
+                messageActual.style.visibility = 'hidden';
+            }, 5000);
+        }
+
+    }
+
 
     render(){  
  
@@ -181,7 +197,7 @@ class NewsItemLoopView extends React.Component{
                         <div id="speedKnewsControls">
                         {this.state.articleNumber === 0 ? 
                            <span>
-                            <button onClick={this.hideArticle}><span class="material-icons">close</span></button>
+                            <button onClick={this.closeLiteKnewsView}><span class="material-icons">close</span></button>
 
                             <button className="mutedBtn"><span class="material-icons">skip_previous</span></button>
                             <button onClick={() => this.changeArticle(+1)}><span class="material-icons">skip_next</span></button>
@@ -191,7 +207,7 @@ class NewsItemLoopView extends React.Component{
                             <span>
                                 
 
-                                <button onClick={this.hideArticle}><span class="material-icons">close</span></button>
+                                <button onClick={this.closeLiteKnewsView}><span class="material-icons">close</span></button>
                                 {this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1 ? 
                                 <span>
                                     
@@ -209,7 +225,7 @@ class NewsItemLoopView extends React.Component{
                             </span>
                         }
                             {/* <button onClick={() => this.changeArticle(+1)}>Next Article</button>
-                            <button onClick={this.hideArticle}>Exit</button> */}
+                            <button onClick={this.closeLiteKnewsView}>Exit</button> */}
                         </div>
                         
                     </div>
@@ -234,6 +250,11 @@ class NewsItemLoopView extends React.Component{
 
                 </div>
                 <div id="filterOptionDisplay">
+                    
+                    <div id="hideArticleMessageWrapper">
+                        <p id="hideArticleMessage">You have hidden an article. It will not appear again until you reset the page using <span class="material-icons">restart_alt</span> at the top right of page</p>
+                    </div>
+
                     {this.state.getArticleBy === "All" ? 
                         <p>Displaying <span>{this.state.getArticleBy}</span> Articles</p>
                         :
@@ -258,6 +279,7 @@ class NewsItemLoopView extends React.Component{
                 //  changeAuthor={renderToPage[this.state.articleNumber].author}
                 //  changeText={renderToPage[this.state.articleNumber].text}
                  showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
+                 handleHideArticleFeedback={()=>this.handleHideArticleFeedback()}
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
@@ -293,7 +315,7 @@ class NewsItemLoopView extends React.Component{
 
                     <button onClick={() => this.changeArticle(+1)}>Next Article</button>
                     <button onClick={() => this.changeArticle(-1)}>Prev Article</button>
-                    <button onClick={this.hideArticle}>Hide Article</button>
+                    <button onClick={this.closeLiteKnewsView}>Hide Article</button>
                 </div> */}
 
 
