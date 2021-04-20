@@ -157,7 +157,7 @@ class NewsItemLoopView extends React.Component{
             {this.state.showArticle === true ?
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
-                    <h1>speedKnews</h1>
+                    <h1>liteKnews - theKnews but lighter</h1>
                     
                         <div className="speedKnewsArticleContainer">
 
@@ -181,28 +181,28 @@ class NewsItemLoopView extends React.Component{
                         <div id="speedKnewsControls">
                         {this.state.articleNumber === 0 ? 
                            <span>
-                            <button onClick={this.hideArticle}>X - Exit</button>
+                            <button onClick={this.hideArticle}><span class="material-icons">close</span></button>
 
-                            <button className="mutedBtn">Prev Article</button>
-                            <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                            <button className="mutedBtn"><span class="material-icons">skip_previous</span></button>
+                            <button onClick={() => this.changeArticle(+1)}><span class="material-icons">skip_next</span></button>
                            </span>
     
                             :
                             <span>
                                 
 
-                                <button onClick={this.hideArticle}>X - Exit</button>
+                                <button onClick={this.hideArticle}><span class="material-icons">close</span></button>
                                 {this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1 ? 
                                 <span>
                                     
-                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}> Prev Article</button>
-                                    <button className="mutedBtn">Next Article</button>
+                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span class="material-icons">skip_previous</span></button>
+                                    <button className="mutedBtn"><span class="material-icons">skip_next</span></button>
                                 </span>
                                 :
                                 <span>
                                     
-                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}> Prev Article</button>
-                                    <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span class="material-icons">skip_previous</span></button>
+                                    <button onClick={() => this.changeArticle(+1)}><span class="material-icons">skip_next</span></button>
                                 </span>
                                 }
 
@@ -218,7 +218,8 @@ class NewsItemLoopView extends React.Component{
             <div>
                 <div id="topPageButtonWrapper">
                     <div id="speedKnewsButtonWrapper">
-                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>view liteKnews </button>
+                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>start liteKnews </button>
+
                     </div>
                     
                     <div id="filterButtonWrapper">

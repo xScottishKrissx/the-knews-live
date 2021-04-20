@@ -24,7 +24,7 @@
 }
 
     .news-square:hover{
-        border: 5px solid #00000033;
+        border: 5px solid black;
         border-radius: 1%;
     }
 

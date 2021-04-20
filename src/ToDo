@@ -925,11 +925,11 @@ Part 2 Implement Database functionality:
                     ✔ Loading author specific page @done(16:06 - 19/04/21)
                     ✔ Loading tag specifc page @done(16:07 - 19/04/21)
                     ✔ Clicking the header @done(16:07 - 19/04/21)
-                ☐ speedKnews:
+                ✔ speedKnews: @done(12:13 - 20/04/21)
                     ✔ Improve UI for next/prev/exit buttons @done(17:49 - 19/04/21)
                     ✔ Add link to full article @done(12:10 - 20/04/21)
                     ✔ account for running out of articles @done(11:45 - 20/04/21)
-                ☐ the clear cache button is ugly, look at this
+                ✔ the clear cache button is ugly, look at this @done(12:41 - 20/04/21)
                 ☐ Clearing cache should reset card sizes
                 ☐ User feedback for hiding an article
                 ☐ Fix recommended reading links in articles.

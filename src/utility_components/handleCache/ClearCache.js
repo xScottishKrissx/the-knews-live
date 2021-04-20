@@ -33,7 +33,9 @@ export class ClearCache extends React.Component{
             // <button onClick={()=> this.clearCache()} id="clearCache">Unhide All</button>
             <div>            
             <Link to='/' onClick={()=> this.clearCache()}>
-                <button id="clearCache">Unhide All</button>
+                <button id="clearCache"><span class="material-icons">
+restart_alt
+</span></button>
              </Link>
              </div>
 
