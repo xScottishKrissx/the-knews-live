@@ -915,7 +915,6 @@ Part 2 Implement Database functionality:
             
             let's finally move to a release, but first:
                 ✔ The card size controls are ugly. Redo them @done(12:06 - 19/04/21)
-                ☐ Make sure they work with scrollCheck
                 ✔ the access of speedKnews is just... not good. Finish this @done(15:48 - 19/04/21)
                 ✔ The filter buttons need to have a finished UI @done(15:48 - 19/04/21)
                 ✔ The home button overlaps the clear cache button on tags pages @done(15:50 - 19/04/21)
@@ -930,7 +929,8 @@ Part 2 Implement Database functionality:
                     ✔ Add link to full article @done(12:10 - 20/04/21)
                     ✔ account for running out of articles @done(11:45 - 20/04/21)
                 ✔ the clear cache button is ugly, look at this @done(12:41 - 20/04/21)
-                ☐ Clearing cache should reset card sizes
+                ✔ Clearing cache should reset card sizes @done(12:47 - 20/04/21)
+                ☐ Card controls are not affecting newly loaded articles with scrollCheck
                 ☐ User feedback for hiding an article
                 ☐ Fix recommended reading links in articles.
                 
