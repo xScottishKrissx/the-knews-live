@@ -941,7 +941,8 @@ Part 2 Implement Database functionality:
                 ✔ Clearing cache should reset card sizes @done(12:47 - 20/04/21)
                 ✔ Card controls are not affecting newly loaded articles with scrollCheck @done(12:54 - 20/04/21)
                 ✔ User feedback for hiding an article @done(14:12 - 20/04/21)
-                ☐ Fix recommended reading links in articles.
+                ✔ Fix recommended reading links in articles. @done(14:18 - 20/04/21)
+                ☐ Clearing cache makes the card size controls act weird.
                 
 
 

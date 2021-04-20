@@ -152,7 +152,7 @@ class RecommendedReading extends React.Component{
                 <div className="recReadingItem" key={key}>   
                 
                     <div >           
-                        <a href={"/articles/news-page/" + item.id}>
+                        <a href={"/home/articles/news-page/" + item.id}>
                             <img src={imgUrl} style={style} alt="literally all random images" />
                             <h3>{item.title}</h3>
                             <p>{item.postdate}</p>
