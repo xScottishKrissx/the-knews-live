@@ -10,6 +10,7 @@ import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 import loading from '../../../../img/loading5.gif';
+import {Link} from 'react-router-dom';
 
 class NewsItemLoopView extends React.Component{
 
@@ -164,7 +165,12 @@ class NewsItemLoopView extends React.Component{
                                 <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
                                 <h2>{renderToPage[this.state.articleNumber].title}</h2>
                                 <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
-                                <span>Full Article Page</span>
+                                <Link 
+                                
+                                    to={'/home/articles/news-page/' + renderToPage[this.state.articleNumber].key}
+                                
+                                >
+                                    <h3>View Article Page</h3></Link>
                                 {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
                             </header>
                             <article><ParseHTML props={renderToPage[this.state.articleNumber].text}/></article>
