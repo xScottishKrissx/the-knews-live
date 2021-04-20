@@ -498,14 +498,15 @@ General Notes  Objectives:
             ✔ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21) @done(16:33 - 11/03/21) @lasted(22h42m42s)
                 // Ive completed most of the work with both tags and home using the same scrollCheck component.
                 // The only issue is how i'm slicing the arrays and where the start point for render on scroll should be. Luckily this is only a problem because the number of articles with tags is uneven and low, so if I add more tags then there should be no issue. The issue is that the number of sports tags is lower than the initially loaded homepage articles, which would cut off articles. Again, if I add more tags to articles this isn't an issue and is only a problem because the project is still in development and there's a lack of actual content,.
-                
-            ☐ Add user feedback for hiding article @started(13:48 - 20/04/21)
-                ☐ I've already added a message that appears if you hide an article on the home page. The next step is to convert this into a component so it can be used wherever you can hide an article. @started(13:49 - 20/04/21)
+
+            ✔ Add user feedback for hiding article @started(13:48 - 20/04/21) @done(14:12 - 20/04/21) @lasted(24m18s)
+                ✔ I've already added a message that appears if you hide an article on the home page. The next step is to convert this into a component so it can be used wherever you can hide an article. @started(13:49 - 20/04/21) @done(14:12 - 20/04/21) @lasted(23m15s)
                     To-Do:
-                        ☐ Convert current banner into separate component
-                        ☐ Add new component to home page
-                        ☐ Add new component to author page
-                        ☐ Add new component to tags page
+                        ✔ Convert current banner into separate component @done(14:10 - 20/04/21)
+                            message is in app.js by code is in its own component.
+                        ✔ Add new component to home page @done(14:11 - 20/04/21)
+                        ✔ Add new component to author page @done(14:12 - 20/04/21)
+                        ✔ Add new component to tags page @done(14:12 - 20/04/21)
         Images:
             ☐ Replacing random images with my own S3 hosted images. @started(20-11-30 17:22)
                 ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. @started(20-11-30 17:22)
@@ -939,7 +940,7 @@ Part 2 Implement Database functionality:
                 ✔ the clear cache button is ugly, look at this @done(12:41 - 20/04/21)
                 ✔ Clearing cache should reset card sizes @done(12:47 - 20/04/21)
                 ✔ Card controls are not affecting newly loaded articles with scrollCheck @done(12:54 - 20/04/21)
-                ☐ User feedback for hiding an article
+                ✔ User feedback for hiding an article @done(14:12 - 20/04/21)
                 ☐ Fix recommended reading links in articles.
                 
 

@@ -16,6 +16,8 @@ import HideArticle from '../../utility_components/hide-article/hide-articlev2.js
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 // import { ShowArticleTest } from '../showArticleTest-OLD';
 
+import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
+
 export const RenderCard = (props) => {
     // console.log(props.database)
     // console.log(props.arrayFromDatabase)
@@ -23,7 +25,8 @@ export const RenderCard = (props) => {
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
-        props.handleHideArticleFeedback(id);
+        // handleHideArticleFeedback();
+        hideArticleFeedback()
     }
 
     function swipe(x){

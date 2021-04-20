@@ -80,12 +80,8 @@ class NewsItemLoopView extends React.Component{
         
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
-        // console.log(filteredByTag)
-        // change leftover articles to include only relevant articles
-        // const leftoverArticles = this.props.fullDatabaseCall.filter(obj => obj.tag === value);
-        // console.log(leftoverArticles.slice(20))
         
-                // Change Colour of button to show focus
+        // Change Colour of button to show focus
         this.setState({
             getArticleBy:value,
             renderArray:filteredByTag,
@@ -97,12 +93,7 @@ class NewsItemLoopView extends React.Component{
         if(value === "All")this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
         
         // Set Filter Option into local storage
-        localStorage.setItem("filterOption",value)
-
-
-
-        
-        
+        localStorage.setItem("filterOption",value)   
     }
 
     changeArticle(x,y){
@@ -119,53 +110,15 @@ class NewsItemLoopView extends React.Component{
             })
             
         }
-        // document.getElementById("test__articleWrapper").style.display = "none";
     }
 
     showArticle(){this.setState({showArticle:true})}
 
-    handleHideArticleFeedback(){
-        console.log("handleHideArticleFeedback")
-        const messageWrapper = document.getElementById("hideArticleMessageWrapper");
-        const messageActual = document.getElementById("hideArticleMessage")
-        messageWrapper.style.visibility = "visible" ;
-        messageActual.style.visibility = "visible" ;
-        if(messageWrapper && messageActual){
-            setTimeout(function() {
-                messageWrapper.style.visibility = 'hidden';
-                messageActual.style.visibility = 'hidden';
-            }, 5000);
-        }
-
-    }
-
-
     render(){  
  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
-        // const renderToPage = this.props.databaseProp
-        // console.log(this.state.renderArray.slice(0,30))
-        // console.log(this.props.databaseProp)
-        // console.log(this.props.databaseProp)
-        // console.log(renderToPage[this.state.articleNumber] || renderToPage[0])
-        // console.log(renderToPage[this.state.articleNumber])
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-        // console.log(thing)
 
-        // console.log(this.state.showArticle)
-        // console.log( renderToPage.length)
-        // const testStyle = {
-        //     backgroundColor: 'black',  
-        //     color:'white'      
-        // }
-
-        // Integrate this into the render...
-        // console.log(this.state.articleNumber)
-        // console.log(renderToPage.length - 1)
-        // // console.log(renderToPage[0])
-        // if(this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1){
-        //     console.log("Handle Error")
-        // }
 
         return(
             
@@ -250,11 +203,6 @@ class NewsItemLoopView extends React.Component{
 
                 </div>
                 <div id="filterOptionDisplay">
-                    
-                    <div id="hideArticleMessageWrapper">
-                        <p id="hideArticleMessage">You have hidden an article. It will not appear again until you reset the page using <span class="material-icons">restart_alt</span> at the top right of page</p>
-                    </div>
-
                     {this.state.getArticleBy === "All" ? 
                         <p>Displaying <span>{this.state.getArticleBy}</span> Articles</p>
                         :
@@ -271,15 +219,8 @@ class NewsItemLoopView extends React.Component{
                  arrayFromDatabase={this.props.databaseProp} 
                  leftoverArticles={this.props.leftoverArticles}  
                  fullDatabaseCall={this.props.fullDatabaseCall}
-                 
-
-                 // Test
-                //  changeId={renderToPage[this.state.articleNumber].id}
-                //  changeTitle={renderToPage[this.state.articleNumber].title}
-                //  changeAuthor={renderToPage[this.state.articleNumber].author}
-                //  changeText={renderToPage[this.state.articleNumber].text}
                  showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
-                 handleHideArticleFeedback={()=>this.handleHideArticleFeedback()}
+
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
