@@ -66,7 +66,6 @@ export class NewsPageVIEW extends React.Component{
           })
           // console.log(this.state.articlesArray)
           // console.log(this.props.params)
-          // console.log(this.props.testProp)
          
           //console.log(((this.state.articlesArray).length) + 1)
   
@@ -95,14 +94,14 @@ export class NewsPageVIEW extends React.Component{
       console.log("Render news-page-view.js")
         const database = this.props.database;
         // console.log(this.state.articlesArray)
-        console.log(database)
+        // console.log(database)
         
         //console.log(this.props.scrollpos)
         //console.log({GeneratePostDate})
         //console.log(Number(database))
         // console.log(this.state.leftoverArticles)
         const NewsPageView = database.map((value) => {
-            console.log(value)
+            // console.log(value)
             //console.log("current author email:: " + value.email)
             
             return(

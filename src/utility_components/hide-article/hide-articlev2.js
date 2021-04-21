@@ -2,11 +2,11 @@ import './hide-article.css';
 
 export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
 
-        console.log(value)
-        console.log(postsArray)
-        console.log(arrayFromDatabase)
-        console.log(leftoverArticles)
-        console.log(fullDatabaseCall)
+        // console.log(value)
+        // console.log(postsArray)
+        // console.log(arrayFromDatabase)
+        // console.log(leftoverArticles)
+        // console.log(fullDatabaseCall)
 
 
         console.log("Hide Article Button Pressed");
@@ -16,14 +16,14 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         // console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
-        console.log(arrayFromDatabase)
+        // console.log(arrayFromDatabase)
         // console.log(arrayFromDatabase.length)
         // console.log(fullDatabaseCall)
         const mainArray = editedArray || arrayFromDatabase;
         // const scrollCheckArticles = this.props.scrollCheckHide;
         // console.log(scrollCheckArticles)
         
-        console.log(mainArray)
+        // console.log(mainArray)
     
         const nullKey = null
         const filterForNull = mainArray.filter(obj => obj !== nullKey);

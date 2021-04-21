@@ -64,8 +64,8 @@ class NewsItemLoopView extends React.Component{
     }
 
     getArticlesBy(value,id){
-        console.log(value)
-        console.log(id)
+        // console.log(value)
+        // console.log(id)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         // console.log(fullDatabaseCallFromStorage)
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
@@ -150,28 +150,28 @@ class NewsItemLoopView extends React.Component{
                         <div id="speedKnewsControls">
                         {this.state.articleNumber === 0 ? 
                            <span>
-                            <button onClick={this.closeLiteKnewsView}><span class="material-icons">close</span></button>
+                            <button onClick={this.closeLiteKnewsView}><span className="material-icons">close</span></button>
 
-                            <button className="mutedBtn"><span class="material-icons">skip_previous</span></button>
-                            <button onClick={() => this.changeArticle(+1)}><span class="material-icons">skip_next</span></button>
+                            <button className="mutedBtn"><span className="material-icons">skip_previous</span></button>
+                            <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
                            </span>
     
                             :
                             <span>
                                 
 
-                                <button onClick={this.closeLiteKnewsView}><span class="material-icons">close</span></button>
+                                <button onClick={this.closeLiteKnewsView}><span className="material-icons">close</span></button>
                                 {this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1 ? 
                                 <span>
                                     
-                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span class="material-icons">skip_previous</span></button>
-                                    <button className="mutedBtn"><span class="material-icons">skip_next</span></button>
+                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span className="material-icons">skip_previous</span></button>
+                                    <button className="mutedBtn"><span className="material-icons">skip_next</span></button>
                                 </span>
                                 :
                                 <span>
                                     
-                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span class="material-icons">skip_previous</span></button>
-                                    <button onClick={() => this.changeArticle(+1)}><span class="material-icons">skip_next</span></button>
+                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span className="material-icons">skip_previous</span></button>
+                                    <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
                                 </span>
                                 }
 

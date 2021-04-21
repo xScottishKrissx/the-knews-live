@@ -64,7 +64,7 @@ export class Caption extends React.Component{
                         articleObject: this.props.test, 
                         }
                 }}
-                testProp={this.props.test}
+                
             >
                 <div style={style}>
                 {/* <button onClick={this.props.showArticle}>Open Article</button> */}
