@@ -906,6 +906,9 @@ Part 2 Implement Database functionality:
             ☐ Add Options Menu for card control sizes, clearing cache etc
             ☐ Redo the card controls to improve the usablity of cards.
             ☐ Add proper back button to articles(i.e go back one page, not just home)
+            ☐ Fix the scroll activate for larger than 1800px wide windows
+            ☐ Inform the user of how to interact with the website( swipe, hiding etc)
+            ☐ Do something with swipe right(or not if that's better)
 
         Version 10.1 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates

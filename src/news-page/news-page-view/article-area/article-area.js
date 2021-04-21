@@ -11,6 +11,7 @@ import PageScore from '../social/page-score.js';
 
 import './article-area.css';
 import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
+import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
 
 
 
@@ -32,6 +33,7 @@ const ArticleArea = (props) => {
     // console.log(props.fullDatabaseCall)
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+        hideArticleFeedback()
         // console.log(arrayFromDatabase.length)
     }
     
@@ -140,7 +142,7 @@ const ArticleArea = (props) => {
                         
                          {/* <HideArticle articleId={props.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
 
-                        <div className="hideArticleButtonWrapper">
+                        <div className="hideArticleButtonWrapper" id="articleHideButton">
                             <button id={props.id} onClick={() => handleClick(
                                                                     props.articleId, 
                                                                     props.postsArray,

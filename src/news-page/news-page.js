@@ -9,6 +9,7 @@ import NewsPageVIEW from './news-page-view/news-page-view.js';
 
 // const dummyNews = DummyData;
 
+import loading from '../img/loading5.gif';
 
 export class NewsPage extends React.Component{
 
@@ -23,6 +24,9 @@ export class NewsPage extends React.Component{
             postdate:"",
             tag: "",
             articlesArray: [],
+
+            //testing
+            showErrorMessage:false
         }
     }
 
@@ -61,20 +65,31 @@ export class NewsPage extends React.Component{
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })
+            if(this.state.articlesArray.length === 0 ){
+                this.setState({showErrorMessage:true})
+            }
             // console.log(this.state.articlesArray[0].id);
             // console.log("DB: " + this.state.articlesArray)
+
+            if(this.state.articlesArray === 0){
+                setTimeout(function() {
+                    this.setState({showErrorMessage:true})
+                }, 5000);
+            }
         })
     }
     
     componentWillUnmount(){
         fire.database().ref("items").off();
+        this.setState({showErrorMessage:false})
     }
 
     
 
     render(){    
-        console.log(this.props.match.params.id)
+        // console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
+    // console.log(this.state.showErrorMessage)
     return (
         
         <span>
@@ -95,11 +110,19 @@ export class NewsPage extends React.Component{
 
         
             : 
-            <div className="error-message">
-            <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
-            <Link to='/home'><p>Home</p></Link>
-            </div>
+          
+            <div>
+            {this.state.showErrorMessage === false ?
+             <img src={loading} alt="loading, please wait for results"/>
+             :
+             <div className="error-message">
+             <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
+             <Link to='/home'><p>Home</p></Link>
+             </div>
+            }
+           
 
+            </div>
         }
     
 

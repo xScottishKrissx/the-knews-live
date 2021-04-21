@@ -55,19 +55,20 @@ export const RenderCard = (props) => {
                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                     <SwipeableListItem 
                         
-                        swipeLeft={{
-                            content: <SwipeLeftContent 
-                                    id={value.id} 
-                                    title={value.title} 
-                                    author={value.author} 
-                                    text={value.text} 
-                                    closePopup={closePopup} 
-                                    headerImage={value.id} />,
-                            // action: () => swipeLeftAction(value.text, value.id) 
-                            // action: () => props.showArticle() 
-                            action: () => console.log('swipe action triggered'),
+                        // swipeLeft={{
+                        //     content:<div>Coming Soon...</div>
+                        //     // content: <SwipeLeftContent 
+                        //     //         id={value.id} 
+                        //     //         title={value.title} 
+                        //     //         author={value.author} 
+                        //     //         text={value.text} 
+                        //     //         closePopup={closePopup} 
+                        //     //         headerImage={value.id} />,
+                        //     // action: () => swipeLeftAction(value.text, value.id) 
+                        //     // action: () => props.showArticle() 
+                        //     // action: () => console.log('swipe action triggered'),
                             
-                        }}
+                        // }}
                         
                         swipeRight={{
                             content: <div>Hiding article...</div>, 
