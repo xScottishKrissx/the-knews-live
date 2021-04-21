@@ -1,5 +1,5 @@
 .cardControlSizeWrapper{
-    bottom: 0;
+    bottom: -105px;
     cursor: pointer;
     display: flex;
     outline: 2px solid rgba(255, 255, 255, 0.44);

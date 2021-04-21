@@ -62,7 +62,7 @@ class CustomCardSize extends React.Component{
                      </div>
                      :
                      <div onClick={()=> this.showCardSizeOptions("-105px")}> 
-                     <p className="large material-icons">arrow_drop_down</p>Card Size
+                     <p className="large material-icons">arrow_drop_down</p>
                      </div>    
                 }
                 
