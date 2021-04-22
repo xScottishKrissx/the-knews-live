@@ -117,7 +117,7 @@ export class NewsPage extends React.Component{
              :
              <div className="error-message">
              <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
-             <Link to='/home'><p>Home</p></Link>
+             <Link to='/theKnews/home'><p>Home</p></Link>
              </div>
             }
            

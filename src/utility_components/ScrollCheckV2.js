@@ -20,7 +20,8 @@ class ScrollCheckV2 extends React.Component{
     componentDidMount(){
         // console.log(this.props.articlesArray)
 
-        window.addEventListener('scroll', this.scroll);      
+        window.addEventListener('scroll', this.scroll);    
+        window.addEventListener('touchstart', this.scroll);       
 
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         // console.log(editedArticlesArray)

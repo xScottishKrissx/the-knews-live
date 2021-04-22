@@ -76,13 +76,13 @@ class MapDatabaseItems extends React.Component{
             // console.log(this.state.articlesArray)
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
         })        
-        window.addEventListener('scroll', this.scroll);   
+        // window.addEventListener('scroll', this.scroll);   
 
 
     }
 
      componentWillUnmount(){
-        window.removeEventListener('scroll',this.scroll);
+        // window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();
         localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
 

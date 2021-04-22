@@ -225,8 +225,9 @@ class NewsItemLoopView extends React.Component{
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 }
-
+               
                 {this.state.getArticleBy === "All" ?
+                 
                     <ScrollCheckV2 
                         articlesArray={this.props.databaseProp}
                         startingCardSize={this.state.startingCardSize}
@@ -236,6 +237,8 @@ class NewsItemLoopView extends React.Component{
 
                         
                     />   
+                    
+                    
                 :
                 // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>

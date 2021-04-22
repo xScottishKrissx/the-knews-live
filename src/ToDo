@@ -923,6 +923,10 @@ Part 2 Implement Database functionality:
             ☐ Fix the scroll activate for larger than 1800px wide windows
             ☐ Inform the user of how to interact with the website( swipe, hiding etc)
             ☐ Do something with swipe right(or not if that's better)
+            ☐ Can I reset scroll position when switching articles in liteKnews?
+        Version 11.1 - Bug Fixes:
+            ☐ Full Article link goes to blank page
+            ☐ ScrollCheck requires a two finger up and down scroll to work...not ideal.
 
         Version 11 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
