@@ -48,7 +48,7 @@ class ScrollCheckV2 extends React.Component{
         const html = document.documentElement;
         const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
         // ...this is what is actually used.
-        const windowBottom = windowHeight + window.pageYOffset;
+        const windowBottom = windowHeight + window.pageYOffset + 100;
     
         // Grabbing the articles used for the on scroll event. If the event has been triggered and an article has been hidden then I used the array in local storage, if not then I use the default leftover article array from props.
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")) || this.props.leftoverArticles;
