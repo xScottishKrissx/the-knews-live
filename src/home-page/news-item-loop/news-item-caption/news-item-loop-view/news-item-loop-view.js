@@ -243,7 +243,7 @@ class NewsItemLoopView extends React.Component{
                 // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
                 }
-                <CustomCardSize getCardSizeToParent={this.getCardSize} />
+                {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
             </div>
             }
                 {/* <div id="test__articleWrapper" >

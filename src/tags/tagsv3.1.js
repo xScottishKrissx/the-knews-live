@@ -147,7 +147,7 @@ class Tags extends React.Component{
 
                         <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} />
                 </div>
-                <CustomCardSize getCardSizeToParent={this.getCardSize}/>
+                {/* <CustomCardSize getCardSizeToParent={this.getCardSize}/> */}
             </div>
             
             

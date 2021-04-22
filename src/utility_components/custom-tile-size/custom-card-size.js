@@ -23,6 +23,7 @@ class CustomCardSize extends React.Component{
         if(this.state.cardSizeOptionMenu === ""){
             this.setState({cardSizeOptionMenu: localStorage.getItem("savedCardOptionsPosition")  })
         }
+        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
     }
 
     changeCardSize(size){
@@ -31,6 +32,8 @@ class CustomCardSize extends React.Component{
         localStorage.getItem("myData")
         this.props.getCardSizeToParent(size);
         console.log(localStorage.getItem("myData"));
+
+        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
     }
 
     showCardSizeOptions(style){
@@ -49,6 +52,7 @@ class CustomCardSize extends React.Component{
     }
 
     render(){
+        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
         // var width = window.innerWidth || document.documentElement.clientWidth|| document.body.clientWidth;
         // var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
         // console.log(width,height)

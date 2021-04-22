@@ -21,6 +21,7 @@ class App extends Component {
 }
 
 componentDidMount(){
+  console.log("App.js Mounted")
   const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
   cleanDB.on('value', (snapshot) => {
       let newsItems = snapshot.val();
@@ -43,7 +44,7 @@ componentDidMount(){
       this.setState({fullDatabaseCall: newState})    
 
   })  
-  localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))      
+  // localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))      
   // console.log(this.state.fullDatabaseCall)
 }
 

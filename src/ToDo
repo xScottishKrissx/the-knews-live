@@ -924,12 +924,15 @@ Part 2 Implement Database functionality:
             ☐ Inform the user of how to interact with the website( swipe, hiding etc)
             ☐ Do something with swipe right(or not if that's better)
             ☐ Can I reset scroll position when switching articles in liteKnews?
+
         Version 11.1 - Bug Fixes:
             ✔ Full Article link goes to blank page @done(17:18 - 22/04/21)
             ✔ ScrollCheck requires a two finger up and down scroll to work...not ideal. @done(17:18 - 22/04/21)
                 ✔ Solution - Increase the detection range for the scrollCheck component @done(17:18 - 22/04/21)
             ☐ If there are 2 or less articles on the page when you refresh, you might get an error.
-            ☐ Changing card size and then attempting to hide articles causes an error on dev and does nothing on live.
+            ✔ Changing card size and then attempting to hide articles causes an error on dev and does nothing on live. @done(18:02 - 22/04/21)
+                ✔ pressing a card size empties the cleanDatabaseCall cache for some reason. My solution right now is to disable the card size controls for the time being. My intention was to rework them in the next release anyway so not a big deal. @done(18:02 - 22/04/21)
+                
         Version 11 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
             ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components
