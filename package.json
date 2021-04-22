@@ -1,7 +1,7 @@
 {
   "name": "the-knews-live",
   "version": "0.1.0",
-  "homepage": "https://christopherdunne.co.uk/theKnews/",
+  "homepage": "https://christopherdunne.co.uk/theKnews",
   "private": true,
   "cleanUrls": true,
   "dependencies": {

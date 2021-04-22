@@ -17,12 +17,13 @@ export class Routes extends React.Component{
         return (
             <div className="body-wrapper">
                 <Switch>            
-                    <Redirect exact from="/" to="/home" /> 
-                    <Redirect exact from="/home/search" to="/home" /> 
+                    <Redirect exact from="/" to="/theKnews/home" /> 
+                    <Redirect exact from="/theKnews" to="/theKnews/home" /> 
+                    <Redirect exact from="/theKnews/home/search" to="/theKnews/home" /> 
                     {/* <Redirect exact from="/theKnews/" to="/" />  */}
-                    <Redirect exact from="/home/tags/:tagname" to="/home" /> 
-                    <Route exact path="/home" component={Home} /> 
-                    
+                    <Redirect exact from="/theKnews/home/tags/:tagname" to="/theKnews/home" /> 
+                    <Route exact path="/theKnews/home" component={Home} /> 
+                    {/* https://christopherdunne.co.uk/theKnews/ */}
                 </Switch> 
 
 
@@ -33,26 +34,15 @@ export class Routes extends React.Component{
                 <Route path="/myKnews" component={PracticeForm} />
                 
                 <Route path="/filters" component={Home} />  
-                {/* <Route  path="/home" component={Home}/> */}
-                {/* <Route  path={"/news-item" + {TestLoop} } component={NewsItem}/> */}
-                
-                {/* <Route path="/news-page/:id" component={NewsPage}/> */}
-
-                <Route path="/home/articles/news-page/:id" component={NewsPage}/>
-                <Route path="/home/tags/:tagname" component={Home}/>
-{/* 
-                <Switch>
-                <Redirect exact from="/home/search/tag/news" to="/home/search/tag/News" /> 
-                <Route path="/home/search/:a/:b" component={TagsURL}/>
-                </Switch> */}
-                <Route path="/home/search/:a/:b" component={Tags}/>
-                {/* <Route path=":id" component={NewsPage}/> */}
 
                 
-                {/* <Switch>
-                <Route render={() => <Redirect to={{pathname: "/"}} />} />
-                </Switch> */}
 
+
+                <Route path="/theKnews/home/articles/news-page/:id" component={NewsPage}/>
+                <Route path="/theKnews/home/tags/:tagname" component={Home}/>
+
+                <Route path="/theKnews/home/search/:a/:b" component={Tags}/>
+ 
                 
             </div>
         )

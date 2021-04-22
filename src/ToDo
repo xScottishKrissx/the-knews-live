@@ -890,18 +890,32 @@ Part 2 Implement Database functionality:
              Remove everything but the home page
              Remove any sign of editing
              Only show the lazy loading and article views
+        ☐ 21/4/2021 - This is very annoying.
+            ☐ https://christopherdunne.co.uk/theKnews/home -- Doesnt work if you access directly
+            ☐ You need to go to - > https://christopherdunne.co.uk/theKnews/ and then click on the header to get to the actual website which is located at : https://christopherdunne.co.uk/theKnews/home
+            ☐ Solution - > I changed all of the routes from /home to /theKnews/home
+            ☐ Added a .htaccess to theKnews folder with the below code. The rewrite base and last rewrite rule need to match the folder the .htaccess file is in.
 
+            <IfModule mod_rewrite.c>
+                RewriteEngine On
+                RewriteBase /theKnews
+                RewriteRule ^index\.html$ - [L]
+                RewriteCond %{REQUEST_FILENAME} !-f
+                RewriteCond %{REQUEST_FILENAME} !-d
+                RewriteCond %{REQUEST_FILENAME} !-l
+                RewriteRule . /theKnews/index.html [L]
+            </IfModule>
 
  -----
 
-        Version 12 - Planned:
+        Version 13 - Planned:
             ✘ myKnews - The Return. @cancelled(13:10 - 13/01/21)
                 // I need to move on from this project so i'm cancelling this. It's time to move on, i'll incorporate this into other projects.
                 // 11 March 2021 - ...is it though?
 
             ☐ Get Like and Dislike to work separate from myKnews
 
-        Version 11 (Future Version) - Planned Notes:
+        Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
             ☐ Add Options Menu for card control sizes, clearing cache etc
             ☐ Redo the card controls to improve the usablity of cards.
@@ -910,7 +924,7 @@ Part 2 Implement Database functionality:
             ☐ Inform the user of how to interact with the website( swipe, hiding etc)
             ☐ Do something with swipe right(or not if that's better)
 
-        Version 10.1 - Codebase Cleanup(Next Release) - Release Notes:
+        Version 11 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
             ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components
             ✔ Adjusted Card Size Control Styles
@@ -924,6 +938,8 @@ Part 2 Implement Database functionality:
             ✔ Improved handling of hiding all articles @done(16:56 - 16/04/21)
             ✔ Tags rethink @done(12:00 - 15/04/21)
             ✔ Article Page rethink @started(12:00 - 15/04/21) @done(13:57 - 16/04/21) @lasted(1d1h57m35s)
+
+
             
             let's finally move to a release, but first:
                 ✔ The card size controls are ugly. Redo them @done(12:06 - 19/04/21)

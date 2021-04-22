@@ -38,7 +38,7 @@ export class NavControls extends React.Component{
             <div className="nav-controls">
             <span className="icons-wrapper">
                 <div className="nav-icons home-button">
-                        <Link to='/home' >
+                        <Link to='/theKnews/home' >
                             <p className="large material-icons">home</p>
                             {/* <span>Home</span> */}
                         </Link>

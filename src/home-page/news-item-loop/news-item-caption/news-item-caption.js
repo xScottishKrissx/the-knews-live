@@ -59,7 +59,7 @@ export class Caption extends React.Component{
             <Link 
                 className="news-item-link" 
                 to={{
-                    pathname: '/home/articles/news-page/' + pageId,
+                    pathname: '/theKnews/home/articles/news-page/' + pageId,
                     state:{
                         articleObject: this.props.test, 
                         }
