@@ -35,7 +35,7 @@ export const MessageBody = () =>{
 
         <div>
         <h1>theKnews </h1>
-        <h3>Deployed Version 11.4 - 21/4/2021</h3>
+        <h3>Deployed Version 11.5.1 - 22/4/2021</h3>
         <h5>you can temporarily hide this message by clicking it. Refresh the page/click the unhide all button to get it back</h5>
         <p>Check out my blog for this in progress project where I post updates and detail what I am doing: <a href="https://christopherswebdevdiary.wordpress.com/">HERE</a></p>
         

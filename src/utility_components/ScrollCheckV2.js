@@ -40,8 +40,8 @@ class ScrollCheckV2 extends React.Component{
         // console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
     }
 
-    scroll = () => {
-
+    scroll = (e) => {
+        e.preventDefault()
         // A bunch of stuff used to detect the current scroll position...
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
         const body = document.body;
@@ -83,7 +83,8 @@ class ScrollCheckV2 extends React.Component{
     }
 
     componentWillUnmount(){
-        window.removeEventListener('scroll',this.scroll);
+        window.removeEventListener('scroll',this.scroll, {passive:true});
+        window.removeEventListener('touchstart',this.scroll, {passive:true});
         fire.database().ref("items").off();
       }
 
