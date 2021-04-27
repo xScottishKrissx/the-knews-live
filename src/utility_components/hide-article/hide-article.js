@@ -24,7 +24,6 @@ export class HideArticle extends React.Component{
     }
     hideArticle(value){
         console.log("Hide Article Button Pressed");
-        // console.log(localStorage.getItem("hiddenPostList"));
         console.log("Post Disappearing is Post:: " + value)
         // console.log(this.state.postsArray)
         console.log(this.props.arrayFromDatabase)

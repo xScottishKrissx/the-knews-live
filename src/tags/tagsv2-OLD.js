@@ -55,32 +55,14 @@ class Tags extends React.Component{
     componentDidMount(){
         console.log(this.state.articlesArray)
 
-        // console.log("Search Database For:: " + this.state.searchDBFor)
-
-
-
-        // console.log(localStorage.getItem("unchangedFullDatabaseCall"))
-        // Grab an array to be filtered, either the edited articles array or a fresh database call.
-        // There are issues when it comes to hiding articles but let's get the page working in the first place.
-
-
-
-        //  I need to get the 2 separate arrays - The Initial load and the leftover articles after editing.
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-
-        // ...join those 2 arrays together
         if(JSON.parse(localStorage.getItem("editedArticleArray")) === null){
             console.log("handle null")
         }
         const combinedEditedArrayFromStorage = JSON.parse(localStorage.getItem("editedArticleArray")).concat(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")));
-        // console.log(combinedEditedArrayFromStorage)
-
 
         //.. use that joined array as the reference for tags or grab a fresh database call.
         const mainArray = combinedEditedArrayFromStorage || JSON.parse(localStorage.getItem("unchangedFullDatabaseCall"));
         console.log(mainArray)
-
 
         // Filter for the correct tag
         const key = this.state.searchDBFor;
@@ -95,13 +77,7 @@ class Tags extends React.Component{
         })
         console.log(this.state.articlesArray)
     }
-
-    clickyButton(){
-        console.log("Refresh Something")
-    }
-   
-
-
+ 
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll);
         fire.database().ref("items").off();

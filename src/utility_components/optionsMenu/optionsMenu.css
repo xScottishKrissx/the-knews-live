@@ -18,17 +18,32 @@
             /* color: red !important; */
             transform: rotate(180deg)
         }
+        
+
     #optionsMenuPopup{
         background-color: white;
         border: 1px solid red;
-        bottom: 0vh;
+        bottom: 0px;
         height: 400px;
-        left: 5vw;
+        left: 50px;
         position:fixed;
-        visibility: visible;
+        visibility: hidden;
         width: 400px;
+
+        transition: 0.1s linear;
         
     }
+    .animateMenuPopup{
+        margin-bottom: 0;
+    }
+    #optionsMenuPopup div p{
+        width: 50%;
+        border-right: 1px solid black;
+    }
+        #optionsMenuPopup div span{
+            align-items: center;
+            display: flex;
+        }
 
 
 

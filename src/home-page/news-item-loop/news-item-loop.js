@@ -22,9 +22,6 @@ class MapDatabaseItems extends React.Component{
                 articlesArray : [],
                 leftoverArticles:[],
                 fullDatabaseCall:[],
-            // This is a record of the posts hidden.
-            postsArray:[],
-            hiddenPosts:localStorage.getItem("hiddenPostList"),
         }
     }
 
@@ -32,15 +29,7 @@ class MapDatabaseItems extends React.Component{
         // console.log(this.props.location.search)
         // console.log(this.props.props)
         // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
-        if(localStorage.getItem("hiddenPostList") === null){
-            this.setState({
-                postsArray:[]
-            }) 
-        }else{
-            this.setState({
-                postsArray:[localStorage.getItem("hiddenPostList").split(',').map(Number)]
-            })
-        }        
+  
 
     // This is the initial database query.
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);    
@@ -91,18 +80,9 @@ class MapDatabaseItems extends React.Component{
 
 
     render(){
-
-       
-
-        // NUCLEAR OPTION -> Just in case anything goes wrong...
-        // localStorage.removeItem("editedArticleArray")
-        // localStorage.removeItem("editedLeftoverArticlesArray")
-
         localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
 
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        // console.log(this.state.articlesArray)
 
          return (
          <div className="news-item-loop-wrapper"> 

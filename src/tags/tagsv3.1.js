@@ -118,7 +118,7 @@ class Tags extends React.Component{
             
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
-                        <ClearCache />
+                        {/* <ClearCache /> */}
 
                         <NavControls props="only-home-button"/>
                         {this.props.match.params.b || this.props.location.state.author === undefined ?

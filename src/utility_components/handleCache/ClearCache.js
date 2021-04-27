@@ -6,13 +6,8 @@ import {Link} from 'react-router-dom';
 export class ClearCache extends React.Component{
 
     clearCache(){
-        // localStorage.clear();
-        localStorage.removeItem("hiddenPostList")
-        // localStorage.removeItem("articleArray8")
-        // localStorage.removeItem("articlesArray")
         localStorage.removeItem("editedArticleArray")
         localStorage.removeItem("editedLeftoverArticlesArray")
-        localStorage.removeItem("testNewArticlesOnRender")
         localStorage.removeItem("filterOption")
         localStorage.removeItem("changedFullDatabaseCall")
         localStorage.removeItem("cleanDatabaseCall")
@@ -20,17 +15,11 @@ export class ClearCache extends React.Component{
         localStorage.removeItem("myData")
         
        
-        console.log("hiddenPostList -- Removed.")
                 
         // window.location.reload();
     }
 
-    componentDidMount(){
-        // if(localStorage.getItem("hiddenPostList") === null)document.getElementById("clearCache").style.visibility = "visible";
-    }
-
     render(){
-        // console.log(localStorage.getItem("hiddenPostList"))
         return (
             // <button onClick={()=> this.clearCache()} id="clearCache">Unhide All</button>
             <div>            
@@ -51,7 +40,6 @@ export default ClearCache;
 
 // articlesArray
 // hiddenPosts
-// hiddenPostList
 // myData
 // CardStyleSetting
 // savedCardOptionsPosition

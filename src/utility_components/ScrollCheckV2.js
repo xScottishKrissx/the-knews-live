@@ -34,10 +34,6 @@ class ScrollCheckV2 extends React.Component{
         }else{
             console.log("On Tags Page")
         }
-
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")))
-        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
-        // console.log(JSON.parse(localStorage.getItem("testNewArticlesOnRender")))
     }
 
     scroll = (e) => {

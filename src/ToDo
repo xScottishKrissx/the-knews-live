@@ -925,7 +925,7 @@ Part 2 Implement Database functionality:
 
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
-            ☐ 12.1 - Add Options Menu for card control sizes, clearing cache etc
+            ☐ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21)
             ☐ 12.2 - Redo the card controls to improve the usablity of cards.
             ☐ 12.3 - Add proper back button to articles(i.e go back one page, not just home)
             ☐ 12.4 - Fix the scroll activate for larger than 1800px wide windows
@@ -1093,7 +1093,7 @@ Images
 Loading GIF via loading.io
 https://loading.io/
 
-Toggle Button Based off of
+Open Options Menu button inspired by
 https://codepen.io/halvves/pen/ExjxaKj
 
 

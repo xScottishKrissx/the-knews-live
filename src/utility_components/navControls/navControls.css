@@ -1,7 +1,7 @@
     /* Navigation Control */
     .nav-controls{
         bottom: 0;
-        left: 0;
+        right: 0;
         display: block;
         /* height: 110px; */
         position: fixed;

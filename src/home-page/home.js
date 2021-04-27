@@ -16,7 +16,7 @@ export class Home extends React.Component{
             <div className='home-wrapper' >                
                 
                 <div className="news-item-wrapper">
-                    <ClearCache />
+                    {/* <ClearCache /> */}
                    
                     <NewsItemLoop urlTagProp={this.props.match.params.tagname }/>        
                 </div>
