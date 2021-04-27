@@ -1,0 +1,24 @@
+#optionsMenuWrapper{
+    background-color: black;
+    bottom: 0;
+    left: 2vw;
+    outline: 5px solid white;
+    position: fixed;
+    z-index: 2;
+}
+    #optionsMenuIcon{
+        color: white;
+        font-size:35px;
+    }
+
+    #optionsMenuPopup{
+        background-color: white;
+        border: 1px solid red;
+        bottom: 0vh;
+        height: 400px;
+        left: 5vw;
+        position:fixed;
+        visibility: hidden;
+        width: 400px;
+        
+    }

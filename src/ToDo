@@ -789,6 +789,14 @@ General Notes  Objectives:
         
         
             
+    Options Menu:
+        ✔ Create Component and Basic Popup Menu to get started @done(12:05 - 27/04/21)
+        Goals:
+            ☐ A UI that displays the various things users can manipulate and interact with accordingly
+                ☐ Ability to fully clear entire cache
+                ☐ Option to unhide articles without resetting card size
+                ☐ Option to reset card size
+                ☐ Option to change card size
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -917,13 +925,14 @@ Part 2 Implement Database functionality:
 
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
-            ☐ Add Options Menu for card control sizes, clearing cache etc
-            ☐ Redo the card controls to improve the usablity of cards.
-            ☐ Add proper back button to articles(i.e go back one page, not just home)
-            ☐ Fix the scroll activate for larger than 1800px wide windows
-            ☐ Inform the user of how to interact with the website( swipe, hiding etc)
-            ☐ Do something with swipe right(or not if that's better)
-            ☐ Can I reset scroll position when switching articles in liteKnews?
+            ☐ 12.1 - Add Options Menu for card control sizes, clearing cache etc
+            ☐ 12.2 - Redo the card controls to improve the usablity of cards.
+            ☐ 12.3 - Add proper back button to articles(i.e go back one page, not just home)
+            ☐ 12.4 - Fix the scroll activate for larger than 1800px wide windows
+            ☐ 12.5 - Inform the user of how to interact with the website( swipe, hiding etc)
+            ☐ 12.6 - Do something with swipe right(or not if that's better)
+            ☐ 12.7 - Can I reset scroll position when switching articles in liteKnews?
+            ☐ 12.8 - Code Review (Splitting Code into components)
         
         Version 11.1 - Bug Fixes:
             ✔ Full Article link goes to blank page @done(17:18 - 22/04/21)
