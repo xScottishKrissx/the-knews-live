@@ -1,0 +1,34 @@
+.cardControlSizeWrapper{
+
+}
+
+    .tileSizeControls{
+
+    }
+
+        .tileSizeControls h3{ }
+            .tileSizeControls p{}
+
+            .controlBtns button{
+            }
+                .controlBtns button span{
+ 
+                }
+                #cardControlsLargeBtn{}
+                /* .small-btn{width: 25%;} */
+                /* .medium-btn{width: 50%;} */
+                /* .large-btn{width: 75%;} */
+
+                /* Standard Size */
+/* Compact     |> Height - 150px  | width - 330px */
+/* Comfortable |> Height - auto  | width - 260px */
+/* Big         |> Height - auto  | width - 470px */
+
+
+@media (min-width: 1000px) {
+    /* #cardControlsLargeBtn{display:block;} */
+}
+
+@media (min-width: 375px) {
+    /* .cardControlSizeWrapper{visibility: visible;} */
+}

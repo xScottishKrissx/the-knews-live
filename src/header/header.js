@@ -2,6 +2,7 @@ import React from 'react';
 import './header.css';
 
 import {Link} from 'react-router-dom';
+import CustomCardSize from '../utility_components/custom-tile-size/custom-card-sizeV2.js';
 // import TagBar from '../tags/tag-bar';
 
 
@@ -11,6 +12,7 @@ export const Header = () => {
         <div id="header" className='header-container'>
             <div className="header-wrapper">
             <span className="brand"><Link id="header-text" to="/">theKnews</Link></span>
+            <CustomCardSize />
             {/* <DarkModeToggle /> */}
             
             {/* <TagBar /> */}

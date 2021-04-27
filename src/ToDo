@@ -365,25 +365,39 @@ General Notes  Objectives:
              A component to loop each news item
              A component to display the end result
              Code is a wee bit more manageable
-        ✔ A button that lets you change the size of the news items @started(18-08-28 12:47) @done(18-08-31 17:21) @lasted(3d4h34m34s)
-            //Sort of, doesn't remember tile sizes if you leave the page.
-            ✘ Maybe some kind of randomised news tile size @started(18-08-31 17:24) @cancelled(20-10-12 17:39) @wasted(2y6w1d15m59s)
-            ✘ Work on controls appearance @started(18-09-04 12:29) @cancelled(20-10-12 17:39) @wasted(2y5w4d5h10m57s)
-                18/9/2020 - Removed sized controls, they're just adding too much work at the moment. Want to focus on the core of the project rather than the smaller details like this.
-                ✔ Controls Are back, get them done @done(20-12-11 17:04)
-                    ✔ So, the controls can be hidden if you want. However, there is a small BUG:: at the moment where if the controls are visible on load, you need to double click the button for it to work. @done(20-12-11 16:38)
-                    // Not a major problem, but this needs to be fixed for release.
-                    // Fixed it, looks like I was mutating state directly.
-            ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
-                //Might not be possible without another library
-                .... or I could use local storage/session storage to remember user choice.
-            ✔ Card Size Selector is not affecting newly loaded articles. @done(17:03 - 01/03/21)
-            // Fixed this by adding the startingCardSize and changedCardSize properties to the ScrollCheck component in news-item-loop-view. @done(17:04 - 01/03/21)
-                ✔ Ok, not fixed. If you clear cache the cards just get really small. @started(17:21 - 01/03/21) @done(17:28 - 01/03/21) @lasted(7m12s)
-                    // Setting a default size in css prevents the cards changing size for  some reason.
-                    // Looks like I had an extra div in there, messing things up.
-                ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
-                    // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
+
+        Card Size Controls:
+            ✔ A button that lets you change the size of the news items @started(18-08-28 12:47) @done(18-08-31 17:21) @lasted(3d4h34m34s)
+                //Sort of, doesn't remember tile sizes if you leave the page.
+                ✘ Maybe some kind of randomised news tile size @started(18-08-31 17:24) @cancelled(20-10-12 17:39) @wasted(2y6w1d15m59s)
+                ✘ Work on controls appearance @started(18-09-04 12:29) @cancelled(20-10-12 17:39) @wasted(2y5w4d5h10m57s)
+                    18/9/2020 - Removed sized controls, they're just adding too much work at the moment. Want to focus on the core of the project rather than the smaller details like this.
+                    ✔ Controls Are back, get them done @done(20-12-11 17:04)
+                        ✔ So, the controls can be hidden if you want. However, there is a small BUG:: at the moment where if the controls are visible on load, you need to double click the button for it to work. @done(20-12-11 16:38)
+                        // Not a major problem, but this needs to be fixed for release.
+                        // Fixed it, looks like I was mutating state directly.
+                ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
+                    //Might not be possible without another library
+                    .... or I could use local storage/session storage to remember user choice.
+                ✔ Card Size Selector is not affecting newly loaded articles. @done(17:03 - 01/03/21)
+                // Fixed this by adding the startingCardSize and changedCardSize properties to the ScrollCheck component in news-item-loop-view. @done(17:04 - 01/03/21)
+                    ✔ Ok, not fixed. If you clear cache the cards just get really small. @started(17:21 - 01/03/21) @done(17:28 - 01/03/21) @lasted(7m12s)
+                        // Setting a default size in css prevents the cards changing size for  some reason.
+                        // Looks like I had an extra div in there, messing things up.
+                    ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
+                        // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
+            Redoing Card Size controls for V12.2:
+                ☐ Figure out new sizes
+                    ☐ Size 1 - Compact (like thin tiles on mobile)
+                    ☐ Size 2 - Comfortable (the current normal)
+                    ☐ Size 3 - Maximum(maybe the comfortable but with a snippet of the article on the card??)
+                
+                ☐ Figure out the new UI
+                    ☐ I want it to be perma on the page, maybe in the header alongside theKnews
+                        ☐ Ideally, integrate icons instead of text for the buttons.
+                
+                 ☐ Add option to reset in the options menu
+
         ✘ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24) @cancelled(18-09-11 13:57) @wasted(1w3d20h33m16s)
             // Currently limited to last 20 in database.
             // Infinite Scrolling is the term Im looking for...
@@ -793,10 +807,11 @@ General Notes  Objectives:
         ✔ Create Component and Basic Popup Menu to get started @done(12:05 - 27/04/21)
         Goals:
             ☐ A UI that displays the various things users can manipulate and interact with accordingly
-                ☐ Ability to fully clear entire cache
-                ☐ Option to unhide articles without resetting card size
+                ✔ Ability to fully clear entire cache @done(16:03 - 27/04/21)
+                ✔ Option to unhide articles without resetting card size @done(16:03 - 27/04/21)
                 ☐ Option to reset card size
                 ☐ Option to change card size
+            ☐ A decent UI
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -925,7 +940,7 @@ Part 2 Implement Database functionality:
 
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
-            ☐ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21)
+            ✔ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21) @done(16:05 - 27/04/21) @lasted(2h4m9s)
             ☐ 12.2 - Redo the card controls to improve the usablity of cards.
             ☐ 12.3 - Add proper back button to articles(i.e go back one page, not just home)
             ☐ 12.4 - Fix the scroll activate for larger than 1800px wide windows
