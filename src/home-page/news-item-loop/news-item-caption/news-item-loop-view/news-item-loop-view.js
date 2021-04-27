@@ -246,67 +246,6 @@ class NewsItemLoopView extends React.Component{
                 {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
             </div>
             }
-                {/* <div id="test__articleWrapper" >
-                    {this.state.showArticle === false ?
-                    <p>Show All Cards</p>
-                    :
-                    <div className="test__articleContainer">
-                        <h2>Display an article here</h2>
-                        <h3>Title: {renderToPage[this.state.articleNumber].title}</h3>
-                        <h3>Title: {renderToPage[this.state.articleNumber].author}</h3>
-                    </div>
-                    }
-
-                    <button onClick={() => this.changeArticle(+1)}>Next Article</button>
-                    <button onClick={() => this.changeArticle(-1)}>Prev Article</button>
-                    <button onClick={this.closeLiteKnewsView}>Hide Article</button>
-                </div> */}
-
-
-                {/* <button onClick={() => this.getArticlesBy("News")} >News</button>
-                <button onClick={() => this.getArticlesBy("Sports")} >Sports</button>
-                <button onClick={() => this.getArticlesBy("Weather")} >Weather</button>
-                <button onClick={() => this.getArticlesBy("All")} >No Filter</button>
-                <p>Showing {this.state.getArticleBy} Articles</p> */}
-
-
-
-                {/* {this.props.databaseProp.length >= 30 && thing ? 
-                 <RenderCard
-                 database={renderToPage}
-                 startingCardSize={this.state.startingCardSize}
-                 changedCardSize={this.state.changedCardSize}
-                 postsArray={this.state.postsArray}
-                 arrayFromDatabase={this.props.databaseProp} 
-                 leftoverArticles={this.props.leftoverArticles}  
-                 fullDatabaseCall={this.props.fullDatabaseCall}
-                 postsArray={this.state.postsArray}
-
-                 // Test
-                 changeId={renderToPage[this.state.articleNumber].id}
-                 changeTitle={renderToPage[this.state.articleNumber].title}
-                 changeAuthor={renderToPage[this.state.articleNumber].author}
-                 changeText={renderToPage[this.state.articleNumber].text}
-                 showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
-                 />
-                :
-                <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
-                } */}
-                
-               
-                {/* {this.state.getArticleBy === "All" ?
-                    <ScrollCheckV2 
-                        articlesArray={this.props.databaseProp}
-                        startingCardSize={this.state.startingCardSize}
-                        changedCardSize={this.state.changedCardSize}
-                        leftoverArticles={this.props.leftoverArticles}
-                        getArticleBy={this.state.getArticleBy}
-                    />   
-                :
-                <p>No More Articles. Come Back Later</p>
-                } */}
- 
-                {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
             </div>
         )
     }

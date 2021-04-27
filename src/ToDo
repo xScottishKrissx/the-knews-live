@@ -924,7 +924,7 @@ Part 2 Implement Database functionality:
             ☐ Inform the user of how to interact with the website( swipe, hiding etc)
             ☐ Do something with swipe right(or not if that's better)
             ☐ Can I reset scroll position when switching articles in liteKnews?
-
+        
         Version 11.1 - Bug Fixes:
             ✔ Full Article link goes to blank page @done(17:18 - 22/04/21)
             ✔ ScrollCheck requires a two finger up and down scroll to work...not ideal. @done(17:18 - 22/04/21)
@@ -932,7 +932,7 @@ Part 2 Implement Database functionality:
             ☐ If there are 2 or less articles on the page when you refresh, you might get an error.
             ✔ Changing card size and then attempting to hide articles causes an error on dev and does nothing on live. @done(18:02 - 22/04/21)
                 ✔ pressing a card size empties the cleanDatabaseCall cache for some reason. My solution right now is to disable the card size controls for the time being. My intention was to rework them in the next release anyway so not a big deal. @done(18:02 - 22/04/21)
-                
+
         Version 11 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
             ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components
@@ -1106,3 +1106,11 @@ https://loading.io/
 2: {key: "8", id: 536, hidden: undefined, author: "Ivory Alford", title: "lectus convallis est, vitae sodales nisi magna sed", …}
 3: {key: "9", id: 241, hidden: undefined, author: "Paloma Ward", title: "Nam ac nulla. In tincidunt", …}
 4: {key: "10", id: 605, hidden: undefined, author: "Jesse Blackburn", title: "dignissim pharetra. Nam ac nulla. In tincidunt", …}
+
+This is the latest release note entry. In the future, I will leave the talking to the blog, but I wanted to leave something here to mark the point I finally caught up. Version 11 has been a milestone in my commitment to, and understanding of, React.js and I am proud of where theKnews is at the moment. 
+
+I've been hard at work for over 2 months trying to get this release right, thinking I was close only to notice that I needed to rip out a quarter of the code and redo it, as you can see in Version 11 where I did that 3 times. I would go as far as to say, that, unlike triggers broom, V11 is a completley different website from V10, fundamental aesthetics aside.
+
+It's a project literally years in the making and I'm looking forward to where it goes next.
+
+My version numbers are...a choice. I am aware of that but they make sense to me so it's never really bothered me that much. Just know that the 11.1 to 11.5 was me trying to fix an issue with React Router and the .4 was tweaking the infinite scroll detection rate. In hindsight I should have probably gone for something like 11.0.1, 11.0.1.1, 11.0.1.2 etc but I didn't so 11.5.4 is what I ended up with for a release that is a few small bug fixes and not a piece of software getting a mid life update.
