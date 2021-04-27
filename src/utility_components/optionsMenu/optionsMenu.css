@@ -8,9 +8,16 @@
 }
     #optionsMenuIcon{
         color: white;
+        cursor: pointer;
         font-size:35px;
-    }
+        /* transform: translate3d(0, 0, 0); */
+        transition: 0.25s linear;
 
+    }
+        .animateIcon{
+            /* color: red !important; */
+            transform: rotate(180deg)
+        }
     #optionsMenuPopup{
         background-color: white;
         border: 1px solid red;
@@ -18,7 +25,11 @@
         height: 400px;
         left: 5vw;
         position:fixed;
-        visibility: hidden;
+        visibility: visible;
         width: 400px;
         
     }
+
+
+
+ 
