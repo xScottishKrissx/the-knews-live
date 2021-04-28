@@ -192,7 +192,7 @@ class NewsItemLoopView extends React.Component{
                     </div>
                 </div>
             :
-            <div>
+            <div id="cardArea">
                 <div id="topPageButtonWrapper">
                     <div id="speedKnewsButtonWrapper">
                         <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>start liteKnews </button>
@@ -252,6 +252,7 @@ class NewsItemLoopView extends React.Component{
                 // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
                 }
+                
                 
             </div>
             }

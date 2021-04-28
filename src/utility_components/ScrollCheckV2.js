@@ -37,7 +37,7 @@ class ScrollCheckV2 extends React.Component{
     }
 
     scroll = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         // A bunch of stuff used to detect the current scroll position...
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
         const body = document.body;
@@ -102,6 +102,7 @@ class ScrollCheckV2 extends React.Component{
                 
                 />
                 {/* <NewsItemLoopView databaseProp={new1} /> */}
+                <span><button onClick={()=>this.scroll()}>Load More Articles</button></span>
             </React.Fragment>   
         )
     }
