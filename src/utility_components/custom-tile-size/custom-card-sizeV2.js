@@ -26,8 +26,14 @@ class CustomCardSize extends React.Component{
     }
 
     changeCardSize(width,height){
+        var arrayThing = [width,height]
+        console.log(arrayThing)
         localStorage.clear("myData");
-        localStorage.setItem("myData", width,height);
+
+        // localStorage.setItem("myData", width,height);
+        localStorage.setItem("myData", JSON.stringify(arrayThing));
+        console.log(JSON.parse(localStorage.getItem("myData")));
+        
         localStorage.getItem("myData")
         this.props.getCardSizeToParent(width,height);
         console.log(localStorage.getItem("myData"));
@@ -49,7 +55,7 @@ class CustomCardSize extends React.Component{
                 
                     <span className="controlBtns">
                         <button  onClick={() => this.changeCardSize("330px","150px")}>
-                            <span className="small-btn">1</span>
+                            <span className="small-btn">Compact</span>
                         </button>
 
                         <button  onClick={() => this.changeCardSize("auto","260px")}>

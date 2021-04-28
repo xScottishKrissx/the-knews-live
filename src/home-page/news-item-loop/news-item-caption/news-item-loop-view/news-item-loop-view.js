@@ -20,7 +20,10 @@ class NewsItemLoopView extends React.Component{
         this.state = {
         // Card Size
         startingCardSize:"",
-        changedCardSize:{width: localStorage.getItem("myData")},
+        changedCardSize:{
+            width: JSON.parse(localStorage.getItem("myData"))[0],
+            height: JSON.parse(localStorage.getItem("myData"))[1]
+        },
         postsArray:[],
 
         //hiding articles for filter views
@@ -50,6 +53,7 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
+        console.log(JSON.parse(localStorage.getItem("myData")));
         // console.log(this.props.fullDatabaseCall)
         // If no filter option exists in storage, set as All to display a default view.
         if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
