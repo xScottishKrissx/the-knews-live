@@ -1,5 +1,6 @@
 import React from 'react';
 import '../news-item-loop-view/news-item-loop-view.css';
+// import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-size.js';
 import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-sizeV2.js';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import RenderCard from '../../../../utility_components/renderCard/renderCard';
@@ -243,7 +244,7 @@ class NewsItemLoopView extends React.Component{
                 // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
                 }
-                {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
+                <CustomCardSize getCardSizeToParent={this.getCardSize} />
             </div>
             }
             </div>

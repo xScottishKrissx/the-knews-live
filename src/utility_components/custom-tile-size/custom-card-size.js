@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './custom-card-size.css';
+// import './custom-card-size.css';
 
 class CustomCardSize extends React.Component{
 

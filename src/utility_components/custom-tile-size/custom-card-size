@@ -1,5 +1,5 @@
 .cardControlSizeWrapper{
-    /* bottom: -105px; */
+    bottom: -105px;
     cursor: pointer;
     display: flex;
     outline: 2px solid rgba(255, 255, 255, 0.44);
@@ -43,12 +43,6 @@
                 /* .small-btn{width: 25%;} */
                 /* .medium-btn{width: 50%;} */
                 /* .large-btn{width: 75%;} */
-
-                /* Standard Size */
-/* Compact     |> Height - 150px  | width - 330px */
-/* Comfortable |> Height - auto  | width - 260px */
-/* Big         |> Height - auto  | width - 470px */
-
 
 @media (min-width: 768px) {
     #cardControlsLargeBtn{display:block;}
