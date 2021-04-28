@@ -30,13 +30,19 @@ class OptionsMenu extends Component {
 
     clearCache(removeFromCache){
         console.log("Clear Cache" + " " + removeFromCache)
-        if(removeFromCache === "clearCache")localStorage.clear();
-        if(removeFromCache === "unhideArticles"){
+        if(removeFromCache.includes("clearCache"))localStorage.clear();
+        if(removeFromCache.includes("unhideArticles")){
             localStorage.removeItem("changedFullDatabaseCall")
             localStorage.removeItem("cleanDatabaseCall")
             localStorage.removeItem("editedArticleArray")
             localStorage.removeItem("editedLeftoverArticlesArray")
             window.location.reload();
+        }
+        if(removeFromCache.includes("resetCardSize")){
+            console.log("Reset Card Size")
+            localStorage.removeItem("myData")
+            var arrayThing = ["260px","400px"]
+            localStorage.setItem("myData", JSON.stringify(arrayThing));
         }
     }
     render(){

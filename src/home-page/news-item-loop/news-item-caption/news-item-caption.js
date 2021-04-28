@@ -32,7 +32,7 @@ export class Caption extends React.Component{
             backgroundPosition: "bottom",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            height: "400px",
+            height: "auto",
             maxWidth:"1200px",
             width:"100%"
             

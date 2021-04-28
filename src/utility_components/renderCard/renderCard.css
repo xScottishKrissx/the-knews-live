@@ -15,9 +15,14 @@
     display: flex;
     flex: auto;
 
-    /* Default */
-    width: 260px;
+    /* Compact */
+    width: 470px;
+    height: 120px;
     
+    /* Default */
+    /* width: 260px; */
+    
+
 
     /* Small */
     /* width: 200px; */

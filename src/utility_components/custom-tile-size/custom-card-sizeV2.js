@@ -54,24 +54,24 @@ class CustomCardSize extends React.Component{
 
                 
                     <span className="controlBtns">
-                        <button  onClick={() => this.changeCardSize("330px","150px")}>
+                        <button  onClick={() => this.changeCardSize("470px","120px")}>
                             <span className="small-btn">Compact</span>
                         </button>
 
-                        <button  onClick={() => this.changeCardSize("auto","260px")}>
-                            <span className="medium-btn" >2</span>
+                        <button  onClick={() => this.changeCardSize("225px","225px")}>
+                            <span className="medium-btn" >Squares</span>
                         </button>
-                        <button  onClick={() => this.changeCardSize("260px")}>
-                            <span className="medium-btn" >3</span>
+                        <button  onClick={() => this.changeCardSize("260px","400px")}>
+                            <span className="medium-btn" >Default</span>
                         </button>
-                        <button  onClick={() => this.changeCardSize("260px")}>
-                            <span className="medium-btn" >4</span>
+                        <button  onClick={() => this.changeCardSize("260px","73vh")}>
+                            <span className="medium-btn" >Long</span>
                         </button>
-                        <button  onClick={() => this.changeCardSize("260px")}>
-                            <span className="medium-btn" >5</span>
+                        <button  onClick={() => this.changeCardSize("470px","800px")}>
+                            <span className="medium-btn" >Thick</span>
                         </button>
-                        <button  onClick={() => this.changeCardSize("260px")}>
-                            <span className="medium-btn" >6</span>
+                        <button  onClick={() => this.changeCardSize("520px","520px")}>
+                            <span className="medium-btn" >Big Squares</span>
                         </button>
                         
                         {/* <button id="cardControlsLargeBtn" onClick={() => this.changeCardSize("50rem")}>

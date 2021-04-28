@@ -28,7 +28,6 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
-                
             }
             .controlBtns button{
                 margin: 0px;
@@ -40,8 +39,8 @@
                     background-color: white;
                     display: block;
                     padding: 10px;
-
                 }
+
                 #cardControlsLargeBtn{display:none;}
 
 
