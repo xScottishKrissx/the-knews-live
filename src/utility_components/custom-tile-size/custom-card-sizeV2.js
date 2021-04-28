@@ -25,11 +25,11 @@ class CustomCardSize extends React.Component{
         console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
     }
 
-    changeCardSize(size){
+    changeCardSize(width,height){
         localStorage.clear("myData");
-        localStorage.setItem("myData", size);
+        localStorage.setItem("myData", width,height);
         localStorage.getItem("myData")
-        this.props.getCardSizeToParent(size);
+        this.props.getCardSizeToParent(width,height);
         console.log(localStorage.getItem("myData"));
 
         console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
@@ -48,12 +48,24 @@ class CustomCardSize extends React.Component{
 
                 
                     <span className="controlBtns">
-                        <button  onClick={() => this.changeCardSize("10rem")}>
-                            <span className="small-btn">S</span>
+                        <button  onClick={() => this.changeCardSize("330px","150px")}>
+                            <span className="small-btn">1</span>
                         </button>
 
+                        <button  onClick={() => this.changeCardSize("auto","260px")}>
+                            <span className="medium-btn" >2</span>
+                        </button>
                         <button  onClick={() => this.changeCardSize("260px")}>
-                            <span className="medium-btn" >M</span>
+                            <span className="medium-btn" >3</span>
+                        </button>
+                        <button  onClick={() => this.changeCardSize("260px")}>
+                            <span className="medium-btn" >4</span>
+                        </button>
+                        <button  onClick={() => this.changeCardSize("260px")}>
+                            <span className="medium-btn" >5</span>
+                        </button>
+                        <button  onClick={() => this.changeCardSize("260px")}>
+                            <span className="medium-btn" >6</span>
                         </button>
                         
                         {/* <button id="cardControlsLargeBtn" onClick={() => this.changeCardSize("50rem")}>

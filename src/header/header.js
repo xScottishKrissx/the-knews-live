@@ -12,7 +12,7 @@ export const Header = () => {
         <div id="header" className='header-container'>
             <div className="header-wrapper">
             <span className="brand"><Link id="header-text" to="/">theKnews</Link></span>
-            <CustomCardSize />
+            {/* <CustomCardSize /> */}
             {/* <DarkModeToggle /> */}
             
             {/* <TagBar /> */}

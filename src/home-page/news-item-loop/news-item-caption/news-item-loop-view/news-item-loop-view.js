@@ -39,10 +39,12 @@ class NewsItemLoopView extends React.Component{
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);
     }
 
-    getCardSize(value){
+    getCardSize(width,height){
+        console.log(width +" "+ height)
         this.setState({
             startingCardSize:{
-                width:value,
+                width:width,
+                height:height
             }
         })
     }
@@ -124,6 +126,7 @@ class NewsItemLoopView extends React.Component{
         return(
             
             <div className="newsItemLoopViewWrapper">
+            
             {this.state.showArticle === true ?
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
@@ -210,6 +213,7 @@ class NewsItemLoopView extends React.Component{
                         <p>Displaying {renderToPage.length}<span>{this.state.getArticleBy}</span> Articles</p>
                     }
                 </div>
+                <CustomCardSize getCardSizeToParent={this.getCardSize} />
                 {this.props.databaseProp.length >= 30 && thing ? 
                 
                  <RenderCard
@@ -244,7 +248,7 @@ class NewsItemLoopView extends React.Component{
                 // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
                 }
-                <CustomCardSize getCardSizeToParent={this.getCardSize} />
+                
             </div>
             }
             </div>
