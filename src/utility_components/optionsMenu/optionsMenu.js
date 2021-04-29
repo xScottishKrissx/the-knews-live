@@ -16,14 +16,26 @@ class OptionsMenu extends Component {
         console.log("Toggle Menu")
 
         if(this.state.optionsMenuOpen === false){
-            document.getElementById("optionsMenuPopup" ).style.visibility = "visible"; 
-            document.getElementById("optionsMenuIcon" ).classList.add('animateIcon')
+            // document.getElementById("optionsMenuPopup" ).style.visibility = "visible"; 
 
+            // Icon
+            document.getElementById("optionsMenuIcon" ).classList.add('animateIcon')
+            
+            // Menu
+            document.getElementById("optionsMenuWrapper" ).classList.add('animateOptionsMenuWrapper')
             document.getElementById("optionsMenuPopup" ).classList.add('animateMenuPopup')
+
             this.setState({optionsMenuOpen:true})
         }else{
-            document.getElementById("optionsMenuPopup" ).style.visibility = "hidden"; 
+            // document.getElementById("optionsMenuPopup" ).style.visibility = "hidden"; 
+
+            // Icon
             document.getElementById("optionsMenuIcon" ).classList.remove('animateIcon')
+            
+            //Menu
+            document.getElementById("optionsMenuWrapper" ).classList.remove('animateOptionsMenuWrapper')
+            document.getElementById("optionsMenuPopup" ).classList.remove('animateMenuPopup')
+
             this.setState({optionsMenuOpen:false})            
         }
     }
@@ -50,6 +62,7 @@ class OptionsMenu extends Component {
             var arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
         }
+        
     }
     render(){
 
@@ -57,35 +70,26 @@ class OptionsMenu extends Component {
         return (
             <div id="optionsMenuWrapper">
                 
-                 <span onClick={()=> this.toggleMenu()} id="optionsMenuIcon" className="material-icons">settings</span>
+                <span onClick={()=> this.toggleMenu()} id="optionsMenuIcon" className="material-icons">settings</span>
                 <div id="optionsMenuPopup">
                     <div>
-                        
-                        <span>
-                            <p>Full Website Reset</p>
+                        <span><p>Full Website Reset</p>
                             <Link to='/' onClick={()=> this.clearCache("clearCache")}>
                                 <button>Confirm</button>
                             </Link>
                         </span>
 
-
-                        <span>
-                            <p>Unhide Articles </p>
+                        <span><p>Unhide Articles </p>
                             <Link to='/' onClick={()=> this.clearCache("unhideArticles")}>
                                     <button>Confirm</button>
                             </Link>
                         </span>
 
-                        <span >
-                            <p>Reset Card Size </p> 
+                        <span ><p>Reset Card Size </p> 
                             <Link to='/' onClick={()=> this.clearCache("resetCardSize")}>
                                     <button>Confirm</button>
-                            </Link>
-                            
-                           
-                        </span>
-                        
-
+                            </Link>                   
+                        </span>                        
                       </div>
                 </div>
             </div>

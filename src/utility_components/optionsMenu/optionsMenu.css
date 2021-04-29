@@ -1,50 +1,73 @@
 #optionsMenuWrapper{
     background-color: black;
     bottom: 0;
-    left: 2vw;
-    outline: 5px solid white;
+    height: 35px;
+    left: 15px;
+    outline: 5px solid black;
     position: fixed;
-    z-index: 2;
+    
+    z-index: 20;
+    
+    transition: 0.2s linear;
+    
 }
     #optionsMenuIcon{
         color: white;
         cursor: pointer;
         font-size:35px;
         /* transform: translate3d(0, 0, 0); */
-        transition: 0.25s linear;
+        transition: 0.5s linear;
 
     }
-        .animateIcon{
-            /* color: red !important; */
-            transform: rotate(180deg)
-        }
+ 
         
 
     #optionsMenuPopup{
         background-color: white;
         border: 5px solid;
         bottom: 0px;
-        height: auto;
+        height: 30px;
         left: 50px;
+        overflow: auto;
         position:fixed;
-        visibility: visible;
-        width: 400px;
+        /* visibility: hidden; */
+        width: 0;
 
-        transition: 0.1s linear;
+        transition: 0.2s linear;
         
     }
     .animateMenuPopup{
         margin-bottom: 0;
+        height: 270px !important;
+        width: 400px !important;
+        overflow: visible;
     }
+    .animateOptionsMenuWrapper{
+        height: 275px !important
+    }
+
+    .animateIcon{
+        /* color: red !important; */
+        transform: rotate(180deg)
+    }
+
+
     #optionsMenuPopup div p{
         width: 50%;
-        border-right: 1px solid black;
+        border-right: 3px solid #0000007a;
     }
         #optionsMenuPopup div span{
             align-items: center;
             display: flex;
+            padding: 5px;
         }
-
+            #optionsMenuPopup div span a button{
+                background-color: black;
+                color: white;
+                cursor: pointer;
+                font-weight: 800;
+                outline: 1px solid black;
+            }
 
 
  
