@@ -45,6 +45,7 @@ class CustomCardSize extends React.Component{
 
     render(){
         console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+        console.log( localStorage.getItem("filterOption"))
         // var width = window.innerWidth || document.documentElement.clientWidth|| document.body.clientWidth;
         // var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
         // console.log(width,height)

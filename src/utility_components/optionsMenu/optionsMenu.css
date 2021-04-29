@@ -22,12 +22,12 @@
 
     #optionsMenuPopup{
         background-color: white;
-        border: 1px solid red;
+        border: 5px solid;
         bottom: 0px;
-        height: 400px;
+        height: auto;
         left: 50px;
         position:fixed;
-        visibility: hidden;
+        visibility: visible;
         width: 400px;
 
         transition: 0.1s linear;

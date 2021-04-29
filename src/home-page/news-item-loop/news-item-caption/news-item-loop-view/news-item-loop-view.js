@@ -126,7 +126,7 @@ class NewsItemLoopView extends React.Component{
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
-
+        console.log( localStorage.getItem("filterOption"))
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -200,8 +200,7 @@ class NewsItemLoopView extends React.Component{
                     </div>
                     
                     <div id="filterButtonWrapper">
-                        <button className="filterButton" id="newsFilterBtn" 
-                        onClick={() => this.getArticlesBy("News","newsFilterBtn")} >News</button>
+                        <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")} >News</button>
                         <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>
                         <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather</button>
                         <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All","noFilterBtn")} >No Filter</button>

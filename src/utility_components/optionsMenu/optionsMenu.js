@@ -11,7 +11,9 @@ class OptionsMenu extends Component {
             optionsMenuOpen:false
         }
     }
-
+    componentDidMount(){
+        console.log( localStorage.getItem("filterOption"))
+    }
     toggleMenu(){
         console.log("Toggle Menu")
 
@@ -38,15 +40,21 @@ class OptionsMenu extends Component {
             localStorage.removeItem("editedLeftoverArticlesArray")
             window.location.reload();
         }
+
         if(removeFromCache.includes("resetCardSize")){
             console.log("Reset Card Size")
+            console.log( localStorage.getItem("filterOption"))
             localStorage.removeItem("myData")
             var arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
-            window.location.reload();
+            
+            // window.location.reload();
         }
     }
     render(){
+        console.log( localStorage.getItem("filterOption"))
+        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+
         return (
             <div id="optionsMenuWrapper">
                 
@@ -68,9 +76,14 @@ class OptionsMenu extends Component {
                         </span>
 
                         <span >
-                            <p>Reset Card Size </p>
-                            <button onClick={()=>this.clearCache("resetCardSize")}>Confirm</button>
+                            <p>Reset Card Size </p> 
+                            <Link to='/' onClick={()=> this.clearCache("resetCardSize")}>
+                                    <button>Confirm</button>
+                            </Link>
+                            
+                           
                         </span>
+                        
 
                       </div>
                 </div>

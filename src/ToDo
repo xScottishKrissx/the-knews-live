@@ -813,6 +813,8 @@ General Notes  Objectives:
                 ✔ Ability to fully clear entire cache @done(16:03 - 27/04/21)
                 ✔ Option to unhide articles without resetting card size @done(16:03 - 27/04/21)
                 ☐ Option to reset card size
+                    ☐ When restting card size, the filter option is also being reset to All.
+                    ☐ For some reason the filter option is being set to null at some point.
                 ☐ Option to change card size
             ☐ A decent UI
 
@@ -944,7 +946,8 @@ Part 2 Implement Database functionality:
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
             ✔ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21) @done(16:05 - 27/04/21) @lasted(2h4m9s)
-            ☐ 12.2 - Redo the card controls to improve the usablity of cards.
+                ☐ 12.1.4 - Improve Appearance of Options Menu with new controls in place. @started(12:10 - 29/04/21)
+            ✔ 12.2 - Redo the card controls to improve the usablity of cards. @done(12:10 - 29/04/21)
             ☐ 12.3 - Add proper back button to articles(i.e go back one page, not just home)
             ☐ 12.4 - Fix the scroll activate for larger than 1800px wide windows
             ☐ 12.5 - Inform the user of how to interact with the website( swipe, hiding etc)
