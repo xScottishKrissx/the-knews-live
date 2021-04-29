@@ -387,7 +387,7 @@ General Notes  Objectives:
                     ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
                         // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
             Redoing Card Size controls for V12.2:
-                ☐ Figure out new sizes
+                ✔ Figure out new sizes @done(12:06 - 29/04/21)
                      Size 1 - Compact (like thin tiles on mobile)
                      Size 2  - Squares 
                      Size 3 - Comfortable (the current normal)
@@ -395,9 +395,9 @@ General Notes  Objectives:
                      Size 5 - Thick
                      Size 6 - Big Squares
 
-                ☐ Figure out the new UI
-                    ☐ I want it to be perma on the page, maybe in the header alongside theKnews
-                        ☐ Ideally, integrate icons instead of text for the buttons.
+                ✔ Figure out the new UI @done(12:06 - 29/04/21)
+                    ✔ I want it to be perma on the page, maybe in the header alongside theKnews @done(12:06 - 29/04/21)
+                        ✔ Ideally, integrate icons instead of text for the buttons. @done(12:06 - 29/04/21)
                 
                  ✔ Add option to reset in the options menu @done(10:07 - 29/04/21)
 

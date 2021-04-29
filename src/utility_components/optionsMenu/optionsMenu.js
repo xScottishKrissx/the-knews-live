@@ -43,6 +43,7 @@ class OptionsMenu extends Component {
             localStorage.removeItem("myData")
             var arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
+            window.location.reload();
         }
     }
     render(){
