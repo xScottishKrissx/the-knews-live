@@ -55,23 +55,51 @@ class CustomCardSize extends React.Component{
                 
                     <span className="controlBtns">
                         <button  onClick={() => this.changeCardSize("470px","120px")}>
-                            <span className="small-btn">Compact</span>
+                            <span className="small-btn">Compact <br />
+                                <span class="material-icons">stop</span>
+                            </span>
+                           
                         </button>
 
                         <button  onClick={() => this.changeCardSize("225px","225px")}>
-                            <span className="medium-btn" >Less Compact</span>
+                            <span className="medium-btn" >Different Compact <br />
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                            </span>
                         </button>
                         <button  onClick={() => this.changeCardSize("260px","400px")}>
-                            <span className="medium-btn" >Default</span>
+                            <span className="medium-btn" >Standard <br />
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                            </span>
                         </button>
                         <button  onClick={() => this.changeCardSize("260px","73vh")}>
-                            <span className="medium-btn" >Long</span>
+                            <span className="medium-btn" >Long <br />
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                            </span>
                         </button>
                         <button  onClick={() => this.changeCardSize("470px","800px")}>
-                            <span className="medium-btn" >Thick</span>
+                            <span className="medium-btn" >Thick <br />
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                            </span>
                         </button>
                         <button  onClick={() => this.changeCardSize("520px","520px")}>
-                            <span className="medium-btn" >Big Squares</span>
+                            <span className="medium-btn" >Big Squares <br />
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                                <span class="material-icons">stop</span>
+                            </span>
                         </button>
                         
                         {/* <button id="cardControlsLargeBtn" onClick={() => this.changeCardSize("50rem")}>

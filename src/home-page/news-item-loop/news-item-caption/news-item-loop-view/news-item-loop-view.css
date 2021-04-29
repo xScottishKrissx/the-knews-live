@@ -34,11 +34,7 @@
         margin: 0 auto;
         
     }
-        .myClass{
-            display: flex;
-            flex: 1 1;
-            position: relative;
-        }
+
     .hideArticleBtn{
         background-color: black;
         color: white;

@@ -27,14 +27,16 @@
             .controlBtns{
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-evenly;
+                justify-content: center;
             }
             .controlBtns button{
                 background-color: white;
                 cursor: pointer;
+                /* height: auto; */
                 margin: 0px;
                 outline: 1px solid black;
                 padding: 0;
+                /* width: 140px; */
                 
                 /* width: auto; */
             }
@@ -47,6 +49,13 @@
                     display: block;
                     padding: 10px;
                 }
+                    .controlBtns button span span{
+                        /* background-color: white; */
+                        display: initial;
+                        font-size: 8px;
+                        padding: 5px;
+                    }
+                
 
                 #cardControlsLargeBtn{display:none;}
 

@@ -34,15 +34,10 @@
             #news-item-link-text-title{}
             #news-item-link-text-tag-author-wrapper{
                 display: flex;
+                justify-content: space-around;
                
             }
-                #news-item-link-text-tag, #news-item-link-text-author{
-                    flex: 1;
-                    padding-bottom: 10px;
-                    padding-top: 10px;
-                    text-align: center;
 
-                }
             
 
         .hover-caption{
