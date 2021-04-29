@@ -11,9 +11,7 @@ class OptionsMenu extends Component {
             optionsMenuOpen:false
         }
     }
-    componentDidMount(){
-        console.log( localStorage.getItem("filterOption"))
-    }
+
     toggleMenu(){
         console.log("Toggle Menu")
 
@@ -32,7 +30,12 @@ class OptionsMenu extends Component {
 
     clearCache(removeFromCache){
         console.log("Clear Cache" + " " + removeFromCache)
-        if(removeFromCache.includes("clearCache"))localStorage.clear();
+        if(removeFromCache.includes("clearCache")){
+            localStorage.clear()
+            var arrayThing = ["260px","400px"]
+            localStorage.setItem("myData", JSON.stringify(arrayThing));
+        }
+            
         if(removeFromCache.includes("unhideArticles")){
             localStorage.removeItem("changedFullDatabaseCall")
             localStorage.removeItem("cleanDatabaseCall")
@@ -43,17 +46,13 @@ class OptionsMenu extends Component {
 
         if(removeFromCache.includes("resetCardSize")){
             console.log("Reset Card Size")
-            console.log( localStorage.getItem("filterOption"))
             localStorage.removeItem("myData")
             var arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
-            
-            // window.location.reload();
         }
     }
     render(){
-        console.log( localStorage.getItem("filterOption"))
-        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+
 
         return (
             <div id="optionsMenuWrapper">
@@ -72,7 +71,9 @@ class OptionsMenu extends Component {
 
                         <span>
                             <p>Unhide Articles </p>
-                            <button onClick={()=>this.clearCache("unhideArticles")}>Confirm</button>
+                            <Link to='/' onClick={()=> this.clearCache("unhideArticles")}>
+                                    <button>Confirm</button>
+                            </Link>
                         </span>
 
                         <span >

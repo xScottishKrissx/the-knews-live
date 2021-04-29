@@ -21,7 +21,7 @@ class NewsItemLoopView extends React.Component{
         // Card Size
         startingCardSize:"",
         changedCardSize:{
-            width: JSON.parse(localStorage.getItem("myData"))[0],
+            width: JSON.parse(localStorage.getItem("myData"))[0] ,
             height: JSON.parse(localStorage.getItem("myData"))[1]
         },
         postsArray:[],
@@ -53,6 +53,7 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
+  
         // console.log(JSON.parse(localStorage.getItem("myData")));
         // console.log(this.props.fullDatabaseCall)
         // If no filter option exists in storage, set as All to display a default view.
@@ -68,7 +69,7 @@ class NewsItemLoopView extends React.Component{
 
         // Set filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
-        console.log( localStorage.getItem("filterOption"))
+        // console.log( localStorage.getItem("filterOption"))
     }
 
     getArticlesBy(value,id){
@@ -102,7 +103,7 @@ class NewsItemLoopView extends React.Component{
         
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value)   
-        console.log( localStorage.getItem("filterOption"))
+        
     }
 
     changeArticle(x,y){
@@ -128,7 +129,7 @@ class NewsItemLoopView extends React.Component{
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
-        console.log( localStorage.getItem("filterOption"))
+
         return(
             
             <div className="newsItemLoopViewWrapper">

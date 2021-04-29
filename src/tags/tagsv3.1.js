@@ -36,8 +36,8 @@ class Tags extends React.Component{
     getCardSize(value){this.setState({startingCardSize:{width:value}})}
 
     componentDidMount(){
-        console.log(this.props.match.params.a)
-        console.log(this.props.match.params.b)
+        // console.log(this.props.match.params.a)
+        // console.log(this.props.match.params.b)
         
         const orderQueryByChild = this.props.match.params.a || this.props.location.state.orderByChild
         const searchDBFor = this.props.match.params.b || this.props.location.state.author

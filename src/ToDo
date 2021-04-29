@@ -810,7 +810,9 @@ General Notes  Objectives:
         ✔ Create Component and Basic Popup Menu to get started @done(12:05 - 27/04/21)
         Goals:
             ☐ A UI that displays the various things users can manipulate and interact with accordingly
-                ✔ Ability to fully clear entire cache @done(16:03 - 27/04/21)
+                ✔ Ability to fully clear entire cache @done(16:24 - 29/04/21)
+                    ✔ Error - Fully clearing cache returns an error with - JSON.parse(localStorage.getItem("myData"))[0] @done(16:24 - 29/04/21)
+                    ✔ Solution - I was removing the myData but not replacing it with anything which is required for the page to load. @done(16:23 - 29/04/21)
                 ✔ Option to unhide articles without resetting card size @done(16:03 - 27/04/21)
                 ✔ Option to reset card size @done(16:02 - 29/04/21)
                     ✔ When restting card size, the filter option is also being reset to All. @done(16:02 - 29/04/21)
