@@ -22,29 +22,29 @@ class CustomCardSize extends React.Component{
         if(this.state.cardSizeOptionMenu === ""){
             this.setState({cardSizeOptionMenu: localStorage.getItem("savedCardOptionsPosition")  })
         }
-        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
     }
 
     changeCardSize(width,height){
         var arrayThing = [width,height]
-        console.log(arrayThing)
-        localStorage.clear("myData");
+        // console.log(arrayThing)
+        localStorage.removeItem("myData");
 
         // localStorage.setItem("myData", width,height);
         localStorage.setItem("myData", JSON.stringify(arrayThing));
-        console.log(JSON.parse(localStorage.getItem("myData")));
+        // console.log(JSON.parse(localStorage.getItem("myData")));
         
         localStorage.getItem("myData")
         this.props.getCardSizeToParent(width,height);
-        console.log(localStorage.getItem("myData"));
+        // console.log(localStorage.getItem("myData"));
 
-        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
     }
 
 
 
     render(){
-        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
         console.log( localStorage.getItem("filterOption"))
         // var width = window.innerWidth || document.documentElement.clientWidth|| document.body.clientWidth;
         // var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;

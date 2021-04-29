@@ -53,7 +53,7 @@ class OptionsMenu extends Component {
     }
     render(){
         console.log( localStorage.getItem("filterOption"))
-        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
 
         return (
             <div id="optionsMenuWrapper">

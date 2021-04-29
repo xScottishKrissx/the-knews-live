@@ -812,9 +812,10 @@ General Notes  Objectives:
             ☐ A UI that displays the various things users can manipulate and interact with accordingly
                 ✔ Ability to fully clear entire cache @done(16:03 - 27/04/21)
                 ✔ Option to unhide articles without resetting card size @done(16:03 - 27/04/21)
-                ☐ Option to reset card size
-                    ☐ When restting card size, the filter option is also being reset to All.
-                    ☐ For some reason the filter option is being set to null at some point.
+                ✔ Option to reset card size @done(16:02 - 29/04/21)
+                    ✔ When restting card size, the filter option is also being reset to All. @done(16:02 - 29/04/21)
+                    ✔ For some reason the filter option is being set to null at some point. @done(16:02 - 29/04/21)
+                        ✔ Solutiuon - i had localstorage.clear("myData) instead of...           localstorage.removeitem("myData) @done(16:02 - 29/04/21)
                 ☐ Option to change card size
             ☐ A decent UI
 

@@ -61,10 +61,10 @@ class MapDatabaseItems extends React.Component{
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })
-            console.log(this.state.fullDatabaseCall)
+            // console.log(this.state.fullDatabaseCall)
             // console.log(this.state.articlesArray)
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
-            console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+            // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
         })        
         // window.addEventListener('scroll', this.scroll);   
 
