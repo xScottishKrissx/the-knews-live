@@ -35,3 +35,11 @@
 
     /*  */
 
+    @media (max-width: 550px) {
+        .news-square{
+            /* max-width: 450px; */
+            width: 300px !important;
+        }
+        /* .news-square{max-width: 450px !important;} */
+    }
+    

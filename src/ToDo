@@ -388,15 +388,18 @@ General Notes  Objectives:
                         // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
             Redoing Card Size controls for V12.2:
                 ☐ Figure out new sizes
-                    ☐ Size 1 - Compact (like thin tiles on mobile)
-                    ☐ Size 2 - Comfortable (the current normal)
-                    ☐ Size 3 - Maximum(maybe the comfortable but with a snippet of the article on the card??)
-                
+                     Size 1 - Compact (like thin tiles on mobile)
+                     Size 2  - Squares 
+                     Size 3 - Comfortable (the current normal)
+                     Size 4 - Long(maybe the comfortable but with a snippet of the article on the card??)
+                     Size 5 - Thick
+                     Size 6 - Big Squares
+
                 ☐ Figure out the new UI
                     ☐ I want it to be perma on the page, maybe in the header alongside theKnews
                         ☐ Ideally, integrate icons instead of text for the buttons.
                 
-                 ☐ Add option to reset in the options menu
+                 ✔ Add option to reset in the options menu @done(10:07 - 29/04/21)
 
         ✘ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24) @cancelled(18-09-11 13:57) @wasted(1w3d20h33m16s)
             // Currently limited to last 20 in database.

@@ -1,4 +1,4 @@
-.cardControlSizeWrapper *{outline: 1px solid red;}
+/* .cardControlSizeWrapper *{outline: 1px solid red;} */
 .cardControlSizeWrapper{
 
     /* cursor: pointer; */
@@ -14,7 +14,7 @@
 }
 
     .tileSizeControls{
-        background-color: black;
+        background-color: white;
         color: white;
         font-weight: 400;
         user-select: none;
@@ -30,13 +30,20 @@
                 justify-content: space-evenly;
             }
             .controlBtns button{
+                background-color: white;
+                cursor: pointer;
                 margin: 0px;
+                outline: 1px solid black;
                 padding: 0;
-                background-color: black;
+                
                 /* width: auto; */
             }
+            .controlBtns button:hover{
+                background-color: black;
+                color: white;
+            }
                 .controlBtns button span{
-                    background-color: white;
+                    /* background-color: white; */
                     display: block;
                     padding: 10px;
                 }
@@ -56,4 +63,11 @@
 
 @media (min-width: 375px) {
     .cardControlSizeWrapper{visibility: visible;}
+}
+
+@media (max-width: 768px) {
+    .myClass{
+        /* max-width: 450px; */
+    }
+    /* .news-square{max-width: 450px !important;} */
 }

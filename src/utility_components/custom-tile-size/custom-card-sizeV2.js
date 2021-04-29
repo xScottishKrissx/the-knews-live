@@ -59,7 +59,7 @@ class CustomCardSize extends React.Component{
                         </button>
 
                         <button  onClick={() => this.changeCardSize("225px","225px")}>
-                            <span className="medium-btn" >Squares</span>
+                            <span className="medium-btn" >Less Compact</span>
                         </button>
                         <button  onClick={() => this.changeCardSize("260px","400px")}>
                             <span className="medium-btn" >Default</span>

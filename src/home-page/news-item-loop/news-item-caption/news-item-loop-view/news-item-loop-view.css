@@ -187,6 +187,9 @@
 
 
 /* Load More Article Button */
+#cardArea{
+    width: 100%;
+}
 #cardArea > span{
     display: block;
     margin: 0 auto;
