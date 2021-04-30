@@ -8,6 +8,7 @@ import SwipeLeftContent from '../../home-page/news-item-loop/news-item-caption/n
 // import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 import closePopup from '../../utility_components/closePopup.js';
 import swipeRightAction from '../../utility_components/swipeRightAction.js';
+import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 // import CheckCache from '../../utility_components/handleCache/checkCache.js';
 
 // import HideArticle from '../../utility_components/hide-article/hide-article.js';
@@ -62,7 +63,7 @@ export const RenderCard = (props) => {
                             //         headerImage={value.id} />,
                             // action: () => swipeLeftAction(value.text, value.id) 
                             // action: () => props.showArticle() 
-                            action: () => console.log('swipe action triggered'),
+                            action: () => swipeLeftAction(value.id, ),
                             
                         }}
                         

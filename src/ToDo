@@ -237,6 +237,24 @@ General Notes  Objectives:
                         // Used the library to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
                         // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
                         // Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
+                    Rethink Swipe Left:
+                        ☐ With the popup reworked into the liteKnews feature, left swipes currently don't do anything. I was thinking that I can either just disable swiping left or I can do something here.
+                            ✔ Ideas @done(17:47 - 30/04/21)
+                                Display a small excpert of the article in place of the card.(how would swiping back work??)
+                                Display information about article, like post date
+                                Display information about author like contact info, social media links etc
+                                ✔ Bookmark article, prevent from being hidden from view. 
+                                    ☐ I like this one but would need to allow for bookmarking via other means.
+                                    ☐ I could also add them to a separate bookmark page
+                                    
+                            
+                        Add Bookmarking Functionality to Swipe Left:
+                            ☐ Goals
+                                ☐ Swiping left on a card will add that card to a list of bookmarks
+                                ☐ You can view these bookmarks in a separate page
+                                ☐ Bookmarked cards will be immune to being hidden until unbookmarked
+                                ☐ Bookmarked cards should be easily distinguished from regular cards.
+                                ☐ All other website functionality should be retained and interact with bookmarks as normal.
 
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
                     ✔ Use swipe right to see only the article text in a popup @started(20-11-16 12:58) @done(20-12-03 15:37) @lasted(2w3d2h39m9s)
@@ -288,6 +306,9 @@ General Notes  Objectives:
                     ✔ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00) @done(20-12-14 14:33) @lasted(4w33m55s)
                 ✔ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45) @done(20-12-03 15:41) @lasted(4w23h56m29s)
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
+                
+
+                            
                     
 
             ✘ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29) @cancelled(17:17 - 30/04/21) @wasted(-3h11m41s)
@@ -960,17 +981,18 @@ Part 2 Implement Database functionality:
             ✔ 12.2 - Redo the card controls to improve the usablity of cards. @done(12:10 - 29/04/21)
             ✘ 12.3 - Add proper back button to articles(i.e go back one page, not just home) @cancelled(13:27 - 30/04/21)
                 // It's really not necessary as the browser back button does the same thing and breadcrumbs are irrelevant for my website.
-            ☐ 12.3 - Inform the user of how to interact with the website( swipe, hiding etc)
-            ☐ 12.4 - Do something with swipe right(or not if that's better)
-            ☐ 12.5 - Get Like and Dislike to work separate from myKnews
-            ☐ 12.6 - Look into swiping liteKnews to switch articles
-            ☐ 12.7 - Redo Recommended Reading Section
-            ☐ 12.8 - Misc Bug Fixes & Tweaks
+            ☐ 12.3 - Implement Bookmarking into swipe left(and the rest of the website)
+            ☐ 12.4 - Get Like and Dislike to work separate from myKnews
+            ☐ 12.5 - Look into swiping liteKnews to switch articles
+            ☐ 12.6 - Redo Recommended Reading Section
+            ☐ 12.7 - Misc Bug Fixes & Tweaks
                 ☐ Fix the scroll activate for larger than 1800px wide windows
                 ☐ Can I reset scroll position when switching articles in liteKnews?
                 ☐ Do another style pass for card controls(different layout at larger widths?)
                 ☐ Look into "undo hide"
                 ☐ Look into animations for hiding articles.
+                ☐ Inform the user of how to interact with the website( swipe, hiding etc)
+            ☐ 12.8 - ???
             ☐ 12.9 - ???
             ☐ 12.10 - Code Review (Splitting Code into components)
 
