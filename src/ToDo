@@ -825,9 +825,9 @@ General Notes  Objectives:
                 ✔ Added a nifty opening animation @done(17:13 - 29/04/21)
                 ✔ The menu currently remains open when clearing the cache, it should probably shut when pressing one of the buttons. @done(12:47 - 30/04/21)
             
-            ☐ Using any of the buttons on the tag/author pages returns you to the home page. I would prefer if it you stayed on the same page.
-                ☐ POssible solution is passing window.location.pathname to the link in options menu
-                    ☐ ISSUE - Using the above method, you get a null map error if you attempt to hide an article.
+            ✔ Using any of the buttons on the tag/author pages returns you to the home page. I would prefer if it you stayed on the same page. @done(17:04 - 30/04/21)
+                ✔ POssible solution is passing window.location.pathname to the link in options menu @done(17:04 - 30/04/21)
+                    ✔ ISSUE - Using the above method, you get a null map error if you attempt to hide an article. @done(17:04 - 30/04/21)
                         ✔ Added a setItem to the tags to ensure a clean database call, fixed the issue. @done(14:18 - 30/04/21)
 
     theKnews:
@@ -953,7 +953,7 @@ Part 2 Implement Database functionality:
                 // I need to move on from this project so i'm cancelling this. It's time to move on, i'll incorporate this into other projects.
                 // 11 March 2021 - ...is it though?
 
-            ☐ Get Like and Dislike to work separate from myKnews
+            ☐ 13.1 - 
 
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
@@ -966,8 +966,9 @@ Part 2 Implement Database functionality:
             ☐ 12.5 - Inform the user of how to interact with the website( swipe, hiding etc)
             ☐ 12.6 - Do something with swipe right(or not if that's better)
             ☐ 12.7 - Can I reset scroll position when switching articles in liteKnews?
-            ☐ 12.8 - Code Review (Splitting Code into components)
-        
+            ☐ 12.8 - Get Like and Dislike to work separate from myKnews
+            ☐ 12.9 - ???
+            ☐ 12.10 - Code Review (Splitting Code into components)
         Version 11.1 - Bug Fixes:
             ✔ Full Article link goes to blank page @done(17:18 - 22/04/21)
             ✔ ScrollCheck requires a two finger up and down scroll to work...not ideal. @done(17:18 - 22/04/21)

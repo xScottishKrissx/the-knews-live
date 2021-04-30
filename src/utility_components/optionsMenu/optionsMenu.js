@@ -61,6 +61,7 @@ class OptionsMenu extends Component {
             localStorage.removeItem("myData")
             var arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
+            window.location.reload();
         }
         this.toggleMenu()
         
@@ -87,7 +88,7 @@ class OptionsMenu extends Component {
                         </span>
 
                         <span ><p>Reset Card Size </p> 
-                            <Link to='/' onClick={()=> this.clearCache("resetCardSize")}>
+                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("resetCardSize")}>
                                     <button>Confirm</button>
                             </Link>                   
                         </span>                        
