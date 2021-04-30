@@ -53,7 +53,7 @@ class OptionsMenu extends Component {
             localStorage.removeItem("cleanDatabaseCall")
             localStorage.removeItem("editedArticleArray")
             localStorage.removeItem("editedLeftoverArticlesArray")
-            window.location.reload();
+            // window.location.reload();
         }
 
         if(removeFromCache.includes("resetCardSize")){
@@ -66,7 +66,7 @@ class OptionsMenu extends Component {
         
     }
     render(){
-
+        console.log(this.props.urlInfo)
 
         return (
             <div id="optionsMenuWrapper">
@@ -81,7 +81,7 @@ class OptionsMenu extends Component {
                         </span>
 
                         <span><p>Unhide Articles </p>
-                            <Link to='/' onClick={()=> this.clearCache("unhideArticles")}>
+                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("unhideArticles")}>
                                     <button>Confirm</button>
                             </Link>
                         </span>

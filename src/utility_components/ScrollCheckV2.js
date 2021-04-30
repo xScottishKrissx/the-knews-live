@@ -102,7 +102,7 @@ class ScrollCheckV2 extends React.Component{
                 
                 />
                 {/* <NewsItemLoopView databaseProp={new1} /> */}
-                <span><button onClick={()=>this.scroll()}>Load More Articles</button></span>
+                <span id="loadMoreArticlesButton"><button onClick={()=>this.scroll()}>Load More Articles</button></span>
             </React.Fragment>   
         )
     }

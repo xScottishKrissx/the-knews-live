@@ -3,7 +3,7 @@ import fire from '../fire.js';
 
 import NavControls from '../utility_components/navControls/navControls.js';
 import '../tags/tags.css';
-import CustomCardSize from '../utility_components/custom-tile-size/custom-card-size.js';
+import CustomCardSize from '../utility_components/custom-tile-size/custom-card-sizeV2.js';
 // import ScrollCheck from '../utility_components/ScrollCheck.js';
 
 // Working with Cache 
@@ -26,14 +26,25 @@ class Tags extends React.Component{
             // Hiding Posts
             postsArray:[],
 
-            // Custom Card Size
-            startingCardSize:"",
-            changedCardSize:{width: localStorage.getItem("myData")},                 
+        // Card Size
+        startingCardSize:"",
+        changedCardSize:{
+            width: JSON.parse(localStorage.getItem("myData"))[0] ,
+            height: JSON.parse(localStorage.getItem("myData"))[1]
+        },          
         }
         this.getCardSize = this.getCardSize.bind(this);
     }
     // There must be a way to only have one of these across the entire project.
-    getCardSize(value){this.setState({startingCardSize:{width:value}})}
+    getCardSize(width,height){
+        // console.log(width +" "+ height)
+        this.setState({
+            startingCardSize:{
+                width:width,
+                height:height
+            }
+        })
+    }
 
     componentDidMount(){
         // console.log(this.props.match.params.a)
@@ -126,7 +137,7 @@ class Tags extends React.Component{
                         : 
                         <h1>Showing articles from {this.props.match.params.b || this.props.location.state.author}</h1>
                         }        
-                         
+                        <CustomCardSize getCardSizeToParent={this.getCardSize} />
                         {renderTags.length === 0 ?
                         // <div>Nothing here</div>
                         <span> <img alt="now loading" src={loading} /> Loading   </span>

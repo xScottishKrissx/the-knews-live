@@ -400,6 +400,8 @@ General Notes  Objectives:
                         ✔ Ideally, integrate icons instead of text for the buttons. @done(12:06 - 29/04/21)
                 
                  ✔ Add option to reset in the options menu @done(10:07 - 29/04/21)
+                 ✔ Add new controls to tags and author pages. @done(13:35 - 30/04/21)
+                    
 
         ✘ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24) @cancelled(18-09-11 13:57) @wasted(1w3d20h33m16s)
             // Currently limited to last 20 in database.
@@ -822,6 +824,10 @@ General Notes  Objectives:
             ☐ A decent UI
                 ✔ Added a nifty opening animation @done(17:13 - 29/04/21)
                 ✔ The menu currently remains open when clearing the cache, it should probably shut when pressing one of the buttons. @done(12:47 - 30/04/21)
+            
+            ☐ Using any of the buttons on the tag/author pages returns you to the home page. I would prefer if it you stayed on the same page.
+                ☐ POssible solution is passing window.location.pathname to the link in options menu
+                    ☐ ISSUE - Using the above method, you get a null map error if you attempt to hide an article.
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -953,7 +959,8 @@ Part 2 Implement Database functionality:
             ✔ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21) @done(16:05 - 27/04/21) @lasted(2h4m9s)
                 ☐ 12.1.4 - Improve Appearance of Options Menu with new controls in place. @started(12:10 - 29/04/21)
             ✔ 12.2 - Redo the card controls to improve the usablity of cards. @done(12:10 - 29/04/21)
-            ☐ 12.3 - Add proper back button to articles(i.e go back one page, not just home)
+            ✘ 12.3 - Add proper back button to articles(i.e go back one page, not just home) @cancelled(13:27 - 30/04/21)
+                // It's really not necessary as the browser back button does the same thing and breadcrumbs are irrelevant for my website.
             ☐ 12.4 - Fix the scroll activate for larger than 1800px wide windows
             ☐ 12.5 - Inform the user of how to interact with the website( swipe, hiding etc)
             ☐ 12.6 - Do something with swipe right(or not if that's better)

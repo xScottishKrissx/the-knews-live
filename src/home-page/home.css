@@ -14,3 +14,9 @@
     flex-wrap: wrap;
     margin-top: 2.2vh;
 }
+
+/* ScrollCheck  */
+#loadMoreArticlesButton{
+    display: flex;
+    width: 100%;
+}

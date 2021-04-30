@@ -54,6 +54,7 @@ componentDidMount(){
   render(){
     
     // console.log("Render App!")
+    // console.log(window.location.pathname)
     return(
       <div>
         {/* <h1>the Knews - Live</h1> */}
@@ -66,7 +67,7 @@ componentDidMount(){
       
       <Header />
       <Routes />
-      <OptionsMenu />
+      <OptionsMenu urlInfo={window.location.pathname}/>
       {/* <Footer /> */}
         
       </div>
