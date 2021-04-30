@@ -104,7 +104,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         
         console.log(dirtyFullDatabaseCall)
-        // console.log(fullDatabaseCall)
+
         console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
 
         const cleanFullDatabaseCall =  dirtyFullDatabaseCall || JSON.parse(localStorage.getItem("cleanDatabaseCall"));

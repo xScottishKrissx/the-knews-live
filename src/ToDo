@@ -828,6 +828,7 @@ General Notes  Objectives:
             ☐ Using any of the buttons on the tag/author pages returns you to the home page. I would prefer if it you stayed on the same page.
                 ☐ POssible solution is passing window.location.pathname to the link in options menu
                     ☐ ISSUE - Using the above method, you get a null map error if you attempt to hide an article.
+                        ✔ Added a setItem to the tags to ensure a clean database call, fixed the issue. @done(14:18 - 30/04/21)
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)

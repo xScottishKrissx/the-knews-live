@@ -53,7 +53,7 @@ class OptionsMenu extends Component {
             localStorage.removeItem("cleanDatabaseCall")
             localStorage.removeItem("editedArticleArray")
             localStorage.removeItem("editedLeftoverArticlesArray")
-            // window.location.reload();
+            window.location.reload();
         }
 
         if(removeFromCache.includes("resetCardSize")){

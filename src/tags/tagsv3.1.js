@@ -105,7 +105,8 @@ class Tags extends React.Component{
                 });
                 // console.log(newState)
             }
-            this.setState({fullDatabaseCall: newState})            
+            this.setState({fullDatabaseCall: newState})    
+            localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))         
         })        
     }
     
