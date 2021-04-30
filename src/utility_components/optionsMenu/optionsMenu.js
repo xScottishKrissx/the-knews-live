@@ -62,6 +62,7 @@ class OptionsMenu extends Component {
             var arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
         }
+        this.toggleMenu()
         
     }
     render(){

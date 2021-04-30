@@ -821,7 +821,7 @@ General Notes  Objectives:
                 ☐ Option to change card size
             ☐ A decent UI
                 ✔ Added a nifty opening animation @done(17:13 - 29/04/21)
-                ☐ The menu currently remains open when clearing the cache, it should probably shut when pressing one of the buttons.
+                ✔ The menu currently remains open when clearing the cache, it should probably shut when pressing one of the buttons. @done(12:47 - 30/04/21)
 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
