@@ -175,7 +175,7 @@ General Notes  Objectives:
 
 
         ✔ Get routes up and running once basic structure is in place. @done(18-07-24 17:47)
-        ☐ Mobile Menu should be controlled by swipe gesture or button located at bottom of page @started(18-08-29 11:13)
+        ✘ Mobile Menu should be controlled by swipe gesture or button located at bottom of page @started(18-08-29 11:13) @cancelled(17:15 - 30/04/21) @wasted(-57m31s)
             This is a good idea but I'm not sure where to even start with this.
             Could just use a basic menu for this project and integrate gestures in the next
        / ☐ Media Queries
@@ -258,10 +258,8 @@ General Notes  Objectives:
                             // I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
                         ✔ Format popup to be not terrible at larger window sizes. @started(17:12 - 15/01/21) @done(17:29 - 15/01/21) @lasted(17m58s)
                         ✔ Make author text clickable like the article page. @started(17:30 - 15/01/21) @done(16:32 - 11/03/21) @lasted(7w5d23h3m)
-                        ☐ How about hiding the article from the popup?
+                        ✔ How about hiding the article from the popup? @done(17:16 - 30/04/21)
                         ✔ What about moving to the next article from the popup? @done(13:51 - 20/04/21)
-                        ☐ BUG:: When you open the popup, you can keep dragging to hide the article...which is not ideal.
-
                     ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
                         5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
 
@@ -292,8 +290,8 @@ General Notes  Objectives:
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
                     
 
-            ☐ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
-            ☐ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29)
+            ✘ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29) @cancelled(17:17 - 30/04/21) @wasted(-3h11m41s)
+            ✘ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29) @cancelled(17:17 - 30/04/21) @wasted(-3h11m44s)
         
         ✔ If you click on a News Item at Home you should get a unique shareable URL @done(18-07-31 17:19)
             ✔ Right now you get a path simply ends with news-item @done(18-07-25 17:09)
@@ -351,7 +349,7 @@ General Notes  Objectives:
         ✔ Desktop Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m51s)
             ✔ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it. @done(18-08-13 18:03)
         ✔ Clean up back/home button @started(18-08-30 11:35) @done(20-10-12 15:32) @lasted(2y6w2d3h57m16s)
-        ☐ Implement mobile nav bar @started(18-08-30 11:36)
+        ✘ Implement mobile nav bar @started(18-08-30 11:36) @cancelled(17:17 - 30/04/21) @wasted(-1h18m32s)
 
         
 
@@ -421,7 +419,7 @@ General Notes  Objectives:
             // 5/11/2020 - A hover caption might not work but what about a nice effect for mousing over stuff?? Right? Sounds Amazing.
 
             // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
-            ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
+            ✔ BUG:: The newly loaded cards are different sizes from the selected size. @done(17:17 - 30/04/21)
             
             Handling All Articles Being Hidden: @started(16:38 - 10/03/21)
                 ✔ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload @done(18:14 - 15/04/21)
@@ -469,7 +467,7 @@ General Notes  Objectives:
                                     bugs/issues:
                                         ✔ Swiping does hide the article, however if you reloead the page you are met with an infite loop error. @done(15:48 - 14/04/21)
                                             ✔ Solution - Removed the checkCache component as it is no longer necessary due to changes with hideArticle component @done(15:48 - 14/04/21)
-                                        ☐ 
+                                        
                                 ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
                                     ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
@@ -505,7 +503,7 @@ General Notes  Objectives:
                                 ☐ Hiding a loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   @started(17:11 - 31/03/21)
                                 ✔ There are 97 articles being rendered initially, causing article duplication - Solution - I've added a slice to the renderToPage const in newsitem-loop-view that takes the first 30 articles from the full database array. The scroll check starts with the 31st article from the same array so that should work. @done(16:36 - 16/04/21)
                             
-                            ☐ Switch to hideArticlev2 component @started(15:52 - 14/04/21)
+                            ✔ Switch to hideArticlev2 component @started(15:52 - 14/04/21) @done(17:18 - 30/04/21) @lasted(2w2d1h26m19s)
                             ☐ Move the UI for hiding articles on click into the renderCard component.
                                 
                             
@@ -687,7 +685,7 @@ General Notes  Objectives:
                 ✔ My above method is actually looking pretty encouraging. I can open up an article and switch back and forward on button press. @done(18:03 - 15/04/21)
                 ✔ So having created my idea, i'm now seeing a problem -- accessible url links. I'm not sure how to ensure you can also have shareable links. Thinking back it's the reason tags have both filters and a tag page. Perhaps I can have both. This new article view could be a more advanced popup, with just the barebones of the article, while still having the full article, with shareable links, social aspects etc. I would essentially be back to where i started and I would have to decide what to do withe next/prev nav controls. I might have another go at making them work seeing as I have what I wanted with the new popup/article view. @done(18:03 - 15/04/21)
                     ✔ So i've gone ahead and replaced the old popup with this new system. It's a lot better and allows me to have both quick switching low clutter articles as well as more feature rich, shareable article pages. @done(18:03 - 15/04/21)
-                ☐ Add link to full article
+                ✔ Add link to full article @done(17:09 - 30/04/21)
                 ☐ Can i use the swiping stuff here?
                     ☐ I think so but I might need a new separate component for speedKnews before I get to that.
      
@@ -720,19 +718,19 @@ General Notes  Objectives:
                 ✔ You can still go to "news" tag page via url params setting state. @done(11:34 - 09/04/21)
                 ✔ I also have as many database calls as I did when I started. However, the new tags3.1 component is much more flexible by allowing you to access tag pages via articles or url all from one component. @done(13:04 - 14/04/21)
             Plan of Action:
-                ☐ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21)
+                ✔ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21) @done(17:19 - 30/04/21) @lasted(3w4d1h15m21s)
                     ✔ I have removed the scroll check from the filter options for now. I haven't yet worked out how to properly integrate the filtered array into the the hide functionality. The No Filter works as normal. @done(17:46 - 06/04/21)
 
                 ✔ There might actually be a way doing url accessible tags using routes and props. @started(16:05 - 05/04/21) @done(11:34 - 09/04/21) @lasted(3d19h29m53s)
                     ✔ Yup, got it working by passing a url parameter from "../tags/:tagname" to state when the news-item-loop-view.js mounts @done(11:36 - 09/04/21)
                 ✔ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21) @done(16:20 - 06/04/21) @lasted(1d14m31s)
-                ☐ All current tags functionality should be retained @started(16:41 - 05/04/21)
-                    ☐ Author and Date Pages for example.
+                ✔ All current tags functionality should be retained @started(16:41 - 05/04/21) @done(17:19 - 30/04/21) @lasted(3w4d38m33s)
+                    ✔ Author and Date Pages for example. @done(17:19 - 30/04/21)
                         ✔ I don't think there is a way around needing a database call for this if I want these pages to be directly accessible @started(17:53 - 08/04/21) @done(11:36 - 09/04/21) @lasted(17h43m58s)
                             ✔ After some though I think this is correct and I will need to query the database @done(11:36 - 09/04/21)
                         ✔ I have not yet included post date in this. Although that is more of a data format issue than a code thing. The code is there but I haven't yet decided how to move forward here. @done(13:09 - 14/04/21)
-                        ☐ I have restored functionality to click on author and tags to take you to a new page.
-                            ☐ These will all need to be integrated into:
+                        ✔ I have restored functionality to click on author and tags to take you to a new page. @done(17:19 - 30/04/21)
+                            ✔ These will all need to be integrated into: @done(17:19 - 30/04/21)
                                  ✔ hiding @started(11:42 - 09/04/21) @done(13:08 - 14/04/21) @lasted(5d1h26m54s)
                                     ✔ Progress - I can hide articles and the rest of the website respects the hide, but refreshing the page renders the articles that should be hidden.
                                     Hidden Articles should be hidden:
@@ -802,7 +800,7 @@ General Notes  Objectives:
                     ✔ It's because the hide button returns an array that has other tags in it. These are then filtered out of the array in getArticles. I need a way of getting back just an array with the correct tags. I may need to tweak the hide-article component. @done(17:49 - 07/04/21)
                         ✔ There is all sorts of weirdness going on here. I'm leaving this for now and sleeping on it. @started(18:46 - 06/04/21) @done(17:47 - 07/04/21) @lasted(23h1m16s)
                         ✔ Solution - Added code into the hide-article file that retrieves and edits a full database call, sets the article to hidden, and returns that array to the page to be rendered. THis is also stored in local storage and is the main array used for rendering tags(after being filtered), so it works with both filter and no filter. @done(17:49 - 07/04/21)
-                ☐ I am once again seeing duplicate articles in the unfiltered view. @started(18:11 - 07/04/21)
+                ✔ I am once again seeing duplicate articles in the unfiltered view. @started(18:11 - 07/04/21) @done(17:20 - 30/04/21) @lasted(3w1d23h9m1s)
                     // One of the classics...
 
         
@@ -962,13 +960,20 @@ Part 2 Implement Database functionality:
             ✔ 12.2 - Redo the card controls to improve the usablity of cards. @done(12:10 - 29/04/21)
             ✘ 12.3 - Add proper back button to articles(i.e go back one page, not just home) @cancelled(13:27 - 30/04/21)
                 // It's really not necessary as the browser back button does the same thing and breadcrumbs are irrelevant for my website.
-            ☐ 12.4 - Fix the scroll activate for larger than 1800px wide windows
-            ☐ 12.5 - Inform the user of how to interact with the website( swipe, hiding etc)
-            ☐ 12.6 - Do something with swipe right(or not if that's better)
-            ☐ 12.7 - Can I reset scroll position when switching articles in liteKnews?
-            ☐ 12.8 - Get Like and Dislike to work separate from myKnews
+            ☐ 12.3 - Inform the user of how to interact with the website( swipe, hiding etc)
+            ☐ 12.4 - Do something with swipe right(or not if that's better)
+            ☐ 12.5 - Get Like and Dislike to work separate from myKnews
+            ☐ 12.6 - Look into swiping liteKnews to switch articles
+            ☐ 12.7 - Redo Recommended Reading Section
+            ☐ 12.8 - Misc Bug Fixes & Tweaks
+                ☐ Fix the scroll activate for larger than 1800px wide windows
+                ☐ Can I reset scroll position when switching articles in liteKnews?
+                ☐ Do another style pass for card controls(different layout at larger widths?)
+                ☐ Look into "undo hide"
+                ☐ Look into animations for hiding articles.
             ☐ 12.9 - ???
             ☐ 12.10 - Code Review (Splitting Code into components)
+
         Version 11.1 - Bug Fixes:
             ✔ Full Article link goes to blank page @done(17:18 - 22/04/21)
             ✔ ScrollCheck requires a two finger up and down scroll to work...not ideal. @done(17:18 - 22/04/21)
