@@ -1,11 +1,11 @@
 import '../bookmarks/createBookmark.css';
 
-export const createBookmark = (id) =>{
+export const createBookmark = (id,database) =>{
     document.getElementById(id).classList.add('bookmarkStyle')
     // document.getElementById("articlePopupBackground"  + id).style.display = "block";
     // document.body.style.overflow = "hidden";      
-    console.log("Add " + id + " to bookmarks") 
-
+    console.log("Add " + id + " to bookmarks")
+    console.log(database)
 
 
 
@@ -27,10 +27,13 @@ export const createBookmark = (id) =>{
 
 
     // 
-    const database = JSON.parse(localStorage.getItem("cleanDatabaseCall"))
-    const editedArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall"));
-    const mainArray = editedArray || database;
-    console.log(database)
+    // const cleanDB = JSON.parse(localStorage.getItem("cleanDatabaseCall"))
+    const cleanDB = database
+        console.log(cleanDB)
+    const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
+        console.log(currentBookmarks)
+    const mainArray = currentBookmarks || cleanDB;
+    
 
     var setBookmarkTrue = mainArray.map(el => {
         if(el.id === id && el != null )
@@ -38,8 +41,11 @@ export const createBookmark = (id) =>{
             return el
     });
     console.log(setBookmarkTrue)
-    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
-    console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+    // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
+    localStorage.setItem("bookmarkArray", JSON.stringify(setBookmarkTrue))
+
+    // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+    console.log(JSON.parse(localStorage.getItem("bookmarkArray")))
 
 
     // const bookmarkArray = setBookmarkTrue.filter(obj => obj.bookmarked === true);

@@ -7,12 +7,11 @@ class Bookmarks extends Component {
     constructor(props){
         super(props);
         this.state = {
-            thing: JSON.parse(localStorage.getItem("changedFullDatabaseCall"))    ,
             bookmarks:[]  
         }
     }
     componentDidMount(){
-        const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        const database = JSON.parse(localStorage.getItem("bookmarkArray"))
         console.log(database)
 
         if(database === null){

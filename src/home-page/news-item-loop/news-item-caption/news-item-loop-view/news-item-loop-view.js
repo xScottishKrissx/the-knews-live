@@ -54,6 +54,7 @@ class NewsItemLoopView extends React.Component{
 
     componentDidMount(){
         console.log(localStorage.getItem("bookmarks"))
+        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
         // console.log(JSON.parse(localStorage.getItem("myData")));
         // console.log(this.props.fullDatabaseCall)
         // If no filter option exists in storage, set as All to display a default view.
@@ -212,6 +213,12 @@ class NewsItemLoopView extends React.Component{
                     
 
                 </div>
+
+                <div>
+                    <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
+                </div>
+
+
                 <div id="filterOptionDisplay">
                     {this.state.getArticleBy === "All" ? 
                         <p>Displaying <span>{this.state.getArticleBy}</span> Articles</p>

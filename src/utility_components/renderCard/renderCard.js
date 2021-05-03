@@ -63,7 +63,7 @@ export const RenderCard = (props) => {
                             //         headerImage={value.id} />,
                             // action: () => swipeLeftAction(value.text, value.id) 
                             // action: () => props.showArticle() 
-                            action: () => swipeLeftAction(value.id, ),
+                            action: () => swipeLeftAction(value.id,props.fullDatabaseCall ),
                             
                         }}
                         

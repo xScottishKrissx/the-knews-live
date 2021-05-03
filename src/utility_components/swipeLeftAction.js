@@ -1,7 +1,7 @@
 import createBookmarks from "./bookmarks/createBookmark.js";
 
-export const swipeLeftAction = (id) =>{
-    createBookmarks(id)
+export const swipeLeftAction = (id,database) =>{
+    createBookmarks(id,database)
 }
 
 export default swipeLeftAction;

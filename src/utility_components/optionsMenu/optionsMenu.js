@@ -63,6 +63,12 @@ class OptionsMenu extends Component {
             localStorage.setItem("myData", JSON.stringify(arrayThing));
             window.location.reload();
         }
+
+        if(removeFromCache.includes("removeBookmarks")){
+            console.log("Clear Bookmarks")
+            localStorage.removeItem("bookmarkArray")
+            // window.location.reload();
+        }
         this.toggleMenu()
         
     }
@@ -91,7 +97,13 @@ class OptionsMenu extends Component {
                             <Link to={this.props.urlInfo} onClick={()=> this.clearCache("resetCardSize")}>
                                     <button>Confirm</button>
                             </Link>                   
-                        </span>                        
+                        </span>   
+
+                        <span ><p>Clear Bookmarks</p> 
+                            <Link to='/' onClick={()=> this.clearCache("removeBookmarks")}>
+                                    <button>Confirm</button>
+                            </Link>                   
+                        </span>                          
                       </div>
                 </div>
             </div>
