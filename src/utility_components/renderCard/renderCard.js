@@ -29,7 +29,7 @@ export const RenderCard = (props) => {
         // handleHideArticleFeedback();
         hideArticleFeedback()
     }
-
+    
    
     const pageView = props.database.map((value,key) => {
         

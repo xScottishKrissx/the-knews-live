@@ -53,8 +53,9 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
-        console.log(localStorage.getItem("bookmarks"))
-        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+        // console.log(localStorage.getItem("bookmarks"))
+        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+
         // console.log(JSON.parse(localStorage.getItem("myData")));
         // console.log(this.props.fullDatabaseCall)
         // If no filter option exists in storage, set as All to display a default view.
@@ -72,7 +73,7 @@ class NewsItemLoopView extends React.Component{
         this.getArticlesBy(localStorage.getItem("filterOption"))
         // console.log( localStorage.getItem("filterOption"))
 
-       
+        
     }
 
     getArticlesBy(value,id){
@@ -107,7 +108,7 @@ class NewsItemLoopView extends React.Component{
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value)   
 
-
+        
         
     }
 
@@ -127,23 +128,22 @@ class NewsItemLoopView extends React.Component{
         }
     }
 
+    componentDidUpdate(){
+        const database = JSON.parse(localStorage.getItem("bookmarkArray")) 
+        if(database){
+            const markAsBookmark = database.filter(obj => obj.bookmarked === true)
+            // console.log(markAsBookmark)
+            markAsBookmark.forEach(obj => document.getElementById(obj.id).classList.add('showBookmark'))
+        }
+    }
+
     showArticle(){this.setState({showArticle:true})}
 
     render(){  
         
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
-        
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
-        console.log(renderToPage)
-        console.log(this.state.renderArray[0])
-
-        // document.getElementById(319).style.border ="10px"
-        if(document.getElementById(319)){
-            console.log("yes")
-            document.getElementById(319).classList.add('showBookmark')
-            // document.getElementById("319").style.borderStyle ="solid";
-        }
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -280,6 +280,9 @@ class NewsItemLoopView extends React.Component{
             }
             </div>
         )
+
+
+        
     }
 }
 
