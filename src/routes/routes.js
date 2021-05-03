@@ -10,6 +10,7 @@ import Tags from '../tags/tagsv3.1.js';
 import NewsPage from '../news-page/news-page.js';
 // import Form from '../myKnews/form.js';
 import { PracticeForm } from '../myKnews/practice-form';
+import Bookmarks from '../utility_components/bookmarks/bookmarks';
 
 export class Routes extends React.Component{
     render(){
@@ -42,6 +43,8 @@ export class Routes extends React.Component{
                 <Route path="/theKnews/home/tags/:tagname" component={Home}/>
 
                 <Route path="/theKnews/home/search/:a/:b" component={Tags}/>
+
+                <Route path="/theKnews/home/bookmarks" component={Bookmarks}/>
  
                 
             </div>

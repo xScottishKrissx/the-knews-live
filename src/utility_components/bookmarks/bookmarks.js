@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 
 import "../bookmarks/bookmarks.css";
+import RenderCard from '../renderCard/renderCard.js';
 
 class Bookmarks extends Component {
     render(){
+        const database = JSON.parse(localStorage.getItem("cleanDatabaseCall"))
         return(
-            <div>Bookmarks</div>
+            <RenderCard database={database}/>
         )
     }
 }

@@ -53,7 +53,7 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidMount(){
-  
+        console.log(localStorage.getItem("bookmarks"))
         // console.log(JSON.parse(localStorage.getItem("myData")));
         // console.log(this.props.fullDatabaseCall)
         // If no filter option exists in storage, set as All to display a default view.
