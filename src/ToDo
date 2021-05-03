@@ -250,8 +250,8 @@ General Notes  Objectives:
                             
                         Add Bookmarking Functionality to Swipe Left:
                             ☐ Goals
-                                ☐ Swiping left on a card will add that card to a list of bookmarks
-                                ☐ You can view these bookmarks in a separate page
+                                ✔ Swiping left on a card will add that card to a list of bookmarks @done(13:32 - 03/05/21)
+                                ✔ You can view these bookmarks in a separate page @done(13:32 - 03/05/21)
                                 ☐ Bookmarked cards will be immune to being hidden until unbookmarked
                                 ☐ Bookmarked cards should be easily distinguished from regular cards.
                                 ☐ All other website functionality should be retained and interact with bookmarks as normal.

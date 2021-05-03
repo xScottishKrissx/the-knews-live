@@ -71,6 +71,8 @@ class NewsItemLoopView extends React.Component{
         // Set filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
         // console.log( localStorage.getItem("filterOption"))
+
+       
     }
 
     getArticlesBy(value,id){
@@ -104,6 +106,8 @@ class NewsItemLoopView extends React.Component{
         
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value)   
+
+
         
     }
 
@@ -126,11 +130,20 @@ class NewsItemLoopView extends React.Component{
     showArticle(){this.setState({showArticle:true})}
 
     render(){  
- 
+        
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
+        
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
+        console.log(renderToPage)
+        console.log(this.state.renderArray[0])
 
+        // document.getElementById(319).style.border ="10px"
+        if(document.getElementById(319)){
+            console.log("yes")
+            document.getElementById(319).classList.add('showBookmark')
+            // document.getElementById("319").style.borderStyle ="solid";
+        }
         return(
             
             <div className="newsItemLoopViewWrapper">
