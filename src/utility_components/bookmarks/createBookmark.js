@@ -28,27 +28,33 @@ export const createBookmark = (id) =>{
 
     // 
     const database = JSON.parse(localStorage.getItem("cleanDatabaseCall"))
-    const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
+    const editedArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall"));
     const mainArray = editedArray || database;
     console.log(database)
 
-    var markArticleForRemoval = database.map(el => {
+    var setBookmarkTrue = mainArray.map(el => {
         if(el.id === id && el != null )
             return Object.assign({}, el, {bookmarked:true})
             return el
     });
+    console.log(setBookmarkTrue)
+    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
+    console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
 
-    const bookmarkArray = markArticleForRemoval.filter(obj => obj.bookmarked === true);
-    const thing = JSON.parse(localStorage.getItem("bookmarkArray")) || []
-    thing.push(bookmarkArray[0])
-    console.log(thing)
+
+    // const bookmarkArray = setBookmarkTrue.filter(obj => obj.bookmarked === true);
+    // console.log(bookmarkArray)
+
+    // const thing = JSON.parse(localStorage.getItem("bookmarkArray")) || []
+    // thing.push(bookmarkArray[0])
+    // console.log(thing)
+
+    // // remove duplicates
+    // const filterForDuplicate2 = Array.from(new Set(thing))
+    // console.log(filterForDuplicate2)
     
-    // remove duplicates
-    const filterForDuplicate2 = Array.from(new Set(thing))
-    console.log(filterForDuplicate2)
-    
-    localStorage.setItem("bookmarkArray", JSON.stringify(thing));
-    console.log(JSON.parse(localStorage.getItem("bookmarkArray")))
+    // localStorage.setItem("bookmarkArray", JSON.stringify(thing));
+    // console.log(JSON.parse(localStorage.getItem("bookmarkArray")))
 }
 
 export default createBookmark;
