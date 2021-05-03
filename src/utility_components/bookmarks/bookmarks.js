@@ -12,15 +12,13 @@ class Bookmarks extends Component {
     }
     componentDidMount(){
         const database = JSON.parse(localStorage.getItem("bookmarkArray"))
-        console.log(database)
+        // console.log(database)
 
         if(database === null){
             this.setState({bookmarks:[]})
         }else{
             const getBookmarks = database.filter(obj => obj.bookmarked === true) 
-            this.setState({
-                bookmarks:getBookmarks
-            })
+            this.setState({bookmarks:getBookmarks})
         }
 
     }

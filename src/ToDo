@@ -255,6 +255,13 @@ General Notes  Objectives:
                                 ☐ Bookmarked cards will be immune to being hidden until unbookmarked
                                 ☐ Bookmarked cards should be easily distinguished from regular cards.
                                 ☐ All other website functionality should be retained and interact with bookmarks as normal.
+                            To-Do:
+                                ☐ Bookmarked cards need to be integrated with the hide functionality.
+                                ☐ Add the option to change card size in bookmark page
+                                ☐ Put the bookmark page link somewhere else
+                            Issues:
+                                ☐ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet)
+                            
 
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
                     ✔ Use swipe right to see only the article text in a popup @started(20-11-16 12:58) @done(20-12-03 15:37) @lasted(2w3d2h39m9s)
