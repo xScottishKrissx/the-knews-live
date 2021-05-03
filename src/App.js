@@ -32,6 +32,7 @@ componentDidMount(){
       for(let newsItem in newsItems){
           newState.push({
               key: newsItem,
+              bookmarked:newsItems[newsItem].bookmarked,
               hidden:newsItems[newsItem].hidden,
               author: newsItems[newsItem].author,
               title: newsItems[newsItem].title,
@@ -44,7 +45,7 @@ componentDidMount(){
           // console.log(newState)
       }
       this.setState({fullDatabaseCall: newState})    
-
+      console.log(this.state.fullDatabaseCall)
   })  
   // localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))      
   // console.log(this.state.fullDatabaseCall)

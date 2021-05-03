@@ -45,6 +45,7 @@ export class NewsPageVIEW extends React.Component{
           for (let dbObject in dbObjects){
             newState.push({
               author: dbObjects[dbObject].author,
+              bookmarked: dbObjects[dbObject].bookmarked,
               hidden:dbObjects[dbObject].hidden,
               email:dbObjects[dbObject].email,
               text:dbObjects[dbObject].text,
