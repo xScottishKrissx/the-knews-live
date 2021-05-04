@@ -40,6 +40,7 @@ class NewsItemLoopView extends React.Component{
         //Testing
         this.changeArticle = this.changeArticle.bind(this);
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);
+        
     }
 
     getCardSize(width,height){
@@ -73,10 +74,13 @@ class NewsItemLoopView extends React.Component{
         this.getArticlesBy(localStorage.getItem("filterOption"))
         // console.log( localStorage.getItem("filterOption"))
 
+
         
     }
 
     getArticlesBy(value,id){
+
+        
         // console.log(value)
         // console.log(id)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
@@ -108,7 +112,7 @@ class NewsItemLoopView extends React.Component{
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value)   
 
-        
+
         
     }
 
@@ -129,15 +133,32 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidUpdate(){
+        // console.log(document.getElementById(319))
         const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
-        console.log(bookmarks)
+        // console.log(bookmarks)
         if(bookmarks){
             const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true)
-            console.log(markAsBookmark)
+            // console.log(markAsBookmark)
             // Maybe looking into moving this into the render card component
             // combined with toggling styles, there has to be a way of changing css on render that
             // doesn't require the thing to be rendered.
-            markAsBookmark.forEach(obj => document.getElementById(obj.id).classList.add('showBookmark'))
+            
+            // This works... 
+            markAsBookmark.forEach(obj => document.getElementById(319).classList.add('showBookmark'))
+
+            // ... but this doesnt for some reason
+            // markAsBookmark.forEach(obj => document.getElementById(obj.id).classList.add('showBookmark'))
+            // console.log(markAsBookmark.forEach(x=> x))
+
+            // How about a map?
+            var thing = markAsBookmark.map(el => {
+                // console.log(el.id)
+                if(el.bookmarked === true && el != null)
+                    if(document.getElementById(el.id)){
+                        document.getElementById(el.id).classList.add('showBookmark')
+                    }
+                    
+            });
 
         }
     }
@@ -148,6 +169,8 @@ class NewsItemLoopView extends React.Component{
         
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
+
+
 
         return(
             
@@ -232,7 +255,7 @@ class NewsItemLoopView extends React.Component{
 
                 </div>
 
-                <div>
+                <div ref={this.exampleRef}>
                     <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
                 </div>
 
@@ -256,6 +279,8 @@ class NewsItemLoopView extends React.Component{
                  leftoverArticles={this.props.leftoverArticles}  
                  fullDatabaseCall={this.props.fullDatabaseCall}
                  showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
+                
+                 
 
                  />
                 :

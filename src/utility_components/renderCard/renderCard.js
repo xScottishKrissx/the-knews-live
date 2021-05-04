@@ -35,7 +35,7 @@ export const RenderCard = (props) => {
         
         // console.log(props.arrayFromDatabase.length)
         return(              
-            <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
+            <div id={value.id} key={value.id} className="myClass" name="original-tags-load" >   
                 
                 {/* <CheckCache id={value.id}/> */}
 
@@ -98,7 +98,7 @@ export const RenderCard = (props) => {
                             </div>
                     
                     </SwipeableListItem>
-                    </SwipeableList>
+                </SwipeableList>
 
 
             </div>

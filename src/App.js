@@ -23,7 +23,7 @@ class App extends Component {
 
 componentDidMount(){
   
-  console.log("App.js Mounted")
+  // console.log("App.js Mounted")
   const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
   cleanDB.on('value', (snapshot) => {
       let newsItems = snapshot.val();

@@ -26,7 +26,7 @@ class MapDatabaseItems extends React.Component{
     }
 
     componentDidMount(){
-        console.log(JSON.parse(localStorage.getItem("myData")))
+        // console.log(JSON.parse(localStorage.getItem("myData")))
         // console.log(this.props.location.search)
         // console.log(this.props.props)
         // This is retrieving a list of id's relating to posts hidden which is stored in local cache.
@@ -66,7 +66,7 @@ class MapDatabaseItems extends React.Component{
             // console.log(this.state.fullDatabaseCall)
             // console.log(this.state.articlesArray)
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
-            console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+            // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
         })        
         // window.addEventListener('scroll', this.scroll);   
 

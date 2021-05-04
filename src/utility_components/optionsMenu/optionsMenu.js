@@ -73,7 +73,7 @@ class OptionsMenu extends Component {
         
     }
     render(){
-        console.log(this.props.urlInfo)
+        // console.log(this.props.urlInfo)
 
         return (
             <div id="optionsMenuWrapper">
