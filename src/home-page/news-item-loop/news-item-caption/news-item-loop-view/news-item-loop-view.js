@@ -133,33 +133,15 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidUpdate(){
-        // console.log(document.getElementById(319))
         const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
-        // console.log(bookmarks)
         if(bookmarks){
             const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true)
-            // console.log(markAsBookmark)
-            // Maybe looking into moving this into the render card component
-            // combined with toggling styles, there has to be a way of changing css on render that
-            // doesn't require the thing to be rendered.
-            
-            // This works... 
-            markAsBookmark.forEach(obj => document.getElementById(319).classList.add('showBookmark'))
-
-            // ... but this doesnt for some reason
-            // markAsBookmark.forEach(obj => document.getElementById(obj.id).classList.add('showBookmark'))
-            // console.log(markAsBookmark.forEach(x=> x))
-
-            // How about a map?
             var thing = markAsBookmark.map(el => {
                 // console.log(el.id)
                 if(el.bookmarked === true && el != null)
-                    if(document.getElementById(el.id)){
+                    if(document.getElementById(el.id))
                         document.getElementById(el.id).classList.add('showBookmark')
-                    }
-                    
-            });
-
+                });
         }
     }
 
@@ -169,8 +151,6 @@ class NewsItemLoopView extends React.Component{
         
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-
-
 
         return(
             

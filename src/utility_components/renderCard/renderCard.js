@@ -19,6 +19,8 @@ import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-
 
 import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
 
+import removeBookmark from '../bookmarks/removeBookmark.js';
+
 export const RenderCard = (props) => {
     // console.log(props.database)
     // console.log(props.arrayFromDatabase)
@@ -29,6 +31,8 @@ export const RenderCard = (props) => {
         // handleHideArticleFeedback();
         hideArticleFeedback()
     }
+
+    function markAsRead(id){removeBookmark(id);}
     
    
     const pageView = props.database.map((value,key) => {
@@ -41,10 +45,18 @@ export const RenderCard = (props) => {
 
                 {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
 
-            
+                {props.bookmarked === true ?
+                <div>
+                    <button onClick={()=>markAsRead(value.id)}>Mark As Read</button>
+                    <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>Bookmark</button>
+                    <button>Mark As Read and Hide</button>
+                    </div>
+                :
                 <div className="hideArticleButtonWrapper">
                     <button id={value.id} onClick={() => handleClick(value.id, props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
-                </div>
+                 </div>  
+                }
+
 
                 {/* <div onClick={() => showArticle(value.id)}>Show Article1</div> */}
                 

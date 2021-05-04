@@ -53,3 +53,5 @@
         /* .news-square{max-width: 450px !important;} */
     }
     
+/* Bookmarks */
+.markAsRead{opacity: 0.5; }

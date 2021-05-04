@@ -260,7 +260,7 @@ General Notes  Objectives:
                                 ☐ Add the option to change card size in bookmark page
                                 ☐ Put the bookmark page link somewhere else
                             Issues:
-                                ☐ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet)
+                                ✔ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet) @done(12:58 - 04/05/21)
                             
 
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
