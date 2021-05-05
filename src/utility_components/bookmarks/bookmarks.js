@@ -38,13 +38,13 @@ class Bookmarks extends Component {
               // console.log(newState)
           }
           this.setState({
+            fullDatabaseCall: newState,
               articlesArray: newState.slice(0,30),
-              leftoverArticles: newState.slice(30,97),
-              fullDatabaseCall: newState
+              leftoverArticles: newState.slice(30,97)
+              
             })    
-          // console.log(this.state.fullDatabaseCall)
+        //   console.log(this.state.fullDatabaseCall)
       })  
-      localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
 
         const database = JSON.parse(localStorage.getItem("bookmarkArray"))
         // console.log(database)
@@ -58,7 +58,9 @@ class Bookmarks extends Component {
 
     }
     render(){
-
+        localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
+        // console.log(this.state.fullDatabaseCall)
+        //   console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
 
         return(
             <div id="bookmarkWrapper">
@@ -68,9 +70,12 @@ class Bookmarks extends Component {
             :
             <RenderCard 
                 database={this.state.bookmarks} 
-                arrayFromDatabase={this.state.fullDatabaseCall}
-                leftoverArticles={this.state.leftoverArticles}
                 bookmarked={true}
+                
+                arrayFromDatabase={this.state.fullDatabaseCall}
+                fullDatabaseCall={this.state.fullDatabaseCall}
+                leftoverArticles={this.state.leftoverArticles}
+                
             />
             }
             

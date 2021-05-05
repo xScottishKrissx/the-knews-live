@@ -24,6 +24,7 @@ import removeBookmark from '../bookmarks/removeBookmark.js';
 export const RenderCard = (props) => {
     // console.log(props.database)
     // console.log(props.arrayFromDatabase)
+    // console.log(props.fullDatabaseCall)
     
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
@@ -49,11 +50,22 @@ export const RenderCard = (props) => {
                 <div>
                     <button onClick={()=>markAsRead(value.id)}>Mark As Read</button>
                     <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>Bookmark</button>
-                    <button>Mark As Read and Hide</button>
+                    <button onClick={()=>handleClick(
+                        value.id, 
+                        props.postsArray,
+                        props.arrayFromDatabase,
+                        props.leftoverArticles,
+                        props.fullDatabaseCall
+                    )}>Mark As Read and Hide</button>
                     </div>
                 :
                 <div className="hideArticleButtonWrapper">
-                    <button id={value.id} onClick={() => handleClick(value.id, props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
+                    <button id={value.id} onClick={() => handleClick(
+                        value.id, 
+                        props.postsArray,
+                        props.arrayFromDatabase,
+                        props.leftoverArticles,
+                        props.fullDatabaseCall)}>X</button>
                  </div>  
                 }
 

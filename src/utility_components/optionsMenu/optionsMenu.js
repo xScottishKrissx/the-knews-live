@@ -13,7 +13,7 @@ class OptionsMenu extends Component {
     }
 
     toggleMenu(){
-        console.log("Toggle Menu")
+        // console.log("Toggle Menu")
 
         if(this.state.optionsMenuOpen === false){
             // document.getElementById("optionsMenuPopup" ).style.visibility = "visible"; 
@@ -41,7 +41,7 @@ class OptionsMenu extends Component {
     }
 
     clearCache(removeFromCache){
-        console.log("Clear Cache" + " " + removeFromCache)
+        // console.log("Clear Cache" + " " + removeFromCache)
         if(removeFromCache.includes("clearCache")){
             localStorage.clear()
             var arrayThing = ["260px","400px"]
@@ -57,7 +57,7 @@ class OptionsMenu extends Component {
         }
 
         if(removeFromCache.includes("resetCardSize")){
-            console.log("Reset Card Size")
+            // console.log("Reset Card Size")
             localStorage.removeItem("myData")
             var arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
@@ -65,7 +65,7 @@ class OptionsMenu extends Component {
         }
 
         if(removeFromCache.includes("removeBookmarks")){
-            console.log("Clear Bookmarks")
+            // console.log("Clear Bookmarks")
             localStorage.removeItem("bookmarkArray")
             // window.location.reload();
         }

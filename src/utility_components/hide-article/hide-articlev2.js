@@ -77,7 +77,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")))
         // console.log(this.props.articleId)
         const prepLeftoverArticlesForFilter = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
-        console.log(prepLeftoverArticlesForFilter)
+        // console.log(prepLeftoverArticlesForFilter)
 
         if(prepLeftoverArticlesForFilter === null)console.log("handle null")
         const index2 = value;
@@ -101,15 +101,11 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
 
 
         // Hiding For Filter Views
-        const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        
-        console.log(dirtyFullDatabaseCall)
-
-        console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
-
+        const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))        
+        // console.log(dirtyFullDatabaseCall)
+        // console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
         const cleanFullDatabaseCall =  dirtyFullDatabaseCall || JSON.parse(localStorage.getItem("cleanDatabaseCall"));
-        
-        console.log(cleanFullDatabaseCall)
+        // console.log(cleanFullDatabaseCall)
 
         var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
             if(el.id === value && el != null )

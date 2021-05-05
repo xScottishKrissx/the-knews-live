@@ -148,10 +148,12 @@ class NewsItemLoopView extends React.Component{
     showArticle(){this.setState({showArticle:true})}
 
     render(){  
-        
+        console.log("News-item-loop-view.js Rendered")
+        // console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
+        // console.log(renderToPage)
         return(
             
             <div className="newsItemLoopViewWrapper">
