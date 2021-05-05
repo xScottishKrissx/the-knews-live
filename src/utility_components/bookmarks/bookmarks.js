@@ -20,6 +20,7 @@ class Bookmarks extends Component {
             },
         }
         this.getCardSize = this.getCardSize.bind(this);
+        this.clearBookmarks = this.clearBookmarks.bind(this);
     }
 
 
@@ -74,6 +75,10 @@ class Bookmarks extends Component {
         }
 
     }
+    clearBookmarks(){
+        localStorage.removeItem("bookmarkArray")
+        this.setState({bookmarks:[]})
+    }
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         // console.log(this.state.fullDatabaseCall)
@@ -82,24 +87,28 @@ class Bookmarks extends Component {
         return(
             <div id="bookmarkWrapper">
             <h1>Bookmarks</h1>
+            <p>You have bookmarked {this.state.bookmarks.length} items. Enjoy</p>
+            <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
             <CustomCardSize getCardSizeToParent={this.getCardSize} />
-            {this.state.bookmarks.length === 0 ?
-            <p>You haven't bookmarked anything yet :(</p>
-            :
-            <RenderCard 
-                // Bookmarking
-                database={this.state.bookmarks} 
-                bookmarked={true}
-                // Hiding
-                arrayFromDatabase={this.state.fullDatabaseCall}
-                fullDatabaseCall={this.state.fullDatabaseCall}
-                leftoverArticles={this.state.leftoverArticles}
-                // Custom Card Size
-                startingCardSize={this.state.startingCardSize}
-                changedCardSize={this.state.changedCardSize}
-                
-            />
-            }
+            <div id="bookmarkItemsWrapper">
+                {this.state.bookmarks.length === 0 ?
+                <p>You haven't bookmarked anything yet :(</p>
+                :
+                <RenderCard 
+                    // Bookmarking
+                    database={this.state.bookmarks} 
+                    bookmarked={true}
+                    // Hiding
+                    arrayFromDatabase={this.state.fullDatabaseCall}
+                    fullDatabaseCall={this.state.fullDatabaseCall}
+                    leftoverArticles={this.state.leftoverArticles}
+                    // Custom Card Size
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                    
+                />
+                }
+            </div>
             
             </div>
         )

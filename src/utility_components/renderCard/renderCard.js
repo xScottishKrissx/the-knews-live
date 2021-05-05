@@ -52,19 +52,14 @@ export const RenderCard = (props) => {
                 {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
 
                 {props.bookmarked === true ?
-                <div>
+                <div className="bookmarkControlsWrapper">
                     <button onClick={()=>markAsRead(value.id)}>Mark As Read</button>
                     <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>Bookmark</button>
                     <button onClick={()=>markAsReadAndHide(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>Mark As Read and Hide</button>
                     </div>
                 :
                 <div className="hideArticleButtonWrapper">
-                    <button id={value.id} onClick={() => handleClick(
-                        value.id, 
-                        props.postsArray,
-                        props.arrayFromDatabase,
-                        props.leftoverArticles,
-                        props.fullDatabaseCall)}>X</button>
+                    <button id={value.id} onClick={() => handleClick(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
                  </div>  
                 }
 

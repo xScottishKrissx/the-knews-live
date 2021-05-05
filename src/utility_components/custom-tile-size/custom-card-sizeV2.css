@@ -80,3 +80,8 @@
     }
     /* .news-square{max-width: 450px !important;} */
 }
+
+.listView{
+    max-width: 600px;
+    margin: 0 auto;
+}
