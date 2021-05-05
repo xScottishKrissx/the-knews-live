@@ -4,17 +4,34 @@ import fire from '../../fire.js';
 import "../bookmarks/bookmarks.css";
 import RenderCard from '../renderCard/renderCard.js';
 
+import CustomCardSize from '../custom-tile-size/custom-card-sizeV2.js';
 class Bookmarks extends Component {
     constructor(props){
         super(props);
         this.state = {
             fullDatabaseCall:[],
-            bookmarks:[]
+            bookmarks:[],
+
+                    // Card Size
+        startingCardSize:"",
+        changedCardSize:{
+            width: JSON.parse(localStorage.getItem("myData"))[0] ,
+            height: JSON.parse(localStorage.getItem("myData"))[1]
+            },
         }
+        this.getCardSize = this.getCardSize.bind(this);
     }
 
 
-
+    getCardSize(width,height){
+        // console.log(width +" "+ height)
+        this.setState({
+            startingCardSize:{
+                width:width,
+                height:height
+            }
+        })
+    }
     componentDidMount(){
               // console.log("App.js Mounted")
       const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
@@ -65,16 +82,21 @@ class Bookmarks extends Component {
         return(
             <div id="bookmarkWrapper">
             <h1>Bookmarks</h1>
+            <CustomCardSize getCardSizeToParent={this.getCardSize} />
             {this.state.bookmarks.length === 0 ?
             <p>You haven't bookmarked anything yet :(</p>
             :
             <RenderCard 
+                // Bookmarking
                 database={this.state.bookmarks} 
                 bookmarked={true}
-                
+                // Hiding
                 arrayFromDatabase={this.state.fullDatabaseCall}
                 fullDatabaseCall={this.state.fullDatabaseCall}
                 leftoverArticles={this.state.leftoverArticles}
+                // Custom Card Size
+                startingCardSize={this.state.startingCardSize}
+                changedCardSize={this.state.changedCardSize}
                 
             />
             }

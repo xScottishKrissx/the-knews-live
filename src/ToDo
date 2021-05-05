@@ -252,13 +252,14 @@ General Notes  Objectives:
                             ☐ Goals
                                 ✔ Swiping left on a card will add that card to a list of bookmarks @done(13:32 - 03/05/21)
                                 ✔ You can view these bookmarks in a separate page @done(13:32 - 03/05/21)
-                                ☐ Bookmarked cards will be immune to being hidden until unbookmarked
+                                ✔ Bookmarked cards will be immune to being hidden until unbookmarked @done(17:08 - 05/05/21)
                                 ☐ Bookmarked cards should be easily distinguished from regular cards.
                                 ☐ All other website functionality should be retained and interact with bookmarks as normal.
                             To-Do:
-                                ☐ Bookmarked cards need to be integrated with the hide functionality.
+                                ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
                                 ☐ Add the option to change card size in bookmark page
                                 ☐ Put the bookmark page link somewhere else
+                                ☐ Just an overall better UI
                             Issues:
                                 ✔ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet) @done(12:58 - 04/05/21)
                                 ✔ Bookmarking an article then pressing the " mark as read and hide" button will result in an empty home page. Hiding an article on the home page BEFORE going to the bookmark page will NOT result in the same error but work as expected. @done(16:41 - 05/05/21)
