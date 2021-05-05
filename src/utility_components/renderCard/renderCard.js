@@ -31,8 +31,13 @@ export const RenderCard = (props) => {
         // console.log(arrayFromDatabase.length)
         // handleHideArticleFeedback();
         hideArticleFeedback()
-    }
 
+    }
+    function markAsReadAndHide(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
+        HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+        hideArticleFeedback()
+        removeBookmark(id)
+    }
     function markAsRead(id){removeBookmark(id);}
     
    
@@ -50,13 +55,7 @@ export const RenderCard = (props) => {
                 <div>
                     <button onClick={()=>markAsRead(value.id)}>Mark As Read</button>
                     <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>Bookmark</button>
-                    <button onClick={()=>handleClick(
-                        value.id, 
-                        props.postsArray,
-                        props.arrayFromDatabase,
-                        props.leftoverArticles,
-                        props.fullDatabaseCall
-                    )}>Mark As Read and Hide</button>
+                    <button onClick={()=>markAsReadAndHide(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>Mark As Read and Hide</button>
                     </div>
                 :
                 <div className="hideArticleButtonWrapper">
