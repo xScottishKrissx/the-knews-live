@@ -259,7 +259,7 @@ General Notes  Objectives:
                                 ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
                                 ✔ Add the option to change card size in bookmark page @done(18:22 - 05/05/21)
                                 ✔ Add a clear all bookmarks button @done(18:23 - 05/05/21)
-                                ☐ Ability to hide article by swiping
+                                ✔ Ability to hide article by swiping @done(13:57 - 06/05/21)
                                 ☐ Put the bookmark page link somewhere else
                                 ☐ Add filter options to bookmark pages.(after splitting the filters code into its own component)
                                 ☐ Just an overall better UI

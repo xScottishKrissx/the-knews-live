@@ -28,3 +28,36 @@
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     width: fill-available;
 }
+
+.bookmarkButtonWrapper button{
+    height: 2rem;
+    background-color:#00000000;
+    color: inherit;
+
+    cursor: pointer;
+
+    width: auto;
+
+    margin: 0 auto;
+}
+
+.markAsReadButtonWrapper button{
+    height: 2rem;
+    background-color:#00000000;
+    color: inherit;
+
+    cursor: pointer;
+
+    width: auto;
+
+    margin: 0 auto;
+}
+
+/* Remove Bookmark */
+
+
+.bookmarkStyle{
+    /* border: 1px solid green; */
+    color: red !important;
+    /* opacity: 2.0  !important; */
+}

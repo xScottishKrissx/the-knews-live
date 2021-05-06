@@ -1,5 +1,8 @@
+/* *{border:1px solid red} */
+
 /* Home Page Hide Button */
 .myClass{
+    color: black;
     display: flex;
     flex: 1 1;
     margin: 3px;
@@ -10,13 +13,28 @@
         margin: 0px;
         border: 3px solid black;
     }
+    .onCardControls > div {
+        position: absolute;
+        z-index: 1;
+        padding: 0px;
+        cursor: pointer;
+        color: rgb(255, 254, 254);
+    }
         .myClass .hideArticleButtonWrapper{
-            position: absolute;
-            z-index: 1;
-            right: 0px;
+            left: 72px;
             top: 0px;
-            padding: 0px;
-            cursor: pointer;
+        }
+        .myClass .bookmarkButtonWrapper{
+            left: 36px;
+            top: 0px;
+        }
+
+        .myClass .markAsReadButtonWrapper{
+            left: 0;
+            top: 0px;
+        }
+        .onCardControls > div  > button{
+            background-color: #00000066;
         }
 
 /* NewMap Class */

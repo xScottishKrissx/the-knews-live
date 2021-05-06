@@ -128,7 +128,6 @@ class NewsItemLoopView extends React.Component{
                 showArticle:false,
                 articleNumber: 0
             })
-            
         }
     }
 
@@ -140,7 +139,7 @@ class NewsItemLoopView extends React.Component{
                 // console.log(el.id)
                 if(el.bookmarked === true && el != null)
                     if(document.getElementById(el.id))
-                        document.getElementById(el.id).classList.add('showBookmark')
+                        document.getElementById(el.id).classList.add('bookmarkStyle')
                 });
         }
     }

@@ -43,17 +43,19 @@ export const RenderCard = (props) => {
     const pageView = props.database.map((value,key) => {
         
         // console.log(props.arrayFromDatabase.length)
+     
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load" >   
                 
                 {/* <CheckCache id={value.id}/> */}
 
                 {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
-
+                
                 {props.bookmarked === true ?
                 <div className="bookmarkControlsWrapper">
                     <button onClick={()=>markAsRead(value.id)}>Mark As Read</button>
-                    <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>Bookmark</button>
+                    <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>
+                        <span class="material-icons" >bookmark</span></button>
                     <button onClick={()=>markAsReadAndHide(
                         value.id,
                         props.postsArray,
@@ -63,9 +65,30 @@ export const RenderCard = (props) => {
                         )}>Mark As Read and Hide</button>
                     </div>
                 :
-                <div className="hideArticleButtonWrapper">
-                    <button id={value.id} onClick={() => hideArticle(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
-                 </div>  
+                
+                <div className="onCardControls">
+                    
+                    <div className="markAsReadButtonWrapper">
+                        <button title="Mark As Read" onClick={()=>markAsRead(value.id)}> 
+                            <span class="material-icons" >done</span>
+                        </button>
+                    </div>  
+
+                    <div className="bookmarkButtonWrapper">
+                        <button title="Bookmark Article" onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>
+                            <span class="material-icons" id={value.id + "bookmarkIcon"}>turned_in_not</span>
+                        </button>
+                    </div>  
+
+                    <div className="hideArticleButtonWrapper">
+                        <button title="Hide Article" onClick={() => hideArticle(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>
+                            <span class="material-icons">visibility_off</span>
+                        </button>
+                    </div>  
+
+
+
+                </div>
                 }
 
 

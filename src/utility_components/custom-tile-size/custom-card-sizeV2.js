@@ -53,7 +53,7 @@ class CustomCardSize extends React.Component{
 
                 
                     <span className="controlBtns">
-                        <button  onClick={() => this.changeCardSize("470px","120px")}>
+                        <button  onClick={() => this.changeCardSize("470px","135px")}>
                             <span className="small-btn">Compact <br />
                                 <span class="material-icons">stop</span>
                             </span>

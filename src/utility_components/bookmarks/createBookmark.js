@@ -2,7 +2,7 @@ import '../bookmarks/createBookmark.css';
 
 export const createBookmark = (id,database) =>{
     console.log("Bookmark created with article " + id)
-    document.getElementById(id).classList.add('bookmarkStyle')
+    document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
     document.getElementById(id).classList.remove('markAsRead')
 
     // Set initial array

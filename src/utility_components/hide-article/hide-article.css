@@ -1,19 +1,19 @@
 /* Universal Style */
 .hideArticleButtonWrapper{
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    /* color: white; */
 
 
 }
 
 .hideArticleButtonWrapper button{
     height: 2rem;
-    background-color: black;
-    color: white;
+    background-color: rgba(255, 255, 255, 0);
+    color: inherit;
 
     cursor: pointer;
 
-    width: 2rem;
+    width: auto;
 
     margin: 0 auto;
 }
