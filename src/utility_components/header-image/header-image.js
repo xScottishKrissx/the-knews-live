@@ -7,7 +7,7 @@ const HeaderImage = (props) =>{
     const style = {
         backgroundImage: 'url(' + imgUrl + ')',        
     }
-    return       <div className="article-banner-image extra-banner-image" style={style}></div>;
+    return       <div className="article-banner-image extra-banner-image" loading="lazy" style={style}></div>;
 }
 
 export default HeaderImage;

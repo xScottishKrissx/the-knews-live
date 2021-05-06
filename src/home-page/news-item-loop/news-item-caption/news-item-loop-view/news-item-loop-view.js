@@ -159,6 +159,7 @@ class NewsItemLoopView extends React.Component{
             <div className="newsItemLoopViewWrapper">
             
             {this.state.showArticle === true ?
+            // Speed Knews Start
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>liteKnews - theKnews but lighter</h1>
@@ -218,14 +219,16 @@ class NewsItemLoopView extends React.Component{
                         
                     </div>
                 </div>
+            // Speed Knews End
             :
             <div id="cardArea">
                 <div id="topPageButtonWrapper">
+                    {/* Speed Knews */}
                     <div id="speedKnewsButtonWrapper">
                         <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>start liteKnews </button>
-
                     </div>
                     
+                    {/* Filter Options */}
                     <div id="filterButtonWrapper">
                         <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")} >News</button>
                         <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>
@@ -236,12 +239,14 @@ class NewsItemLoopView extends React.Component{
                     
 
                 </div>
-
+                
+                {/* Bookmark Page Link */}
                 <div ref={this.exampleRef}>
                     <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
                 </div>
 
-
+                
+                {/* Card Loop Display */}
                 <div id="filterOptionDisplay">
                     {this.state.getArticleBy === "All" ? 
                         <p>Displaying <span>{this.state.getArticleBy}</span> Articles</p>

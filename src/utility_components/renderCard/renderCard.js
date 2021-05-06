@@ -26,7 +26,7 @@ export const RenderCard = (props) => {
     // console.log(props.arrayFromDatabase)
     // console.log(props.fullDatabaseCall)
     
-    function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
+    function hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
         // handleHideArticleFeedback();
@@ -40,7 +40,6 @@ export const RenderCard = (props) => {
     }
     function markAsRead(id){removeBookmark(id);}
     
-   
     const pageView = props.database.map((value,key) => {
         
         // console.log(props.arrayFromDatabase.length)
@@ -55,11 +54,17 @@ export const RenderCard = (props) => {
                 <div className="bookmarkControlsWrapper">
                     <button onClick={()=>markAsRead(value.id)}>Mark As Read</button>
                     <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>Bookmark</button>
-                    <button onClick={()=>markAsReadAndHide(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>Mark As Read and Hide</button>
+                    <button onClick={()=>markAsReadAndHide(
+                        value.id,
+                        props.postsArray,
+                        props.arrayFromDatabase,
+                        props.leftoverArticles,
+                        props.fullDatabaseCall,
+                        )}>Mark As Read and Hide</button>
                     </div>
                 :
                 <div className="hideArticleButtonWrapper">
-                    <button id={value.id} onClick={() => handleClick(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
+                    <button id={value.id} onClick={() => hideArticle(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>X</button>
                  </div>  
                 }
 
@@ -72,27 +77,21 @@ export const RenderCard = (props) => {
                         
                         swipeLeft={{
                             content:<div>Coming Soon...</div>,
-                            // content: <SwipeLeftContent 
-                            //         id={value.id} 
-                            //         title={value.title} 
-                            //         author={value.author} 
-                            //         text={value.text} 
-                            //         closePopup={closePopup} 
-                            //         headerImage={value.id} />,
-                            // action: () => swipeLeftAction(value.text, value.id) 
-                            // action: () => props.showArticle() 
                             action: () => swipeLeftAction(value.id,props.fullDatabaseCall ),
                             
                         }}
-                        
+
                         swipeRight={{
                             content: <div>Hiding article...</div>, 
+                            
                             action: () => swipeRightAction(
                                 value.id, 
                                 props.postsArray,
                                 props.arrayFromDatabase,
                                 props.leftoverArticles,
-                                props.fullDatabaseCall
+                                props.fullDatabaseCall,
+                                props.bookmarked
+                                
                             )
                         }}
                         

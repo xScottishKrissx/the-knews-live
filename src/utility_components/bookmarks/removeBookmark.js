@@ -1,6 +1,7 @@
 import '../bookmarks/removeBookmark.css';
 
 export const removeBookmark = (id) =>{
+        console.log("Bookmark "+ id +" removed")
         // console.log("Mark " + id + " as read")
 
         const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));

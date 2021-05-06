@@ -89,6 +89,7 @@ class Bookmarks extends Component {
             <h1>Bookmarks</h1>
             <p>You have bookmarked {this.state.bookmarks.length} items. Enjoy</p>
             <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
+
             <CustomCardSize getCardSizeToParent={this.getCardSize} />
             <div id="bookmarkItemsWrapper">
                 {this.state.bookmarks.length === 0 ?
@@ -101,7 +102,7 @@ class Bookmarks extends Component {
                     // Hiding
                     arrayFromDatabase={this.state.fullDatabaseCall}
                     fullDatabaseCall={this.state.fullDatabaseCall}
-                    leftoverArticles={this.state.leftoverArticles}
+                    leftoverArticles={this.state.leftoverArticles}                    
                     // Custom Card Size
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}

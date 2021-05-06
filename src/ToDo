@@ -257,9 +257,13 @@ General Notes  Objectives:
                                 ☐ All other website functionality should be retained and interact with bookmarks as normal.
                             To-Do:
                                 ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
-                                ☐ Add the option to change card size in bookmark page
+                                ✔ Add the option to change card size in bookmark page @done(18:22 - 05/05/21)
+                                ✔ Add a clear all bookmarks button @done(18:23 - 05/05/21)
+                                ☐ Ability to hide article by swiping
                                 ☐ Put the bookmark page link somewhere else
+                                ☐ Add filter options to bookmark pages.(after splitting the filters code into its own component)
                                 ☐ Just an overall better UI
+                                
                             Issues:
                                 ✔ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet) @done(12:58 - 04/05/21)
                                 ✔ Bookmarking an article then pressing the " mark as read and hide" button will result in an empty home page. Hiding an article on the home page BEFORE going to the bookmark page will NOT result in the same error but work as expected. @done(16:41 - 05/05/21)

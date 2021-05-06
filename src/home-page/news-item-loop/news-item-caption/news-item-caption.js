@@ -66,7 +66,7 @@ export class Caption extends React.Component{
                 }}
                 
             >
-                <div style={style}>
+                <div style={style} loading="lazy">
                 {/* <button onClick={this.props.showArticle}>Open Article</button> */}
                     <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
                         <span id="news-item-link-text-title">{title}</span>

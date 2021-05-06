@@ -1,12 +1,13 @@
 import './hide-article.css';
 
-export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall) =>{
-
+export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,bookmarkHide) =>{
+        console.log(bookmarkHide)
         // console.log(value)
         // console.log(postsArray)
         // console.log(arrayFromDatabase)
         // console.log(leftoverArticles)
         // console.log(fullDatabaseCall)
+
 
 
         console.log("Hide Article Button Pressed");
