@@ -21,10 +21,12 @@ import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
 
 import removeBookmark from '../bookmarks/removeBookmark.js';
 
+import MarkAsRead from '../bookmarks/markAsRead.js';
+
 export const RenderCard = (props) => {
-    // console.log(props.database)
-    // console.log(props.arrayFromDatabase)
-    // console.log(props.fullDatabaseCall)
+    console.log(props.database)
+    console.log(props.arrayFromDatabase)
+    console.log(props.fullDatabaseCall)
     
     function hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
@@ -38,7 +40,10 @@ export const RenderCard = (props) => {
         hideArticleFeedback()
         removeBookmark(id)
     }
-    function markAsRead(id){removeBookmark(id);}
+    function markAsRead(id,fullDatabaseCall){
+        // removeBookmark(id)
+        MarkAsRead(id,fullDatabaseCall)
+    ;}
     
     const pageView = props.database.map((value,key) => {
         
@@ -53,7 +58,7 @@ export const RenderCard = (props) => {
                 
                 {props.bookmarked === true ?
                 <div className="bookmarkControlsWrapper">
-                    <button onClick={()=>markAsRead(value.id)}>Mark As Read</button>
+                    <button onClick={()=>markAsRead(value.id,props.fullDatabaseCall)}>Mark As Read</button>
                     <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>
                         <span class="material-icons" >bookmark</span></button>
                     <button onClick={()=>markAsReadAndHide(

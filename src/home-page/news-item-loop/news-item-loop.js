@@ -48,6 +48,7 @@ class MapDatabaseItems extends React.Component{
                     hidden:newsItems[newsItem].hidden,
                     author: newsItems[newsItem].author,
                     bookmarked: newsItems[newsItem].bookmarked,
+                    read: newsItems[newsItem].read,
                     title: newsItems[newsItem].title,
                     text: newsItems[newsItem].text,
                     likes: newsItems[newsItem].likes,

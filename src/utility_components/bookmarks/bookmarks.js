@@ -44,6 +44,7 @@ class Bookmarks extends Component {
               newState.push({
                   key: newsItem,
                   bookmarked:newsItems[newsItem].bookmarked,
+                  read:newsItems[newsItem].read,
                   hidden:newsItems[newsItem].hidden,
                   author: newsItems[newsItem].author,
                   title: newsItems[newsItem].title,

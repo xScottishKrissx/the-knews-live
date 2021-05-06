@@ -134,13 +134,18 @@ class NewsItemLoopView extends React.Component{
     componentDidUpdate(){
         const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
         if(bookmarks){
-            const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true)
+            const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
             var thing = markAsBookmark.map(el => {
                 // console.log(el.id)
                 if(el.bookmarked === true && el != null)
                     if(document.getElementById(el.id))
                         document.getElementById(el.id).classList.add('bookmarkStyle')
+
+                    if(el.read === true && el != null)
+                        if(document.getElementById(el.id))
+                            document.getElementById(el.id).classList.add('markAsRead')
                 });
+                
         }
     }
 
@@ -148,7 +153,7 @@ class NewsItemLoopView extends React.Component{
 
     render(){  
         console.log("News-item-loop-view.js Rendered")
-        // console.log(this.state.renderArray)
+        console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
