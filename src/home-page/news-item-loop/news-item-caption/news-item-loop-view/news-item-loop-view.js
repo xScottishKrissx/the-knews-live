@@ -144,7 +144,7 @@ class NewsItemLoopView extends React.Component{
     componentDidUpdate(){
         const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
         // console.log(bookmarks)
-        console.log(this.state.toggle)
+        // console.log(this.state.toggle)
         if(bookmarks){
             const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
             

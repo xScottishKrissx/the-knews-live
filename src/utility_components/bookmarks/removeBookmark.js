@@ -14,7 +14,7 @@ export const removeBookmark = (id) =>{
 
         localStorage.setItem("bookmarkArray", JSON.stringify(setBookmarkFalse))
         
-        document.getElementById(id).classList.add('markAsRead')
+        // document.getElementById(id).classList.add('markAsRead')
 }
 
 export default removeBookmark;

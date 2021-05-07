@@ -33,6 +33,11 @@
             left: 0;
             top: 0px;
         }
+
+        .testButton{
+            left: 108px;
+            top: 0;
+        }
         .onCardControls > div  > button{
             background-color: #00000066;
         }

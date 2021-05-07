@@ -1,13 +1,13 @@
 import '../bookmarks/createBookmark.css';
 
 export const createBookmark = (id,database,changedFullDatabaseCall) =>{
-    console.log(id)
-    console.log(database)
-    console.log(changedFullDatabaseCall)
+    // console.log(id)
+    // console.log(database)
+    // console.log(changedFullDatabaseCall)
     console.log("Bookmark created with article " + id)
 
-    document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
-    document.getElementById(id).classList.remove('markAsRead')
+    // document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
+    // document.getElementById(id).classList.remove('markAsRead')
     
     // Set initial array
     var arrayThing = JSON.parse(localStorage.getItem("bookmarks")) || []

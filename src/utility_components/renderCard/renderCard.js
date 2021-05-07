@@ -22,6 +22,7 @@ import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
 import removeBookmark from '../bookmarks/removeBookmark.js';
 
 import MarkAsRead from '../bookmarks/markAsRead.js';
+import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 
 export const RenderCard = (props) => {
     // console.log(props.database)
@@ -63,6 +64,7 @@ export const RenderCard = (props) => {
                 {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
                 
                 {props.bookmarked === true ?
+                
                 <div className="bookmarkControlsWrapper">
                     <button onClick={()=>markAsRead(value.id,props.fullDatabaseCall)}>Mark As Read</button>
                     <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>
@@ -78,34 +80,41 @@ export const RenderCard = (props) => {
                     </div>
                  
                 :
-                
-                <div className="onCardControls">
+                <OnCardBookMarkControls 
+                        id={value.id}
+                        fullDatabaseCall={props.fullDatabaseCall}
+                        postsArray={props.postsArray}
+                        leftoverArticles={props.leftoverArticles}
+                        arrayFromDatabase={props.arrayFromDatabase}
+                        
+                />
+                // <div className="onCardControls">
                     
-                    {/* <button onClick={() => updateStateTest('someVar')}></button> */}
+                //     {/* <button onClick={() => updateStateTest('someVar')}></button> */}
 
-                    <div className="markAsReadButtonWrapper">
-                        <button title="Mark As Read" onClick={()=>markAsRead(value.id)}> 
-                            <span class="material-icons" >done</span>
-                        </button>
-                    </div>  
+                //     <div className="markAsReadButtonWrapper">
+                //         <button title="Mark As Read" onClick={()=>markAsRead(value.id)}> 
+                //             <span class="material-icons" >done</span>
+                //         </button>
+                //     </div>  
 
-                    <div className="bookmarkButtonWrapper">
-                        <button title="Bookmark Article" onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall,props.changedFullDatabaseCall )}>
-                            <span  class="material-icons" id={value.id + "bookmarkIcon"}>turned_in_not</span> 
-                        </button>
-                    </div>  
+                //     <div className="bookmarkButtonWrapper">
+                //         <button title="Bookmark Article" onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall,props.changedFullDatabaseCall )}>
+                //             <span  class="material-icons" id={value.id + "bookmarkIcon"}>turned_in_not</span> 
+                //         </button>
+                //     </div>  
 
-                    <div className="hideArticleButtonWrapper">
-                        <button title="Hide Article" onClick={() => hideArticle(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>
-                            <span class="material-icons">visibility_off</span>
-                        </button>
-                    </div>  
+                //     <div className="hideArticleButtonWrapper">
+                //         <button title="Hide Article" onClick={() => hideArticle(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>
+                //             <span class="material-icons">visibility_off</span>
+                //         </button>
+                //     </div>  
 
   
 
 
 
-                </div>
+                // </div>
                 }
                   {/* <div>
                         <h3>Thing</h3>
