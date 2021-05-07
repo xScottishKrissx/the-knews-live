@@ -24,10 +24,14 @@ import removeBookmark from '../bookmarks/removeBookmark.js';
 import MarkAsRead from '../bookmarks/markAsRead.js';
 
 export const RenderCard = (props) => {
-    console.log(props.database)
-    console.log(props.arrayFromDatabase)
-    console.log(props.fullDatabaseCall)
+    // console.log(props.database)
+    // console.log(props.arrayFromDatabase)
+    // console.log(props.fullDatabaseCall)
+    // const toggleColour  =   props.updateStateTest;
     
+    // console.log(props.changedFullDatabaseCall)
+    
+
     function hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
@@ -40,15 +44,17 @@ export const RenderCard = (props) => {
         hideArticleFeedback()
         removeBookmark(id)
     }
+
+    
     function markAsRead(id,fullDatabaseCall){
         // removeBookmark(id)
         MarkAsRead(id,fullDatabaseCall)
     ;}
-    
+
     const pageView = props.database.map((value,key) => {
         
         // console.log(props.arrayFromDatabase.length)
-     
+        
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load" >   
                 
@@ -68,11 +74,15 @@ export const RenderCard = (props) => {
                         props.leftoverArticles,
                         props.fullDatabaseCall,
                         )}>Mark As Read and Hide</button>
+                    
                     </div>
+                 
                 :
                 
                 <div className="onCardControls">
                     
+                    {/* <button onClick={() => updateStateTest('someVar')}></button> */}
+
                     <div className="markAsReadButtonWrapper">
                         <button title="Mark As Read" onClick={()=>markAsRead(value.id)}> 
                             <span class="material-icons" >done</span>
@@ -80,8 +90,8 @@ export const RenderCard = (props) => {
                     </div>  
 
                     <div className="bookmarkButtonWrapper">
-                        <button title="Bookmark Article" onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>
-                            <span class="material-icons" id={value.id + "bookmarkIcon"}>turned_in_not</span>
+                        <button title="Bookmark Article" onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall,props.changedFullDatabaseCall )}>
+                            <span  class="material-icons" id={value.id + "bookmarkIcon"}>turned_in_not</span> 
                         </button>
                     </div>  
 
@@ -91,11 +101,16 @@ export const RenderCard = (props) => {
                         </button>
                     </div>  
 
+  
+
 
 
                 </div>
                 }
-
+                  {/* <div>
+                        <h3>Thing</h3>
+                        <button onClick={()=>toggleColour(true)}>Toggle Colour</button>
+                  </div> */}
 
                 {/* <div onClick={() => showArticle(value.id)}>Show Article1</div> */}
                 
@@ -145,7 +160,7 @@ export const RenderCard = (props) => {
                     </SwipeableListItem>
                 </SwipeableList>
 
-
+           
             </div>
             
         )

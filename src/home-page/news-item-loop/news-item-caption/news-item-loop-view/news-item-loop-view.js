@@ -32,7 +32,10 @@ class NewsItemLoopView extends React.Component{
         
         //testing
         articleNumber:0,
-        showArticle:false
+        showArticle:false,
+
+        pressed:false,
+        toggle:"on"
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.getArticlesBy = this.getArticlesBy.bind(this);
@@ -40,6 +43,8 @@ class NewsItemLoopView extends React.Component{
         //Testing
         this.changeArticle = this.changeArticle.bind(this);
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);
+
+        
         
     }
 
@@ -73,8 +78,11 @@ class NewsItemLoopView extends React.Component{
         // Set filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
         // console.log( localStorage.getItem("filterOption"))
-
-
+        // if(JSON.parse(localStorage.getItem("bookmarkArray"))){
+        //     this.setState({
+        //         renderArray:JSON.parse(localStorage.getItem("bookmarkArray"))
+        //     })
+        // }
         
     }
 
@@ -115,7 +123,9 @@ class NewsItemLoopView extends React.Component{
 
         
     }
-
+    // updateStateTest(){
+    //     console.log("pressed")
+    // }
     changeArticle(x,y){
         this.setState({
             articleNumber: this.state.articleNumber + x,
@@ -133,35 +143,61 @@ class NewsItemLoopView extends React.Component{
 
     componentDidUpdate(){
         const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
+        // console.log(bookmarks)
+        console.log(this.state.toggle)
         if(bookmarks){
             const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
+            
+
             var thing = markAsBookmark.map(el => {
                 // console.log(el.id)
-                if(el.bookmarked === true && el != null)
-                    if(document.getElementById(el.id))
-                        document.getElementById(el.id).classList.add('bookmarkStyle')
+                if(el.read === true && el != null )
 
-                    if(el.read === true && el != null)
-                        if(document.getElementById(el.id))
-                            document.getElementById(el.id).classList.add('markAsRead')
+                    if(document.getElementById(el.id)){
+                        document.getElementById(el.id).classList.add('markAsRead')
+                    }
+
+                    if(el.bookmarked === true && el != null){
+                        if(document.getElementById(el.id)){
+                            document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
+                            document.getElementById(el.id).classList.remove('markAsRead')
+                        }
+                    }
+
                 });
                 
         }
+
     }
 
     showArticle(){this.setState({showArticle:true})}
 
+    toggle(){
+        // console.log("toggle " + this.state.toggle)
+        if(this.state.pressed === true){
+            this.setState({toggle: "on", pressed:false})
+        }
+        if(this.state.pressed === false){
+            this.setState({toggle: "off", pressed:true})
+        }
+    }
     render(){  
-        console.log("News-item-loop-view.js Rendered")
-        console.log(this.state.renderArray)
+        // console.log("News-item-loop-view.js Rendered")
+        // console.log(this.state.renderArray)
+        // console.log(this.state.renderArray)
+
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-
+        const changedFullDatabaseCall = this.state.renderArray;
+        // console.log(changedFullDatabaseCall)
         // console.log(renderToPage)
         return(
             
             <div className="newsItemLoopViewWrapper">
-            
+            <div>
+                <h1>Toggle</h1>
+                <button onClick={()=>this.toggle()}>{this.state.toggle}</button>
+            </div>
             {this.state.showArticle === true ?
             // Speed Knews Start
                 <div id="speedKnews">                
@@ -248,7 +284,7 @@ class NewsItemLoopView extends React.Component{
                 <div ref={this.exampleRef}>
                     <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
                 </div>
-
+        
                 
                 {/* Card Loop Display */}
                 <div id="filterOptionDisplay">
@@ -270,6 +306,11 @@ class NewsItemLoopView extends React.Component{
                  leftoverArticles={this.props.leftoverArticles}  
                  fullDatabaseCall={this.props.fullDatabaseCall}
                  showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
+
+                //  testing
+                updateStateTest ={this.updateStateTest}
+                changedFullDatabaseCall={changedFullDatabaseCall}
+                toggleThing={this.state.toggle}
                 
                  
 
