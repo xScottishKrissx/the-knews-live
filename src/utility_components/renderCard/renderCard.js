@@ -30,7 +30,7 @@ export const RenderCard = (props) => {
     // console.log(props.fullDatabaseCall)
     // const toggleColour  =   props.updateStateTest;
     
-    // console.log(props.changedFullDatabaseCall)
+    console.log(props.changedFullDatabaseCall)
     
 
     function hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){

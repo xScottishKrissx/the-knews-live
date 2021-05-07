@@ -20,6 +20,19 @@ class OnCardBookMarkControls extends Component {
             toggle:false,
     }
 }
+
+// componentDidMount(){
+//     const database = JSON.parse(localStorage.getItem("bookmarkArray"))
+//     // console.log(this.props.id)
+//     const getBookmarks = database.filter(obj => obj.bookmarked === true) 
+//     // console.log(getBookmarks)
+
+//         var setBookmarkTrue = getBookmarks.map(el => {
+//         if(el.id === this.props.id && el != null && el.bookmarked === true ){
+//             document.getElementById(this.props.id + "bookmarkIcon").classList.add('bookmarkStyle2')
+//         }
+//      });
+// }
 markAsRead(id,fullDatabaseCall){
     // removeBookmark(id)
     MarkAsRead(id,fullDatabaseCall)
@@ -34,32 +47,50 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
 }
 
 toggle(id){
+    console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
     // console.log("toggle " + id)
-    
+    // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+
     if(this.state.toggle === false){
-        this.setState({
-            toggle: true
-        })
-        document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
+        this.setState({toggle: true})
+        // document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
+        // document.getElementById(id).classList.remove('markAsRead')
         console.log("Bookmark Created")
         swipeLeftAction(this.props.id,this.props.fullDatabaseCall)
     }
 
     if(this.state.toggle === true){
-        this.setState({
-            toggle: false
-        })
-        document.getElementById(id + "bookmarkIcon").classList.remove('bookmarkStyle')
+        this.setState({toggle: false})
+        // document.getElementById(id + "bookmarkIcon").classList.remove('bookmarkStyle2')
         console.log("Bookmark Removed")
         removeBookmark(id)
     }
+    console.log(this.state.toggle)
     
-}
 
+    // console.log(setBookmarkTrue)
+}
+// componentDidUpdate(){
+//     const databaseRef = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+//     var setBookmarkTrue = databaseRef.map(el => {
+//         if(el.id === this.props.id && el != null && el.bookmarked === true ){
+//             document.getElementById(this.props.id + "bookmarkIcon").classList.add('bookmarkStyle')
+//         }
+//     });
+
+//     var setBookmarkTrue2 = databaseRef.map(el => {
+//         if(el.id === this.props.id && el != null && el.bookmarked === false ){
+//             document.getElementById(this.props.id + "bookmarkIcon").classList.remove('bookmarkStyle')
+//         }
+//     });
+// }
 
 
 render(){
     // console.log(this.state.toggle)
+    // console.log(this.state.toggle)
+    
+    
     return(
         <div className="onCardControls">
                     
@@ -71,14 +102,14 @@ render(){
             </button>
         </div>  
 
-        <div className="testButton">
+        {/* <div className="testButton">
             <button title="Mark As Read" onClick={()=>this.toggle(this.props.id)}> 
                 <span class="material-icons" >done</span>
             </button>
-        </div>  
+        </div>   */}
 
         <div className="bookmarkButtonWrapper">
-            <button title="Bookmark Article" onClick={()=>this.toggle()}>
+            <button title="Bookmark Article" onClick={()=>this.toggle(this.props.id)}>
                 <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>           
             </button>
         </div>  

@@ -8,6 +8,9 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
 
     // document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
     // document.getElementById(id).classList.remove('markAsRead')
+
+    document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
+    document.getElementById(id).classList.remove('markAsRead')
     
     // Set initial array
     var arrayThing = JSON.parse(localStorage.getItem("bookmarks")) || []
@@ -36,7 +39,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     
 
     localStorage.setItem("bookmarkArray", JSON.stringify(setBookmarkTrue))
-    console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
+    // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
     // changedFullDatabaseCall
 }
