@@ -86,6 +86,7 @@ export const RenderCard = (props) => {
                         postsArray={props.postsArray}
                         leftoverArticles={props.leftoverArticles}
                         arrayFromDatabase={props.arrayFromDatabase}
+                        bookmarkedStatus={value.bookmarked}
                         
                 />
                 // <div className="onCardControls">

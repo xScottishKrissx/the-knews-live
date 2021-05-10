@@ -17,10 +17,12 @@ class OnCardBookMarkControls extends Component {
         super(props);
         this.state = {
             bookmarks:[],
-            toggle:false,
+            toggle:this.props.bookmarkedStatus,
     }
 }
-
+componentDidMount(){
+    console.log(this.props.bookmarkedStatus)
+}
 // componentDidMount(){
 //     const database = JSON.parse(localStorage.getItem("bookmarkArray"))
 //     // console.log(this.props.id)
@@ -47,9 +49,14 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
 }
 
 toggle(id){
-    console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
+    // console.log("Break")
+    console.log(this.state.toggle)
+    // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
+    // console.log(this.props.bookmarkedStatus)
     // console.log("toggle " + id)
     // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+
+    if(this.state.toggle === undefined)this.setState({toggle:false})
 
     if(this.state.toggle === false){
         this.setState({toggle: true})
@@ -65,7 +72,7 @@ toggle(id){
         console.log("Bookmark Removed")
         removeBookmark(id)
     }
-    console.log(this.state.toggle)
+    // console.log(this.state.toggle)
     
 
     // console.log(setBookmarkTrue)
@@ -89,8 +96,8 @@ toggle(id){
 render(){
     // console.log(this.state.toggle)
     // console.log(this.state.toggle)
-    
-    
+    // console.log(this.props.bookmarkedStatus)
+
     return(
         <div className="onCardControls">
                     
