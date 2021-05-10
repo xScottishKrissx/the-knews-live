@@ -33,6 +33,9 @@ class NewsItemLoopView extends React.Component{
         //testing
         articleNumber:0,
         showArticle:false,
+
+        pressed:false,
+        toggle:"on"
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.getArticlesBy = this.getArticlesBy.bind(this);
@@ -120,7 +123,9 @@ class NewsItemLoopView extends React.Component{
 
         
     }
-
+    // updateStateTest(){
+    //     console.log("pressed")
+    // }
     changeArticle(x,y){
         this.setState({
             articleNumber: this.state.articleNumber + x,
@@ -155,7 +160,7 @@ class NewsItemLoopView extends React.Component{
                     if(el.bookmarked === true && el != null){
                         if(document.getElementById(el.id)){
                             document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
-                            document.getElementById(el.id).classList.remove('markAsRead')
+                            // document.getElementById(el.id).classList.remove('markAsRead')
                         }
                     }
 

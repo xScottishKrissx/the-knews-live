@@ -18,12 +18,20 @@ class OnCardBookMarkControls extends Component {
         this.state = {
             bookmarks:[],
             toggle:this.props.bookmarkedStatus,
+            read:this.props.readStatus
     }
 }
 
-markAsRead(id,fullDatabaseCall){
-    // removeBookmark(id)
-    MarkAsRead(id,fullDatabaseCall)
+markAsRead(id){
+
+    if(this.state.read === false){
+        MarkAsRead(id,this.state.read)
+        this.setState({read:true})
+       
+    }else{
+        MarkAsRead(id,this.state.read)
+        this.setState({read:false})
+    }
 }
 
 hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
@@ -31,23 +39,15 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     // console.log(arrayFromDatabase.length)
     // handleHideArticleFeedback();
     hideArticleFeedback()
-
 }
+
 componentDidMount(){
     if(JSON.parse(localStorage.getItem("bookmarkArray")) === null){
         // console.log("Thing is null")
-        this.setState({toggle:false})
-    }  
+        this.setState({toggle:false, read:false})
+    } 
 }
 toggle(id){
-    // console.log("Break")
-    // console.log(this.state.toggle)
-    // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
-    // console.log(this.props.bookmarkedStatus)
-    // console.log("toggle " + id)
-    // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-
-    // if(this.state.toggle === undefined)this.setState({toggle:false})
 
     if(this.state.toggle === false){
         this.setState({toggle: true})
@@ -59,14 +59,10 @@ toggle(id){
         console.log("Bookmark Removed")
         removeBookmark(id)
     }
-
 }
 
 render(){
-    // console.log(this.state.toggle)
-    // console.log(this.state.toggle)
-    // console.log(this.props.bookmarkedStatus)
-
+  
     return(
         <div className="onCardControls">
                     

@@ -10,7 +10,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     // document.getElementById(id).classList.remove('markAsRead')
 
     document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
-    document.getElementById(id).classList.remove('markAsRead')
+    // document.getElementById(id).classList.remove('markAsRead')
     
     // Set initial array
     var arrayThing = JSON.parse(localStorage.getItem("bookmarks")) || []

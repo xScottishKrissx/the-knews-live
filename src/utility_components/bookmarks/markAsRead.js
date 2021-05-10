@@ -1,23 +1,50 @@
 // import '../bookmarks/markAsRead.css';
 
-export const MarkAsRead = (id,fullDatabaseCall) =>{
-        console.log("Bookmark "+ id +" marked as read")
-        // console.log("Mark " + id + " as read")
-        console.log(fullDatabaseCall)
+export const MarkAsRead = (id,read) =>{
+        console.log(read)
         const cleanDB = JSON.parse(localStorage.getItem("cleanDatabaseCall"))
-        console.log(cleanDB)
         const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
         const mainArray = currentBookmarks || cleanDB;
        
-        var markArticleRead = mainArray.map(el => {
-            if(el.id === id && el != null )
-                return Object.assign({}, el, {read:true})
-                return el
-        });
+        // var markArticleRead = mainArray.map(el => {
+        //     if(el.id === id && el != null )
+        //         return Object.assign({}, el, {read:true})
+        //         return el
+        // });
     
+        if(read === false){
+                console.log("Mark as Read")
+                document.getElementById(id).classList.add('markAsRead')
+
+                var markArticleRead = mainArray.map(el => {
+                        if(el.id === id && el != null )
+                            return Object.assign({}, el, {read:true})
+                            return el
+                    });
+                
         localStorage.setItem("bookmarkArray", JSON.stringify(markArticleRead))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(markArticleRead))
+        }
         
-        document.getElementById(id).classList.add('markAsRead')
+        if(read === true){
+                console.log("Mark as UnRead")
+                document.getElementById(id).classList.remove('markAsRead')
+
+                var markArticleUnread = mainArray.map(el => {
+                        if(el.id === id && el != null )
+                            return Object.assign({}, el, {read:false})
+                            return el
+                    });
+                
+        localStorage.setItem("bookmarkArray", JSON.stringify(markArticleUnread))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(markArticleUnread))
+        }
+
+
+        // localStorage.setItem("bookmarkArray", JSON.stringify(markArticleRead))
+        // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(markArticleRead))
+        
+        // document.getElementById(id).classList.add('markAsRead')
 }
 
 export default MarkAsRead;

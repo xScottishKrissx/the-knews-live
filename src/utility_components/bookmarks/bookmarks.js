@@ -82,7 +82,7 @@ class Bookmarks extends Component {
     }
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        // console.log(this.state.fullDatabaseCall)
+        console.log(this.state.fullDatabaseCall)
         //   console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
 
         return(
