@@ -33,9 +33,6 @@ class NewsItemLoopView extends React.Component{
         //testing
         articleNumber:0,
         showArticle:false,
-
-        pressed:false,
-        toggle:"on"
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.getArticlesBy = this.getArticlesBy.bind(this);
@@ -123,9 +120,7 @@ class NewsItemLoopView extends React.Component{
 
         
     }
-    // updateStateTest(){
-    //     console.log("pressed")
-    // }
+
     changeArticle(x,y){
         this.setState({
             articleNumber: this.state.articleNumber + x,
@@ -172,15 +167,6 @@ class NewsItemLoopView extends React.Component{
 
     showArticle(){this.setState({showArticle:true})}
 
-    toggle(){
-        // console.log("toggle " + this.state.toggle)
-        if(this.state.pressed === true){
-            this.setState({toggle: "on", pressed:false})
-        }
-        if(this.state.pressed === false){
-            this.setState({toggle: "off", pressed:true})
-        }
-    }
     render(){  
         // console.log("News-item-loop-view.js Rendered")
         // console.log(this.state.renderArray)
@@ -194,10 +180,7 @@ class NewsItemLoopView extends React.Component{
         return(
             
             <div className="newsItemLoopViewWrapper">
-            <div>
-                <h1>Toggle</h1>
-                <button onClick={()=>this.toggle()}>{this.state.toggle}</button>
-            </div>
+
             {this.state.showArticle === true ?
             // Speed Knews Start
                 <div id="speedKnews">                
@@ -281,7 +264,7 @@ class NewsItemLoopView extends React.Component{
                 </div>
                 
                 {/* Bookmark Page Link */}
-                <div ref={this.exampleRef}>
+                <div>
                     <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
                 </div>
         

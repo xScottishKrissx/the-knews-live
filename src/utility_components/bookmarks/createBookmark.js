@@ -4,7 +4,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     // console.log(id)
     // console.log(database)
     // console.log(changedFullDatabaseCall)
-    console.log("Bookmark created with article " + id)
+    // console.log("Bookmark created with article " + id)
 
     // document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
     // document.getElementById(id).classList.remove('markAsRead')
@@ -26,7 +26,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     const cleanDB = database
      
     const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
-        console.log(currentBookmarks)
+        // console.log(currentBookmarks)
     const mainArray = currentBookmarks || cleanDB;
    
     var setBookmarkTrue = mainArray.map(el => {

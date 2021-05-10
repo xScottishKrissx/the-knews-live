@@ -260,8 +260,13 @@ General Notes  Objectives:
                                 ✔ Add the option to change card size in bookmark page @done(18:22 - 05/05/21)
                                 ✔ Add a clear all bookmarks button @done(18:23 - 05/05/21)
                                 ✔ Ability to hide article by swiping @done(13:57 - 06/05/21)
+                                ✔ Ability to toggle bookmarks with a single button @done(15:48 - 10/05/21)
+                                    ☐ Toggle Mark as Read as well
                                 ☐ Put the bookmark page link somewhere else
-                                ☐ Add filter options to bookmark pages.(after splitting the filters code into its own component)
+                                    ☐ Might leave this until the UI overhaul im planning
+                                ☐ Add bookmark functionality to articles and liteKnews
+                                ☐ Add filter options to bookmark pages.
+                                    ☐ After splitting the filters code into its own component.
                                 ☐ Just an overall better UI
                                 
                             Issues:
@@ -269,6 +274,7 @@ General Notes  Objectives:
                                 ✔ Bookmarking an article then pressing the " mark as read and hide" button will result in an empty home page. Hiding an article on the home page BEFORE going to the bookmark page will NOT result in the same error but work as expected. @done(16:41 - 05/05/21)
                                     ✔ Solution - I think i've fixed this by setting a cleanDatabaseCall in the render method of bookmarks.js @done(16:41 - 05/05/21)
                                 ☐ scrollCheck articles don't have the border when loaded while a bookmark
+                                ☐ So i've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this.
                             
 
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
