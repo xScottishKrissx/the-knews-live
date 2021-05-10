@@ -22,6 +22,7 @@ class OnCardBookMarkControls extends Component {
     }
 }
 
+
 markAsRead(id){
 
     if(this.state.read === false){
@@ -39,6 +40,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     // console.log(arrayFromDatabase.length)
     // handleHideArticleFeedback();
     hideArticleFeedback()
+    // removeBookmark(id)
 }
 
 componentDidMount(){

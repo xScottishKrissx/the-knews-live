@@ -65,13 +65,16 @@ class Bookmarks extends Component {
         //   console.log(this.state.fullDatabaseCall)
       })  
 
-        const database = JSON.parse(localStorage.getItem("bookmarkArray"))
+        const database = 
+            JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || 
+            JSON.parse(localStorage.getItem("bookmarkArray")) // Don't think this is necessary.
         // console.log(database)
 
         if(database === null){
             this.setState({bookmarks:[]})
         }else{
-            const getBookmarks = database.filter(obj => obj.bookmarked === true) 
+            const getBookmarks = database.filter(obj => obj.bookmarked === true && obj.hidden === false) 
+            console.log(getBookmarks)
             this.setState({bookmarks:getBookmarks})
         }
 
@@ -80,10 +83,41 @@ class Bookmarks extends Component {
         localStorage.removeItem("bookmarkArray")
         this.setState({bookmarks:[]})
     }
+
+    
+    componentDidUpdate(){
+        const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
+        // console.log(bookmarks)
+        // console.log(this.state.toggle)
+        if(bookmarks){
+            const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
+            
+
+            var thing = markAsBookmark.map(el => {
+                // console.log(el.id)
+                if(el.read === true && el != null )
+
+                    if(document.getElementById(el.id)){
+                        document.getElementById(el.id).classList.add('markAsRead')
+                    }
+
+                    if(el.bookmarked === true && el != null){
+                        if(document.getElementById(el.id)){
+                            document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
+                            // document.getElementById(el.id).classList.remove('markAsRead')
+                        }
+                    }
+
+                });
+                
+        }
+
+    }
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         console.log(this.state.fullDatabaseCall)
         //   console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
+            console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
 
         return(
             <div id="bookmarkWrapper">

@@ -63,10 +63,10 @@ export const RenderCard = (props) => {
 
                 {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
                 
-                {props.bookmarked === true ?
+                {props.bookmarked === false ?
                 
                 <div className="bookmarkControlsWrapper">
-                    <button onClick={()=>markAsRead(value.id,props.fullDatabaseCall)}>Mark As Read</button>
+                    <button onClick={()=>markAsRead(value.id,value.read)}>Mark As Read</button>
                     <button onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall )}>
                         <span class="material-icons" >bookmark</span></button>
                     <button onClick={()=>markAsReadAndHide(
