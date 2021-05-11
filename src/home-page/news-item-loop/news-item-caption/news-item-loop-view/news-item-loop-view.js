@@ -13,6 +13,7 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import loading from '../../../../img/loading5.gif';
 import {Link} from 'react-router-dom';
 import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
+import FilterOptions from '../../../../utility_components/filterOptions/filterOptions';
 
 class NewsItemLoopView extends React.Component{
 
@@ -138,6 +139,16 @@ class NewsItemLoopView extends React.Component{
         this.setState({ showArticle:false})
         console.log("Close LiteKnews")       
     }
+    updateView(value,value2){
+        console.log(value)
+        console.log(value2)
+        // this.setState({ showArticle:false})
+        this.setState({
+            getArticleBy:value,
+            renderArray:value2,
+        })
+    }
+
 
     render(){  
       
@@ -156,17 +167,23 @@ class NewsItemLoopView extends React.Component{
                 <div id="topPageButtonWrapper">
                     {/* Speed Knews */}
                     <div id="speedKnewsButtonWrapper">
-                        {/* <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>start liteKnews </button> */}
                         <button onClick={() => this.showArticle()}>start liteKnews </button>
                     </div>
                     
                     {/* Filter Options */}
-                    <div id="filterButtonWrapper">
+                    <FilterOptions 
+                        getArticleBy={() => this.getArticlesBy()} 
+                        fullDatabaseCall={this.props.fullDatabaseCall}
+                        updateView={()=>this.updateView()}
+
+
+                    />
+                    {/* <div id="filterButtonWrapper">
                         <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")} >News</button>
                         <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>
                         <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather</button>
                         <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All","noFilterBtn")} >No Filter</button>
-                    </div>
+                    </div> */}
 
                 </div>
                 
@@ -198,11 +215,7 @@ class NewsItemLoopView extends React.Component{
                  showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
 
                 //  testing
-                updateStateTest ={this.updateStateTest}
-                changedFullDatabaseCall={changedFullDatabaseCall}
-                toggleThing={this.state.toggle}
-                
-                 
+                changedFullDatabaseCall={changedFullDatabaseCall}                 
 
                  />
                 :

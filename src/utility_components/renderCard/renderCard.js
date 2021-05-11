@@ -118,10 +118,7 @@ export const RenderCard = (props) => {
 
                 // </div>
                 }
-                  {/* <div>
-                        <h3>Thing</h3>
-                        <button onClick={()=>toggleColour(true)}>Toggle Colour</button>
-                  </div> */}
+   
 
                 {/* <div onClick={() => showArticle(value.id)}>Show Article1</div> */}
                 
