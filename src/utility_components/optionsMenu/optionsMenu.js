@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
-import clearAllBookmarks from '../bookmarks/clearAllBookmarks';
+import clearAllBookmarks from '../bookmarks/markAllUnread';
 
 import "../optionsMenu/optionsMenu.css";
 

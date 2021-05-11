@@ -1,5 +1,3 @@
-import '../bookmarks/createBookmark.css';
-
 export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     // console.log(id)
     // console.log(database)

@@ -259,14 +259,18 @@ General Notes  Objectives:
                                 ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
                                 ✔ Add the option to change card size in bookmark page @done(18:22 - 05/05/21)
                                 ✔ Add a clear all bookmarks button @done(18:23 - 05/05/21)
+                                    ☐ Also add an "unread all" button
+                                    ☐ ...and a button that "hides all" articles
                                 ✔ Ability to hide article by swiping @done(13:57 - 06/05/21)
                                 ✔ Ability to toggle bookmarks with a single button @done(15:48 - 10/05/21)
                                     ✔ Toggle Mark as Read as well @done(17:19 - 10/05/21)
-                                ☐ Bookmark page controls
-                                    ☐ With the above changes, i think some changes need to be made here
-                                        ☐ Button 1 - Unbookmark
-                                        ☐ Button 2 - Mark as Read
-                                        ☐ Button 3 - Unbookmark and Hide
+                                ✔ Bookmark page controls @done(12:06 - 11/05/21)
+                                    ✔ With the above changes, i think some changes need to be made here @done(12:06 - 11/05/21)
+                                        ✔ Button 1 - Unbookmark @done(12:06 - 11/05/21)
+                                        ✔ Button 2 - Mark as Read @done(12:06 - 11/05/21)
+                                        ✔ Button 3 - Unbookmark and Hide @done(12:06 - 11/05/21)
+                                ☐ Mark articles as read if you click on them
+                                    ☐ Show this in the article
                                 ☐ Put the bookmark page link somewhere else
                                     ☐ Might leave this until the UI overhaul im planning
                                 ☐ Add bookmark functionality to articles and liteKnews

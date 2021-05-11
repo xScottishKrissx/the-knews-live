@@ -5,7 +5,10 @@ import "../bookmarks/bookmarks.css";
 import RenderCard from '../renderCard/renderCard.js';
 
 import CustomCardSize from '../custom-tile-size/custom-card-sizeV2.js';
+// Bookmarks
 import clearAllBookmarks from './clearAllBookmarks.js';
+import markAllUnread from './markAllUnread.js';
+
 class Bookmarks extends Component {
     constructor(props){
         super(props);
@@ -84,7 +87,6 @@ class Bookmarks extends Component {
         clearAllBookmarks();
         this.setState({bookmarks:[]})
     }
-
     
     componentDidUpdate(){
         const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
@@ -92,7 +94,6 @@ class Bookmarks extends Component {
         // console.log(this.state.toggle)
         if(bookmarks){
             const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
-            
 
             var thing = markAsBookmark.map(el => {
                 // console.log(el.id)
@@ -116,15 +117,14 @@ class Bookmarks extends Component {
     }
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        // console.log(this.state.fullDatabaseCall)
-        //   console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
-            // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
 
         return(
             <div id="bookmarkWrapper">
             <h1>Bookmarks</h1>
             <p>You have bookmarked {this.state.bookmarks.length} items. Enjoy</p>
             <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
+            <button onClick={() => markAllUnread()}>Mark All As Unread</button>
 
             <CustomCardSize getCardSizeToParent={this.getCardSize} />
             <div id="bookmarkItemsWrapper">

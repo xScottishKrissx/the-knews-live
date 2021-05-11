@@ -1,5 +1,3 @@
-// import '../bookmarks/markAsRead.css';
-
 export const MarkAsRead = (id,read) =>{
         console.log(read)
         const cleanDB = JSON.parse(localStorage.getItem("cleanDatabaseCall"))

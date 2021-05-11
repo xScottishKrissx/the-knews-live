@@ -130,7 +130,7 @@ export const RenderCard = (props) => {
                     <SwipeableListItem 
                         
                         swipeLeft={{
-                            content:<div>Coming Soon...</div>,
+                            content:<div>Bookmarking Article...</div>,
                             action: () => swipeLeftAction(value.id,props.fullDatabaseCall ),
                             
                         }}
