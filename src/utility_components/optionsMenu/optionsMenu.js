@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import clearAllBookmarks from '../bookmarks/markAllUnread';
+import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
 import "../optionsMenu/optionsMenu.css";
 
@@ -50,10 +51,11 @@ class OptionsMenu extends Component {
             }
                 
             if(removeFromCache.includes("unhideArticles")){
-                localStorage.removeItem("changedFullDatabaseCall")
-                localStorage.removeItem("cleanDatabaseCall")
-                localStorage.removeItem("editedArticleArray")
-                localStorage.removeItem("editedLeftoverArticlesArray")
+                unhideAllArticles();
+                // localStorage.removeItem("changedFullDatabaseCall")
+                // localStorage.removeItem("cleanDatabaseCall")
+                // localStorage.removeItem("editedArticleArray")
+                // localStorage.removeItem("editedLeftoverArticlesArray")
                 window.location.reload();
             }
 

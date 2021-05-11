@@ -142,7 +142,7 @@ class NewsItemLoopView extends React.Component{
     }
 
     componentDidUpdate(){
-        const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
+        const bookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || JSON.parse(localStorage.getItem("bookmarkArray")) 
         // console.log(bookmarks)
         // console.log(this.state.toggle)
         if(bookmarks){
