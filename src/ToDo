@@ -253,7 +253,7 @@ General Notes  Objectives:
                                 ✔ Swiping left on a card will add that card to a list of bookmarks @done(13:32 - 03/05/21)
                                 ✔ You can view these bookmarks in a separate page @done(13:32 - 03/05/21)
                                 ✔ Bookmarked cards will be immune to being hidden until unbookmarked @done(17:08 - 05/05/21)
-                                ☐ Bookmarked cards should be easily distinguished from regular cards.
+                                ✔ Bookmarked cards should be easily distinguished from regular cards. @done(15:40 - 11/05/21)
                                 ☐ All other website functionality should be retained and interact with bookmarks as normal.
                             To-Do:
                                 ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
@@ -269,14 +269,17 @@ General Notes  Objectives:
                                         ✔ Button 1 - Unbookmark @done(12:06 - 11/05/21)
                                         ✔ Button 2 - Mark as Read @done(12:06 - 11/05/21)
                                         ✔ Button 3 - Unbookmark and Hide @done(12:06 - 11/05/21)
-                                ☐ Mark articles as read if you click on them
-                                    ☐ Show this in the article
+                                ✔ Mark articles as read if you click on them @done(13:54 - 11/05/21)
+                                    ✔ Show this in the article @done(13:54 - 11/05/21)
+                                    ✔ ...also added bookmarked status to the article @done(13:54 - 11/05/21)
                                 ☐ Put the bookmark page link somewhere else
                                     ☐ Might leave this until the UI overhaul im planning
                                 ☐ Add bookmark functionality to articles and liteKnews
+                                    ☐ Do liteKnews after it's component has been created.
                                 ☐ Add filter options to bookmark pages.
                                     ☐ After splitting the filters code into its own component.
                                 ☐ Just an overall better UI
+                                    ☐ After the code cleanup
                                 
                             Issues:
                                 ✔ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet) @done(12:58 - 04/05/21)
@@ -1008,24 +1011,26 @@ Part 2 Implement Database functionality:
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
             ✔ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21) @done(16:05 - 27/04/21) @lasted(2h4m9s)
-                ☐ 12.1.4 - Improve Appearance of Options Menu with new controls in place. @started(12:10 - 29/04/21)
+                ✔ 12.1.4 - Improve Appearance of Options Menu with new controls in place. @started(12:10 - 29/04/21) @done(15:40 - 11/05/21) @lasted(1w5d3h30m20s)
             ✔ 12.2 - Redo the card controls to improve the usablity of cards. @done(12:10 - 29/04/21)
             ✘ 12.3 - Add proper back button to articles(i.e go back one page, not just home) @cancelled(13:27 - 30/04/21)
                 // It's really not necessary as the browser back button does the same thing and breadcrumbs are irrelevant for my website.
             ☐ 12.3 - Implement Bookmarking into swipe left(and the rest of the website)
-            ☐ 12.4 - Get Like and Dislike to work separate from myKnews
-            ☐ 12.5 - Look into swiping liteKnews to switch articles
-            ☐ 12.6 - Redo Recommended Reading Section
-            ☐ 12.7 - Misc Bug Fixes & Tweaks
+                ☐ Still work to be done after code cleanup
+            ☐ 12.4 - Code Review (Splitting Code into components)
+            ☐ 12.5 - Get Like and Dislike to work separate from myKnews
+            ☐ 12.6 - Look into swiping liteKnews to switch articles
+            ☐ 12.7 - Redo Recommended Reading Section
+            ☐ 12.8 - Misc Bug Fixes & Tweaks
                 ☐ Fix the scroll activate for larger than 1800px wide windows
                 ☐ Can I reset scroll position when switching articles in liteKnews?
                 ☐ Do another style pass for card controls(different layout at larger widths?)
                 ☐ Look into "undo hide"
                 ☐ Look into animations for hiding articles.
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
-            ☐ 12.8 - Overhaul Main UI
-            ☐ 12.9 - ???
-            ☐ 12.10 - Code Review (Splitting Code into components)
+            ☐ 12.9 - Overhaul Main UI
+            ☐ 12.10 - ???
+        
 
         Version 11.1 - Bug Fixes:
             ✔ Full Article link goes to blank page @done(17:18 - 22/04/21)

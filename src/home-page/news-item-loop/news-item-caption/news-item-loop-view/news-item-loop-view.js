@@ -176,12 +176,14 @@ class NewsItemLoopView extends React.Component{
         // console.log("News-item-loop-view.js Rendered")
         // console.log(this.state.renderArray)
         // console.log(this.state.renderArray)
+        
 
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         const changedFullDatabaseCall = this.state.renderArray;
         // console.log(changedFullDatabaseCall)
         // console.log(renderToPage)
+        // console.log(renderToPage[this.state.articleNumber])
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -200,7 +202,11 @@ class NewsItemLoopView extends React.Component{
                                 <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
                                 <Link 
                                 
-                                    to={'/home/articles/news-page/' + renderToPage[this.state.articleNumber].key}
+                                    to={{
+                                        pathname:'/theKnews/home/articles/news-page/' + renderToPage[this.state.articleNumber].key,
+                                        state:{ articleId:renderToPage[this.state.articleNumber].id}
+                                    }}
+                                    
                                 
                                 >
                                     <h3>View Article Page</h3></Link>
