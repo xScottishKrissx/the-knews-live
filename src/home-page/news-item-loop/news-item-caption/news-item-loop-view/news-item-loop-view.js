@@ -61,7 +61,7 @@ class NewsItemLoopView extends React.Component{
     componentDidMount(){
 
         // If no filter option exists in storage, set as All to display a default view.
-        if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
+        if(localStorage.getItem("filterOption") === null || undefined)localStorage.setItem("filterOption","All");
 
         // Detect url params and set the view as appropriate. This functions as the tag page.
         // console.log(this.props.urlTagProp)
@@ -174,7 +174,7 @@ class NewsItemLoopView extends React.Component{
                     <FilterOptions 
                         getArticleBy={() => this.getArticlesBy()} 
                         fullDatabaseCall={this.props.fullDatabaseCall}
-                        updateView={()=>this.updateView()}
+                        updateView={()=>this.updateView}
 
 
                     />
