@@ -123,9 +123,6 @@ class NewsItemLoopView extends React.Component{
 
         
     }
-    // updateStateTest(){
-    //     console.log("pressed")
-    // }
     changeArticle(x,y){
         this.setState({
             articleNumber: this.state.articleNumber + x,

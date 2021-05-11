@@ -104,6 +104,18 @@ Codebase:
     ✔ Created Component for Checking Cache for hidden posts and then hiding them. @done(15:49 - 15/01/21)
     ✔ I'm pretty sure my css is all over the place with with styles not appearing in their correct corresponding styles file. Go through everything and make sure styles are placed where you would expect. @started(10:32 - 09/04/21) @done(11:24 - 09/04/21) @lasted(52m48s)
 
+
+    V12.4 Code Cleanup:
+        Objectives:
+            ☐ To significantly reduce the size of news-item-loop-view.js
+            ☐ Reduce duplicate code and minimise bloat
+            ☐ To identify areas of code that can be simplified or improved
+        To-Do:
+            ☐ New Component For liteKnews
+            ☐ New Component for Filter View Controls
+            ☐ Cleanup the componentDidUpdates that all do the same thing
+        Issues / Bugs:
+            ☐ Probably a million
             
                 
     2021 Restart:
