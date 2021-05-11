@@ -12,6 +12,7 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
 import loading from '../../../../img/loading5.gif';
 import {Link} from 'react-router-dom';
+import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
 
 class NewsItemLoopView extends React.Component{
 
@@ -30,18 +31,18 @@ class NewsItemLoopView extends React.Component{
         getArticleBy:"All",
         renderArray:[],
         
-        //testing
-        articleNumber:0,
+        // //testing
+        // articleNumber:0,
         showArticle:false,
-
+        renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
         pressed:false,
         toggle:"on"
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.getArticlesBy = this.getArticlesBy.bind(this);
 
-        //Testing
-        this.changeArticle = this.changeArticle.bind(this);
+        // //Testing
+        // this.changeArticle = this.changeArticle.bind(this);
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);
 
         
@@ -123,19 +124,22 @@ class NewsItemLoopView extends React.Component{
 
         
     }
-    changeArticle(x,y){
-        this.setState({
-            articleNumber: this.state.articleNumber + x,
-            showArticle:true
-        })
-    }
+    // changeArticle(x,y){
+    //     this.setState({
+    //         articleNumber: this.state.articleNumber + x,
+    //         showArticle:true
+    //     })
+    // }
     closeLiteKnewsView(){
+        console.log(this.state.showArticle)
         if(this.state.showArticle === true){
             this.setState({
                 showArticle:false,
                 articleNumber: 0
             })
+            console.log("Close LiteKnews")
         }
+        // this.setState({showArticle:false})
     }
 
     componentDidUpdate(){
@@ -167,7 +171,13 @@ class NewsItemLoopView extends React.Component{
 
     }
 
-    showArticle(){this.setState({showArticle:true})}
+    showArticle(){
+        this.setState({
+            showArticle:true,
+            renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
+        })
+    
+    }
 
     render(){  
         // console.log("News-item-loop-view.js Rendered")
@@ -179,84 +189,91 @@ class NewsItemLoopView extends React.Component{
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         const changedFullDatabaseCall = this.state.renderArray;
         // console.log(changedFullDatabaseCall)
-        // console.log(renderToPage)
-        // console.log(renderToPage[this.state.articleNumber])
+        console.log(renderToPage)
+        console.log(renderToPage[this.state.articleNumber])
+        // const renderLiteKnews = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
         return(
             
             <div className="newsItemLoopViewWrapper">
-
+            
             {this.state.showArticle === true ?
+            <LiteKnews 
+                renderToPage={this.state.renderLiteKnews} 
+                // showArticle={this.state.showArticle}
+                closeLiteKnews={()=>this.closeLiteKnewsView()}
+            />
             // Speed Knews Start
-                <div id="speedKnews">                
-                    <div id="speedKnewsWrapper" >
-                    <h1>liteKnews - theKnews but lighter</h1>
+            //     <div id="speedKnews">                
+            //         <div id="speedKnewsWrapper" >
+            //         <h1>liteKnews - theKnews but lighter</h1>
                     
-                        <div className="speedKnewsArticleContainer">
+            //             <div className="speedKnewsArticleContainer">
 
-                            <header>
-                                <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
-                                <h2>{renderToPage[this.state.articleNumber].title}</h2>
-                                <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
-                                <Link 
+            //                 <header>
+            //                     <HeaderImage props={renderToPage[this.state.articleNumber].id}/>
+            //                     <h2>{renderToPage[this.state.articleNumber].title}</h2>
+            //                     <h3>by: {renderToPage[this.state.articleNumber].author}</h3>
+            //                     <Link 
                                 
-                                    to={{
-                                        pathname:'/theKnews/home/articles/news-page/' + renderToPage[this.state.articleNumber].key,
-                                        state:{ articleId:renderToPage[this.state.articleNumber].id}
-                                    }}
+            //                         to={{
+            //                             pathname:'/theKnews/home/articles/news-page/' + renderToPage[this.state.articleNumber].key,
+            //                             state:{ articleId:renderToPage[this.state.articleNumber].id}
+            //                         }}
                                     
                                 
-                                >
-                                    <h3>View Article Page</h3></Link>
-                                {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
-                            </header>
-                            <article><ParseHTML props={renderToPage[this.state.articleNumber].text}/></article>
+            //                     >
+            //                         <h3>View Article Page</h3></Link>
+            //                     {/* <p>{renderToPage[this.state.articleNumber].text}</p> */}
+            //                 </header>
+            //                 <article><ParseHTML props={renderToPage[this.state.articleNumber].text}/></article>
                          
 
-                        </div>
+            //             </div>
                         
-                        <div id="speedKnewsControls">
-                        {this.state.articleNumber === 0 ? 
-                           <span>
-                            <button onClick={this.closeLiteKnewsView}><span className="material-icons">close</span></button>
+            //             <div id="speedKnewsControls">
+            //             {this.state.articleNumber === 0 ? 
+            //                <span>
+            //                 <button onClick={this.closeLiteKnewsView}><span className="material-icons">close</span></button>
 
-                            <button className="mutedBtn"><span className="material-icons">skip_previous</span></button>
-                            <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
-                           </span>
+            //                 <button className="mutedBtn"><span className="material-icons">skip_previous</span></button>
+            //                 <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
+            //                </span>
     
-                            :
-                            <span>
+            //                 :
+            //                 <span>
                                 
 
-                                <button onClick={this.closeLiteKnewsView}><span className="material-icons">close</span></button>
-                                {this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1 ? 
-                                <span>
+            //                     <button onClick={this.closeLiteKnewsView}><span className="material-icons">close</span></button>
+            //                     {this.state.articleNumber > -2 && this.state.articleNumber === renderToPage.length - 1 ? 
+            //                     <span>
                                     
-                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span className="material-icons">skip_previous</span></button>
-                                    <button className="mutedBtn"><span className="material-icons">skip_next</span></button>
-                                </span>
-                                :
-                                <span>
+            //                         <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span className="material-icons">skip_previous</span></button>
+            //                         <button className="mutedBtn"><span className="material-icons">skip_next</span></button>
+            //                     </span>
+            //                     :
+            //                     <span>
                                     
-                                    <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span className="material-icons">skip_previous</span></button>
-                                    <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
-                                </span>
-                                }
+            //                         <button onClick={() => this.changeArticle(-1,renderToPage[this.state.articleNumber].id)}><span className="material-icons">skip_previous</span></button>
+            //                         <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
+            //                     </span>
+            //                     }
 
-                            </span>
-                        }
-                            {/* <button onClick={() => this.changeArticle(+1)}>Next Article</button>
-                            <button onClick={this.closeLiteKnewsView}>Exit</button> */}
-                        </div>
+            //                 </span>
+            //             }
+            //                 {/* <button onClick={() => this.changeArticle(+1)}>Next Article</button>
+            //                 <button onClick={this.closeLiteKnewsView}>Exit</button> */}
+            //             </div>
                         
-                    </div>
-                </div>
-            // Speed Knews End
+            //         </div>
+            //     </div>
+            // // Speed Knews End
             :
             <div id="cardArea">
                 <div id="topPageButtonWrapper">
                     {/* Speed Knews */}
                     <div id="speedKnewsButtonWrapper">
-                        <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>start liteKnews </button>
+                        {/* <button onClick={() => this.showArticle(renderToPage[this.state.articleNumber].id)}>start liteKnews </button> */}
+                        <button onClick={() => this.showArticle()}>start liteKnews </button>
                     </div>
                     
                     {/* Filter Options */}
