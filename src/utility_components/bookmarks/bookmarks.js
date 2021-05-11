@@ -5,6 +5,7 @@ import "../bookmarks/bookmarks.css";
 import RenderCard from '../renderCard/renderCard.js';
 
 import CustomCardSize from '../custom-tile-size/custom-card-sizeV2.js';
+import clearAllBookmarks from './clearAllBookmarks.js';
 class Bookmarks extends Component {
     constructor(props){
         super(props);
@@ -80,7 +81,7 @@ class Bookmarks extends Component {
 
     }
     clearBookmarks(){
-        localStorage.removeItem("bookmarkArray")
+        clearAllBookmarks();
         this.setState({bookmarks:[]})
     }
 
@@ -115,9 +116,9 @@ class Bookmarks extends Component {
     }
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        console.log(this.state.fullDatabaseCall)
+        // console.log(this.state.fullDatabaseCall)
         //   console.log(JSON.parse(localStorage.getItem("cleanDatabaseCall")))
-            console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+            // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
 
         return(
             <div id="bookmarkWrapper">

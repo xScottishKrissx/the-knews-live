@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import clearAllBookmarks from '../bookmarks/clearAllBookmarks';
 
 import "../optionsMenu/optionsMenu.css";
 
@@ -41,34 +42,31 @@ class OptionsMenu extends Component {
     }
 
     clearCache(removeFromCache){
-        // console.log("Clear Cache" + " " + removeFromCache)
-        if(removeFromCache.includes("clearCache")){
-            localStorage.clear()
-            var arrayThing = ["260px","400px"]
-            localStorage.setItem("myData", JSON.stringify(arrayThing));
-        }
-            
-        if(removeFromCache.includes("unhideArticles")){
-            localStorage.removeItem("changedFullDatabaseCall")
-            localStorage.removeItem("cleanDatabaseCall")
-            localStorage.removeItem("editedArticleArray")
-            localStorage.removeItem("editedLeftoverArticlesArray")
-            window.location.reload();
-        }
+            // console.log("Clear Cache" + " " + removeFromCache)
+            if(removeFromCache.includes("clearCache")){
+                localStorage.clear()
+                var arrayThing = ["260px","400px"]
+                localStorage.setItem("myData", JSON.stringify(arrayThing));
+            }
+                
+            if(removeFromCache.includes("unhideArticles")){
+                localStorage.removeItem("changedFullDatabaseCall")
+                localStorage.removeItem("cleanDatabaseCall")
+                localStorage.removeItem("editedArticleArray")
+                localStorage.removeItem("editedLeftoverArticlesArray")
+                window.location.reload();
+            }
 
-        if(removeFromCache.includes("resetCardSize")){
-            // console.log("Reset Card Size")
-            localStorage.removeItem("myData")
-            var arrayThing = ["260px","400px"]
-            localStorage.setItem("myData", JSON.stringify(arrayThing));
-            window.location.reload();
-        }
+            if(removeFromCache.includes("resetCardSize")){
+                // console.log("Reset Card Size")
+                localStorage.removeItem("myData")
+                var arrayThing = ["260px","400px"]
+                localStorage.setItem("myData", JSON.stringify(arrayThing));
+                window.location.reload();
+            }
 
-        if(removeFromCache.includes("removeBookmarks")){
-            // console.log("Clear Bookmarks")
-            localStorage.removeItem("bookmarkArray")
-            // window.location.reload();
-        }
+            if(removeFromCache.includes("removeBookmarks")){ clearAllBookmarks(); }
+
         this.toggleMenu()
         
     }
