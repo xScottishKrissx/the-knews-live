@@ -62,6 +62,7 @@ export class Caption extends React.Component{
                     pathname: '/theKnews/home/articles/news-page/' + pageId,
                     state:{
                         articleObject: this.props.test, 
+                        articleId:this.props.articleId
                         }
                 }}
                 

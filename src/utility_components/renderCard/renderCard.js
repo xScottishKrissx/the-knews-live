@@ -33,13 +33,13 @@ export const RenderCard = (props) => {
     // console.log(props.changedFullDatabaseCall)
     
 
-    function hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
-        HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
-        // console.log(arrayFromDatabase.length)
-        // handleHideArticleFeedback();
-        hideArticleFeedback()
+    // function hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
+    //     HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+    //     // console.log(arrayFromDatabase.length)
+    //     // handleHideArticleFeedback();
+    //     hideArticleFeedback()
 
-    }
+    // }
     function markAsReadAndHide(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         hideArticleFeedback()
@@ -155,6 +155,7 @@ export const RenderCard = (props) => {
                             style={ props.startingCardSize || props.changedCardSize } >                    
                                 <Caption 
                                     pageId={value.key}
+                                    articleId={value.id}
                                     title={value.title}
                                     author={value.author}
                                     likes={value.likes}
@@ -162,9 +163,9 @@ export const RenderCard = (props) => {
                                     articleId={value.id}
                                     tag={value.tag}
                                     imageId={value.id}
-
-                                    // Testing
                                     showArticle={props.showArticle}
+                                    // Testing
+
                                     />
                             </div>
                     

@@ -94,7 +94,15 @@ export class NewsPageVIEW extends React.Component{
       }
     render(){
       console.log("Render news-page-view.js")
-        const database = this.props.database;
+        // const database =  this.props.database;
+        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+        // console.log(this.props.articleId)
+        
+        const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
+        const getArticle = database.filter(obj => obj.id === this.props.articleId)
+        // console.log(filterThing)
+
+
         // console.log(this.state.articlesArray)
         // console.log(database)
         
@@ -102,7 +110,7 @@ export class NewsPageVIEW extends React.Component{
         //console.log({GeneratePostDate})
         //console.log(Number(database))
         // console.log(this.state.leftoverArticles)
-        const NewsPageView = database.map((value) => {
+        const NewsPageView = getArticle.map((value) => {
             // console.log(value)
             //console.log("current author email:: " + value.email)
             
@@ -127,6 +135,10 @@ export class NewsPageVIEW extends React.Component{
                         articleId={value.id}
                         email={value.email}
                         owns={this.state.ownsArticle}
+
+                        // Bookmarking
+                        bookmarked={value.bookmarked}
+                        read={value.read}
 
                         //Hiding
                         arrayFromDatabase={this.state.articlesArray}

@@ -31,6 +31,7 @@ const ArticleArea = (props) => {
     // console.log(props.articleId)
     // console.log(props.leftoverArticles)
     // console.log(props.fullDatabaseCall)
+    // console.log(props.bookmarked)
     function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         hideArticleFeedback()
@@ -47,7 +48,17 @@ const ArticleArea = (props) => {
             <span className="__header-container">
                 <div className='__article-header __1600_style'>
                     <header><h1>{props.title}</h1></header>
-                    
+                    {props.bookmarked === false ? 
+                        <p>Not Bookmarked</p>
+                        :
+                        <p>Bookmarked</p>
+                    }
+
+                    {props.read === false ? 
+                        <p>Not Read</p>
+                        :
+                        <p>Read</p>
+                    }
                 </div>
                 
                 

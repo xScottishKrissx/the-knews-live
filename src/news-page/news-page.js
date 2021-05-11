@@ -31,6 +31,7 @@ export class NewsPage extends React.Component{
     }
 
     componentDidMount(){        
+
         // console.log(this.props.match.params.id);
         const dave = this.props.match.params.id;
 
@@ -48,6 +49,8 @@ export class NewsPage extends React.Component{
                 newState.push({
                     key: item,
                     author: articles[item].author,
+                    bookmarked:articles[item].bookmarked,
+                    read:articles[item].read,
                     title: articles[item].title,
                     id:articles[item].id,
                     tag:articles[item].tag,
@@ -61,9 +64,10 @@ export class NewsPage extends React.Component{
             }
 
             this.setState({
+                fullDatabaseCall: newState,
                 articlesArray: newState.slice(0,30),
-                leftoverArticles: newState.slice(30,97),
-                fullDatabaseCall: newState
+                leftoverArticles: newState.slice(30,97)
+                
             })
             if(this.state.articlesArray.length === 0 ){
                 this.setState({showErrorMessage:true})
@@ -89,6 +93,7 @@ export class NewsPage extends React.Component{
     render(){    
         // console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
+    const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
     // console.log(this.state.showErrorMessage)
     return (
         
@@ -106,7 +111,9 @@ export class NewsPage extends React.Component{
 
 
         {arrayLength >= 1 ?         
-            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} fullDatabaseCall={this.state.fullDatabaseCall} leftoverArticles={this.state.leftoverArticles}  /> 
+            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} fullDatabaseCall={this.state.fullDatabaseCall} leftoverArticles={this.state.leftoverArticles}
+            articleId={this.props.location.state.articleId}
+            /> 
 
         
             : 
