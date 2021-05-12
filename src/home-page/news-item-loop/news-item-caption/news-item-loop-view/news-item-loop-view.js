@@ -1,19 +1,13 @@
 import React from 'react';
-import '../news-item-loop-view/news-item-loop-view.css';
-// import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-size.js';
-import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-sizeV2.js';
-import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
-import RenderCard from '../../../../utility_components/renderCard/renderCard';
-import ParseHTML from '../../../../utility_components/parse-database-html/parse-html';
-import HeaderImage from '../../../../utility_components/header-image/header-image';
-
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
-
-import loading from '../../../../img/loading5.gif';
 import {Link} from 'react-router-dom';
-import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
+
+import '../news-item-loop-view/news-item-loop-view.css';
+
+import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-sizeV2.js';
 import FilterOptions from '../../../../utility_components/filterOptions/filterOptions';
+import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
+import RenderCard from '../../../../utility_components/renderCard/renderCard';
+import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 
 class NewsItemLoopView extends React.Component{
 
@@ -36,118 +30,45 @@ class NewsItemLoopView extends React.Component{
         showArticle:false,
         renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
 
-        pressed:false,
-        toggle:"on",
-
-        thing2:""
         }
+        // Card Size Controls
         this.getCardSize = this.getCardSize.bind(this);
-        this.getArticlesBy = this.getArticlesBy.bind(this);
         // liteKnews
-        this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);
-
-        
-        
-    }
-
-    getCardSize(width,height){
-        // console.log(width +" "+ height)
-        this.setState({
-            startingCardSize:{
-                width:width,
-                height:height
-            }
-        })
-    }
-
-    componentDidMount(){
-
-        // If no filter option exists in storage, set as All to display a default view.
-        if(localStorage.getItem("filterOption") === null || undefined)localStorage.setItem("filterOption","All");
-
-        // Detect url params and set the view as appropriate. This functions as the tag page.
-        // console.log(this.props.urlTagProp)
-        const urlTagProp = this.props.urlTagProp;  
-        if(urlTagProp && urlTagProp.includes("news" || "News"))localStorage.setItem("filterOption","News");
-        if(urlTagProp && urlTagProp.includes("sports"||"Sports"))localStorage.setItem("filterOption","Sports");
-        if(urlTagProp && urlTagProp.includes("weather"||"Weather"))localStorage.setItem("filterOption","Weather");
-        if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
-
-        // Set filter option.
-        // this.getArticlesBy(localStorage.getItem("filterOption"))
-        
-    }
-
-    getArticlesBy(getArticleBy,id){
-
-        
-        console.log(getArticleBy)
-        // console.log(id)
-        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(fullDatabaseCallFromStorage)
-        const fullDatabaseCallFromProp = this.props.fullDatabaseCall
-        // console.log(fullDatabaseCallFromProp)
-
-        const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
-        // Filter array for null objects and remove anything marked as hidden.
-        const filteredForHiddenArticlesDB = fullDatabaseCall.filter(obj => 
-            obj !== null && 
-            obj.hidden !== true
-        );
-        
-        // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
-        const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === getArticleBy);
-        
-        // Change Colour of button to show focus
-        this.setState({
-            // getArticleBy:getArticleBy,
-            // renderArray:filteredByTag,
-            
-            
-            // leftoverArticles:leftoverArticles.slice(20)
-        })
-
-        // console.log(this.props.databaseProp)
-        // if(getArticleBy === "All")
-        // {
-        //         console.log("No Filter")
-        //        this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
-        // }
-
-        // Set Filter Option into local storage
-        localStorage.setItem("filterOption",getArticleBy)   
-        
+        this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
     }
 
 
-    componentDidUpdate(){
-        const bookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || JSON.parse(localStorage.getItem("bookmarkArray")) 
-        if(bookmarks){
-            const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
-            
-            var thing = markAsBookmark.map(el => {
-                if(el.read === true && el != null )
-                    if(document.getElementById(el.id)){document.getElementById(el.id).classList.add('markAsRead')}
-                    if(el.bookmarked === true && el != null){
-                        if(document.getElementById(el.id)){
-                            document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
-                        }
+
+componentDidUpdate(){
+    const bookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || JSON.parse(localStorage.getItem("bookmarkArray")) 
+    if(bookmarks){
+        const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
+        
+        var thing = markAsBookmark.map(el => {
+            if(el.read === true && el != null )
+                if(document.getElementById(el.id)){document.getElementById(el.id).classList.add('markAsRead')}
+                if(el.bookmarked === true && el != null){
+                    if(document.getElementById(el.id)){
+                        document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
                     }
-                }); 
-        }
+                }
+            }); 
     }
+}
 
+// Card Size Controls
+getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
+
+// LiteKnews
     showArticle(){
         this.setState({
             showArticle:true,
             renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
         })
     }
-    closeLiteKnewsView(){
-        this.setState({ showArticle:false})
-        console.log("Close LiteKnews")       
-    }
+    closeLiteKnewsView(){this.setState({ showArticle:false})}
 
+// filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
         this.setState({
             renderArray: filteredByTag,
@@ -156,11 +77,8 @@ class NewsItemLoopView extends React.Component{
 }
 
     render(){  
-        console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
-        // console.log(renderToPage)
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-        const changedFullDatabaseCall = this.state.renderArray;
 
         return(
             
@@ -172,37 +90,18 @@ class NewsItemLoopView extends React.Component{
             <div id="cardArea">
                 <div id="topPageButtonWrapper">
                     {/* Speed Knews */}
-                    <div id="speedKnewsButtonWrapper">
-                        <button onClick={() => this.showArticle()}>start liteKnews </button>
-                    </div>
-                    
+                    <div id="speedKnewsButtonWrapper"><button onClick={() => this.showArticle()}>start liteKnews </button></div>
                     {/* Filter Options */}
-                    <FilterOptions 
-                        // getArticleBy={() => this.getArticlesBy()} 
-                        fullDatabaseCall={this.props.fullDatabaseCall}
-                        getFilteredArticles = {this.getFilteredArticles}
-                         
-                        
-
-
-                    />
-                    {/* <div id="filterButtonWrapper">
-                        <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")} >News</button>
-                        <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>
-                        <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather</button>
-                        <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All","noFilterBtn")} >No Filter</button>
-                    </div> */}
-
+                    <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
                 </div>
                 
                 {/* Bookmark Page Link */}
                 <div>
                     <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
-                    <p>{this.state.thing2}</p>
                 </div>
         
                 
-                {/* Card Loop Display */}
+                {/* Displaying ALL / News / Sports etc articles at top of page. */}
                 <div id="filterOptionDisplay">
                     {this.state.getArticleBy === "All" ? 
                         <p>Displaying <span>{this.state.getArticleBy}</span> Articles</p>
@@ -210,29 +109,26 @@ class NewsItemLoopView extends React.Component{
                         <p>Displaying {renderToPage.length}<span>{this.state.getArticleBy}</span> Articles</p>
                     }
                 </div>
+                {/* Card Size Controls */}
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
                 {this.props.databaseProp.length >= 30 && thing ? 
-                
+                // The Cards themselves...
                  <RenderCard
-                 database={renderToPage}
-                 startingCardSize={this.state.startingCardSize}
-                 changedCardSize={this.state.changedCardSize}
-                 postsArray={this.state.postsArray}
-                 arrayFromDatabase={this.props.databaseProp} 
-                 leftoverArticles={this.props.leftoverArticles}  
-                 fullDatabaseCall={this.props.fullDatabaseCall}
-                 showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
-
-                //  testing
-                changedFullDatabaseCall={changedFullDatabaseCall}                 
-
+                    database={renderToPage}
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                    postsArray={this.state.postsArray}
+                    arrayFromDatabase={this.props.databaseProp} 
+                    leftoverArticles={this.props.leftoverArticles}  
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                    showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}          
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 }
                
                 {this.state.getArticleBy === "All" ?
-                 
+                //  Infinite Scroll
                     <ScrollCheckV2 
                         articlesArray={this.props.databaseProp}
                         startingCardSize={this.state.startingCardSize}

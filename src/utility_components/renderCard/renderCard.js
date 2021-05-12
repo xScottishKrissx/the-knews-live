@@ -25,21 +25,7 @@ import MarkAsRead from '../bookmarks/markAsRead.js';
 import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 
 export const RenderCard = (props) => {
-    // console.log(props.database)
-    // console.log(props.arrayFromDatabase)
-    // console.log(props.fullDatabaseCall)
-    // const toggleColour  =   props.updateStateTest;
-    
-    // console.log(props.changedFullDatabaseCall)
-    
 
-    // function hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
-    //     HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
-    //     // console.log(arrayFromDatabase.length)
-    //     // handleHideArticleFeedback();
-    //     hideArticleFeedback()
-
-    // }
     function markAsReadAndHide(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         hideArticleFeedback()
@@ -48,20 +34,16 @@ export const RenderCard = (props) => {
 
     
     function markAsRead(id,fullDatabaseCall){
-        // removeBookmark(id)
         MarkAsRead(id,fullDatabaseCall)
     ;}
 
     const pageView = props.database.map((value,key) => {
         
-        // console.log(props.arrayFromDatabase.length)
         
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load" >   
                 
-                {/* <CheckCache id={value.id}/> */}
-
-                {/* <HideArticle articleId={value.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
+    
                 
                 {props.bookmarked === false ?
                 
@@ -90,37 +72,8 @@ export const RenderCard = (props) => {
                         readStatus={value.read}
                         
                 />
-                // <div className="onCardControls">
-                    
-                //     {/* <button onClick={() => updateStateTest('someVar')}></button> */}
-
-                //     <div className="markAsReadButtonWrapper">
-                //         <button title="Mark As Read" onClick={()=>markAsRead(value.id)}> 
-                //             <span class="material-icons" >done</span>
-                //         </button>
-                //     </div>  
-
-                //     <div className="bookmarkButtonWrapper">
-                //         <button title="Bookmark Article" onClick={()=>swipeLeftAction(value.id,props.fullDatabaseCall,props.changedFullDatabaseCall )}>
-                //             <span  class="material-icons" id={value.id + "bookmarkIcon"}>turned_in_not</span> 
-                //         </button>
-                //     </div>  
-
-                //     <div className="hideArticleButtonWrapper">
-                //         <button title="Hide Article" onClick={() => hideArticle(value.id,props.postsArray,props.arrayFromDatabase,props.leftoverArticles,props.fullDatabaseCall)}>
-                //             <span class="material-icons">visibility_off</span>
-                //         </button>
-                //     </div>  
-
-  
-
-
-
-                // </div>
                 }
    
-
-                {/* <div onClick={() => showArticle(value.id)}>Show Article1</div> */}
                 
 
                 <SwipeableList threshold= {0.25} swipeStartThreshold={1}>

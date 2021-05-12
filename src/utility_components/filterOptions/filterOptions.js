@@ -31,54 +31,34 @@ class FilterOptions extends Component {
     }
     getArticlesBy(value,id){
 
-        
-        // console.log(value)
-        // console.log(id)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(fullDatabaseCallFromStorage)
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
-        // console.log(fullDatabaseCallFromProp)
-
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
-        // console.log(fullDatabaseCall)
-
         // Filter array for null objects and remove anything marked as hidden.
         const filteredForHiddenArticlesDB = fullDatabaseCall.filter(obj => 
             obj !== null && 
             obj.hidden !== true
         );
-        // console.log(filteredForHiddenArticlesDB)
 
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
-        // console.log(filteredByTag)
-
-        // Change Colour of button to show focus
         this.setState({
             getArticleBy:value,
             renderArray:filteredByTag,
-            
-            // leftoverArticles:leftoverArticles.slice(20)
         })
-        // console.log(this.state.getArticleBy)
 
-        // console.log(this.props.databaseProp)
         var updateState = this.props.getFilteredArticles;
-        
         if(value === "All"){
-            console.log("Show All")
+            // console.log("Show All")
             // this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
             updateState(filteredForHiddenArticlesDB,value)
         }else{
-            console.log("Show " + value)
+            // console.log("Show " + value)
             updateState(filteredByTag,value)
         }
         
         // Set Filter Option into local storage
-        localStorage.setItem("filterOption",value) 
-
-
-     
+        localStorage.setItem("filterOption",value)      
     }
 
     render(){
