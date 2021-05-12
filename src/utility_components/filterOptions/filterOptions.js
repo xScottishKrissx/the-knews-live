@@ -32,7 +32,7 @@ class FilterOptions extends Component {
     getArticlesBy(value,id){
 
         
-        console.log(value)
+        // console.log(value)
         // console.log(id)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         // console.log(fullDatabaseCallFromStorage)
@@ -40,12 +40,15 @@ class FilterOptions extends Component {
         // console.log(fullDatabaseCallFromProp)
 
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
+        // console.log(fullDatabaseCall)
+
         // Filter array for null objects and remove anything marked as hidden.
         const filteredForHiddenArticlesDB = fullDatabaseCall.filter(obj => 
             obj !== null && 
             obj.hidden !== true
         );
-        
+        // console.log(filteredForHiddenArticlesDB)
+
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
         // console.log(filteredByTag)
@@ -60,12 +63,21 @@ class FilterOptions extends Component {
         // console.log(this.state.getArticleBy)
 
         // console.log(this.props.databaseProp)
-        if(value === "All")this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
+        var updateState = this.props.getFilteredArticles;
+        
+        if(value === "All"){
+            console.log("Show All")
+            // this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
+            updateState(filteredForHiddenArticlesDB,value)
+        }else{
+            console.log("Show " + value)
+            updateState(filteredByTag,value)
+        }
         
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value) 
-        var updateState = this.props.getFilteredArticles;
-        updateState(filteredByTag,value)
+
+
      
     }
 
@@ -73,13 +85,9 @@ class FilterOptions extends Component {
         return (
             <div id="filterButtonWrapper">
                 <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")}>News</button>
-
-                <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>
-
-  
+                <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>  
                 <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather</button>
                 <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All","noFilterBtn")} >No Filter</button>
-                
             </div>
         )
     }

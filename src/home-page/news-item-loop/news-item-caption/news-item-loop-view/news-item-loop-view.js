@@ -74,14 +74,14 @@ class NewsItemLoopView extends React.Component{
         if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
 
         // Set filter option.
-        this.getArticlesBy(localStorage.getItem("filterOption"))
+        // this.getArticlesBy(localStorage.getItem("filterOption"))
         
     }
 
     getArticlesBy(getArticleBy,id){
 
         
-        // console.log(getArticleBy)
+        console.log(getArticleBy)
         // console.log(id)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         // console.log(fullDatabaseCallFromStorage)
@@ -100,16 +100,20 @@ class NewsItemLoopView extends React.Component{
         
         // Change Colour of button to show focus
         this.setState({
-            getArticleBy:getArticleBy,
-            renderArray:filteredByTag,
+            // getArticleBy:getArticleBy,
+            // renderArray:filteredByTag,
             
             
             // leftoverArticles:leftoverArticles.slice(20)
         })
 
         // console.log(this.props.databaseProp)
-        if(getArticleBy === "All")this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
-        
+        // if(getArticleBy === "All")
+        // {
+        //         console.log("No Filter")
+        //        this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
+        // }
+
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",getArticleBy)   
         
@@ -146,13 +150,13 @@ class NewsItemLoopView extends React.Component{
 
     getFilteredArticles = (filteredByTag,getArticleBy) => {
         this.setState({
-            renderArray:filteredByTag,
-            getArticleBy:getArticleBy
+            renderArray: filteredByTag,
+            getArticleBy:getArticleBy,
         })
 }
 
     render(){  
-        // console.log(this.state.renderArray)
+        console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         // console.log(renderToPage)
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
