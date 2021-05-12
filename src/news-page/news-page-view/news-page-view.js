@@ -20,19 +20,11 @@ export class NewsPageVIEW extends React.Component{
             articlesArray: [],
             leftoverArticles:[],
             fullDatabaseCall:[],
-            author:'',
-            email:'',
-            title:'',
-            text:'',
-            ownsArticle: '',
-            postdate:'',
-            user:'',
-            tag:''
             
         }
     }
     componentDidMount(){
-        this.setState({ownsArticle: false})
+        // this.setState({ownsArticle: false})
 
         const dbRef = fire.database().ref("items").orderByKey();   
            
@@ -59,25 +51,25 @@ export class NewsPageVIEW extends React.Component{
             })
           }
           this.setState({
+            fullDatabaseCall: newState,
             articlesArray: newState.slice(0,30),
-            leftoverArticles: newState.slice(30,97),
-            fullDatabaseCall: newState
+            leftoverArticles: newState.slice(30,97)
           })
  
           
           // Check if User is Logged In...
-          const checkUser = fire.auth().currentUser;
+          // const checkUser = fire.auth().currentUser;
   
           // If they Exist Check to see if they have already created article
-          if(checkUser){
-            console.log(checkUser.email);
-            if(checkUser.email === "chrisdunne66@gmail.com"){
-                this.setState({ownsArticle: true})
-            }
-          //... if they haven't then don't do anything.
-          }else{
-            console.log("Not Logged In")
-          }
+          // if(checkUser){
+          //   console.log(checkUser.email);
+          //   if(checkUser.email === "chrisdunne66@gmail.com"){
+          //       this.setState({ownsArticle: true})
+          //   }
+          // //... if they haven't then don't do anything.
+          // }else{
+          //   console.log("Not Logged In")
+          // }
         })
     }
 
@@ -91,7 +83,7 @@ export class NewsPageVIEW extends React.Component{
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         const getArticle = database.filter(obj => obj.id === this.props.articleId)
-
+       console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
             // console.log(value)
             //console.log("current author email:: " + value.email)

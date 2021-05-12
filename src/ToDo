@@ -107,15 +107,14 @@ Codebase:
 
     V12.4 Code Cleanup:
         Objectives:
-            ☐ To significantly reduce the size of news-item-loop-view.js
-            ☐ Reduce duplicate code and minimise bloat
-            ☐ To identify areas of code that can be simplified or improved
+            ✔ To significantly reduce the size of news-item-loop-view.js @done(17:20 - 12/05/21)
+            ✔ Reduce duplicate code and minimise bloat @done(17:20 - 12/05/21)
+            ✔ To identify areas of code that can be simplified or improved @done(17:20 - 12/05/21)
         To-Do:
             ✔ New Component For liteKnews @done(16:32 - 12/05/21)
             ✔ New Component for Filter View Controls @done(16:33 - 12/05/21)
             ✔ Cleanup the componentDidUpdates that all do the same thing @done(16:57 - 12/05/21)
-        Issues / Bugs:
-            ☐ Probably a million
+
             
                 
     2021 Restart:
@@ -260,7 +259,7 @@ General Notes  Objectives:
                                     ☐ I could also add them to a separate bookmark page
                                     
                             
-                        Add Bookmarking Functionality to Swipe Left:
+                       12.3 Add Bookmarking Functionality to Swipe Left:
                             ☐ Goals
                                 ✔ Swiping left on a card will add that card to a list of bookmarks @done(13:32 - 03/05/21)
                                 ✔ You can view these bookmarks in a separate page @done(13:32 - 03/05/21)
@@ -285,14 +284,18 @@ General Notes  Objectives:
                                     ✔ Show this in the article @done(13:54 - 11/05/21)
                                     ✔ ...also added bookmarked status to the article @done(13:54 - 11/05/21)
                                 ☐ Put the bookmark page link somewhere else
-                                    ☐ Might leave this until the UI overhaul im planning
+                                    // Leave this until the UI overhaul im planning (V12.10)
                                 ☐ Add bookmark functionality to articles and liteKnews
-                                    ☐ Do liteKnews after it's component has been created.
-                                ☐ Add filter options to bookmark pages.
-                                    ☐ After splitting the filters code into its own component.
+                                    // Do liteKnews after it's component has been created.
+                                ☐ Add filter options to bookmark pages
+                                    // After splitting the filters code into its own component.
                                 ☐ Just an overall better UI
-                                    ☐ After the code cleanup
-                                
+                                    // After the code cleanup
+                                12.5 Finishing Bookmarks:
+                                    ☐ Add bookmark functionality to articles
+                                    ☐ Add Bookmark functionality to liteKnews
+                                    ☐ Add filter options to bookmark page
+
                             Issues:
                                 ✔ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet) @done(12:58 - 04/05/21)
                                 ✔ Bookmarking an article then pressing the " mark as read and hide" button will result in an empty home page. Hiding an article on the home page BEFORE going to the bookmark page will NOT result in the same error but work as expected. @done(16:41 - 05/05/21)
@@ -1027,21 +1030,21 @@ Part 2 Implement Database functionality:
             ✔ 12.2 - Redo the card controls to improve the usablity of cards. @done(12:10 - 29/04/21)
             ✘ 12.3 - Add proper back button to articles(i.e go back one page, not just home) @cancelled(13:27 - 30/04/21)
                 // It's really not necessary as the browser back button does the same thing and breadcrumbs are irrelevant for my website.
-            ☐ 12.3 - Implement Bookmarking into swipe left(and the rest of the website)
-                ☐ Still work to be done after code cleanup
-            ☐ 12.4 - Code Review (Splitting Code into components)
-            ☐ 12.5 - Get Like and Dislike to work separate from myKnews
-            ☐ 12.6 - Look into swiping liteKnews to switch articles
-            ☐ 12.7 - Redo Recommended Reading Section
-            ☐ 12.8 - Misc Bug Fixes & Tweaks
+            ✔ 12.3 - Implement Bookmarking into swipe left(and the rest of the website) @done(17:24 - 12/05/21)
+            ✔ 12.4 - Code Review (Splitting Code into components) @done(17:23 - 12/05/21)
+            ☐ 12.5 - Finish Remaining Bookmark work
+            ☐ 12.6 - Get Like and Dislike to work separate from myKnews
+            ☐ 12.7 - Look into swiping liteKnews to switch articles
+            ☐ 12.8 - Redo Recommended Reading Section
+            ☐ 12.9 - Misc Bug Fixes & Tweaks
                 ☐ Fix the scroll activate for larger than 1800px wide windows
                 ☐ Can I reset scroll position when switching articles in liteKnews?
                 ☐ Do another style pass for card controls(different layout at larger widths?)
                 ☐ Look into "undo hide"
                 ☐ Look into animations for hiding articles.
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
-            ☐ 12.9 - Overhaul Main UI
-            ☐ 12.10 - ???
+            ☐ 12.10 - Overhaul Main UI
+
         
 
         Version 11.1 - Bug Fixes:
