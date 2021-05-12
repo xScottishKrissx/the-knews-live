@@ -44,25 +44,26 @@ class Bookmarks extends Component {
               // console.log("App.js Mounted")
       const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
       cleanDB.on('value', (snapshot) => {
-          let newsItems = snapshot.val();
-          // console.log(newsItems);
-          let newState = [];
-          for(let newsItem in newsItems){
-              newState.push({
-                  key: newsItem,
-                  bookmarked:newsItems[newsItem].bookmarked,
-                  read:newsItems[newsItem].read,
-                  hidden:newsItems[newsItem].hidden,
-                  author: newsItems[newsItem].author,
-                  title: newsItems[newsItem].title,
-                  likes: newsItems[newsItem].likes,
-                  dislikes: newsItems[newsItem].dislikes,
-                  id:newsItems[newsItem].id,
-                  tag:newsItems[newsItem].tag,
-                  text:newsItems[newsItem].text
-              });
-              // console.log(newState)
-          }
+        let dbObjects = snapshot.val();
+        let newState = [];
+        for (let dbObject in dbObjects){
+          newState.push({
+            author: dbObjects[dbObject].author,
+            bookmarked: dbObjects[dbObject].bookmarked,
+            dislikes:dbObjects[dbObject].dislikes,
+            email:dbObjects[dbObject].email,
+            hidden:dbObjects[dbObject].hidden,
+            id:dbObjects[dbObject].id,
+            key:dbObject,
+            likes:dbObjects[dbObject].likes,
+            postdate:dbObjects[dbObject].postdate,
+            read: dbObjects[dbObject].read,
+            tag:dbObjects[dbObject].tag,
+            text:dbObjects[dbObject].text,
+            title:dbObjects[dbObject].title,
+           
+          })
+        }
           this.setState({
             fullDatabaseCall: newState,
               articlesArray: newState.slice(0,30),

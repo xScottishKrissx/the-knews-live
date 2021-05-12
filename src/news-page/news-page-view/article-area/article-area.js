@@ -12,6 +12,7 @@ import PageScore from '../social/page-score.js';
 import './article-area.css';
 import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
 import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
+import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
 
 
 
@@ -37,6 +38,9 @@ const ArticleArea = (props) => {
         hideArticleFeedback()
         // console.log(arrayFromDatabase.length)
     }
+    // bookmarkArticle = () => {
+    //     createBookmark();
+    // }
     
     return (
             
@@ -49,9 +53,11 @@ const ArticleArea = (props) => {
                 <div className='__article-header __1600_style'>
                     <header><h1>{props.title}</h1></header>
                     {props.bookmarked === false ? 
-                        <p>Not Bookmarked</p>
+                       
+                        <button onClick={()=>createBookmark(props.articleId,props.fullDatabaseCall)}>Not Bookmarked</button>
+                        
                         :
-                        <p>Bookmarked</p>
+                        <button>Bookmarked</button>
                     }
 
                     {props.read === false ? 

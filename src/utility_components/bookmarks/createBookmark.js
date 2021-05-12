@@ -2,12 +2,15 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     // console.log(id)
     // console.log(database)
     // console.log(changedFullDatabaseCall)
-    // console.log("Bookmark created with article " + id)
+    console.log("Bookmark created with article " + id)
 
     // document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
     // document.getElementById(id).classList.remove('markAsRead')
 
-    document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
+    if(document.getElementById(id + "bookmarkIcon")){
+        document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
+    }
+    
     // document.getElementById(id).classList.remove('markAsRead')
     
     // Set initial array
@@ -39,6 +42,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     localStorage.setItem("bookmarkArray", JSON.stringify(setBookmarkTrue))
     // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
+    console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
     // changedFullDatabaseCall
 }
 

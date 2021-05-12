@@ -1021,7 +1021,8 @@ Part 2 Implement Database functionality:
                 // I need to move on from this project so i'm cancelling this. It's time to move on, i'll incorporate this into other projects.
                 // 11 March 2021 - ...is it though?
 
-            ☐ 13.1 - 
+            ☐ 13.1 - Ensure all pages can be shareable(articles, tag pages, bookmarks etc)
+                // 12/5/2021 - article pages are currently not working when directly accessed from firefox
 
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)

@@ -7,6 +7,7 @@ import NewsPageVIEW from './news-page-view/news-page-view.js';
 
 import loading from '../img/loading5.gif';
 
+
 export class NewsPage extends React.Component{
 
     constructor(props){
@@ -28,28 +29,30 @@ export class NewsPage extends React.Component{
 
     componentDidMount(){        
 
-
+        console.log("Mounted")
         const dave = this.props.match.params.id;
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
 
         dbRef.on('value', (snapshot) => {
-            let articles = snapshot.val();
+            let dbObjects = snapshot.val();
             let newState = [];
-            for(let item in articles){
-                newState.push({
-                    key: item,
-                    author: articles[item].author,
-                    bookmarked:articles[item].bookmarked,
-                    read:articles[item].read,
-                    title: articles[item].title,
-                    id:articles[item].id,
-                    tag:articles[item].tag,
-                    email:articles[item].email,
-                    text: articles[item].text,
-                    likes: articles[item].likes,
-                    dislikes: articles[item].dislikes,
-                    postdate: articles[item].postdate,
-                });
+            for (let dbObject in dbObjects){
+              newState.push({
+                author: dbObjects[dbObject].author,
+                bookmarked: dbObjects[dbObject].bookmarked,
+                dislikes:dbObjects[dbObject].dislikes,
+                email:dbObjects[dbObject].email,
+                hidden:dbObjects[dbObject].hidden,
+                id:dbObjects[dbObject].id,
+                key:dbObject,
+                likes:dbObjects[dbObject].likes,
+                postdate:dbObjects[dbObject].postdate,
+                read: dbObjects[dbObject].read,
+                tag:dbObjects[dbObject].tag,
+                text:dbObjects[dbObject].text,
+                title:dbObjects[dbObject].title,
+               
+              })
             }
 
             this.setState({

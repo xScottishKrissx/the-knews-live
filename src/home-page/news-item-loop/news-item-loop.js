@@ -29,23 +29,25 @@ class MapDatabaseItems extends React.Component{
     // This is the initial database query.
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);     
         dbRef.on('value', (snapshot) => {
-            let newsItems = snapshot.val();
-            // console.log(newsItems);
+            let dbObjects = snapshot.val();
             let newState = [];
-            for(let newsItem in newsItems){
-                newState.push({
-                    key: newsItem,
-                    tag: newsItems[newsItem].tag,
-                    id:newsItems[newsItem].id,
-                    hidden:newsItems[newsItem].hidden,
-                    author: newsItems[newsItem].author,
-                    bookmarked: newsItems[newsItem].bookmarked,
-                    read: newsItems[newsItem].read,
-                    title: newsItems[newsItem].title,
-                    text: newsItems[newsItem].text,
-                    likes: newsItems[newsItem].likes,
-                    dislikes: newsItems[newsItem].dislikes  
-                });
+            for (let dbObject in dbObjects){
+              newState.push({
+                author: dbObjects[dbObject].author,
+                bookmarked: dbObjects[dbObject].bookmarked,
+                dislikes:dbObjects[dbObject].dislikes,
+                email:dbObjects[dbObject].email,
+                hidden:dbObjects[dbObject].hidden,
+                id:dbObjects[dbObject].id,
+                key:dbObject,
+                likes:dbObjects[dbObject].likes,
+                postdate:dbObjects[dbObject].postdate,
+                read: dbObjects[dbObject].read,
+                tag:dbObjects[dbObject].tag,
+                text:dbObjects[dbObject].text,
+                title:dbObjects[dbObject].title,
+               
+              })
             }
             this.setState({
                 //Set's the initial number of articles loaded into home.

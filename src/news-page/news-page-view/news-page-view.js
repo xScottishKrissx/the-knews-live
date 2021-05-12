@@ -35,21 +35,21 @@ export class NewsPageVIEW extends React.Component{
             newState.push({
               author: dbObjects[dbObject].author,
               bookmarked: dbObjects[dbObject].bookmarked,
-              read: dbObjects[dbObject].read,
-              hidden:dbObjects[dbObject].hidden,
+              dislikes:dbObjects[dbObject].dislikes,
               email:dbObjects[dbObject].email,
+              hidden:dbObjects[dbObject].hidden,
+              id:dbObjects[dbObject].id,
+              key:dbObject,
+              likes:dbObjects[dbObject].likes,
+              postdate:dbObjects[dbObject].postdate,
+              read: dbObjects[dbObject].read,
+              tag:dbObjects[dbObject].tag,
               text:dbObjects[dbObject].text,
               title:dbObjects[dbObject].title,
-              tag:dbObjects[dbObject].tag,
-  
-              postdate:dbObjects[dbObject].postdate,
-              likes:dbObjects[dbObject].likes,
-              dislikes:dbObjects[dbObject].dislikes,
-              id:dbObjects[dbObject].id,
-              key:dbObject
              
             })
           }
+          
           this.setState({
             fullDatabaseCall: newState,
             articlesArray: newState.slice(0,30),
