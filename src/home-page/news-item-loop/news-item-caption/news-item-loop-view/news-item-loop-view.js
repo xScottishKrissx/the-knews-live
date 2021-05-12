@@ -8,6 +8,7 @@ import FilterOptions from '../../../../utility_components/filterOptions/filterOp
 import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
 import RenderCard from '../../../../utility_components/renderCard/renderCard';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
+import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
 
 class NewsItemLoopView extends React.Component{
 
@@ -40,20 +41,7 @@ class NewsItemLoopView extends React.Component{
 
 
 componentDidUpdate(){
-    const bookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || JSON.parse(localStorage.getItem("bookmarkArray")) 
-    if(bookmarks){
-        const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
-        
-        var thing = markAsBookmark.map(el => {
-            if(el.read === true && el != null )
-                if(document.getElementById(el.id)){document.getElementById(el.id).classList.add('markAsRead')}
-                if(el.bookmarked === true && el != null){
-                    if(document.getElementById(el.id)){
-                        document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
-                    }
-                }
-            }); 
-    }
+    updateBookmarkStyles();
 }
 
 // Card Size Controls
@@ -143,16 +131,11 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 :
                 // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
-                }
-                
-                
+                }       
             </div>
             }
             </div>
-        )
-
-
-        
+        )        
     }
 }
 

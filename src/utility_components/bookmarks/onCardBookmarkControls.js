@@ -11,6 +11,7 @@ import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 import HideArticle from '../../utility_components/hide-article/hide-articlev2.js';
 import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
 import removeBookmark from './removeBookmark';
+import updateBookmarkStyles from './updateBookmarkStyle';
 
 class OnCardBookMarkControls extends Component {
     constructor(props){
@@ -49,6 +50,11 @@ componentDidMount(){
         this.setState({toggle:false, read:false})
     } 
 }
+
+componentDidUpdate(){
+    updateBookmarkStyles();
+}
+
 toggle(id){
 
     if(this.state.toggle === false){

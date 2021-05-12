@@ -111,8 +111,8 @@ Codebase:
             ☐ Reduce duplicate code and minimise bloat
             ☐ To identify areas of code that can be simplified or improved
         To-Do:
-            ☐ New Component For liteKnews
-            ☐ New Component for Filter View Controls
+            ✔ New Component For liteKnews @done(16:32 - 12/05/21)
+            ✔ New Component for Filter View Controls @done(16:33 - 12/05/21)
             ☐ Cleanup the componentDidUpdates that all do the same thing
         Issues / Bugs:
             ☐ Probably a million

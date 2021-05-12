@@ -9,6 +9,7 @@ import CustomCardSize from '../custom-tile-size/custom-card-sizeV2.js';
 import clearAllBookmarks from './clearAllBookmarks.js';
 import markAllUnread from './markAllUnread.js';
 import hideAllArticles from './hideAllArticles.js';
+import updateBookmarkStyles from './updateBookmarkStyle.js';
 
 
 class Bookmarks extends Component {
@@ -95,32 +96,9 @@ class Bookmarks extends Component {
     }
     
     componentDidUpdate(){
-        const bookmarks = JSON.parse(localStorage.getItem("bookmarkArray")) 
-        // console.log(bookmarks)
-        // console.log(this.state.toggle)
-        if(bookmarks){
-            const markAsBookmark = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
-
-            var thing = markAsBookmark.map(el => {
-                // console.log(el.id)
-                if(el.read === true && el != null )
-
-                    if(document.getElementById(el.id)){
-                        document.getElementById(el.id).classList.add('markAsRead')
-                    }
-
-                    if(el.bookmarked === true && el != null){
-                        if(document.getElementById(el.id)){
-                            document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
-                            // document.getElementById(el.id).classList.remove('markAsRead')
-                        }
-                    }
-
-                });
-                
-        }
-
+        updateBookmarkStyles();
     }
+
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
