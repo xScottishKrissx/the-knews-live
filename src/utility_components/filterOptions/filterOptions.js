@@ -32,7 +32,7 @@ class FilterOptions extends Component {
     getArticlesBy(value,id){
 
         
-        // console.log(value)
+        console.log(value)
         // console.log(id)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         // console.log(fullDatabaseCallFromStorage)
@@ -64,33 +64,22 @@ class FilterOptions extends Component {
         
         // Set Filter Option into local storage
         localStorage.setItem("filterOption",value) 
-        
-        this.props.updateView(this.state.getArticleBy,this.state.renderArray)
-        console.log(this.state.getArticleBy)
-        console.log(this.state.renderArray)
-    }
-// updateView(value,value2){
-//     // console.log("thing")
-//     const thing = "thing"
-//     this.props.updateView(this.state.getArticleBy)
-    
-// }
-    render(){
+        var updateState = this.props.getFilteredArticles;
+        updateState(filteredByTag,value)
      
+    }
+
+    render(){
         return (
             <div id="filterButtonWrapper">
-                <button 
-                    className="filterButton" 
-                    id="newsFilterBtn" 
-                    onClick={() => this.getArticlesBy("News","newsFilterBtn")
-                    
-                } 
-                    
-                    >News</button>
+                <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")}>News</button>
 
                 <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>
+
+  
                 <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather</button>
                 <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All","noFilterBtn")} >No Filter</button>
+                
             </div>
         )
     }

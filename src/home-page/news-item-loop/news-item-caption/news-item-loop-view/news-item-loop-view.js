@@ -37,7 +37,9 @@ class NewsItemLoopView extends React.Component{
         renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
 
         pressed:false,
-        toggle:"on"
+        toggle:"on",
+
+        thing2:""
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.getArticlesBy = this.getArticlesBy.bind(this);
@@ -76,10 +78,10 @@ class NewsItemLoopView extends React.Component{
         
     }
 
-    getArticlesBy(value,id){
+    getArticlesBy(getArticleBy,id){
 
         
-        // console.log(value)
+        // console.log(getArticleBy)
         // console.log(id)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         // console.log(fullDatabaseCallFromStorage)
@@ -94,21 +96,23 @@ class NewsItemLoopView extends React.Component{
         );
         
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
-        const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
+        const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === getArticleBy);
         
         // Change Colour of button to show focus
         this.setState({
-            getArticleBy:value,
+            getArticleBy:getArticleBy,
             renderArray:filteredByTag,
+            
             
             // leftoverArticles:leftoverArticles.slice(20)
         })
 
         // console.log(this.props.databaseProp)
-        if(value === "All")this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
+        if(getArticleBy === "All")this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
         
         // Set Filter Option into local storage
-        localStorage.setItem("filterOption",value)   
+        localStorage.setItem("filterOption",getArticleBy)   
+        
     }
 
 
@@ -139,20 +143,18 @@ class NewsItemLoopView extends React.Component{
         this.setState({ showArticle:false})
         console.log("Close LiteKnews")       
     }
-    updateView(value,value2){
-        console.log(value)
-        console.log(value2)
-        // this.setState({ showArticle:false})
-        this.setState({
-            getArticleBy:value,
-            renderArray:value2,
-        })
-    }
 
+    getFilteredArticles = (filteredByTag,getArticleBy) => {
+        this.setState({
+            renderArray:filteredByTag,
+            getArticleBy:getArticleBy
+        })
+}
 
     render(){  
-      
+        // console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
+        // console.log(renderToPage)
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         const changedFullDatabaseCall = this.state.renderArray;
 
@@ -172,9 +174,11 @@ class NewsItemLoopView extends React.Component{
                     
                     {/* Filter Options */}
                     <FilterOptions 
-                        getArticleBy={() => this.getArticlesBy()} 
+                        // getArticleBy={() => this.getArticlesBy()} 
                         fullDatabaseCall={this.props.fullDatabaseCall}
-                        updateView={()=>this.updateView}
+                        getFilteredArticles = {this.getFilteredArticles}
+                         
+                        
 
 
                     />
@@ -190,6 +194,7 @@ class NewsItemLoopView extends React.Component{
                 {/* Bookmark Page Link */}
                 <div>
                     <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
+                    <p>{this.state.thing2}</p>
                 </div>
         
                 
