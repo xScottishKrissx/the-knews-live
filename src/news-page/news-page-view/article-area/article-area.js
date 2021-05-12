@@ -13,6 +13,7 @@ import './article-area.css';
 import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
 import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
 import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
+import removeBookmark from '../../../utility_components/bookmarks/removeBookmark.js';
 
 
 
@@ -54,10 +55,16 @@ const ArticleArea = (props) => {
                     <header><h1>{props.title}</h1></header>
                     {props.bookmarked === false ? 
                        
-                        <button onClick={()=>createBookmark(props.articleId,props.fullDatabaseCall)}>Not Bookmarked</button>
+                        <button onClick={()=>createBookmark(props.articleId,props.fullDatabaseCall)}>
+                            <span>Not Bookmarked</span>
+                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}>turned_in</span>
+                        </button>
                         
                         :
-                        <button>Bookmarked</button>
+                        <button onClick={()=>removeBookmark(props.articleId)}>
+                            <span>Bookmarked</span>
+                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}>turned_in_not</span> 
+                        </button>
                     }
 
                     {props.read === false ? 
