@@ -33,11 +33,8 @@ export class NewsPageVIEW extends React.Component{
     }
     componentDidMount(){
         this.setState({ownsArticle: false})
-        // console.log("News-Page-View.js")
 
         const dbRef = fire.database().ref("items").orderByKey();   
-       // console.log("db-ref: " + dbRef);
-
            
         dbRef.on('value', (snapshot) => {
           let dbObjects = snapshot.val();
@@ -66,11 +63,7 @@ export class NewsPageVIEW extends React.Component{
             leftoverArticles: newState.slice(30,97),
             fullDatabaseCall: newState
           })
-          // console.log(this.state.articlesArray)
-          // console.log(this.props.params)
-         
-          //console.log(((this.state.articlesArray).length) + 1)
-  
+ 
           
           // Check if User is Logged In...
           const checkUser = fire.auth().currentUser;
@@ -94,22 +87,11 @@ export class NewsPageVIEW extends React.Component{
       }
     render(){
       console.log("Render news-page-view.js")
-        // const database =  this.props.database;
-        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-        // console.log(this.props.articleId)
+
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         const getArticle = database.filter(obj => obj.id === this.props.articleId)
-        // console.log(filterThing)
 
-
-        // console.log(this.state.articlesArray)
-        // console.log(database)
-        
-        //console.log(this.props.scrollpos)
-        //console.log({GeneratePostDate})
-        //console.log(Number(database))
-        // console.log(this.state.leftoverArticles)
         const NewsPageView = getArticle.map((value) => {
             // console.log(value)
             //console.log("current author email:: " + value.email)
@@ -152,7 +134,6 @@ export class NewsPageVIEW extends React.Component{
                 </div>
             )
         })
-        // console.log("Props are:: " + this.props.params);
         return (
             
             <div>
@@ -170,7 +151,6 @@ export class NewsPageVIEW extends React.Component{
             </div>
         )
 
-        // return NewsPageView;
     }
     
 }

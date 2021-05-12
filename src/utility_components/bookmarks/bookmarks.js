@@ -101,7 +101,7 @@ class Bookmarks extends Component {
 
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
 
         return(
             <div id="bookmarkWrapper">

@@ -1,7 +1,5 @@
 import React from 'react';
-import ClearCache from '../utility_components/handleCache/ClearCache';
 import './home.css';
-
 
 import NewsItemLoop from './news-item-loop/news-item-loop.js'
 export class Home extends React.Component{
@@ -14,10 +12,7 @@ export class Home extends React.Component{
 
         return(
             <div className='home-wrapper' >                
-                
-                <div className="news-item-wrapper">
-                    {/* <ClearCache /> */}
-                   
+                <div className="news-item-wrapper">                   
                     <NewsItemLoop urlTagProp={this.props.match.params.tagname }/>        
                 </div>
             </div>

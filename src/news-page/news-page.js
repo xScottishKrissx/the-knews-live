@@ -1,13 +1,9 @@
 import React from 'react';
-// import MediaQuery from 'react-responsive';
 
 import fire from '../fire.js'
 import {Link} from 'react-router-dom';
 import NewsPageVIEW from './news-page-view/news-page-view.js';
-// import DummyData from '../home-page/dummy-data.js';
-// import PracticeForm from '../myKnews/practice-form.js';
 
-// const dummyNews = DummyData;
 
 import loading from '../img/loading5.gif';
 
@@ -32,16 +28,10 @@ export class NewsPage extends React.Component{
 
     componentDidMount(){        
 
-        // console.log(this.props.match.params.id);
-        const dave = this.props.match.params.id;
 
-        // console.log(this.props.location.state.articleObject)
-        // console.log(this.props.location.search)
-        // console.log(this.props.match.params.id)
-        // console.log(dave)
+        const dave = this.props.match.params.id;
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
-        // console.log(dbRef)
-        // console.log(this.props.match.params.id);
+
         dbRef.on('value', (snapshot) => {
             let articles = snapshot.val();
             let newState = [];
@@ -60,7 +50,6 @@ export class NewsPage extends React.Component{
                     dislikes: articles[item].dislikes,
                     postdate: articles[item].postdate,
                 });
-                // console.log("New State is:: " + newState)
             }
 
             this.setState({
@@ -72,8 +61,6 @@ export class NewsPage extends React.Component{
             if(this.state.articlesArray.length === 0 ){
                 this.setState({showErrorMessage:true})
             }
-            // console.log(this.state.articlesArray[0].id);
-            // console.log("DB: " + this.state.articlesArray)
 
             if(this.state.articlesArray === 0){
                 setTimeout(function() {
@@ -91,31 +78,19 @@ export class NewsPage extends React.Component{
     
 
     render(){    
-        // console.log(this.props.match.params.id)
     const arrayLength = this.state.articlesArray.length;
-    const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-    // console.log(this.state.showErrorMessage)
     return (
         
         <span>
 
-        {/* I have no idea what is going on here... */}
-
-        {/* <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  />  */}
-
-        {/* If i comment out below(106>113) and leave above(97), the recommended reading bar will not display with 4 articles, only 1.
-            However, if i comment out above and leave below it works as intended.
-
-            I have no idea what the difference is here and why they would be behaving differently.
-        */}
-
-
         {arrayLength >= 1 ?         
-            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id} fullDatabaseCall={this.state.fullDatabaseCall} leftoverArticles={this.state.leftoverArticles}
-            articleId={this.props.location.state.articleId}
+            <NewsPageVIEW 
+                database={this.state.articlesArray} 
+                params={this.props.match.params.id} 
+                fullDatabaseCall={this.state.fullDatabaseCall} 
+                leftoverArticles={this.state.leftoverArticles}
+                articleId={this.props.location.state.articleId}
             /> 
-
-        
             : 
           
             <div>
@@ -131,11 +106,6 @@ export class NewsPage extends React.Component{
 
             </div>
         }
-    
-
-        {/* <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  />  */}
-        {/* {checkIdMap} */}
-
         </span>
         );
             

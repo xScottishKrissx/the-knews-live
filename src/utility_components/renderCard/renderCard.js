@@ -4,9 +4,7 @@ import './renderCard.css';
 // Swiping
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
-import SwipeLeftContent from '../../home-page/news-item-loop/news-item-caption/news-item-loop-view/swipe-views/article-modal.js';
-// import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
-import closePopup from '../../utility_components/closePopup.js';
+
 import swipeRightAction from '../../utility_components/swipeRightAction.js';
 import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 // import CheckCache from '../../utility_components/handleCache/checkCache.js';
