@@ -90,18 +90,16 @@ render(){
         <div className="onCardControls">
                     
         
-
+        {this.props.showHideArticleButton === false ?
+            null
+        :
         <div className="markAsReadButtonWrapper">
             <button title="Mark As Read" onClick={()=>this.markAsRead(this.props.id)}> 
                 <span class="material-icons" >done</span>
             </button>
         </div>  
+        }
 
-        {/* <div className="bookmarkButtonWrapper">
-            <button title="Bookmark Article" onClick={()=>this.toggle(this.props.id)}>
-                <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>           
-            </button>
-        </div>   */}
         <div className="bookmarkButtonWrapper">
             {this.state.bookmarked === false ? 
         

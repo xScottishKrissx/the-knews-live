@@ -104,6 +104,12 @@ export class NewsPageVIEW extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                         id={value.id}
                         readStatus={value.read}
+                        showHideArticleButton={false}
+
+                        // hiding
+                        arrayFromDatabase={this.state.articlesArray}
+                        leftoverArticles={this.state.leftoverArticles}
+                        fullDatabaseCall={this.state.fullDatabaseCall}
                       />
                     </div>
 

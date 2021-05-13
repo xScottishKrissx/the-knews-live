@@ -13,13 +13,16 @@
 
 /* ..... */
 .news-page-wrapper > #bookmarkControls{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     text-align: center;
 }
 #bookmarkControls > .onCardControls > div {
     position: relative;
     display: inline-flex;
 }
+    #bookmarkControls > .onCardControls > .markAsReadButtonWrapper{
+        /* visibility: hidden; */
+    }
 
 
 
