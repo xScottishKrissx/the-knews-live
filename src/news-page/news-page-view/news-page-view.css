@@ -20,9 +20,10 @@
     position: relative;
     display: inline-flex;
 }
-    #bookmarkControls > .onCardControls > .markAsReadButtonWrapper{
-        /* visibility: hidden; */
-    }
+
+    /* #bookmarkControls > .onCardControls > .markAsReadButtonWrapper{
+      
+    } */
 
 
 

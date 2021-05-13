@@ -12,7 +12,9 @@ export const MarkAsRead = (id,read) =>{
     
         if(read === false){
                 console.log("Mark as Read")
+                if(document.getElementById(id)){
                 document.getElementById(id).classList.add('markAsRead')
+                }
 
                 var markArticleRead = mainArray.map(el => {
                         if(el.id === id && el != null )

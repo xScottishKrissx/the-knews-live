@@ -292,7 +292,9 @@ General Notes  Objectives:
                                 ☐ Just an overall better UI
                                     // After the code cleanup
                                 12.5 Finishing Bookmarks:
-                                    ☐ Add bookmark functionality to articles
+                                    ✔ Add bookmark functionality to articles @done(14:14 - 13/05/21)
+                                        ☐ Also integrate mark as read functionality
+                                        ✔ ...and hide article function @done(15:39 - 13/05/21)
                                     ☐ Add Bookmark functionality to liteKnews
                                     ☐ Add filter options to bookmark page
 

@@ -13,6 +13,7 @@ import './news-page-view.css';
 import fire from '../../fire.js'
 import InArticleBookmark from './article-area/inArticleBookmark.js';
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
+import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
 
 export class NewsPageVIEW extends React.Component{
 
@@ -26,6 +27,7 @@ export class NewsPageVIEW extends React.Component{
         }
     }
     componentDidMount(){
+      
         // this.setState({ownsArticle: false})
 
         const dbRef = fire.database().ref("items").orderByKey();   
@@ -89,15 +91,16 @@ export class NewsPageVIEW extends React.Component{
         const NewsPageView = getArticle.map((value) => {
             // console.log(value)
             //console.log("current author email:: " + value.email)
-            
+            MarkAsRead(value.id, false)
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
                         <HeaderImage props={value.id} />
-                        {/* <HeaderImage props={value.id + 60} /> */}
                     </div>
+
+                    {/* Bookmark Controls */}
                     <div id="bookmarkControls">
                       <OnCardBookMarkControls                         
                         bookmarkedStatus={value.bookmarked}
@@ -112,9 +115,8 @@ export class NewsPageVIEW extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                       />
                     </div>
-
-                    {/* <InArticleBookmark bookmarked={value.bookmarked} read={value.read} articleId={value.id} fullDatabaseCall={this.state.fullDatabaseCall}/> */}
-                    
+                   
+                   {/* Header, Sub Title and Body of Article */}
                     <ArticleArea 
                         title={value.title}
                         tag={value.tag}
