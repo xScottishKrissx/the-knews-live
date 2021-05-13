@@ -8,7 +8,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     // document.getElementById(id).classList.remove('markAsRead')
 
     if(document.getElementById(id + "bookmarkIcon")){
-        document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
+        // document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
     }
     
     // document.getElementById(id).classList.remove('markAsRead')

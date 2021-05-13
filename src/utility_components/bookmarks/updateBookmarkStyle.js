@@ -10,7 +10,7 @@ export const updateBookmarkStyles = () =>{
                    
                     if(el.bookmarked === true && el != null){
                         if(document.getElementById(el.id)){
-                            document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
+                            // document.getElementById(el.id + "bookmarkIcon").classList.add('bookmarkStyle')
                         }
                     }
                 }); 

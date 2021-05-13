@@ -12,14 +12,14 @@ import HideArticle from '../../utility_components/hide-article/hide-articlev2.js
 import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
 import removeBookmark from './removeBookmark';
 import updateBookmarkStyles from './updateBookmarkStyle';
+import createBookmark from './createBookmark';
+
 
 class OnCardBookMarkControls extends Component {
     constructor(props){
         super(props);
         this.state = {
             bookmarks:[],
-            toggle:this.props.bookmarkedStatus,
-            read:this.props.readStatus
     }
 }
 
@@ -45,27 +45,42 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
 }
 
 componentDidMount(){
-    if(JSON.parse(localStorage.getItem("bookmarkArray")) === null){
-        // console.log("Thing is null")
-        this.setState({toggle:false, read:false})
-    } 
+    this.setState({
+        bookmarked:this.props.bookmarkedStatus,
+        read:this.props.readStatus
+    })
+    // if(JSON.parse(localStorage.getItem("bookmarkArray")) === null){
+    //     // console.log("Thing is null")
+    //     this.setState({toggle:false, read:false})
+    // } 
 }
 
 componentDidUpdate(){
-    updateBookmarkStyles();
+    // updateBookmarkStyles();
 }
 
-toggle(id){
+// toggle(id){
+//     console.log("Button Clicked")
+//     if(this.state.toggle === false){
+//         this.setState({toggle: true})
+//         console.log("Bookmark Created")
+//         swipeLeftAction(this.props.id,this.props.fullDatabaseCall)
+//     }
+//     if(this.state.toggle === true){
+//         this.setState({toggle: false})
+//         console.log("Bookmark Removed")
+//         removeBookmark(id)
+//     }
+// }
 
-    if(this.state.toggle === false){
-        this.setState({toggle: true})
-        console.log("Bookmark Created")
-        swipeLeftAction(this.props.id,this.props.fullDatabaseCall)
-    }
-    if(this.state.toggle === true){
-        this.setState({toggle: false})
-        console.log("Bookmark Removed")
-        removeBookmark(id)
+handleClick(){
+
+    if(this.state.bookmarked === true){
+        this.setState({bookmarked:false})
+        removeBookmark(this.props.id)
+    }else{
+        this.setState({bookmarked:true})
+        createBookmark(this.props.id,this.props.fullDatabaseCall)
     }
 }
 
@@ -82,11 +97,24 @@ render(){
             </button>
         </div>  
 
-        <div className="bookmarkButtonWrapper">
+        {/* <div className="bookmarkButtonWrapper">
             <button title="Bookmark Article" onClick={()=>this.toggle(this.props.id)}>
                 <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>           
             </button>
-        </div>  
+        </div>   */}
+        <div className="bookmarkButtonWrapper">
+            {this.state.bookmarked === false ? 
+        
+                <button onClick={()=>this.handleClick(this.props.id)}>
+                    <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>
+                </button>
+                :
+                <button onClick={()=>this.handleClick(this.props.id)}>
+                    <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in</span> 
+                </button>
+                
+            }
+        </div>
 
         <div className="hideArticleButtonWrapper">
             <button title="Hide Article" onClick={() => this.hideArticle(this.props.id,this.props.postsArray,this.props.arrayFromDatabase,this.props.leftoverArticles,this.props.fullDatabaseCall)}>

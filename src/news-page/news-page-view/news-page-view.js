@@ -12,6 +12,7 @@ import RecommendedReading from './social/recommended-reading/recommended-reading
 import './news-page-view.css';
 import fire from '../../fire.js'
 import InArticleBookmark from './article-area/inArticleBookmark.js';
+import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
 
 export class NewsPageVIEW extends React.Component{
 
@@ -97,7 +98,17 @@ export class NewsPageVIEW extends React.Component{
                         <HeaderImage props={value.id} />
                         {/* <HeaderImage props={value.id + 60} /> */}
                     </div>
-                    <InArticleBookmark bookmarked={value.bookmarked} read={value.read} articleId={value.id} fullDatabaseCall={this.state.fullDatabaseCall}/>
+                    <div id="bookmarkControls">
+                      <OnCardBookMarkControls                         
+                        bookmarkedStatus={value.bookmarked}
+                        fullDatabaseCall={this.state.fullDatabaseCall}
+                        id={value.id}
+                        readStatus={value.read}
+                      />
+                    </div>
+
+                    {/* <InArticleBookmark bookmarked={value.bookmarked} read={value.read} articleId={value.id} fullDatabaseCall={this.state.fullDatabaseCall}/> */}
+                    
                     <ArticleArea 
                         title={value.title}
                         tag={value.tag}
