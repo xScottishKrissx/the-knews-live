@@ -293,7 +293,7 @@ General Notes  Objectives:
                                     // After the code cleanup
                                 12.5 Finishing Bookmarks:
                                     ✔ Add bookmark functionality to articles @done(14:14 - 13/05/21)
-                                        ☐ Also integrate mark as read functionality
+                                        ✔ Also integrate mark as read functionality @done(16:14 - 13/05/21)
                                         ✔ ...and hide article function @done(15:39 - 13/05/21)
                                     ☐ Add Bookmark functionality to liteKnews
                                     ☐ Add filter options to bookmark page
@@ -304,6 +304,7 @@ General Notes  Objectives:
                                     ✔ Solution - I think i've fixed this by setting a cleanDatabaseCall in the render method of bookmarks.js @done(16:41 - 05/05/21)
                                 ☐ scrollCheck articles don't have the border when loaded while a bookmark
                                 ☐ I've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this.
+                                ☐ There will be things a bit off due to the amount of variations and interactions that a single card can have with bookmarking, hiding and being marked as read. On top of browser interaction and the order components mount...things might be a bit buggy.
 
                             
 

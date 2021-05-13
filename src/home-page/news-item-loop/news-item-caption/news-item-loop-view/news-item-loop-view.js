@@ -73,7 +73,16 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             <div className="newsItemLoopViewWrapper">
             
             {this.state.showArticle === true ?
-                <LiteKnews renderToPage={this.state.renderLiteKnews} closeLiteKnews={()=>this.closeLiteKnewsView()} />
+                <LiteKnews 
+                    renderToPage={this.state.renderLiteKnews}
+                    closeLiteKnews={()=>this.closeLiteKnewsView()} 
+
+                    
+                    postsArray={this.state.postsArray}
+                    arrayFromDatabase={this.props.databaseProp} 
+                    leftoverArticles={this.props.leftoverArticles}  
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                    />
             :
             <div id="cardArea">
                 <div id="topPageButtonWrapper">

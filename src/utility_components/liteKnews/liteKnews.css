@@ -1,0 +1,4 @@
+.speedKnewsArticleContainer > .onCardControls > div {
+    position: relative;
+    display: inline-flex;
+}

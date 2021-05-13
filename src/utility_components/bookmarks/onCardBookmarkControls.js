@@ -57,6 +57,7 @@ componentDidMount(){
 
 componentDidUpdate(){
     // updateBookmarkStyles();
+
 }
 
 // toggle(id){
@@ -85,7 +86,7 @@ handleClick(){
 }
 
 render(){
-  
+  console.log(this.state.bookmarked)
     return(
         <div className="onCardControls">
                     
@@ -105,11 +106,14 @@ render(){
         
                 <button onClick={()=>this.handleClick(this.props.id)}>
                     <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>
+                    
                 </button>
                 :
                 <button onClick={()=>this.handleClick(this.props.id)}>
                     <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in</span> 
+                   
                 </button>
+                
                 
             }
         </div>
