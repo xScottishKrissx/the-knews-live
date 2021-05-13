@@ -11,6 +11,7 @@ import RecommendedReading from './social/recommended-reading/recommended-reading
 
 import './news-page-view.css';
 import fire from '../../fire.js'
+import InArticleBookmark from './article-area/inArticleBookmark.js';
 
 export class NewsPageVIEW extends React.Component{
 
@@ -96,7 +97,7 @@ export class NewsPageVIEW extends React.Component{
                         <HeaderImage props={value.id} />
                         {/* <HeaderImage props={value.id + 60} /> */}
                     </div>
-
+                    <InArticleBookmark bookmarked={value.bookmarked} read={value.read} articleId={value.id} fullDatabaseCall={this.state.fullDatabaseCall}/>
                     <ArticleArea 
                         title={value.title}
                         tag={value.tag}
@@ -120,7 +121,7 @@ export class NewsPageVIEW extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                        
                     />
-
+                    
                     <RecommendedReading />
                     <ScrollToTopButton />   
                 </div>

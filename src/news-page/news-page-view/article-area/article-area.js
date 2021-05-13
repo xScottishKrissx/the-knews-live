@@ -53,17 +53,18 @@ const ArticleArea = (props) => {
             <span className="__header-container">
                 <div className='__article-header __1600_style'>
                     <header><h1>{props.title}</h1></header>
-                    {props.bookmarked === false ? 
+
+                    {/* {props.bookmarked === false ? 
                        
                         <button onClick={()=>createBookmark(props.articleId,props.fullDatabaseCall)}>
                             <span>Not Bookmarked</span>
-                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}>turned_in</span>
+                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}></span>
                         </button>
                         
                         :
                         <button onClick={()=>removeBookmark(props.articleId)}>
                             <span>Bookmarked</span>
-                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}>turned_in_not</span> 
+                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}></span> 
                         </button>
                     }
 
@@ -71,7 +72,7 @@ const ArticleArea = (props) => {
                         <p>Not Read</p>
                         :
                         <p>Read</p>
-                    }
+                    } */}
                 </div>
                 
                 
