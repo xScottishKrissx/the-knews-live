@@ -75,7 +75,9 @@ componentDidUpdate(){
 // }
 
 handleClick(){
-
+    console.log(this.props.bookmarkedStatus)
+    console.log(this.state.bookmarked)
+    
     if(this.state.bookmarked === true){
         this.setState({bookmarked:false})
         removeBookmark(this.props.id)
@@ -86,7 +88,7 @@ handleClick(){
 }
 
 render(){
-  console.log(this.state.bookmarked)
+
     return(
         <div className="onCardControls">
                     

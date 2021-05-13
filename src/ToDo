@@ -296,6 +296,11 @@ General Notes  Objectives:
                                         ✔ Also integrate mark as read functionality @done(16:14 - 13/05/21)
                                         ✔ ...and hide article function @done(15:39 - 13/05/21)
                                     ☐ Add Bookmark functionality to liteKnews
+                                        // My first attempts at this didn't go anywhere. Next time let's try creating a separate area for the article. I think my .map is the right way to go. 
+
+                                        // Right now, liteKnews is a single page switching between contents but keeping one state for everything. 
+                                        
+                                        I need to split this up, maybe a new component, with its contents determined by the controls.
                                     ☐ Add filter options to bookmark page
 
                             Issues:

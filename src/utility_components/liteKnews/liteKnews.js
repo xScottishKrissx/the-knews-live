@@ -5,16 +5,24 @@ import ParseHTML from '../parse-database-html/parse-html.js';
 import createBookmark from '../bookmarks/createBookmark';
 import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 import '../liteKnews/liteKnews.css';
+import LiteKnewsView from './liteKnewsView';
 
 class LiteKnews extends Component {
 
     constructor(props){
         super(props);
-        this.state = {articleNumber:0, bookmarked:[]}
+        this.state = {
+            articleNumber:0, 
+            nextArticleNumber:1,
+            // bookmarked:[]
+        }
         this.changeArticle = this.changeArticle.bind(this);
     }
 
-    changeArticle(x,y){this.setState({articleNumber: this.state.articleNumber + x })}
+    changeArticle(x,y){
+        this.setState({
+            articleNumber: this.state.articleNumber + x
+        })}
 
     // createBookmarkLiteKnews(x,b){
     //     console.log("Create Bookmark with  article by -> " + x)
@@ -23,9 +31,9 @@ class LiteKnews extends Component {
     //     this.setState({bookmarked:true})
     // }
 
-    componentDidUpdate(){
-        console.log("componentDidUpdate")
-    }
+    // componentDidUpdate(){
+    //     console.log("componentDidUpdate")
+    // }
     render(){
 
     // const articleFromArray = this.props.renderToPage[this.state.articleNumber];
@@ -33,19 +41,34 @@ class LiteKnews extends Component {
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false)
     // console.log(filterHidden)
     const articleFromArray = filterHidden[this.state.articleNumber]
-    const pageView = filterHidden.map((value,key) => {
-        
-    })
+
     // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
     // console.log(articleFromArray.id)
         return (
             <div id="liteKnewsWrapper">
-               {pageView}
+               
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>liteKnews - theKnews but lighter</h1>
                     
-                        <div className="speedKnewsArticleContainer">
+
+                    {/* SpeedKnews Contents New Component HERE!! */}
+                    <LiteKnewsView 
+                    id={articleFromArray.id}
+                    title={articleFromArray.title}
+                    author={articleFromArray.author}
+                    key={articleFromArray.key}
+                    text={articleFromArray.text}
+
+                    bookmarkedStatus={articleFromArray.bookmarked}
+                    readStatus={this.props.read}
+    
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                    postsArray={this.props.postsArray}
+                    leftoverArticles={this.props.leftoverArticles}
+                    arrayFromDatabase={this.props.arrayFromDatabase}
+                    />
+                        {/* <div className="speedKnewsArticleContainer">
 
                             <header>
                                 <HeaderImage props={articleFromArray.id}/>
@@ -60,9 +83,10 @@ class LiteKnews extends Component {
                                     
                                 
                                 >
-                                    <h3>View Article Page</h3></Link>
+                                    <h3>View Article Page</h3></Link> */}
+                                    
                                 {/* <p>{articleFromArray.text}</p> */}
-                            </header>
+                            {/* </header> */}
                             {/* <p>Bookmarked: {articleFromArray.bookmarked.toString()} </p>
 
                             {this.state.bookmarked === true ?
@@ -71,7 +95,8 @@ class LiteKnews extends Component {
                             <button onClick={()=>this.createBookmarkLiteKnews(articleFromArray.id,this.props.fullDatabaseCall)}>Not Bookmarked</button>
                             
                             } */}
-                            <OnCardBookMarkControls
+                           
+                            {/* <OnCardBookMarkControls
                                 id={articleFromArray.id}
                                 bookmarkedStatus={articleFromArray.bookmarked}
                                 readStatus={articleFromArray.read}
@@ -85,7 +110,7 @@ class LiteKnews extends Component {
                             <article><ParseHTML props={articleFromArray.text}/></article>
                          
 
-                        </div>
+                        </div> */}
                         
                         <div id="speedKnewsControls">
                         {this.state.articleNumber === 0 ? 
