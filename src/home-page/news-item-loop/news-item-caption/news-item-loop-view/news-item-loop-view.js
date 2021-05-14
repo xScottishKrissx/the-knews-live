@@ -54,7 +54,12 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
         })
     }
-    closeLiteKnewsView(){this.setState({ showArticle:false})}
+    closeLiteKnewsView(){
+        this.setState({ 
+            showArticle:false,
+            renderArray: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray })
+        // window.location.reload()
+    }
 
 // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
@@ -86,11 +91,15 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             :
             <div id="cardArea">
                 <div id="topPageButtonWrapper">
+
                     {/* Speed Knews */}
                     <div id="speedKnewsButtonWrapper"><button onClick={() => this.showArticle()}>start liteKnews </button></div>
+                    
                     {/* Filter Options */}
                     <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
+                    
                 </div>
+
                 
                 {/* Bookmark Page Link */}
                 <div>
@@ -106,6 +115,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         <p>Displaying {renderToPage.length}<span>{this.state.getArticleBy}</span> Articles</p>
                     }
                 </div>
+
+
                 {/* Card Size Controls */}
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
                 {this.props.databaseProp.length >= 30 && thing ? 

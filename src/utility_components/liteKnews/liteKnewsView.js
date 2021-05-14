@@ -23,28 +23,17 @@ export class LiteKnewsView extends React.Component{
                 <HeaderImage props={this.props.id}/>
                 <h2>{this.props.title}</h2>
                 <h3>by: {this.props.author}</h3>
-                <Link 
-                
+                <Link                 
                     to={{
                         pathname:'/theKnews/home/articles/news-page/' + this.props.key,
                         state:{ articleId:this.props.id}
-                    }}
-                    
-                
-                >
-                    <h3>View Article Page</h3></Link>
+                    }}>
+                    <h3>View Article Page</h3>
+                </Link>
                     
                 {/* <p>{this.props.text}</p> */}
             </header>
-            {/* <p>Bookmarked: {this.props.bookmarked.toString()} </p>
-
-            {this.state.bookmarked === true ?
-            <button onClick={()=>this.createBookmarkLiteKnews(this.props.id,this.props.fullDatabaseCall)}>Bookmarked</button>
-            :
-            <button onClick={()=>this.createBookmarkLiteKnews(this.props.id,this.props.fullDatabaseCall)}>Not Bookmarked</button>
-            
-            } */}
-            
+             
             <OnCardBookMarkControls
                 id={this.props.id}
                 bookmarkedStatus={this.props.bookmarkedStatus}
