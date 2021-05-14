@@ -304,7 +304,8 @@ General Notes  Objectives:
                                         This is what I did and it worked as I wanted.
                                     ✔ Integrate mark as read into liteKnews @done(12:50 - 14/05/21)
                                         ✔ I want articles to be marked as read as you view them @done(12:50 - 14/05/21)
-                                    ☐ Integrate hiding articles into liteKnews
+                                    ✔ Integrate hiding articles into liteKnews @done(14:02 - 14/05/21)
+                                        ✔ My solution here is very clunky but im unable to come up with a better one at this point. The problem is that onCardBookmarj controls behave differently between liteKnews and everywhere else. This doesnt make any sense to me because the props and components are all the same.I'm unsure how to do better here.My current solution is fine and should not negatively affect the existing hide article functionality. However, I really want to figure out what the issue is with liteKnews but I also don't want to get bogged down here so im moving on and will revist this if I come up with something. @done(14:02 - 14/05/21)
                                     ☐ Integrate all of this into scroll check
                                     ☐ Add filter options to bookmark page
 

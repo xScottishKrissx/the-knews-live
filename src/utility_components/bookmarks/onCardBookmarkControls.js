@@ -38,8 +38,22 @@ markAsRead(id){
 
 hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+
     // console.log(arrayFromDatabase.length)
     // handleHideArticleFeedback();
+    const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
+
+    var hideArticle = articles.map(el => {
+        if(el.id === id && el != null )
+            return Object.assign({}, el, {hidden:true})
+            return el
+    });
+
+    localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+
+    // document.getElementById(id).classList.add('markAsRead')
+    // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
     hideArticleFeedback()
     // removeBookmark(id)
 }
@@ -75,6 +89,7 @@ componentDidUpdate(){
 // }
 
 handleClick(){
+
     // console.log(this.props.bookmarkedStatus)
     // console.log(this.state.bookmarked)
 
@@ -124,7 +139,13 @@ render(){
         </div>
 
         <div className="hideArticleButtonWrapper">
-            <button title="Hide Article" onClick={() => this.hideArticle(this.props.id,this.props.postsArray,this.props.arrayFromDatabase,this.props.leftoverArticles,this.props.fullDatabaseCall)}>
+            <button title="Hide Article" onClick={() => this.hideArticle(
+                this.props.id,
+                this.props.postsArray,
+                this.props.arrayFromDatabase,
+                this.props.leftoverArticles,
+                this.props.fullDatabaseCall
+            )}>
                 <span class="material-icons">visibility_off</span>
             </button>
         </div>  

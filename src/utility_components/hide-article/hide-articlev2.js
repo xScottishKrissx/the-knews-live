@@ -1,18 +1,15 @@
 import './hide-article.css';
 
 export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,bookmarkHide) =>{
-        console.log(bookmarkHide)
+        // console.log(bookmarkHide)
         // console.log(value)
         // console.log(postsArray)
         // console.log(arrayFromDatabase)
         // console.log(leftoverArticles)
         // console.log(fullDatabaseCall)
 
-
-
-        console.log("Hide Article Button Pressed");
+        // console.log("Hide Article Button Pressed");
         // console.log("Post Disappearing is Post:: " + value)
-        // console.log(this.state.postsArray)
 
         const editedArray = JSON.parse(localStorage.getItem("editedArticleArray"));
         // console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
@@ -20,25 +17,18 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         // console.log(arrayFromDatabase.length)
         // console.log(fullDatabaseCall)
         const mainArray = editedArray || arrayFromDatabase;
-        // const scrollCheckArticles = this.props.scrollCheckHide;
-        // console.log(scrollCheckArticles)
-        
-        // console.log(mainArray)
+        console.log(mainArray)
     
-        const nullKey = null
-        const filterForNull = mainArray.filter(obj => obj !== nullKey);
-        // Filter Initial Load Articles
-        const index = value;
+        const filterForNull = mainArray.filter(obj => obj !== null);   
         var markArticleForRemoval = filterForNull.map(el => {
-            if(el.id === index && el != null )
+            if(el.id === value && el != null )
                 return Object.assign({}, el, {hidden:true})
                 return el
         });
         
 
         // Check for Articles marked as hidden -> then remove from array
-        const key = true
-        const arrayWithArticlesRemoved = markArticleForRemoval.filter(obj => obj.hidden !== key);
+        const arrayWithArticlesRemoved = markArticleForRemoval.filter(obj => obj.hidden !== true);
         // console.log(arrayWithArticlesRemoved)
 
         // Get something to add to the reduced array
@@ -81,18 +71,16 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         // console.log(prepLeftoverArticlesForFilter)
 
         if(prepLeftoverArticlesForFilter === null)console.log("handle null")
-        const index2 = value;
         var markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
             // console.log(el.id)
-            if(el.id === index2 && el != null)
+            if(el.id === value && el != null)
                 return Object.assign({}, el, {hidden:true})
-                
                 return el
         });
         // console.log(markScrollCheckArticleForRemoval)
 
         // Check for Articles marked as hidden -> then remove from array
-        const filteredLeftoverArticlesForScrollCheck = markScrollCheckArticleForRemoval.filter(obj => obj.hidden !== key);
+        const filteredLeftoverArticlesForScrollCheck = markScrollCheckArticleForRemoval.filter(obj => obj.hidden !== true);
         // console.log(filteredLeftoverArticlesForScrollCheck)
 
         // Set newly filtered leftover articles in storage.

@@ -13,14 +13,14 @@ export class LiteKnewsView extends React.Component{
         this.state = {}
     }
     componentDidMount(){
-        console.log("Mark " + this.props.id + " as read")
+        // console.log("Mark " + this.props.id + " as read")
         MarkAsRead(this.props.id,false)
-
+        
     }
     render(){
         // console.log(this.props.bookmarkedStatus)
-        console.log(this.props.readStatus)
-        console.log(this.props.id)
+        // console.log(this.props.readStatus)
+        // console.log(this.props.id)
         
         return(
                                 

@@ -1,5 +1,5 @@
 export const MarkAsRead = (id,read) =>{
-        console.log(read)
+        // console.log(read)
         const cleanDB = JSON.parse(localStorage.getItem("cleanDatabaseCall"))
         const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
         const mainArray = currentBookmarks || cleanDB;

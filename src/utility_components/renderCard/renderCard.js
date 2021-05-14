@@ -22,12 +22,14 @@ export const RenderCard = (props) => {
     
                 <OnCardBookMarkControls 
                         id={value.id}
+                        bookmarkedStatus={value.bookmarked}
+                        readStatus={value.read}
+                        
                         fullDatabaseCall={props.fullDatabaseCall}
                         postsArray={props.postsArray}
                         leftoverArticles={props.leftoverArticles}
                         arrayFromDatabase={props.arrayFromDatabase}
-                        bookmarkedStatus={value.bookmarked}
-                        readStatus={value.read}
+ 
                 />
                
                <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
