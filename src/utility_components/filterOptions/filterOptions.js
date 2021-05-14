@@ -27,6 +27,7 @@ class FilterOptions extends Component {
 
         // Set filter option.
         this.getArticlesBy(localStorage.getItem("filterOption"))
+
         
     }
     getArticlesBy(value,id){
@@ -47,14 +48,26 @@ class FilterOptions extends Component {
             renderArray:filteredByTag,
         })
 
+        // bookmark page
+        const filterBookmarks = filteredForHiddenArticlesDB.filter(obj => obj.tag === value && obj.bookmarked === true);
+        const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
+        // console.log(filterBookmarks)
+        // console.log(filterBookmarksAll)
+
+
         var updateState = this.props.getFilteredArticles;
-        if(value === "All"){
-            // console.log("Show All")
-            // this.setState({renderArray:filteredForHiddenArticlesDB || this.props.databaseProp})
-            updateState(filteredForHiddenArticlesDB,value)
+        if(this.props.bookmarked != true){
+            if(value === "All" ){
+                updateState(filteredForHiddenArticlesDB,value)
+            }else{
+                updateState(filteredByTag,value)
+            }
         }else{
-            // console.log("Show " + value)
-            updateState(filteredByTag,value)
+            if(value.includes("All") ){
+                updateState(filterBookmarksAll,value)
+            }else{
+                updateState(filterBookmarks,value)
+            }
         }
         
         // Set Filter Option into local storage

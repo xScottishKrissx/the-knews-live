@@ -26,9 +26,7 @@ class Bookmarks extends Component {
             width: JSON.parse(localStorage.getItem("myData"))[0] ,
             height: JSON.parse(localStorage.getItem("myData"))[1]
             },
-        // //hiding articles for filter views
-        getArticleBy:"All",
-        renderArray:[]
+
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.clearBookmarks = this.clearBookmarks.bind(this);
@@ -45,6 +43,7 @@ class Bookmarks extends Component {
         })
     }
     componentDidMount(){
+    
               // console.log("App.js Mounted")
       const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
       cleanDB.on('value', (snapshot) => {
@@ -83,12 +82,13 @@ class Bookmarks extends Component {
         // console.log(database)
 
         if(database === null){
-            this.setState({bookmarks:[]})
+            this.setState({bookmarks:[],})
         }else{
             const getBookmarks = database.filter(obj => obj.bookmarked === true ) 
             console.log(getBookmarks)
             this.setState({bookmarks:getBookmarks})
         }
+        console.log(localStorage.getItem("filterOption"))
 
     }
     clearBookmarks(){
