@@ -103,7 +103,11 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 
                 {/* Bookmark Page Link */}
                 <div>
-                    <Link to={'home/bookmarks'}><h3>Bookmarks</h3></Link>
+                    <Link to={{
+                        pathname:'home/bookmarks',
+                        state:{ fullDatabaseCall:this.props.fullDatabaseCall}
+                    }}>
+                    <h3>Bookmarks</h3></Link>
                 </div>
         
                 

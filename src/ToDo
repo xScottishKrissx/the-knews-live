@@ -286,7 +286,7 @@ General Notes  Objectives:
                                     ✔ ...also added bookmarked status to the article @done(13:54 - 11/05/21)
                                 ☐ Put the bookmark page link somewhere else
                                     // Leave this until the UI overhaul im planning (V12.10)
-                                ☐ Add bookmark functionality to articles and liteKnews
+                                ✔ Add bookmark functionality to articles and liteKnews @done(16:56 - 14/05/21)
                                     // Do liteKnews after it's component has been created.
                                 ☐ Add filter options to bookmark pages
                                     // After splitting the filters code into its own component.

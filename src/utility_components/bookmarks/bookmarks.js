@@ -10,6 +10,7 @@ import clearAllBookmarks from './clearAllBookmarks.js';
 import markAllUnread from './markAllUnread.js';
 import hideAllArticles from './hideAllArticles.js';
 import updateBookmarkStyles from './updateBookmarkStyle.js';
+import FilterOptions from '../filterOptions/filterOptions.js';
 
 
 class Bookmarks extends Component {
@@ -25,6 +26,9 @@ class Bookmarks extends Component {
             width: JSON.parse(localStorage.getItem("myData"))[0] ,
             height: JSON.parse(localStorage.getItem("myData"))[1]
             },
+        // //hiding articles for filter views
+        getArticleBy:"All",
+        renderArray:[]
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.clearBookmarks = this.clearBookmarks.bind(this);
@@ -100,14 +104,32 @@ class Bookmarks extends Component {
         updateBookmarkStyles();
     }
 
+    // filterViews
+    getFilteredArticles = (filteredByTag,getArticleBy) => {
+        console.log(filteredByTag)
+        console.log(getArticleBy)
+        this.setState({
+            bookmarks: filteredByTag,
+            getArticleBy:getArticleBy,
+        })
+    }
+
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-
+        // console.log(this.props.location.state.fullDatabaseCall)
+        const fullDatabaseCall = this.props.location.state.fullDatabaseCall
         return(
             <div id="bookmarkWrapper">
             <h1>Bookmarks</h1>
+            <FilterOptions 
+                fullDatabaseCall={fullDatabaseCall} 
+                getFilteredArticles = {this.getFilteredArticles}
+                bookmarked={true}
+            />
+
             <p>You have bookmarked {this.state.bookmarks.length} items. Enjoy</p>
+            
             <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
             <button onClick={() => markAllUnread()}>Mark All As Unread</button>
             <br/>
