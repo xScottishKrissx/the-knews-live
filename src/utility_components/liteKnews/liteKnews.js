@@ -17,8 +17,9 @@ class LiteKnews extends Component {
     changeArticle(x,y){this.setState({articleNumber: this.state.articleNumber + x})}
 
     render(){    
-    const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false)
+    const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber]
+    console.log(articleFromArray)
         return (
             <div id="liteKnewsWrapper">
                
@@ -34,7 +35,7 @@ class LiteKnews extends Component {
                     text={articleFromArray.text}
 
                     bookmarkedStatus={articleFromArray.bookmarked}
-                    readStatus={this.props.read}
+                    readStatus={articleFromArray.read}
     
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     postsArray={this.props.postsArray}

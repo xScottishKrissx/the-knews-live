@@ -295,12 +295,17 @@ General Notes  Objectives:
                                     ✔ Add bookmark functionality to articles @done(14:14 - 13/05/21)
                                         ✔ Also integrate mark as read functionality @done(16:14 - 13/05/21)
                                         ✔ ...and hide article function @done(15:39 - 13/05/21)
-                                    ☐ Add Bookmark functionality to liteKnews
+                                    ✔ Add Bookmark functionality to liteKnews @done(12:36 - 14/05/21)
                                         // My first attempts at this didn't go anywhere. Next time let's try creating a separate area for the article. I think my .map is the right way to go. 
 
                                         // Right now, liteKnews is a single page switching between contents but keeping one state for everything. 
                                         
                                         I need to split this up, maybe a new component, with its contents determined by the controls.
+                                        This is what I did and it worked as I wanted.
+                                    ✔ Integrate mark as read into liteKnews @done(12:50 - 14/05/21)
+                                        ✔ I want articles to be marked as read as you view them @done(12:50 - 14/05/21)
+                                    ☐ Integrate hiding articles into liteKnews
+                                    ☐ Integrate all of this into scroll check
                                     ☐ Add filter options to bookmark page
 
                             Issues:
