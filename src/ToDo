@@ -308,7 +308,10 @@ General Notes  Objectives:
                                     ✔ Integrate hiding articles into liteKnews @done(14:02 - 14/05/21)
                                         ✔ My solution here is very clunky but im unable to come up with a better one at this point. The problem is that onCardBookmarj controls behave differently between liteKnews and everywhere else. This doesnt make any sense to me because the props and components are all the same.I'm unsure how to do better here.My current solution is fine and should not negatively affect the existing hide article functionality. However, I really want to figure out what the issue is with liteKnews but I also don't want to get bogged down here so im moving on and will revist this if I come up with something. @done(14:02 - 14/05/21)
                                     ✔ Implement bookmark page only perma hiding of bookmark articles. @done(15:51 - 14/05/21)
-                                    ☐ Integrate all of this into scroll check
+                                    ✔ Integrate all of this into scroll check @done(16:48 - 14/05/21)
+                                        I've integrated mark as read and bookmarks work to an extent. You can mark as a boomark but the UI will not reflect that on page reload. 
+                                         This isn't great but I think im going to have a look at the scrollCheck/HideArticleV2 component interaction. It's been a while since these where created and looking at them now im noticing some things that can be imrproved.
+                                         For now, i am content with the current situation and will mark this down as a bug to be fixed.
                                     ☐ Add filter options to bookmark page
                                     
 
@@ -319,6 +322,7 @@ General Notes  Objectives:
                                 ☐ scrollCheck articles don't have the border when loaded while a bookmark
                                 ☐ I've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this.
                                 ☐ There will be things a bit off due to the amount of variations and interactions that a single card can have with bookmarking, hiding and being marked as read. On top of browser interaction and the order components mount...things might be a bit buggy.
+                                ☐ Bookmarks don't properly work with the scrollCheck component. This will be addressed in a future release where I have a look at both the scrollCheck and HideArticle components.
 
 
                             
@@ -1041,6 +1045,8 @@ Part 2 Implement Database functionality:
 
             ☐ 13.1 - Ensure all pages can be shareable(articles, tag pages, bookmarks etc)
                 // 12/5/2021 - article pages are currently not working when directly accessed from firefox
+            ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
+            
 
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)

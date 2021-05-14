@@ -8,7 +8,7 @@ class ScrollCheckV2 extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articlesArray: [],
+            thing:[],
             arrayStartState: 0,
             arrayEndState: 5,
             origin: props.origin,
@@ -18,22 +18,18 @@ class ScrollCheckV2 extends React.Component{
     }
 
     componentDidMount(){
-        // console.log(this.props.articlesArray)
-
+        const thing = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall;
+        this.setState({thing:thing})
         window.addEventListener('scroll', this.scroll);    
         window.addEventListener('touchstart', this.scroll);       
 
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedArticleArray"));
+        // const editedArticlesArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall"));
+
         // console.log(editedArticlesArray)
         if(editedArticlesArray != null)this.setState({articlesArray:editedArticlesArray})
 
-        if(this.state.origin === undefined){
-            this.setState({
-                articlesArray: this.props.articlesArray
-            })
-        }else{
-            console.log("On Tags Page")
-        }
+        console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
     }
 
     scroll = (e) => {
@@ -48,12 +44,13 @@ class ScrollCheckV2 extends React.Component{
     
         // Grabbing the articles used for the on scroll event. If the event has been triggered and an article has been hidden then I used the array in local storage, if not then I use the default leftover article array from props.
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")) || this.props.leftoverArticles;
+        // const editedArticlesArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.leftoverArticles;
 
 
         if(windowBottom >= docHeight){
-            console.log("Load New Articles")
+            // console.log("Load New Articles")
             
-            // console.log(editedArticlesArray)
+            console.log(editedArticlesArray)
 
             // Get the articles that should be rendered on scroll...
             // console.log(editedArticlesArray.splice(0,5))
@@ -61,7 +58,7 @@ class ScrollCheckV2 extends React.Component{
             // Then join with the main array
             const renderNewArticlesOnScroll = this.state.mainArray.concat(editedArticlesArray.slice(this.state.arrayStartState,this.state.arrayEndState));
 
-            const filterArticlesBy = renderNewArticlesOnScroll.filter(obj => obj.tag === localStorage.getItem("filterOption"));
+            // const filterArticlesBy = renderNewArticlesOnScroll.filter(obj => obj.tag === localStorage.getItem("filterOption"));
 
             // console.log(renderNewArticlesOnScroll)
             // console.log(filterArticlesBy)
@@ -72,12 +69,23 @@ class ScrollCheckV2 extends React.Component{
                 arrayStartState: this.state.arrayStartState + 5,
                 arrayEndState: this.state.arrayEndState + 5
             })    
-
+            
+            // if(document.getElementById(id)){
+            //     document.getElementById(id).classList.add('markAsRead')
+            //     }
         }else{
             // console.log("Not At Bottom Yet")
         }
     }
-
+    componentDidUpdate(){
+        // console.log("componentDidUpdate")
+        // console.log(this.state.mainArray)
+        
+        var markArticleRead = this.state.thing.map(el => {
+            if(el.read === true && el != null )if( document.getElementById(el.id))
+                document.getElementById(el.id).classList.add('markAsRead')
+        });
+    }
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll, {passive:true});
         window.removeEventListener('touchstart',this.scroll, {passive:true});
@@ -101,7 +109,7 @@ class ScrollCheckV2 extends React.Component{
                     
                 
                 />
-                {/* <NewsItemLoopView databaseProp={new1} /> */}
+               
                 <span id="loadMoreArticlesButton"><button onClick={()=>this.scroll()}>Load More Articles</button></span>
             </React.Fragment>   
         )

@@ -116,7 +116,7 @@ handleClick(){
 }
 
 render(){
-    console.log(this.props.hideBookmarkedArticle)
+    // console.log(this.props.hideBookmarkedArticle)
     return(
         <div className="onCardControls">
                     

@@ -16,7 +16,7 @@ export const RenderCard = (props) => {
 
     const pageView = props.database.map((value,key) => {
         
-        console.log(props.hideBookmarkedArticle)
+        // console.log(props.hideBookmarkedArticle)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
     
