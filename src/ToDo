@@ -266,6 +266,7 @@ General Notes  Objectives:
                                 ✔ Bookmarked cards will be immune to being hidden until unbookmarked @done(17:08 - 05/05/21)
                                 ✔ Bookmarked cards should be easily distinguished from regular cards. @done(15:40 - 11/05/21)
                                 ☐ All other website functionality should be retained and interact with bookmarks as normal.
+                                ☐ You shoulnt be able to permanently hide a bookmarked article from the onCardBookmark controls except when on the bookmark page.
                             To-Do:
                                 ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
                                 ✔ Add the option to change card size in bookmark page @done(18:22 - 05/05/21)
@@ -306,8 +307,10 @@ General Notes  Objectives:
                                         ✔ I want articles to be marked as read as you view them @done(12:50 - 14/05/21)
                                     ✔ Integrate hiding articles into liteKnews @done(14:02 - 14/05/21)
                                         ✔ My solution here is very clunky but im unable to come up with a better one at this point. The problem is that onCardBookmarj controls behave differently between liteKnews and everywhere else. This doesnt make any sense to me because the props and components are all the same.I'm unsure how to do better here.My current solution is fine and should not negatively affect the existing hide article functionality. However, I really want to figure out what the issue is with liteKnews but I also don't want to get bogged down here so im moving on and will revist this if I come up with something. @done(14:02 - 14/05/21)
+                                    ✔ Implement bookmark page only perma hiding of bookmark articles. @done(15:51 - 14/05/21)
                                     ☐ Integrate all of this into scroll check
                                     ☐ Add filter options to bookmark page
+                                    
 
                             Issues:
                                 ✔ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet) @done(12:58 - 04/05/21)
@@ -316,6 +319,7 @@ General Notes  Objectives:
                                 ☐ scrollCheck articles don't have the border when loaded while a bookmark
                                 ☐ I've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this.
                                 ☐ There will be things a bit off due to the amount of variations and interactions that a single card can have with bookmarking, hiding and being marked as read. On top of browser interaction and the order components mount...things might be a bit buggy.
+
 
                             
 

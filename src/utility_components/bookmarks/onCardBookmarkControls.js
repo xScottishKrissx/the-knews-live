@@ -44,11 +44,21 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
 
     var hideArticle = articles.map(el => {
-        if(el.id === id && el != null )
+        if(el.id === id && el.bookmarked === false && el != null )
             return Object.assign({}, el, {hidden:true})
             return el
     });
+    if(this.props.hideBookmarkedArticle === true){
+        console.log("Perma Hide Bookmark")
+        var hideArticle = articles.map(el => {
+            if(el.id === id && el != null )
+                return Object.assign({}, el, {bookmarked:false, hidden:true})
+                return el
+        });
 
+        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+    }
     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
 
@@ -106,7 +116,7 @@ handleClick(){
 }
 
 render(){
-
+    console.log(this.props.hideBookmarkedArticle)
     return(
         <div className="onCardControls">
                     
@@ -137,8 +147,18 @@ render(){
                 
             }
         </div>
-
         <div className="hideArticleButtonWrapper">
+            {this.props.hideBookmarkedArticle === true ?
+            <button title="Permanently Remove Bookmark and Hide" onClick={() => this.hideArticle(
+                this.props.id,
+                this.props.postsArray,
+                this.props.arrayFromDatabase,
+                this.props.leftoverArticles,
+                this.props.fullDatabaseCall
+            )}>
+                <span class="material-icons">delete</span>
+            </button>
+            :
             <button title="Hide Article" onClick={() => this.hideArticle(
                 this.props.id,
                 this.props.postsArray,
@@ -148,6 +168,9 @@ render(){
             )}>
                 <span class="material-icons">visibility_off</span>
             </button>
+            }
+        
+
         </div>  
     </div>
     )

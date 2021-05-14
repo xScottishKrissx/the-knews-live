@@ -81,7 +81,7 @@ class Bookmarks extends Component {
         if(database === null){
             this.setState({bookmarks:[]})
         }else{
-            const getBookmarks = database.filter(obj => obj.bookmarked === true && obj.hidden === false) 
+            const getBookmarks = database.filter(obj => obj.bookmarked === true ) 
             console.log(getBookmarks)
             this.setState({bookmarks:getBookmarks})
         }
@@ -123,6 +123,7 @@ class Bookmarks extends Component {
                     database={this.state.bookmarks} 
                     bookmarked={true}
                     // Hiding
+                    hideBookmarkedArticle={true}
                     arrayFromDatabase={this.state.fullDatabaseCall}
                     fullDatabaseCall={this.state.fullDatabaseCall}
                     leftoverArticles={this.state.leftoverArticles}                    
