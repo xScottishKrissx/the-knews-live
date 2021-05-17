@@ -1,8 +1,9 @@
 export const MarkAsRead = (id,read) =>{
         // console.log(read)
         const cleanDB = JSON.parse(localStorage.getItem("cleanDatabaseCall"))
-        const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
-        const mainArray = currentBookmarks || cleanDB;
+        // const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
+        // const mainArray = currentBookmarks || cleanDB;
+        const mainArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || cleanDB
        
         // var markArticleRead = mainArray.map(el => {
         //     if(el.id === id && el != null )
@@ -11,7 +12,7 @@ export const MarkAsRead = (id,read) =>{
         // });
     
         if(read === false){
-                console.log("Mark as Read")
+                // console.log("Mark as Read")
                 if(document.getElementById(id)){
                 document.getElementById(id).classList.add('markAsRead')
                 }

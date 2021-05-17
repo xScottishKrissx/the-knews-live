@@ -994,7 +994,8 @@ Part 2 Implement Database functionality:
                 ☐ Ability to vote on article WITHOUT the need to login.
                 ☐ Limit to 1 vote per cache
             To-Do:
-                ☐ Look at current code and see what can be reused.
+                ✔ Look at current code and see what can be reused. @done(18:04 - 17/05/21)
+                    ☐ I had a look but I think I can do better with what I've learned since I first built the component. Especially now that I don't require being logged in. So im going to build a new component and see what happens.
             Issues:
                 ☐ Vulnerable to manipulation, you could clear the cache -> vote and then repeat to upvote an article forever. However, I don't care about that for this project so I choose to ignore it. This is really about me understanding the interaction between React/JavaScript and updating a firebase database.
 

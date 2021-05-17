@@ -158,7 +158,7 @@ const ArticleArea = (props) => {
                         </div>                     
                        
 
-                        <PageScore likes={props.likes} dislikes={props.dislikes} id={props.id}/>
+                        {/* <PageScore likes={props.likes} dislikes={props.dislikes} id={props.id}/> */}
                         
                         </article>                  
                         

@@ -14,6 +14,7 @@ import fire from '../../fire.js'
 import InArticleBookmark from './article-area/inArticleBookmark.js';
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
 import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
+import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
 
 export class NewsPageVIEW extends React.Component{
 
@@ -78,19 +79,21 @@ export class NewsPageVIEW extends React.Component{
     }
 
     componentWillUnmount(){
-        console.log("Unmount on practice-form.js")
+        // console.log("Unmount on practice-form.js")
         fire.database().ref("items").off();     
       }
     render(){
-      console.log("Render news-page-view.js")
+      // console.log("Render news-page-view.js")
 
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         const getArticle = database.filter(obj => obj.id === this.props.articleId)
        console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
-            // console.log(value)
+            console.log(value.likes)
             //console.log("current author email:: " + value.email)
+            
+            
             MarkAsRead(value.id, false)
             return(
               
@@ -99,7 +102,7 @@ export class NewsPageVIEW extends React.Component{
                     <div className='article-banner-image-wrapper'>
                         <HeaderImage props={value.id} />
                     </div>
-
+                    <HandleLike id={value.id} likes={value.likes} />
                     {/* Bookmark Controls */}
                     <div id="bookmarkControls">
                       <OnCardBookMarkControls                         
@@ -151,7 +154,7 @@ export class NewsPageVIEW extends React.Component{
             <div>
 
                 
-                <NavControls currentarticleid={this.props.params} arrayFromDatabase={this.state.articlesArray}/>
+                {/* <NavControls currentarticleid={this.props.params} arrayFromDatabase={this.state.articlesArray}/> */}
                 
                 {this.props.params === "5" ?
                 
