@@ -989,6 +989,18 @@ Part 2 Implement Database functionality:
         ☐ Ensure users can only like/dislike ONCE per account @started(18-08-29 15:44)
         ✔ Styling of Like and Dislike buttons are terrible, fix this @started(20-10-22 13:50) @done(20-12-03 16:22) @lasted(6w3h32m38s)
 
+        V12.6 Like/Dislike Button rework:
+            Goals:
+                ☐ Ability to vote on article WITHOUT the need to login.
+                ☐ Limit to 1 vote per cache
+            To-Do:
+                ☐ Look at current code and see what can be reused.
+            Issues:
+                ☐ Vulnerable to manipulation, you could clear the cache -> vote and then repeat to upvote an article forever. However, I don't care about that for this project so I choose to ignore it. This is really about me understanding the interaction between React/JavaScript and updating a firebase database.
+
+
+
+
      ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
         ✔ Will need to complete User Auth before I can do Author @started(18-08-17 13:44) @done(18-08-22 17:02) @lasted(5d3h18m3s)
      ✔ Be able to see posts linked to current account on myKnews page @started(18-08-23 12:00) @done(18-08-23 14:18) @lasted(2h18m12s)
@@ -1057,7 +1069,7 @@ Part 2 Implement Database functionality:
                 // It's really not necessary as the browser back button does the same thing and breadcrumbs are irrelevant for my website.
             ✔ 12.3 - Implement Bookmarking into swipe left(and the rest of the website) @done(17:24 - 12/05/21)
             ✔ 12.4 - Code Review (Splitting Code into components) @done(17:23 - 12/05/21)
-            ☐ 12.5 - Finish Remaining Bookmark work
+            ✔ 12.5 - Finish Remaining Bookmark work @done(16:43 - 17/05/21)
             ☐ 12.6 - Get Like and Dislike to work separate from myKnews
             ☐ 12.7 - Look into swiping liteKnews to switch articles
             ☐ 12.8 - Redo Recommended Reading Section
