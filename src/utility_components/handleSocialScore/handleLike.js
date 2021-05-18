@@ -3,77 +3,79 @@ import React from 'react';
 import fire from '../../fire';
 
 import '../handleSocialScore/handleLike.css';
+import Dislike from './buttons/dislike';
+import Like from './buttons/like';
 export class HandleLike extends React.Component{
     
     constructor(props){
         super(props);
         this.state = {
-            likes:this.props.likes,
-            dislikes:this.props.dislikes,
-            // voted:false
-            lockLike:false,
-            lockDislike:false
+            // likes:this.props.likes,
+            // dislikes:this.props.dislikes,
+            // // voted:false
+            // lockLike:false,
+            // lockDislike:false
             
         }
     }
 
     componentDidMount(){
-        console.log("Render HandleLike.js")
-    // console.log(this.props.likes)
-    // console.log(this.state.likes)
-    const testTrue = localStorage.getItem("testTrue")
-    console.log(testTrue)
-  const convert = (testTrue === 'true')
-  console.log(convert)
-  this.setState({lockLike:convert})
+//         console.log("Render HandleLike.js")
+//     // console.log(this.props.likes)
+//     // console.log(this.state.likes)
+//     const testTrue = localStorage.getItem("testTrue")
+//     console.log(testTrue)
+//   const convert = (testTrue === 'true')
+//   console.log(convert)
+//   this.setState({lockLike:convert})
     }
     handleClick(choice){
-        const updateDatabase = {}
-        const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // const updateDatabase = {}
+        // const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         
-        const increaseLike = this.state.likes + 1;
-        const decreaseLike = this.state.likes - 1;
+        // const increaseLike = this.state.likes + 1;
+        // const decreaseLike = this.state.likes - 1;
 
-        const dislikeAction = this.state.dislikes + 1;
+        // const dislikeAction = this.state.dislikes + 1;
 
 
-        // if choice => like
-            // {add a like}
-            // {lock dislike}
-        console.log(this.state.lockLike)
-        if(choice.includes("postive") && this.state.lockLike === false){
-            this.setState({likes:increaseLike, lockDislike:true})
-            localStorage.setItem("testTrue", true)
+        // // if choice => like
+        //     // {add a like}
+        //     // {lock dislike}
+        // console.log(this.state.lockLike)
+        // if(choice.includes("postive") && this.state.lockLike === false){
+        //     this.setState({likes:increaseLike, lockDislike:true})
+        //     localStorage.setItem("testTrue", true)
 
-            // Saving to main array
-            var changeDatabase = database.map(el => {
-                if(el.id === this.props.id)
-                // console.log("Correct")
-                    return Object.assign({}, el, {likes:increaseLike})
-                    return el
-            });
-            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+        //     // Saving to main array
+        //     var changeDatabase = database.map(el => {
+        //         if(el.id === this.props.id)
+        //         // console.log("Correct")
+        //             return Object.assign({}, el, {likes:increaseLike})
+        //             return el
+        //     });
+        //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
 
 
 
             
-        }
-            // Remove like if dislike is locked, then unlock dislike.
-            if(choice.includes("postive") && this.state.lockDislike === true || this.state.lockLike === true){
-                this.setState({likes:decreaseLike, lockDislike: false, lockLike:false})
-                localStorage.setItem("testTrue", false)
+        // }
+        //     // Remove like if dislike is locked, then unlock dislike.
+        //     if(choice.includes("postive") && this.state.lockDislike === true || this.state.lockLike === true){
+        //         this.setState({likes:decreaseLike, lockDislike: false, lockLike:false})
+        //         localStorage.setItem("testTrue", false)
 
-                            // Saving to main array
-            var changeDatabase = database.map(el => {
-                if(el.id === this.props.id)
-                // console.log("Correct")
-                    return Object.assign({}, el, {likes:decreaseLike})
-                    return el
-            });
-            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+        //                     // Saving to main array
+        //     var changeDatabase = database.map(el => {
+        //         if(el.id === this.props.id)
+        //         // console.log("Correct")
+        //             return Object.assign({}, el, {likes:decreaseLike})
+        //             return el
+        //     });
+        //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
 
                
-            }
+        //     }
 
 
         // if choice => dislike
@@ -245,7 +247,9 @@ componentWillUnmount(){
             <div className="socialScoreWrapper">
                 {/* {thing} */}
                 <div>
-                    <button onClick={()=>this.handleClick("postive")}>
+                    <Like />
+                    {/* <Dislike /> */}
+                    {/* <button onClick={()=>this.handleClick("postive")}>
                         <span className="large material-icons">thumb_up</span>
                         {this.state.likes}
                     </button>         
@@ -253,7 +257,7 @@ componentWillUnmount(){
                     <button onClick={()=>this.handleClick("negative")}>
                         <span className="large material-icons">thumb_down</span>
                         {this.state.dislikes}
-                    </button>  
+                    </button>   */}
                 </div>
             </div>
         )
