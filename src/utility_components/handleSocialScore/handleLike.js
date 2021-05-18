@@ -247,7 +247,7 @@ componentWillUnmount(){
             <div className="socialScoreWrapper">
                 {/* {thing} */}
                 <div>
-                    <Like />
+                    <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id}/>
                     {/* <Dislike /> */}
                     {/* <button onClick={()=>this.handleClick("postive")}>
                         <span className="large material-icons">thumb_up</span>

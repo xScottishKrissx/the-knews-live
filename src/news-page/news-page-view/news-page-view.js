@@ -88,9 +88,9 @@ export class NewsPageVIEW extends React.Component{
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         const getArticle = database.filter(obj => obj.id === this.props.articleId)
-       console.log(getArticle)
+      //  console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
-            console.log(value.likes)
+            // console.log(value.likes)
             //console.log("current author email:: " + value.email)
             
             
@@ -103,7 +103,7 @@ export class NewsPageVIEW extends React.Component{
                         {/* <HeaderImage props={value.id} /> */}
                         <h1>Header Image</h1>
                     </div>
-                    <HandleLike id={value.id} likes={value.likes} dislikes={value.dislikes}/>
+                    <HandleLike id={value.id} likes={value.likes} dislikes={value.dislikes} databaseId={value.key}/>
                     {/* Bookmark Controls */}
                     <div id="bookmarkControls">
                       <OnCardBookMarkControls                         
