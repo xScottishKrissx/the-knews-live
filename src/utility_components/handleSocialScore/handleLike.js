@@ -10,7 +10,10 @@ export class HandleLike extends React.Component{
         this.state = {
             likes:this.props.likes,
             dislikes:this.props.dislikes,
-            voted:false
+            // voted:false
+            lockLike:false,
+            lockDislike:false
+            
         }
     }
 
@@ -26,8 +29,19 @@ export class HandleLike extends React.Component{
         const dislikeAction = this.state.dislikes + 1;
 
 
-        
+        // if choice => like
+        if(choice.includes("postive") && this.state.lockLike === false){
+            this.setState({likes:likeAction, lockDislike:true})
+        }
+            // {add a like}
+            // {lock dislike}
 
+        // if choice => dislike
+        if(choice.includes("negative") && this.state.lockDislike === false){
+            this.setState({dislikes:dislikeAction, lockLike: true})
+        }
+            // {{add a dislike}}
+            // {disable like}
 
 
 
