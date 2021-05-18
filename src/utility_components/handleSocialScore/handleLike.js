@@ -18,39 +18,74 @@ export class HandleLike extends React.Component{
     }
 
     componentDidMount(){
+        console.log("Render HandleLike.js")
     // console.log(this.props.likes)
     // console.log(this.state.likes)
+    const testTrue = localStorage.getItem("testTrue")
+    console.log(testTrue)
+  const convert = (testTrue === 'true')
+  console.log(convert)
+  this.setState({lockLike:convert})
     }
     handleClick(choice){
         const updateDatabase = {}
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         
-        const likeAction = this.state.likes + 1;
+        const increaseLike = this.state.likes + 1;
+        const decreaseLike = this.state.likes - 1;
+
         const dislikeAction = this.state.dislikes + 1;
 
 
         // if choice => like
             // {add a like}
             // {lock dislike}
+        console.log(this.state.lockLike)
         if(choice.includes("postive") && this.state.lockLike === false){
-            this.setState({likes:likeAction, lockDislike:true})
+            this.setState({likes:increaseLike, lockDislike:true})
+            localStorage.setItem("testTrue", true)
+
+            // Saving to main array
+            var changeDatabase = database.map(el => {
+                if(el.id === this.props.id)
+                // console.log("Correct")
+                    return Object.assign({}, el, {likes:increaseLike})
+                    return el
+            });
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+
+
+
+            
         }
             // Remove like if dislike is locked, then unlock dislike.
-            if(choice.includes("postive") && this.state.lockDislike === true){
-                this.setState({likes:this.state.likes - 1, lockDislike: false})
+            if(choice.includes("postive") && this.state.lockDislike === true || this.state.lockLike === true){
+                this.setState({likes:decreaseLike, lockDislike: false, lockLike:false})
+                localStorage.setItem("testTrue", false)
+
+                            // Saving to main array
+            var changeDatabase = database.map(el => {
+                if(el.id === this.props.id)
+                // console.log("Correct")
+                    return Object.assign({}, el, {likes:decreaseLike})
+                    return el
+            });
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+
+               
             }
 
 
         // if choice => dislike
             // {{add a dislike}}
             // {disable like}
-        if(choice.includes("negative") && this.state.lockDislike === false){
-            this.setState({dislikes:dislikeAction, lockLike: true})
-        }
-            // Remove Dislike if like is locked, then unlock like.
-            if(choice.includes("negative") && this.state.lockLike === true){
-                this.setState({dislikes:this.state.dislikes - 1, lockLike: false})
-            }
+        // if(choice.includes("negative") && this.state.lockDislike === false){
+        //     this.setState({dislikes:dislikeAction, lockLike: true})
+        // }
+        //     // Remove Dislike if like is locked, then unlock like.
+        //     if(choice.includes("negative") && this.state.lockLike === true){
+        //         this.setState({dislikes:this.state.dislikes - 1, lockLike: false})
+        //     }
 
 
 
