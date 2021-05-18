@@ -100,9 +100,10 @@ export class NewsPageVIEW extends React.Component{
                 <div className='news-page-wrapper' key={value.id}> 
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
-                        <HeaderImage props={value.id} />
+                        {/* <HeaderImage props={value.id} /> */}
+                        <h1>Header Image</h1>
                     </div>
-                    <HandleLike id={value.id} likes={value.likes} />
+                    <HandleLike id={value.id} likes={value.likes} dislikes={value.dislikes}/>
                     {/* Bookmark Controls */}
                     <div id="bookmarkControls">
                       <OnCardBookMarkControls                         
