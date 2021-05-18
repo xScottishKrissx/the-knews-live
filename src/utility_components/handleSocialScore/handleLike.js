@@ -30,18 +30,28 @@ export class HandleLike extends React.Component{
 
 
         // if choice => like
+            // {add a like}
+            // {lock dislike}
         if(choice.includes("postive") && this.state.lockLike === false){
             this.setState({likes:likeAction, lockDislike:true})
         }
-            // {add a like}
-            // {lock dislike}
+            // Remove like if dislike is locked, then unlock dislike.
+            if(choice.includes("postive") && this.state.lockDislike === true){
+                this.setState({likes:this.state.likes - 1, lockDislike: false})
+            }
+
 
         // if choice => dislike
+            // {{add a dislike}}
+            // {disable like}
         if(choice.includes("negative") && this.state.lockDislike === false){
             this.setState({dislikes:dislikeAction, lockLike: true})
         }
-            // {{add a dislike}}
-            // {disable like}
+            // Remove Dislike if like is locked, then unlock like.
+            if(choice.includes("negative") && this.state.lockLike === true){
+                this.setState({dislikes:this.state.dislikes - 1, lockLike: false})
+            }
+
 
 
 
