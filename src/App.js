@@ -34,6 +34,7 @@ componentDidMount(){
         author: dbObjects[dbObject].author,
         bookmarked: dbObjects[dbObject].bookmarked,
         dislikes:dbObjects[dbObject].dislikes,
+        disliked:dbObjects[dbObject].disliked,
         email:dbObjects[dbObject].email,
         hidden:dbObjects[dbObject].hidden,
         id:dbObjects[dbObject].id,

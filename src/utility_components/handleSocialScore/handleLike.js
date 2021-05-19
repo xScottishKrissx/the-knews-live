@@ -15,6 +15,8 @@ export class HandleLike extends React.Component{
             // // voted:false
             // lockLike:false,
             // lockDislike:false
+
+            removeDislike:{}
             
         }
     }
@@ -28,6 +30,7 @@ export class HandleLike extends React.Component{
 //   const convert = (testTrue === 'true')
 //   console.log(convert)
 //   this.setState({lockLike:convert})
+
     }
     handleClick(choice){
         // const updateDatabase = {}
@@ -236,6 +239,9 @@ componentWillUnmount(){
     fire.database().ref("items").off();
 }
 
+componentDidUpdate(){
+
+}
 
     render(){
         // console.log(this.props.likes)
@@ -247,7 +253,15 @@ componentWillUnmount(){
             <div className="socialScoreWrapper">
                 {/* {thing} */}
                 <div>
+                    {this.props.liked ? 
+                    <p>Liked</p> 
+                    : 
+                    <p>Not Liked</p>
+                    }
+                    
+                    {this.props.disliked ? <p>Disliked</p> : <p>Not Disliked</p>}
                     <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked} />
+                    <Dislike dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} />
                     {/* <Dislike /> */}
                     {/* <button onClick={()=>this.handleClick("postive")}>
                         <span className="large material-icons">thumb_up</span>

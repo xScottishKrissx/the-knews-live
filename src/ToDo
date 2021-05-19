@@ -996,10 +996,7 @@ Part 2 Implement Database functionality:
             To-Do:
                 ✔ Look at current code and see what can be reused. @done(18:04 - 17/05/21)
                     ☐ I had a look but I think I can do better with what I've learned since I first built the component. Especially now that I don't require being logged in. So im going to build a new component and see what happens.
-                ☐ Idea - Instead of directly changing what's in the database -->
-                        ☐ 1 - Get latest count from database
-                        ☐ 2 - Determine if like button has been clicked
-                        ☐ 3 - Add 1 like to count on front end
+
             Issues:
                 ☐ Vulnerable to manipulation, you could clear the cache -> vote and then repeat to upvote an article forever. However, I don't care about that for this project so I choose to ignore it. This is really about me understanding the interaction between React/JavaScript and updating a firebase database.
                 ☐ I've come to accept that I don't know how to create a like button without the use of local storage. My inspiration for this is the BBC live text page but they're probably using some server side tech that detects a user and works around not having local storage or an account. Otherwise i don't know how to do it

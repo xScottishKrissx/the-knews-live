@@ -21,18 +21,19 @@ export class Like extends React.Component{
             console.log("Vote")
             this.setState({likeCounter:this.state.likeCounter + 1, liked:true})
             updateArray = this.state.likeCounter + 1;
-            liked = true;        
+            liked = true;   
         }
 
         if(x === "undo" ){
             console.log("Undo Vote")
             this.setState({likeCounter:this.state.likeCounter - 1, liked:false})
             updateArray = this.state.likeCounter - 1;
-            liked = false;     
+            liked = false;
+                 
         }
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
-            if(el.id === this.props.id)
+            if(el.id === this.props.id )
                 return Object.assign({}, el, {likes:updateArray, liked:liked})
                 return el
         });
@@ -50,8 +51,10 @@ export class Like extends React.Component{
     componentWillUnmount(){fire.database().ref("items").off();}
 
     render(){
-        const likes = this.state.likeCounter;
-        return(
+      const likes = this.state.likeCounter;
+      console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+      return(
+               
             <div>
                  {this.state.liked === false ?
                     <button onClick={()=>this.handleClick("vote")}>

@@ -41,6 +41,7 @@ export class NewsPageVIEW extends React.Component{
               author: dbObjects[dbObject].author,
               bookmarked: dbObjects[dbObject].bookmarked,
               dislikes:dbObjects[dbObject].dislikes,
+              disliked:dbObjects[dbObject].disliked,
               email:dbObjects[dbObject].email,
               hidden:dbObjects[dbObject].hidden,
               id:dbObjects[dbObject].id,
@@ -105,7 +106,15 @@ export class NewsPageVIEW extends React.Component{
                         {/* <HeaderImage props={value.id} /> */}
                         <h1>Header Image</h1>
                     </div>
-                    <HandleLike id={value.id} likes={value.likes} dislikes={value.dislikes} databaseId={value.key} liked={value.liked}/>
+                    <HandleLike 
+                      id={value.id} 
+                      likes={value.likes}
+                      dislikes={value.dislikes} 
+                      databaseId={value.key} 
+                      liked={value.liked}
+                      disliked={value.disliked}
+                      />
+
                     {/* Bookmark Controls */}
                     <div id="bookmarkControls">
                       <OnCardBookMarkControls                         
