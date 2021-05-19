@@ -88,9 +88,9 @@ export class NewsPageVIEW extends React.Component{
 
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
-        console.log(database)
+        // console.log(database)
         const getArticle = database.filter(obj => obj.id === this.props.articleId)
-       console.log(getArticle)
+      //  console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
             // console.log(value.likes)
             //console.log("current author email:: " + value.email)

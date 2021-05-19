@@ -90,7 +90,7 @@ class Bookmarks extends Component {
             // console.log(getBookmarks)
             this.setState({bookmarks:getBookmarks})
         }
-        console.log(localStorage.getItem("filterOption"))
+        // console.log(localStorage.getItem("filterOption"))
 
     }
     clearBookmarks(){
