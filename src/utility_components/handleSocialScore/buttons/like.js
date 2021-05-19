@@ -34,7 +34,7 @@ export class Like extends React.Component{
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
             if(el.id === this.props.id )
-                return Object.assign({}, el, {likes:updateArray, liked:liked})
+                return Object.assign({}, el, {likes:updateArray, liked:liked, disliked: false})
                 return el
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
@@ -56,7 +56,7 @@ export class Like extends React.Component{
       return(
                
             <div>
-                 {this.state.liked === false ?
+                 {this.props.liked === false ?
                     <button onClick={()=>this.handleClick("vote")}>
                         <span className="large material-icons">thumb_up_off_alt</span>
                         {" | " + likes + " likes"}
