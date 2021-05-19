@@ -1,7 +1,6 @@
 import React from 'react';
 import fire from '../../../fire';
 
-
 export class Like extends React.Component{
     
     constructor(props){
@@ -39,17 +38,16 @@ export class Like extends React.Component{
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
 
-        this.updateToDatabase(updateArray);
+        this.updateDatabase(updateArray);
 
     }
-    componentWillUnmount(){
-        fire.database().ref("items").off();         
-    }
-    updateToDatabase = (updateArray) => {
+
+    updateDatabase = (updateArray) => {
         const updateDatabase = {} 
         updateDatabase[this.props.databaseId + "/likes/"] = updateArray;
         fire.database().ref("items").update(updateDatabase);
     }
+    componentWillUnmount(){fire.database().ref("items").off();}
 
     render(){
         const likes = this.state.likeCounter;
@@ -57,14 +55,13 @@ export class Like extends React.Component{
             <div>
                  {this.state.liked === false ?
                     <button onClick={()=>this.handleClick("vote")}>
-                        {/* <span className="large material-icons">thumb_up</span> */}
-                        Click To Like | {" " + likes + " likes"}
+                        <span className="large material-icons">thumb_up_off_alt</span>
+                        {" | " + likes + " likes"}
                     </button>   
                     :
                     <button onClick={()=>this.handleClick("undo")}>
-                        {/* <span className="large material-icons">thumb_down</span> */}
-                        Click To Dislike | 
-                        {" " + likes + " likes"}
+                        <span className="large material-icons">thumb_up_alt</span> 
+                        {" | " + likes + " likes"}
                     </button>   
                  }
                      
