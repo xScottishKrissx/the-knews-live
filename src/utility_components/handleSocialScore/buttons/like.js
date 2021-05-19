@@ -12,9 +12,7 @@ export class Like extends React.Component{
         }
     }
 
-    handleClick(x,y){
-
-        // const updateDatabase = {}
+    handleClick(x){
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         var updateArray = {}
         var liked = {}
@@ -25,17 +23,14 @@ export class Like extends React.Component{
             this.setState({likeCounter:this.state.likeCounter + 1, liked:true})
             updateArray = this.state.likeCounter + 1;
             liked = true;        
-            
         }
 
         if(x === "undo" ){
             console.log("Undo Vote")
             this.setState({likeCounter:this.state.likeCounter - 1, liked:false})
             updateArray = this.state.likeCounter - 1;
-            liked = false;
-     
+            liked = false;     
         }
-        console.log(updateArray)
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
             if(el.id === this.props.id)
@@ -44,58 +39,19 @@ export class Like extends React.Component{
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
 
-        // Update Database
-        if(liked){
-            console.log("Update Database")
-            
-        }
-        // updateDatabase[this.props.databaseId + "/likes/"] = this.props.likes + 1;
-        // fire.database().ref("items").update(updateDatabase);
+        this.updateToDatabase(updateArray);
+
     }
     componentWillUnmount(){
-        fire.database().ref("items").off(); 
-       
-        
+        fire.database().ref("items").off();         
     }
-    updateToDatabase =(x) => {
-        console.log("Update Database " + x)
-        // const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // var changeDatabase = database.map(el => {
-        //     if(el.id === this.props.id)
-        //         console.log(el.likes)
-        //         return el
-        // });
-
-        const dbRef = fire.database().ref("items").orderByKey().equalTo(this.props.databaseId);
-        console.log(dbRef)
-
-        dbRef.on('value', (snapshot) => {
-            let dbObjects = snapshot.val();
-            let newState = [];
-            for (let dbObject in dbObjects){
-              newState.push({
-                likes:dbObjects[dbObject].likes,               
-              })
-            }
-            const thing = newState;
-            console.log(thing[0].likes)
-            
+    updateToDatabase = (updateArray) => {
         const updateDatabase = {} 
-        const thing2 = thing[0].likes + 1
-        updateDatabase[this.props.databaseId + "/likes/"] = thing2;
-        console.log(updateDatabase)
+        updateDatabase[this.props.databaseId + "/likes/"] = updateArray;
         fire.database().ref("items").update(updateDatabase);
-        })
-
-   
-
-        // const updateDatabase = {} 
-        // updateDatabase[this.props.databaseId + "/likes/"] = this.props.likes + 1;
-        // fire.database().ref("items").update(updateDatabase);
     }
 
     render(){
-        console.log(this.props.likes)
         const likes = this.state.likeCounter;
         return(
             <div>
