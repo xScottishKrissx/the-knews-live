@@ -32,7 +32,7 @@ export class NewsPageVIEW extends React.Component{
         // this.setState({ownsArticle: false})
 
         const dbRef = fire.database().ref("items").orderByKey();   
-           
+        // Main Database Call
         dbRef.on('value', (snapshot) => {
           let dbObjects = snapshot.val();
           let newState = [];
@@ -46,6 +46,7 @@ export class NewsPageVIEW extends React.Component{
               id:dbObjects[dbObject].id,
               key:dbObject,
               likes:dbObjects[dbObject].likes,
+              liked:dbObjects[dbObject].liked,
               postdate:dbObjects[dbObject].postdate,
               read: dbObjects[dbObject].read,
               tag:dbObjects[dbObject].tag,
@@ -87,8 +88,9 @@ export class NewsPageVIEW extends React.Component{
 
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
+        console.log(database)
         const getArticle = database.filter(obj => obj.id === this.props.articleId)
-      //  console.log(getArticle)
+       console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
             // console.log(value.likes)
             //console.log("current author email:: " + value.email)
@@ -103,7 +105,7 @@ export class NewsPageVIEW extends React.Component{
                         {/* <HeaderImage props={value.id} /> */}
                         <h1>Header Image</h1>
                     </div>
-                    <HandleLike id={value.id} likes={value.likes} dislikes={value.dislikes} databaseId={value.key}/>
+                    <HandleLike id={value.id} likes={value.likes} dislikes={value.dislikes} databaseId={value.key} liked={value.liked}/>
                     {/* Bookmark Controls */}
                     <div id="bookmarkControls">
                       <OnCardBookMarkControls                         

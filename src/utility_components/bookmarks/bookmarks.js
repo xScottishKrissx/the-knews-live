@@ -46,6 +46,7 @@ class Bookmarks extends Component {
     
               // console.log("App.js Mounted")
       const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
+        // Main Database Call
       cleanDB.on('value', (snapshot) => {
         let dbObjects = snapshot.val();
         let newState = [];
@@ -59,6 +60,7 @@ class Bookmarks extends Component {
             id:dbObjects[dbObject].id,
             key:dbObject,
             likes:dbObjects[dbObject].likes,
+            liked:dbObjects[dbObject].liked,
             postdate:dbObjects[dbObject].postdate,
             read: dbObjects[dbObject].read,
             tag:dbObjects[dbObject].tag,
@@ -85,7 +87,7 @@ class Bookmarks extends Component {
             this.setState({bookmarks:[],})
         }else{
             const getBookmarks = database.filter(obj => obj.bookmarked === true ) 
-            console.log(getBookmarks)
+            // console.log(getBookmarks)
             this.setState({bookmarks:getBookmarks})
         }
         console.log(localStorage.getItem("filterOption"))

@@ -85,7 +85,7 @@ class Tags extends React.Component{
             })            
         }) 
         
-        
+          // Main Database Call
         const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
         cleanDB.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
@@ -100,6 +100,7 @@ class Tags extends React.Component{
                 id:dbObjects[dbObject].id,
                 key:dbObject,
                 likes:dbObjects[dbObject].likes,
+                liked:dbObjects[dbObject].liked,
                 postdate:dbObjects[dbObject].postdate,
                 read: dbObjects[dbObject].read,
                 tag:dbObjects[dbObject].tag,

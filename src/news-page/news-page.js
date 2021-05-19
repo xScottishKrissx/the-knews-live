@@ -32,7 +32,7 @@ export class NewsPage extends React.Component{
         console.log("Mounted")
         const dave = this.props.match.params.id;
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
-
+         // Main Database Call
         dbRef.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
             let newState = [];
@@ -46,6 +46,7 @@ export class NewsPage extends React.Component{
                 id:dbObjects[dbObject].id,
                 key:dbObject,
                 likes:dbObjects[dbObject].likes,
+                liked:dbObjects[dbObject].liked,
                 postdate:dbObjects[dbObject].postdate,
                 read: dbObjects[dbObject].read,
                 tag:dbObjects[dbObject].tag,

@@ -25,6 +25,7 @@ componentDidMount(){
   
   // console.log("App.js Mounted")
   const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
+  // Main Database Call
   cleanDB.on('value', (snapshot) => {
     let dbObjects = snapshot.val();
     let newState = [];
@@ -38,6 +39,7 @@ componentDidMount(){
         id:dbObjects[dbObject].id,
         key:dbObject,
         likes:dbObjects[dbObject].likes,
+        liked:dbObjects[dbObject].liked,
         postdate:dbObjects[dbObject].postdate,
         read: dbObjects[dbObject].read,
         tag:dbObjects[dbObject].tag,

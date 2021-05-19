@@ -27,6 +27,7 @@ class MapDatabaseItems extends React.Component{
 
     componentDidMount(){
     // This is the initial database query.
+      // Main Database Call
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);     
         dbRef.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
@@ -41,6 +42,7 @@ class MapDatabaseItems extends React.Component{
                 id:dbObjects[dbObject].id,
                 key:dbObject,
                 likes:dbObjects[dbObject].likes,
+                liked:dbObjects[dbObject].liked,
                 postdate:dbObjects[dbObject].postdate,
                 read: dbObjects[dbObject].read,
                 tag:dbObjects[dbObject].tag,
