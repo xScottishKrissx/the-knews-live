@@ -308,9 +308,28 @@ updateLikes = (x,activeButton) =>{
                     }
  
                     
-                    <Like getLikes={this.updateLikes} likes={this.state.likeCounter} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
+                    <Like 
+                        getLikes={this.updateLikes} 
+                        likes={this.state.likeCounter} 
+                        databaseId={this.props.databaseId} 
+                        id={this.props.id} 
+                        liked={this.props.liked}  
+                        disliked={this.props.disliked}
+                        activeButton={this.state.activeButton}
+                    />
 
-                    <Dislike getLikes={this.updateLikes} dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} liked={this.props.liked}/>
+                    <Dislike 
+                        getLikes={this.updateLikes} 
+                        dislikes={this.state.dislikeCounter} 
+                        databaseId={this.props.databaseId} 
+                        id={this.props.id} 
+                        liked={this.props.liked}
+                        disliked={this.props.disliked} 
+                        activeButton={this.state.activeButton}
+                        
+                    />
+
+
 
 
                     {/* <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>

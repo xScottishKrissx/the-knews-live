@@ -10,8 +10,7 @@ export class Like extends React.Component{
             liked:this.props.liked
         }
     }
-    componentWillMount(){      
-    }
+
     handleClick(x){
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         var updateArray = {}
@@ -32,10 +31,11 @@ export class Like extends React.Component{
             liked = false;
                  
         }
+
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
             if(el.id === this.props.id )
-                return Object.assign({}, el, {likes:updateArray, liked:liked, disliked:this.props.liked})
+                return Object.assign({}, el, {likes:updateArray, liked:liked, disliked:this.props.disliked})
                 return el
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
@@ -56,11 +56,8 @@ export class Like extends React.Component{
     componentWillUnmount(){fire.database().ref("items").off();}
 
     render(){
-       console.log(this.props.liked)
-      const likes = this.state.likeCounter;
-      
-      return(
-               
+        const likes = this.state.likeCounter;  
+        return(
             <div>
                  {this.props.liked === false ?
                     <button onClick={()=>this.handleClick("vote")}>
@@ -73,7 +70,6 @@ export class Like extends React.Component{
                         {" | " + likes + " likes"}
                     </button>   
                  }
-                     
             </div>
         )
     }

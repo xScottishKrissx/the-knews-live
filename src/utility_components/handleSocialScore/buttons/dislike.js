@@ -55,7 +55,6 @@ export class Dislike extends React.Component{
     componentWillUnmount(){fire.database().ref("items").off();}
 
     render(){
-        
         const dislikes = this.state.dislikeCounter;
         return(
             <div>
@@ -70,7 +69,6 @@ export class Dislike extends React.Component{
                         {" | " + dislikes + " dislikes"}
                     </button>   
                  }
-                     
             </div>
         )
     }
