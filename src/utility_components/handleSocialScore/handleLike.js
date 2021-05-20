@@ -15,7 +15,7 @@ export class HandleLike extends React.Component{
             // // voted:false
             // lockLike:false,
             // lockDislike:false
-
+            likeCounter:this.props.likes,
             removeDislike:{}
             
         }
@@ -244,8 +244,15 @@ componentDidUpdate(){
 
 }
 
-    render(){
+updateLikes = (x) =>{
+    console.log(x)
+    this.setState({
+        likeCounter:x
+    })
+}
 
+    render(){
+        const likes = this.state.likes || this.props.likes;
         // console.log(this.props.likes)
         // console.log(this.state.likes)
         // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
@@ -257,9 +264,15 @@ componentDidUpdate(){
                 <div>
                     {this.props.liked ? <p>Liked</p> : <p>Not Liked</p>}
                     {this.props.disliked ? <p>Disliked</p> : <p>Not Disliked</p>}
+                    <p>Like Counter  - {this.state.likeCounter}</p>
+                    
+                    <Like getLikes={this.updateLikes} likes={this.state.likeCounter} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
 
-                    <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
-                    <Dislike dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} liked={this.props.liked}/>
+                    {/* <Dislike dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} liked={this.props.liked}/> */}
+
+
+                    {/* <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
+                    <Dislike dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} liked={this.props.liked}/> */}
 
 
 

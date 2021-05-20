@@ -39,6 +39,9 @@ export class Like extends React.Component{
                 return el
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+        var updateState = this.props.getLikes;
+        updateState(updateArray)
+
 
         this.updateDatabase(updateArray);
 
