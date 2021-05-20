@@ -22,6 +22,7 @@ export class HandleLike extends React.Component{
     }
 
     componentDidMount(){
+        console.log("Handle Like Mounted")
 //         console.log("Render HandleLike.js")
 //     // console.log(this.props.likes)
 //     // console.log(this.state.likes)
@@ -244,6 +245,7 @@ componentDidUpdate(){
 }
 
     render(){
+
         // console.log(this.props.likes)
         // console.log(this.state.likes)
         // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
@@ -253,15 +255,14 @@ componentDidUpdate(){
             <div className="socialScoreWrapper">
                 {/* {thing} */}
                 <div>
-                    {this.props.liked ? 
-                    <p>Liked</p> 
-                    : 
-                    <p>Not Liked</p>
-                    }
-                    
+                    {this.props.liked ? <p>Liked</p> : <p>Not Liked</p>}
                     {this.props.disliked ? <p>Disliked</p> : <p>Not Disliked</p>}
-                    <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked} />
-                    <Dislike dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} />
+
+                    <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
+                    <Dislike dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} liked={this.props.liked}/>
+
+
+
                     {/* <Dislike /> */}
                     {/* <button onClick={()=>this.handleClick("postive")}>
                         <span className="large material-icons">thumb_up</span>

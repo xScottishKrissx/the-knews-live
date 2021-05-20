@@ -1,5 +1,7 @@
 import React from 'react';
 import fire from '../../../fire';
+import Like from './like';
+import testLike from './testLike';
 
 export class Dislike extends React.Component{
     
@@ -29,7 +31,16 @@ export class Dislike extends React.Component{
             this.setState({dislikeCounter:this.state.dislikeCounter - 1, disliked:false})
             updateArray = this.state.dislikeCounter - 1;
             disliked = false;     
+           
         }
+
+        if(this.props.liked === true){
+            // console.log("Remove Like")
+            testLike("undo",this.props.id, this.props.databaseId);
+            
+        }
+
+
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
             if(el.id === this.props.id)
@@ -50,7 +61,7 @@ export class Dislike extends React.Component{
     componentWillUnmount(){fire.database().ref("items").off();}
 
     render(){
-
+        console.log(this.props.liked)
         const dislikes = this.state.dislikeCounter;
         return(
             <div>

@@ -10,7 +10,8 @@ export class Like extends React.Component{
             liked:this.props.liked
         }
     }
-
+    componentWillMount(){      
+    }
     handleClick(x){
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         var updateArray = {}
@@ -51,6 +52,7 @@ export class Like extends React.Component{
     componentWillUnmount(){fire.database().ref("items").off();}
 
     render(){
+        console.log(this.props.disliked)
       const likes = this.state.likeCounter;
       console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
       return(
