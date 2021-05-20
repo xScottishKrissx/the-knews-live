@@ -20,7 +20,7 @@ export class HandleLike extends React.Component{
             removeDislike:{},
 
             // test
-            activeButton:[],
+            activeButton:this.props.liked || this.props.disliked,
             liked:this.props.liked,
             disliked:this.props.disliked
             
@@ -252,7 +252,7 @@ componentDidUpdate(){
 
 updateLikes = (x,activeButton) =>{
     // console.log(x)
-    console.log(activeButton)
+    // console.log(activeButton)
     this.setState({
         likeCounter:x,
         dislikeCounter:x,
@@ -265,8 +265,11 @@ updateLikes = (x,activeButton) =>{
         // console.log(this.props.likes)
         // console.log(this.state.likes)
         // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
-        console.log("Liked = " + this.props.liked)
-        console.log("Disliked = " + this.props.disliked)
+        // console.log("Liked = " + this.props.liked)
+        // console.log("Disliked = " + this.props.disliked)
+
+                console.log(this.props.liked)
+        console.log(this.state.liked)
         return(
             
             <div className="socialScoreWrapper">

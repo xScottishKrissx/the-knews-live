@@ -35,7 +35,7 @@ export class Dislike extends React.Component{
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
             if(el.id === this.props.id)
-                return Object.assign({}, el, {dislikes:updateArray, disliked:disliked, liked:this.props.liked})
+                return Object.assign({}, el, {dislikes:updateArray, disliked:disliked})
                 return el
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
