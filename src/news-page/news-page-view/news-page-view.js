@@ -96,7 +96,7 @@ export class NewsPageVIEW extends React.Component{
             // console.log(value.likes)
             //console.log("current author email:: " + value.email)
             
-            console.log(value.liked + " " + value.disliked)
+            // console.log(value.liked + " " + value.disliked)
 
             MarkAsRead(value.id, false)
             return(

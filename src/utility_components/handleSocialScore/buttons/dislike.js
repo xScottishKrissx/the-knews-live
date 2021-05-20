@@ -19,7 +19,7 @@ export class Dislike extends React.Component{
         // Increase Score
         if(x === "vote" ){
             console.log("Vote")
-            this.setState({dislikeCounter:this.state.dislikeCounter + 1, disliked:true})
+            this.setState({dislikeCounter:this.state.dislikeCounter + 1, disliked:true })
             updateArray = this.state.dislikeCounter + 1;
             disliked = true;        
         }
@@ -35,13 +35,13 @@ export class Dislike extends React.Component{
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
             if(el.id === this.props.id)
-                return Object.assign({}, el, {dislikes:updateArray, disliked:disliked})
+                return Object.assign({}, el, {dislikes:updateArray, disliked:disliked, liked:false})
                 return el
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
 
         var updateState = this.props.getLikes;
-        updateState(updateArray,true)
+        updateState(updateArray,false)
 
         this.updateDatabase(updateArray);
 

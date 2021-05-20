@@ -20,7 +20,9 @@ export class HandleLike extends React.Component{
             removeDislike:{},
 
             // test
-            activeButton:[]
+            activeButton:[],
+            liked:this.props.liked,
+            disliked:this.props.disliked
             
         }
     }
@@ -249,7 +251,7 @@ componentDidUpdate(){
 }
 
 updateLikes = (x,activeButton) =>{
-    console.log(x)
+    // console.log(x)
     console.log(activeButton)
     this.setState({
         likeCounter:x,
@@ -263,7 +265,8 @@ updateLikes = (x,activeButton) =>{
         // console.log(this.props.likes)
         // console.log(this.state.likes)
         // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
-
+        console.log("Liked = " + this.props.liked)
+        console.log("Disliked = " + this.props.disliked)
         return(
             
             <div className="socialScoreWrapper">
@@ -273,8 +276,37 @@ updateLikes = (x,activeButton) =>{
                     {this.props.disliked ? <p>Disliked</p> : <p>Not Disliked</p>}
                     <p>Like Counter  - {this.state.likeCounter}</p>
 
-                    <button ><span className="large material-icons">thumb_up</span></button>         
-                    <button ><span className="large material-icons">thumb_down</span></button>   
+                    {this.state.activeButton === true ? 
+                    <span>
+                        {this.props.liked === true? 
+                        <span>
+                        <button ><span className="large material-icons">thumb_up_alt</span></button>  
+                        <button ><span className="large material-icons">thumb_down_off_alt</span></button>
+                        </span>
+                        :
+                        <span>
+                        <button ><span className="large material-icons">thumb_up_off_alt</span></button>  
+                        <button ><span className="large material-icons">thumb_down_off_alt</span></button>
+                        </span>
+                        } 
+                         
+                    </span>
+                    :
+                    <span>
+                        {this.props.disliked === true ? 
+                        <span>
+                        <button ><span className="large material-icons">thumb_up_off_alt</span></button>  
+                        <button ><span className="large material-icons">thumb_down_alt</span></button>
+                        </span>
+                        :
+                        <span>
+                        <button ><span className="large material-icons">thumb_up_off_alt</span></button>  
+                        <button ><span className="large material-icons">thumb_down_off_alt</span></button>
+                        </span>
+                        } 
+                    </span>
+                    }
+ 
                     
                     <Like getLikes={this.updateLikes} likes={this.state.likeCounter} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
 
