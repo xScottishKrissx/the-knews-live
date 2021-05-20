@@ -35,12 +35,13 @@ export class Like extends React.Component{
         // Save New Score to Main Array
         var changeDatabase = database.map(el => {
             if(el.id === this.props.id )
-                return Object.assign({}, el, {likes:updateArray, liked:liked, disliked: false})
+                return Object.assign({}, el, {likes:updateArray, liked:liked})
                 return el
         });
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+        
         var updateState = this.props.getLikes;
-        updateState(updateArray)
+        updateState(updateArray,true)
 
 
         this.updateDatabase(updateArray);
@@ -55,9 +56,9 @@ export class Like extends React.Component{
     componentWillUnmount(){fire.database().ref("items").off();}
 
     render(){
-        console.log(this.props.disliked)
+       
       const likes = this.state.likeCounter;
-      console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+      
       return(
                
             <div>

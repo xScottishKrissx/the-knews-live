@@ -16,7 +16,11 @@ export class HandleLike extends React.Component{
             // lockLike:false,
             // lockDislike:false
             likeCounter:this.props.likes,
-            removeDislike:{}
+            dislikeCounter:this.props.dislikes,
+            removeDislike:{},
+
+            // test
+            activeButton:[]
             
         }
     }
@@ -244,15 +248,18 @@ componentDidUpdate(){
 
 }
 
-updateLikes = (x) =>{
+updateLikes = (x,activeButton) =>{
     console.log(x)
+    console.log(activeButton)
     this.setState({
-        likeCounter:x
+        likeCounter:x,
+        dislikeCounter:x,
+        activeButton:activeButton
     })
 }
 
     render(){
-        const likes = this.state.likes || this.props.likes;
+        // const likes = this.state.likes || this.props.likes;
         // console.log(this.props.likes)
         // console.log(this.state.likes)
         // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
@@ -265,10 +272,13 @@ updateLikes = (x) =>{
                     {this.props.liked ? <p>Liked</p> : <p>Not Liked</p>}
                     {this.props.disliked ? <p>Disliked</p> : <p>Not Disliked</p>}
                     <p>Like Counter  - {this.state.likeCounter}</p>
+
+                    <button ><span className="large material-icons">thumb_up</span></button>         
+                    <button ><span className="large material-icons">thumb_down</span></button>   
                     
                     <Like getLikes={this.updateLikes} likes={this.state.likeCounter} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
 
-                    {/* <Dislike dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} liked={this.props.liked}/> */}
+                    <Dislike getLikes={this.updateLikes} dislikes={this.props.dislikes} databaseId={this.props.databaseId} id={this.props.id} disliked={this.props.disliked} liked={this.props.liked}/>
 
 
                     {/* <Like likes={this.props.likes} databaseId={this.props.databaseId} id={this.props.id} liked={this.props.liked}  disliked={this.props.disliked}/>
@@ -277,7 +287,8 @@ updateLikes = (x) =>{
 
 
                     {/* <Dislike /> */}
-                    {/* <button onClick={()=>this.handleClick("postive")}>
+                    {/*
+                     <button onClick={()=>this.handleClick("postive")}>
                         <span className="large material-icons">thumb_up</span>
                         {this.state.likes}
                     </button>         
@@ -285,7 +296,8 @@ updateLikes = (x) =>{
                     <button onClick={()=>this.handleClick("negative")}>
                         <span className="large material-icons">thumb_down</span>
                         {this.state.dislikes}
-                    </button>   */}
+                    </button>   
+                    */}
                 </div>
             </div>
         )
