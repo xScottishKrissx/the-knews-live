@@ -107,16 +107,7 @@ export class NewsPageVIEW extends React.Component{
                         {/* <HeaderImage props={value.id} /> */}
                         <h1>Header Image</h1>
                     </div>
-                    {/* {value.liked === true ? 
-                    <p>Enable Liked, Turn off Dislike</p>
-                    :
-                    null
-                    }
-                    {value.disliked === true ? 
-                    <p>Enable DisLiked, Turn off like</p>
-                    :
-                    null
-                    } */}
+
                     <HandleLike 
                       id={value.id} 
                       likes={value.likes}

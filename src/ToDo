@@ -991,19 +991,25 @@ Part 2 Implement Database functionality:
 
         V12.6 Like/Dislike Button rework:
             Goals:
-                ☐ Ability to vote on article WITHOUT the need to login.
-                ☐ Limit to 1 vote per cache
+                ✔ Ability to vote on article WITHOUT the need to login. @done(18:04 - 21/05/21)
+                ✔ Limit to 1 vote per cache @done(18:04 - 21/05/21)
             To-Do:
                 ✔ Look at current code and see what can be reused. @done(18:04 - 17/05/21)
-                    ☐ I had a look but I think I can do better with what I've learned since I first built the component. Especially now that I don't require being logged in. So im going to build a new component and see what happens.
+                    ✔ I had a look but I think I can do better with what I've learned since I first built the component. Especially now that I don't require being logged in. So im going to build a new component and see what happens. @done(18:04 - 21/05/21)
+                ✔ I have a solution in place that lets you vote on articles and have that vote saved throughout the website. It took a while, and multiple iterations of the code, to get the UI just as I want it but I managed it in the end. Of course the main flaw is still the vulnerability to vote manipulation but I don't know to avoid that without requiring a login. @done(18:16 - 21/05/21)
+
+                ✔ I suppose one method would be to update the database and undo the likes/dislikes when clearing the cache but that just seems convoluted and I don't want to go down that route. This project is already running way too long as it is. @done(18:16 - 21/05/21)
+
+                ✔ The Like/Dislike buttons are in place so let's move on. @done(18:16 - 21/05/21)
+
 
             Issues:
-                ☐ Vulnerable to manipulation, you could clear the cache -> vote and then repeat to upvote an article forever. However, I don't care about that for this project so I choose to ignore it. This is really about me understanding the interaction between React/JavaScript and updating a firebase database.
-                ☐ I've come to accept that I don't know how to create a like button without the use of local storage. My inspiration for this is the BBC live text page but they're probably using some server side tech that detects a user and works around not having local storage or an account. Otherwise i don't know how to do it
-                ☐ ...or I'm just missing something very obvious.
-                ☐ there has to be vote manipulation protection of some sort that skips the front end entirely.
-                ☐ Maybe something blocks a client from multiple interactions etc in the server side.
-                ☐ If that's the case then I think I need to stop worrying about this. I have a solution that works for my purposes(react development and learning) so its probably not a good idea to try and compete or compare myself with the BBC.
+                 Vulnerable to manipulation, you could clear the cache -> vote and then repeat to upvote an article forever. However, I don't care about that for this project so I choose to ignore it. This is really about me understanding the interaction between React/JavaScript and updating a firebase database.
+                 I've come to accept that I don't know how to create a like button without the use of local storage. My inspiration for this is the BBC live text page but they're probably using some server side tech that detects a user and works around not having local storage or an account. Otherwise i don't know how to do it
+                ...or I'm just missing something very obvious.
+                there has to be vote manipulation protection of some sort that skips the front end entirely.
+                 Maybe something blocks a client from multiple interactions etc in the server side.
+             If that's the case then I think I need to stop worrying about this. I have a solution that works for my purposes(react development and learning) so its probably not a good idea to try and compete or compare myself with the BBC.
 
 
 
@@ -1077,7 +1083,7 @@ Part 2 Implement Database functionality:
             ✔ 12.3 - Implement Bookmarking into swipe left(and the rest of the website) @done(17:24 - 12/05/21)
             ✔ 12.4 - Code Review (Splitting Code into components) @done(17:23 - 12/05/21)
             ✔ 12.5 - Finish Remaining Bookmark work @done(16:43 - 17/05/21)
-            ☐ 12.6 - Get Like and Dislike to work separate from myKnews
+            ✔ 12.6 - Get Like and Dislike to work separate from myKnews @done(18:17 - 21/05/21)
             ☐ 12.7 - Look into swiping liteKnews to switch articles
             ☐ 12.8 - Redo Recommended Reading Section
             ☐ 12.9 - Misc Bug Fixes & Tweaks
