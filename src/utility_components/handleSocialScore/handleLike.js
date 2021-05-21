@@ -39,7 +39,7 @@ export class HandleLike extends React.Component{
 //   this.setState({lockLike:convert})
 
     }
-    handleClick(choice){
+    handleClick = (choice) => {
         // const updateDatabase = {}
         // const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         
@@ -102,30 +102,58 @@ export class HandleLike extends React.Component{
 
 
 
+        const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        const liked = this.state.liked 
+        const disliked = this.state.disliked 
 
-        const liked = this.state.liked || this.props.liked
-        const disliked = this.state.disliked || this.props.disliked
+        var updateArrayLikes = {}
+        var updateLiked = {}
+
+        var updateArrayDislikes = {}
+        var updateDisliked = {}
         console.log(choice)
         if(choice === "like"){
            
             
-            console.log(liked)
-            console.log(disliked)
+            console.log(this.state.liked)
+            console.log(this.props.liked)
 
             // Like Button Permutations ->
             //      Nothing Selected -> +1 to like, liked === true
             if(liked === false && disliked === false){
-                console.log("noting selected")
+                console.log("Liked -> Option 1")
                 this.setState({likeCounter:this.state.likeCounter + 1, liked:true})
+                updateArrayLikes = this.state.likeCounter + 1;
+                updateLiked = true;
+                updateArrayDislikes = this.state.dislikeCounter;
+                updateDisliked = disliked;
             }
             //      Liked -> -1 to like, liked === false
             if(liked === true){
+                console.log("Liked -> Option 2")
                 this.setState({likeCounter:this.state.likeCounter - 1, liked:false})
+                updateArrayLikes = this.state.likeCounter - 1;
+                updateLiked = false;
+                updateArrayDislikes = this.state.dislikeCounter;
+                updateDisliked = disliked;
             }
             //      disliked -> +1 to like, -1 to dislike, liked = true, disliked = false
             if(disliked === true){
+                console.log("Liked -> Option 3")
                 this.setState({likeCounter:this.state.likeCounter + 1, dislikeCounter:this.state.dislikeCounter - 1, disliked:false, liked:true})
+                updateArrayLikes = this.state.likeCounter + 1;
+                updateLiked = true;
+                updateArrayDislikes = this.state.dislikeCounter - 1;
+                updateDisliked = false;
             }
+
+            var changeDatabase = database.map(el => {
+                if(el.id === this.props.id)
+                    return Object.assign({}, el, {likes:updateArrayLikes, liked:updateLiked, dislikes:updateArrayDislikes, disliked: updateDisliked})
+                    return el
+            });
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+
         }
 
         
@@ -136,16 +164,37 @@ export class HandleLike extends React.Component{
             // Nothing Selected - > +1 to dislike, disliked === true
             if(disliked === false && liked === false){
                 this.setState({dislikeCounter:this.state.dislikeCounter + 1, disliked:true})
+                updateArrayDislikes = this.state.dislikeCounter + 1;
+                updateDisliked = true;
+                updateArrayLikes = this.state.likeCounter;
+                updateLiked = liked;
             }
             // disliked - > -1 to dislike, disliked === false
             if(disliked === true){
                 this.setState({dislikeCounter:this.state.dislikeCounter - 1, disliked:false})
+                updateArrayDislikes = this.state.dislikeCounter - 1;
+                updateDisliked = false;
+                updateArrayLikes = this.state.likeCounter;
+                updateLiked = liked;
             }
             // liked -> +1 to dislike, -1 to like, liked === false, disliked = true
             if(liked === true){
                 this.setState({dislikeCounter:this.state.dislikeCounter + 1, likeCounter:this.state.likeCounter - 1, liked:false, disliked:true})
+                updateArrayDislikes = this.state.dislikeCounter + 1;
+                updateDisliked = true;
+                updateArrayLikes = this.state.likeCounter - 1;
+                updateLiked = false;
             }
+            var changeDatabase = database.map(el => {
+                if(el.id === this.props.id)
+                    return Object.assign({}, el, {likes:updateArrayLikes, liked:updateLiked, dislikes:updateArrayDislikes, disliked: updateDisliked})
+                    return el
+            });
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
         }
+        console.log(updateArrayLikes)
+        console.log(updateArrayDislikes)
+
 
 
 
@@ -309,11 +358,13 @@ updateLikes = (x,activeButton) =>{
         // console.log("Liked = " + this.props.liked)
         // console.log("Disliked = " + this.props.disliked)
 
-        console.log("Liked -> " + this.props.liked)
-        console.log("Disliked -> " + this.props.disliked)
+        // console.log("Liked -> " + this.props.liked)
+        // console.log("Disliked -> " + this.props.disliked)
         const liked = this.state.liked || this.props.liked
         const disliked = this.state.disliked || this.props.disliked
-        console.log("State Liked -> " + liked)
+        // console.log("State Liked -> " + liked)
+        console.log(this.state.liked)
+        console.log(this.props.liked)
         return(
             
             <div className="socialScoreWrapper">
@@ -324,7 +375,7 @@ updateLikes = (x,activeButton) =>{
                     <p>Like Counter  - {this.state.likeCounter}</p>
 
                     <button onClick={()=>this.handleClick("like")}>
-                        {liked === true ? 
+                        {this.state.liked === true ? 
                         <span>
                         <span className="large material-icons">thumb_up_alt</span>
                         {this.state.likeCounter}
@@ -338,7 +389,7 @@ updateLikes = (x,activeButton) =>{
                     </button>         
 
                     <button onClick={()=>this.handleClick("dislike")}>
-                        {disliked === true ? 
+                        {this.state.disliked === true ? 
                         <span>
                         <span className="large material-icons">thumb_up_alt</span>
                         {this.state.dislikeCounter}
