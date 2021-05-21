@@ -103,8 +103,27 @@ export class HandleLike extends React.Component{
 
 
 
+        const liked = this.state.liked || this.props.liked
+        const disliked = this.state.disliked || this.props.disliked
+        console.log(choice)
+        if(choice === "like"){
+           
+            
+            console.log(liked)
+            console.log(disliked)
 
+            // Like Button Permutations ->
+            //      Nothing Selected -> +1 to like, liked === true
+            if(liked === false && disliked === false){
+                console.log("noting selected")
+                this.setState({likeCounter:this.state.likeCounter + 1, liked:true})
+            }
+            //      Liked -> -1 to like, liked === false
+            //      disliked -> +1 to like, -1 to dislike, liked = true, disliked = false
+        }
 
+        
+        if(choice === "dislike")console.log(choice)
 
 
 
@@ -268,8 +287,11 @@ updateLikes = (x,activeButton) =>{
         // console.log("Liked = " + this.props.liked)
         // console.log("Disliked = " + this.props.disliked)
 
-                console.log(this.props.liked)
-        console.log(this.state.liked)
+        console.log("Liked -> " + this.props.liked)
+        console.log("Disliked -> " + this.props.disliked)
+        const liked = this.state.liked || this.props.liked
+        const disliked = this.state.disliked || this.props.disliked
+        console.log("State Liked -> " + liked)
         return(
             
             <div className="socialScoreWrapper">
@@ -279,39 +301,35 @@ updateLikes = (x,activeButton) =>{
                     {this.props.disliked ? <p>Disliked</p> : <p>Not Disliked</p>}
                     <p>Like Counter  - {this.state.likeCounter}</p>
 
-                    {this.state.activeButton === true ? 
-                    <span>
-                        {this.props.liked === true? 
+                    <button onClick={()=>this.handleClick("like")}>
+                        {liked === true ? 
                         <span>
-                        <button ><span className="large material-icons">thumb_up_alt</span></button>  
-                        <button ><span className="large material-icons">thumb_down_off_alt</span></button>
+                        <span className="large material-icons">thumb_up_alt</span>
+                        {this.state.likeCounter}
                         </span>
                         :
                         <span>
-                        <button ><span className="large material-icons">thumb_up_off_alt</span></button>  
-                        <button ><span className="large material-icons">thumb_down_off_alt</span></button>
+                         <span className="large material-icons">thumb_up_off_alt</span>
+                         {this.state.likeCounter}
                         </span>
-                        } 
-                         
-                    </span>
-                    :
-                    <span>
-                        {this.props.disliked === true ? 
+                        }
+                    </button>         
+
+                    <button onClick={()=>this.handleClick("dislike")}>
+                        {disliked === true ? 
                         <span>
-                        <button ><span className="large material-icons">thumb_up_off_alt</span></button>  
-                        <button ><span className="large material-icons">thumb_down_alt</span></button>
+                        <span className="large material-icons">thumb_up_alt</span>
+                        {this.props.dislikes}
                         </span>
                         :
                         <span>
-                        <button ><span className="large material-icons">thumb_up_off_alt</span></button>  
-                        <button ><span className="large material-icons">thumb_down_off_alt</span></button>
+                         <span className="large material-icons">thumb_up_off_alt</span>
+                         {this.props.dislikes}
                         </span>
-                        } 
-                    </span>
-                    }
- 
+                        }
+                    </button>   
                     
-                    <Like 
+                    {/* <Like 
                         getLikes={this.updateLikes} 
                         likes={this.state.likeCounter} 
                         databaseId={this.props.databaseId} 
@@ -329,7 +347,7 @@ updateLikes = (x,activeButton) =>{
                         liked={this.props.liked}
                         disliked={this.props.disliked} 
                         activeButton={this.state.activeButton}
-                        
+                         */}
                     />
 
 
@@ -351,6 +369,7 @@ updateLikes = (x,activeButton) =>{
                         <span className="large material-icons">thumb_down</span>
                         {this.state.dislikes}
                     </button>   
+
                     */}
                 </div>
             </div>
