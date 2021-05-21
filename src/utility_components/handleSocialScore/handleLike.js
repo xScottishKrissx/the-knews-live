@@ -119,11 +119,33 @@ export class HandleLike extends React.Component{
                 this.setState({likeCounter:this.state.likeCounter + 1, liked:true})
             }
             //      Liked -> -1 to like, liked === false
+            if(liked === true){
+                this.setState({likeCounter:this.state.likeCounter - 1, liked:false})
+            }
             //      disliked -> +1 to like, -1 to dislike, liked = true, disliked = false
+            if(disliked === true){
+                this.setState({likeCounter:this.state.likeCounter + 1, dislikeCounter:this.state.dislikeCounter - 1, disliked:false, liked:true})
+            }
         }
 
         
-        if(choice === "dislike")console.log(choice)
+        if(choice === "dislike")
+        {
+            console.log(choice)
+            // Dislike Button ->
+            // Nothing Selected - > +1 to dislike, disliked === true
+            if(disliked === false && liked === false){
+                this.setState({dislikeCounter:this.state.dislikeCounter + 1, disliked:true})
+            }
+            // disliked - > -1 to dislike, disliked === false
+            if(disliked === true){
+                this.setState({dislikeCounter:this.state.dislikeCounter - 1, disliked:false})
+            }
+            // liked -> +1 to dislike, -1 to like, liked === false, disliked = true
+            if(liked === true){
+                this.setState({dislikeCounter:this.state.dislikeCounter + 1, likeCounter:this.state.likeCounter - 1, liked:false, disliked:true})
+            }
+        }
 
 
 
@@ -319,12 +341,12 @@ updateLikes = (x,activeButton) =>{
                         {disliked === true ? 
                         <span>
                         <span className="large material-icons">thumb_up_alt</span>
-                        {this.props.dislikes}
+                        {this.state.dislikeCounter}
                         </span>
                         :
                         <span>
                          <span className="large material-icons">thumb_up_off_alt</span>
-                         {this.props.dislikes}
+                         {this.state.dislikeCounter}
                         </span>
                         }
                     </button>   
@@ -348,7 +370,7 @@ updateLikes = (x,activeButton) =>{
                         disliked={this.props.disliked} 
                         activeButton={this.state.activeButton}
                          */}
-                    />
+                    
 
 
 
