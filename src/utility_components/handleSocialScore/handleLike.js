@@ -152,7 +152,11 @@ export class HandleLike extends React.Component{
                     return Object.assign({}, el, {likes:updateArrayLikes, liked:updateLiked, dislikes:updateArrayDislikes, disliked: updateDisliked})
                     return el
             });
+            const updateDatabase = {}
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+            updateDatabase[this.props.databaseId + "/likes/"] = updateArrayLikes;
+            updateDatabase[this.props.databaseId + "/dislikes/"] = updateArrayDislikes;
+            fire.database().ref("items").update(updateDatabase);
 
         }
 
@@ -191,6 +195,11 @@ export class HandleLike extends React.Component{
                     return el
             });
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+            const updateDatabase = {}
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeDatabase))
+            updateDatabase[this.props.databaseId + "/likes/"] = updateArrayLikes;
+            updateDatabase[this.props.databaseId + "/dislikes/"] = updateArrayDislikes;
+            fire.database().ref("items").update(updateDatabase);
         }
         console.log(updateArrayLikes)
         console.log(updateArrayDislikes)
