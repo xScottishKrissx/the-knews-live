@@ -1,10 +1,7 @@
-import { database } from 'firebase';
 import React from 'react';
 import fire from '../../fire';
 
 import '../handleSocialScore/handleLike.css';
-import Dislike from './buttons/dislike';
-import Like from './buttons/like';
 export class HandleLike extends React.Component{
     
     constructor(props){
@@ -32,7 +29,7 @@ export class HandleLike extends React.Component{
 
         if(choice === "like"){
             // Like Button Permutations ->
-            //      Nothing Selected -> +1 to like, liked === true
+            // Nothing Selected -> +1 to like, liked === true
             if(liked === false && disliked === false){
                 console.log("Liked -> Option 1")
                 this.setState({likeCounter:this.state.likeCounter + 1, liked:true})
@@ -41,7 +38,7 @@ export class HandleLike extends React.Component{
                 updateArrayDislikes = this.state.dislikeCounter;
                 updateDisliked = disliked;
             }
-            //      Liked -> -1 to like, liked === false
+            //Liked -> -1 to like, liked === false
             if(liked === true){
                 console.log("Liked -> Option 2")
                 this.setState({likeCounter:this.state.likeCounter - 1, liked:false})
@@ -115,7 +112,7 @@ export class HandleLike extends React.Component{
             
             <div className="socialScoreWrapper">
                 <div>
-                    <button onClick={()=>this.handleClick("like")}>
+                    <button onClick={()=>this.handleClick("like","dislike")}>
                         {this.state.liked === true ? 
                         <span><span className="large material-icons">thumb_up_alt</span>{this.state.likeCounter}</span>
                         :
@@ -123,7 +120,7 @@ export class HandleLike extends React.Component{
                         }
                     </button>         
 
-                    <button onClick={()=>this.handleClick("dislike")}>
+                    <button onClick={()=>this.handleClick("dislike","like")}>
                         {this.state.disliked === true ? 
                         <span><span className="large material-icons">thumb_up_alt</span>{this.state.dislikeCounter}</span>
                         :
