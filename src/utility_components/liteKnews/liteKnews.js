@@ -22,7 +22,7 @@ class LiteKnews extends Component {
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
     const articleFromArrayNext = filterHidden[this.state.articleNumber + 1]
-    const articleFromArrayPrev = filterHidden[this.state.articleNumber - 1]  || filterHidden[0] 
+    const articleFromArrayPrev = filterHidden[this.state.articleNumber - 1]
     console.log(articleFromArray)
         return (
             <div id="liteKnewsWrapper">
@@ -35,7 +35,7 @@ class LiteKnews extends Component {
                         
                         swipeLeft={{
                             content:                        
-                            <LiteKnewsView 
+                            <div className="testLiteKnews"><LiteKnewsView 
                             id={articleFromArrayNext.id}
                             title={articleFromArrayNext.title}
                             author={articleFromArrayNext.author}
@@ -49,11 +49,19 @@ class LiteKnews extends Component {
                             postsArray={this.props.postsArray}
                             leftoverArticles={this.props.leftoverArticles}
                             arrayFromDatabase={this.props.arrayFromDatabase}
-                            />,
+                            />
+                            </div>,
                             actionAnimation:() => none,
                             action:() => this.changeArticle(+1),
                         }}
-                       
+
+                        swipeRight={{
+                            content:<div>Prev Article</div>,
+                            actionAnimation:() => none,
+                            action:() => this.changeArticle(-1)
+                    
+                        }}
+                        
                     >
                         <LiteKnewsView 
                         id={articleFromArray.id}
