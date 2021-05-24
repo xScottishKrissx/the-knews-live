@@ -16,106 +16,89 @@ class LiteKnews extends Component {
         this.changeArticle = this.changeArticle.bind(this);
     }
 
-    changeArticle(x,y){this.setState({articleNumber: this.state.articleNumber + x})}
+    changeArticle(x){
+        // Close liteKnews
+        var close = this.props.closeLiteKnews;
+        if(x === "close")close()
+
+        // Return to previous article IF it isnt the first item in the array 
+        if(x === "prev" && this.state.articleNumber > 0){ 
+            this.setState({articleNumber: this.state.articleNumber - 1}) 
+        }
+
+        if(x === "next"){ 
+            this.setState({articleNumber: this.state.articleNumber + 1}) 
+        }
+    }
 
     render(){    
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
     const articleFromArrayNext = filterHidden[this.state.articleNumber + 1]
     const articleFromArrayPrev = filterHidden[this.state.articleNumber - 1]
+    console.log(filterHidden.length)
     console.log(articleFromArray)
         return (
             <div id="liteKnewsWrapper">
                
+               
+                
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>liteKnews - theKnews but lighter</h1>
-                    <SwipeableList threshold= {0.5} swipeStartThreshold={0.5}>
-                    <SwipeableListItem 
+                    {articleFromArray != null || undefined ? 
+                        <SwipeableList threshold= {0.5} swipeStartThreshold={0.5}>
+                        <SwipeableListItem 
+                            
+                            swipeLeft={{
+                                content:                        
+                                <div className="testLiteKnews">Next Article</div>,
+                                actionAnimation:() => none,
+                                action:() => this.changeArticle(+1),
+                            }}
+
+                            swipeRight={{
+                                content:<div>Prev Article</div>,
+                                actionAnimation:() => none,
+                                action:() => this.changeArticle(-1)
                         
-                        swipeLeft={{
-                            content:                        
-                            <div className="testLiteKnews"><LiteKnewsView 
-                            id={articleFromArrayNext.id}
-                            title={articleFromArrayNext.title}
-                            author={articleFromArrayNext.author}
-                            key={articleFromArrayNext.key}
-                            text={articleFromArrayNext.text}
-    
-                            bookmarkedStatus={articleFromArrayNext.bookmarked}
-                            readStatus={articleFromArrayNext.read}
+                            }}
+                            
+                        >
+                            <LiteKnewsView 
+                            id={articleFromArray.id}
+                            title={articleFromArray.title}
+                            author={articleFromArray.author}
+                            key={articleFromArray.key}
+                            text={articleFromArray.text}
+
+                            bookmarkedStatus={articleFromArray.bookmarked}
+                            readStatus={articleFromArray.read}
             
                             fullDatabaseCall={this.props.fullDatabaseCall}
                             postsArray={this.props.postsArray}
                             leftoverArticles={this.props.leftoverArticles}
                             arrayFromDatabase={this.props.arrayFromDatabase}
                             />
-                            </div>,
-                            actionAnimation:() => none,
-                            action:() => this.changeArticle(+1),
-                        }}
-
-                        swipeRight={{
-                            content:<div>Prev Article</div>,
-                            actionAnimation:() => none,
-                            action:() => this.changeArticle(-1)
-                    
-                        }}
-                        
-                    >
-                        <LiteKnewsView 
-                        id={articleFromArray.id}
-                        title={articleFromArray.title}
-                        author={articleFromArray.author}
-                        key={articleFromArray.key}
-                        text={articleFromArray.text}
-
-                        bookmarkedStatus={articleFromArray.bookmarked}
-                        readStatus={articleFromArray.read}
-        
-                        fullDatabaseCall={this.props.fullDatabaseCall}
-                        postsArray={this.props.postsArray}
-                        leftoverArticles={this.props.leftoverArticles}
-                        arrayFromDatabase={this.props.arrayFromDatabase}
-                        />
-                        </SwipeableListItem>
-                    </SwipeableList>
-
+                            
+                            </SwipeableListItem>
+                        </SwipeableList>
+                    :
+                        <div>
+                            <h1>Nothing here</h1>
+                            <button onClick={()=>this.changeArticle("close",filterHidden.length)}>Close</button>
+                        </div>    
+                     }
                         
                         <div id="speedKnewsControls">
-                        {this.state.articleNumber === 0 ? 
-                           <span>
-                            <button onClick={this.props.closeLiteKnews}><span className="material-icons">close</span></button>
-
-                            <button className="mutedBtn"><span className="material-icons">skip_previous</span></button>
-                            <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
-                           </span>
-    
-                            :
-                            <span>
-                                <button onClick={this.props.closeLiteKnews}>
-                                    <span className="material-icons">close</span>
-                                </button>
-
-                                {this.state.articleNumber > -2 && this.state.articleNumber === this.props.renderToPage.length - 1 ? 
-                                <span>
-                                    <button onClick={() => this.changeArticle(-1,articleFromArray.id)}><span className="material-icons">skip_previous</span></button>
-                                    <button className="mutedBtn"><span className="material-icons">skip_next</span></button>
-                                </span>
-                                :
-                                <span>                                    
-                                    <button onClick={() => this.changeArticle(-1,articleFromArray.id)}><span className="material-icons">skip_previous</span></button>
-                                    <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
-                                </span>
-                                }
-
-                            </span>
-                        }
+                            <button onClick={()=>this.changeArticle("prev")}><span className="material-icons">skip_previous</span></button>
+                            <button onClick={()=>this.changeArticle("close")}><span className="material-icons">close</span></button>
+                            <button onClick={()=>this.changeArticle("next")}><span className="material-icons">skip_next</span></button>
                         </div>
                         
                     </div>
                 </div>
-            
+
             </div>
         )
     }

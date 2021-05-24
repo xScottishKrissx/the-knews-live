@@ -18,11 +18,15 @@ export class LiteKnewsView extends React.Component{
         MarkAsRead(this.props.id,false)
         
     }
+    // onMouseDown={mouseDownEvent => this.handleMouseDown(mouseDownEvent)}
+
     render(){
         // console.log(this.props.bookmarkedStatus)
         // console.log(this.props.readStatus)
         // console.log(this.props.id)
-        
+        const imgUrl = "https://unsplash.it/2560/1440?random=" + this.props.id;
+    
+        const style = {backgroundImage: 'url(' + imgUrl + ')',        }
         return(
                                 
         <div className="speedKnewsArticleContainer">
@@ -44,6 +48,7 @@ export class LiteKnewsView extends React.Component{
                         }}
                         
                     > */}
+                     <div className="article-banner-image extra-banner-image" loading="lazy" style={style}></div>
                             <HeaderImage props={this.props.id}/>
 {/*                     
                     </SwipeableListItem>
