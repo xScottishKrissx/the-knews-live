@@ -1,3 +1,4 @@
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MarkAsRead from '../bookmarks/markAsRead';
@@ -27,7 +28,28 @@ export class LiteKnewsView extends React.Component{
         <div className="speedKnewsArticleContainer">
 
             <header>
-                <HeaderImage props={this.props.id}/>
+            {/* <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+                    <SwipeableListItem 
+                        
+                        swipeLeft={{
+                            content:<div>Swiping Left...</div>,
+                            action:() => console.log("Swipe Left!")
+                            
+                        }}
+
+                        swipeRight={{
+                            content: <div>Swiping Right...</div>, 
+                            action:() => console.log("Swipe Right!")
+                    
+                        }}
+                        
+                    > */}
+                            <HeaderImage props={this.props.id}/>
+{/*                     
+                    </SwipeableListItem>
+                </SwipeableList> */}
+                
+
                 <h2>{this.props.title}</h2>
                 <h3>by: {this.props.author}</h3>
                 <span>Read: {this.props.readStatus.toString()}</span>

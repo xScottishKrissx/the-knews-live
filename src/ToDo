@@ -430,6 +430,14 @@ General Notes  Objectives:
     
 
 
+    liteKnews:
+        V12.7 - Swiping to Change Articles:
+            Goals:
+                ☐ Ability to change articles by swiping
+            To-Do:
+                ☐ Add the swipe library to liteKnews and see what happens
+            Issues:
+                ☐ swiping left at the start returns an error because there's nothing to swipe to.
 
     Header:
         ✔ Get basic structure in place @done(18-07-24 17:48)

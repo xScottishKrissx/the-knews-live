@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import '../liteKnews/liteKnews.css';
 import LiteKnewsView from './liteKnewsView';
 
+import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+
 class LiteKnews extends Component {
 
     constructor(props){
@@ -18,7 +20,9 @@ class LiteKnews extends Component {
 
     render(){    
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
-    const articleFromArray = filterHidden[this.state.articleNumber]
+    const articleFromArray = filterHidden[this.state.articleNumber];
+    const articleFromArrayNext = filterHidden[this.state.articleNumber + 1]
+    const articleFromArrayPrev = filterHidden[this.state.articleNumber - 1]  || filterHidden[0] 
     console.log(articleFromArray)
         return (
             <div id="liteKnewsWrapper">
@@ -26,22 +30,48 @@ class LiteKnews extends Component {
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>liteKnews - theKnews but lighter</h1>
-                    
-                    <LiteKnewsView 
-                    id={articleFromArray.id}
-                    title={articleFromArray.title}
-                    author={articleFromArray.author}
-                    key={articleFromArray.key}
-                    text={articleFromArray.text}
-
-                    bookmarkedStatus={articleFromArray.bookmarked}
-                    readStatus={articleFromArray.read}
+                    <SwipeableList threshold= {0.5} swipeStartThreshold={0.5}>
+                    <SwipeableListItem 
+                        
+                        swipeLeft={{
+                            content:                        
+                            <LiteKnewsView 
+                            id={articleFromArrayNext.id}
+                            title={articleFromArrayNext.title}
+                            author={articleFromArrayNext.author}
+                            key={articleFromArrayNext.key}
+                            text={articleFromArrayNext.text}
     
-                    fullDatabaseCall={this.props.fullDatabaseCall}
-                    postsArray={this.props.postsArray}
-                    leftoverArticles={this.props.leftoverArticles}
-                    arrayFromDatabase={this.props.arrayFromDatabase}
-                    />
+                            bookmarkedStatus={articleFromArrayNext.bookmarked}
+                            readStatus={articleFromArrayNext.read}
+            
+                            fullDatabaseCall={this.props.fullDatabaseCall}
+                            postsArray={this.props.postsArray}
+                            leftoverArticles={this.props.leftoverArticles}
+                            arrayFromDatabase={this.props.arrayFromDatabase}
+                            />,
+                            actionAnimation:() => none,
+                            action:() => this.changeArticle(+1),
+                        }}
+                       
+                    >
+                        <LiteKnewsView 
+                        id={articleFromArray.id}
+                        title={articleFromArray.title}
+                        author={articleFromArray.author}
+                        key={articleFromArray.key}
+                        text={articleFromArray.text}
+
+                        bookmarkedStatus={articleFromArray.bookmarked}
+                        readStatus={articleFromArray.read}
+        
+                        fullDatabaseCall={this.props.fullDatabaseCall}
+                        postsArray={this.props.postsArray}
+                        leftoverArticles={this.props.leftoverArticles}
+                        arrayFromDatabase={this.props.arrayFromDatabase}
+                        />
+                        </SwipeableListItem>
+                    </SwipeableList>
 
                         
                         <div id="speedKnewsControls">
@@ -65,8 +95,7 @@ class LiteKnews extends Component {
                                     <button className="mutedBtn"><span className="material-icons">skip_next</span></button>
                                 </span>
                                 :
-                                <span>
-                                    
+                                <span>                                    
                                     <button onClick={() => this.changeArticle(-1,articleFromArray.id)}><span className="material-icons">skip_previous</span></button>
                                     <button onClick={() => this.changeArticle(+1)}><span className="material-icons">skip_next</span></button>
                                 </span>
