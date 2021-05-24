@@ -24,37 +24,13 @@ export class LiteKnewsView extends React.Component{
         // console.log(this.props.bookmarkedStatus)
         // console.log(this.props.readStatus)
         // console.log(this.props.id)
-        const imgUrl = "https://unsplash.it/2560/1440?random=" + this.props.id;
-    
-        const style = {backgroundImage: 'url(' + imgUrl + ')',        }
         return(
                                 
         <div className="speedKnewsArticleContainer">
 
             <header>
-            {/* <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                    <SwipeableListItem 
-                        
-                        swipeLeft={{
-                            content:<div>Swiping Left...</div>,
-                            action:() => console.log("Swipe Left!")
-                            
-                        }}
-
-                        swipeRight={{
-                            content: <div>Swiping Right...</div>, 
-                            action:() => console.log("Swipe Right!")
-                    
-                        }}
-                        
-                    > */}
-                     <div className="article-banner-image extra-banner-image" loading="lazy" style={style}></div>
-                            <HeaderImage props={this.props.id}/>
-{/*                     
-                    </SwipeableListItem>
-                </SwipeableList> */}
                 
-
+                <HeaderImage props={this.props.id}/>
                 <h2>{this.props.title}</h2>
                 <h3>by: {this.props.author}</h3>
                 <span>Read: {this.props.readStatus.toString()}</span>

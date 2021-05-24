@@ -433,12 +433,13 @@ General Notes  Objectives:
     liteKnews:
         V12.7 - Swiping to Change Articles:
             Goals:
-                ☐ Ability to change articles by swiping
+                ✔ Ability to change articles by swiping @done(17:45 - 24/05/21)
             To-Do:
-                ☐ Add the swipe library to liteKnews and see what happens
+                ✔ I've more or less finished adding swipe to liteKnews. I needed to restructure the liteknews controls but I am happy with where I've ended up. I even added a progress bar showing how much you need to swipe to change the article. Before moving on i'm going to attempt some on progress completion styles, but this task has been completed. @done(17:45 - 24/05/21)
+                ☐ Change colour of progress bar when it completes.
             Issues:
-                ☐ swiping left at the start returns an error because there's nothing to swipe to.
-
+                ✔ swiping left at the start returns an error because there's nothing to swipe to. @done(17:45 - 24/05/21)
+                    ✔ Solution - Added a check for null and undefined. @done(17:45 - 24/05/21)
     Header:
         ✔ Get basic structure in place @done(18-07-24 17:48)
         ✔ Mobile Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m48s)

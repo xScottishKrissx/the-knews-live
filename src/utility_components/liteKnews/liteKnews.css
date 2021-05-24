@@ -2,3 +2,14 @@
     position: relative;
     display: inline-flex;
 }
+
+#loading-article{background: white;}
+
+.progress {
+    height: 20px;
+    background: red;
+    border: 1px solid black;
+  }
+  /* .progress::-moz-progress-bar{ background: red; } */
+  .progress::-webkit-progress-bar{ background: transparent; }
+  .progress::-webkit-progress-value{ background: black; }

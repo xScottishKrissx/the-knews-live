@@ -12,6 +12,8 @@ class LiteKnews extends Component {
             articleNumber:0, 
             nextArticleNumber:1,
             // bookmarked:[]
+            //testing
+            progress:0
         }
         this.changeArticle = this.changeArticle.bind(this);
     }
@@ -30,14 +32,12 @@ class LiteKnews extends Component {
             this.setState({articleNumber: this.state.articleNumber + 1}) 
         }
     }
+    swipeProgress(progress){ this.setState({progress:progress }) }
 
     render(){    
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
-    const articleFromArrayNext = filterHidden[this.state.articleNumber + 1]
-    const articleFromArrayPrev = filterHidden[this.state.articleNumber - 1]
-    console.log(filterHidden.length)
-    console.log(articleFromArray)
+
         return (
             <div id="liteKnewsWrapper">
                
@@ -46,21 +46,34 @@ class LiteKnews extends Component {
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>liteKnews - theKnews but lighter</h1>
+
                     {articleFromArray != null || undefined ? 
-                        <SwipeableList threshold= {0.5} swipeStartThreshold={0.5}>
+                        <SwipeableList threshold= {0.48} swipeStartThreshold={0.5} >
                         <SwipeableListItem 
-                            
+                           
                             swipeLeft={{
                                 content:                        
-                                <div className="testLiteKnews">Next Article</div>,
+                                    <div className="testLiteKnews">
+                                        {/* {this.state.progress}  */}
+                                        <label for="loading-article">Loading Next Article: {this.state.progress * 2 + "%"} </label>
+                                        <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
+                                    </div>,
                                 actionAnimation:() => none,
-                                action:() => this.changeArticle(+1),
+                                action:() => this.changeArticle("next"),
+                                
+                                
                             }}
-
+                            onSwipeProgress={progress => this.swipeProgress(progress)}
+                            
                             swipeRight={{
-                                content:<div>Prev Article</div>,
+                                content:                                    
+                                    <div className="testLiteKnews">
+                                        {/* {this.state.progress}  */}
+                                        <label for="loading-article">Loading Previous Article: {this.state.progress * 2 + "%"} </label>
+                                        <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
+                                    </div>,
                                 actionAnimation:() => none,
-                                action:() => this.changeArticle(-1)
+                                action:() => this.changeArticle("prev")
                         
                             }}
                             
@@ -71,6 +84,7 @@ class LiteKnews extends Component {
                             author={articleFromArray.author}
                             key={articleFromArray.key}
                             text={articleFromArray.text}
+                            
 
                             bookmarkedStatus={articleFromArray.bookmarked}
                             readStatus={articleFromArray.read}
@@ -80,9 +94,10 @@ class LiteKnews extends Component {
                             leftoverArticles={this.props.leftoverArticles}
                             arrayFromDatabase={this.props.arrayFromDatabase}
                             />
-                            
+                                                             
                             </SwipeableListItem>
                         </SwipeableList>
+                        
                     :
                         <div>
                             <h1>Nothing here</h1>
