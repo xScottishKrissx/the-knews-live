@@ -135,11 +135,6 @@ const ArticleArea = (props) => {
                         
                         </article>                  
                         
-                        {/* <HideArticle articleId={props.articleId} /> */}
-
-                        
-                         {/* <HideArticle articleId={props.id} arrayFromDatabase={props.arrayFromDatabase} leftoverArticles={props.leftoverArticles} fullDatabaseCall={props.fullDatabaseCall}/>   */}
-
                         <div className="hideArticleButtonWrapper">
                             <button id={props.id} onClick={() => handleClick(
                                                                     props.articleId, 

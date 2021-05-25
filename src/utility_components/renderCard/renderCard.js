@@ -67,7 +67,6 @@ export const RenderCard = (props) => {
                                     author={value.author}
                                     likes={value.likes}
                                     dislikes={value.dislikes}
-                                    articleId={value.id}
                                     tag={value.tag}
                                     imageId={value.id}
                                     showArticle={props.showArticle}

@@ -29,10 +29,16 @@ export class NewsPage extends React.Component{
 
     componentDidMount(){        
 
-        console.log("Mounted")
+        // console.log("Mounted")
         const dave = this.props.match.params.id;
         console.log(dave)
-        const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
+
+        // Current Method
+        // const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
+
+        // New Method
+        const dbRef = fire.database().ref("items").orderByKey();
+        
          // Main Database Call
         dbRef.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
@@ -84,19 +90,41 @@ export class NewsPage extends React.Component{
     
 
     render(){    
+
+        // const somethingDifferent = this.state.fullDatabaseCall;
+        // console.log(somethingDifferent)
+
+        // const getArticle = somethingDifferent.filter(obj => obj.id === 319 ) 
+        // console.log(getArticle)
+
+
+
+
+
+
+
+
+
     const arrayLength = this.state.articlesArray.length;
-    console.log(this.props.match.params.id)
+    // console.log(this.props.match.params.id || this.props.location.state.articleId)
+    // console.log(this.props.location.state.articleId)
+    // const testArticleId = this.props.location.state.articleId;
+
     return (
         
-        <span>
+                <span>
+        <h1>Article Page</h1>
+        <h1>{this.props.match.params.id}</h1>
+        {/* <h1>{this.props.location.state.articleId}</h1> */}
 
-        {arrayLength >= 1 ?         
+
+        {/* {arrayLength >= 1 ?         
             <NewsPageVIEW 
                 database={this.state.articlesArray} 
                 params={this.props.match.params.id} 
                 fullDatabaseCall={this.state.fullDatabaseCall} 
                 leftoverArticles={this.state.leftoverArticles}
-                articleId={this.props.location.state.articleId}
+                // articleId={this.props.location.state.articleId}
             /> 
             : 
           
@@ -112,7 +140,7 @@ export class NewsPage extends React.Component{
            
 
             </div>
-        }
+        } */}
         </span>
         );
             

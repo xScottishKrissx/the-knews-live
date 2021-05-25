@@ -15,7 +15,7 @@ export class Caption extends React.Component{
     handleClick(){console.log("Show Article")}
     
     render(){
-        const pageId = this.props.pageId;
+        const pageId = this.props.id;
         const title = this.props.title;
         const author = this.props.author;
         const tag = this.props.tag;
@@ -36,7 +36,7 @@ export class Caption extends React.Component{
              <Link 
                 className="news-item-link" 
                 to={{
-                    pathname: '/theKnews/home/articles/news-page/' + pageId,
+                    pathname: '/theKnews/home/articles/news-page/' + imageId,
                     state:{
                         articleObject: this.props.test, 
                         articleId:this.props.articleId
