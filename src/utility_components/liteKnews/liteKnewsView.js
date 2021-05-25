@@ -30,13 +30,13 @@ export class LiteKnewsView extends React.Component{
 
             <header>
                 
-                <HeaderImage props={this.props.id}/>
+                {/* <HeaderImage props={this.props.id}/> */}
                 <h2>{this.props.title}</h2>
                 <h3>by: {this.props.author}</h3>
                 <span>Read: {this.props.readStatus.toString()}</span>
                 <Link                 
                     to={{
-                        pathname:'/theKnews/home/articles/news-page/' + this.props.key,
+                        pathname:'/theKnews/home/articles/news-page/' + this.props.id,
                         state:{ articleId:this.props.id}
                     }}>
                     <h3>View Article Page</h3>

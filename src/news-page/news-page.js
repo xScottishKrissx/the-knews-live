@@ -126,9 +126,9 @@ export class NewsPage extends React.Component{
     return (
         
                 <span>
-        <h1>Article Page</h1>
-        <h1>{this.props.match.params.id}</h1>
-        {mapTest}
+        {/* <h1>Article Page</h1> */}
+        {/* <h1>{this.props.match.params.id}</h1> */}
+        {/* {mapTest} */}
         {/* <h1>{this.props.location.state.articleId}</h1> */}
 
 
