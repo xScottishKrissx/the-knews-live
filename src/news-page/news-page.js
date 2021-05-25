@@ -22,6 +22,7 @@ export class NewsPage extends React.Component{
             tag: "",
             articlesArray: [],
 
+            fullDatabaseCall:[],
             //testing
             showErrorMessage:false
         }
@@ -37,7 +38,10 @@ export class NewsPage extends React.Component{
         // const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
 
         // New Method
-        const dbRef = fire.database().ref("items").orderByKey();
+        const thing = parseInt(this.props.match.params.id);
+        console.log(thing)
+        const dbRef = fire.database().ref("items").orderByChild("id").equalTo(thing);
+       
         
          // Main Database Call
         dbRef.on('value', (snapshot) => {
@@ -91,13 +95,22 @@ export class NewsPage extends React.Component{
 
     render(){    
 
-        // const somethingDifferent = this.state.fullDatabaseCall;
-        // console.log(somethingDifferent)
+        const somethingDifferent = this.state.fullDatabaseCall;
+        console.log(somethingDifferent)
 
-        // const getArticle = somethingDifferent.filter(obj => obj.id === 319 ) 
-        // console.log(getArticle)
+        const thing = parseInt(this.props.match.params.id);
+        console.log(thing)
 
+        const getArticle = somethingDifferent.filter(obj => obj.id === thing ) 
+        console.log(getArticle)
 
+        const mapTest = getArticle.map((value) => {
+            return(
+                <div>
+                    {value.title}
+                </div>
+            )
+        })
 
 
 
@@ -115,6 +128,7 @@ export class NewsPage extends React.Component{
                 <span>
         <h1>Article Page</h1>
         <h1>{this.props.match.params.id}</h1>
+        {mapTest}
         {/* <h1>{this.props.location.state.articleId}</h1> */}
 
 
