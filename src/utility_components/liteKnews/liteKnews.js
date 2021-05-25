@@ -32,17 +32,23 @@ class LiteKnews extends Component {
             this.setState({articleNumber: this.state.articleNumber + 1}) 
         }
     }
-    swipeProgress(progress){ this.setState({progress:progress }) }
+
+    swipeProgress(progress){ 
+        this.setState({progress:progress }) 
+        if(progress > 48){
+            document.getElementById("loading-article").classList.add('progressBarChange')
+        }else{
+            document.getElementById("loading-article").classList.remove('progressBarChange')
+        }
+    }
 
     render(){    
+
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
 
         return (
-            <div id="liteKnewsWrapper">
-               
-               
-                
+            <div id="liteKnewsWrapper">              
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
                     <h1>liteKnews - theKnews but lighter</h1>
@@ -105,7 +111,7 @@ class LiteKnews extends Component {
                         </div>    
                      }
                         
-                        <div id="speedKnewsControls">
+                        <div id="liteKnewsControls">
                             <button onClick={()=>this.changeArticle("prev")}><span className="material-icons">skip_previous</span></button>
                             <button onClick={()=>this.changeArticle("close")}><span className="material-icons">close</span></button>
                             <button onClick={()=>this.changeArticle("next")}><span className="material-icons">skip_next</span></button>

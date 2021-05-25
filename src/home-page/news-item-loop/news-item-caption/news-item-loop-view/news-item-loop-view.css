@@ -111,30 +111,30 @@
         max-width: 1000px;
     }
     .speedKnewsArticleContainer article p{margin-top: 0;}
-#speedKnewsControls{
+#liteKnewsControls{
     position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
 }
-#speedKnewsControls span{
+#liteKnewsControls span{
     display: flex;
     width: 100%;
 
 }
-    #speedKnewsControls span button{
+    #liteKnewsControls span button{
         background-color: black;
         color: white;
         margin: 0;
         outline: 1px solid white;
         width: 50%;
     }
-    #speedKnewsControls span button span{
+    #liteKnewsControls span button span{
         /* border: 1px solid wheat; */
         width: fit-content;
         margin: 0 auto;
     }   
-    #speedKnewsControls span span{
+    #liteKnewsControls span span{
         width: 100%;
     }
 
@@ -245,15 +245,15 @@
         /* border: 10px solid black; */
         display: flow-root;
     }
-    #speedKnewsControls{
+    #liteKnewsControls{
         bottom: 100px;
         max-width: 1500px;
     }
-    #speedKnewsControls span{
+    #liteKnewsControls span{
         margin: 0 auto;
         width: 50%;
     }
-        #speedKnewsControls span button{
+        #liteKnewsControls span button{
             background-color: white;
             color: black;
             outline: 5px solid black;
