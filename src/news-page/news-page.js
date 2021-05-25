@@ -31,6 +31,7 @@ export class NewsPage extends React.Component{
 
         console.log("Mounted")
         const dave = this.props.match.params.id;
+        console.log(dave)
         const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
          // Main Database Call
         dbRef.on('value', (snapshot) => {
@@ -84,6 +85,7 @@ export class NewsPage extends React.Component{
 
     render(){    
     const arrayLength = this.state.articlesArray.length;
+    console.log(this.props.match.params.id)
     return (
         
         <span>

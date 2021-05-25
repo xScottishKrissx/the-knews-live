@@ -7,7 +7,8 @@ import ArticleArea from './article-area/article-area.js';
 
 import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
 import NavControls from '../../utility_components/navControls/navControls.js';
-import RecommendedReading from './social/recommended-reading/recommended-reading.js';
+import RecommendedReading from './recommended-reading/recommended-reading.js';
+
 
 import './news-page-view.css';
 import fire from '../../fire.js'
@@ -15,6 +16,7 @@ import InArticleBookmark from './article-area/inArticleBookmark.js';
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
 import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
+import RecReading from './recommended-reading/rec-reading.js';
 
 export class NewsPageVIEW extends React.Component{
 
@@ -90,6 +92,7 @@ export class NewsPageVIEW extends React.Component{
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         // console.log(database)
+        
         const getArticle = database.filter(obj => obj.id === this.props.articleId)
       //  console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
@@ -157,9 +160,10 @@ export class NewsPageVIEW extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                        
                     />
-                    
+                    <RecReading fullDatabaseCall={database}/>
                     <RecommendedReading />
-                    <ScrollToTopButton />   
+                    
+                    <ScrollToTopButton  />   
                 </div>
             )
         })

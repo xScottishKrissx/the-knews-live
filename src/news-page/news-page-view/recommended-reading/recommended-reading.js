@@ -1,5 +1,5 @@
 import React from 'react';
-import fire from '../../../../fire.js';
+import fire from '../../../fire';
 
 import './recommended-reading.css'
 

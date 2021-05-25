@@ -436,7 +436,8 @@ General Notes  Objectives:
                 ✔ Ability to change articles by swiping @done(17:45 - 24/05/21)
             To-Do:
                 ✔ I've more or less finished adding swipe to liteKnews. I needed to restructure the liteknews controls but I am happy with where I've ended up. I even added a progress bar showing how much you need to swipe to change the article. Before moving on i'm going to attempt some on progress completion styles, but this task has been completed. @done(17:45 - 24/05/21)
-                ☐ Change colour of progress bar when it completes.
+                ✔ Change colour of progress bar when it completes. @done(11:40 - 25/05/21)
+                
             Issues:
                 ✔ swiping left at the start returns an error because there's nothing to swipe to. @done(17:45 - 24/05/21)
                     ✔ Solution - Added a check for null and undefined. @done(17:45 - 24/05/21)
@@ -700,6 +701,16 @@ General Notes  Objectives:
                     // 13/10/2020 - Right now the area is populated with the first 4 articles in order of key. I want to be able to specify whatever article I want directly from the database.
                     // 13/10 - I have bascally copy and pasted the first main query to the database and then appended the results to the state. It is working as intended but i think there is definitley a better way of doing this.
                         ☐ Do another pass on the styles here @started(20-10-13 13:34)
+               
+                 V12.8 Rework:
+                    Goals:
+                        ☐ To improve codebase and functionality in prepartion for website UI improvements.
+                    To-Do:
+                    Bugs / Issues:
+                        ✔ I have created a new component and have managed to get a selection of random articles rendering on the page. However, the page breaks if you clear the cache. @done(12:54 - 25/05/21)
+                            ✔  Made the Database reference a call to the cleanDatabaseCall in localstorage - Didn't work. @done(13:05 - 25/05/21)
+                            ✔ Changed the call to changedDatabaseCall instead, that worked @done(13:05 - 25/05/21)
+
             Social Score Buttons:
                 ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
                 ☐ Let's try and get this working. it doesn't need to be a part of the myKnews update. Just enough functionality to work correctly with a valid email address. @started(20-12-10 15:58)
@@ -1093,7 +1104,7 @@ Part 2 Implement Database functionality:
             ✔ 12.4 - Code Review (Splitting Code into components) @done(17:23 - 12/05/21)
             ✔ 12.5 - Finish Remaining Bookmark work @done(16:43 - 17/05/21)
             ✔ 12.6 - Get Like and Dislike to work separate from myKnews @done(18:17 - 21/05/21)
-            ☐ 12.7 - Look into swiping liteKnews to switch articles
+            ✔ 12.7 - Look into swiping liteKnews to switch articles @done(11:41 - 25/05/21)
             ☐ 12.8 - Redo Recommended Reading Section
             ☐ 12.9 - Misc Bug Fixes & Tweaks
                 ☐ Fix the scroll activate for larger than 1800px wide windows
@@ -1102,12 +1113,13 @@ Part 2 Implement Database functionality:
                 ☐ Look into "undo hide"
                 ☐ Look into animations for hiding articles.
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
+        
             ☐ 12.10 - Overhaul Main UI
 
         
 
         Version 11.1 - Bug Fixes:
-            ✔ Full Article link goes to blank page @done(17:18 - 22/04/21)
+            ✔ Full Article link goes to blank pagRe @done(17:18 - 22/04/21)
             ✔ ScrollCheck requires a two finger up and down scroll to work...not ideal. @done(17:18 - 22/04/21)
                 ✔ Solution - Increase the detection range for the scrollCheck component @done(17:18 - 22/04/21)
             ☐ If there are 2 or less articles on the page when you refresh, you might get an error.
