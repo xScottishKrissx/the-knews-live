@@ -95,7 +95,7 @@ export class NewsPage extends React.Component{
 
     render(){    
 
-        const somethingDifferent = this.state.fullDatabaseCall;
+        const somethingDifferent = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall;
         console.log(somethingDifferent)
 
         const thing = parseInt(this.props.match.params.id);
@@ -132,12 +132,13 @@ export class NewsPage extends React.Component{
         {/* <h1>{this.props.location.state.articleId}</h1> */}
 
 
-        {/* {arrayLength >= 1 ?         
+        {arrayLength >= 1 ?         
             <NewsPageVIEW 
                 database={this.state.articlesArray} 
                 params={this.props.match.params.id} 
                 fullDatabaseCall={this.state.fullDatabaseCall} 
                 leftoverArticles={this.state.leftoverArticles}
+                id={this.props.match.params.id}
                 // articleId={this.props.location.state.articleId}
             /> 
             : 
@@ -154,7 +155,7 @@ export class NewsPage extends React.Component{
            
 
             </div>
-        } */}
+        }
         </span>
         );
             

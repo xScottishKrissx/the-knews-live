@@ -87,14 +87,16 @@ export class NewsPageVIEW extends React.Component{
         fire.database().ref("items").off();     
       }
     render(){
-      // console.log("Render news-page-view.js")
+      console.log("Render news-page-view.js")
 
         
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
-        // console.log(database)
+        // const database = this.props.database
+        console.log(database)
         // console.log(this.props.params)
-        const getArticle = database.filter(obj => obj.id === this.props.articleId)
-      //  console.log(getArticle)
+        const id = parseInt(this.props.params)
+        const getArticle = database.filter(obj => obj.id === id)
+       console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
             // console.log(value.likes)
             //console.log("current author email:: " + value.email)
