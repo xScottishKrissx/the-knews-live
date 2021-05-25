@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export class RecReading extends React.Component{
     
@@ -41,12 +42,18 @@ export class RecReading extends React.Component{
             }   
             return(
                 <div key={value.key}>   
-                                         
-                    <a href={"/theKnews/home/articles/news-page/" + value.id}>
+                    {/* articleId={value.id}     
+                                         */}
+                    <Link to={{
+                        pathname: '/theKnews/home/articles/news-page/' + value.id , 
+                        state: {articleId: value.id}
+                    }}>
+                        {/* <a href={"/theKnews/home/articles/news-page/" + value.id}> */}
                         {/* <img src={imgUrl} style={style} alt="literally all random images" /> */}
                         <h3>{value.title}</h3>
                         <p>{value.postdate}</p>
-                    </a> 
+                    {/* </a>  */}
+                    </Link>
                                    
             </div>
             )
