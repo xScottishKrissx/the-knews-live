@@ -1,0 +1,32 @@
+.recReadingWrapper{
+    
+    display: block;
+    padding: 5px;
+}
+    .recReadingItem{
+        border-top: 1px solid black;
+    }
+
+
+@media (min-width: 768px) {
+    .recReadingWrapper{
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 80%;
+
+    }
+    .recReadingItem{
+        margin: 5px;
+        flex: 1;
+    }
+        .recReadingItem > a > img{
+            /* height: 125px; */
+        }
+}
+@media (max-width: 768px) {
+    .recReadingItem{
+        margin: 0 auto;
+        max-width: 75%;
+    }
+}

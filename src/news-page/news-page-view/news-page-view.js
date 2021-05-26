@@ -7,7 +7,7 @@ import ArticleArea from './article-area/article-area.js';
 
 import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
 import NavControls from '../../utility_components/navControls/navControls.js';
-import RecommendedReading from './recommended-reading/recommended-reading.js';
+// import RecommendedReading from './recommended-reading/recommended-reading.js';
 
 
 import './news-page-view.css';
@@ -163,7 +163,7 @@ export class NewsPageVIEW extends React.Component{
                        
                     />
                     <RecReading fullDatabaseCall={database}/>
-                    <RecommendedReading />
+                    {/* <RecommendedReading /> */}
                     
                     <ScrollToTopButton  />   
                 </div>

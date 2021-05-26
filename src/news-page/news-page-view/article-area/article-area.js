@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link} from 'react-router-dom';
 import ParseHTML from '../../../utility_components/parse-database-html/parse-html.js';
-import PageScore from '../social/page-score.js';
+// import PageScore from '../social/page-score.js';
 // import Share from '../social/share.js';
 
 // import fire from '../../../fire.js';
@@ -12,8 +12,8 @@ import PageScore from '../social/page-score.js';
 import './article-area.css';
 import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
 import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
-import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
-import removeBookmark from '../../../utility_components/bookmarks/removeBookmark.js';
+// import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
+// import removeBookmark from '../../../utility_components/bookmarks/removeBookmark.js';
 
 
 
@@ -164,7 +164,7 @@ const ArticleArea = (props) => {
                         
 
 
-                        <div className="hideArticleButtonWrapper" id="articleHideButton">
+                        {/* <div className="hideArticleButtonWrapper" id="articleHideButton">
                             <button id={props.id} onClick={() => handleClick(
                                                                     props.articleId, 
                                                                     props.postsArray,
@@ -172,7 +172,7 @@ const ArticleArea = (props) => {
                                                                     props.leftoverArticles,
                                                                     props.fullDatabaseCall)}>
                                                                     Hide Article</button>
-                        </div>
+                        </div> */}
 
                     {/* <ExtraImageLoop />       */}
                        

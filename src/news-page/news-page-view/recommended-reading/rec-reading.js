@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './recReading.css';
 
 export class RecReading extends React.Component{
     
@@ -41,20 +42,12 @@ export class RecReading extends React.Component{
                 // width:"100%"
             }   
             return(
-                <div key={value.key}>   
-                      
-                                         
-                    <Link to={{
-                        pathname: value.id , 
-                        state: {articleId: value.id}
-                    }}>
-                    
-                        {/* <img src={imgUrl} style={style} alt="literally all random images" /> */}
+                <div className="recReadingItem" key={value.key}>   
+                    <Link to={{ pathname: value.id , state: {articleId: value.id} }}>
+                        <img src={imgUrl} style={style} alt="literally all random images" />
                         <h3>{value.title}</h3>
                         <p>{value.postdate}</p>
-               
                     </Link>
-                                   
             </div>
             )
         })
@@ -62,7 +55,7 @@ export class RecReading extends React.Component{
         
         return(
 
-                         <div>{recReadingItems}</div>
+                         <div className="recReadingWrapper">{recReadingItems}</div>
 
         )
     }

@@ -706,6 +706,7 @@ General Notes  Objectives:
                     Goals:
                         ☐ To improve codebase and functionality in prepartion for website UI improvements.
                     To-Do:
+                        ☐ 
                     Bugs / Issues:
                         ✔ I have created a new component and have managed to get a selection of random articles rendering on the page. However, the page breaks if you clear the cache. @done(12:54 - 25/05/21)
                             ✔  Made the Database reference a call to the cleanDatabaseCall in localstorage - Didn't work. @done(13:05 - 25/05/21)
