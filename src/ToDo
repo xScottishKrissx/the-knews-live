@@ -704,9 +704,11 @@ General Notes  Objectives:
                
                  V12.8 Rework:
                     Goals:
-                        ☐ To improve codebase and functionality in prepartion for website UI improvements.
+                        ✔ To improve codebase and functionality in prepartion for website UI improvements. @done(12:38 - 26/05/21)
                     To-Do:
-                        ☐ 
+                        ✔ Clicking on a recommended reading article should take you to the top of the next article. @done(12:17 - 26/05/21)
+                        ☐ This could be turned into a functional component as it doesnt' require state.
+                            // window.scrollTo and remove scroll-behaviour smooth from html
                     Bugs / Issues:
                         ✔ I have created a new component and have managed to get a selection of random articles rendering on the page. However, the page breaks if you clear the cache. @done(12:54 - 25/05/21)
                             ✔  Made the Database reference a call to the cleanDatabaseCall in localstorage - Didn't work. @done(13:05 - 25/05/21)
@@ -940,7 +942,12 @@ General Notes  Objectives:
                 ✔ POssible solution is passing window.location.pathname to the link in options menu @done(17:04 - 30/04/21)
                     ✔ ISSUE - Using the above method, you get a null map error if you attempt to hide an article. @done(17:04 - 30/04/21)
                         ✔ Added a setItem to the tags to ensure a clean database call, fixed the issue. @done(14:18 - 30/04/21)
-
+    General Appearance / UI / UX:
+        V12.10 The Great UI Overhaul:
+            Goals:
+                ☐ To improve the overall appearance and usibility of the website.
+            To-Do:
+                
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -1106,7 +1113,7 @@ Part 2 Implement Database functionality:
             ✔ 12.5 - Finish Remaining Bookmark work @done(16:43 - 17/05/21)
             ✔ 12.6 - Get Like and Dislike to work separate from myKnews @done(18:17 - 21/05/21)
             ✔ 12.7 - Look into swiping liteKnews to switch articles @done(11:41 - 25/05/21)
-            ☐ 12.8 - Redo Recommended Reading Section
+            ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
             ☐ 12.9 - Misc Bug Fixes & Tweaks
                 ☐ Fix the scroll activate for larger than 1800px wide windows
                 ☐ Can I reset scroll position when switching articles in liteKnews?

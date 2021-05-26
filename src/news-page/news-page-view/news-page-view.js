@@ -30,7 +30,8 @@ export class NewsPageVIEW extends React.Component{
         }
     }
     componentDidMount(){
-      
+       
+     
         // this.setState({ownsArticle: false})
 
         const dbRef = fire.database().ref("items").orderByKey();   
@@ -89,14 +90,14 @@ export class NewsPageVIEW extends React.Component{
     render(){
       console.log("Render news-page-view.js")
 
-        
+      window.scrollTo(0,0);
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         // const database = this.props.database
-        console.log(database)
+        // console.log(database)
         // console.log(this.props.params)
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
-       console.log(getArticle)
+        //  console.log(getArticle)
         const NewsPageView = getArticle.map((value) => {
             // console.log(value.likes)
             //console.log("current author email:: " + value.email)

@@ -31,16 +31,15 @@ export class NewsPage extends React.Component{
     componentDidMount(){        
 
         // console.log("Mounted")
-        const dave = this.props.match.params.id;
-        console.log(dave)
+        // const dave = this.props.match.params.id;
+        // console.log(dave)
 
-        // Current Method
+        // Old Method
         // const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
 
         // New Method
-        const thing = parseInt(this.props.match.params.id);
-        console.log(thing)
-        const dbRef = fire.database().ref("items").orderByChild("id").equalTo(thing);
+        const dave = parseInt(this.props.match.params.id);
+        const dbRef = fire.database().ref("items").orderByChild("id").equalTo(dave);
        
         
          // Main Database Call
@@ -95,67 +94,32 @@ export class NewsPage extends React.Component{
 
     render(){    
 
-        const somethingDifferent = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall;
-        console.log(somethingDifferent)
-
-        const thing = parseInt(this.props.match.params.id);
-        console.log(thing)
-
-        const getArticle = somethingDifferent.filter(obj => obj.id === thing ) 
-        console.log(getArticle)
-
-        const mapTest = getArticle.map((value) => {
-            return(
-                <div>
-                    {value.title}
-                </div>
-            )
-        })
-
-
-
-
-
-
-
     const arrayLength = this.state.articlesArray.length;
-    // console.log(this.props.match.params.id || this.props.location.state.articleId)
-    // console.log(this.props.location.state.articleId)
-    // const testArticleId = this.props.location.state.articleId;
 
     return (
         
-                <span>
-        {/* <h1>Article Page</h1> */}
-        {/* <h1>{this.props.match.params.id}</h1> */}
-        {/* {mapTest} */}
-        {/* <h1>{this.props.location.state.articleId}</h1> */}
-
-
-        {arrayLength >= 1 ?         
-            <NewsPageVIEW 
-                database={this.state.articlesArray} 
-                params={this.props.match.params.id} 
-                fullDatabaseCall={this.state.fullDatabaseCall} 
-                leftoverArticles={this.state.leftoverArticles}
-                id={this.props.match.params.id}
-                // articleId={this.props.location.state.articleId}
-            /> 
-            : 
-          
-            <div>
-            {this.state.showErrorMessage === false ?
-             <img src={loading} alt="loading, please wait for results"/>
-             :
-             <div className="error-message">
-             <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
-             <Link to='/theKnews/home'><p>Home</p></Link>
-             </div>
+        <span>
+            {arrayLength >= 1 ?         
+                <NewsPageVIEW 
+                    database={this.state.articlesArray} 
+                    params={this.props.match.params.id} 
+                    fullDatabaseCall={this.state.fullDatabaseCall} 
+                    leftoverArticles={this.state.leftoverArticles}
+                    id={this.props.match.params.id}
+                    // articleId={this.props.location.state.articleId}
+                /> 
+                : 
+                <div>
+                    {this.state.showErrorMessage === false ?
+                        <img src={loading} alt="loading, please wait for results"/>
+                    :
+                        <div className="error-message">
+                            <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
+                            <Link to='/theKnews/home'><p>Home</p></Link>
+                        </div>
+                    }
+                </div>
             }
-           
-
-            </div>
-        }
         </span>
         );
             
