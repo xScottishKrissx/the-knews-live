@@ -950,18 +950,15 @@ General Notes  Objectives:
                         ✔ Added a setItem to the tags to ensure a clean database call, fixed the issue. @done(14:18 - 30/04/21)
     v12.9 - Misc Bug Fixes / Tweaks
         Goals:
-             ☐ To clean up a bunch of small things that need addressing and don't really fit in anywhere else.
+             ☐ To clean up a bunch of small things that need addressing and may not fit in anywhere else.
         To-Do:
-            ☐ Fix the scroll activate for larger than 1800px wide windows
-            ☐ Can I reset scroll position when switching articles in liteKnews?
-                yes
+            ✔ Fix the scroll activate for larger than 1800px wide windows 
+                //Not Sure what this means I can't see any issues.
+            ✔ Can I reset scroll position when switching articles in liteKnews? @done(13:34 - 26/05/21)
+                // window.scrollTo(0,0) in render
             ☐ Look into "undo hide"
                 should be a simple object.assign i would think
             ☐ Look into article switching for articles now that articles require just an id and database call instead of key.
-
-
-
-
 
 
 
@@ -982,6 +979,7 @@ General Notes  Objectives:
                 ☐ Do another style pass for card controls(different layout at larger widths?)
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
                 ☐ Look into animations for hiding articles.
+                ☐ Change the mark as read icon depending on read status
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -1148,14 +1146,7 @@ Part 2 Implement Database functionality:
             ✔ 12.6 - Get Like and Dislike to work separate from myKnews @done(18:17 - 21/05/21)
             ✔ 12.7 - Look into swiping liteKnews to switch articles @done(11:41 - 25/05/21)
             ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
-            ☐ 12.9 - Misc Bug Fixes & Tweaks
-                ☐ Fix the scroll activate for larger than 1800px wide windows
-                ☐ Can I reset scroll position when switching articles in liteKnews?
-
-                ☐ Look into "undo hide"
-                ☐ Look into animations for hiding articles.
-                ☐ Inform the user of how to interact with the website( swipe, hiding etc)
-        
+            ☐ 12.9 - Misc Bug Fixes & Tweaks       
             ☐ 12.10 - Overhaul Main UI
 
         
