@@ -62,3 +62,11 @@ export class RecReading extends React.Component{
 }
 
 export default RecReading;
+
+
+export const CLASSNAME = (props) =>{
+    
+    <div>Stateless Coponent Start</div>
+    }
+    
+    // export default CLASSNAME;

@@ -16,7 +16,7 @@ import InArticleBookmark from './article-area/inArticleBookmark.js';
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
 import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
-import RecReading from './recommended-reading/rec-reading.js';
+import RecReading from './recommended-reading/recReading.js';
 
 export class NewsPageVIEW extends React.Component{
 
