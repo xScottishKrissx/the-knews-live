@@ -30,3 +30,10 @@
 
 
 
+/* next article */
+.nextArticleWrapper{
+    border:1px solid black;
+    margin: 0 auto;
+    text-align: right;
+    width: 75%;
+}

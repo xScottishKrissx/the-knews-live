@@ -958,6 +958,7 @@ General Notes  Objectives:
                 // window.scrollTo(0,0) in render
             ☐ Look into "undo hide"
                 should be a simple object.assign i would think
+                nope, this might require a rework of the entire feedback system. However, this might be getting some attention as part of the UI overhaul so let's leave this until then.
             ☐ Look into article switching for articles now that articles require just an id and database call instead of key.
 
 
@@ -1131,6 +1132,7 @@ Part 2 Implement Database functionality:
             ☐ 13.1 - Ensure all pages can be shareable(articles, tag pages, bookmarks etc)
                 // 12/5/2021 - article pages are currently not working when directly accessed from firefox
             ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
+            ☐ 13.3 - (if missed in 12.10) - redo the feedback message to allow for undo of article.
             
 
         Version 12 (Future Version) - Planned Notes:

@@ -1,5 +1,5 @@
 import React from 'react'
-export const hideArticleFeedback = (props) => {
+export const hideArticleFeedback = () => {
 
    function handleHideArticleFeedback(){
         console.log("handleHideArticleFeedback")

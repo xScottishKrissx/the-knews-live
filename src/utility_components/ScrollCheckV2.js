@@ -29,7 +29,7 @@ class ScrollCheckV2 extends React.Component{
         // console.log(editedArticlesArray)
         if(editedArticlesArray != null)this.setState({articlesArray:editedArticlesArray})
 
-        console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
+        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
     }
 
     scroll = (e) => {
@@ -50,7 +50,7 @@ class ScrollCheckV2 extends React.Component{
         if(windowBottom >= docHeight){
             // console.log("Load New Articles")
             
-            console.log(editedArticlesArray)
+            // console.log(editedArticlesArray)
 
             // Get the articles that should be rendered on scroll...
             // console.log(editedArticlesArray.splice(0,5))

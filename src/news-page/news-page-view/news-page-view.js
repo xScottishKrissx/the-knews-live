@@ -11,6 +11,7 @@ import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBoo
 import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
 import RecReading from './recommended-reading/recReading.js';
+import NextArticle from './nextArticle.js';
 
 export class NewsPageVIEW extends React.Component{
 
@@ -87,7 +88,7 @@ export class NewsPageVIEW extends React.Component{
 
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         // const database = this.props.database
-        // console.log(database)
+        console.log(database)
         // console.log(this.props.params)
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
@@ -158,6 +159,7 @@ export class NewsPageVIEW extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                        
                     />
+                    <NextArticle id={value.id} database={database}/>
                     <RecReading fullDatabaseCall={database}/>                    
                     <ScrollToTopButton  />   
                 </div>
