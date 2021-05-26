@@ -1,18 +1,12 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import fire from '../../fire.js'
+
+import './news-page-view.css';
 
 import HeaderImage from '../../utility_components/header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
-
-
 import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
-import NavControls from '../../utility_components/navControls/navControls.js';
-// import RecommendedReading from './recommended-reading/recommended-reading.js';
-
-
-import './news-page-view.css';
-import fire from '../../fire.js'
-import InArticleBookmark from './article-area/inArticleBookmark.js';
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
 import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
@@ -88,9 +82,9 @@ export class NewsPageVIEW extends React.Component{
         fire.database().ref("items").off();     
       }
     render(){
-      console.log("Render news-page-view.js")
-
+      // console.log("Render news-page-view.js")
       window.scrollTo(0,0);
+
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         // const database = this.props.database
         // console.log(database)
@@ -108,6 +102,7 @@ export class NewsPageVIEW extends React.Component{
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
+                
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
                         {/* <HeaderImage props={value.id} /> */}
@@ -163,9 +158,7 @@ export class NewsPageVIEW extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                        
                     />
-                    <RecReading fullDatabaseCall={database}/>
-                    {/* <RecommendedReading /> */}
-                    
+                    <RecReading fullDatabaseCall={database}/>                    
                     <ScrollToTopButton  />   
                 </div>
             )
@@ -177,8 +170,7 @@ export class NewsPageVIEW extends React.Component{
                 
                 {/* <NavControls currentarticleid={this.props.params} arrayFromDatabase={this.state.articlesArray}/> */}
                 
-                {this.props.params === "5" ?
-                
+                {this.props.params === "5" ? 
                 <Redirect to='/home' />
                 :  
                 NewsPageView

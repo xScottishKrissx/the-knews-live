@@ -1,7 +1,7 @@
 Part 1 - Implement the front end UI:
      ☐ Build from a mobile first approach
-        ☐ Design should be responsive
-     ☐ Focus on the non-logged functionality
+        ✔ Design should be responsive @done(13:24 - 26/05/21)
+     ✔ Focus on the non-logged functionality @done(13:24 - 26/05/21)
      ✔ Add Logged in functionality as a secondary feature @done(20-07-29 15:53)
      ✔ Most important is the ability to click on a link, go to a new page and then back again @done(20-07-29 15:53)
      ✘ With that core in place then add the CMS elements. @cancelled(20-10-12 15:36)
@@ -249,14 +249,14 @@ General Notes  Objectives:
                         // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
                         // Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
                     Rethink Swipe Left:
-                        ☐ With the popup reworked into the liteKnews feature, left swipes currently don't do anything. I was thinking that I can either just disable swiping left or I can do something here.
+                        ✔ With the popup reworked into the liteKnews feature, left swipes currently don't do anything. I was thinking that I can either just disable swiping left or I can do something here. @done(13:24 - 26/05/21)
                             ✔ Ideas @done(17:47 - 30/04/21)
                                 Display a small excpert of the article in place of the card.(how would swiping back work??)
                                 Display information about article, like post date
                                 Display information about author like contact info, social media links etc
                                 ✔ Bookmark article, prevent from being hidden from view. 
-                                    ☐ I like this one but would need to allow for bookmarking via other means.
-                                    ☐ I could also add them to a separate bookmark page
+                                    ✔ I like this one but would need to allow for bookmarking via other means. @done(13:24 - 26/05/21)
+                                    ✔ I could also add them to a separate bookmark page @done(13:24 - 26/05/21)
                                     
                             
                        12.3 Add Bookmarking Functionality to Swipe Left:
@@ -266,7 +266,7 @@ General Notes  Objectives:
                                 ✔ Bookmarked cards will be immune to being hidden until unbookmarked @done(17:08 - 05/05/21)
                                 ✔ Bookmarked cards should be easily distinguished from regular cards. @done(15:40 - 11/05/21)
                                 ☐ All other website functionality should be retained and interact with bookmarks as normal.
-                                ☐ You shoulnt be able to permanently hide a bookmarked article from the onCardBookmark controls except when on the bookmark page.
+                                ✔ You shoulnt be able to permanently hide a bookmarked article from the onCardBookmark controls except when on the bookmark page. @done(13:23 - 26/05/21)
                             To-Do:
                                 ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
                                 ✔ Add the option to change card size in bookmark page @done(18:22 - 05/05/21)
@@ -288,7 +288,7 @@ General Notes  Objectives:
                                     // Leave this until the UI overhaul im planning (V12.10)
                                 ✔ Add bookmark functionality to articles and liteKnews @done(16:56 - 14/05/21)
                                     // Do liteKnews after it's component has been created.
-                                ☐ Add filter options to bookmark pages
+                                ✔ Add filter options to bookmark pages @done(13:23 - 26/05/21)
                                     // After splitting the filters code into its own component.
                                 ☐ Just an overall better UI
                                     // After the code cleanup
@@ -312,7 +312,7 @@ General Notes  Objectives:
                                         I've integrated mark as read and bookmarks work to an extent. You can mark as a boomark but the UI will not reflect that on page reload. 
                                          This isn't great but I think im going to have a look at the scrollCheck/HideArticleV2 component interaction. It's been a while since these where created and looking at them now im noticing some things that can be imrproved.
                                          For now, i am content with the current situation and will mark this down as a bug to be fixed.
-                                    ☐ Add filter options to bookmark page
+                                    ✔ Add filter options to bookmark page @done(13:23 - 26/05/21)
                                     
 
                             Issues:
@@ -320,8 +320,8 @@ General Notes  Objectives:
                                 ✔ Bookmarking an article then pressing the " mark as read and hide" button will result in an empty home page. Hiding an article on the home page BEFORE going to the bookmark page will NOT result in the same error but work as expected. @done(16:41 - 05/05/21)
                                     ✔ Solution - I think i've fixed this by setting a cleanDatabaseCall in the render method of bookmarks.js @done(16:41 - 05/05/21)
                                 ☐ scrollCheck articles don't have the border when loaded while a bookmark
-                                ☐ I've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this.
-                                ☐ There will be things a bit off due to the amount of variations and interactions that a single card can have with bookmarking, hiding and being marked as read. On top of browser interaction and the order components mount...things might be a bit buggy.
+                                ✔ I've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this. @done(13:23 - 26/05/21)
+                                ✔ There will be things a bit off due to the amount of variations and interactions that a single card can have with bookmarking, hiding and being marked as read. On top of browser interaction and the order components mount...things might be a bit buggy. @done(13:23 - 26/05/21)
                                 ☐ Bookmarks don't properly work with the scrollCheck component. This will be addressed in a future release where I have a look at both the scrollCheck and HideArticle components.
 
 
@@ -334,10 +334,13 @@ General Notes  Objectives:
                                 // 2/12/2020 -  I'll circle back to this in a later release
                                 ✔ Used the HTML Parser component to solve this. @done(20-12-10 15:50)
                         ✔ Add Close Pop Up button @done(20-11-30 18:02)
-                            ☐ What about swiping again to close the popup? @started(20-11-30 18:04)
+                            ✘ What about swiping again to close the popup? @started(20-11-30 18:04) @cancelled(13:22 - 26/05/21) @wasted(-6h41m29s)
+                                ✔ No longer, relevant. @done(13:23 - 26/05/21)
                             //Just tried it, confused myself, stopped doing it and then went and cried in the corner. It was like looking into the eyes of cthulu himself.
 
                             // For the moment I have 2 methods - clicking the close popup button and ckicking off the popup area. 
+
+                            
 
                         ✔ Add Link to Full Article @done(13:51 - 20/04/21)
                         ✔ What about images in popup? @done(20-12-02 16:19)
@@ -373,7 +376,7 @@ General Notes  Objectives:
                         // Fixed this by copying an if statement from the hide article file into the swipeRightAction file.
 
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)    
-                        ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears.
+                        ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears. -> v12.9
                     ✔ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00) @done(20-12-14 14:33) @lasted(4w33m55s)
                 ✔ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45) @done(20-12-03 15:41) @lasted(4w23h56m29s)
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
@@ -606,7 +609,7 @@ General Notes  Objectives:
                                 ✔ There are 97 articles being rendered initially, causing article duplication - Solution - I've added a slice to the renderToPage const in newsitem-loop-view that takes the first 30 articles from the full database array. The scroll check starts with the 31st article from the same array so that should work. @done(16:36 - 16/04/21)
                             
                             ✔ Switch to hideArticlev2 component @started(15:52 - 14/04/21) @done(17:18 - 30/04/21) @lasted(2w2d1h26m19s)
-                            ☐ Move the UI for hiding articles on click into the renderCard component.
+                            ✔ Move the UI for hiding articles on click into the renderCard component. @done(13:21 - 26/05/21)
                                 
                             
 
@@ -700,14 +703,14 @@ General Notes  Objectives:
                 ✔ Ability to control the exact articles that appear in recommended reading area @done(20-10-13 13:34)
                     // 13/10/2020 - Right now the area is populated with the first 4 articles in order of key. I want to be able to specify whatever article I want directly from the database.
                     // 13/10 - I have bascally copy and pasted the first main query to the database and then appended the results to the state. It is working as intended but i think there is definitley a better way of doing this.
-                        ☐ Do another pass on the styles here @started(20-10-13 13:34)
+                        ✔ Do another pass on the styles here @started(20-10-13 13:34) @done(13:20 - 26/05/21) @lasted(-7h13m1s)
                
                  V12.8 Rework:
                     Goals:
                         ✔ To improve codebase and functionality in prepartion for website UI improvements. @done(12:38 - 26/05/21)
                     To-Do:
                         ✔ Clicking on a recommended reading article should take you to the top of the next article. @done(12:17 - 26/05/21)
-                        ☐ This could be turned into a functional component as it doesnt' require state.
+                        ✔ This could be turned into a functional component as it doesnt' require state. @done(13:20 - 26/05/21)
                             // window.scrollTo and remove scroll-behaviour smooth from html
                     Bugs / Issues:
                         ✔ I have created a new component and have managed to get a selection of random articles rendering on the page. However, the page breaks if you clear the cache. @done(12:54 - 25/05/21)
@@ -716,7 +719,8 @@ General Notes  Objectives:
 
             Social Score Buttons:
                 ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
-                ☐ Let's try and get this working. it doesn't need to be a part of the myKnews update. Just enough functionality to work correctly with a valid email address. @started(20-12-10 15:58)
+                ✔ Let's try and get this working. it doesn't need to be a part of the myKnews update. Just enough functionality to work correctly with a valid email address. @started(20-12-10 15:58) @done(13:20 - 26/05/21) @lasted(-7h37m17s)
+                    ✔ Did this without the need for an email address. It's more vulnerable to manipulation but who cares. @done(13:20 - 26/05/21)
 
             Article Tags:
                 ✔ Each article should come with tags that can be filtered on the home page. @started(20-10-13 13:47) @done(20-10-20 14:40) @lasted(1w53m52s)
@@ -787,6 +791,8 @@ General Notes  Objectives:
 
     Rethink Articles:
         ☐ This little project might not go anywhere but I want see if I can take what I've learned from tags and apply that to the article pages. More specifically I want to see if I can design a method by which articles can be loaded and switched on a button press. Currently, articles are loaded using a rigid set of props being passed through components and while this might be the best solution, it makes it difficult to switch between articles wthout using redirects(which i would like to avoid). Basically, i want to make it as easy to switch between articles as it is to switch between the tag filters on the home page. Like I said, this might not work but I want to give it a go and see what happens.
+            ☐ In the end, i created liteKnews which filled this gap. Articles need to remain unique things that can be accessed whenever...wait a minute. I just changed my method accessing articles to use ID...instead of key. So..isn't this the exact same thing as liteKnews? All im doing in liteKnews is changing id. PLUS! the new recommended news section literally just requieres and id...
+                ☐ this might be possible -> V12.9
             To-Do:
                 ✔ Get a very basic article switching component up and running(changing id's on button press etc) @done(13:42 - 15/04/21)
                 --Getting a basic article switcher is simple enough, it's how to advance from here that is befuddling me. Ideally it would work like
@@ -801,8 +807,8 @@ General Notes  Objectives:
                 ✔ So having created my idea, i'm now seeing a problem -- accessible url links. I'm not sure how to ensure you can also have shareable links. Thinking back it's the reason tags have both filters and a tag page. Perhaps I can have both. This new article view could be a more advanced popup, with just the barebones of the article, while still having the full article, with shareable links, social aspects etc. I would essentially be back to where i started and I would have to decide what to do withe next/prev nav controls. I might have another go at making them work seeing as I have what I wanted with the new popup/article view. @done(18:03 - 15/04/21)
                     ✔ So i've gone ahead and replaced the old popup with this new system. It's a lot better and allows me to have both quick switching low clutter articles as well as more feature rich, shareable article pages. @done(18:03 - 15/04/21)
                 ✔ Add link to full article @done(17:09 - 30/04/21)
-                ☐ Can i use the swiping stuff here?
-                    ☐ I think so but I might need a new separate component for speedKnews before I get to that.
+                ✘ Can i use the swiping stuff here? @cancelled(13:13 - 26/05/21)
+                    ✔ I think so but I might need a new separate component for speedKnews before I get to that. @done(13:13 - 26/05/21)
      
     Tags Page:
         ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
@@ -924,7 +930,7 @@ General Notes  Objectives:
     Options Menu:
         ✔ Create Component and Basic Popup Menu to get started @done(12:05 - 27/04/21)
         Goals:
-            ☐ A UI that displays the various things users can manipulate and interact with accordingly
+            ✔ A UI that displays the various things users can manipulate and interact with accordingly @done(13:12 - 26/05/21)
                 ✔ Ability to fully clear entire cache @done(16:24 - 29/04/21)
                     ✔ Error - Fully clearing cache returns an error with - JSON.parse(localStorage.getItem("myData"))[0] @done(16:24 - 29/04/21)
                     ✔ Solution - I was removing the myData but not replacing it with anything which is required for the page to load. @done(16:23 - 29/04/21)
@@ -933,7 +939,7 @@ General Notes  Objectives:
                     ✔ When restting card size, the filter option is also being reset to All. @done(16:02 - 29/04/21)
                     ✔ For some reason the filter option is being set to null at some point. @done(16:02 - 29/04/21)
                         ✔ Solutiuon - i had localstorage.clear("myData) instead of...           localstorage.removeitem("myData) @done(16:02 - 29/04/21)
-                ☐ Option to change card size
+                ✘ Option to change card size @cancelled(13:12 - 26/05/21)
             ☐ A decent UI
                 ✔ Added a nifty opening animation @done(17:13 - 29/04/21)
                 ✔ The menu currently remains open when clearing the cache, it should probably shut when pressing one of the buttons. @done(12:47 - 30/04/21)
@@ -942,11 +948,40 @@ General Notes  Objectives:
                 ✔ POssible solution is passing window.location.pathname to the link in options menu @done(17:04 - 30/04/21)
                     ✔ ISSUE - Using the above method, you get a null map error if you attempt to hide an article. @done(17:04 - 30/04/21)
                         ✔ Added a setItem to the tags to ensure a clean database call, fixed the issue. @done(14:18 - 30/04/21)
+    v12.9 - Misc Bug Fixes / Tweaks
+        Goals:
+             ☐ To clean up a bunch of small things that need addressing and don't really fit in anywhere else.
+        To-Do:
+            ☐ Fix the scroll activate for larger than 1800px wide windows
+            ☐ Can I reset scroll position when switching articles in liteKnews?
+                yes
+            ☐ Look into "undo hide"
+                should be a simple object.assign i would think
+            ☐ Look into article switching for articles now that articles require just an id and database call instead of key.
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
     General Appearance / UI / UX:
         V12.10 The Great UI Overhaul:
             Goals:
                 ☐ To improve the overall appearance and usibility of the website.
             To-Do:
+                ☐ Do another style pass for card controls(different layout at larger widths?)
+                ☐ Inform the user of how to interact with the website( swipe, hiding etc)
+                ☐ Look into animations for hiding articles.
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -960,7 +995,6 @@ General Notes  Objectives:
         ✔ Automate Post Date @started(18-08-21 17:36) @done(18-08-24 11:24) @lasted(2d17h48m47s)
         ☐ Add View Post button to articles in myKnews
         ✔ Convert timestamp to readable date time format @done(20-09-23 16:49)
-        ☐ How do tags work here?
         // 1 per article or multiple?
         // multiple fields or pick the tags out 1 by one in the front end?
         
@@ -1117,7 +1151,7 @@ Part 2 Implement Database functionality:
             ☐ 12.9 - Misc Bug Fixes & Tweaks
                 ☐ Fix the scroll activate for larger than 1800px wide windows
                 ☐ Can I reset scroll position when switching articles in liteKnews?
-                ☐ Do another style pass for card controls(different layout at larger widths?)
+
                 ☐ Look into "undo hide"
                 ☐ Look into animations for hiding articles.
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)

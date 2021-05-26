@@ -32,14 +32,12 @@ export const RecReading = (props) =>{
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             width:"100%",
-            // height: "400px",
-            // width:"100%"
         }   
         return(
             
             <div className="recReadingItem" key={value.key}>   
                 <Link to={{ pathname: value.id , state: {articleId: value.id} }}>
-                    <img src={imgUrl} style={style} alt="literally all random images" />
+                    <img src={imgUrl} style={style} alt="literally all random images, don't worry about it" />
                     <h3>{value.title}</h3>
                     <p>{value.postdate}</p>
                 </Link>
