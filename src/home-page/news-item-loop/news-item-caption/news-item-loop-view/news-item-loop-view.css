@@ -321,15 +321,18 @@
         height: fit-content;
         text-align: center;
     }
-        #bookmarkBtn{color: red;}
-        #liteKnewsBtn{color: yellow;}
-        #filterBtn{color: aqua;}
-        #changeCardBtn{color: chartreuse;}
-        #settingsBtn{color: pink;}
-        .uiBarItem > div{
+        #bookmarkBtn{color: red; background-color: black}
+        #liteKnewsBtn{color: yellow; background-color: black}
+        #filterBtn{color: aqua; background-color: black}
+        #changeCardBtn{color: chartreuse; background-color: black}
+        #settingsBtn{color: pink; background-color: black}
+        .uiBarItem > div
+        {
+           
             position: relative;
             z-index: 21;
         }
+        
 
 .myMenu{
     border: 1px solid red;
@@ -355,4 +358,4 @@
 /* customising dropdown */
 .dropdown-toggle::after { display: none !important;}
 .btn-primary:hover, .btn-primary{background-color: inherit;}
-.btn-primary{background-color: black !important; border: 0px !important;}
+.btn-primary{border: 0px !important;}
