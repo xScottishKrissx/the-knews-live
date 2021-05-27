@@ -10,6 +10,10 @@ import RenderCard from '../../../../utility_components/renderCard/renderCard';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
 
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import SplitButton from 'react-bootstrap/SplitButton'
+
 class NewsItemLoopView extends React.Component{
 
     constructor(props){
@@ -131,6 +135,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <div className="newUIBarWrapper">
                     <div onClick={()=>this.handleMenu("bookmarkMenu")} id="bookmarkBtn" className="uiBarItem" title="View Bookmarks">
                         <span class="material-icons">bookmarks</span>
+
                         {/* <div id="bookmarkMenu" className="myMenu"><h1>Menu</h1></div> */}
                     </div>
 
@@ -156,7 +161,27 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     
                    
                 </div>
-                
+
+                <div className="newUIBarWrapper">
+                <div className="uiBarItem">
+                    <DropdownButton id="bookmarkBtn" title={ <span class="material-icons">bookmarks</span>} ><h1>Content</h1></DropdownButton>
+                </div>
+                <div className="uiBarItem">
+                    <DropdownButton id="liteKnewsBtn" title={ <span class="material-icons">bolt</span>} ><h1>Content</h1></DropdownButton>
+                </div>
+                <div className="uiBarItem">
+                    <DropdownButton id="filterBtn" title={ <span class="material-icons">local_offer</span>} ><h1>Content</h1></DropdownButton>
+                </div>
+                <div className="uiBarItem">
+                    <DropdownButton id="changeCardBtn" title={ <span class="material-icons">view_module</span>} ><h1>Content</h1></DropdownButton>
+                </div>
+                <div className="uiBarItem">
+                    <DropdownButton id="settingsBtn" title={ <span class="material-icons">settings</span>} ><h1>Content</h1></DropdownButton>
+                </div>
+                      
+                   
+
+                </div>
 
                 {this.props.databaseProp.length >= 30 && thing ? 
                 // The Cards themselves...

@@ -11,6 +11,7 @@ import Header from './header/header.js';
 import { Routes } from './routes/routes';
 import OptionsMenu from './utility_components/optionsMenu/optionsMenu';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

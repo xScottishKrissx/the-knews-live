@@ -302,7 +302,7 @@
     .uiBarItem{
         align-items: center;
         /* border: 1px solid black; */
-        background-color: black;
+        background-color: black !important;
         
         cursor: pointer;
         display: flex;
@@ -351,3 +351,8 @@
     width: 400px;
     height: 200px;
 }
+
+/* customising dropdown */
+.dropdown-toggle::after { display: none !important;}
+.btn-primary:hover, .btn-primary{background-color: inherit;}
+.btn-primary{background-color: black !important; border: 0px !important;}
