@@ -69,6 +69,10 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         })
 }
 
+        handleMenu(x){
+            console.log("Show Menu")
+            document.getElementById(x).classList.add("showMenu")
+        }
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
@@ -125,12 +129,34 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                 {/* New UI */}
                 <div className="newUIBarWrapper">
-                    <div id="bookmarkBtn" className="uiBarItem" title="View Bookmarks"><span class="material-icons">bookmarks</span></div>
-                    <div id="liteKnewsBtn" className="uiBarItem" title="Start Lite Knews"><span class="material-icons">bolt</span></div>
-                    <div id="filterBtn" className="uiBarItem" title="Filter By Tag"><span class="material-icons">local_offer</span></div>
-                    <div id="changeCardBtn" className="uiBarItem" title="Change Card Size"><span class="material-icons">view_module</span></div>
-                    <div id="settingsBtn" className="uiBarItem" title="Settings"><span class="material-icons">settings</span></div>
+                    <div onClick={()=>this.handleMenu("bookmarkMenu")} id="bookmarkBtn" className="uiBarItem" title="View Bookmarks">
+                        <span class="material-icons">bookmarks</span>
+                        {/* <div id="bookmarkMenu" className="myMenu"><h1>Menu</h1></div> */}
+                    </div>
+
+                    <div onClick={()=>this.handleMenu("liteKnewskMenu")} id="liteKnewsBtn" className="uiBarItem" title="Start Lite Knews">
+                        <span class="material-icons">bolt</span>
+                        {/* <div id="liteKnewskMenu" className="myMenu"><h1>Menu</h1></div> */}
+                    </div>
+
+                    <div onClick={()=>this.handleMenu("tagMenu")} id="filterBtn" className="uiBarItem" title="Filter By Tag">
+                        <span class="material-icons">local_offer</span>
+                        <div id="tagMenu" className="myMenu"><h1>Tags</h1></div>
+                    </div>
+
+                    <div id="changeCardBtn" className="uiBarItem" title="Change Card Size">
+                        <span class="material-icons">view_module</span>
+                        {/* <div className="myMenu"><h1>Menu</h1></div> */}
+                    </div>
+
+                    <div id="settingsBtn" className="uiBarItem" title="Settings">
+                        <span class="material-icons">settings</span>
+                        {/* <div className="myMenu"><h1>Menu</h1></div> */}
+                    </div>
+                    
+                   
                 </div>
+                
 
                 {this.props.databaseProp.length >= 30 && thing ? 
                 // The Cards themselves...

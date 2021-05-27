@@ -289,7 +289,7 @@
 #filterOptionDisplay{visibility: hidden; display: none;}
 #filterButtonWrapper{visibility: hidden; display: none;}
 .cardControlSizeWrapper{visibility: hidden !important; display: none;}
-#optionsMenuWrapper{display: none;}
+/* #optionsMenuWrapper{display: none;} */
 
 .newUIBarWrapper{
     /* border: 1px solid red; */
@@ -306,10 +306,13 @@
         
         cursor: pointer;
         display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         height: 50px;
         margin: 5px;
         max-width: 250px;
             width: 100%;
+        position: relative;
     }
     .uiBarItem > span{
         /* border: 1px solid yellow; */
@@ -323,3 +326,28 @@
         #filterBtn{color: aqua;}
         #changeCardBtn{color: chartreuse;}
         #settingsBtn{color: pink;}
+        .uiBarItem > div{
+            position: relative;
+            z-index: 21;
+        }
+
+.myMenu{
+    border: 1px solid red;
+    height: 0;
+    overflow: hidden;
+    position: absolute !important;
+    top: 49px;
+    /* left: 0; */
+    /* bottom: 0; */
+    width: 0px;
+    background: black;
+
+    
+}
+    #bookmarkMenu{
+        left: 0 !important;
+    }
+.showMenu{
+    width: 400px;
+    height: 200px;
+}
