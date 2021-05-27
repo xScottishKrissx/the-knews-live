@@ -289,6 +289,7 @@
 #filterOptionDisplay{visibility: hidden; display: none;}
 #filterButtonWrapper{visibility: hidden; display: none;}
 .cardControlSizeWrapper{visibility: hidden !important; display: none;}
+#optionsMenuWrapper{display: none;}
 
 .newUIBarWrapper{
     /* border: 1px solid red; */
@@ -307,7 +308,8 @@
         display: flex;
         height: 50px;
         margin: 5px;
-        width: 50px;
+        max-width: 250px;
+            width: 100%;
     }
     .uiBarItem > span{
         /* border: 1px solid yellow; */
@@ -320,3 +322,4 @@
         #liteKnewsBtn{color: yellow;}
         #filterBtn{color: aqua;}
         #changeCardBtn{color: chartreuse;}
+        #settingsBtn{color: pink;}

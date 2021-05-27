@@ -129,6 +129,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     <div id="liteKnewsBtn" className="uiBarItem" title="Start Lite Knews"><span class="material-icons">bolt</span></div>
                     <div id="filterBtn" className="uiBarItem" title="Filter By Tag"><span class="material-icons">local_offer</span></div>
                     <div id="changeCardBtn" className="uiBarItem" title="Change Card Size"><span class="material-icons">view_module</span></div>
+                    <div id="settingsBtn" className="uiBarItem" title="Settings"><span class="material-icons">settings</span></div>
                 </div>
 
                 {this.props.databaseProp.length >= 30 && thing ? 
