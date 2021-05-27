@@ -102,7 +102,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                 
                 {/* Bookmark Page Link */}
-                <div>
+                <div id="oldBookmarkBtn">
                     <Link to={{
                         pathname:'home/bookmarks',
                         state:{ fullDatabaseCall:this.props.fullDatabaseCall}
@@ -120,9 +120,17 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     }
                 </div>
 
-
                 {/* Card Size Controls */}
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
+
+                {/* New UI */}
+                <div className="newUIBarWrapper">
+                    <div id="bookmarkBtn" className="uiBarItem" title="View Bookmarks"><span class="material-icons">bookmarks</span></div>
+                    <div id="liteKnewsBtn" className="uiBarItem" title="Start Lite Knews"><span class="material-icons">bolt</span></div>
+                    <div id="filterBtn" className="uiBarItem" title="Filter By Tag"><span class="material-icons">local_offer</span></div>
+                    <div id="changeCardBtn" className="uiBarItem" title="Change Card Size"><span class="material-icons">view_module</span></div>
+                </div>
+
                 {this.props.databaseProp.length >= 30 && thing ? 
                 // The Cards themselves...
                  <RenderCard

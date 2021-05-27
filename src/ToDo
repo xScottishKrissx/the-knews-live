@@ -981,6 +981,14 @@ General Notes  Objectives:
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
                 ☐ Look into animations for hiding articles.
                 ☐ Change the mark as read icon depending on read status
+            12.10.1 - Home Page:
+                Goals:
+                    ☐ All controls for page should be easily accessible
+                To-Do:
+                    Mobile:
+                        ☐ Condense 4 main interactables into 4 small square icons.
+            12.10.2 - Article Page:
+            12.10.3 - Bookmark Page:
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
