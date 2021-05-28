@@ -98,26 +98,12 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     />
             :
             <div id="cardArea">
-                <div id="topPageButtonWrapper">
-
-                    {/* Speed Knews */}
-                    <div id="speedKnewsButtonWrapper"><button onClick={() => this.showArticle()}>start liteKnews </button></div>
-                    
+                <div id="topPageButtonWrapper">                   
                     {/* Filter Options */}
                     <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
                     
                 </div>
-
-                
-                {/* Bookmark Page Link */}
-                <div id="oldBookmarkBtn">
-                    <Link to={{
-                        pathname:'home/bookmarks',
-                        state:{ fullDatabaseCall:this.props.fullDatabaseCall}
-                    }}>
-                    <h3>Bookmarks</h3></Link>
-                </div>
-        
+       
                 
                 {/* Displaying ALL / News / Sports etc articles at top of page. */}
                 <div id="filterOptionDisplay">
@@ -148,7 +134,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     </Link> 
                     </div>
                     
-                    <div className="uiBarItem" title="Start Lite Knews">
+                    <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()}>
                         <DropdownButton 
                             id="liteKnewsBtn" 
                             title={ 
