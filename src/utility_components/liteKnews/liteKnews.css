@@ -17,3 +17,121 @@
   /* Changing Colour when progress bar completes */
    .progressBarChange::-webkit-progress-value{ background: #6eff00;  border: 1px solid #6eff00;}
 
+   #speedKnews{max-width:1500px; width: 100%;}
+   #speedKnewsWrapper{width: inherit;}
+       .speedKnewsArticleContainer{
+           margin-bottom: 300px;
+       }
+       .speedKnewsArticleContainer header {
+           margin-bottom: 2.5rem;
+           min-width: 25%;
+       }
+       .speedKnewsArticleContainer header  div{min-width: 25vw;}
+           .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
+               display: block;
+               margin: 0 auto;
+               margin-top: 1rem;
+               text-align: left;
+               width: 90%;
+           }
+       
+       .speedKnewsArticleContainer article{
+           margin: 0 auto;
+           max-width: 1000px;
+       }
+       .speedKnewsArticleContainer article p{margin-top: 0;}
+   #liteKnewsControls{
+       position: fixed;
+       bottom: 0;
+       width: 100%;
+       display: flex;
+   }
+   #liteKnewsControls span{
+       display: flex;
+       width: 100%;
+   
+   }
+       #liteKnewsControls span button{
+           background-color: black;
+           color: white;
+           margin: 0;
+           outline: 1px solid white;
+           width: 50%;
+       }
+       #liteKnewsControls span button span{
+           width: fit-content;
+           margin: 0 auto;
+       }   
+       #liteKnewsControls span span{
+           width: 100%;
+       }
+   
+   #speedKnewsButtonWrapper {
+       position: relative;
+       left: 0;
+       display: inline-block;
+       width: 100%;
+       cursor: pointer;
+   }
+   
+       #speedKnewsButtonWrapper button{
+           background-color: black;
+           color: white;
+           cursor: pointer;
+           font-size: 2rem;
+           outline: 1px solid black;
+           width: 100%;
+           
+       }
+           #speedKnewsButtonWrapper button span{
+               font-size: 1rem;
+           }
+   .mutedBtn{
+       background-color: #bbbbbb !important;
+   }
+
+
+/* Media Queries */
+@media (min-width: 1200px) {
+
+    .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        text-align: center;
+        width: 90%;
+    }
+    .speedKnewsArticleContainer header{
+        /* background-color: red; */
+        float: left;
+
+        
+        /* height: 90vh; */
+    }
+        .speedKnewsArticleContainer header div{
+            /* margin-top: 30vh; */
+            /* border: 1px solid yellow; */
+            height: auto;
+            min-height: 400px;
+
+
+        
+        }
+    .speedKnewsArticleContainer article{
+        /* border: 10px solid black; */
+        display: flow-root;
+    }
+    #liteKnewsControls{
+        bottom: 100px;
+        max-width: 1500px;
+    }
+    #liteKnewsControls span{
+        margin: 0 auto;
+        width: 50%;
+    }
+        #liteKnewsControls span button{
+            background-color: white;
+            color: black;
+            outline: 5px solid black;
+            bottom: 10px;
+        }
+} 

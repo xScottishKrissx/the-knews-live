@@ -20,3 +20,13 @@
     display: flex;
     width: 100%;
 }
+
+@media (min-width: 768px) {
+    .news-item-wrapper{
+        margin-top: 80px;
+    }
+    .home-wrapper{
+        margin: 0 auto;
+        /* width: 90%; */
+    }    
+}
