@@ -981,7 +981,7 @@ General Notes  Objectives:
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
                 ☐ Look into animations for hiding articles.
                 ☐ Change the mark as read icon depending on read status
-            12.10.1 - Home Page:
+            12.10.1 - Home Page New Nav Bar:
                 Goals:
                     ☐ All controls for page should be easily accessible
                 To-Do:
@@ -991,7 +991,8 @@ General Notes  Objectives:
                         ☐ filter by tags
                         ☐ change card size
                         ☐ options menu
-
+                    ☐ Clicking an icon should keep it as the correct colour until deactivated
+                    
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
                         ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)
