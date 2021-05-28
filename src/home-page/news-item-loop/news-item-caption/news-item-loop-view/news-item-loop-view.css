@@ -284,7 +284,7 @@
 
 
 /* New UI */
-*{outline: 1px solid red;}
+/* *{outline: 1px solid red;} */
 
 #speedKnewsButtonWrapper{visibility: hidden; display: none;}
 #oldBookmarkBtn{visibility: hidden; display: none;}
@@ -293,36 +293,35 @@
 .cardControlSizeWrapper{visibility: hidden !important; display: none;}
 /* #optionsMenuWrapper{display: none;} */
 
+
+
+
+
 .newUIBarWrapper{
     /* border: 1px solid red; */
     display: flex;
         justify-content: flex-end;
     margin-top: 30px;
+    margin-bottom: 30px;
     width: inherit;
 }
 
     .uiBarItem{
         align-items: center;
-        /* border: 1px solid black; */
+        border: 4px solid black;
         /* background-color: black !important; */
-        
+        box-sizing: content-box;
         cursor: pointer;
         display: flex;
             flex-wrap: wrap;
             justify-content: center;
         height: 50px;
-        margin: 5px;
-        max-width: 250px;
+        margin: 2px;
+        max-width: 60px;
             width: 100%;
         position: relative;
     }
-    .uiBarItem > span{
-        /* border: 1px solid yellow; */
-        color: black;
-        width: 100%;
-        height: fit-content;
-        text-align: center;
-    }
+
         /* #bookmarkBtn{color: red; }
         #liteKnewsBtn{color: yellow; }
         #filterBtn{color: aqua; }
@@ -335,7 +334,8 @@
             width: 100%;
             z-index: 21;
         }
-        
+        .dropdownBtnTitle > p{display: none;}      
+
 
 /* customising react.bootstrap  */
 .dropdown-toggle::after { display: none !important;}
@@ -352,3 +352,11 @@
         background-color: white;
         color: black;
     }
+
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .uiBarItem{max-width: fit-content;}
+        .dropdownBtnTitle{display: flex;}
+            .dropdownBtnTitle > p{display: contents;}
+}

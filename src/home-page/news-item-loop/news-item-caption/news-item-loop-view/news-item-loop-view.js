@@ -135,19 +135,65 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <div className="newUIBarWrapper">
 
                     <div className="uiBarItem" title="View Bookmarks">
-                        <DropdownButton id="bookmarkBtn" title={ <span class="material-icons">bookmarks</span>} ><h1>Content</h1></DropdownButton>
+                        <DropdownButton  
+                            id="bookmarkBtn" 
+                            title={ 
+                                <div className="dropdownBtnTitle">
+                                    <span class="material-icons">bookmarks</span>
+                                    <p>Bookmarks</p>
+                                </div>
+                            }>
+                            {/* DropDown Content */}
+                            <h1>Content</h1>
+                        </DropdownButton>
                     </div>
+
                     <div className="uiBarItem" title="Start Lite Knews">
-                        <DropdownButton id="liteKnewsBtn" title={ <span class="material-icons">bolt</span>} ><h1>Content</h1></DropdownButton>
+                        <DropdownButton 
+                            id="liteKnewsBtn" 
+                            title={ 
+                                <div className="dropdownBtnTitle">
+                                    <span class="material-icons">bolt</span>
+                                    <p>liteKnews</p>
+                                </div>
+                            }>
+                            {/* DropDown Content */}
+                            <h1>Content</h1>
+                        </DropdownButton>
                     </div>
+
                     <div className="uiBarItem" title="Filter By Tag">
-                        <DropdownButton id="filterBtn" title={ <span class="material-icons">local_offer</span>} ><h1>Content</h1></DropdownButton>
+                        <DropdownButton 
+                            id="filterBtn" 
+                            title={ 
+                                <div className="dropdownBtnTitle">
+                                    <span class="material-icons">local_offer</span>
+                                    <p>Filter</p>
+                                </div>
+                            }>
+                            <h1>Content</h1>
+                        </DropdownButton>
                     </div>
+
                     <div className="uiBarItem" title="Change Card Size">
-                        <DropdownButton id="changeCardBtn" title={ <span class="material-icons">view_module</span>} ><h1>Content</h1></DropdownButton>
+                        <DropdownButton 
+                            id="changeCardBtn" 
+                            title={ 
+                                <div className="dropdownBtnTitle">
+                                    <span class="material-icons">view_module</span>
+                                    <p>Card Style</p>
+                                </div>
+                            }>
+                            <h1>Content</h1>
+                        </DropdownButton>
                     </div>
+
                     <div className="uiBarItem" title="Settings">
-                        <DropdownButton id="settingsBtn" title={ <span class="material-icons">settings</span>} ><h1>Content</h1></DropdownButton>
+                        <DropdownButton 
+                            id="settingsBtn" 
+                            title={ <span class="material-icons">settings</span>}>
+                            <h1>Content</h1>
+                        </DropdownButton>
                     </div>
                     
                 </div>
