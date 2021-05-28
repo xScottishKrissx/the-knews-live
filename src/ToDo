@@ -986,12 +986,12 @@ General Notes  Objectives:
                     ☐ All controls for page should be easily accessible
                 To-Do:
                     ☐ Get working with new ui bar
-                        ☐ Bookmark page link
-                        ☐ liteKnews start
+                        ✔ Bookmark page link @done(15:43 - 28/05/21)
+                        ✔ liteKnews start @done(15:43 - 28/05/21)
                         ☐ filter by tags
                         ☐ change card size
                         ☐ options menu
-                        
+
                     Mobile:
                         ☐ Condense 4 main interactables into 4 small square icons.
                     Desktop:
@@ -1150,6 +1150,7 @@ Part 2 Implement Database functionality:
                 // 12/5/2021 - article pages are currently not working when directly accessed from firefox
             ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
             ☐ 13.3 - (if missed in 12.10) - redo the feedback message to allow for undo of article.
+            ☐ 13.4 - Rework filters to work without need for current workaround.
             
 
         Version 12 (Future Version) - Planned Notes:

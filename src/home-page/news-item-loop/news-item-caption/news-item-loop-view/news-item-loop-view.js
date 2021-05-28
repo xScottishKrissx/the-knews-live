@@ -47,7 +47,9 @@ class NewsItemLoopView extends React.Component{
 componentDidUpdate(){
     updateBookmarkStyles();
 }
+componentDidMount(){
 
+}
 // Card Size Controls
 getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 
@@ -97,22 +99,19 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     />
             :
-            <div id="cardArea">
-                <div id="topPageButtonWrapper">                   
-                    {/* Filter Options */}
+            <div id="cardArea"> 
                     <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
-                    
-                </div>
+                
        
                 
                 {/* Displaying ALL / News / Sports etc articles at top of page. */}
-                <div id="filterOptionDisplay">
+                {/* <div id="filterOptionDisplay">
                     {this.state.getArticleBy === "All" ? 
                         <p>Displaying <span>{this.state.getArticleBy}</span> Articles</p>
                         :
                         <p>Displaying {renderToPage.length}<span>{this.state.getArticleBy}</span> Articles</p>
                     }
-                </div>
+                </div> */}
 
                 {/* Card Size Controls */}
                 <CustomCardSize getCardSizeToParent={this.getCardSize} />
@@ -154,10 +153,21 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                             title={ 
                                 <div className="dropdownBtnTitle">
                                     <span class="material-icons">local_offer</span>
-                                    <p>Filter</p>
+                                    {/* <p>Filter</p> */}
+
+                                    <div id="filterOptionDisplay">
+                                        {this.state.getArticleBy === "All" ? 
+                                            // <p>Displaying<span>{this.state.getArticleBy}</span> Articles</p>
+                                            <p>Filter </p>
+                                            :
+                                            // <p>Displaying {renderToPage.length + " "}<span>{ this.state.getArticleBy}</span> Articles</p>
+                                            <p>Filter: { this.state.getArticleBy}</p>
+                                        }
+
+                                    </div>
                                 </div>
                             }>
-                            <h1>Content</h1>
+                            <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
                         </DropdownButton>
                     </div>
 

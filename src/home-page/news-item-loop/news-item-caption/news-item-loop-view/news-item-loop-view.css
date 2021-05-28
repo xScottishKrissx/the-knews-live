@@ -76,16 +76,16 @@
 
 
 #filterOptionDisplay{
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
+    /* display: block; */
+    /* text-align: center; */
+    /* margin: 0 auto; */
+    /* width: 100%; */
 }
 
     #filterOptionDisplay p span{
-        display: block;
-        font-size: 3rem;
-        font-weight: 900;
+        /* display: block; */
+        /* font-size: 3rem; */
+        /* font-weight: 900; */
     }
 /* speedKnews */
 #speedKnews{max-width:1500px; width: 100%;}
@@ -286,10 +286,14 @@
 /* New UI */
 /* *{outline: 1px solid red;} */
 
-#speedKnewsButtonWrapper{visibility: hidden; display: none;}
-#oldBookmarkBtn{visibility: hidden; display: none;}
-#filterOptionDisplay{visibility: hidden; display: none;}
-#filterButtonWrapper{visibility: hidden; display: none;}
+
+/* #filterOptionDisplay{visibility: hidden; display: none;} */
+#cardArea > #filterButtonWrapper{
+    /* visibility: hidden;  */
+    /* display: none; */
+    position: absolute;
+    left: -99999999px;
+}
 .cardControlSizeWrapper{visibility: hidden !important; display: none;}
 /* #optionsMenuWrapper{display: none;} */
 
@@ -341,7 +345,10 @@
             width: 100%;
             z-index: 21;
         }
-        .dropdownBtnTitle > p{display: none;}      
+        .dropdownBtnTitle > p{display: none;}  
+        
+        #filterOptionDisplay{display: none;}
+        #filterOptionDisplay > p{margin: 0;}
 
 
 /* customising react.bootstrap  */
@@ -378,4 +385,5 @@
     .uiBarItem{max-width: fit-content;}
         .dropdownBtnTitle{display: flex;}
             .dropdownBtnTitle > p{display: contents;}
+        #filterOptionDisplay{display: block;}
 }
