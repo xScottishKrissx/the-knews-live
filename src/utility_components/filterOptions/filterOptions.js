@@ -76,7 +76,7 @@ class FilterOptions extends Component {
 
     render(){
         return (
-            <div id="filterButtonWrapper">
+            <div className="filterButtonWrapper">
                 <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")}>News</button>
                 <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>  
                 <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather</button>
