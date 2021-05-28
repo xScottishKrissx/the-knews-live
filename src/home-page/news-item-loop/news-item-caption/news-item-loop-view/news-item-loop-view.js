@@ -133,54 +133,23 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                 {/* New UI */}
                 <div className="newUIBarWrapper">
-                    <div onClick={()=>this.handleMenu("bookmarkMenu")} id="bookmarkBtn" className="uiBarItem" title="View Bookmarks">
-                        <span class="material-icons">bookmarks</span>
 
-                        {/* <div id="bookmarkMenu" className="myMenu"><h1>Menu</h1></div> */}
+                    <div className="uiBarItem" title="View Bookmarks">
+                        <DropdownButton id="bookmarkBtn" title={ <span class="material-icons">bookmarks</span>} ><h1>Content</h1></DropdownButton>
                     </div>
-
-                    <div onClick={()=>this.handleMenu("liteKnewskMenu")} id="liteKnewsBtn" className="uiBarItem" title="Start Lite Knews">
-                        <span class="material-icons">bolt</span>
-                        {/* <div id="liteKnewskMenu" className="myMenu"><h1>Menu</h1></div> */}
+                    <div className="uiBarItem" title="Start Lite Knews">
+                        <DropdownButton id="liteKnewsBtn" title={ <span class="material-icons">bolt</span>} ><h1>Content</h1></DropdownButton>
                     </div>
-
-                    <div onClick={()=>this.handleMenu("tagMenu")} id="filterBtn" className="uiBarItem" title="Filter By Tag">
-                        <span class="material-icons">local_offer</span>
-                        <div id="tagMenu" className="myMenu"><h1>Tags</h1></div>
+                    <div className="uiBarItem" title="Filter By Tag">
+                        <DropdownButton id="filterBtn" title={ <span class="material-icons">local_offer</span>} ><h1>Content</h1></DropdownButton>
                     </div>
-
-                    <div id="changeCardBtn" className="uiBarItem" title="Change Card Size">
-                        <span class="material-icons">view_module</span>
-                        {/* <div className="myMenu"><h1>Menu</h1></div> */}
+                    <div className="uiBarItem" title="Change Card Size">
+                        <DropdownButton id="changeCardBtn" title={ <span class="material-icons">view_module</span>} ><h1>Content</h1></DropdownButton>
                     </div>
-
-                    <div id="settingsBtn" className="uiBarItem" title="Settings">
-                        <span class="material-icons">settings</span>
-                        {/* <div className="myMenu"><h1>Menu</h1></div> */}
+                    <div className="uiBarItem" title="Settings">
+                        <DropdownButton id="settingsBtn" title={ <span class="material-icons">settings</span>} ><h1>Content</h1></DropdownButton>
                     </div>
                     
-                   
-                </div>
-
-                <div className="newUIBarWrapper">
-                <div className="uiBarItem">
-                    <DropdownButton id="bookmarkBtn" title={ <span class="material-icons">bookmarks</span>} ><h1>Content</h1></DropdownButton>
-                </div>
-                <div className="uiBarItem">
-                    <DropdownButton id="liteKnewsBtn" title={ <span class="material-icons">bolt</span>} ><h1>Content</h1></DropdownButton>
-                </div>
-                <div className="uiBarItem">
-                    <DropdownButton id="filterBtn" title={ <span class="material-icons">local_offer</span>} ><h1>Content</h1></DropdownButton>
-                </div>
-                <div className="uiBarItem">
-                    <DropdownButton id="changeCardBtn" title={ <span class="material-icons">view_module</span>} ><h1>Content</h1></DropdownButton>
-                </div>
-                <div className="uiBarItem">
-                    <DropdownButton id="settingsBtn" title={ <span class="material-icons">settings</span>} ><h1>Content</h1></DropdownButton>
-                </div>
-                      
-                   
-
                 </div>
 
                 {this.props.databaseProp.length >= 30 && thing ? 
