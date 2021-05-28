@@ -113,17 +113,23 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                             id="filterBtn" 
                             title={ 
                                 <div className="dropdownBtnTitle">
-                                    <span class="material-icons">local_offer</span>
+                                    {/* <span class="material-icons">local_offer</span> */}
                                     {/* <p>Filter</p> */}
 
                                     <div id="filterOptionDisplay">
                                         {this.state.getArticleBy === "All" ? 
                                             // <p>Displaying<span>{this.state.getArticleBy}</span> Articles</p>
-                                            
-                                            <p>Filter </p>
+                                            <span>
+                                                <span class="material-icons">local_offer</span>
+                                                <p>Filter</p>
+                                            </span>                                           
                                             :
                                             // <p>Displaying {renderToPage.length + " "}<span>{ this.state.getArticleBy}</span> Articles</p>
-                                            <p className="filterIsActive">Filter: { this.state.getArticleBy}</p>
+                                            <span>
+                                                <span id="filterActive" class="material-icons">local_offer</span>
+                                                <p className="filterIsActive">Filter: { this.state.getArticleBy}</p>
+                                            </span>
+                                            
                                         }
 
                                     </div>

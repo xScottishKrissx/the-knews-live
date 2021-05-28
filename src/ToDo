@@ -993,7 +993,8 @@ General Notes  Objectives:
                         ☐ options menu
 
                     Mobile:
-                        ☐ Condense 4 main interactables into 4 small square icons.
+                        ☐ Condense main interactables into mobile friendly interactables.
+                        ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)
                     Desktop:
                         ✔ Icons should have label alongside @done(13:38 - 28/05/21)
             12.10.2 - Article Page:
