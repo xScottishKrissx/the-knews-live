@@ -133,8 +133,9 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                 {/* New UI */}
                 <div className="newUIBarWrapper">
-
+                
                     <div className="uiBarItem" title="View Bookmarks">
+                    <Link to={{ pathname:'home/bookmarks', state:{ fullDatabaseCall:this.props.fullDatabaseCall}}}>
                         <DropdownButton  
                             id="bookmarkBtn" 
                             title={ 
@@ -142,12 +143,11 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                                     <span class="material-icons">bookmarks</span>
                                     <p>Bookmarks</p>
                                 </div>
-                            }>
-                            {/* DropDown Content */}
-                            <h1>Content</h1>
+                            }> 
                         </DropdownButton>
+                    </Link> 
                     </div>
-
+                    
                     <div className="uiBarItem" title="Start Lite Knews">
                         <DropdownButton 
                             id="liteKnewsBtn" 

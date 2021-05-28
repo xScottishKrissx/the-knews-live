@@ -985,8 +985,17 @@ General Notes  Objectives:
                 Goals:
                     ☐ All controls for page should be easily accessible
                 To-Do:
+                    ☐ Get working with new ui bar
+                        ☐ Bookmark page link
+                        ☐ liteKnews start
+                        ☐ filter by tags
+                        ☐ change card size
+                        ☐ options menu
+                        
                     Mobile:
                         ☐ Condense 4 main interactables into 4 small square icons.
+                    Desktop:
+                        ✔ Icons should have label alongside @done(13:38 - 28/05/21)
             12.10.2 - Article Page:
             12.10.3 - Bookmark Page:
                 

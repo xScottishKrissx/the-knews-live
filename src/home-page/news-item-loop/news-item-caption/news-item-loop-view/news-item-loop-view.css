@@ -315,19 +315,26 @@
         display: flex;
             flex-wrap: wrap;
             justify-content: center;
-        height: 50px;
+        /* height: 50px; */
         margin: 2px;
         max-width: 60px;
             width: 100%;
         position: relative;
     }
 
-        /* #bookmarkBtn{color: red; }
+        /* 
+        #bookmarkBtn{color: red; }
         #liteKnewsBtn{color: yellow; }
         #filterBtn{color: aqua; }
         #changeCardBtn{color: chartreuse; }
-        #settingsBtn{color: pink; } */
-        
+        #settingsBtn{color: pink; } 
+        */
+        #bookmarkBtn:hover{color: red; }
+        #liteKnewsBtn:hover{color: orange; }
+        #filterBtn:hover{color: aqua; }
+        #changeCardBtn:hover{color: chartreuse; }
+        #settingsBtn:hover{color: pink; } 
+
         .uiBarItem > div
         {
             position: relative;
@@ -342,17 +349,29 @@
 /* .btn-primary:hover, .btn-primary{background-color: black !important;} */
 .btn-primary{border: 0px !important;}
 
-.uiBarItem > .dropdown > button{width: 100% !important}
+.uiBarItem > .dropdown > button {width: 100% !important}
+.uiBarItem > a > .dropdown > button{width: 100% !important}
 
-.uiBarItem > .dropdown > .btn-primary:hover{
+
+.uiBarItem > .dropdown > .btn-primary:hover, .uiBarItem > a > .dropdown > .btn-primary:hover{
     background-color: white;
     color: black;
 }
-    .uiBarItem > .dropdown > .btn-primary{
+    .uiBarItem > .dropdown > .btn-primary, .uiBarItem > a > .dropdown > .btn-primary{
         background-color: white;
         color: black;
     }
 
+    .uiBarItem > .dropdown > .btn, .uiBarItem > a .dropdown > .btn {
+        border-radius: 0;
+    } 
+
+
+
+    .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+        color: black !important;
+        background-color: white !important;
+    }
 
 /* Media Queries */
 @media (min-width: 768px) {
