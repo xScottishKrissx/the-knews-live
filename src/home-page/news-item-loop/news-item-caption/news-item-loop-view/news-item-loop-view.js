@@ -103,7 +103,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
 
                 {/* Card Size Controls */}
-                <CustomCardSize getCardSizeToParent={this.getCardSize} />
+                {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
 
                 {/* New UI */}
                 <div className="newUIBarWrapper">
@@ -148,7 +148,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                                     <p>Card Style</p>
                                 </div>
                             }>
-                            <h1>Content</h1>
+                            <CustomCardSize getCardSizeToParent={this.getCardSize} />
                         </DropdownButton>
                     </div>
 

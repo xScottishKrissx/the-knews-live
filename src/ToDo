@@ -988,11 +988,11 @@ General Notes  Objectives:
                     ☐ Get working with new ui bar
                         ✔ Bookmark page link @done(15:43 - 28/05/21)
                         ✔ liteKnews start @done(15:43 - 28/05/21)
-                        ☐ filter by tags
+                        ✔ filter by tags @done(18:30 - 28/05/21)
                         ☐ change card size
                         ☐ options menu
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
-                    
+
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
                         ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)

@@ -35,7 +35,7 @@
     left: -99999999px;
 }
 
-.cardControlSizeWrapper{visibility: hidden !important; display: none;}
+/* .cardControlSizeWrapper{visibility: hidden !important; display: none;} */
 
 .newUIBarWrapper{
     /* border: 1px solid red; */
