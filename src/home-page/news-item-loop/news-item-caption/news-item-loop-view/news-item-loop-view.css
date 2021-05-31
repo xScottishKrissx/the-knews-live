@@ -50,7 +50,7 @@
         align-items: center;
         border: 4px solid black;
         box-sizing: content-box;
-        cursor: pointer;
+        /* cursor: pointer; */
         display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -60,10 +60,10 @@
         position: relative;
     }
 
-        #bookmarkBtn:hover{color: red; }
+        #bookmarkBtn:hover{color: #28a745; }
         #liteKnewsBtn:hover{color: orange; }
         #filterBtn:hover{color: aqua; }
-        #changeCardBtn:hover{color: chartreuse; }
+        #changeCardBtn:hover{color: rgb(17, 0, 255); }
         #settingsBtn:hover{color: pink; } 
 
         .uiBarItem > div {
@@ -81,22 +81,11 @@
         #filterIsActive {color: green; }
         
         /* Dropdown Appearance */
-        .filterButtonWrapper{
-            /* display: flex;
-                flex-direction: column;
-                flex-wrap: wrap; */
-        }
         .uiBarItem > div > .dropdown-menu > div{
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
         }
-            .filterButton{
-                /* background-color: white;
-                color: black;
-                font-weight: 900;
-                width: auto; */
-            }
             .uiBarItem > div > .dropdown-menu > div > button{
                 background-color: white;
                 color: black;
@@ -104,11 +93,6 @@
                 width: auto;
             }
 
-           .filterButton:focus, .filterButton:hover, .filterButton:active{
-                /* background-color: black;
-                color: white;
-                outline: 1px solid black !important; */
-            }
             .uiBarItem > div > .dropdown-menu > div > button:focus,
             .uiBarItem > div > .dropdown-menu > div > button:hover,
             .uiBarItem > div > .dropdown-menu > div > button:active{
@@ -122,6 +106,9 @@
                     inset: 0px auto auto -4px !important;
                     padding: 0; 
                     border: 4px solid;
+                }
+                #settingsDropdown > .dropdown > div{
+                    transform: translate(-190px, 50px) !important;
                 }
 
                     .dropdownBtnTitle > span{line-height: inherit;}

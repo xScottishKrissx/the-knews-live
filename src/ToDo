@@ -993,12 +993,14 @@ General Notes  Objectives:
                         ☐ options menu
                             ☐ Clear Bookmarks not currently working
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
-
+                    ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
+                    ☐ Consider moving this entire thing into it's own component that can then be reused.
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
                         ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)
                     Desktop:
                         ✔ Icons should have label alongside @done(13:38 - 28/05/21)
+                        ☐ At higer width, the options menu get's lost to the right of the window.
             12.10.2 - Article Page:
             12.10.3 - Bookmark Page:
                 

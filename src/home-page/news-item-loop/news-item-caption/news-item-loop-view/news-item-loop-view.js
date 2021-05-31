@@ -106,7 +106,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 {/* New UI */}
                 <div className="newUIBarWrapper">
                 
-                <div className="uiBarItem" title="Filter By Tag">
+                <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
                         <DropdownButton 
                             id="filterBtn" 
                             title={ 
@@ -137,7 +137,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         </DropdownButton>
                     </div>
 
-                    <div className="uiBarItem" title="Change Card Size">
+                    <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
                         <DropdownButton 
                             id="changeCardBtn" 
                             title={ 
@@ -152,7 +152,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
 
                     
-                    <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()}>
+                    <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()} >
                         <DropdownButton 
                             id="liteKnewsBtn" 
                             title={ 
@@ -182,7 +182,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     </div>
 
 
-                    <div className="uiBarItem" title="Settings">
+                    <div className="uiBarItem" title="Settings" id="settingsDropdown">
                         <DropdownButton 
                             id="settingsBtn" 
                             title={ <span class="material-icons">settings</span>}>
