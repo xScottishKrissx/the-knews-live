@@ -1,12 +1,6 @@
 /* .cardControlSizeWrapper *{outline: 1px solid red;} */
-.cardControlSizeWrapper{
-
-    /* cursor: pointer; */
-    /* display: flex; */
+/* .cardControlSizeWrapper{
     outline: 2px solid rgba(255, 255, 255, 0.44);
-    /* position: relative; */
-
-    /* right: 1rem; */
     text-align: center;
     visibility: visible;
     width: 100%;
@@ -18,7 +12,6 @@
         color: white;
         font-weight: 400;
         user-select: none;
-        /* width: 100%; */
     }
 
         .tileSizeControls h3{ display: contents;}
@@ -32,32 +25,29 @@
             .controlBtns button{
                 background-color: white;
                 cursor: pointer;
-                /* height: auto; */
                 margin: 0px;
                 outline: 1px solid black;
                 padding: 0;
-                /* width: 140px; */
-                
-                /* width: auto; */
+
             }
             .controlBtns button:hover{
                 background-color: black;
                 color: white;
             }
                 .controlBtns button span{
-                    /* background-color: white; */
+                    
                     display: block;
                     padding: 10px;
                 }
                     .controlBtns button span span{
-                        /* background-color: white; */
+                       
                         display: initial;
                         font-size: 8px;
                         padding: 5px;
-                    }
+                    } */
                 
 
-                #cardControlsLargeBtn{display:none;}
+                /* #cardControlsLargeBtn{display:none;} */
 
 
                 /* Standard Size */
@@ -66,22 +56,13 @@
 /* Big         |> Height - auto  | width - 470px */
 
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     #cardControlsLargeBtn{display:block;}
 }
 
 @media (min-width: 375px) {
     .cardControlSizeWrapper{visibility: visible;}
-}
+} */
 
-@media (max-width: 768px) {
-    .myClass{
-        /* max-width: 450px; */
-    }
-    /* .news-square{max-width: 450px !important;} */
-}
 
-.listView{
-    max-width: 600px;
-    margin: 0 auto;
-}
+

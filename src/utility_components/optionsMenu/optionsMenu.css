@@ -1,4 +1,4 @@
-#optionsMenuWrapper{
+/* #optionsMenuWrapper{
     background-color: black;
     bottom: 0;
     height: 35px;
@@ -15,9 +15,7 @@
         color: white;
         cursor: pointer;
         font-size:35px;
-        /* transform: translate3d(0, 0, 0); */
         transition: 0.5s linear;
-
     }
  
         
@@ -30,7 +28,6 @@
         left: 50px;
         overflow: auto;
         position:fixed;
-        /* visibility: hidden; */
         width: 0;
 
         transition: 0.2s linear;
@@ -47,7 +44,6 @@
     }
 
     .animateIcon{
-        /* color: red !important; */
         transform: rotate(180deg)
     }
 
@@ -70,4 +66,4 @@
             }
 
 
- 
+  */

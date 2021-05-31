@@ -78,34 +78,28 @@ class OptionsMenu extends Component {
         return (
             <div id="optionsMenuWrapper">
                 
-                <span onClick={()=> this.toggleMenu()} id="optionsMenuIcon" className="material-icons">settings</span>
-                <div id="optionsMenuPopup">
-                    <div>
-                        <span><p>Full Website Reset</p>
-                            <Link to='/' onClick={()=> this.clearCache("clearCache")}>
-                                <button>Confirm</button>
-                            </Link>
+                {/* <span onClick={()=> this.toggleMenu()} id="optionsMenuIcon" className="material-icons">settings</span> */}
+                    
+                        <span>
+                            <p>Full Website Reset</p>
+                            <Link to='/' onClick={()=> this.clearCache("clearCache")}><button>Confirm</button></Link>
                         </span>
-
-                        <span><p>Unhide Articles </p>
-                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("unhideArticles")}>
-                                    <button>Confirm</button>
-                            </Link>
+                        
+                        <span>
+                            <p>Unhide Articles </p>
+                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("unhideArticles")}><button>Confirm</button></Link>
                         </span>
-
-                        <span ><p>Reset Card Size </p> 
-                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("resetCardSize")}>
-                                    <button>Confirm</button>
-                            </Link>                   
+                        
+                        <span>
+                            <p>Reset Card Size </p>
+                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("resetCardSize")}><button>Confirm</button></Link>
                         </span>   
 
-                        <span ><p>Clear Bookmarks</p> 
-                            <Link to='/' onClick={()=> this.clearCache("removeBookmarks")}>
-                                    <button>Confirm</button>
-                            </Link>                   
-                        </span>                          
-                      </div>
-                </div>
+                        <span>
+                            <p>Clear Bookmarks</p>
+                            <Link to='/' onClick={()=> this.clearCache("removeBookmarks")}><button>Confirm</button></Link>
+                        </span> 
+                        
             </div>
         )
     }

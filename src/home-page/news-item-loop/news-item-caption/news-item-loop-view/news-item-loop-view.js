@@ -13,6 +13,7 @@ import updateBookmarkStyles from '../../../../utility_components/bookmarks/updat
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import SplitButton from 'react-bootstrap/SplitButton'
+import OptionsMenu from '../../../../utility_components/optionsMenu/optionsMenu';
 
 class NewsItemLoopView extends React.Component{
 
@@ -102,9 +103,6 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             <div id="cardArea"> 
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
 
-                {/* Card Size Controls */}
-                {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
-
                 {/* New UI */}
                 <div className="newUIBarWrapper">
                 
@@ -188,7 +186,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         <DropdownButton 
                             id="settingsBtn" 
                             title={ <span class="material-icons">settings</span>}>
-                            <h1>Content</h1>
+                            <OptionsMenu urlInfo={window.location.pathname}/>
                         </DropdownButton>
                     </div>
                     

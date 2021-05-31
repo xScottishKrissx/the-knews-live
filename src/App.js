@@ -76,7 +76,7 @@ handleClick(){
       
       <Header />
       <Routes />
-      <OptionsMenu urlInfo={window.location.pathname}/>
+      {/* <OptionsMenu urlInfo={window.location.pathname}/> */}
       {/* <Footer /> */}
         
       </div>

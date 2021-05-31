@@ -35,7 +35,7 @@
     left: -99999999px;
 }
 
-/* .cardControlSizeWrapper{visibility: hidden !important; display: none;} */
+
 
 .newUIBarWrapper{
     /* border: 1px solid red; */
@@ -73,32 +73,50 @@
         }
 
         .dropdownBtnTitle > p{display: none;}  
-        #filterActive{color: aqua;}
         
-        /* Filters */      
+        #filterActive{color: aqua;}   
         #filterOptionDisplay > span{ display: flex; }
         #filterOptionDisplay > span > p{display: none; margin: 0;}
 
         #filterIsActive {color: green; }
         
+        /* Dropdown Appearance */
         .filterButtonWrapper{
-            display: flex;
+            /* display: flex;
                 flex-direction: column;
-                flex-wrap: wrap;
+                flex-wrap: wrap; */
+        }
+        .uiBarItem > div > .dropdown-menu > div{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
         }
             .filterButton{
+                /* background-color: white;
+                color: black;
+                font-weight: 900;
+                width: auto; */
+            }
+            .uiBarItem > div > .dropdown-menu > div > button{
                 background-color: white;
                 color: black;
                 font-weight: 900;
-                /* outline: 1px solid black; */
                 width: auto;
             }
+
            .filterButton:focus, .filterButton:hover, .filterButton:active{
+                /* background-color: black;
+                color: white;
+                outline: 1px solid black !important; */
+            }
+            .uiBarItem > div > .dropdown-menu > div > button:focus,
+            .uiBarItem > div > .dropdown-menu > div > button:hover,
+            .uiBarItem > div > .dropdown-menu > div > button:active{
                 background-color: black;
                 color: white;
                 outline: 1px solid black !important;
             }
-            /* #filterBtn{ color: aqua !important;} */
+
 
                 .uiBarItem > .dropdown > div{
                     inset: 0px auto auto -4px !important;
@@ -136,10 +154,8 @@
 
         .uiBarItem > .dropdown > .btn, .uiBarItem > a .dropdown > .btn { border-radius: 0;}
 
-    /* Dropdown Button when clicked  */
     button:focus:not(:focus-visible){
         outline: 1px solid black !important;
-        /* color: green !important; */
     }
 
 
