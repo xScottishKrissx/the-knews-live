@@ -39,6 +39,7 @@
 
 .newUIBarWrapper{
     /* border: 1px solid red; */
+    align-items: center;
     display: flex;
         justify-content: flex-end;
     margin-top: 30px;
@@ -103,15 +104,21 @@
 
 
                 .uiBarItem > .dropdown > div{
-                    inset: 0px auto auto -4px !important;
+                    /* inset: 0px auto auto -4px !important; */
                     padding: 0; 
                     border: 4px solid;
                 }
                 #settingsDropdown > .dropdown > div{
-                    transform: translate(-190px, 50px) !important;
+                    transform: translate(-193px, 50px) !important;
                 }
 
                     .dropdownBtnTitle > span{line-height: inherit;}
+
+/* Just in case I want to use it */
+.uiBarDivider{
+    font-weight: 900;
+    padding: 2px;
+}
 
 
 
@@ -158,4 +165,9 @@
         .dropdownBtnTitle{display: flex; align-items: center;}
             .dropdownBtnTitle > p{display: contents;}
             #filterOptionDisplay > span > p{display: flex; }
+}
+@media (min-width: 690px) {
+    #settingsDropdown > .dropdown > div{
+        transform: translate(-206px, 50px) !important;
+    }
 }

@@ -989,7 +989,7 @@ General Notes  Objectives:
                         ✔ Bookmark page link @done(15:43 - 28/05/21)
                         ✔ liteKnews start @done(15:43 - 28/05/21)
                         ✔ filter by tags @done(18:30 - 28/05/21)
-                        ☐ change card size
+                        ✔ change card size @done(12:15 - 02/06/21)
                         ☐ options menu
                             ☐ Clear Bookmarks not currently working
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
@@ -1000,7 +1000,8 @@ General Notes  Objectives:
                         ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)
                     Desktop:
                         ✔ Icons should have label alongside @done(13:38 - 28/05/21)
-                        ☐ At higer width, the options menu get's lost to the right of the window.
+                        ✔ At higer width, the options menu get's lost to the right of the window. @done(12:12 - 02/06/21)
+                            // added media queries at point where text in ui activates.
             12.10.2 - Article Page:
             12.10.3 - Bookmark Page:
                 

@@ -118,13 +118,13 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                                         {this.state.getArticleBy === "All" ? 
                                             // <p>Displaying<span>{this.state.getArticleBy}</span> Articles</p>
                                             <span>
-                                                <span class="material-icons">local_offer</span>
+                                                <span class="material-icons">filter_alt</span>
                                                 <p>Filter</p>
                                             </span>                                           
                                             :
                                             // <p>Displaying {renderToPage.length + " "}<span>{ this.state.getArticleBy}</span> Articles</p>
                                             <span>
-                                                <span id="filterActive" class="material-icons">local_offer</span>
+                                                <span id="filterActive" class="material-icons">filter_alt</span>
                                                 <p className="filterIsActive">Filter: { this.state.getArticleBy}</p>
                                             </span>
                                             
@@ -150,7 +150,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         </DropdownButton>
                     </div>
 
-
+                    {/* <div class="uiBarDivider"> | </div> */}
                     
                     <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()} >
                         <DropdownButton 
