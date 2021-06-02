@@ -28,6 +28,7 @@ class Bookmarks extends Component {
             height: JSON.parse(localStorage.getItem("myData"))[1]
             },
 
+
         }
         this.getCardSize = this.getCardSize.bind(this);
         this.clearBookmarks = this.clearBookmarks.bind(this);
@@ -109,8 +110,8 @@ class Bookmarks extends Component {
 
     // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
-        console.log(filteredByTag)
-        console.log(getArticleBy)
+        // console.log(filteredByTag)
+        // console.log(getArticleBy)
         this.setState({
             bookmarks: filteredByTag,
             getArticleBy:getArticleBy,
@@ -118,6 +119,10 @@ class Bookmarks extends Component {
     }
 
     render(){
+        // console.log(localStorage.getItem("filterOption"))
+        console.log(this.state.getArticleBy)
+        // console.log(this.state.bookmarks)
+
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         // console.log(this.props.location.state.fullDatabaseCall)
@@ -132,20 +137,22 @@ class Bookmarks extends Component {
             
             />
             <h1>Bookmarks</h1>
-            {/* <FilterOptions 
+            <FilterOptions 
                 fullDatabaseCall={fullDatabaseCall} 
                 getFilteredArticles = {this.getFilteredArticles}
                 bookmarked={true}
-            /> */}
+            />
 
-            <p>You have bookmarked {this.state.bookmarks.length} items. Enjoy</p>
+            <p>You have {this.state.bookmarks.length} items to read.</p>
             
-            <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
+            {/* <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
             <button onClick={() => markAllUnread()}>Mark All As Unread</button>
             <br/>
-            <button onClick={() => this.hideAllArticles()}>Hide All Articles</button>
+            <button onClick={() => this.hideAllArticles()}>Hide All Articles</button> */}
 
-            <CustomCardSize getCardSizeToParent={this.getCardSize} />
+            {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
+
+
             <div id="bookmarkItemsWrapper">
                 {this.state.bookmarks.length === 0 ?
                 <p>You haven't bookmarked anything yet :(</p>

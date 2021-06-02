@@ -18,7 +18,10 @@ export class NavBar extends React.Component{
 
     render(){
         // console.log(this.props.fullDatabaseCall)
-        // console.log(this.props.getArticleBy)
+        // console.log(this.state.getArticleBy)
+        console.log(this.props.getArticleBy)
+        const getArticle = this.props.getArticleBy || "All";
+        // const getArticle = "All"
         return(
             <div className="newUIBarWrapper">
 
@@ -34,7 +37,7 @@ export class NavBar extends React.Component{
                         title={ 
                             <div className="dropdownBtnTitle">
                                 <div id="filterOptionDisplay">
-                                    {this.props.getArticleBy === "All" ?                                         
+                                    {getArticle === "All" ?                                         
                                         <span>
                                             <span class="material-icons">filter_alt</span>
                                             <p>No Filter</p>
@@ -42,7 +45,7 @@ export class NavBar extends React.Component{
                                         :                                   
                                         <span>
                                             <span id="filterActive" class="material-icons">filter_alt</span>
-                                            <p className="filterIsActive">Filter: { this.props.getArticleBy}</p>
+                                            <p className="filterIsActive">Filter: { getArticle }</p>
                                         </span>                                        
                                     }
                                 </div>

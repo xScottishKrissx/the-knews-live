@@ -82,7 +82,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-
+        
         return(
             
             <div className="newsItemLoopViewWrapper">

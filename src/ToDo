@@ -1003,7 +1003,14 @@ General Notes  Objectives:
                             ☐ Should function exactly the same as it currently does in the UI bar.
                             ☐ Should be flexible enough to add/remove buttons where relevant.
                         To-Do:
-                            ☐ Create New component
+                            ✔ Create New component @done(16:41 - 02/06/21)
+                            ☐ Integrate Bookmarks page
+                                ✔ removed liteknews and bookmark button @done(16:44 - 02/06/21)
+                                ☐ Integrate filter options
+                                    ✔ What do I want here? Do i want this to be the same as the home page or be different? It makes sense to be different but I can also see the argument for having the same filter throughout and let the user decide on their own. A single filter choice is easier to implement but separate filters seems more user friendly...or it could be seen as 1 more thing to think about. I don't know, might flip a coin 21 times or so.
+                                        ☐ I don't know what is the "optimal" choice but I am going with separate filters. If nothing else it's an interesting challenge for me to overcome.
+                                        
+                                ☐ Integrate Card Size menu
                         Issues:
                             ☐ Many, probably.
 

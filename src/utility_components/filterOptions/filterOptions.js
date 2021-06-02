@@ -16,6 +16,7 @@ class FilterOptions extends Component {
 
         // If no filter option exists in storage, set as All to display a default view.
         if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
+        if(localStorage.getItem("bookmarksFilterOption") === null)localStorage.setItem("bookmarksFilterOption","All");
 
         // Detect url params and set the view as appropriate. This functions as the tag page.
         // console.log(this.props.urlTagProp)
@@ -26,16 +27,21 @@ class FilterOptions extends Component {
         if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
 
         // Set filter option.
-        this.getArticlesBy(localStorage.getItem("filterOption"))
+        console.log(this.props.bookmarked)
+        if(this.props.bookmarked  === undefined){
+            this.getArticlesBy(localStorage.getItem("filterOption"))
+        }else{
+            this.getArticlesBy(localStorage.getItem("bookmarksFilterOption"))
+        }
 
         
     }
     getArticlesBy(value,id){
-
+        console.log(value)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
-        console.log(fullDatabaseCall)
+        // console.log(fullDatabaseCall)
 
         // Filter array for null objects and remove anything marked as hidden.
         const filteredForHiddenArticlesDB = fullDatabaseCall.filter(obj => 
@@ -46,7 +52,7 @@ class FilterOptions extends Component {
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
         
-        console.log(value)
+        // console.log(value)
         this.setState({
             getArticleBy:value,
             renderArray:filteredByTag,
@@ -56,7 +62,7 @@ class FilterOptions extends Component {
         const filterBookmarks = filteredForHiddenArticlesDB.filter(obj => obj.tag === value && obj.bookmarked === true);
 
         const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
-        console.log(filterBookmarks)
+        // console.log(filterBookmarks)
         // console.log(filterBookmarksAll)
 
 
@@ -77,7 +83,11 @@ class FilterOptions extends Component {
         }
         
         // Set Filter Option into local storage
-        localStorage.setItem("filterOption",value)      
+        if(this.props.bookmarked  === undefined){
+            localStorage.setItem("filterOption",value)
+        }else{
+            localStorage.setItem("bookmarksFilterOption",value)
+            }
     }
 
     render(){
