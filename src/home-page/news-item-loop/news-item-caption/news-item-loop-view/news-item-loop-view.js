@@ -49,9 +49,7 @@ class NewsItemLoopView extends React.Component{
 componentDidUpdate(){
     updateBookmarkStyles();
 }
-componentDidMount(){
 
-}
 // Card Size Controls
 getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 
@@ -75,12 +73,12 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
         })
-}
+    }
 
-        handleMenu(x){
-            console.log("Show Menu")
-            document.getElementById(x).classList.add("showMenu")
-        }
+    handleMenu(x){
+        console.log("Show Menu")
+        document.getElementById(x).classList.add("showMenu")
+    }
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
@@ -92,112 +90,33 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             {this.state.showArticle === true ?
                 <LiteKnews 
                     renderToPage={this.state.renderLiteKnews}
-                    closeLiteKnews={()=>this.closeLiteKnewsView()} 
-
-                    
+                    closeLiteKnews={()=>this.closeLiteKnewsView()}                     
                     postsArray={this.state.postsArray}
                     arrayFromDatabase={this.props.databaseProp} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
-                    />
+                />
             :
             
             <div id="cardArea"> 
-            <NavBar 
-                // filter
-                getArticleBy={this.state.getArticleBy}
-                fullDatabaseCall={this.props.fullDatabaseCall}
-                getFilteredArticles={this.getFilteredArticles}
+                <NavBar 
+                    // filter
+                    getArticleBy={this.state.getArticleBy}
+                    getFilteredArticles={this.getFilteredArticles}
 
-                // card size
-                getCardSize={this.getCardSize} 
+                    // card size
+                    getCardSize={this.getCardSize} 
 
-                // liteKnews
-                showArticle={() => this.showArticle()}
+                    // liteKnews
+                    showArticle={() => this.showArticle()}
+
+                    // filter, bookmarks
+                    fullDatabaseCall={this.props.fullDatabaseCall}
                 />
                 
-                <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
-
-                {/* New UI */}
-                <div className="newUIBarWrapper">
+                <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>                
                 
-                {/* <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
-                        <DropdownButton 
-                            id="filterBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <div id="filterOptionDisplay">
-                                        {this.state.getArticleBy === "All" ? 
-                                            <span>
-                                                <span class="material-icons">filter_alt</span>
-                                                <p>Filter</p>
-                                            </span>                                           
-                                            :
-                                            <span>
-                                                <span id="filterActive" class="material-icons">filter_alt</span>
-                                                <p className="filterIsActive">Filter: { this.state.getArticleBy}</p>
-                                            </span>
-                                        }
-                                    </div>
-                                </div>
-                            }>
-                            <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
-                        </DropdownButton>
-                    </div> */}
 
-                    {/* <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
-                        <DropdownButton 
-                            id="changeCardBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <span class="material-icons">view_module</span>
-                                    <p>Card Style</p>
-                                </div>
-                            }>
-                            <CustomCardSize getCardSizeToParent={this.getCardSize} />
-                        </DropdownButton>
-                    </div> */}
-
-                    {/* <div class="uiBarDivider"> | </div> */}
-                    
-                    {/* <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()} >
-                        <DropdownButton 
-                            id="liteKnewsBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <span class="material-icons">bolt</span>
-                                    <p>liteKnews</p>
-                                </div>
-                            }>
-                            <h1>Content</h1>
-                        </DropdownButton>
-                    </div> */}
-
-
-                    <div className="uiBarItem" title="View Bookmarks">
-                    <Link to={{ pathname:'home/bookmarks', state:{ fullDatabaseCall:this.props.fullDatabaseCall}}}>
-                        <DropdownButton  
-                            id="bookmarkBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <span class="material-icons">bookmarks</span>
-                                    <p>Bookmarks</p>
-                                </div>
-                            }> 
-                        </DropdownButton>
-                    </Link> 
-                    </div>
-
-
-                    <div className="uiBarItem" title="Settings" id="settingsDropdown">
-                        <DropdownButton 
-                            id="settingsBtn" 
-                            title={ <span class="material-icons">settings</span>}>
-                            <OptionsMenu urlInfo={window.location.pathname}/>
-                        </DropdownButton>
-                    </div>
-                    
-                </div>
 
                 {this.props.databaseProp.length >= 30 && thing ? 
                 // The Cards themselves...
