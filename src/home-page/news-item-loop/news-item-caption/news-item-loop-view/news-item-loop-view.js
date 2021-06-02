@@ -88,7 +88,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         return(
             
             <div className="newsItemLoopViewWrapper">
-            <NavBar />
+            
             {this.state.showArticle === true ?
                 <LiteKnews 
                     renderToPage={this.state.renderLiteKnews}
@@ -101,7 +101,15 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     />
             :
+            
             <div id="cardArea"> 
+            <NavBar 
+                // filter
+                getArticleBy={this.state.getArticleBy}
+                fullDatabaseCall={this.props.fullDatabaseCall}
+                getFilteredArticles={this.getFilteredArticles}
+                
+                />
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
 
                 {/* New UI */}

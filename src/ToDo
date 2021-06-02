@@ -32,8 +32,8 @@ Known Bugs:
         ☐ When deployed, if you login with an article in the database the website UI doesnt update to reflect this. You need to manually refresh the page before the correct UI appears.
         ✔ When loading articles on scroll, the first 4 articles are repeats of the last 4 from the database. @started(20-09-17 18:55) @done(20-09-21 16:45) @lasted(3d21h50m48s)
             This is less of a bug and more of a incomplete feature that is working as expected given the current code.
-        ☐ Due to the placeholder text, some elements don't fit into the design. Ideally I could set rules like max characters but I am really relying on the lorem ipsum being of a reasonable length.(which it sometimes isn't) @started(20-10-27 17:43)
-            ☐ I could repopulate the database, ensuring my own rules, which might help solve the problem. @started(20-10-27 17:44)
+        ☐ Due to the placeholder text, some elements don't fit into the design. Ideally I could set rules like max characters but I am really relying on the lorem ipsum being of a reasonable length.(which it sometimes isn't) 
+            ☐ I could repopulate the database, ensuring my own rules, which might help solve the problem. 
 
 Codebase:
     ✔ news-item-loop.js is way too big and needs to be split up into components. @started(13:09 20-11-16) @done(17:06 - 15/01/21) @lasted()
@@ -221,7 +221,7 @@ General Notes  Objectives:
                         Well I've managed to get the swipe to hide multiple posts at a time... the only problem is that when i refresh and swipe away new posts, my previous swipes are overwritten, bringing back the old hidden posts. I'll count that as progress.Please.
                     16/11/2020
                         Got it working as expected. You can hide multiple articles and they will remain hidden as you work your way through the website. I did this by simply adding a check on component mount that checks the local storage for a list of hidden posts. If it's there it checks the artice id and hides the relevant articles, if not it initialises the with an empty array.
-                ☐ Ability to undo last hide action @started(20-12-15 12:45)
+                ☐ Ability to undo last hide action 
                 ✔ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37) @done(20-12-15 15:17) @lasted(1h40m19s)
                     ✔ Clear cache button should appear when hiding articles. @started(15/12/2020 15:18) @done(15:36 - 15/12/20) @lasted(18m29s)
                 ✔ The unhide all button isn't showing as soon as you hide an article @done(15:54 - 26/02/21)
@@ -575,7 +575,7 @@ General Notes  Objectives:
                                         
                                 ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
                                     // Decided to create a new component for this as I don't want to have to use the static dbRef.
-                                    ☐ This new scroll check will need to be implemented into tags. @started(16:14 - 31/03/21)
+                                    ☐ This new scroll check will need to be implemented into tags. 
 
                                     ✔ Scroll Check now works without no filter, but has been removed for filtered views. @done(17:54 - 07/04/21)
                                         ☐ I am looking into getting scroll check to work with tags.
@@ -584,7 +584,7 @@ General Notes  Objectives:
                                         -- Hiding newly scrolled article with an empty cache will throw an error.
                                         ✔ Solution - I was missing a prop in the scrolLCheck component in news-item-loop-view.js. @done(16:51 - 16/04/21)
 
-                                ☐ Next/Prev @started(10:34 - 15/04/21)
+                                ☐ Next/Prev
                                     // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
 
                                     // Let's see how this goes...
@@ -605,7 +605,7 @@ General Notes  Objectives:
                                 ✔ If you attempt to load more articles on scroll with an empty cache, you will get an error. @started(16:16 - 31/03/21) @done(11:28 - 09/04/21) @lasted(1w1d19h12m25s)
                                 ✔ OnScrollLoaded articles don't have any article info associated with them, showing a blank page on load. @started(16:36 - 31/03/21) @done(17:04 - 31/03/21) @lasted(28m11s)
                                     ✔ SOlution - I had the prop "pageid" when it needed to be "pageId". @done(17:04 - 31/03/21)
-                                ☐ Hiding a loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   @started(17:11 - 31/03/21)
+                                ☐ Hiding a loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   
                                 ✔ There are 97 articles being rendered initially, causing article duplication - Solution - I've added a slice to the renderToPage const in newsitem-loop-view that takes the first 30 articles from the full database array. The scroll check starts with the 31st article from the same array so that should work. @done(16:36 - 16/04/21)
                             
                             ✔ Switch to hideArticlev2 component @started(15:52 - 14/04/21) @done(17:18 - 30/04/21) @lasted(2w2d1h26m19s)
@@ -630,8 +630,8 @@ General Notes  Objectives:
                         ✔ Add new component to author page @done(14:12 - 20/04/21)
                         ✔ Add new component to tags page @done(14:12 - 20/04/21)
         Images:
-            ☐ Replacing random images with my own S3 hosted images. @started(20-11-30 17:22)
-                ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. @started(20-11-30 17:22)
+            ☐ Replacing random images with my own S3 hosted images. 
+                ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. 
                     // 15/3/2021 - Is this relevant to this project? 
             ✘ Investigate a separate component for getting and stytling the image. @started(16:08 - 11/03/21) @cancelled(16:14 - 15/03/21) @wasted(4d6m50s)
                 // Having the same exact code across 10 files seems a bit redundant.
@@ -656,7 +656,7 @@ General Notes  Objectives:
             ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
             ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
 
-            ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
+            ☐ Have another look at the overall style of the article page 
                  ✔ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions @started(20-10-26 18:39) @done(20-10-27 17:36) @lasted(22h57m3s)
                  // I don't think I will ever be happy with how the articles look so I am just going to leave this open until it's the last thing I close. - 11/3/2021
                 
@@ -673,8 +673,8 @@ General Notes  Objectives:
             Header Image and Article Info Area:
                 ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
                 ✔ Need to continue with 768px + res @done(20-10-27 17:36)
-                ☐ Large email addresses really mess with the look here @started(20-10-27 18:18)
-                    ☐ The design should be more flexible and better able to handle large emails and names. @started(20-10-27 18:18)
+                ☐ Large email addresses really mess with the look here 
+                    ☐ The design should be more flexible and better able to handle large emails and names. 
                 ✔ Clickable Elements in article sub-header @started(20-10-26 18:39) @done(20-11-30 12:39) @lasted(4w6d18h55s)
                     ✔ When clicking Posted, go to a new page with all of the articles posted on that day @done(20-11-30 12:39)
                     ✔ When clicking on author, go to a new page with all of the articles posted by that author @done(20-11-25 17:56)
@@ -685,8 +685,8 @@ General Notes  Objectives:
 
 
             Actual Articles:
-                ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. @started(20-10-27 17:40)
-                ☐ Ability to edit articles on page. @started(20-10-27 17:46)
+                ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. 
+                ☐ Ability to edit articles on page. 
                     //Wouldn't this just be a case of switching views when the article is clicked?
                     // Step 1 - Load the article into the edit box
                     // Step 2 - When article is clicked, switch views
@@ -856,14 +856,14 @@ General Notes  Objectives:
                                     ✔ Progress - I can hide articles and the rest of the website respects the hide, but refreshing the page renders the articles that should be hidden.
                                     Hidden Articles should be hidden:
                                         Issues:
-                                            ☐ Sometimes nothing appears on the post date page. I haven't been able to reliably replicate the issue. @started(12:46 - 09/04/21)
-                                            ☐ Random articles being added to the home filters. @started(12:46 - 09/04/21)
+                                            ☐ Sometimes nothing appears on the post date page. I haven't been able to reliably replicate the issue. 
+                                            ☐ Random articles being added to the home filters. 
                                                 ☐ They don't have tags
                                                 ☐ They're the same 4 articles every time it happens
                                                 ☐ Clearing cache removes them
                                                 ☐ Appear after hiding anything on a tags page
                                                 ☐ Reloading the page removes them
-                                            ☐ Sometimes extra articles are added to the tags page. @started(12:56 - 09/04/21)
+                                            ☐ Sometimes extra articles are added to the tags page. 
 
                                     url redirects for tags:
                                         ✔ My current attempt is to use another component(modified version of tags), would it not be easier to use redirects instead here? @done(13:06 - 14/04/21)
@@ -873,10 +873,10 @@ General Notes  Objectives:
                                                 ✔ Possible Breakthrough - So my attempt at using url params and switching the database call was being difficult due to needing 2 different database calls. I may have gotten around this requirement by simply adding a second required parameter to the url path. This allows me to specify which records to query much more precisely than before. It is case sensitive so home/search/tag/news will not work unless News is capitalised.
                                                 ✔ While not full complete, I do consider having the 2 tags files merged as complete. There are issues to be resolved but i am happy with the overall solution and so marking this section as done. @done(12:50 - 14/04/21)
                                                 Bugs / Issues:
-                                                    ☐ Post Date might not work well here @started(11:56 - 13/04/21)
+                                                    ☐ Post Date might not work well here 
                                                         My dates are in the wrong format so...
                                                         ...not sure what do about this. It does work if I remove the slashes in the database...
-                                                    ☐ Case sensitivity for url params(news will not work but News will) @started(11:56 - 13/04/21)
+                                                    ☐ Case sensitivity for url params(news will not work but News will) 
                                                     ✔ Make sure hiding articlesworks @started(11:57 - 13/04/21) @done(12:45 - 14/04/21) @lasted(1d48m12s)
                                                         ✔ Hiding works one way at the moment, if you hide an article on home it will be hidden if you go straight to tags. Howerver, if you do it the other way, things break down. @done(12:43 - 14/04/21)
                                                         ✔ The reason being that the database call in tags3.1 is only calling the records specific to that page. In order for hiding to properly work, there needs to be at least 1 full call of the database articles. Without that populted array, the hide component takes that single article array, hides the objects(as expected) and renders the array on home(again as expected) @done(12:43 - 14/04/21)
@@ -994,7 +994,18 @@ General Notes  Objectives:
                             ☐ Clear Bookmarks not currently working
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
                     ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
-                    ☐ 12.10.1.15  - Consider moving this entire thing into it's own component that can then be reused.
+                    12.10.1.15:
+                        Goals / Reasoning:
+                            ☐ Moving the UI bar from the card page into it's own component that can then be reused.
+                            ☐ Will allow me to have a consistent navigation option throughout the website. Will also remove need for different nav solutions for bookmark page, tags pages and liteKnews among other areas.
+                            ☐ At the least, having a separate component for the large UI bar will make managing it much easier. Also possibility for further fragmentation of buttons into their own components if I wanted.
+                            ☐ Should function exactly the same as it currently does in the UI bar.
+                            ☐ Should be flexible enough to add/remove buttons where relevant.
+                        To-Do:
+                            ☐ Create New component
+                        Issues:
+                            ☐ Many, probably.
+
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
                         ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)
@@ -1027,7 +1038,7 @@ General Notes  Objectives:
          Might put a small bar at the bottom to act as footer.
          23/9/2020 - Well I have one now so I may as well make it look presentable.
          27/10/2020 - Recommended Reading Bar currently footer.
-        ☐ Add Proper Footer sitewide. @started(20-10-27 17:51)
+        ☐ Add Proper Footer sitewide.
     
 
 Part 2 Implement Database functionality:
@@ -1070,7 +1081,7 @@ Part 2 Implement Database functionality:
             // Copy and paste really. I could make it so you can't go negative dislikes
         ✔ Allow like/dislike ONLY for logged in users @started(18-08-29 11:25) @done(18-08-29 15:43) @lasted(4h18m58s)
             // I can now tell if someone is logged in, I just need to adjust the UI to represent this.
-        ☐ Ensure users can only like/dislike ONCE per account @started(18-08-29 15:44)
+        ✔ Ensure users can only like/dislike ONCE per account @started(18-08-29 15:44) @done(12:57 - 02/06/21) @lasted(-5h46m56s)
         ✔ Styling of Like and Dislike buttons are terrible, fix this @started(20-10-22 13:50) @done(20-12-03 16:22) @lasted(6w3h32m38s)
 
         V12.6 Like/Dislike Button rework:
@@ -1117,7 +1128,7 @@ Part 2 Implement Database functionality:
      ✔ Look into loading a limited number of news items on the home page. The scroll could be used to detect the scroll position and load more things from the database. @done(18-08-31 17:22)
         ☐ BUG:: There's an issue where the scroll doesn't trigger new load when scrolled all the way to the bottom.
             //YOu need to scroll up and then back down to get it to work
-     ☐ Ability to approve posts made by unauthorized users @started(18-08-22 16:04)
+     ☐ Ability to approve posts made by unauthorized users 
      ✔ Organise Components a bit neater @done(18-08-13 18:02)
         ✔ Organise CSS into neater file @done(18-08-14 13:52)
         ✔ Further Organise components @done(18-08-14 13:52)
