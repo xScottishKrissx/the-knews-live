@@ -10,9 +10,9 @@
 } */
 
 .news-item-wrapper{
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    margin-top: 2.2vh;
+    margin-top: 2.2vh; */
 }
 
 /* ScrollCheck  */
@@ -23,7 +23,7 @@
 
 @media (min-width: 768px) {
     .news-item-wrapper{
-        margin-top: 80px;
+        /* margin-top: 80px; */
     }
     .home-wrapper{
         margin: 0 auto;
