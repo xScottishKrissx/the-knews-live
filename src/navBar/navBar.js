@@ -17,9 +17,17 @@ export class NavBar extends React.Component{
     }
 
     render(){
+        console.log(this.props.fullDatabaseCall)
+        console.log(this.props.getArticleBy)
         return(
             <div className="newUIBarWrapper">
-                
+
+
+
+
+
+
+{/************** Filter */}          
             <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
                     <DropdownButton 
                         id="filterBtn" 
@@ -40,10 +48,40 @@ export class NavBar extends React.Component{
                                 </div>
                             </div>
                         }>
-                        <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.props.getFilteredArticles}/>
+                        <FilterOptions 
+                            fullDatabaseCall = {this.props.fullDatabaseCall} 
+                            getFilteredArticles = {this.props.getFilteredArticles}
+                        />
+                        
                     </DropdownButton>
                 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/************** Card Size */}
                 <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
                     <DropdownButton 
                         id="changeCardBtn" 
@@ -57,8 +95,13 @@ export class NavBar extends React.Component{
                     </DropdownButton>
                 </div>
 
+{/************** Divider */}
                 {/* <div class="uiBarDivider"> | </div> */}
-                
+
+{/************** liteKnews */}
+                {this.props.liteKnews === false ? 
+                null
+                :
                 <div className="uiBarItem" title="Start Lite Knews" onClick={this.props.showArticle} >
                     <DropdownButton 
                         id="liteKnewsBtn" 
@@ -70,8 +113,12 @@ export class NavBar extends React.Component{
                         }>                        
                     </DropdownButton>
                 </div>
+                }
 
-
+{/************** Bookmarks */}
+                {this.props.bookmarks === false ?
+                null
+                :                
                 <div className="uiBarItem" title="View Bookmarks">
                 <Link to={{ pathname:'home/bookmarks', state:{ fullDatabaseCall:this.props.fullDatabaseCall}}}>
                     <DropdownButton  
@@ -85,8 +132,8 @@ export class NavBar extends React.Component{
                     </DropdownButton>
                 </Link> 
                 </div>
-
-
+                }
+{/************** Options Menu */}
                 <div className="uiBarItem" title="Settings" id="settingsDropdown">
                     <DropdownButton 
                         id="settingsBtn" 

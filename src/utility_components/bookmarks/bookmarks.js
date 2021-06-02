@@ -11,6 +11,7 @@ import markAllUnread from './markAllUnread.js';
 import hideAllArticles from './hideAllArticles.js';
 import updateBookmarkStyles from './updateBookmarkStyle.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
+import NavBar from '../../navBar/navBar.js';
 
 
 class Bookmarks extends Component {
@@ -123,6 +124,13 @@ class Bookmarks extends Component {
         const fullDatabaseCall = this.props.location.state.fullDatabaseCall
         return(
             <div id="bookmarkWrapper">
+            <NavBar filter={true} cardStyle={true} liteKnews={false} bookmarks={false} options={true}
+                    fullDatabaseCall={fullDatabaseCall} 
+                    getFilteredArticles = {this.getFilteredArticles}
+                    bookmarked={true}
+                    getArticleBy={this.state.getArticleBy}
+            
+            />
             <h1>Bookmarks</h1>
             <FilterOptions 
                 fullDatabaseCall={fullDatabaseCall} 
