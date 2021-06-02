@@ -994,7 +994,7 @@ General Notes  Objectives:
                             ☐ Clear Bookmarks not currently working
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
                     ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
-                    ☐ Consider moving this entire thing into it's own component that can then be reused.
+                    ☐ 12.10.1.15  - Consider moving this entire thing into it's own component that can then be reused.
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
                         ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)

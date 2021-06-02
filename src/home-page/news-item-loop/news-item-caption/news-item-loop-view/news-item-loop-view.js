@@ -14,6 +14,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import SplitButton from 'react-bootstrap/SplitButton'
 import OptionsMenu from '../../../../utility_components/optionsMenu/optionsMenu';
+import NavBar from '../../../../navBar/navBar';
 
 class NewsItemLoopView extends React.Component{
 
@@ -87,7 +88,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         return(
             
             <div className="newsItemLoopViewWrapper">
-            
+            <NavBar />
             {this.state.showArticle === true ?
                 <LiteKnews 
                     renderToPage={this.state.renderLiteKnews}
