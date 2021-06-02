@@ -60,7 +60,7 @@ export class NavBar extends React.Component{
                                 <p>Card Style</p>
                             </div>
                         }>
-                        <CustomCardSize getCardSizeToParent={this.getCardSize} />
+                        <CustomCardSize getCardSizeToParent={this.props.getCardSize} />
                     </DropdownButton>
                 </div>
 

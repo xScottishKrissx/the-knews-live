@@ -108,45 +108,40 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 getArticleBy={this.state.getArticleBy}
                 fullDatabaseCall={this.props.fullDatabaseCall}
                 getFilteredArticles={this.getFilteredArticles}
-                
+
+                // card size
+                getCardSize={this.getCardSize} 
                 />
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
 
                 {/* New UI */}
                 <div className="newUIBarWrapper">
                 
-                <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
+                {/* <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
                         <DropdownButton 
                             id="filterBtn" 
                             title={ 
                                 <div className="dropdownBtnTitle">
-                                    {/* <span class="material-icons">local_offer</span> */}
-                                    {/* <p>Filter</p> */}
-
                                     <div id="filterOptionDisplay">
                                         {this.state.getArticleBy === "All" ? 
-                                            // <p>Displaying<span>{this.state.getArticleBy}</span> Articles</p>
                                             <span>
                                                 <span class="material-icons">filter_alt</span>
                                                 <p>Filter</p>
                                             </span>                                           
                                             :
-                                            // <p>Displaying {renderToPage.length + " "}<span>{ this.state.getArticleBy}</span> Articles</p>
                                             <span>
                                                 <span id="filterActive" class="material-icons">filter_alt</span>
                                                 <p className="filterIsActive">Filter: { this.state.getArticleBy}</p>
                                             </span>
-                                            
                                         }
-
                                     </div>
                                 </div>
                             }>
                             <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
                         </DropdownButton>
-                    </div>
+                    </div> */}
 
-                    <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
+                    {/* <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
                         <DropdownButton 
                             id="changeCardBtn" 
                             title={ 
@@ -157,7 +152,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                             }>
                             <CustomCardSize getCardSizeToParent={this.getCardSize} />
                         </DropdownButton>
-                    </div>
+                    </div> */}
 
                     {/* <div class="uiBarDivider"> | </div> */}
                     
