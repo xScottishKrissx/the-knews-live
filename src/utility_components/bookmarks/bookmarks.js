@@ -132,11 +132,11 @@ class Bookmarks extends Component {
             
             />
             <h1>Bookmarks</h1>
-            <FilterOptions 
+            {/* <FilterOptions 
                 fullDatabaseCall={fullDatabaseCall} 
                 getFilteredArticles = {this.getFilteredArticles}
                 bookmarked={true}
-            />
+            /> */}
 
             <p>You have bookmarked {this.state.bookmarks.length} items. Enjoy</p>
             

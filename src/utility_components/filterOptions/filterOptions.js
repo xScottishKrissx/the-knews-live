@@ -35,6 +35,8 @@ class FilterOptions extends Component {
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
+        console.log(fullDatabaseCall)
+
         // Filter array for null objects and remove anything marked as hidden.
         const filteredForHiddenArticlesDB = fullDatabaseCall.filter(obj => 
             obj !== null && 
@@ -43,6 +45,8 @@ class FilterOptions extends Component {
 
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
+        
+        console.log(value)
         this.setState({
             getArticleBy:value,
             renderArray:filteredByTag,
@@ -50,12 +54,14 @@ class FilterOptions extends Component {
 
         // bookmark page
         const filterBookmarks = filteredForHiddenArticlesDB.filter(obj => obj.tag === value && obj.bookmarked === true);
+
         const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
-        // console.log(filterBookmarks)
+        console.log(filterBookmarks)
         // console.log(filterBookmarksAll)
 
 
         var updateState = this.props.getFilteredArticles;
+        // console.log(updateState)
         if(this.props.bookmarked != true){
             if(value === "All" ){
                 updateState(filteredForHiddenArticlesDB,value)

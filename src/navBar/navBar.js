@@ -17,8 +17,8 @@ export class NavBar extends React.Component{
     }
 
     render(){
-        console.log(this.props.fullDatabaseCall)
-        console.log(this.props.getArticleBy)
+        // console.log(this.props.fullDatabaseCall)
+        // console.log(this.props.getArticleBy)
         return(
             <div className="newUIBarWrapper">
 
@@ -37,7 +37,7 @@ export class NavBar extends React.Component{
                                     {this.props.getArticleBy === "All" ?                                         
                                         <span>
                                             <span class="material-icons">filter_alt</span>
-                                            <p>Filter</p>
+                                            <p>No Filter</p>
                                         </span>                                           
                                         :                                   
                                         <span>
@@ -48,11 +48,18 @@ export class NavBar extends React.Component{
                                 </div>
                             </div>
                         }>
-                        <FilterOptions 
-                            fullDatabaseCall = {this.props.fullDatabaseCall} 
-                            getFilteredArticles = {this.props.getFilteredArticles}
-                        />
-                        
+                        {this.props.bookmarked === true ? 
+                            <FilterOptions 
+                                fullDatabaseCall = {this.props.fullDatabaseCall} 
+                                getFilteredArticles = {this.props.getFilteredArticles}
+                                bookmarked={true}
+                            />
+                        :
+                            <FilterOptions 
+                                fullDatabaseCall = {this.props.fullDatabaseCall} 
+                                getFilteredArticles = {this.props.getFilteredArticles}
+                            />
+                        }
                     </DropdownButton>
                 </div>
 
