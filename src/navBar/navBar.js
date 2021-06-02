@@ -25,25 +25,18 @@ export class NavBar extends React.Component{
                         id="filterBtn" 
                         title={ 
                             <div className="dropdownBtnTitle">
-                                {/* <span class="material-icons">local_offer</span> */}
-                                {/* <p>Filter</p> */}
-
                                 <div id="filterOptionDisplay">
-                                    {this.props.getArticleBy === "All" ? 
-                                        // <p>Displaying<span>{this.props.getArticleBy}</span> Articles</p>
+                                    {this.props.getArticleBy === "All" ?                                         
                                         <span>
                                             <span class="material-icons">filter_alt</span>
                                             <p>Filter</p>
                                         </span>                                           
-                                        :
-                                        // <p>Displaying {renderToPage.length + " "}<span>{ this.props.getArticleBy}</span> Articles</p>
+                                        :                                   
                                         <span>
                                             <span id="filterActive" class="material-icons">filter_alt</span>
                                             <p className="filterIsActive">Filter: { this.props.getArticleBy}</p>
-                                        </span>
-                                        
+                                        </span>                                        
                                     }
-
                                 </div>
                             </div>
                         }>

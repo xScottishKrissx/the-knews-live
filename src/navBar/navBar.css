@@ -1,3 +1,144 @@
-#navBarWrapper{
-    color: red ;
+/* UI Bar */
+/* *{outline: 1px solid red;} */
+
+#cardArea > .filterButtonWrapper{
+    position: absolute;
+    left: -99999999px;
+}
+
+
+
+.newUIBarWrapper{
+    /* border: 1px solid red; */
+    align-items: center;
+    display: flex;
+        justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: inherit;
+}
+
+    .uiBarItem{
+        align-items: center;
+        border: 4px solid black;
+        box-sizing: content-box;
+        /* cursor: pointer; */
+        display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        margin: 2px;
+        max-width: 60px;
+            width: 100%;
+        position: relative;
+    }
+
+        #bookmarkBtn:hover{color: #28a745; }
+        #liteKnewsBtn:hover{color: orange; }
+        #filterBtn:hover{color: aqua; }
+        #changeCardBtn:hover{color: rgb(17, 0, 255); }
+        #settingsBtn:hover{color: pink; } 
+
+        .uiBarItem > div {
+            position: relative;
+            width: 100%;
+            z-index: 21;
+        }
+
+        .dropdownBtnTitle > p{display: none;}  
+        
+        #filterActive{color: aqua;}   
+        #filterOptionDisplay > span{ display: flex; }
+        #filterOptionDisplay > span > p{display: none; margin: 0;}
+
+        #filterIsActive {color: green; }
+        
+        /* Dropdown Appearance */
+        .uiBarItem > div > .dropdown-menu > div{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+            .uiBarItem > div > .dropdown-menu > div > button{
+                background-color: white;
+                color: black;
+                font-weight: 900;
+                width: auto;
+            }
+
+            .uiBarItem > div > .dropdown-menu > div > button:focus,
+            .uiBarItem > div > .dropdown-menu > div > button:hover,
+            .uiBarItem > div > .dropdown-menu > div > button:active{
+                background-color: black;
+                color: white;
+                outline: 1px solid black !important;
+            }
+
+
+                .uiBarItem > .dropdown > div{
+                    /* inset: 0px auto auto -4px !important; */
+                    padding: 0; 
+                    border: 4px solid;
+                }
+                #settingsDropdown > .dropdown > div{
+                    transform: translate(-193px, 50px) !important;
+                }
+
+                    .dropdownBtnTitle > span{line-height: inherit;}
+
+/* Just in case I want to use it */
+.uiBarDivider{
+    font-weight: 900;
+    padding: 2px;
+}
+
+
+
+/* customising react.bootstrap  */
+.dropdown-toggle::after { display: none !important;}
+/* .btn-primary:hover, .btn-primary{background-color: black !important;} */
+.btn-primary{border: 0px !important;}
+
+.uiBarItem > .dropdown > button {
+    align-items: center;  
+    display: flex;
+    justify-content: center;
+    width: 100% !important;   
+}
+.uiBarItem > a > .dropdown > button{width: 100% !important}
+
+    .uiBarItem > .dropdown > .btn-primary, .uiBarItem > a > .dropdown > .btn-primary{
+        background-color: white;
+        color: black;
+    }
+
+        /* Dropdown Button when hovered */
+        .uiBarItem > .dropdown > .btn-primary:hover, .uiBarItem > a > .dropdown > .btn-primary:hover{
+            /* background-color: white;
+            color: black; */
+        }
+
+        .uiBarItem > .dropdown > .btn, .uiBarItem > a .dropdown > .btn { border-radius: 0;}
+
+    button:focus:not(:focus-visible){
+        outline: 1px solid black !important;
+    }
+
+
+    .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+        color: black !important;
+        background-color: white !important;
+    }
+
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .uiBarItem{max-width: fit-content;}
+        .dropdownBtnTitle{display: flex; align-items: center;}
+            .dropdownBtnTitle > p{display: contents;}
+            #filterOptionDisplay > span > p{display: flex; }
+}
+@media (min-width: 690px) {
+    #settingsDropdown > .dropdown > div{
+        transform: translate(-206px, 50px) !important;
+    }
 }
