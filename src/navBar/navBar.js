@@ -66,7 +66,7 @@ export class NavBar extends React.Component{
 
                 {/* <div class="uiBarDivider"> | </div> */}
                 
-                <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()} >
+                <div className="uiBarItem" title="Start Lite Knews" onClick={this.props.showArticle} >
                     <DropdownButton 
                         id="liteKnewsBtn" 
                         title={ 
@@ -74,9 +74,7 @@ export class NavBar extends React.Component{
                                 <span class="material-icons">bolt</span>
                                 <p>liteKnews</p>
                             </div>
-                        }>
-                        {/* DropDown Content */}
-                        <h1>Content</h1>
+                        }>                        
                     </DropdownButton>
                 </div>
 

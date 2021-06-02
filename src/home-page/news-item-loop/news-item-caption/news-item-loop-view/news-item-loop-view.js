@@ -111,7 +111,11 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                 // card size
                 getCardSize={this.getCardSize} 
+
+                // liteKnews
+                showArticle={() => this.showArticle()}
                 />
+                
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>
 
                 {/* New UI */}
@@ -156,7 +160,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                     {/* <div class="uiBarDivider"> | </div> */}
                     
-                    <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()} >
+                    {/* <div className="uiBarItem" title="Start Lite Knews" onClick={() => this.showArticle()} >
                         <DropdownButton 
                             id="liteKnewsBtn" 
                             title={ 
@@ -165,10 +169,9 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                                     <p>liteKnews</p>
                                 </div>
                             }>
-                            {/* DropDown Content */}
                             <h1>Content</h1>
                         </DropdownButton>
-                    </div>
+                    </div> */}
 
 
                     <div className="uiBarItem" title="View Bookmarks">
