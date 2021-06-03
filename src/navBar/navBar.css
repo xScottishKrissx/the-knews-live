@@ -1,12 +1,11 @@
 /* UI Bar */
 /* *{outline: 1px solid red;} */
 
-#cardArea > .filterButtonWrapper{
+/* Hiding the filter options ui from the actual page. */
+#cardArea > .filterButtonWrapper, #bookmarkWrapper > .filterButtonWrapper{
     position: absolute;
     left: -99999999px;
 }
-
-
 
 .newUIBarWrapper{
     /* border: 1px solid red; */

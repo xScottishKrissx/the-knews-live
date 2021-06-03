@@ -105,6 +105,11 @@ export class NavBar extends React.Component{
                     </DropdownButton>
                 </div>
 
+
+
+
+                
+
 {/************** Divider */}
                 {/* <div class="uiBarDivider"> | </div> */}
 

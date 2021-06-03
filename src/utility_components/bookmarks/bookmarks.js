@@ -132,11 +132,11 @@ class Bookmarks extends Component {
                     getFilteredArticles = {this.getFilteredArticles}
                     bookmarked={true}
                     getArticleBy={this.state.getArticleBy}
+                    getCardSize={this.getCardSize}
             
             />
             {/* The Initial Render */}
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={true} />
-
             <h1>Bookmarks</h1>
           
             <p>You have {this.state.bookmarks.length} items to read.</p>
@@ -146,7 +146,7 @@ class Bookmarks extends Component {
             <br/>
             <button onClick={() => this.hideAllArticles()}>Hide All Articles</button> */}
 
-            {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
+            
 
             
             <div id="bookmarkItemsWrapper">
