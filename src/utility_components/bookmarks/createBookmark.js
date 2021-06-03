@@ -42,7 +42,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     localStorage.setItem("bookmarkArray", JSON.stringify(setBookmarkTrue))
     // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
-    console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
+    // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
     // changedFullDatabaseCall
 }
 

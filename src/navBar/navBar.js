@@ -57,6 +57,8 @@ export class NavBar extends React.Component{
                                 fullDatabaseCall = {this.props.fullDatabaseCall} 
                                 getFilteredArticles = {this.props.getFilteredArticles}
                                 bookmarked={true}
+                                test={this.props.bookmarkNumber}
+                                
                             />
                         :
                             <FilterOptions 
@@ -159,8 +161,13 @@ export class NavBar extends React.Component{
                 </div>
                 
             </div>
+
+
+
             {this.props.bookmarked === true ?
                 <div id="bookmarkUIBar" >
+                    {/* <div className="uiBarItem">Bookmarks</div> */}
+                    {/* <div className="uiBarItem" id="pageHeader"><h2>Bookmarks {this.props.bookmarkNumber}</h2></div> */}
                     <div className="uiBarItem" title="Remove All Bookmarks" onClick={this.props.clearBookmarks}>
                         <Button variant="link"> 
                             <div className="navBarButton">
@@ -174,7 +181,7 @@ export class NavBar extends React.Component{
                         <Button variant="link"> 
                             <div className="navBarButton">
                                 <span class="material-icons">remove_done</span>
-                                <p>Mark All Unread</p>
+                                <p>Mark All As Unread</p>
                             </div>
                         </Button>
                     </div>
@@ -183,7 +190,7 @@ export class NavBar extends React.Component{
                         <Button variant="link"> 
                             <div className="navBarButton">
                                 <span class="material-icons">done_all</span>
-                                <p>Mark All Read</p>
+                                <p>Mark All As Read</p>
                             </div>
                         </Button>
                     </div>

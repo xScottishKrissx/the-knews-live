@@ -13,7 +13,7 @@ import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-
 import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 
 export const RenderCard = (props) => {
-
+    // console.log(props.database.length)
     const pageView = props.database.map((value,key) => {
         
         // console.log(props.hideBookmarkedArticle)

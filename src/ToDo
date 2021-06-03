@@ -1013,6 +1013,8 @@ General Notes  Objectives:
                                     ✔ There is an issue with the react.bootstrap dropdown menu and the render of my bookmark page. Specifically, the bookmark page will render a blank page because the content of the dropdown menu(which control the filters) arent activated until the menu is activated. This is an issue because it means my filter options component is activated until the dropdown is activated, leaving the mentioned empty page for bookmarks. My workaround is to add the filterOptions component to the bookmark page and hide it's ui the same way i have for the card size on the home page. Not great but i can't see any other option here. @done(12:42 - 03/06/21)
                                 ✔ Integrate Card Size menu @done(13:12 - 03/06/21)
                                     ☐ That this as so much easier to integrate than filter makes me think something is wrong on my end with the filters and not the dropdown menu as I previously thought.
+                                ☐ Counter showing article number should update as articles are added/removed from bookmarks.
+                                ✔ Create mark all as read button @done(18:05 - 03/06/21)
                         Issues:
                             ☐ Many, probably.
 

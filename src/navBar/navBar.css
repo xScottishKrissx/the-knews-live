@@ -119,6 +119,24 @@
     align-items: center;
 }
 
+#bookmarksHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-bottom: 1px solid black; */
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+ #bookmarksHeader > h1{
+    /* border-bottom: 5px solid black; */
+ }
+ #bookmarksHeader > hr {
+     border: 1px solid black;
+     width: 100%;
+ }
+
 #bookmarkUIBar > .uiBarItem > button{border: none;}
 
 /* customising react.bootstrap  */

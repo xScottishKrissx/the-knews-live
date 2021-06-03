@@ -51,7 +51,7 @@ class FilterOptions extends Component {
 
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
-        
+        // console.log(filteredByTag)
         // console.log(value)
         this.setState({
             getArticleBy:value,
@@ -60,10 +60,12 @@ class FilterOptions extends Component {
 
         // bookmark page
         const filterBookmarks = filteredForHiddenArticlesDB.filter(obj => obj.tag === value && obj.bookmarked === true);
+        // console.log(filterBookmarks.length)
 
         const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
         // console.log(filterBookmarks)
         // console.log(filterBookmarksAll)
+        // this.setState({test:filterBookmarksAll})
 
 
         var updateState = this.props.getFilteredArticles;
@@ -91,6 +93,23 @@ class FilterOptions extends Component {
     }
 
     render(){
+        // console.log(this.state.test)
+        // var thing = {}
+        // if(this.state.test){
+        //     thing = this.state.test.filter(obj => obj.tag === "News")
+        // }
+
+        // var thing2 = {}
+        // if(this.state.test){
+        //     thing2 = this.state.test.filter(obj => obj.tag === "Sports")
+        // }
+
+        // var thing3 = {}
+        // if(this.state.test){
+        //     thing3 = this.state.test.filter(obj => obj.tag === "Weather")
+        // }
+
+        // console.log(thing)
         return (
             <div className="filterButtonWrapper">
                 <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")}>News</button>

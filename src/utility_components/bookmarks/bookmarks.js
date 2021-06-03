@@ -8,11 +8,13 @@ import CustomCardSize from '../custom-tile-size/custom-card-sizeV2.js';
 // Bookmarks
 import clearAllBookmarks from './clearAllBookmarks.js';
 import markAllUnread from './markAllUnread.js';
+
 import hideAllArticles from './hideAllArticles.js';
 import updateBookmarkStyles from './updateBookmarkStyle.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
 import { database } from 'firebase';
+import markAllRead from './markAllRead.js';
 
 
 class Bookmarks extends Component {
@@ -107,12 +109,13 @@ class Bookmarks extends Component {
     
     componentDidUpdate(){
         updateBookmarkStyles();
+        // console.log("update")
     }
 
     // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
-        console.log(filteredByTag)
-        console.log(getArticleBy)
+        // console.log(filteredByTag)
+        // console.log(getArticleBy)
         this.setState({
             bookmarks: filteredByTag,
             getArticleBy:getArticleBy,
@@ -120,12 +123,23 @@ class Bookmarks extends Component {
         
     }
 
+
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         const fullDatabaseCall = this.props.location.state.fullDatabaseCall
         
+
+
+        // console.log(this.state.bookmarks)
+        // const database = JSON.parse(localStorage.getItem("bookmarkArray"))
+        // console.log(database)
+        // const filterDB = database.filter(x => x.bookmarked === true)
+        // console.log(filterDB.length)
         return(
-            <div id="bookmarkWrapper">
+        <div id="bookmarkWrapper">
+
+
+
             {/* After Render*/}
             <NavBar filter={true} cardStyle={true} liteKnews={false} bookmarks={false} options={true}
                     // Bookmarks
@@ -136,8 +150,10 @@ class Bookmarks extends Component {
                     // Bookmark UI
                     clearBookmarks={() => this.clearBookmarks()}
                     markAllUnread={() => markAllUnread()}
-                    markAllRead={console.log("Mark All Read")}
+                    markAllRead={() => markAllRead()}
                     hideAllArticles={()=>this.hideAllArticles()}
+                    bookmarkNumber={this.state.bookmarks.length}
+
 
 
                     // Card Size
@@ -146,16 +162,28 @@ class Bookmarks extends Component {
             />
             {/* The Initial Render */}
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={true} />
-            <h1>Bookmarks</h1>
-          
-            <p>You have {this.state.bookmarks.length} items to read.</p>
-            
+
+
+
+            {/* <p>You have {this.state.bookmarks.length} items to read in </p> */}
+
             
             {/* <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
             <button onClick={() => markAllUnread()}>Mark All As Unread</button>
             <button onClick={() => this.hideAllArticles()}>Hide All Articles</button>  */}
            
-
+            <div id="bookmarksHeader">
+                <h1><span class="material-icons">bookmarks</span>Bookmarks</h1> 
+            
+                {this.state.getArticleBy === "All" ? 
+                    <span>You have {this.state.bookmarks.length} items to read across all tags</span>
+                    :
+                    <span>You have {this.state.bookmarks.length} items to read in {this.state.getArticleBy}</span>
+                }
+                <hr/>
+            </div> 
+            
+            
             
 
             
