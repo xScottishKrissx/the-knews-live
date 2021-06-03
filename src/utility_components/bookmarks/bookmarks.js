@@ -12,6 +12,7 @@ import hideAllArticles from './hideAllArticles.js';
 import updateBookmarkStyles from './updateBookmarkStyle.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
+import { database } from 'firebase';
 
 
 class Bookmarks extends Component {
@@ -27,11 +28,12 @@ class Bookmarks extends Component {
             width: JSON.parse(localStorage.getItem("myData"))[0] ,
             height: JSON.parse(localStorage.getItem("myData"))[1]
             },
+            // getArticleBy:localStorage.getItem("bookmarksFilterOption")
 
 
         }
         this.getCardSize = this.getCardSize.bind(this);
-        this.clearBookmarks = this.clearBookmarks.bind(this);
+        // this.clearBookmarks = this.clearBookmarks.bind(this);
     }
 
 
@@ -45,8 +47,7 @@ class Bookmarks extends Component {
         })
     }
     componentDidMount(){
-    
-              // console.log("App.js Mounted")
+
       const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
         // Main Database Call
       cleanDB.on('value', (snapshot) => {
@@ -77,32 +78,32 @@ class Bookmarks extends Component {
               leftoverArticles: newState.slice(30,97)
               
             })    
-        //   console.log(this.state.fullDatabaseCall)
       })  
 
-        const database = 
-            JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || 
-            JSON.parse(localStorage.getItem("bookmarkArray")) // Don't think this is necessary.
-        // console.log(database)
 
-        if(database === null){
-            this.setState({bookmarks:[],})
-        }else{
-            const getBookmarks = database.filter(obj => obj.bookmarked === true ) 
-            // console.log(getBookmarks)
-            this.setState({bookmarks:getBookmarks})
+        if(this.state.getArticleBy === undefined){
+            this.setState({getArticleBy:localStorage.getItem("bookmarksFilterOption")})
         }
-        // console.log(localStorage.getItem("filterOption"))
+        
+        // the issue with navbar filtering is here...
+        // console.log(database)
+        // if(database === null){
+        //     this.setState({bookmarks:[],})
+        // }else{
+        //     const getBookmarks = database.filter(obj => obj.bookmarked === true && obj.tag === localStorage.getItem("bookmarksFilterOption") ) 
+        //     this.setState({bookmarks:getBookmarks})
+        // }
 
     }
-    clearBookmarks(){
-        clearAllBookmarks();
-        this.setState({bookmarks:[]})
-    }
-    hideAllArticles(){
-        hideAllArticles();
-        this.setState({bookmarks:[]})
-    }
+
+    // clearBookmarks(){
+    //     clearAllBookmarks();
+    //     this.setState({bookmarks:[]})
+    // }
+    // hideAllArticles(){
+    //     hideAllArticles();
+    //     this.setState({bookmarks:[]})
+    // }
     
     componentDidUpdate(){
         updateBookmarkStyles();
@@ -110,39 +111,34 @@ class Bookmarks extends Component {
 
     // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
-        // console.log(filteredByTag)
-        // console.log(getArticleBy)
+        console.log(filteredByTag)
+        console.log(getArticleBy)
         this.setState({
             bookmarks: filteredByTag,
             getArticleBy:getArticleBy,
         })
+        
     }
 
     render(){
-        // console.log(localStorage.getItem("filterOption"))
-        console.log(this.state.getArticleBy)
-        // console.log(this.state.bookmarks)
-
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-        // console.log(this.props.location.state.fullDatabaseCall)
         const fullDatabaseCall = this.props.location.state.fullDatabaseCall
+        
         return(
             <div id="bookmarkWrapper">
+            {/* After Render*/}
             <NavBar filter={true} cardStyle={true} liteKnews={false} bookmarks={false} options={true}
-                    fullDatabaseCall={fullDatabaseCall} 
+                    // fullDatabaseCall={fullDatabaseCall} 
                     getFilteredArticles = {this.getFilteredArticles}
                     bookmarked={true}
                     getArticleBy={this.state.getArticleBy}
             
             />
-            <h1>Bookmarks</h1>
-            <FilterOptions 
-                fullDatabaseCall={fullDatabaseCall} 
-                getFilteredArticles = {this.getFilteredArticles}
-                bookmarked={true}
-            />
+            {/* The Initial Render */}
+            <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={true} />
 
+            <h1>Bookmarks</h1>
+          
             <p>You have {this.state.bookmarks.length} items to read.</p>
             
             {/* <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
@@ -152,7 +148,7 @@ class Bookmarks extends Component {
 
             {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
 
-
+            
             <div id="bookmarkItemsWrapper">
                 {this.state.bookmarks.length === 0 ?
                 <p>You haven't bookmarked anything yet :(</p>

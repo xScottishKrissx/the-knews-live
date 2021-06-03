@@ -13,7 +13,7 @@ class FilterOptions extends Component {
     }
 
     componentDidMount(){
-
+        // console.log("Filter Options Mounted")
         // If no filter option exists in storage, set as All to display a default view.
         if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
         if(localStorage.getItem("bookmarksFilterOption") === null)localStorage.setItem("bookmarksFilterOption","All");
@@ -27,7 +27,7 @@ class FilterOptions extends Component {
         if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
 
         // Set filter option.
-        console.log(this.props.bookmarked)
+        // console.log(this.props.bookmarked)
         if(this.props.bookmarked  === undefined){
             this.getArticlesBy(localStorage.getItem("filterOption"))
         }else{
@@ -37,7 +37,7 @@ class FilterOptions extends Component {
         
     }
     getArticlesBy(value,id){
-        console.log(value)
+        // console.log(value)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;

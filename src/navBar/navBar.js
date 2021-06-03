@@ -19,7 +19,7 @@ export class NavBar extends React.Component{
     render(){
         // console.log(this.props.fullDatabaseCall)
         // console.log(this.state.getArticleBy)
-        console.log(this.props.getArticleBy)
+        // console.log(this.props.getArticleBy)
         const getArticle = this.props.getArticleBy || "All";
         // const getArticle = "All"
         return(
