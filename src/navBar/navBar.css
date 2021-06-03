@@ -11,7 +11,9 @@
     /* border: 1px solid red; */
     align-items: center;
     display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+        
     margin-top: 30px;
     margin-bottom: 30px;
     width: inherit;
@@ -42,8 +44,21 @@
             width: 100%;
             z-index: 21;
         }
+        .uiBarItem > button{
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: max-content;
+        }
+            .uiBarItem > .btn-link{
+                color: black;
+            }
+                .uiBarItem > .btn-link:hover{
+                    color: black;
+                    text-decoration: none;
+                }
 
-        .dropdownBtnTitle > p{display: none;}  
+         
         
         #filterActive{color: aqua;}   
         #filterOptionDisplay > span{ display: flex; }
@@ -83,6 +98,10 @@
                 }
 
                     .dropdownBtnTitle > span{line-height: inherit;}
+                    .navBarButton > span{line-height: inherit;}
+
+                    .dropdownBtnTitle > p{display: none;} 
+                    .navBarButton > p{display: none;} 
 
 /* Just in case I want to use it */
 .uiBarDivider{
@@ -90,7 +109,17 @@
     padding: 2px;
 }
 
+/* Main Nav Bar */
+#siteWideNavBar{
+    display: flex;
+}
+/* Bookmark Page */
+#bookmarkUIBar{
+    display: flex;
+    align-items: center;
+}
 
+#bookmarkUIBar > .uiBarItem > button{border: none;}
 
 /* customising react.bootstrap  */
 .dropdown-toggle::after { display: none !important;}
@@ -103,6 +132,7 @@
     justify-content: center;
     width: 100% !important;   
 }
+
 .uiBarItem > a > .dropdown > button{width: 100% !important}
 
     .uiBarItem > .dropdown > .btn-primary, .uiBarItem > a > .dropdown > .btn-primary{
@@ -134,6 +164,9 @@
     .uiBarItem{max-width: fit-content;}
         .dropdownBtnTitle{display: flex; align-items: center;}
             .dropdownBtnTitle > p{display: contents;}
+        .navBarButton{display: flex; align-items: center;}
+            .navBarButton > p{display: contents;}
+
             #filterOptionDisplay > span > p{display: flex; }
 }
 @media (min-width: 690px) {

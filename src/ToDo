@@ -1011,7 +1011,8 @@ General Notes  Objectives:
                                         ☐ I don't know what is the "optimal" choice but I am going with separate filters. If nothing else it's an interesting challenge for me to overcome.
                                             ✔ I've split the two and the home page is working fine. The bookmark page works fine if you press the filter button. However, on render you just get a blank page and I haven't been able to find a solution at this point. @done(17:55 - 02/06/21)
                                     ✔ There is an issue with the react.bootstrap dropdown menu and the render of my bookmark page. Specifically, the bookmark page will render a blank page because the content of the dropdown menu(which control the filters) arent activated until the menu is activated. This is an issue because it means my filter options component is activated until the dropdown is activated, leaving the mentioned empty page for bookmarks. My workaround is to add the filterOptions component to the bookmark page and hide it's ui the same way i have for the card size on the home page. Not great but i can't see any other option here. @done(12:42 - 03/06/21)
-                                ☐ Integrate Card Size menu
+                                ✔ Integrate Card Size menu @done(13:12 - 03/06/21)
+                                    ☐ That this as so much easier to integrate than filter makes me think something is wrong on my end with the filters and not the dropdown menu as I previously thought.
                         Issues:
                             ☐ Many, probably.
 

@@ -1,7 +1,7 @@
 import React from 'react';
-
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import Button from 'react-bootstrap/esm/Button';
 import { Link } from 'react-router-dom';
 import CustomCardSize from '../utility_components/custom-tile-size/custom-card-sizeV2';
 import FilterOptions from '../utility_components/filterOptions/filterOptions';
@@ -30,7 +30,8 @@ export class NavBar extends React.Component{
 
 
 
-{/************** Filter */}          
+{/************** Filter */}        
+<div id="siteWideNavBar">  
             <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
                     <DropdownButton 
                         id="filterBtn" 
@@ -108,7 +109,7 @@ export class NavBar extends React.Component{
 
 
 
-                
+
 
 {/************** Divider */}
                 {/* <div class="uiBarDivider"> | </div> */}
@@ -158,8 +159,54 @@ export class NavBar extends React.Component{
                 </div>
                 
             </div>
+            {this.props.bookmarked === true ?
+                <div id="bookmarkUIBar" >
+                    <div className="uiBarItem" title="Remove All Bookmarks" onClick={this.props.clearBookmarks}>
+                        <Button variant="link"> 
+                            <div className="navBarButton">
+                                <span class="material-icons">bookmark_remove</span>
+                                <p>Remove All Bookmarks</p>
+                            </div>
+                        </Button>
+                    </div>
+
+                    <div className="uiBarItem" title="Mark All Unread" onClick={this.props.markAllUnread}>
+                        <Button variant="link"> 
+                            <div className="navBarButton">
+                                <span class="material-icons">remove_done</span>
+                                <p>Mark All Unread</p>
+                            </div>
+                        </Button>
+                    </div>
+
+                    <div className="uiBarItem" title="Mark All Read" onClick={this.props.markAllRead}>
+                        <Button variant="link"> 
+                            <div className="navBarButton">
+                                <span class="material-icons">done_all</span>
+                                <p>Mark All Read</p>
+                            </div>
+                        </Button>
+                    </div>
+
+                    <div className="uiBarItem" title="Remove and Hide All" onClick={this.props.hideAllArticles}>
+                        <Button variant="link"> 
+                            <div className="navBarButton">
+                                <span class="material-icons">delete_sweep</span>
+                                <p>Remove and Hide All</p>
+                            </div>
+                        </Button>
+                    </div>
+
+                    {/* <div class="uiBarDivider"> | </div>  */}
+                </div>
+                 
+            :
+            null    
+            }
+</div>
         )
     }
+    
 }
 
 export default NavBar;

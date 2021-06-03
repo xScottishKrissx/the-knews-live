@@ -96,14 +96,14 @@ class Bookmarks extends Component {
 
     }
 
-    // clearBookmarks(){
-    //     clearAllBookmarks();
-    //     this.setState({bookmarks:[]})
-    // }
-    // hideAllArticles(){
-    //     hideAllArticles();
-    //     this.setState({bookmarks:[]})
-    // }
+    clearBookmarks(){
+        clearAllBookmarks();
+        this.setState({bookmarks:[]})
+    }
+    hideAllArticles(){
+        hideAllArticles();
+        this.setState({bookmarks:[]})
+    }
     
     componentDidUpdate(){
         updateBookmarkStyles();
@@ -128,10 +128,19 @@ class Bookmarks extends Component {
             <div id="bookmarkWrapper">
             {/* After Render*/}
             <NavBar filter={true} cardStyle={true} liteKnews={false} bookmarks={false} options={true}
-                    // fullDatabaseCall={fullDatabaseCall} 
+                    // Bookmarks
+                    fullDatabaseCall={fullDatabaseCall} 
                     getFilteredArticles = {this.getFilteredArticles}
                     bookmarked={true}
                     getArticleBy={this.state.getArticleBy}
+                    // Bookmark UI
+                    clearBookmarks={() => this.clearBookmarks()}
+                    markAllUnread={() => markAllUnread()}
+                    markAllRead={console.log("Mark All Read")}
+                    hideAllArticles={()=>this.hideAllArticles()}
+
+
+                    // Card Size
                     getCardSize={this.getCardSize}
             
             />
@@ -141,10 +150,11 @@ class Bookmarks extends Component {
           
             <p>You have {this.state.bookmarks.length} items to read.</p>
             
+            
             {/* <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
             <button onClick={() => markAllUnread()}>Mark All As Unread</button>
-            <br/>
-            <button onClick={() => this.hideAllArticles()}>Hide All Articles</button> */}
+            <button onClick={() => this.hideAllArticles()}>Hide All Articles</button>  */}
+           
 
             
 
