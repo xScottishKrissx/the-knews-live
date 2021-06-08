@@ -993,7 +993,8 @@ General Notes  Objectives:
                         ✔ filter by tags @done(18:30 - 28/05/21)
                         ✔ change card size @done(12:15 - 02/06/21)
                         ☐ options menu
-                            ☐ Clear Bookmarks not currently working
+                            ✔ Clear Bookmarks not currently working @done(17:35 - 08/06/21)
+                                ✔ Solution - Wrong file path for component import @done(17:35 - 08/06/21)
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
                     ☐ Just as being able to see when a filter is active, the same should be done for card size.
                     ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
@@ -1010,14 +1011,14 @@ General Notes  Objectives:
                                 ✔ removed liteknews and bookmark button @done(16:44 - 02/06/21)
                                 ☐ Integrate filter options
                                     ✔ What do I want here? Do i want this to be the same as the home page or be different? It makes sense to be different but I can also see the argument for having the same filter throughout and let the user decide on their own. A single filter choice is easier to implement but separate filters seems more user friendly...or it could be seen as 1 more thing to think about. I don't know, might flip a coin 21 times or so.
-                                        ☐ I don't know what is the "optimal" choice but I am going with separate filters. If nothing else it's an interesting challenge for me to overcome.
+                                        ✔ I don't know what is the "optimal" choice but I am going with separate filters. If nothing else it's an interesting challenge for me to overcome. @done(17:11 - 08/06/21)
                                             ✔ I've split the two and the home page is working fine. The bookmark page works fine if you press the filter button. However, on render you just get a blank page and I haven't been able to find a solution at this point. @done(17:55 - 02/06/21)
                                     ✔ There is an issue with the react.bootstrap dropdown menu and the render of my bookmark page. Specifically, the bookmark page will render a blank page because the content of the dropdown menu(which control the filters) arent activated until the menu is activated. This is an issue because it means my filter options component is activated until the dropdown is activated, leaving the mentioned empty page for bookmarks. My workaround is to add the filterOptions component to the bookmark page and hide it's ui the same way i have for the card size on the home page. Not great but i can't see any other option here. @done(12:42 - 03/06/21)
                                 ✔ Integrate Card Size menu @done(13:12 - 03/06/21)
-                                    ☐ That this as so much easier to integrate than filter makes me think something is wrong on my end with the filters and not the dropdown menu as I previously thought.
                                 ✔ Counter showing article number should update as articles are added/removed from bookmarks. @done(13:02 - 08/06/21)
                                     ✔ I have a counter that counts the articles when adding/removing bookmarks. It doesnt change with the filter view however. @done(13:02 - 08/06/21)
                                         ✔ This solution was actually correct but I had a spelling mistake with bookmarkCounter, should be bookmarksCount. With that corrected the counter displays the number of bookmarks as you move through the section. @done(13:02 - 08/06/21)
+                                    ☐ Same as above but for read/unread.
 
                                 ✔ I think it would be useful to have the number of articles for each filter appear in the menu dropdown. @done(16:08 - 08/06/21)
                                 ✔ Create mark all as read button @done(18:05 - 03/06/21)

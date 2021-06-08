@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
-import clearAllBookmarks from '../bookmarks/markAllUnread';
+import clearAllBookmarks from '../bookmarks/clearAllBookmarks.js';
 import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
 import "../optionsMenu/optionsMenu.css";
@@ -67,7 +67,9 @@ class OptionsMenu extends Component {
                 window.location.reload();
             }
 
-            if(removeFromCache.includes("removeBookmarks")){ clearAllBookmarks(); }
+            if(removeFromCache.includes("removeBookmarks")){ 
+                // console.log("Clear All Bookmarks.")
+                clearAllBookmarks(); }
 
         this.toggleMenu()
         

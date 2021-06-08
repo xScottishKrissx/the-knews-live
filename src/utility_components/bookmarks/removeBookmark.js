@@ -18,12 +18,6 @@ export const removeBookmark = (id) =>{
         // document.getElementById(id).classList.add('markAsRead')
         // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
 
-        
-    // bookmark array length
-    const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
-    const filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true);
-//     console.log(filterBookmarks.length)
-    localStorage.setItem("bookmarkLength",filterBookmarks.length)
 }
 
 export default removeBookmark;

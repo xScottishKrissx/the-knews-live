@@ -40,17 +40,10 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     
 
     localStorage.setItem("bookmarkArray", JSON.stringify(setBookmarkTrue))
-    console.log(JSON.parse((localStorage.getItem("bookmarkArray"))).length)
+    // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))).length)
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
     // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
     // changedFullDatabaseCall
-
-
-    // bookmark array length
-    const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
-    const filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true);
-    // console.log(filterBookmarks.length)
-    localStorage.setItem("bookmarkLength",filterBookmarks.length)
 }
 
 export default createBookmark;
