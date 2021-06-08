@@ -166,7 +166,7 @@ class Bookmarks extends Component {
                     markAllUnread={() => markAllUnread()}
                     markAllRead={() => markAllRead()}
                     hideAllArticles={()=>this.hideAllArticles()}
-                    bookmarkNumber={this.state.bookmarksCount || this.state.bookmarks.length}
+                    bookmarkNumber={bookmarkCount || this.state.bookmarks.length}
                     // filter ui
                     bookmarkArray={this.state.bookmarks}
 
@@ -180,7 +180,7 @@ class Bookmarks extends Component {
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={true} />
 
            
-            <div id="bookmarksHeader">
+            {/* <div id="bookmarksHeader">
                 <h1><span class="material-icons">bookmarks</span>Bookmarks</h1> 
                 {this.state.getArticleBy === "All" ? 
                     <span>You have {bookmarkCount} items bookmarked across all tags</span>
@@ -188,7 +188,7 @@ class Bookmarks extends Component {
                     <span>You have {bookmarkCount} items bookmarked in {this.state.getArticleBy}</span>
                 }
                 <hr/>
-            </div> 
+            </div>  */}
             
             
             

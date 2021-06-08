@@ -20,7 +20,7 @@ export const markAllUnread = () =>{
                 console.log(clearAllBookmarks)
                 localStorage.setItem("bookmarkArray", JSON.stringify(clearAllBookmarks))
                 localStorage.setItem("changedFullDatabaseCall", JSON.stringify(clearAllBookmarks))
-                console.log("Articles Marked as Unread")
+                // console.log("Articles Marked as Unread")
         }
         else{console.log("No Articles Read to Mark as Not Read.")}
 }

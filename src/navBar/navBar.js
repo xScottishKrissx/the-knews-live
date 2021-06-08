@@ -168,7 +168,16 @@ export class NavBar extends React.Component{
             {this.props.bookmarked === true ?
                 <div id="bookmarkUIBar" >
                     {/* <div className="uiBarItem">Bookmarks</div> */}
-                    {/* <div className="uiBarItem" id="pageHeader"><h2>Bookmarks {this.props.bookmarkNumber}</h2></div> */}
+                    
+                    <div className="uiBarItem" id="pageInfo">
+                        
+                        <span>
+                            <span class="material-icons">bookmarks</span> 
+                            <p>Bookmarks - </p>
+                            <span> {this.props.bookmarkNumber}</span>
+                        </span>
+                    </div>
+
                     <div className="uiBarItem" title="Remove All Bookmarks" onClick={this.props.clearBookmarks}>
                         <Button variant="link"> 
                             <div className="navBarButton">

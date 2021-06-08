@@ -987,7 +987,7 @@ General Notes  Objectives:
                 Goals:
                     ☐ All controls for page should be easily accessible
                 To-Do:
-                    ☐ Get working with new ui bar
+                    ☐ Get working with new ui bar...
                         ✔ Bookmark page link @done(15:43 - 28/05/21)
                         ✔ liteKnews start @done(15:43 - 28/05/21)
                         ✔ filter by tags @done(18:30 - 28/05/21)
@@ -1009,7 +1009,7 @@ General Notes  Objectives:
                             ✔ Create New component @done(16:41 - 02/06/21)
                             ☐ Integrate Bookmarks page
                                 ✔ removed liteknews and bookmark button @done(16:44 - 02/06/21)
-                                ☐ Integrate filter options
+                                ✔ Integrate filter options @done(17:38 - 08/06/21)
                                     ✔ What do I want here? Do i want this to be the same as the home page or be different? It makes sense to be different but I can also see the argument for having the same filter throughout and let the user decide on their own. A single filter choice is easier to implement but separate filters seems more user friendly...or it could be seen as 1 more thing to think about. I don't know, might flip a coin 21 times or so.
                                         ✔ I don't know what is the "optimal" choice but I am going with separate filters. If nothing else it's an interesting challenge for me to overcome. @done(17:11 - 08/06/21)
                                             ✔ I've split the two and the home page is working fine. The bookmark page works fine if you press the filter button. However, on render you just get a blank page and I haven't been able to find a solution at this point. @done(17:55 - 02/06/21)

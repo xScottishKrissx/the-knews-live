@@ -119,6 +119,23 @@
     align-items: center;
 }
 
+#pageInfo{
+    background-color: black;
+    color: white !important;
+    cursor: default;
+    width: max-content;
+
+}
+    #pageInfo > span{
+        align-items: center; 
+        display: flex; 
+        height: 48px; 
+        justify-content: space-evenly; 
+        width: inherit;
+    }
+        #pageInfo > span > p{margin: 0; width: auto; display: none;}
+        #pageInfo > span > *{padding-left: 5px; padding-right: 5px;}
+
 #bookmarksHeader{
     display: flex;
     align-items: center;
@@ -184,6 +201,7 @@
             .dropdownBtnTitle > p{display: contents;}
         .navBarButton{display: flex; align-items: center;}
             .navBarButton > p{display: contents;}
+            #pageInfo > span > p{display: contents;}
 
             #filterOptionDisplay > span > p{display: flex; }
 }
