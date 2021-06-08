@@ -118,7 +118,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     fullDatabaseCall={this.props.fullDatabaseCall}
                 />
                 
-                <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles}/>                
+                <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
                 
 
 

@@ -94,9 +94,18 @@ class FilterOptions extends Component {
     }
 
     render(){
+        // Adding article count to dropdown menu.
+        var allTags = {}
+        if(this.props.bookmarked === true){
+            // Bookmarks Page
+            const bookmarks = JSON.parse((localStorage.getItem("bookmarkArray"))) || this.state.bookmarkArray
+            allTags = bookmarks.filter(x => x.bookmarked === true)
+        }else{
+            // Home Page 
+            const bookmarks = JSON.parse((localStorage.getItem("changedFullDatabaseCall"))) || this.props.fullDatabaseCall
+            allTags = bookmarks.filter(x => x.hidden === false)
+        }
 
-        const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray")))  || this.state.bookmarkArray
-        const allTags = bookmarkArray.filter(x => x.bookmarked === true)
         const newsCount = allTags.filter(x=> x.tag === "News")
         const sportsCount = allTags.filter(x=> x.tag === "Sports")
         const weatherCount = allTags.filter(x=> x.tag === "Weather")
