@@ -63,8 +63,8 @@ class FilterOptions extends Component {
         // console.log(filterBookmarks.length)
 
         const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
-        // console.log(filterBookmarks)
-        // console.log(filterBookmarksAll)
+        console.log(filterBookmarks)
+        console.log(filterBookmarksAll)
         // this.setState({test:filterBookmarksAll})
 
 
@@ -78,9 +78,9 @@ class FilterOptions extends Component {
             }
         }else{
             if(value.includes("All") ){
-                updateState(filterBookmarksAll,value)
+                updateState(filterBookmarksAll,value,filterBookmarksAll.length)
             }else{
-                updateState(filterBookmarks,value)
+                updateState(filterBookmarks,value,filterBookmarks.length)
             }
         }
         

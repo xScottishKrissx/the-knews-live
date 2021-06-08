@@ -1013,13 +1013,17 @@ General Notes  Objectives:
                                     ✔ There is an issue with the react.bootstrap dropdown menu and the render of my bookmark page. Specifically, the bookmark page will render a blank page because the content of the dropdown menu(which control the filters) arent activated until the menu is activated. This is an issue because it means my filter options component is activated until the dropdown is activated, leaving the mentioned empty page for bookmarks. My workaround is to add the filterOptions component to the bookmark page and hide it's ui the same way i have for the card size on the home page. Not great but i can't see any other option here. @done(12:42 - 03/06/21)
                                 ✔ Integrate Card Size menu @done(13:12 - 03/06/21)
                                     ☐ That this as so much easier to integrate than filter makes me think something is wrong on my end with the filters and not the dropdown menu as I previously thought.
-                                ☐ Counter showing article number should update as articles are added/removed from bookmarks.
-                                    ☐ I have a counter that counts the articles when adding/removing bookmarks. It doesnt change with the filter view however.
+                                ✔ Counter showing article number should update as articles are added/removed from bookmarks. @done(13:02 - 08/06/21)
+                                    ✔ I have a counter that counts the articles when adding/removing bookmarks. It doesnt change with the filter view however. @done(13:02 - 08/06/21)
+                                        ✔ This solution was actually correct but I had a spelling mistake with bookmarkCounter, should be bookmarksCount. With that corrected the counter displays the number of bookmarks as you move through the section. @done(13:02 - 08/06/21)
+
+                                ☐ I think it would be useful to have the number of articles for each filter appear in the menu dropdown.
                                 ✔ Create mark all as read button @done(18:05 - 03/06/21)
                         Issues:
                             ☐ Many, probably.
                             ✔ Clearing cookies and browser history results in a null error on the "myData" local storage item. @done(12:01 - 08/06/21)
                                 ✔ Solution - I created a check in the news-item-loop for null. @done(12:01 - 08/06/21)
+                            ☐ Leaving 1 bookmark, if you try to remove that last bookmark, the counter returns to the number before removing bookmarks.So if you have 5, remove 4, and try to remove the last 1 the counter returns to 5.
 
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.

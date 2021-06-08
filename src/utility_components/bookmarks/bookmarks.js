@@ -115,10 +115,8 @@ class Bookmarks extends Component {
     }
 
     updateBookmarkCount(){ 
+        // Update Bookmark count on removing/adding bookmarks
         const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
-        console.log(bookmarkArray)
-        console.log(this.state.getArticleBy)
-
         var filterBookmarks = {}
         if(this.state.getArticleBy === "All"){
             console.log("Filter By All")
@@ -127,18 +125,18 @@ class Bookmarks extends Component {
             console.log("Filter By Tag")
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
         }
-        // const filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
-        console.log(filterBookmarks.length)
         this.setState({ bookmarksCount: filterBookmarks.length}) 
     }
 
     // filterViews
-    getFilteredArticles = (filteredByTag,getArticleBy) => {
+    getFilteredArticles = (filteredByTag,getArticleBy,length) => {
         // console.log(filteredByTag)
         // console.log(getArticleBy)
+        // console.log(length)
         this.setState({
             bookmarks: filteredByTag,
             getArticleBy:getArticleBy,
+            bookmarksCount:length
         })
         
     }
@@ -148,16 +146,7 @@ class Bookmarks extends Component {
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         const fullDatabaseCall = this.props.location.state.fullDatabaseCall
         
-
-
-        // console.log(this.state.bookmarks.length)
-        // const database = JSON.parse(localStorage.getItem("bookmarkArray"))
-        // console.log(database)
-        // const filterDB = database.filter(x => x.bookmarked === true)
-        // console.log(filterDB.length)
-
-        // localStorage.getItem("bookmarkLength")
-        // console.log(localStorage.getItem("bookmarkLength"))
+        const bookmarkCount = this.state.bookmarksCount || this.state.bookmarks.length;
         return(
         <div id="bookmarkWrapper">
 
@@ -186,22 +175,13 @@ class Bookmarks extends Component {
             {/* The Initial Render */}
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={true} />
 
-
-
-            {/* <p>You have {this.state.bookmarks.length} items to read in </p> */}
-
-            
-            {/* <button onClick={() => this.clearBookmarks()}>Clear All Bookmarks</button>
-            <button onClick={() => markAllUnread()}>Mark All As Unread</button>
-            <button onClick={() => this.hideAllArticles()}>Hide All Articles</button>  */}
            
             <div id="bookmarksHeader">
                 <h1><span class="material-icons">bookmarks</span>Bookmarks</h1> 
-                <p>Count - {this.state.bookmarksCount || this.state.bookmarks.length}</p>
                 {this.state.getArticleBy === "All" ? 
-                    <span>You have {this.state.bookmarks.length} items to read across all tags</span>
+                    <span>You have {bookmarkCount} items to read across all tags</span>
                     :
-                    <span>You have {this.state.bookmarks.length} items to read in {this.state.getArticleBy}</span>
+                    <span>You have {bookmarkCount} items to read in {this.state.getArticleBy}</span>
                 }
                 <hr/>
             </div> 
