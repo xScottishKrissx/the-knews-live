@@ -109,9 +109,6 @@ class Bookmarks extends Component {
     
     componentDidUpdate(){
         updateBookmarkStyles();
-        // console.log("update")
-        // console.log(this.state.bookmarks.length)
-        // console.log(localStorage.getItem("bookmarkLength"))
     }
 
     updateBookmarkCount(){ 
@@ -119,10 +116,10 @@ class Bookmarks extends Component {
         const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
         var filterBookmarks = {}
         if(this.state.getArticleBy === "All"){
-            console.log("Filter By All")
+            // console.log("Filter By All")
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true)
         }else{
-            console.log("Filter By Tag")
+            // console.log("Filter By Tag")
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
         }
         this.setState({ bookmarksCount: filterBookmarks.length}) 
@@ -146,7 +143,9 @@ class Bookmarks extends Component {
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         const fullDatabaseCall = this.props.location.state.fullDatabaseCall
         
-        const bookmarkCount = this.state.bookmarksCount || this.state.bookmarks.length;
+        // const bookmarkCount = this.state.bookmarksCount || this.state.bookmarks.length;
+        const bookmarkCount = this.state.bookmarksCount;
+        
         return(
         <div id="bookmarkWrapper">
 
@@ -179,9 +178,9 @@ class Bookmarks extends Component {
             <div id="bookmarksHeader">
                 <h1><span class="material-icons">bookmarks</span>Bookmarks</h1> 
                 {this.state.getArticleBy === "All" ? 
-                    <span>You have {bookmarkCount} items to read across all tags</span>
+                    <span>You have {bookmarkCount} items bookmarked across all tags</span>
                     :
-                    <span>You have {bookmarkCount} items to read in {this.state.getArticleBy}</span>
+                    <span>You have {bookmarkCount} items bookmarked in {this.state.getArticleBy}</span>
                 }
                 <hr/>
             </div> 
