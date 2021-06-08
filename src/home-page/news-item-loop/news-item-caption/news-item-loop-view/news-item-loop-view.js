@@ -76,6 +76,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
         })
+        
     }
 
     handleMenu(x){

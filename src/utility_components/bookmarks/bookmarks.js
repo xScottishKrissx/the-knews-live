@@ -110,6 +110,26 @@ class Bookmarks extends Component {
     componentDidUpdate(){
         updateBookmarkStyles();
         // console.log("update")
+        // console.log(this.state.bookmarks.length)
+        // console.log(localStorage.getItem("bookmarkLength"))
+    }
+
+    updateBookmarkCount(){ 
+        const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
+        console.log(bookmarkArray)
+        console.log(this.state.getArticleBy)
+
+        var filterBookmarks = {}
+        if(this.state.getArticleBy === "All"){
+            console.log("Filter By All")
+            filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true)
+        }else{
+            console.log("Filter By Tag")
+            filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
+        }
+        // const filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
+        console.log(filterBookmarks.length)
+        this.setState({ bookmarksCount: filterBookmarks.length}) 
     }
 
     // filterViews
@@ -130,11 +150,14 @@ class Bookmarks extends Component {
         
 
 
-        // console.log(this.state.bookmarks)
+        // console.log(this.state.bookmarks.length)
         // const database = JSON.parse(localStorage.getItem("bookmarkArray"))
         // console.log(database)
         // const filterDB = database.filter(x => x.bookmarked === true)
         // console.log(filterDB.length)
+
+        // localStorage.getItem("bookmarkLength")
+        // console.log(localStorage.getItem("bookmarkLength"))
         return(
         <div id="bookmarkWrapper">
 
@@ -152,7 +175,7 @@ class Bookmarks extends Component {
                     markAllUnread={() => markAllUnread()}
                     markAllRead={() => markAllRead()}
                     hideAllArticles={()=>this.hideAllArticles()}
-                    bookmarkNumber={this.state.bookmarks.length}
+                    bookmarkNumber={this.state.bookmarksCount || this.state.bookmarks.length}
 
 
 
@@ -174,7 +197,7 @@ class Bookmarks extends Component {
            
             <div id="bookmarksHeader">
                 <h1><span class="material-icons">bookmarks</span>Bookmarks</h1> 
-            
+                <p>Count - {this.state.bookmarksCount || this.state.bookmarks.length}</p>
                 {this.state.getArticleBy === "All" ? 
                     <span>You have {this.state.bookmarks.length} items to read across all tags</span>
                     :
@@ -187,7 +210,7 @@ class Bookmarks extends Component {
             
 
             
-            <div id="bookmarkItemsWrapper">
+            <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
                 {this.state.bookmarks.length === 0 ?
                 <p>You haven't bookmarked anything yet :(</p>
                 :

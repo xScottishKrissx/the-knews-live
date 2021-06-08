@@ -21,6 +21,7 @@ export class NavBar extends React.Component{
         // console.log(this.state.getArticleBy)
         // console.log(this.props.getArticleBy)
         const getArticle = this.props.getArticleBy || "All";
+        console.log(this.props.bookmarkNumber)
         // const getArticle = "All"
         return(
             <div className="newUIBarWrapper">
