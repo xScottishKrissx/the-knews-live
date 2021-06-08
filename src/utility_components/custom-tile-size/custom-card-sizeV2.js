@@ -18,10 +18,11 @@ class CustomCardSize extends React.Component{
         this.changeCardSize = this.changeCardSize.bind(this);
     }
     componentDidMount(){
-        this.setState({style:{bottom: localStorage.getItem("cardStyleSetting") } })
-        if(this.state.cardSizeOptionMenu === ""){
-            this.setState({cardSizeOptionMenu: localStorage.getItem("savedCardOptionsPosition")  })
-        }
+
+        // this.setState({style:{bottom: localStorage.getItem("cardStyleSetting") } })
+        // if(this.state.cardSizeOptionMenu === ""){
+        //     this.setState({cardSizeOptionMenu: localStorage.getItem("savedCardOptionsPosition")  })
+        // }
     }
 
     changeCardSize(width,height){

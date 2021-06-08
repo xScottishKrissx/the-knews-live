@@ -1017,6 +1017,8 @@ General Notes  Objectives:
                                 ✔ Create mark all as read button @done(18:05 - 03/06/21)
                         Issues:
                             ☐ Many, probably.
+                            ✔ Clearing cookies and browser history results in a null error on the "myData" local storage item. @done(12:01 - 08/06/21)
+                                ✔ Solution - I created a check in the news-item-loop for null. @done(12:01 - 08/06/21)
 
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.

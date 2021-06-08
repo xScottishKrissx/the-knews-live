@@ -26,6 +26,7 @@ class MapDatabaseItems extends React.Component{
     }
 
     componentDidMount(){
+        // console.log("mount")
     // This is the initial database query.
       // Main Database Call
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);     
@@ -60,6 +61,9 @@ class MapDatabaseItems extends React.Component{
             })
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
         })
+
+        // console.log(JSON.parse(localStorage.getItem("myData"))[0] )
+
     }
 
      componentWillUnmount(){
@@ -74,6 +78,16 @@ class MapDatabaseItems extends React.Component{
 
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
 
+        // Starting Card Size
+        var cardSize = {}
+        const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
+        if(cardSizeInStorage === null){
+            cardSize = ["260px","400px"]
+        }else{
+            cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
+        }
+
+
          return (
             <div className="news-item-loop-wrapper"> 
             
@@ -84,6 +98,7 @@ class MapDatabaseItems extends React.Component{
                                 leftoverArticles={this.state.leftoverArticles}
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                                 urlTagProp={this.props.props}
+                                cardSize={cardSize}
                             /> 
             
                             <ScrollToTopButton   />

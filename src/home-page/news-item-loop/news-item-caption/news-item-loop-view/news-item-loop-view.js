@@ -24,8 +24,9 @@ class NewsItemLoopView extends React.Component{
         // Card Size
         startingCardSize:"",
         changedCardSize:{
-            width: JSON.parse(localStorage.getItem("myData"))[0] ,
-            height: JSON.parse(localStorage.getItem("myData"))[1]
+            // width: JSON.parse(localStorage.getItem("myData"))[0] ,
+            width: this.props.cardSize[0],
+            height: this.props.cardSize[1]
         },
         postsArray:[],
 
@@ -43,7 +44,9 @@ class NewsItemLoopView extends React.Component{
         // liteKnews
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
     }
-
+componentDidMount(){
+    // console.log(this.state.changedCardSize)
+}
 
 
 componentDidUpdate(){

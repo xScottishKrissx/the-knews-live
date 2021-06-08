@@ -40,7 +40,7 @@ export class NavBar extends React.Component{
                                 <div id="filterOptionDisplay">
                                     {getArticle === "All" ?                                         
                                         <span>
-                                            <span class="material-icons">filter_alt</span>
+                                            <span className="material-icons">filter_alt</span>
                                             <p>No Filter</p>
                                         </span>                                           
                                         :                                   
