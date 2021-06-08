@@ -323,6 +323,8 @@ General Notes  Objectives:
                                 ✔ I've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this. @done(13:23 - 26/05/21)
                                 ✔ There will be things a bit off due to the amount of variations and interactions that a single card can have with bookmarking, hiding and being marked as read. On top of browser interaction and the order components mount...things might be a bit buggy. @done(13:23 - 26/05/21)
                                 ☐ Bookmarks don't properly work with the scrollCheck component. This will be addressed in a future release where I have a look at both the scrollCheck and HideArticle components.
+                                ✔ 8/6/2021 - You can permanently hide a bookmarked article from the home page which should not be possible. @done(16:58 - 08/06/21)
+                                    ✔ Solution - Added a check for bookmarked  in the hide-article component, specifically the const that sets the changedFullDatabaseCall localstorage. @done(16:58 - 08/06/21)
 
 
                             

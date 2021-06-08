@@ -143,7 +143,8 @@ class Bookmarks extends Component {
     render(){
         
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        const fullDatabaseCall = this.props.location.state.fullDatabaseCall
+        
+        const fullDatabaseCall = this.state.fullDatabaseCall
         
         // const bookmarkCount = this.state.bookmarksCount || this.state.bookmarks.length;
         const bookmarkCount = this.state.bookmarksCount;

@@ -21,7 +21,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
     
         const filterForNull = mainArray.filter(obj => obj !== null);   
         var markArticleForRemoval = filterForNull.map(el => {
-            if(el.id === value && el != null )
+            if(el.id === value && el.bookmarked === false && el != null )
                 return Object.assign({}, el, {hidden:true})
                 return el
         });
@@ -73,7 +73,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         if(prepLeftoverArticlesForFilter === null)console.log("handle null")
         var markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
             // console.log(el.id)
-            if(el.id === value && el != null)
+            if(el.id === value && el.bookmarked === false && el != null)
                 return Object.assign({}, el, {hidden:true})
                 return el
         });
@@ -97,7 +97,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         // console.log(cleanFullDatabaseCall)
 
         var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
-            if(el.id === value && el != null )
+            if(el.id === value && el.bookmarked === false &&  el != null )
                 return Object.assign({}, el, {hidden:true})
                 return el
         });

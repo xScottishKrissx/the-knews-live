@@ -22,7 +22,6 @@ export class NavBar extends React.Component{
         // console.log(this.props.getArticleBy)
         const getArticle = this.props.getArticleBy || "All";
         // const getArticle = "All"
-        console.log(this.props.bookmarkArray)
         return(
             <div className="newUIBarWrapper">
 
@@ -65,6 +64,7 @@ export class NavBar extends React.Component{
                             <FilterOptions 
                                 fullDatabaseCall = {this.props.fullDatabaseCall} 
                                 getFilteredArticles = {this.props.getFilteredArticles}
+                                bookmarked={false}
                             />
                         }
                     </DropdownButton>

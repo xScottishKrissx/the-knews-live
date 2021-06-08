@@ -34,7 +34,6 @@ class FilterOptions extends Component {
         }else{
             this.getArticlesBy(localStorage.getItem("bookmarksFilterOption"))
         }
-    console.log("mount filter options")
         
     }
     getArticlesBy(value,id){
@@ -99,11 +98,12 @@ class FilterOptions extends Component {
         if(this.props.bookmarked === true){
             // Bookmarks Page
             const bookmarks = JSON.parse((localStorage.getItem("bookmarkArray"))) || this.state.bookmarkArray
+            console.log(bookmarks)
             allTags = bookmarks.filter(x => x.bookmarked === true)
         }else{
             // Home Page 
             const bookmarks = JSON.parse((localStorage.getItem("changedFullDatabaseCall"))) || this.props.fullDatabaseCall
-            allTags = bookmarks.filter(x => x.hidden === false)
+            allTags = bookmarks
         }
 
         const newsCount = allTags.filter(x=> x.tag === "News")
