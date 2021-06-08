@@ -123,6 +123,7 @@ class Bookmarks extends Component {
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
         }
         this.setState({ bookmarksCount: filterBookmarks.length}) 
+        console.log(this.state.bookmarks)
     }
 
     // filterViews
@@ -140,12 +141,13 @@ class Bookmarks extends Component {
 
 
     render(){
+        
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         const fullDatabaseCall = this.props.location.state.fullDatabaseCall
         
         // const bookmarkCount = this.state.bookmarksCount || this.state.bookmarks.length;
         const bookmarkCount = this.state.bookmarksCount;
-        
+
         return(
         <div id="bookmarkWrapper">
 
@@ -164,6 +166,8 @@ class Bookmarks extends Component {
                     markAllRead={() => markAllRead()}
                     hideAllArticles={()=>this.hideAllArticles()}
                     bookmarkNumber={this.state.bookmarksCount || this.state.bookmarks.length}
+                    // filter ui
+                    bookmarkArray={this.state.bookmarks}
 
 
 

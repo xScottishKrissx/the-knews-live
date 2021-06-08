@@ -9,6 +9,7 @@ class FilterOptions extends Component {
                     //hiding articles for filter views
         getArticleBy:"All",
         renderArray:[],
+        bookmarkArray:[]
         }
     }
 
@@ -33,7 +34,7 @@ class FilterOptions extends Component {
         }else{
             this.getArticlesBy(localStorage.getItem("bookmarksFilterOption"))
         }
-
+    console.log("mount filter options")
         
     }
     getArticlesBy(value,id){
@@ -65,7 +66,7 @@ class FilterOptions extends Component {
         const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
         console.log(filterBookmarks)
         console.log(filterBookmarksAll)
-        // this.setState({test:filterBookmarksAll})
+        this.setState({bookmarkArray:filterBookmarksAll})
 
 
         var updateState = this.props.getFilteredArticles;
@@ -93,29 +94,19 @@ class FilterOptions extends Component {
     }
 
     render(){
-        // console.log(this.state.test)
-        // var thing = {}
-        // if(this.state.test){
-        //     thing = this.state.test.filter(obj => obj.tag === "News")
-        // }
 
-        // var thing2 = {}
-        // if(this.state.test){
-        //     thing2 = this.state.test.filter(obj => obj.tag === "Sports")
-        // }
+        const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray")))  || this.state.bookmarkArray
+        const allTags = bookmarkArray.filter(x => x.bookmarked === true)
+        const newsCount = allTags.filter(x=> x.tag === "News")
+        const sportsCount = allTags.filter(x=> x.tag === "Sports")
+        const weatherCount = allTags.filter(x=> x.tag === "Weather")
 
-        // var thing3 = {}
-        // if(this.state.test){
-        //     thing3 = this.state.test.filter(obj => obj.tag === "Weather")
-        // }
-
-        // console.log(thing)
         return (
             <div className="filterButtonWrapper">
-                <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")}>News</button>
-                <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports</button>  
-                <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather</button>
-                <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All","noFilterBtn")} >No Filter</button>
+                <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News","newsFilterBtn")}>News - {newsCount.length}</button>
+                <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports","sportsFilterBtn")} >Sports - {sportsCount.length}</button>  
+                <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather","weatherFilterBtn")} >Weather - {weatherCount.length}</button>
+                <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All","noFilterBtn")} >All - {allTags.length}</button>
             </div>
         )
     }
