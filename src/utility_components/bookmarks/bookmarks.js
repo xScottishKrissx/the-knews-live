@@ -150,6 +150,7 @@ class Bookmarks extends Component {
         const bookmarkCount = this.state.bookmarksCount;
 
         return(
+            
         <div id="bookmarkWrapper">
 
 

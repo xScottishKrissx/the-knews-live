@@ -24,7 +24,16 @@ export class NavBar extends React.Component{
         const getArticle = this.props.getArticleBy || "All";
         // const getArticle = "All"
         return(
+<div className="headerWrapper">
+    <div className="headerText"><Link to='/theKnews/home'><span>theKnews</span></Link></div>
+    <div className="navWrapper">     
 <div className="newUIBarWrapper">
+
+
+
+
+
+
 
 {/************Bookmark Options Menu  */}
             {this.props.bookmarked === true ?
@@ -54,6 +63,22 @@ export class NavBar extends React.Component{
 
 {/************** Filter */}        
 <div id="siteWideNavBar">  
+
+{/************ Home Button */}
+                <div className="uiBarItem" title="Return Home" id="homeBtn">
+                    <Button title="Home">
+                        <Link to='/theKnews/home'>
+                        <div className="dropdownBtnTitle">
+                            <span class="material-icons">home</span>
+                            <p>Home</p>
+                        </div>
+                        </Link>
+                    </Button>
+                </div>
+
+            {this.props.filter === false ?
+            null
+            :    
             <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
                     <DropdownButton 
                         id="filterBtn" 
@@ -91,33 +116,15 @@ export class NavBar extends React.Component{
                         }
                     </DropdownButton>
                 </div>
+            }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
 
 {/************** Card Size */}
+                {this.props.cardStyle === false ?
+                null
+                :    
                 <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
                     <DropdownButton 
                         id="changeCardBtn" 
@@ -130,6 +137,7 @@ export class NavBar extends React.Component{
                         <CustomCardSize getCardSizeToParent={this.props.getCardSize} />
                     </DropdownButton>
                 </div>
+            }
 
 
 
@@ -175,6 +183,9 @@ export class NavBar extends React.Component{
                 </div>
                 }
 {/************** Options Menu */}
+                {this.props.options === false ?
+                null
+                :    
                 <div className="uiBarItem" title="Settings" id="settingsDropdown">
                     <DropdownButton 
                         id="settingsBtn" 
@@ -182,12 +193,16 @@ export class NavBar extends React.Component{
                         <OptionsMenu urlInfo={window.location.pathname}/>
                     </DropdownButton>
                 </div>
-                
+                }
+
             </div>
+                
 
 
 
 
+</div>
+</div>
 </div>
         )
     }

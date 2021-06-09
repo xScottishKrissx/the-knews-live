@@ -74,7 +74,7 @@ handleClick(){
         <button onClick={() => this.handleClick()}>Undo</button>
       </div>
       
-      <Header />
+      {/* <Header /> */}
       <Routes />
       {/* <OptionsMenu urlInfo={window.location.pathname}/> */}
       {/* <Footer /> */}

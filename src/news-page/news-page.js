@@ -6,6 +6,8 @@ import NewsPageVIEW from './news-page-view/news-page-view.js';
 
 
 import loading from '../img/loading5.gif';
+import NavBar from '../navBar/navBar.js';
+
 
 
 export class NewsPage extends React.Component{
@@ -99,6 +101,9 @@ export class NewsPage extends React.Component{
     return (
         
         <span>
+            <NavBar filter={false} cardStyle={false} liteKnews={false} bookmarks={false} options={false} 
+            
+            />
             {arrayLength >= 1 ?         
                 <NewsPageVIEW 
                     database={this.state.articlesArray} 

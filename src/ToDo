@@ -1022,9 +1022,22 @@ General Notes  Objectives:
 
                                 ✔ I think it would be useful to have the number of articles for each filter appear in the menu dropdown. @done(16:08 - 08/06/21)
                                 ✔ Create mark all as read button @done(18:05 - 03/06/21)
-                                ☐ Change of direction - New Bookmark Options Menu.
-                                    ☐ I've decided to change the bookmark bar into a dropdown menu that is activated by clicking on the existing bookmarks button. This will save me space and be more usable as I won't need to remove any information at lower screen sizes.
-                                    ☐ As a result I have created a new component and I'm currently working on the appearance as all buttons are handled through props and require no changes to work.
+                                ✔ Change of direction - New Bookmark Options Menu. @done(16:33 - 09/06/21)
+                                    ✔ I've decided to change the bookmark bar into a dropdown menu that is activated by clicking on the existing bookmarks button. This will save me space and be more usable as I won't need to remove any information at lower screen sizes. @done(16:33 - 09/06/21)
+                                    ✔ As a result I have created a new component and I'm currently working on the appearance as all buttons are handled through props and require no changes to work. @done(16:33 - 09/06/21)
+                                New Website Nav Bar:
+                                    ☐ Following the sucess of the new nav bar for the home page and bookmarks, I am going to try the same for the rest of the website. I want every page to have a nav bar similiar to bookmarks and home. 
+                                        Pages to to integrate:
+                                            ✔ Home @done(17:29 - 09/06/21)
+                                            ✔ Bookmarks @done(17:29 - 09/06/21)
+                                            ☐ Article Page
+                                                ☐ Add like/dislike buttons to navbar
+                                                ☐ Add bookmark button to navbar
+                                                ☐ Add Hide article button to nav bar
+                                            ☐ Tags
+                                            ☐ Author Page
+                                            ☐ liteKnews
+
                         Issues:
                             ☐ Many, probably.
                             ✔ Clearing cookies and browser history results in a null error on the "myData" local storage item. @done(12:01 - 08/06/21)
