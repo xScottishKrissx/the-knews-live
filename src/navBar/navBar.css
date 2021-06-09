@@ -48,7 +48,7 @@
             color: black !important;
         }
         #homeBtn > button > a { 
-            background-color: red;
+            /* background-color: red; */
         }
     .uiBarItem{
         align-items: center;
@@ -149,6 +149,25 @@
     display: flex;
 }
 /* Bookmark Page */
+
+
+/* Article Page */
+#bookmarkControls > button > .onCardControls{display: flex;}
+#bookmarkControls > button > .onCardControls > .bookmarkButtonWrapper{
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* customising react.bootstrap  */

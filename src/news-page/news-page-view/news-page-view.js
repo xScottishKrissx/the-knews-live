@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom';
 import fire from '../../fire.js'
 
 import './news-page-view.css';
-
+import NavBar from '../../navBar/navBar';
 import HeaderImage from '../../utility_components/header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
@@ -12,6 +12,8 @@ import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
 import RecReading from './recommended-reading/recReading.js';
 import NextArticle from './nextArticle.js';
+
+
 
 export class NewsPageVIEW extends React.Component{
 
@@ -83,6 +85,9 @@ export class NewsPageVIEW extends React.Component{
         fire.database().ref("items").off();     
       }
     render(){
+
+      
+
       // console.log("Render news-page-view.js")
       window.scrollTo(0,0);
 
@@ -103,21 +108,49 @@ export class NewsPageVIEW extends React.Component{
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
-                
+                    <NavBar 
+                    // Menu Config
+                    filter={false} 
+                    cardStyle={false} 
+                    liteKnews={false} 
+                    bookmarks={false} 
+                    options={false} 
+                    score={true} 
+                    
+                    // Handle Like
+                    id={value.id} 
+                    likes={value.likes}
+                    dislikes={value.dislikes} 
+                    databaseId={value.key} 
+                    liked={value.liked}
+                    disliked={value.disliked}
+
+                    // bookmarkControls
+                    bookmarkedStatus={value.bookmarked}
+                    fullDatabaseCall={this.state.fullDatabaseCall}
+                    id={value.id}
+                    readStatus={value.read}
+                    showMarkAsReadButton={false}
+                    arrayFromDatabase={this.state.articlesArray}
+                    leftoverArticles={this.state.leftoverArticles}
+                    fullDatabaseCall={this.state.fullDatabaseCall}
+                  />
+                    
+                    
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
                         {/* <HeaderImage props={value.id} /> */}
                         <h1>Header Image</h1>
                     </div>
 
-                    <HandleLike 
+                    {/* <HandleLike 
                       id={value.id} 
                       likes={value.likes}
                       dislikes={value.dislikes} 
                       databaseId={value.key} 
                       liked={value.liked}
                       disliked={value.disliked}
-                      />
+                      /> */}
 
                     {/* Bookmark Controls */}
                     <div id="bookmarkControls">

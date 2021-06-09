@@ -101,9 +101,7 @@ export class NewsPage extends React.Component{
     return (
         
         <span>
-            <NavBar filter={false} cardStyle={false} liteKnews={false} bookmarks={false} options={false} 
-            
-            />
+
             {arrayLength >= 1 ?         
                 <NewsPageVIEW 
                     database={this.state.articlesArray} 
@@ -115,14 +113,19 @@ export class NewsPage extends React.Component{
                 /> 
                 : 
                 <div>
+                    
                     {this.state.showErrorMessage === false ?
                         <img src={loading} alt="loading, please wait for results"/>
                     :
+                    <span>
+                    <NavBar filter={false} cardStyle={false} liteKnews={false} bookmarks={false} options={false}  score={false} />
                         <div className="error-message">
                             <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
                             <Link to='/theKnews/home'><p>Home</p></Link>
                         </div>
+                    </span>
                     }
+                    
                 </div>
             }
         </span>

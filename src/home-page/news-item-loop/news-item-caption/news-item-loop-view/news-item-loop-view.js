@@ -109,7 +109,9 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <div className="box2">   */}
 
                     <NavBar 
+                        score={false}
                         // filter
+                        
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
 

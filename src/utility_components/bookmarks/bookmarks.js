@@ -150,13 +150,13 @@ class Bookmarks extends Component {
         const bookmarkCount = this.state.bookmarksCount;
 
         return(
-            
+
         <div id="bookmarkWrapper">
 
 
 
             {/* After Render*/}
-            <NavBar filter={true} cardStyle={true} liteKnews={false} bookmarks={false} options={true}
+            <NavBar filter={true} cardStyle={true} liteKnews={false} bookmarks={false} options={true} score={false}
                     // Bookmarks
                     fullDatabaseCall={fullDatabaseCall} 
                     getFilteredArticles = {this.getFilteredArticles}
