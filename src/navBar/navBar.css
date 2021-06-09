@@ -11,9 +11,9 @@
     /* border: 1px solid red; */
     align-items: center;
     display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        
+        flex-direction: row;
+        /* align-items: flex-end; */
+        justify-content: flex-end;
     margin-top: 30px;
     margin-bottom: 30px;
     width: inherit;
@@ -75,9 +75,13 @@
             .uiBarItem > div > .dropdown-menu > div > button{
                 background-color: white;
                 color: black;
+                display: flex;
+                    align-items: center;
                 font-weight: 900;
                 width: auto;
+                white-space: nowrap;
             }
+            .uiBarItem > div > .dropdown-menu > div > button > span{margin-right: 5px;}
 
             .uiBarItem > div > .dropdown-menu > div > button:focus,
             .uiBarItem > div > .dropdown-menu > div > button:hover,
@@ -114,47 +118,7 @@
     display: flex;
 }
 /* Bookmark Page */
-#bookmarkUIBar{
-    display: flex;
-    align-items: center;
-}
 
-#pageInfo{
-    background-color: black;
-    color: white !important;
-    cursor: default;
-    width: max-content;
-
-}
-    #pageInfo > span{
-        align-items: center; 
-        display: flex; 
-        height: 48px; 
-        justify-content: space-evenly; 
-        width: inherit;
-    }
-        #pageInfo > span > p{margin: 0; width: auto; display: none;}
-        #pageInfo > span > *{padding-left: 5px; padding-right: 5px;}
-
-#bookmarksHeader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border-bottom: 1px solid black; */
-    width: fit-content;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    flex-direction: column;
-}
- #bookmarksHeader > h1{
-    /* border-bottom: 5px solid black; */
- }
- #bookmarksHeader > hr {
-     border: 1px solid black;
-     width: 100%;
- }
-
-#bookmarkUIBar > .uiBarItem > button{border: none;}
 
 /* customising react.bootstrap  */
 .dropdown-toggle::after { display: none !important;}

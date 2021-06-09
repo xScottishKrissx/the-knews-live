@@ -41,12 +41,29 @@ class CustomCardSize extends React.Component{
 
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
-                <button  onClick={() => this.changeCardSize("470px","135px")}>Compact</button>
-                <button  onClick={() => this.changeCardSize("225px","225px")}>Different Compact</button>
-                <button  onClick={() => this.changeCardSize("260px","400px")}>Standard</button>
-                <button  onClick={() => this.changeCardSize("260px","73vh")}>Long</button>
-                <button  onClick={() => this.changeCardSize("470px","800px")}>Thick</button>
-                <button  onClick={() => this.changeCardSize("520px","520px")}>Big Squares</button>
+                <button  onClick={() => this.changeCardSize("470px","135px")}>
+                    <span class="material-icons">view_list</span>Compact
+                </button>
+
+                <button  onClick={() => this.changeCardSize("225px","225px")}>
+                    <span class="material-icons">view_list</span>Different Compact
+                </button>
+                
+                <button  onClick={() => this.changeCardSize("260px","400px")}>
+                    <span class="material-icons">view_list</span>Standard
+                </button>
+                
+                <button  onClick={() => this.changeCardSize("260px","73vh")}>
+                    <span class="material-icons">view_list</span>Long
+                </button>
+                
+                <button  onClick={() => this.changeCardSize("470px","800px")}>
+                    <span class="material-icons">view_list</span>Thick
+                </button>
+                
+                <button  onClick={() => this.changeCardSize("520px","520px")}>
+                    <span class="material-icons">view_list</span>Big Squares
+                </button>
             </div>
         )
     }

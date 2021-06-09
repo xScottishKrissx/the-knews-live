@@ -3,6 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Button from 'react-bootstrap/esm/Button';
 import { Link } from 'react-router-dom';
+import BookmarkOptionsMenu from '../utility_components/bookmarks/bookmarkOptionsMenu';
 import CustomCardSize from '../utility_components/custom-tile-size/custom-card-sizeV2';
 import FilterOptions from '../utility_components/filterOptions/filterOptions';
 import OptionsMenu from '../utility_components/optionsMenu/optionsMenu';
@@ -23,10 +24,31 @@ export class NavBar extends React.Component{
         const getArticle = this.props.getArticleBy || "All";
         // const getArticle = "All"
         return(
-            <div className="newUIBarWrapper">
+<div className="newUIBarWrapper">
 
+{/************Bookmark Options Menu  */}
+            {this.props.bookmarked === true ?
 
-
+                <div className="uiBarItem" id="bookmarkOptionsMenu">
+                <DropdownButton 
+                    title={
+                        <div className="dropdownBtnTitle">
+                                <span class="material-icons">bookmarks</span> 
+                                <p>Bookmarks </p>
+                                <span> ({this.props.bookmarkNumber})</span>
+                        </div>
+                    }>
+                        <BookmarkOptionsMenu 
+                            clearBookmarks={this.props.clearBookmarks}
+                            markAllUnread={this.props.markAllUnread} 
+                            markAllRead={this.props.markAllRead} 
+                            hideAllArticles={this.props.hideAllArticles}
+                        />
+                    </DropdownButton>
+                </div>
+            :
+                null    
+            }
 
 
 
@@ -165,61 +187,7 @@ export class NavBar extends React.Component{
 
 
 
-            {this.props.bookmarked === true ?
-                <div id="bookmarkUIBar" >
-                    {/* <div className="uiBarItem">Bookmarks</div> */}
-                    
-                    <div className="uiBarItem" id="pageInfo">
-                        
-                        <span>
-                            <span class="material-icons">bookmarks</span> 
-                            <p>Bookmarks - </p>
-                            <span> {this.props.bookmarkNumber}</span>
-                        </span>
-                    </div>
 
-                    <div className="uiBarItem" title="Remove All Bookmarks" onClick={this.props.clearBookmarks}>
-                        <Button variant="link"> 
-                            <div className="navBarButton">
-                                <span class="material-icons">bookmark_remove</span>
-                                <p>Remove All Bookmarks</p>
-                            </div>
-                        </Button>
-                    </div>
-
-                    <div className="uiBarItem" title="Mark All Unread" onClick={this.props.markAllUnread}>
-                        <Button variant="link"> 
-                            <div className="navBarButton">
-                                <span class="material-icons">remove_done</span>
-                                <p>Mark All As Unread</p>
-                            </div>
-                        </Button>
-                    </div>
-
-                    <div className="uiBarItem" title="Mark All Read" onClick={this.props.markAllRead}>
-                        <Button variant="link"> 
-                            <div className="navBarButton">
-                                <span class="material-icons">done_all</span>
-                                <p>Mark All As Read</p>
-                            </div>
-                        </Button>
-                    </div>
-
-                    <div className="uiBarItem" title="Remove and Hide All" onClick={this.props.hideAllArticles}>
-                        <Button variant="link"> 
-                            <div className="navBarButton">
-                                <span class="material-icons">delete_sweep</span>
-                                <p>Remove and Hide All</p>
-                            </div>
-                        </Button>
-                    </div>
-
-                    {/* <div class="uiBarDivider"> | </div>  */}
-                </div>
-                 
-            :
-            null    
-            }
 </div>
         )
     }

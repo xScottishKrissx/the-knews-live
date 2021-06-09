@@ -111,10 +111,25 @@ class FilterOptions extends Component {
 
         return (
             <div className="filterButtonWrapper">
-                <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News")}>News - {newsCount.length}</button>
-                <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports")} >Sports - {sportsCount.length}</button>  
-                <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather")} >Weather - {weatherCount.length}</button>
-                <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All")} >No Filter - {allTags.length}</button>
+                <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News")}>
+                    <span class="material-icons">article</span>
+                    News - {newsCount.length}
+                </button>
+
+                <button className="filterButton" id="sportsFilterBtn" onClick={() => this.getArticlesBy("Sports")} >
+                    <span class="material-icons">emoji_events</span>
+                    Sports - {sportsCount.length}
+                </button>  
+
+                <button className="filterButton" id="weatherFilterBtn" onClick={() => this.getArticlesBy("Weather")} >
+                    <span class="material-icons">cloud_queue</span>
+                    Weather - {weatherCount.length}
+                </button>
+
+                <button className="filterButton" id="noFilterBtn" onClick={() => this.getArticlesBy("All")} >
+                    <span class="material-icons">filter_alt</span>
+                    No Filter - {allTags.length}
+                </button>
             </div>
         )
     }

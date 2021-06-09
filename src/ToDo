@@ -1022,6 +1022,9 @@ General Notes  Objectives:
 
                                 ✔ I think it would be useful to have the number of articles for each filter appear in the menu dropdown. @done(16:08 - 08/06/21)
                                 ✔ Create mark all as read button @done(18:05 - 03/06/21)
+                                ☐ Change of direction - New Bookmark Options Menu.
+                                    ☐ I've decided to change the bookmark bar into a dropdown menu that is activated by clicking on the existing bookmarks button. This will save me space and be more usable as I won't need to remove any information at lower screen sizes.
+                                    ☐ As a result I have created a new component and I'm currently working on the appearance as all buttons are handled through props and require no changes to work.
                         Issues:
                             ☐ Many, probably.
                             ✔ Clearing cookies and browser history results in a null error on the "myData" local storage item. @done(12:01 - 08/06/21)
