@@ -152,10 +152,7 @@
 
 
 /* Article Page */
-#bookmarkControls > button > .onCardControls{display: flex;}
-#bookmarkControls > button > .onCardControls > .bookmarkButtonWrapper{
-    position: relative;
-}
+
 /************************************* Score Buttons */
 /* overall score wrapper */
 #scoreButtons{min-width: min-content;}
@@ -192,10 +189,27 @@
             #scoreButtons > button > div > div > button > span > p{margin: 0; margin-left: 3px;}
 
 
-
-
-
-
+/************************************* Bookmark Controls */
+#bookmarkControls{
+    min-width: min-content;
+}
+        #bookmarkControls > button > .onCardControls{display: flex;}
+            #bookmarkControls > button > .onCardControls > div{
+                margin: 10px;
+                position: relative;
+            }
+            #bookmarkControls > button > .onCardControls > div > button{
+                /* background-color: red; */
+                color: black;
+                display: contents;
+                /* line-height: 0px; */
+                padding: 0;
+            }
+                #bookmarkControls > button > .onCardControls > div > button > span{
+                    display: inline;
+                    line-height: inherit;
+                    /* background-color: #28a745; */
+                }
 
 
 
@@ -255,4 +269,8 @@
     #settingsDropdown > .dropdown > div{
         transform: translate(-206px, 50px) !important;
     }
+}
+
+@media (max-width: 400px) {
+    .headerWrapper{flex-wrap: wrap; justify-content: space-around;}
 }

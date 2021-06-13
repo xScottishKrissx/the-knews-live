@@ -142,32 +142,7 @@ export class NewsPageVIEW extends React.Component{
                         {/* <HeaderImage props={value.id} /> */}
                         <h1>Header Image</h1>
                     </div>
-
-                    {/* <HandleLike 
-                      id={value.id} 
-                      likes={value.likes}
-                      dislikes={value.dislikes} 
-                      databaseId={value.key} 
-                      liked={value.liked}
-                      disliked={value.disliked}
-                      /> */}
-
-                    {/* Bookmark Controls */}
-                    <div id="bookmarkControls">
-                      <OnCardBookMarkControls                         
-                        bookmarkedStatus={value.bookmarked}
-                        fullDatabaseCall={this.state.fullDatabaseCall}
-                        id={value.id}
-                        readStatus={value.read}
-                        showMarkAsReadButton={false}
-
-                        // hiding
-                        arrayFromDatabase={this.state.articlesArray}
-                        leftoverArticles={this.state.leftoverArticles}
-                        fullDatabaseCall={this.state.fullDatabaseCall}
-                      />
-                    </div>
-                   
+                  
                    {/* Header, Sub Title and Body of Article */}
                     <ArticleArea 
                         title={value.title}

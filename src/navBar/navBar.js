@@ -82,7 +82,7 @@ export class NavBar extends React.Component{
         </div> 
     }
 
-        {/************Score Buttons  */}
+        {/************Bookmark Controls  */}
         {this.props.bookmarkControls === false ?
         null
         :
