@@ -1,5 +1,4 @@
 import React from 'react';
-import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Button from 'react-bootstrap/esm/Button';
 import { Link } from 'react-router-dom';
@@ -21,237 +20,217 @@ export class NavBar extends React.Component{
     }
 
     render(){
-        // console.log(this.props.fullDatabaseCall)
-        // console.log(this.state.getArticleBy)
-        // console.log(this.props.getArticleBy)
         const getArticle = this.props.getArticleBy || "All";
-        // const getArticle = "All"
-
 
         return(
-<div className="headerWrapper">
+            <div className="headerWrapper">
 
-    <div className="headerText"><Link to='/theKnews/home'><span>theKnews</span></Link></div>
-    
-    <div className="navWrapper">     
-        <div className="newUIBarWrapper">
-
-    {/************Bookmark Options Menu  */}
-                {this.props.bookmarked === true ?
-
-                    <div className="uiBarItem" id="bookmarkOptionsMenu">
-                    <DropdownButton 
-                        title={
-                            <div className="dropdownBtnTitle">
-                                    <span class="material-icons">bookmarks</span> 
-                                    <p>Bookmarks </p>
-                                    <span> ({this.props.bookmarkNumber})</span>
-                            </div>
-                        }>
-                            <BookmarkOptionsMenu 
-                                clearBookmarks={this.props.clearBookmarks}
-                                markAllUnread={this.props.markAllUnread} 
-                                markAllRead={this.props.markAllRead} 
-                                hideAllArticles={this.props.hideAllArticles}
-                            />
-                        </DropdownButton>
-                    </div>
-                :
-                    null    
-                }
-
-    {/************Score Buttons  */}
-    {this.props.score === true ?
-
-        <div className="uiBarItem" id="scoreButtons">
-        <Button title="Score" >
-                {/* <div className="dropdownBtnTitle">
-                    <span class="material-icons">score</span> 
-                    <p>Score </p>
-                </div> */}
-                <HandleLike 
-                    id={this.props.id}
-                    likes={this.props.likes}
-                    dislikes={this.props.dislikes}
-                    databaseId={this.props.databaseId}
-                    liked={this.props.liked}
-                    disliked={this.props.disliked}
-                />
-        </Button>
-        </div> 
-        :null
-    }
-
-        {/************Bookmark Controls  */}
-        {this.props.bookmarkControls === true ?
-
-        <div className="uiBarItem" id="bookmarkControls">
-            <Button title="Bookmark Controls" >
-                    {/* <div className="dropdownBtnTitle">
-                        <span class="material-icons">score</span> 
-                        <p>Score </p>
-                    </div> */}
-                <OnCardBookMarkControls 
-                                    bookmarkedStatus={this.props.bookmarkedStatus}
-                                    fullDatabaseCall={this.props.fullDatabaseCall}
-                                    id={this.props.id}
-                                    readStatus={this.props.readStatus}
-                                    showMarkAsReadButton={this.props.showMarkAsReadButton}
-                                    arrayFromDatabase={this.props.arrayFromDatabase}
-                                    leftoverArticles={this.props.leftoverArticles}
-                />
-            </Button>
-        </div> 
-
-        :null
+                <div className="headerText"><Link to='/theKnews/home'><span>theKnews</span></Link></div>
                 
-    }
+                <div className="navWrapper">     
+                        <div className="newUIBarWrapper">
 
+                        {/************Bookmark Options Menu  */}
+                        {this.props.bookmarked === true ?
 
-
-    {/************** Filter */}        
-    <div id="siteWideNavBar">  
-
-    {/************ Home Button */}
-                    <div className="uiBarItem" title="Return Home" id="homeBtn">
-                        <Button title="Home">
-                            <Link to='/theKnews/home'>
-                            <div className="dropdownBtnTitle">
-                                <span class="material-icons">home</span>
-                                <p>Home</p>
-                            </div>
-                            </Link>
-                        </Button>
-                    </div>
-
-                {this.props.filter === true ?
- 
-                <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
-                        <DropdownButton 
-                            id="filterBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <div id="filterOptionDisplay">
-                                        {getArticle === "All" ?                                         
-                                            <span>
-                                                <span className="material-icons">filter_alt</span>
-                                                <p>No Filter</p>
-                                            </span>                                           
-                                            :                                   
-                                            <span>
-                                                <span id="filterActive" class="material-icons">filter_alt</span>
-                                                <p className="filterIsActive">Filter: { getArticle }</p>
-                                            </span>                                        
-                                        }
+                            <div className="uiBarItem" id="bookmarkOptionsMenu">
+                            <DropdownButton 
+                                title={
+                                    <div className="dropdownBtnTitle">
+                                            <span class="material-icons">bookmarks</span> 
+                                            <p>Bookmarks </p>
+                                            <span> ({this.props.bookmarkNumber})</span>
                                     </div>
+                                }>
+                                    <BookmarkOptionsMenu 
+                                        clearBookmarks={this.props.clearBookmarks}
+                                        markAllUnread={this.props.markAllUnread} 
+                                        markAllRead={this.props.markAllRead} 
+                                        hideAllArticles={this.props.hideAllArticles}
+                                    />
+                                </DropdownButton>
+                            </div>
+                        :
+                            null    
+                        }
+
+                        {/************Score Buttons  */}
+                        {this.props.score === true ?
+                            <div className="uiBarItem" id="scoreButtons">
+                                <Button title="Score" >
+                                    <HandleLike 
+                                        id={this.props.id}
+                                        likes={this.props.likes}
+                                        dislikes={this.props.dislikes}
+                                        databaseId={this.props.databaseId}
+                                        liked={this.props.liked}
+                                        disliked={this.props.disliked}
+                                    />
+                                </Button>
+                            </div> 
+                        :
+                            null
+                        }
+
+                        {/************Bookmark Controls  */}
+                        {this.props.bookmarkControls === true ?
+                            <div className="uiBarItem" id="bookmarkControls">
+                                <Button title="Bookmark Controls" >
+                                    <OnCardBookMarkControls 
+                                        bookmarkedStatus={this.props.bookmarkedStatus}
+                                        fullDatabaseCall={this.props.fullDatabaseCall}
+                                        id={this.props.id}
+                                        readStatus={this.props.readStatus}
+                                        showMarkAsReadButton={this.props.showMarkAsReadButton}
+                                        arrayFromDatabase={this.props.arrayFromDatabase}
+                                        leftoverArticles={this.props.leftoverArticles}
+                                    />
+                                </Button>
+                            </div> 
+                        :
+                            null       
+                        }
+                            
+                        <div id="siteWideNavBar">  
+
+                            {/************ Home Button */}
+                            <div className="uiBarItem" title="Return Home" id="homeBtn">
+                                <Button title="Home">
+                                    <Link to='/theKnews/home'>
+                                    <div className="dropdownBtnTitle">
+                                        <span class="material-icons">home</span>
+                                        <p>Home</p>
+                                    </div>
+                                    </Link>
+                                </Button>
+                            </div>
+
+                            {this.props.filter === true ?
+                                <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
+                                    <DropdownButton 
+                                        id="filterBtn" 
+                                        title={ 
+                                            <div className="dropdownBtnTitle">
+                                                <div id="filterOptionDisplay">
+                                                    {getArticle === "All" ?                                         
+                                                        <span>
+                                                            <span className="material-icons">filter_alt</span>
+                                                            <p>No Filter</p>
+                                                        </span>                                           
+                                                        :                                   
+                                                        <span>
+                                                            <span id="filterActive" class="material-icons">filter_alt</span>
+                                                            <p className="filterIsActive">Filter: { getArticle }</p>
+                                                        </span>                                        
+                                                    }
+                                                </div>
+                                            </div>
+                                        }>
+
+                                        {this.props.bookmarked === true ? 
+                                            <FilterOptions 
+                                                fullDatabaseCall = {this.props.fullDatabaseCall} 
+                                                getFilteredArticles = {this.props.getFilteredArticles}
+                                                bookmarked={true}
+                                                
+                                                
+                                            />
+                                        :
+                                            <FilterOptions 
+                                                fullDatabaseCall = {this.props.fullDatabaseCall} 
+                                                getFilteredArticles = {this.props.getFilteredArticles}
+                                                bookmarked={false}
+                                            />
+                                        }
+
+                                    </DropdownButton>
                                 </div>
-                            }>
-                            {this.props.bookmarked === true ? 
-                                <FilterOptions 
-                                    fullDatabaseCall = {this.props.fullDatabaseCall} 
-                                    getFilteredArticles = {this.props.getFilteredArticles}
-                                    bookmarked={true}
-                                    
-                                    
-                                />
                             :
-                                <FilterOptions 
-                                    fullDatabaseCall = {this.props.fullDatabaseCall} 
-                                    getFilteredArticles = {this.props.getFilteredArticles}
-                                    bookmarked={false}
-                                />
+                                null
                             }
-                        </DropdownButton>
-                    </div>
-                    :null
-                }
 
-
-                
-
-    {/************** Card Size */}
-                    {this.props.cardStyle === true ?  
-                    <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
-                        <DropdownButton 
-                            id="changeCardBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <span class="material-icons">view_module</span>
-                                    <p>Card Style</p>
+                            {/************** Card Size */}
+                            {this.props.cardStyle === true ?  
+                                <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
+                                    <DropdownButton 
+                                        id="changeCardBtn" 
+                                        title={ 
+                                            <div className="dropdownBtnTitle">
+                                                <span class="material-icons">view_module</span>
+                                                <p>Card Style</p>
+                                            </div>
+                                        }>
+                                        <CustomCardSize getCardSizeToParent={this.props.getCardSize} />
+                                    </DropdownButton>
                                 </div>
-                            }>
-                            <CustomCardSize getCardSizeToParent={this.props.getCardSize} />
-                        </DropdownButton>
-                    </div>
-                    :null
-                }
+                            :
+                                null
+                            }
 
+                            {/************** Divider */}
+                            {/* <div class="uiBarDivider"> | </div> */}
 
-
-
-
-
-    {/************** Divider */}
-                    {/* <div class="uiBarDivider"> | </div> */}
-
-    {/************** liteKnews */}
-                    {this.props.liteKnews === true ? 
-        
-                    <div className="uiBarItem" title="Start Lite Knews" onClick={this.props.showArticle} >
-                        <DropdownButton 
-                            id="liteKnewsBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <span class="material-icons">bolt</span>
-                                    <p>liteKnews</p>
+                            {/************** liteKnews */}
+                            {this.props.liteKnews === true ? 
+                                <div className="uiBarItem" title="Start Lite Knews" onClick={this.props.showArticle} >
+                                    <DropdownButton 
+                                        id="liteKnewsBtn" 
+                                        title={ 
+                                            <div className="dropdownBtnTitle">
+                                                <span class="material-icons">bolt</span>
+                                                <p>liteKnews</p>
+                                            </div>
+                                        }>                        
+                                    </DropdownButton>
                                 </div>
-                            }>                        
-                        </DropdownButton>
-                    </div>
-                    :null
-                    }
+                            :
+                                null
+                            }
 
-    {/************** Bookmarks */}
-                    {this.props.bookmarks === true ?
-                  
-                    <div className="uiBarItem" title="View Bookmarks">
-                    <Link to={{ pathname:'/theKnews/home/bookmarks', state:{ fullDatabaseCall:this.props.fullDatabaseCall}}}>
-                        <DropdownButton  
-                            id="bookmarkBtn" 
-                            title={ 
-                                <div className="dropdownBtnTitle">
-                                    <span class="material-icons">bookmarks</span>
-                                    <p>Bookmarks</p>
+                            {/************** Bookmarks */}
+                            {this.props.bookmarks === true ?                            
+                                <div className="uiBarItem" title="View Bookmarks">
+                                    <Link 
+                                        to={{ 
+                                            pathname:'/theKnews/home/bookmarks', 
+                                            state:{ fullDatabaseCall:this.props.fullDatabaseCall}
+                                        }}
+                                    >
+
+                                        <DropdownButton  
+                                            id="bookmarkBtn" 
+                                            title={ 
+                                                <div className="dropdownBtnTitle">
+                                                    <span class="material-icons">bookmarks</span>
+                                                    <p>Bookmarks</p>
+                                                </div>
+                                            }> 
+                                        </DropdownButton>
+                                    </Link> 
                                 </div>
-                            }> 
-                        </DropdownButton>
-                    </Link> 
+                            :
+                                null
+                            }
+
+
+                            {/************** Options Menu */}
+                            {this.props.options === true ?
+                                <div className="uiBarItem" title="Settings" id="settingsDropdown">
+                                    <DropdownButton 
+                                        id="settingsBtn" 
+                                        title={ <span class="material-icons">settings</span>}>
+                                        <OptionsMenu urlInfo={window.location.pathname}/>
+                                    </DropdownButton>
+                                </div>
+                            :
+                                null
+                            }
+
+                        </div>
+
                     </div>
-                    :null
-                    }
-
-
-    {/************** Options Menu */}
-                    {this.props.options === true ?
-                    <div className="uiBarItem" title="Settings" id="settingsDropdown">
-                        <DropdownButton 
-                            id="settingsBtn" 
-                            title={ <span class="material-icons">settings</span>}>
-                            <OptionsMenu urlInfo={window.location.pathname}/>
-                        </DropdownButton>
-                    </div>
-                    :null
-                    }
-
                 </div>
-                    
-
-
-
-
-    </div>
-</div>
-</div>
+            </div>
         )
     }
     
