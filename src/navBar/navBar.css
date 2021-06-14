@@ -274,3 +274,9 @@
 @media (max-width: 400px) {
     .headerWrapper{flex-wrap: wrap; justify-content: space-around;}
 }
+
+@media (max-width: 768px) {
+    .headerWrapper{flex-wrap: wrap; justify-content: space-around;}
+     .navWrapper{width: inherit;}
+        .newUIBarWrapper{justify-content: space-evenly;}
+}
