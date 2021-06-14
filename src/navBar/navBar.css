@@ -59,7 +59,7 @@
             flex-wrap: wrap;
             justify-content: center;
         margin: 2px;
-        max-width: 60px;
+        max-width: 160px;
             width: 100%;
         position: relative;
     }
@@ -93,7 +93,8 @@
         
         #filterActive{color: aqua;}   
         #filterOptionDisplay > span{ display: flex; }
-        #filterOptionDisplay > span > p{display: none; margin: 0;}
+        /* #filterOptionDisplay > span > p{display: none; margin: 0;} */
+        #filterOptionDisplay > span > p{display: flex; margin: 0;}
 
         #filterIsActive {color: green; }
         
@@ -132,10 +133,14 @@
                     transform: translate(-193px, 50px) !important;
                 }
 
-                    .dropdownBtnTitle > span{line-height: inherit;}
+                    /* .dropdownBtnTitle > span{line-height: inherit;} */
                     .navBarButton > span{line-height: inherit;}
 
-                    .dropdownBtnTitle > p{display: none;} 
+                    /* .dropdownBtnTitle > p{display: none;}  */
+
+                    .dropdownBtnTitle{display: flex; align-items: center;}
+                    .dropdownBtnTitle > p{display: contents;}
+
                     .navBarButton > p{display: none;} 
 
 /* Just in case I want to use it */
@@ -147,6 +152,8 @@
 /* Main Nav Bar */
 #siteWideNavBar{
     display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 }
 /* Bookmark Page */
 
@@ -257,14 +264,20 @@
 /* Media Queries */
 @media (min-width: 768px) {
     .uiBarItem{max-width: fit-content;}
-        .dropdownBtnTitle{display: flex; align-items: center;}
-            .dropdownBtnTitle > p{display: contents;}
+        /* .dropdownBtnTitle{display: flex; align-items: center;}
+            .dropdownBtnTitle > p{display: contents;} */
         .navBarButton{display: flex; align-items: center;}
             .navBarButton > p{display: contents;}
             #pageInfo > span > p{display: contents;}
 
-            #filterOptionDisplay > span > p{display: flex; }
+            /* #filterOptionDisplay > span > p{display: flex; } */
+    /* #siteWideNavBar{flex-wrap: nowrap;} */
+    .headerWrapper{flex-wrap: nowrap; }
+        .navWrapper{width: max-content;}
 }
+
+
+
 @media (min-width: 690px) {
     #settingsDropdown > .dropdown > div{
         transform: translate(-206px, 50px) !important;
