@@ -33,12 +33,13 @@
         color:white;
         width: 100%;
     }
-        .headerText > a{color: white !important;}
+        .headerText > a{color: white !important; height: 53px;}
         .headerText > a > span{
             /* display: block; */
-            height: 55.97px;
+            /* height: 55.97px; */
+            height: 53px;
             /* text-align: center; */
-            font-size: 36px;
+            font-size: x-large;
         }
     .navWrapper{
         width: auto;
@@ -52,7 +53,7 @@
         }
     .uiBarItem{
         align-items: center;
-        border: 4px solid black;
+        border: 2px solid black;
         box-sizing: content-box;
         /* cursor: pointer; */
         display: flex;
@@ -60,7 +61,7 @@
             flex-wrap: wrap;
             justify-content: center;
 
-        margin: 2px;
+        /* margin: 2px; */
         /* max-width: 160px; */
             /* width: 100%; */
         position: relative;
@@ -73,9 +74,10 @@
         #settingsBtn:hover{color: pink; } 
 
         .uiBarItem > div {
+        
             position: relative;
             width: 100%;
-            z-index: 21;
+            /* z-index: 21; */
         }
         .uiBarItem > button{
             align-items: center;
@@ -156,6 +158,7 @@
     display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    width: 100%;
 }
 /* Bookmark Page */
 
@@ -165,47 +168,54 @@
 /************************************* Score Buttons */
 /* overall score wrapper */
 #scoreButtons{min-width: min-content;}
-
+    #scoreButtons > button{width: 100%;}
     /* thumb and counter button wrapper */
-    #scoreButtons > button > div > div{
-        display: flex;
-    }
-        /* thumb and counter button */
-        #scoreButtons > button > div > div > button{
-            background-color: white;
-            /* padding-left: 15px;
-            padding-right: 15px;
-            padding-top: 10px;
-            padding-bottom: 10px; */
-            padding: 10px;
-            width: auto;
-            /* border:4px solid; */
-            /*height: 53px;
-            margin-right:5px ;
-            */
+        #scoreButtons > button > div{
+            width: inherit;
         }
-            /* thumb and counter button */
-            #scoreButtons > button > div > div >button:focus:not(:focus-visible){
-                border: none;
-            }
-            /* thumb and counter wrapper */
-            #scoreButtons > button > div > div > button > span{
+            #scoreButtons > button > div > div{
                 display: flex;
-                /*  flex-wrap: wrap;
-                width: min-content; */
+                justify-content: space-evenly;
             }
-            /* score counter text */
-            #scoreButtons > button > div > div > button > span > p{margin: 0; margin-left: 3px;}
+                /* thumb and counter button */
+                #scoreButtons > button > div > div > button{
+                    background-color: white;
+                    /* padding-left: 15px;
+                    padding-right: 15px;
+                    padding-top: 10px;
+                    padding-bottom: 10px; */
+                    padding: 10px;
+                    width: auto;
+                    /* border:4px solid; */
+                    /*height: 53px;
+                    margin-right:5px ;
+                    */
+                }
+                    /* thumb and counter button */
+                    #scoreButtons > button > div > div >button:focus:not(:focus-visible){
+                        border: none;
+                    }
+                    /* thumb and counter wrapper */
+                    #scoreButtons > button > div > div > button > span{
+                        display: flex;
+                        /*  flex-wrap: wrap;
+                        width: min-content; */
+                    }
+                    /* score counter text */
+                    #scoreButtons > button > div > div > button > span > p{margin: 0; margin-left: 3px;}
 
 
 /************************************* Bookmark Controls */
 #bookmarkControls{
     min-width: min-content;
 }
-        #bookmarkControls > button > .onCardControls{display: flex;}
+    #bookmarkControls > button {width: 100%;}
+        #bookmarkControls > button > .onCardControls{display: flex; width: inherit;}
             #bookmarkControls > button > .onCardControls > div{
-                margin: 10px;
+                /* margin: 10px; */
+                /* outline: 1px solid red; */
                 position: relative;
+                width: inherit;
             }
             #bookmarkControls > button > .onCardControls > div > button{
                 /* background-color: red; */
@@ -277,6 +287,11 @@
     .headerWrapper{flex-wrap: nowrap; }
         .navWrapper{width: max-content;}
             .newUIBarWrapper{margin-top: 30px; }
+
+    /* Bookmark Controls */
+    #bookmarkControls > button > .onCardControls > div{
+        margin: 15px;
+    }
 }
 
 

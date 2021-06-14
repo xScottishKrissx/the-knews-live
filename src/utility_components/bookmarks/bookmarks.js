@@ -145,7 +145,7 @@ class Bookmarks extends Component {
                     // Selecting buttons for navbar
                     filter={true} 
                     cardStyle={true} 
-                    options={true} 
+                    // options={true} 
                     
                     // Bookmarks
                     fullDatabaseCall={fullDatabaseCall} 

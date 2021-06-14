@@ -152,7 +152,29 @@ export class NavBar extends React.Component{
                             :
                                 null
                             }
+                        {/************Bookmark Options Menu  */}
+                        {this.props.bookmarked === true ?
 
+                            <div className="uiBarItem" id="bookmarkOptionsMenu">
+                            <DropdownButton 
+                                title={
+                                    <div className="dropdownBtnTitle">
+                                            <span class="material-icons">bookmarks</span> 
+                                            <p>Bookmarks </p>
+                                            <span> ({this.props.bookmarkNumber})</span>
+                                    </div>
+                                }>
+                                    <BookmarkOptionsMenu 
+                                        clearBookmarks={this.props.clearBookmarks}
+                                        markAllUnread={this.props.markAllUnread} 
+                                        markAllRead={this.props.markAllRead} 
+                                        hideAllArticles={this.props.hideAllArticles}
+                                    />
+                                </DropdownButton>
+                            </div>
+                        :
+                            null    
+                        }
 
                             {/************** Options Menu */}
                             {this.props.options === true ?
@@ -167,29 +189,7 @@ export class NavBar extends React.Component{
                                 null
                             }
 
-                                               {/************Bookmark Options Menu  */}
-                        {this.props.bookmarked === true ?
 
-                        <div className="uiBarItem" id="bookmarkOptionsMenu">
-                        <DropdownButton 
-                            title={
-                                <div className="dropdownBtnTitle">
-                                        <span class="material-icons">bookmarks</span> 
-                                        <p>Bookmarks </p>
-                                        <span> ({this.props.bookmarkNumber})</span>
-                                </div>
-                            }>
-                                <BookmarkOptionsMenu 
-                                    clearBookmarks={this.props.clearBookmarks}
-                                    markAllUnread={this.props.markAllUnread} 
-                                    markAllRead={this.props.markAllRead} 
-                                    hideAllArticles={this.props.hideAllArticles}
-                                />
-                            </DropdownButton>
-                        </div>
-                        :
-                        null    
-                        }
 
                         {/************Score Buttons  */}
                         {this.props.score === true ?
