@@ -29,69 +29,10 @@ export class NavBar extends React.Component{
                 
                 <div className="navWrapper">     
                         <div className="newUIBarWrapper">
-
-                        {/************Bookmark Options Menu  */}
-                        {this.props.bookmarked === true ?
-
-                            <div className="uiBarItem" id="bookmarkOptionsMenu">
-                            <DropdownButton 
-                                title={
-                                    <div className="dropdownBtnTitle">
-                                            <span class="material-icons">bookmarks</span> 
-                                            <p>Bookmarks </p>
-                                            <span> ({this.props.bookmarkNumber})</span>
-                                    </div>
-                                }>
-                                    <BookmarkOptionsMenu 
-                                        clearBookmarks={this.props.clearBookmarks}
-                                        markAllUnread={this.props.markAllUnread} 
-                                        markAllRead={this.props.markAllRead} 
-                                        hideAllArticles={this.props.hideAllArticles}
-                                    />
-                                </DropdownButton>
-                            </div>
-                        :
-                            null    
-                        }
-
-                        {/************Score Buttons  */}
-                        {this.props.score === true ?
-                            <div className="uiBarItem" id="scoreButtons">
-                                <Button title="Score" >
-                                    <HandleLike 
-                                        id={this.props.id}
-                                        likes={this.props.likes}
-                                        dislikes={this.props.dislikes}
-                                        databaseId={this.props.databaseId}
-                                        liked={this.props.liked}
-                                        disliked={this.props.disliked}
-                                    />
-                                </Button>
-                            </div> 
-                        :
-                            null
-                        }
-
-                        {/************Bookmark Controls  */}
-                        {this.props.bookmarkControls === true ?
-                            <div className="uiBarItem" id="bookmarkControls">
-                                <Button title="Bookmark Controls" >
-                                    <OnCardBookMarkControls 
-                                        bookmarkedStatus={this.props.bookmarkedStatus}
-                                        fullDatabaseCall={this.props.fullDatabaseCall}
-                                        id={this.props.id}
-                                        readStatus={this.props.readStatus}
-                                        showMarkAsReadButton={this.props.showMarkAsReadButton}
-                                        arrayFromDatabase={this.props.arrayFromDatabase}
-                                        leftoverArticles={this.props.leftoverArticles}
-                                    />
-                                </Button>
-                            </div> 
-                        :
-                            null       
-                        }
-                            
                         <div id="siteWideNavBar">  
+     
+                            
+                        
 
                             {/************ Home Button */}
                             <div className="uiBarItem" title="Return Home" id="homeBtn">
@@ -225,6 +166,67 @@ export class NavBar extends React.Component{
                             :
                                 null
                             }
+
+                                               {/************Bookmark Options Menu  */}
+                        {this.props.bookmarked === true ?
+
+                        <div className="uiBarItem" id="bookmarkOptionsMenu">
+                        <DropdownButton 
+                            title={
+                                <div className="dropdownBtnTitle">
+                                        <span class="material-icons">bookmarks</span> 
+                                        <p>Bookmarks </p>
+                                        <span> ({this.props.bookmarkNumber})</span>
+                                </div>
+                            }>
+                                <BookmarkOptionsMenu 
+                                    clearBookmarks={this.props.clearBookmarks}
+                                    markAllUnread={this.props.markAllUnread} 
+                                    markAllRead={this.props.markAllRead} 
+                                    hideAllArticles={this.props.hideAllArticles}
+                                />
+                            </DropdownButton>
+                        </div>
+                        :
+                        null    
+                        }
+
+                        {/************Score Buttons  */}
+                        {this.props.score === true ?
+                        <div className="uiBarItem" id="scoreButtons">
+                            <Button title="Score" >
+                                <HandleLike 
+                                    id={this.props.id}
+                                    likes={this.props.likes}
+                                    dislikes={this.props.dislikes}
+                                    databaseId={this.props.databaseId}
+                                    liked={this.props.liked}
+                                    disliked={this.props.disliked}
+                                />
+                            </Button>
+                        </div> 
+                        :
+                        null
+                        }
+
+                        {/************Bookmark Controls  */}
+                        {this.props.bookmarkControls === true ?
+                        <div className="uiBarItem" id="bookmarkControls">
+                            <Button title="Bookmark Controls" >
+                                <OnCardBookMarkControls 
+                                    bookmarkedStatus={this.props.bookmarkedStatus}
+                                    fullDatabaseCall={this.props.fullDatabaseCall}
+                                    id={this.props.id}
+                                    readStatus={this.props.readStatus}
+                                    showMarkAsReadButton={this.props.showMarkAsReadButton}
+                                    arrayFromDatabase={this.props.arrayFromDatabase}
+                                    leftoverArticles={this.props.leftoverArticles}
+                                />
+                            </Button>
+                        </div> 
+                        :
+                        null       
+                        }
 
                         </div>
 

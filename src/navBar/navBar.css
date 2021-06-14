@@ -14,7 +14,7 @@
         flex-direction: row;
         /* align-items: flex-end; */
         justify-content: flex-end;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     margin-bottom: 30px;
     width: inherit;
 }
@@ -56,11 +56,13 @@
         box-sizing: content-box;
         /* cursor: pointer; */
         display: flex;
+            flex: 1 40%;
             flex-wrap: wrap;
             justify-content: center;
+
         margin: 2px;
-        max-width: 160px;
-            width: 100%;
+        /* max-width: 160px; */
+            /* width: 100%; */
         position: relative;
     }
 
@@ -274,6 +276,7 @@
     /* #siteWideNavBar{flex-wrap: nowrap;} */
     .headerWrapper{flex-wrap: nowrap; }
         .navWrapper{width: max-content;}
+            .newUIBarWrapper{margin-top: 30px; }
 }
 
 
