@@ -104,14 +104,16 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             
             <div id="cardArea"> 
 
-            {/* <div className="headerWrapper">
-                <div className="box1"><span>theKnews</span></div>
-                <div className="box2">   */}
-
-                    <NavBar 
-                        score={false}
-                        // filter
+                    <NavBar                         
+                        // selecting buttons for menu
+                        filter={true} 
+                        bookmarks={true} 
+                        cardStyle={true} 
+                        liteKnews={true} 
+                        bookmarks={true} 
+                        options={true}
                         
+                        // filter
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
 
@@ -122,26 +124,10 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         showArticle={() => this.showArticle()}
 
                         // filter, bookmarks
-                        fullDatabaseCall={this.props.fullDatabaseCall}
+                        fullDatabaseCall={this.props.fullDatabaseCall}           
+                        
                     />
 
-                {/* </div>
-            </div> */}
-
-                {/* <NavBar 
-                    // filter
-                    getArticleBy={this.state.getArticleBy}
-                    getFilteredArticles={this.getFilteredArticles}
-
-                    // card size
-                    getCardSize={this.getCardSize} 
-
-                    // liteKnews
-                    showArticle={() => this.showArticle()}
-
-                    // filter, bookmarks
-                    fullDatabaseCall={this.props.fullDatabaseCall}
-                /> */}
                 
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
                 

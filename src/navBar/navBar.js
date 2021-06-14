@@ -61,9 +61,8 @@ export class NavBar extends React.Component{
                 }
 
     {/************Score Buttons  */}
-    {this.props.score === false ?
-        null
-        :
+    {this.props.score === true ?
+
         <div className="uiBarItem" id="scoreButtons">
         <Button title="Score" >
                 {/* <div className="dropdownBtnTitle">
@@ -80,29 +79,32 @@ export class NavBar extends React.Component{
                 />
         </Button>
         </div> 
+        :null
     }
 
         {/************Bookmark Controls  */}
-        {this.props.bookmarkControls === false ?
-        null
-        :
+        {this.props.bookmarkControls === true ?
+
         <div className="uiBarItem" id="bookmarkControls">
-        <Button title="Bookmark Controls" >
-                {/* <div className="dropdownBtnTitle">
-                    <span class="material-icons">score</span> 
-                    <p>Score </p>
-                </div> */}
-        <OnCardBookMarkControls 
-                            bookmarkedStatus={this.props.bookmarkedStatus}
-                            fullDatabaseCall={this.props.fullDatabaseCall}
-                            id={this.props.id}
-                            readStatus={this.props.readStatus}
-                            showMarkAsReadButton={this.props.showMarkAsReadButton}
-                            arrayFromDatabase={this.props.arrayFromDatabase}
-                            leftoverArticles={this.props.leftoverArticles}
-        />
-        </Button>
+            <Button title="Bookmark Controls" >
+                    {/* <div className="dropdownBtnTitle">
+                        <span class="material-icons">score</span> 
+                        <p>Score </p>
+                    </div> */}
+                <OnCardBookMarkControls 
+                                    bookmarkedStatus={this.props.bookmarkedStatus}
+                                    fullDatabaseCall={this.props.fullDatabaseCall}
+                                    id={this.props.id}
+                                    readStatus={this.props.readStatus}
+                                    showMarkAsReadButton={this.props.showMarkAsReadButton}
+                                    arrayFromDatabase={this.props.arrayFromDatabase}
+                                    leftoverArticles={this.props.leftoverArticles}
+                />
+            </Button>
         </div> 
+        
+        :null
+                
     }
 
 
@@ -122,9 +124,8 @@ export class NavBar extends React.Component{
                         </Button>
                     </div>
 
-                {this.props.filter === false ?
-                null
-                :    
+                {this.props.filter === true ?
+ 
                 <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
                         <DropdownButton 
                             id="filterBtn" 
@@ -162,15 +163,14 @@ export class NavBar extends React.Component{
                             }
                         </DropdownButton>
                     </div>
+                    :null
                 }
 
 
                 
 
     {/************** Card Size */}
-                    {this.props.cardStyle === false ?
-                    null
-                    :    
+                    {this.props.cardStyle === true ?  
                     <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
                         <DropdownButton 
                             id="changeCardBtn" 
@@ -183,6 +183,7 @@ export class NavBar extends React.Component{
                             <CustomCardSize getCardSizeToParent={this.props.getCardSize} />
                         </DropdownButton>
                     </div>
+                    :null
                 }
 
 
@@ -194,9 +195,8 @@ export class NavBar extends React.Component{
                     {/* <div class="uiBarDivider"> | </div> */}
 
     {/************** liteKnews */}
-                    {this.props.liteKnews === false ? 
-                    null
-                    :
+                    {this.props.liteKnews === true ? 
+        
                     <div className="uiBarItem" title="Start Lite Knews" onClick={this.props.showArticle} >
                         <DropdownButton 
                             id="liteKnewsBtn" 
@@ -208,12 +208,12 @@ export class NavBar extends React.Component{
                             }>                        
                         </DropdownButton>
                     </div>
+                    :null
                     }
 
     {/************** Bookmarks */}
-                    {this.props.bookmarks === false ?
-                    null
-                    :                
+                    {this.props.bookmarks === true ?
+                  
                     <div className="uiBarItem" title="View Bookmarks">
                     <Link to={{ pathname:'home/bookmarks', state:{ fullDatabaseCall:this.props.fullDatabaseCall}}}>
                         <DropdownButton  
@@ -227,11 +227,12 @@ export class NavBar extends React.Component{
                         </DropdownButton>
                     </Link> 
                     </div>
+                    :null
                     }
+
+
     {/************** Options Menu */}
-                    {this.props.options === false ?
-                    null
-                    :    
+                    {this.props.options === true ?
                     <div className="uiBarItem" title="Settings" id="settingsDropdown">
                         <DropdownButton 
                             id="settingsBtn" 
@@ -239,6 +240,7 @@ export class NavBar extends React.Component{
                             <OptionsMenu urlInfo={window.location.pathname}/>
                         </DropdownButton>
                     </div>
+                    :null
                     }
 
                 </div>

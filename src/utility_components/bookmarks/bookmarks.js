@@ -4,7 +4,6 @@ import fire from '../../fire.js';
 import "../bookmarks/bookmarks.css";
 import RenderCard from '../renderCard/renderCard.js';
 
-import CustomCardSize from '../custom-tile-size/custom-card-sizeV2.js';
 // Bookmarks
 import clearAllBookmarks from './clearAllBookmarks.js';
 import markAllUnread from './markAllUnread.js';
@@ -13,7 +12,6 @@ import hideAllArticles from './hideAllArticles.js';
 import updateBookmarkStyles from './updateBookmarkStyle.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
-import { database } from 'firebase';
 import markAllRead from './markAllRead.js';
 
 
@@ -86,15 +84,6 @@ class Bookmarks extends Component {
         if(this.state.getArticleBy === undefined){
             this.setState({getArticleBy:localStorage.getItem("bookmarksFilterOption")})
         }
-        
-        // the issue with navbar filtering is here...
-        // console.log(database)
-        // if(database === null){
-        //     this.setState({bookmarks:[],})
-        // }else{
-        //     const getBookmarks = database.filter(obj => obj.bookmarked === true && obj.tag === localStorage.getItem("bookmarksFilterOption") ) 
-        //     this.setState({bookmarks:getBookmarks})
-        // }
 
     }
 
@@ -145,8 +134,6 @@ class Bookmarks extends Component {
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         
         const fullDatabaseCall = this.state.fullDatabaseCall
-        
-        // const bookmarkCount = this.state.bookmarksCount || this.state.bookmarks.length;
         const bookmarkCount = this.state.bookmarksCount;
 
         return(
@@ -154,9 +141,12 @@ class Bookmarks extends Component {
         <div id="bookmarkWrapper">
 
 
-
-            {/* After Render*/}
-            <NavBar filter={true} cardStyle={true} liteKnews={false} bookmarks={false} options={true} score={false}
+            <NavBar 
+                    // Selecting buttons for navbar
+                    filter={true} 
+                    cardStyle={true} 
+                    options={true} 
+                    
                     // Bookmarks
                     fullDatabaseCall={fullDatabaseCall} 
                     getFilteredArticles = {this.getFilteredArticles}
@@ -179,21 +169,6 @@ class Bookmarks extends Component {
             />
             {/* The Initial Render */}
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={true} />
-
-           
-            {/* <div id="bookmarksHeader">
-                <h1><span class="material-icons">bookmarks</span>Bookmarks</h1> 
-                {this.state.getArticleBy === "All" ? 
-                    <span>You have {bookmarkCount} items bookmarked across all tags</span>
-                    :
-                    <span>You have {bookmarkCount} items bookmarked in {this.state.getArticleBy}</span>
-                }
-                <hr/>
-            </div>  */}
-            
-            
-            
-
             
             <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
                 {this.state.bookmarks.length === 0 ?

@@ -1031,12 +1031,14 @@ General Notes  Objectives:
                                             ✔ Home @done(17:29 - 09/06/21)
                                             ✔ Bookmarks @done(17:29 - 09/06/21)
                                             ☐ Article Page
-                                                ☐ Add like/dislike buttons to navbar
-                                                ☐ Add bookmark button to navbar
-                                                ☐ Add Hide article button to nav bar
+                                                ✔ Add like/dislike buttons to navbar @done(10:55 - 14/06/21)
+                                                ✔ Add bookmark controls to navbar @done(10:56 - 14/06/21)
+                                                ☐ Add link to bookmark page
+                                                ✔ Add Hide article button to nav bar @done(10:56 - 14/06/21)
                                             ☐ Tags
                                             ☐ Author Page
                                             ☐ liteKnews
+                                        ☐ How about making the scroll back fixed, and adding the scrollUp button to the nav bar?
 
                         Issues:
                             ☐ Many, probably.
@@ -1055,6 +1057,8 @@ General Notes  Objectives:
                             // added media queries at point where text in ui activates.
             12.10.2 - Article Page:
             12.10.3 - Bookmark Page:
+            12.10.3 - liteKnews:
+                ☐ Add keyboard support for article switching with left/right arrow keys.
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -1208,6 +1212,7 @@ Part 2 Implement Database functionality:
             ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
             ☐ 13.3 - (if missed in 12.10) - redo the feedback message to allow for undo of article.
             ☐ 13.4 - Rework filters to work without need for current workaround.
+            ☐ 13.5 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
             
 
         Version 12 (Future Version) - Planned Notes:
@@ -1223,7 +1228,7 @@ Part 2 Implement Database functionality:
             ✔ 12.6 - Get Like and Dislike to work separate from myKnews @done(18:17 - 21/05/21)
             ✔ 12.7 - Look into swiping liteKnews to switch articles @done(11:41 - 25/05/21)
             ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
-            ☐ 12.9 - Misc Bug Fixes & Tweaks       
+            ✔ 12.9 - Misc Bug Fixes & Tweaks @done(10:53 - 14/06/21)
             ☐ 12.10 - Overhaul Main UI
 
         

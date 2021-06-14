@@ -110,13 +110,9 @@ export class NewsPageVIEW extends React.Component{
                 <div className='news-page-wrapper' key={value.id}> 
                     <NavBar 
                     // Menu Config
-                    filter={false} 
-                    cardStyle={false} 
-                    liteKnews={false} 
-                    bookmarks={false} 
-                    options={false} 
                     score={true} 
-                    
+                    bookmarkControls={true}
+                    bookmarks={true}
                     // Handle Like
                     id={value.id} 
                     likes={value.likes}
@@ -126,6 +122,7 @@ export class NewsPageVIEW extends React.Component{
                     disliked={value.disliked}
 
                     // bookmarkControls
+                    
                     bookmarkedStatus={value.bookmarked}
                     fullDatabaseCall={this.state.fullDatabaseCall}
                     id={value.id}

@@ -118,10 +118,9 @@ export class NewsPage extends React.Component{
                         <img src={loading} alt="loading, please wait for results"/>
                     :
                     <span>
-                    <NavBar filter={false} cardStyle={false} liteKnews={false} bookmarks={false} options={false}  score={false} />
+                    <NavBar />
                         <div className="error-message">
-                            <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
-                            <Link to='/theKnews/home'><p>Home</p></Link>
+                            <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because, at the end of the day, they're monkeys.</p>
                         </div>
                     </span>
                     }
