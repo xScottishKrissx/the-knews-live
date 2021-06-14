@@ -102,7 +102,7 @@ export class NavBar extends React.Component{
                 />
             </Button>
         </div> 
-        
+
         :null
                 
     }
@@ -215,7 +215,7 @@ export class NavBar extends React.Component{
                     {this.props.bookmarks === true ?
                   
                     <div className="uiBarItem" title="View Bookmarks">
-                    <Link to={{ pathname:'home/bookmarks', state:{ fullDatabaseCall:this.props.fullDatabaseCall}}}>
+                    <Link to={{ pathname:'/theKnews/home/bookmarks', state:{ fullDatabaseCall:this.props.fullDatabaseCall}}}>
                         <DropdownButton  
                             id="bookmarkBtn" 
                             title={ 
