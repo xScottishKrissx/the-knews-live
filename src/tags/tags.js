@@ -13,6 +13,7 @@ import RenderCard from '../utility_components/renderCard/renderCard.js';
 
 import loading from '../img/loading5.gif';
 import NavBar from '../navBar/navBar.js';
+import FilterOptions from '../utility_components/filterOptions/filterOptions.js';
 
 class Tags extends React.Component{
 
@@ -47,6 +48,18 @@ class Tags extends React.Component{
         })
     }
 
+    getFilteredArticles = (filteredByTag,getArticleBy,length) => {
+        // console.log(filteredByTag)
+        // console.log(getArticleBy)
+        // console.log(length)
+        this.setState({
+            bookmarks: filteredByTag,
+            getArticleBy:getArticleBy,
+            bookmarksCount:length
+        })
+        
+    }
+
     componentDidMount(){
         // console.log(this.props.match.params.a)
         // console.log(this.props.match.params.b)
@@ -58,7 +71,6 @@ class Tags extends React.Component{
         // console.log(orderQueryByChild + " " + searchDBFor)
 
         const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).equalTo(searchDBFor)
-        // const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).startAt(searchDBFor.toUppercase).endAt(searchDBFor.toLowerCase+ "\uf8ff")
                 
         dbRef.on('value', (snapshot) => {
             let newsItems = snapshot.val();
@@ -118,9 +130,7 @@ class Tags extends React.Component{
     
     render(){
 
-        const fullDatabaseCallFromStorage = 
-                JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || 
-                this.state.fullDatabaseCall;
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
 
         // console.log(fullDatabaseCallFromStorage) 
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
@@ -139,13 +149,51 @@ class Tags extends React.Component{
                         {/* <ClearCache /> */}
                         
                         {/* <NavControls props="only-home-button"/> */}
-                        <NavBar />
+                        <NavBar 
+                            bookmarks={true}
+                            cardStyle={true}                         
+                            // filter={true}
+
+                            // Card Style to work...
+                            getCardSize={this.getCardSize}
+
+                            // filter to work...
+                            fullDatabaseCall={this.state.fullDatabaseCall}
+                            getFilteredArticles = {this.getFilteredArticles}
+                            tagsArray={renderTags}
+                        />
+
+
+                        <FilterOptions fullDatabaseCall={this.state.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} tagsArray={renderTags}/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         {this.props.match.params.b || this.props.location.state.author === undefined ?
                         <h1>Showing articles from {this.props.match.params.b || this.props.location.state.searchDBFor}</h1>
                         : 
                         <h1>Showing articles from {this.props.match.params.b || this.props.location.state.author}</h1>
-                        }        
-                        <CustomCardSize getCardSizeToParent={this.getCardSize} />
+                        }      
+
+
+
+
+
+
+
+                        {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
                         {renderTags.length === 0 ?
                         // <div>Nothing here</div>
                         <span> <img alt="now loading" src={loading} /> Loading   </span>

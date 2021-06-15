@@ -1037,10 +1037,9 @@ General Notes  Objectives:
                                                 ✔ Add Hide article button to nav bar @done(10:56 - 14/06/21)
                                             ☐ Tags
                                                 Tags Bar Options:
-                                                    ☐ Home Button
-                                                    ☐ Card Style
-                                                    ☐ Filter
-                                            ☐ Author Page
+                                                    ✔ Home Button @done(12:21 - 15/06/21)
+                                                    ✔ Card Style @done(12:21 - 15/06/21)
+                                                    ☐ Filter(only for author)
                                             ☐ liteKnews
                                         ☐ How about making the scroll back fixed, and adding the scrollUp button to the nav bar?
 

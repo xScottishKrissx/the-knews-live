@@ -40,7 +40,9 @@ class FilterOptions extends Component {
         // console.log(value)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
+        // console.log(fullDatabaseCallFromProp)
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
+        // const fullDatabaseCall = fullDatabaseCallFromProp || fullDatabaseCallFromStorage;
         // console.log(fullDatabaseCall)
 
         // Filter array for null objects and remove anything marked as hidden.
@@ -93,7 +95,15 @@ class FilterOptions extends Component {
     }
 
     render(){
+        
+        console.log(this.props.tagsArray)
+
+
+        
         // Adding article count to dropdown menu.
+        
+
+
         var allTags = {}
         if(this.props.bookmarked === true){
             // Bookmarks Page

@@ -78,9 +78,10 @@ export class NavBar extends React.Component{
                                             />
                                         :
                                             <FilterOptions 
-                                                fullDatabaseCall = {this.props.fullDatabaseCall} 
+                                                fullDatabaseCall = {this.props.tagsArray || this.props.fullDatabaseCall} 
                                                 getFilteredArticles = {this.props.getFilteredArticles}
                                                 bookmarked={false}
+                                                tagsArray={this.props.tagsArray}
                                             />
                                         }
 
