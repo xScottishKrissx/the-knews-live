@@ -145,6 +145,7 @@ class Bookmarks extends Component {
                     // Selecting buttons for navbar
                     filter={true} 
                     cardStyle={true} 
+                    homeButtonOn={true}
                     // options={true} 
                     
                     // Bookmarks

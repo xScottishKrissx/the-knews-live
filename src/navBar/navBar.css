@@ -22,9 +22,12 @@
 
 }
 .headerWrapper{
+    background-color: white;
     display: flex;
         align-items: center;
+    /* position: fixed; */
     width: 100%;
+    z-index: 100;
 }
     .headerText{
         background-color: black;
@@ -47,6 +50,13 @@
         }
     .navWrapper{
         width: auto;
+
+        /* navbar at bottom of screen test */
+        /* position: fixed;
+        bottom: 0;
+        z-index: 20;
+        background-color: white;
+        width: 100%; */
     }
         #homeBtn > button{
             background-color: white !important;
@@ -85,6 +95,7 @@
         }
         .uiBarItem > button{
             align-items: center;
+            color: black;
             display: flex;
             justify-content: center;
             width: max-content;
@@ -164,6 +175,19 @@
         justify-content: center;
     width: 100%;
 }
+
+/* #navBarScrollTopBtn > button > div > button{
+    bottom: auto;
+    border: none;
+    height: auto;
+    left: auto;
+    margin: auto;
+    position: relative;
+    width: auto;
+
+} */
+
+
 /* Bookmark Page */
 
 
@@ -234,7 +258,7 @@
                     /* background-color: #28a745; */
                 }
 
-
+.tags-item-wrapper > .filterButtonWrapper {position: absolute; left: -9999999999px;}
 /************************************ liteKnews  */
 #navBarLiteKnewsWrapper > button{
     margin: 0;

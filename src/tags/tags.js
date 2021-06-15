@@ -153,6 +153,7 @@ class Tags extends React.Component{
                             bookmarks={true}
                             cardStyle={true}                         
                             // filter={true}
+                            homeButtonOn={true}
 
                             // Card Style to work...
                             getCardSize={this.getCardSize}

@@ -11,6 +11,7 @@ import HandleLike from "../utility_components/handleSocialScore/handleLike";
 
 import './navBar.css'
 import OnCardBookMarkControls from '../utility_components/bookmarks/onCardBookmarkControls';
+import ScrollToTopBtn from '../utility_components/scrollToTop/scrollToTop';
 
 export class NavBar extends React.Component{
     
@@ -35,16 +36,21 @@ export class NavBar extends React.Component{
                         
 
                             {/************ Home Button */}
-                            <div className="uiBarItem" title="Return Home" id="homeBtn">
-                                <Button title="Home">
-                                    <Link to='/theKnews/home'>
-                                    <div className="dropdownBtnTitle">
-                                        <span class="material-icons">home</span>
-                                        <p>Home</p>
-                                    </div>
-                                    </Link>
-                                </Button>
-                            </div>
+                            {this.props.homeButtonOn === true ?
+                                <div className="uiBarItem" title="Return Home" id="homeBtn">
+                                    <Button title="Home">
+                                        <Link to='/theKnews/home'>
+                                        <div className="dropdownBtnTitle">
+                                            <span class="material-icons">home</span>
+                                            <p>Home</p>
+                                        </div>
+                                        </Link>
+                                    </Button>
+                                </div>
+                            :
+                                null
+                            }
+    
 
                             {this.props.filter === true ?
                                 <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
@@ -62,6 +68,7 @@ export class NavBar extends React.Component{
                                                         <span>
                                                             <span id="filterActive" class="material-icons">filter_alt</span>
                                                             <p className="filterIsActive">Filter: { getArticle }</p>
+                                                            <span> ({this.props.bookmarkNumber})</span>
                                                         </span>                                        
                                                     }
                                                 </div>
@@ -160,9 +167,9 @@ export class NavBar extends React.Component{
                             <DropdownButton 
                                 title={
                                     <div className="dropdownBtnTitle">
-                                            <span class="material-icons">bookmarks</span> 
-                                            <p>Bookmarks </p>
-                                            <span> ({this.props.bookmarkNumber})</span>
+                                            <span class="material-icons">settings</span> 
+                                            <p>Options </p>
+                                            {/* <span> ({this.props.bookmarkNumber})</span> */}
                                     </div>
                                 }>
                                     <BookmarkOptionsMenu 
@@ -254,7 +261,7 @@ export class NavBar extends React.Component{
                             null
                         }
 
-                        {/************Score Buttons  */}
+                        {/************liteKnews article controls  */}
                         {this.props.liteKnewsControls === true ?
                         <div className="uiBarItem" id="navBarLiteKnewsWrapper">
                             <Button title="controls for lite knews" >
@@ -268,6 +275,18 @@ export class NavBar extends React.Component{
                         :
                         null
                         }
+
+                        {/************nav bar scroll to top button  */}
+                        {/* {this.props.liteKnewsControls === true ? */}
+                        {/* <div className="uiBarItem" id="navBarScrollTopBtn">
+                            <Button title="scroll to top" >
+                                <ScrollToTopBtn />
+                            </Button>
+                        </div>  */}
+
+                        {/* :
+                        null
+                        } */}
 
                         </div>
 

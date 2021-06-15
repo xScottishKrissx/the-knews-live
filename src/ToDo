@@ -1031,6 +1031,7 @@ General Notes  Objectives:
                                         Pages to to integrate:
                                             ✔ Home @done(17:29 - 09/06/21)
                                             ✔ Bookmarks @done(17:29 - 09/06/21)
+                                                ☐ Add visual indicator of number of bookmarks, perhaps a separate area on the navbar.
                                             ✔ Article Page @done(11:32 - 15/06/21)
                                                 ✔ Add like/dislike buttons to navbar @done(10:55 - 14/06/21)
                                                 ✔ Add bookmark controls to navbar @done(10:56 - 14/06/21)
@@ -1041,14 +1042,16 @@ General Notes  Objectives:
                                                     ✔ Home Button @done(12:21 - 15/06/21)
                                                     ✔ Card Style @done(12:21 - 15/06/21)
                                                     ☐ Filter(only for author)
-                                            ☐ liteKnews
+                                            ✔ liteKnews @done(16:49 - 15/06/21)
                                                 Options to add:
                                                     ✔ Bookmark Controls @done(13:23 - 15/06/21)
                                                     ✔ Link to bookmark page @done(13:23 - 15/06/21)
                                                     ✔ Link to full article @done(13:30 - 15/06/21)
-                                                    ☐ liteKnews controls(?? - Might not be a good idea but I would like to try it just to see)
-                                                        ☐ I actually now like the controls in the navbar, but for mobile the controls at the bottom of the page is the way to go. I might move the entire bar to the bottom of the page, at least the controls part. Maybe leave the header at the top.
-                                        ☐ How about making the scroll back fixed, and adding the scrollUp button to the nav bar?
+                                                    ✔ liteKnews controls(?? - Might not be a good idea but I would like to try it just to see) @done(16:38 - 15/06/21)
+                                                        ✔ I actually now like the controls in the navbar, but for mobile the controls at the bottom of the page is the way to go. I might move the entire bar to the bottom of the page, at least the controls part. Maybe leave the header at the top. @done(16:39 - 15/06/21)
+                                        ✘ How about making the scroll back fixed, and adding the scrollUp button to the nav bar? @cancelled(16:37 - 15/06/21)
+                                                    ✔ Not everything needs to be added to the navbar and the scroll to top button makes more sense always being in the middle bottom of the page. @done(16:38 - 15/06/21)
+                                        ✔ Home button shouldn't appear on the home page. @done(16:49 - 15/06/21)
 
                         Issues:
                             ☐ Many, probably.

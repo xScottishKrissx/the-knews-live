@@ -132,7 +132,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
                 
 
-
+                <div className="cardsWrapper">
                 {this.props.databaseProp.length >= 30 && thing ? 
                 // The Cards themselves...
                  <RenderCard
@@ -148,6 +148,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 }
+                
                
                 {this.state.getArticleBy === "All" ?
                 //  Infinite Scroll
@@ -162,11 +163,12 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         
                     />   
                     
-                    
+                
                 :
                 // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
-                }       
+                }      
+                </div> 
             </div>
             }
             </div>

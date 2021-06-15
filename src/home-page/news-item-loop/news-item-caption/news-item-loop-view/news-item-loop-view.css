@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+    .cardsWrapper{
+        display: flex;
+            flex-wrap: wrap;
+        margin-top: 5vh;
+    }
+
 /* Hide Article Message  */
 #hideArticleMessageWrapper{
     background-color: white;
