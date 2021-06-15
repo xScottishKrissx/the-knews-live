@@ -20,7 +20,9 @@
    #speedKnews{max-width:1500px; width: 100%;}
    #speedKnewsWrapper{width: inherit;}
        .speedKnewsArticleContainer{
-           margin-bottom: 300px;
+            margin: 0 auto;   
+            margin-bottom: 300px;
+           
        }
        .speedKnewsArticleContainer header {
            margin-bottom: 2.5rem;
@@ -40,6 +42,9 @@
            max-width: 1000px;
        }
        .speedKnewsArticleContainer article p{margin-top: 0;}
+#liteKnewsWrapper{
+    width: 100%;
+}
    #liteKnewsControls{
        position: fixed;
        bottom: 0;

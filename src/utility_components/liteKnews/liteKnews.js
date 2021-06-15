@@ -3,6 +3,7 @@ import '../liteKnews/liteKnews.css';
 import LiteKnewsView from './liteKnewsView';
 
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+import NavBar from '../../navBar/navBar';
 
 class LiteKnews extends Component {
 
@@ -49,9 +50,26 @@ class LiteKnews extends Component {
 
         return (
             <div id="liteKnewsWrapper">              
+                <NavBar 
+                    bookmarkControls={true}
+                    bookmarks={true}
+                    articleLink={true}
+
+                    // Bookmark Controls
+                    bookmarkedStatus={articleFromArray.bookmarked}
+                    id={articleFromArray.id}
+                    readStatus={articleFromArray.read}
+                    showMarkAsReadButton={false}
+                    arrayFromDatabase={this.props.arrayFromDatabase}
+                    leftoverArticles={this.props.leftoverArticles}
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                 
+                />
+
+
                 <div id="speedKnews">                
                     <div id="speedKnewsWrapper" >
-                    <h1>liteKnews - theKnews but lighter</h1>
+                    {/* <h1>liteKnews - theKnews but lighter</h1> */}
 
                     {articleFromArray != null || undefined ? 
                         <SwipeableList threshold= {0.48} swipeStartThreshold={0.5} >
@@ -85,20 +103,14 @@ class LiteKnews extends Component {
                             
                         >
                             <LiteKnewsView 
-                            id={articleFromArray.id}
-                            title={articleFromArray.title}
-                            author={articleFromArray.author}
-                            key={articleFromArray.key}
-                            text={articleFromArray.text}
-                            
-
-                            bookmarkedStatus={articleFromArray.bookmarked}
-                            readStatus={articleFromArray.read}
-            
-                            fullDatabaseCall={this.props.fullDatabaseCall}
-                            postsArray={this.props.postsArray}
-                            leftoverArticles={this.props.leftoverArticles}
-                            arrayFromDatabase={this.props.arrayFromDatabase}
+                                id={articleFromArray.id}
+                                title={articleFromArray.title}
+                                author={articleFromArray.author}
+                                key={articleFromArray.key}
+                                text={articleFromArray.text}
+                                
+                                bookmarkedStatus={articleFromArray.bookmarked}
+                                readStatus={articleFromArray.read}
                             />
                                                              
                             </SwipeableListItem>

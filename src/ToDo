@@ -1041,6 +1041,11 @@ General Notes  Objectives:
                                                     ✔ Card Style @done(12:21 - 15/06/21)
                                                     ☐ Filter(only for author)
                                             ☐ liteKnews
+                                                Options to add:
+                                                    ✔ Bookmark Controls @done(13:23 - 15/06/21)
+                                                    ✔ Link to bookmark page @done(13:23 - 15/06/21)
+                                                    ✔ Link to full article @done(13:30 - 15/06/21)
+                                                    ☐ liteKnews controls(?? - Might not be a good idea but I would like to try it just to see)
                                         ☐ How about making the scroll back fixed, and adding the scrollUp button to the nav bar?
 
                         Issues:

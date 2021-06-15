@@ -113,7 +113,7 @@ export class NewsPageVIEW extends React.Component{
                     score={true} 
                     bookmarkControls={true}
                     bookmarks={true}
-                    
+
                     // Handle Like
                     id={value.id} 
                     likes={value.likes}
@@ -123,7 +123,6 @@ export class NewsPageVIEW extends React.Component{
                     disliked={value.disliked}
 
                     // bookmarkControls
-                    
                     bookmarkedStatus={value.bookmarked}
                     fullDatabaseCall={this.state.fullDatabaseCall}
                     id={value.id}

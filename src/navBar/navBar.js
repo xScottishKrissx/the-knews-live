@@ -229,6 +229,31 @@ export class NavBar extends React.Component{
                         null       
                         }
 
+                        {/************Article Link (liteKnews)  */}
+                        {this.props.articleLink === true ?                            
+                            <div className="uiBarItem" title="Go to full article page to this article.">
+                                <Link 
+                                    to={{ 
+                                        pathname:'/theKnews/home/articles/news-page/' + this.props.id,
+                                        state:{ articleId:this.props.id}
+                                    }}
+                                >
+
+                                    <DropdownButton  
+                                        id="articleLinkBtn" 
+                                        title={ 
+                                            <div className="dropdownBtnTitle">
+                                                <span class="material-icons">article</span>
+                                                <p>Full Article Page</p>
+                                            </div>
+                                        }> 
+                                    </DropdownButton>
+                                </Link> 
+                            </div>
+                        :
+                            null
+                        }
+
                         </div>
 
                     </div>
