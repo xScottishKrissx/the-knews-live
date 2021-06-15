@@ -20,6 +20,9 @@
    #speedKnews{max-width:1500px; width: 100%; margin: 0 auto;}
    #speedKnewsWrapper{width: inherit;}
        .speedKnewsArticleContainer{
+            display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
             margin: 0 auto;   
             margin-bottom: 300px;
            

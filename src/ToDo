@@ -995,6 +995,7 @@ General Notes  Objectives:
                         ☐ options menu
                             ✔ Clear Bookmarks not currently working @done(17:35 - 08/06/21)
                                 ✔ Solution - Wrong file path for component import @done(17:35 - 08/06/21)
+                            ☐ Add mark all unread button.
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
                     ☐ Just as being able to see when a filter is active, the same should be done for card size.
                     ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.

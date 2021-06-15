@@ -236,21 +236,40 @@
 
 
 /************************************ liteKnews  */
-#navBarLiteKnewsWrapper{
-
+#navBarLiteKnewsWrapper > button{
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
     #navBarLiteKnewsControls{
         display: flex;
             justify-content: space-evenly;
+            width: 100%;
     }
         #navBarLiteKnewsControls  > button{
             background-color: white;
-            margin: 20px;
+            /* margin: 20px; */
             min-width: fit-content;
             /* outline: 1px solid black; */
-            width: 50px;
+            /* width: 50px; */
+            width: inherit;
         }
 
+@media (max-width: 768px) {
+    #navBarLiteKnewsWrapper{
+        background-color: white;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 50;
+    }
+}
+
+@media(min-width: 768px){
+    #navBarLiteKnewsControls > button{
+        /* width: 75px; */
+    }
+}
 
 /* customising react.bootstrap  */
 .dropdown-toggle::after { display: none !important;}
