@@ -54,6 +54,7 @@ class LiteKnews extends Component {
                     bookmarkControls={true}
                     bookmarks={true}
                     articleLink={true}
+                    liteKnewsControls={true}
 
                     // Bookmark Controls
                     bookmarkedStatus={articleFromArray.bookmarked}
@@ -63,6 +64,11 @@ class LiteKnews extends Component {
                     arrayFromDatabase={this.props.arrayFromDatabase}
                     leftoverArticles={this.props.leftoverArticles}
                     fullDatabaseCall={this.props.fullDatabaseCall}
+
+                    // Article COntrols
+                    prevArticle = {()=>this.changeArticle("prev")}
+                    nextArticle = {()=>this.changeArticle("next")}
+                    closeLiteKnews = {()=>this.changeArticle("close")}
                  
                 />
 
@@ -123,11 +129,11 @@ class LiteKnews extends Component {
                         </div>    
                      }
                         
-                        <div id="liteKnewsControls">
+                        {/* <div id="liteKnewsControls">
                             <button onClick={()=>this.changeArticle("prev")}><span className="material-icons">skip_previous</span></button>
                             <button onClick={()=>this.changeArticle("close")}><span className="material-icons">close</span></button>
                             <button onClick={()=>this.changeArticle("next")}><span className="material-icons">skip_next</span></button>
-                        </div>
+                        </div> */}
                         
                     </div>
                 </div>

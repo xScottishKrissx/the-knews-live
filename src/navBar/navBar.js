@@ -213,7 +213,7 @@ export class NavBar extends React.Component{
                         {/************Bookmark Controls  */}
                         {this.props.bookmarkControls === true ?
                         <div className="uiBarItem" id="bookmarkControls">
-                            <Button title="Bookmark Controls" >
+                            <Button title="Bookmark article" >
                                 <OnCardBookMarkControls 
                                     bookmarkedStatus={this.props.bookmarkedStatus}
                                     fullDatabaseCall={this.props.fullDatabaseCall}
@@ -252,6 +252,21 @@ export class NavBar extends React.Component{
                             </div>
                         :
                             null
+                        }
+
+                        {/************Score Buttons  */}
+                        {this.props.liteKnewsControls === true ?
+                        <div className="uiBarItem" id="navBarLiteKnewsWrapper">
+                            <Button title="controls for lite knews" >
+                                <div id="navBarLiteKnewsControls">
+                                    <button title="go to previous article" onClick={this.props.prevArticle}><span className="material-icons">skip_previous</span></button>
+                                    <button title="close lite knews" onClick={this.props.closeLiteKnews}><span className="material-icons">close</span></button>
+                                    <button title="go to next article" onClick={this.props.nextArticle}><span className="material-icons">skip_next</span></button>
+                                </div>
+                            </Button>
+                        </div> 
+                        :
+                        null
                         }
 
                         </div>

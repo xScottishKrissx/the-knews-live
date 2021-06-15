@@ -1046,6 +1046,7 @@ General Notes  Objectives:
                                                     ✔ Link to bookmark page @done(13:23 - 15/06/21)
                                                     ✔ Link to full article @done(13:30 - 15/06/21)
                                                     ☐ liteKnews controls(?? - Might not be a good idea but I would like to try it just to see)
+                                                        ☐ I actually now like the controls in the navbar, but for mobile the controls at the bottom of the page is the way to go. I might move the entire bar to the bottom of the page, at least the controls part. Maybe leave the header at the top.
                                         ☐ How about making the scroll back fixed, and adding the scrollUp button to the nav bar?
 
                         Issues:

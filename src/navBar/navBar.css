@@ -235,8 +235,21 @@
                 }
 
 
+/************************************ liteKnews  */
+#navBarLiteKnewsWrapper{
 
-
+}
+    #navBarLiteKnewsControls{
+        display: flex;
+            justify-content: space-evenly;
+    }
+        #navBarLiteKnewsControls  > button{
+            background-color: white;
+            margin: 20px;
+            min-width: fit-content;
+            /* outline: 1px solid black; */
+            width: 50px;
+        }
 
 
 /* customising react.bootstrap  */
