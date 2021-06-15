@@ -12,6 +12,7 @@ import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
 import RenderCard from '../utility_components/renderCard/renderCard.js';
 
 import loading from '../img/loading5.gif';
+import NavBar from '../navBar/navBar.js';
 
 class Tags extends React.Component{
 
@@ -136,8 +137,9 @@ class Tags extends React.Component{
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
                         {/* <ClearCache /> */}
-
-                        <NavControls props="only-home-button"/>
+                        
+                        {/* <NavControls props="only-home-button"/> */}
+                        <NavBar />
                         {this.props.match.params.b || this.props.location.state.author === undefined ?
                         <h1>Showing articles from {this.props.match.params.b || this.props.location.state.searchDBFor}</h1>
                         : 

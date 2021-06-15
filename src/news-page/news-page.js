@@ -100,7 +100,7 @@ export class NewsPage extends React.Component{
 
     return (
         
-        <span>
+        <div>
 
             {arrayLength >= 1 ?         
                 <NewsPageVIEW 
@@ -117,17 +117,17 @@ export class NewsPage extends React.Component{
                     {this.state.showErrorMessage === false ?
                         <img src={loading} alt="loading, please wait for results"/>
                     :
-                    <span>
-                    <NavBar />
-                        <div className="error-message">
-                            <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because, at the end of the day, they're monkeys.</p>
-                        </div>
-                    </span>
+                        <span>
+                        <NavBar />
+                            <div className="error-message">
+                                <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because, at the end of the day, they're monkeys.</p>
+                            </div>
+                        </span>
                     }
                     
                 </div>
             }
-        </span>
+        </div>
         );
             
             

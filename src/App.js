@@ -68,7 +68,7 @@ handleClick(){
         {/* <h1>the Knews - Live</h1> */}
 
       {/* <DeploymentMessage /> */}
-
+      
       <div id="hideArticleMessageWrapper">
         <p id="hideArticleMessage">You have hidden an article. It will not appear again until you reset the page using <span className="material-icons">restart_alt</span> at the top right of page</p>
         <button onClick={() => this.handleClick()}>Undo</button>

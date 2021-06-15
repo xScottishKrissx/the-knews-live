@@ -15,7 +15,7 @@
         /* align-items: flex-end; */
         justify-content: flex-end;
     /* margin-top: 30px; */
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     width: inherit;
 }
 #theKnewsHeader{
@@ -33,11 +33,15 @@
         color:white;
         width: 100%;
     }
-        .headerText > a{color: white !important; height: 53px;}
+        .headerText > a{
+            color: white !important; 
+            display: flex;
+                align-items: center;
+            height: 52px;}
         .headerText > a > span{
             /* display: block; */
             /* height: 55.97px; */
-            height: 53px;
+            /* height: 53px; */
             /* text-align: center; */
             font-size: x-large;
         }
@@ -286,7 +290,7 @@
     /* #siteWideNavBar{flex-wrap: nowrap;} */
     .headerWrapper{flex-wrap: nowrap; }
         .navWrapper{width: max-content;}
-            .newUIBarWrapper{margin-top: 30px; }
+            /* .newUIBarWrapper{margin-top: 30px; } */
 
     /* Bookmark Controls */
     #bookmarkControls > button > .onCardControls > div{
