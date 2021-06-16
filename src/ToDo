@@ -1005,9 +1005,8 @@ General Notes  Objectives:
                             Bookmarks:
                                 ☐ Reset Card Size
 
-
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
-                    ☐ Just as being able to see when a filter is active, the same should be done for card size.
+                    ✔ Just as being able to see when a filter is active, the same should be done for card size. @done(12:23 - 16/06/21)
                     ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
                     12.10.1.15:
                         Goals / Reasoning:
@@ -1018,7 +1017,7 @@ General Notes  Objectives:
                             ☐ Should be flexible enough to add/remove buttons where relevant.
                         To-Do:
                             ✔ Create New component @done(16:41 - 02/06/21)
-                            ☐ Integrate Bookmarks page
+                            ✔ Integrate Bookmarks page @done(12:08 - 16/06/21)
                                 ✔ removed liteknews and bookmark button @done(16:44 - 02/06/21)
                                 ✔ Integrate filter options @done(17:38 - 08/06/21)
                                     ✔ What do I want here? Do i want this to be the same as the home page or be different? It makes sense to be different but I can also see the argument for having the same filter throughout and let the user decide on their own. A single filter choice is easier to implement but separate filters seems more user friendly...or it could be seen as 1 more thing to think about. I don't know, might flip a coin 21 times or so.
@@ -1029,7 +1028,7 @@ General Notes  Objectives:
                                 ✔ Counter showing article number should update as articles are added/removed from bookmarks. @done(13:02 - 08/06/21)
                                     ✔ I have a counter that counts the articles when adding/removing bookmarks. It doesnt change with the filter view however. @done(13:02 - 08/06/21)
                                         ✔ This solution was actually correct but I had a spelling mistake with bookmarkCounter, should be bookmarksCount. With that corrected the counter displays the number of bookmarks as you move through the section. @done(13:02 - 08/06/21)
-                                    ☐ Same as above but for read/unread.
+                                    ✘ Same as above but for read/unread. @cancelled(12:08 - 16/06/21)
 
                                 ✔ I think it would be useful to have the number of articles for each filter appear in the menu dropdown. @done(16:08 - 08/06/21)
                                 ✔ Create mark all as read button @done(18:05 - 03/06/21)
@@ -1037,7 +1036,7 @@ General Notes  Objectives:
                                     ✔ I've decided to change the bookmark bar into a dropdown menu that is activated by clicking on the existing bookmarks button. This will save me space and be more usable as I won't need to remove any information at lower screen sizes. @done(16:33 - 09/06/21)
                                     ✔ As a result I have created a new component and I'm currently working on the appearance as all buttons are handled through props and require no changes to work. @done(16:33 - 09/06/21)
                                 New Website Nav Bar:
-                                    ☐ Following the sucess of the new nav bar for the home page and bookmarks, I am going to try the same for the rest of the website. I want every page to have a nav bar similiar to bookmarks and home. 
+                                    ✔ Following the sucess of the new nav bar for the home page and bookmarks, I am going to try the same for the rest of the website. I want every page to have a nav bar similiar to bookmarks and home. @done(12:08 - 16/06/21)
                                         Pages to to integrate:
                                             ✔ Home @done(17:29 - 09/06/21)
                                             ✔ Bookmarks @done(17:29 - 09/06/21)
@@ -1063,6 +1062,7 @@ General Notes  Objectives:
                                                     ✔ Not everything needs to be added to the navbar and the scroll to top button makes more sense always being in the middle bottom of the page. @done(16:38 - 15/06/21)
                                         ✔ Home button shouldn't appear on the home page. @done(16:49 - 15/06/21)
                                     ☐ I think the website needs are clear indicator of where you are. look into adding a secondary title to the black theKnews area
+                                        ✔ I've tried a few things but nothing really stuck. I might circle back to this later If i have any other ideas @done(12:08 - 16/06/21)
 
                         Issues:
                             ☐ Many, probably.

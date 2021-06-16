@@ -22,7 +22,8 @@ export class NavBar extends React.Component{
 
     render(){
         const getArticle = this.props.getArticleBy || "All";
-
+        console.log(localStorage.getItem("cardStyleChoice"))
+        const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard"
         return(
             <div className="headerWrapper">
 
@@ -138,7 +139,7 @@ export class NavBar extends React.Component{
                                         title={ 
                                             <div className="dropdownBtnTitle">
                                                 <span class="material-icons">view_module</span>
-                                                <p>Card Style</p>
+                                                <p>{cardStyle}</p>
                                             </div>
                                         }>
                                         <CustomCardSize getCardSizeToParent={this.props.getCardSize} />
