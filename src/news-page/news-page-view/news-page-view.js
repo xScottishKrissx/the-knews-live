@@ -93,7 +93,7 @@ export class NewsPageVIEW extends React.Component{
 
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         // const database = this.props.database
-        console.log(database)
+        // console.log(database)
         // console.log(this.props.params)
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)

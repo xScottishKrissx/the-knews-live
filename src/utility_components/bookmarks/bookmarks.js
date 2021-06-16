@@ -50,7 +50,7 @@ class Bookmarks extends Component {
     componentDidMount(){
         console.log(JSON.parse(localStorage.getItem("myData"))[0])
         if(JSON.parse(localStorage.getItem("myData"))[0] === null){
-            console.log(JSON.parse(localStorage.getItem("myData"))[0])
+            // console.log(JSON.parse(localStorage.getItem("myData"))[0])
         }
 
 
@@ -135,7 +135,7 @@ class Bookmarks extends Component {
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
         }
         this.setState({ bookmarksCount: filterBookmarks.length}) 
-        console.log(this.state.bookmarks)
+        // console.log(this.state.bookmarks)
     }
 
     // filterViews
@@ -159,7 +159,7 @@ class Bookmarks extends Component {
         
         const fullDatabaseCall = this.state.fullDatabaseCall
         const bookmarkCount = this.state.bookmarksCount;
-        console.log(bookmarkCount)
+        // console.log(bookmarkCount)
         return(
 
         <div id="bookmarkWrapper">

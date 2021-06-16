@@ -59,7 +59,7 @@ export class NavBar extends React.Component{
                                     <Button title="Home">
                                         <Link to='/theKnews/home'>
                                         <div className="dropdownBtnTitle">
-                                            <span class="material-icons">home</span>
+                                            <span className="material-icons">home</span>
                                             <p>Home</p>
                                         </div>
                                         </Link>
@@ -99,7 +99,7 @@ export class NavBar extends React.Component{
                                                         </span>                                           
                                                         :                                   
                                                         <span>
-                                                            <span id="filterActive" class="material-icons">filter_alt</span>
+                                                            <span id="filterActive" className="material-icons">filter_alt</span>
                                                             <p className="filterIsActive">Filter: { getArticle }</p>
                                                             {/* <span> ({this.props.bookmarkNumber})</span> */}
                                                         </span>                                        
@@ -138,7 +138,7 @@ export class NavBar extends React.Component{
                                         id="changeCardBtn" 
                                         title={ 
                                             <div className="dropdownBtnTitle">
-                                                <span class="material-icons">view_module</span>
+                                                <span className="material-icons">view_module</span>
                                                 <p>{cardStyle}</p>
                                             </div>
                                         }>
@@ -159,7 +159,7 @@ export class NavBar extends React.Component{
                                         id="liteKnewsBtn" 
                                         title={ 
                                             <div className="dropdownBtnTitle">
-                                                <span class="material-icons">bolt</span>
+                                                <span className="material-icons">bolt</span>
                                                 <p>liteKnews</p>
                                             </div>
                                         }>                        
@@ -183,7 +183,7 @@ export class NavBar extends React.Component{
                                             id="bookmarkBtn" 
                                             title={ 
                                                 <div className="dropdownBtnTitle">
-                                                    <span class="material-icons">bookmarks</span>
+                                                    <span className="material-icons">bookmarks</span>
                                                     <p>Bookmarks</p>
                                                 </div>
                                             }> 
@@ -200,7 +200,7 @@ export class NavBar extends React.Component{
                             <DropdownButton 
                                 title={
                                     <div className="dropdownBtnTitle">
-                                            <span class="material-icons">settings</span> 
+                                            <span className="material-icons">settings</span> 
                                             <p>Options </p>
                                             {/* <span> ({this.props.bookmarkNumber})</span> */}
                                     </div>
@@ -222,7 +222,7 @@ export class NavBar extends React.Component{
                                 <div className="uiBarItem" title="Settings" id="settingsDropdown">
                                     <DropdownButton 
                                         id="settingsBtn" 
-                                        title={ <span class="material-icons">settings</span>}>
+                                        title={ <span className="material-icons">settings</span>}>
                                         <OptionsMenu urlInfo={window.location.pathname}/>
                                     </DropdownButton>
                                 </div>
@@ -283,7 +283,7 @@ export class NavBar extends React.Component{
                                         id="articleLinkBtn" 
                                         title={ 
                                             <div className="dropdownBtnTitle">
-                                                <span class="material-icons">article</span>
+                                                <span className="material-icons">article</span>
                                                 <p>Full Article Page</p>
                                             </div>
                                         }> 

@@ -1288,7 +1288,7 @@ Part 2 Implement Database functionality:
                             ☐ firefox
                                 ☐ issue 
                                     ☐ article
-                                        ☐ bookmark controls are wonky
+                                        ✔ bookmark controls are wonky @done(15:22 - 16/06/21)
                             ☐ chrome
                                 ☐ 1 instance of a blank page on article page. unable to replicate.
         
