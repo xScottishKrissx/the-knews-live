@@ -96,7 +96,7 @@ class FilterOptions extends Component {
 
     render(){
         
-        console.log(this.props.tagsArray)
+        // console.log(this.props.tagsArray)
 
 
         

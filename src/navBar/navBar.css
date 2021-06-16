@@ -189,8 +189,16 @@
 
 
 /* Bookmark Page */
+#bookmarkCountIndicator{
 
-
+}
+    #bookmarkCountIndicator > div {
+        white-space: nowrap;
+        padding: 10px;
+        text-align: center;
+        font-weight: 700;
+    }
+        #bookmarkCountIndicator > div > p{margin: 0;}
 /* Article Page */
 
 /************************************* Score Buttons */

@@ -50,7 +50,22 @@ export class NavBar extends React.Component{
                             :
                                 null
                             }
-    
+                        
+                        {/************Bookmark Number Indicator  */}
+                        {this.props.bookmarked === true ?
+                        <div className="uiBarItem" id="bookmarkCountIndicator">
+                            <div>
+                                {this.props.bookmarkNumber === 1 ?
+                                    <p> {this.props.bookmarkNumber} Bookmark</p>
+                                :
+                                    <p> {this.props.bookmarkNumber} Bookmarks</p>
+                                }
+                            </div>
+                        </div> 
+
+                        :
+                        null
+                        }
 
                             {this.props.filter === true ?
                                 <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
@@ -68,7 +83,7 @@ export class NavBar extends React.Component{
                                                         <span>
                                                             <span id="filterActive" class="material-icons">filter_alt</span>
                                                             <p className="filterIsActive">Filter: { getArticle }</p>
-                                                            <span> ({this.props.bookmarkNumber})</span>
+                                                            {/* <span> ({this.props.bookmarkNumber})</span> */}
                                                         </span>                                        
                                                     }
                                                 </div>

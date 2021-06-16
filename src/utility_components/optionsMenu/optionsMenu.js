@@ -1,6 +1,11 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+
+// Bookmarks
 import clearAllBookmarks from '../bookmarks/clearAllBookmarks.js';
+import hideAllArticles from '../bookmarks/hideAllArticles.js';
+// import markAllRead from '../bookmarks/markAllRead.js';
+// import markAllUnread from '../bookmarks/markAllUnread.js';
 import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
 import "../optionsMenu/optionsMenu.css";
@@ -10,37 +15,39 @@ class OptionsMenu extends Component {
     constructor(props){
         super(props);
         this.state = {
-            optionsMenuOpen:false
+            optionsMenuOpen:false,
+            fullDatabaseCall:[],
+            bookmarks:[]
         }
     }
 
-    toggleMenu(){
-        // console.log("Toggle Menu")
+    // toggleMenu(){
+    //     // console.log("Toggle Menu")
 
-        if(this.state.optionsMenuOpen === false){
-            // document.getElementById("optionsMenuPopup" ).style.visibility = "visible"; 
+    //     if(this.state.optionsMenuOpen === false){
+    //         // document.getElementById("optionsMenuPopup" ).style.visibility = "visible"; 
 
-            // Icon
-            document.getElementById("optionsMenuIcon" ).classList.add('animateIcon')
+    //         // Icon
+    //         document.getElementById("optionsMenuIcon" ).classList.add('animateIcon')
             
-            // Menu
-            document.getElementById("optionsMenuWrapper" ).classList.add('animateOptionsMenuWrapper')
-            document.getElementById("optionsMenuPopup" ).classList.add('animateMenuPopup')
+    //         // Menu
+    //         document.getElementById("optionsMenuWrapper" ).classList.add('animateOptionsMenuWrapper')
+    //         document.getElementById("optionsMenuPopup" ).classList.add('animateMenuPopup')
 
-            this.setState({optionsMenuOpen:true})
-        }else{
-            // document.getElementById("optionsMenuPopup" ).style.visibility = "hidden"; 
+    //         this.setState({optionsMenuOpen:true})
+    //     }else{
+    //         // document.getElementById("optionsMenuPopup" ).style.visibility = "hidden"; 
 
-            // Icon
-            document.getElementById("optionsMenuIcon" ).classList.remove('animateIcon')
+    //         // Icon
+    //         document.getElementById("optionsMenuIcon" ).classList.remove('animateIcon')
             
-            //Menu
-            document.getElementById("optionsMenuWrapper" ).classList.remove('animateOptionsMenuWrapper')
-            document.getElementById("optionsMenuPopup" ).classList.remove('animateMenuPopup')
+    //         //Menu
+    //         document.getElementById("optionsMenuWrapper" ).classList.remove('animateOptionsMenuWrapper')
+    //         document.getElementById("optionsMenuPopup" ).classList.remove('animateMenuPopup')
 
-            this.setState({optionsMenuOpen:false})            
-        }
-    }
+    //         this.setState({optionsMenuOpen:false})            
+    //     }
+    // }
 
     clearCache(removeFromCache){
             // console.log("Clear Cache" + " " + removeFromCache)
@@ -71,8 +78,18 @@ class OptionsMenu extends Component {
                 // console.log("Clear All Bookmarks.")
                 clearAllBookmarks(); }
 
-        this.toggleMenu()
+        // this.toggleMenu()
         
+    }
+
+    clearBookmarks(){
+        clearAllBookmarks();
+        this.setState({bookmarks:[]})
+    }
+
+    hideAllArticles(){
+        hideAllArticles();
+        this.setState({bookmarks:[]})
     }
     render(){
         // console.log(this.props.urlInfo)
@@ -81,7 +98,11 @@ class OptionsMenu extends Component {
             <div id="optionsMenuWrapper">
                 
                 {/* <span onClick={()=> this.toggleMenu()} id="optionsMenuIcon" className="material-icons">settings</span> */}
-                    
+                        {/* <button onClick={()=> this.clearBookmarks()}><span class="material-icons">bookmark_remove</span>Remove All Bookmarks</button>
+                        <button onClick={()=> markAllRead()}><span class="material-icons">done_all</span>Mark All As Read</button>
+                        <button onClick={()=> markAllUnread()}><span class="material-icons">remove_done</span>Mark All As Unread</button>
+                        <button onClick={()=> this.hideAllArticles()}><span class="material-icons">delete_sweep</span>Remove and Hide All</button> */}
+                        
                         <span>
                             <p>Full Website Reset</p>
                             <Link to='/' onClick={()=> this.clearCache("clearCache")}><button>Confirm</button></Link>
@@ -101,6 +122,8 @@ class OptionsMenu extends Component {
                             <p>Clear Bookmarks</p>
                             <Link to='/' onClick={()=> this.clearCache("removeBookmarks")}><button>Confirm</button></Link>
                         </span> 
+
+
                         
             </div>
         )

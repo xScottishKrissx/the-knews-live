@@ -135,7 +135,7 @@ class Bookmarks extends Component {
         
         const fullDatabaseCall = this.state.fullDatabaseCall
         const bookmarkCount = this.state.bookmarksCount;
-
+        console.log(bookmarkCount)
         return(
 
         <div id="bookmarkWrapper">
@@ -169,7 +169,7 @@ class Bookmarks extends Component {
             
             />
             {/* The Initial Render */}
-            <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={true} />
+            <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles={this.getFilteredArticles} bookmarked={true} />
             
             <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
                 {this.state.bookmarks.length === 0 ?

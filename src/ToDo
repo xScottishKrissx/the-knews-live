@@ -996,6 +996,16 @@ General Notes  Objectives:
                             ✔ Clear Bookmarks not currently working @done(17:35 - 08/06/21)
                                 ✔ Solution - Wrong file path for component import @done(17:35 - 08/06/21)
                             ☐ Add mark all unread button.
+                            ☐ Instead of merging the 2 menus like my current plan, I think I should try adding more buttons to the nav bar on the home page.
+                        Buttons to be added to navbar:
+                            Home:
+                                ☐ Mark All As Read
+                                ☐ Mark All as Unread
+                                ☐ Clear All Articles
+                            Bookmarks:
+                                ☐ Reset Card Size
+
+
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
                     ☐ Just as being able to see when a filter is active, the same should be done for card size.
                     ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
