@@ -167,6 +167,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         leftoverArticles={this.props.leftoverArticles}
                         getArticleBy={this.state.getArticleBy}
                         fullDatabaseCall={this.props.fullDatabaseCall}
+                        showLoadMoreArticlesBtn={true}
 
                         
                     />   

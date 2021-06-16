@@ -109,8 +109,14 @@ class ScrollCheckV2 extends React.Component{
                     
                 
                 />
-               
-                <span id="loadMoreArticlesButton"><button onClick={()=>this.scroll()}>Load More Articles</button></span>
+               {this.props.showMoreArticlesBtn ?
+                    <span id="loadMoreArticlesButton">
+                        <button onClick={()=>this.scroll()}>Load More Articles</button>
+                    </span>
+               :
+                    null
+                }
+
             </React.Fragment>   
         )
     }

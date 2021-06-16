@@ -137,8 +137,8 @@ export class NewsPageVIEW extends React.Component{
                     
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
-                        {/* <HeaderImage props={value.id} /> */}
-                        <h1>Header Image</h1>
+                        <HeaderImage props={value.id} />
+                        {/* <h1>Header Image</h1> */}
                     </div>
                   
                    {/* Header, Sub Title and Body of Article */}

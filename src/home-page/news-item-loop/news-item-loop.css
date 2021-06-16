@@ -50,6 +50,7 @@
 
 .swipeable-list-item{
     z-index: auto !important;
+    max-height: none !important;
 }
 
  .swipeable-list-item__content-left{

@@ -979,10 +979,9 @@ General Notes  Objectives:
             Goals:
                 ☐ To improve the overall appearance and usibility of the website.
             To-Do:
-                ☐ Do another style pass for card controls(different layout at larger widths?)
+                ✔ Do another style pass for card controls(different layout at larger widths?) @done(12:29 - 16/06/21)
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
                 ☐ Look into animations for hiding articles.
-                ☐ Change the mark as read icon depending on read status
             12.10.1 - Home Page New Nav Bar:
                 Goals:
                     ☐ All controls for page should be easily accessible
@@ -1081,9 +1080,14 @@ General Notes  Objectives:
                         ✔ At higer width, the options menu get's lost to the right of the window. @done(12:12 - 02/06/21)
                             // added media queries at point where text in ui activates.
             12.10.2 - Article Page:
+                ☐ Change layout of article
+                    ☐ At lower sizes, a single column layout
+                    ☐ At hiher res, put the article info to the left in a fixed div. Then let the article scroll.
             12.10.3 - Bookmark Page:
-            12.10.3 - liteKnews:
+            12.10.4 - liteKnews:
                 ☐ Add keyboard support for article switching with left/right arrow keys.
+            12.10.5 - Home Page / Cards:
+                ☐ Change mark as read icon based on current read status.
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -1256,6 +1260,7 @@ Part 2 Implement Database functionality:
             ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
             ✔ 12.9 - Misc Bug Fixes & Tweaks @done(10:53 - 14/06/21)
             ☐ 12.10 - Overhaul Main UI
+                ☐ V12.10.1 - Think about a release now as V12 might take a while.
 
         
 
