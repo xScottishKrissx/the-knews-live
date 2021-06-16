@@ -55,6 +55,7 @@ class LiteKnews extends Component {
                     bookmarks={true}
                     articleLink={true}
                     liteKnewsControls={true}
+                    pageTitle="liteKnews"
 
                     // Bookmark Controls
                     bookmarkedStatus={articleFromArray.bookmarked}

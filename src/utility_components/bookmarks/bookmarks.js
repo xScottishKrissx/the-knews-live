@@ -13,6 +13,7 @@ import updateBookmarkStyles from './updateBookmarkStyle.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
 import markAllRead from './markAllRead.js';
+import PageTitle from '../pageTitle/pageTitle.js';
 
 
 class Bookmarks extends Component {
@@ -146,6 +147,7 @@ class Bookmarks extends Component {
                     filter={true} 
                     cardStyle={true} 
                     homeButtonOn={true}
+                    pageTitle="Your Bookmarks"
                     // options={true} 
                     
                     // Bookmarks
@@ -170,6 +172,8 @@ class Bookmarks extends Component {
             />
             {/* The Initial Render */}
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles={this.getFilteredArticles} bookmarked={true} />
+            
+            {/* <PageTitle pageTitle="BOOKMARKS"/> */}
             
             <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
                 {this.state.bookmarks.length === 0 ?

@@ -15,6 +15,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import SplitButton from 'react-bootstrap/SplitButton'
 import OptionsMenu from '../../../../utility_components/optionsMenu/optionsMenu';
 import NavBar from '../../../../navBar/navBar';
+import PageTitle from '../../../../utility_components/pageTitle/pageTitle.js';
+
 
 class NewsItemLoopView extends React.Component{
 
@@ -113,6 +115,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         liteKnews={true} 
                         bookmarks={true} 
                         options={true}
+                        pageTitle="The current knews"
                         
                         // filter
                         getArticleBy={this.state.getArticleBy}
@@ -134,6 +137,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
                 
+                
+                {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
 
                 <div className="cardsWrapper">
                 {this.props.databaseProp.length >= 30 && thing ? 

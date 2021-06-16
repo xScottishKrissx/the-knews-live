@@ -26,7 +26,24 @@ export class NavBar extends React.Component{
         return(
             <div className="headerWrapper">
 
-                <div className="headerText"><Link to='/theKnews/home'><span>theKnews</span></Link></div>
+                <div className="headerText">
+                    <Link to='/theKnews/home'>
+                        {/* {this.props.pageTitle ?
+                            <div>
+                                <h1>theKnews</h1>
+                                <span>&nbsp;{"| " + this.props.pageTitle}</span>
+                            </div>
+                        :
+                        <div>
+                            <h1>theKnews</h1>
+                        </div>
+                        } */}
+                        <div>
+                            <h1>theKnews</h1>
+                        </div>
+
+                    </Link>
+                </div>
                 
                 <div className="navWrapper">     
                         <div className="newUIBarWrapper">

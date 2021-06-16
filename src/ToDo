@@ -1041,7 +1041,7 @@ General Notes  Objectives:
                                         Pages to to integrate:
                                             ✔ Home @done(17:29 - 09/06/21)
                                             ✔ Bookmarks @done(17:29 - 09/06/21)
-                                                ☐ Add visual indicator of number of bookmarks, perhaps a separate area on the navbar.
+                                                ✔ Add visual indicator of number of bookmarks, perhaps a separate area on the navbar. @done(11:02 - 16/06/21)
                                             ✔ Article Page @done(11:32 - 15/06/21)
                                                 ✔ Add like/dislike buttons to navbar @done(10:55 - 14/06/21)
                                                 ✔ Add bookmark controls to navbar @done(10:56 - 14/06/21)
@@ -1062,6 +1062,7 @@ General Notes  Objectives:
                                         ✘ How about making the scroll back fixed, and adding the scrollUp button to the nav bar? @cancelled(16:37 - 15/06/21)
                                                     ✔ Not everything needs to be added to the navbar and the scroll to top button makes more sense always being in the middle bottom of the page. @done(16:38 - 15/06/21)
                                         ✔ Home button shouldn't appear on the home page. @done(16:49 - 15/06/21)
+                                    ☐ I think the website needs are clear indicator of where you are. look into adding a secondary title to the black theKnews area
 
                         Issues:
                             ☐ Many, probably.
@@ -1074,6 +1075,7 @@ General Notes  Objectives:
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
                         ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)
+                        ✔ The home options menu is appearing off screen @done(11:06 - 16/06/21)
                     Desktop:
                         ✔ Icons should have label alongside @done(13:38 - 28/05/21)
                         ✔ At higer width, the options menu get's lost to the right of the window. @done(12:12 - 02/06/21)
@@ -1236,6 +1238,7 @@ Part 2 Implement Database functionality:
             ☐ 13.3 - (if missed in 12.10) - redo the feedback message to allow for undo of article.
             ☐ 13.4 - Rework filters to work without need for current workaround.
             ☐ 13.5 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
+            ☐ 13.6 - Add any buttons that are required on the navbar
             
 
         Version 12 (Future Version) - Planned Notes:

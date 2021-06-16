@@ -1,0 +1,18 @@
+/* const style = {
+    fontSize:"5rem",
+    fontWeight:"900",
+    margin:"0 auto",
+    marginBottom:"3vh",
+    marginTop:"3vh",
+} */
+.pageTitleWrapper{
+    width: inherit;
+}
+    .pageTitle{
+        font-size: 5rem;
+        font-weight: 900;
+        margin: 0 auto;
+        margin-bottom: 3vh;
+        margin-top: 3vh;
+        text-align: center;
+    }
