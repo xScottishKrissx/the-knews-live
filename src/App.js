@@ -7,7 +7,7 @@ import fire from './fire.js';
 
 import Header from './header/header.js';
 // import Footer from './footer/footer.js';
-// import DeploymentMessage from './deployment-message/deploymentmessage.js';
+import DeploymentMessage from './deployment-message/deploymentmessage.js';
 import { Routes } from './routes/routes';
 import OptionsMenu from './utility_components/optionsMenu/optionsMenu';
 
@@ -67,7 +67,7 @@ handleClick(){
       <div>
         {/* <h1>the Knews - Live</h1> */}
 
-      {/* <DeploymentMessage /> */}
+      <DeploymentMessage />
       
       <div id="hideArticleMessageWrapper">
         <p id="hideArticleMessage">You have hidden an article. It will not appear again until you reset the page using <span className="material-icons">restart_alt</span> at the top right of page</p>
