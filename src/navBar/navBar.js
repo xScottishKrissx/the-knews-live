@@ -22,7 +22,7 @@ export class NavBar extends React.Component{
 
     render(){
         const getArticle = this.props.getArticleBy || "All";
-        console.log(localStorage.getItem("cardStyleChoice"))
+        // console.log(localStorage.getItem("cardStyleChoice"))
         const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard"
         return(
             <div className="headerWrapper">

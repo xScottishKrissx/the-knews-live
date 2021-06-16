@@ -1243,6 +1243,8 @@ Part 2 Implement Database functionality:
             ☐ 13.4 - Rework filters to work without need for current workaround.
             ☐ 13.5 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
             ☐ 13.6 - Add any buttons that are required on the navbar
+            ☐ 13.7 - Dragging on firefox is not working correctly.
+            ☐ 13.8 - Home btn in liteKnews does nothing
             
 
         Version 12 (Future Version) - Planned Notes:
@@ -1261,7 +1263,34 @@ Part 2 Implement Database functionality:
             ✔ 12.9 - Misc Bug Fixes & Tweaks @done(10:53 - 14/06/21)
             ☐ 12.10 - Overhaul Main UI
                 ☐ V12.10.1 - Think about a release now as V12 might take a while.
+                    Release Issues:
+                        ☐ Navbar buttons are too big
+                            ☐ Solution -> 
+                                ✔ .uiBarItem>.dropdown>button -- set margin:0 @done(13:51 - 16/06/21)
+                                // ☐ (firefox) #bookmarkControls > button {height:inherit}
+                                ✔ button -> height: inherit, margin: inherit @done(13:51 - 16/06/21)
 
+
+                        ☐ Bookmark page just not working; returning a null error
+                            ✔ Solution - Remove the console.log on line 25 > navbar.js @done(13:51 - 16/06/21)
+                            ✔ i also had to restructure code for the bookmarks.js file relating to starting card size. @done(14:11 - 16/06/21)
+                        ☐ Bookmark page -> Card Size look terrible when it's just one option
+                        ☐ Card Size drodown is center aligned, should be left
+                        ✔ Home btn in liteKnews does nothing @done(13:33 - 16/06/21)
+                        ✔ Dragging on firefox is not working correctly. @done(13:32 - 16/06/21)
+                            ✔ Add to deployment message @done(13:29 - 16/06/21)
+                            ✔ Add to to-do @done(13:30 - 16/06/21)
+                        ✔ On internet explorer -> You might have to press the full website reset button for it to work on first load. @done(13:32 - 16/06/21)
+                            ✔ Add to deployment message @done(13:31 - 16/06/21)
+                            ✔ Add to to-do @done(13:32 - 16/06/21)
+                        Testing:
+                            ☐ Edge looks good
+                            ☐ firefox
+                                ☐ issue 
+                                    ☐ article
+                                        ☐ bookmark controls are wonky
+                            ☐ chrome
+                                ☐ 1 instance of a blank page on article page. unable to replicate.
         
 
         Version 11.1 - Bug Fixes:

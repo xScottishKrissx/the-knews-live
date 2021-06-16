@@ -25,10 +25,10 @@ class Bookmarks extends Component {
 
                     // Card Size
         startingCardSize:"",
-        changedCardSize:{
-            width: JSON.parse(localStorage.getItem("myData"))[0] ,
-            height: JSON.parse(localStorage.getItem("myData"))[1]
-            },
+        // changedCardSize:{
+        //     width: JSON.parse(localStorage.getItem("myData"))[0] || "250px",
+        //     height: JSON.parse(localStorage.getItem("myData"))[1] || "300px"
+        //     },
             // getArticleBy:localStorage.getItem("bookmarksFilterOption")
 
 
@@ -48,6 +48,28 @@ class Bookmarks extends Component {
         })
     }
     componentDidMount(){
+        console.log(JSON.parse(localStorage.getItem("myData"))[0])
+        if(JSON.parse(localStorage.getItem("myData"))[0] === null){
+            console.log(JSON.parse(localStorage.getItem("myData"))[0])
+        }
+
+
+        // var cardSize = {}
+        const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
+        if(cardSizeInStorage === null){
+            // cardSize = ["260px","400px"]
+            this.setState({changedCardSize:{
+                width:"260px",
+                height:"400px"
+            }})
+        }else{
+            this.setState({changedCardSize:{
+                width:cardSizeInStorage[0],
+                height:cardSizeInStorage[1]
+            }})
+            // cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
+        }
+
 
       const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
         // Main Database Call
@@ -131,7 +153,8 @@ class Bookmarks extends Component {
 
 
     render(){
-        
+
+
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         
         const fullDatabaseCall = this.state.fullDatabaseCall
