@@ -284,6 +284,7 @@
 .tags-item-wrapper > .filterButtonWrapper {position: absolute; left: -9999999999px;}
 /************************************ liteKnews  */
 #navBarLiteKnewsWrapper > button{
+   
     margin: 0;
     padding: 0;
     width: 100%;
@@ -306,6 +307,7 @@
     #navBarLiteKnewsWrapper{
         background-color: white;
         bottom: 0;
+        height: auto;
         position: fixed;
         width: 100%;
         z-index: 50;
