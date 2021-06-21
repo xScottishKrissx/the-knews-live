@@ -14,11 +14,19 @@
     .recReadingItem{
         border-top: 1px solid black;
     }
+        .recReadingItem > a > h3{
+            color: white;
+        }
+        .recReadingItem > a > p{
+            color: grey;
+        }
 
 
 @media (min-width: 768px) {
     .recReadingWrapper{
         display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
         /* max-width: 1200px; */
         margin: 0 auto;
         width: 100%;
@@ -26,14 +34,11 @@
     }
     .recReadingItem{
         margin: 5px;
-        flex: 1;
+        /* flex: 1; */
+        max-width: 400px;
+        width: 100%;
     }
-        .recReadingItem > a > h3{
-            color: white;
-        }
-        .recReadingItem > a > p{
-            color: grey;
-        }
+
             .recReadingItem > a > img{
                 /* height: 125px; */
             }

@@ -1112,12 +1112,18 @@ General Notes  Objectives:
 
             12.10.2 - Article Page:
                 To-Do:
-                    ☐ Change layout of article
-                        ☐ At lower sizes, a single column layout
-                        ☐ At hiher res, put the article info to the left in a fixed div. Then let the article scroll.
+                    ✔ Change layout of article @done(16:57 - 21/06/21)
+                        ✔ At lower sizes, a single column layout @done(16:57 - 21/06/21)
+                        ✔ At hiher res, put the article info to the left in a fixed div. Then let the article scroll. @done(16:57 - 21/06/21)
                     ☐ Improve feedback for bookmarking articles
                     ☐ Improve feedback for hiding articles
                     ☐ Rework recommended reading section
+                    ☐ Endlessly make changes because you're never happy with your work...:(
+                    ☐ Integrate Social for:
+                        ☐ theKnews website
+                        ☐ author of articles
+                    ☐ Try adding some text to the fixed image
+                        ☐ Might be interesting if the headline was in here.
                     
 
 
@@ -1126,7 +1132,9 @@ General Notes  Objectives:
                 ☐ Add keyboard support for article switching with left/right arrow keys.
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
-            12.10.6 - Website Feedback Rework:
+            12.10.6 - Website Footer:
+                    ☐ Add a footer
+            12.10.7 - Website Feedback Rework:
                 ☐ Improved Feedback for bookmarking articles using button
                 ☐ Improved feedback for hiding articles using button
                 
