@@ -25,9 +25,9 @@ export const RecReading = (props) =>{
 
     // Format the articles
     const recReadingItems = articleSelection.map((value) => {
-        const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
+        // const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
         const style = {
-            backgroundImage: 'url(' + imgUrl + ')',
+            // backgroundImage: 'url(' + imgUrl + ')',
             backgroundPosition: "bottom",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -37,7 +37,7 @@ export const RecReading = (props) =>{
             
             <div className="recReadingItem" key={value.key}>   
                 <Link to={{ pathname: value.id , state: {articleId: value.id} }}>
-                    <img src={imgUrl} style={style} alt="literally all random images, don't worry about it" />
+                    {/* <img src={imgUrl} style={style} alt="literally all random images, don't worry about it" /> */}
                     <h3>{value.title}</h3>
                     <p>{value.postdate}</p>
                 </Link>

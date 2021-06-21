@@ -10,8 +10,8 @@ import ParseHTML from '../../../utility_components/parse-database-html/parse-htm
 // import EditArticle from './edit-article.js';
 
 import './article-area.css';
-import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
-import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
+// import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
+// import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
 // import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
 // import removeBookmark from '../../../utility_components/bookmarks/removeBookmark.js';
 
@@ -34,14 +34,8 @@ const ArticleArea = (props) => {
     // console.log(props.leftoverArticles)
     // console.log(props.fullDatabaseCall)
     // console.log(props.bookmarked)
-    function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
-        HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
-        hideArticleFeedback()
-        // console.log(arrayFromDatabase.length)
-    }
-    // bookmarkArticle = () => {
-    //     createBookmark();
-    // }
+
+
     
     return (
             
@@ -49,99 +43,71 @@ const ArticleArea = (props) => {
             {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
             {/* Article Header */}
 
-                
-            <span className="__header-container">
-                <div className='__article-header __1600_style'>
-                    <header><h1>{props.title}</h1></header>
+            <div className='articleHeadline'>
+                <header><h1>{props.title}</h1></header>
+            </div>   
 
-                    {/* {props.bookmarked === false ? 
-                       
-                        <button onClick={()=>createBookmark(props.articleId,props.fullDatabaseCall)}>
-                            <span>Not Bookmarked</span>
-                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}></span>
-                        </button>
-                        
-                        :
-                        <button onClick={()=>removeBookmark(props.articleId)}>
-                            <span>Bookmarked</span>
-                            <span  class="material-icons" id={props.articleId + "bookmarkIcon"}></span> 
-                        </button>
-                    }
+            <div className='articleInformation'>
 
-                    {props.read === false ? 
-                        <p>Not Read</p>
-                        :
-                        <p>Read</p>
-                    } */}
+            <div className="articleTag">
+                <span>posted in </span>
+                    <Link className="newsItemLink" to={{pathname: '/theKnews/home/search/tag/' + props.tag , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
+                        {props.tag}
+                    </Link>
                 </div>
-                
-                
 
-                <div className='__article-sub-header __1600_style'>
-                   
-                    <h3 className="__article-postdate">
-                        <span>Posted</span>
-                        {/* Removed Until I can work out the date format issue */}
-                        {/* <Link 
-                            className="__news-item-link" 
-                            to={{
-                                pathname: '/theKnews/home/search/postdate/' + props.postdate, 
-                                state: {
-                                    author: props.postdate, 
-                                    searchDBFor: "postdate",
-                                    origin: "Article", 
-                                    orderByChild: "postdate",
-                                    arrayFromDatabase:props.arrayFromDatabase,
-                                    leftoverArticles:props.leftoverArticles,
-                                    fullDatabaseCall:props.fullDatabaseCall
+
+
+                
+                <div className="articleAuthor">
+                    <span>by</span>
+                    <Link 
+                        className="newsItemLink" 
+                        to={{
+                            pathname: '/theKnews/home/search/author/' + props.author , 
+                            state:{
+                                author: props.author, 
+                                tag:props.tag,
+                                searchDBFor: "author",
+                                origin: "Article", 
+                                orderByChild: "author",
+                                thingFromArticle:props.tag,
+                                arrayFromDatabase:props.arrayFromDatabase,
+                                leftoverArticles:props.leftoverArticles,
+                                fullDatabaseCall:props.fullDatabaseCall
                                 }
-                            }}> */}
-                            {props.postdate}
-                        {/* </Link> */}
-                    </h3>
-
-                    
-                    <h3 className="__article-author">
-                        <span>Author</span>
-                        <Link 
-                            className="__news-item-link" 
-                            to={{
-                                pathname: '/theKnews/home/search/author/' + props.author , 
-                                state:{
-                                    author: props.author, 
-                                    tag:props.tag,
-                                    searchDBFor: "author",
-                                    origin: "Article", 
-                                    orderByChild: "author",
-                                    thingFromArticle:props.tag,
-                                    arrayFromDatabase:props.arrayFromDatabase,
-                                    leftoverArticles:props.leftoverArticles,
-                                    fullDatabaseCall:props.fullDatabaseCall
-                                    }
-                                }}>
-                                {props.author}
-                        </Link>
-                    </h3>
-                    
-
-                    <h3>
-                        <span>Email </span>
-                        {props.email}
-                    </h3>
-
-
-
-                    <h3 className="__article-tag">
-                        <span>Topic</span>
-                        <Link className="__news-item-link" to={{pathname: '/theKnews/home/search/tag/' + props.tag , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
-                            {props.tag}
-                        </Link>
-                    </h3>
-                    
-
-                    
+                            }}>
+                            {props.author}
+                    </Link>
                 </div>
-            </span>
+                
+
+                {/* <div className="articleEmail"><span>{props.email}</span></div> */}
+
+
+                <div className="articlePostdate">
+                    {/* Removed Until I can work out the date format issue */}
+                    {/* <Link 
+                        className="__news-item-link" 
+                        to={{
+                            pathname: '/theKnews/home/search/postdate/' + props.postdate, 
+                            state: {
+                                author: props.postdate, 
+                                searchDBFor: "postdate",
+                                origin: "Article", 
+                                orderByChild: "postdate",
+                                arrayFromDatabase:props.arrayFromDatabase,
+                                leftoverArticles:props.leftoverArticles,
+                                fullDatabaseCall:props.fullDatabaseCall
+                            }
+                        }}> */}
+                        <span>on {props.postdate}</span>
+                    {/* </Link> */}
+                </div>
+
+                                
+            </div>
+            
 
 
                 {/* {loggedInEmail === articleEmail ?
@@ -151,31 +117,8 @@ const ArticleArea = (props) => {
                 } */}             
                    
                 {/* Article Body */}
-                <div className='news-article-body'>
-                    <article>
-                        <div className="article-text">
-                            <ParseHTML props={props.text}/>
-                        </div>                     
-                       
-
-                        {/* <PageScore likes={props.likes} dislikes={props.dislikes} id={props.id}/> */}
-                        
-                        </article>                  
-                        
-
-
-                        {/* <div className="hideArticleButtonWrapper" id="articleHideButton">
-                            <button id={props.id} onClick={() => handleClick(
-                                                                    props.articleId, 
-                                                                    props.postsArray,
-                                                                    props.arrayFromDatabase,
-                                                                    props.leftoverArticles,
-                                                                    props.fullDatabaseCall)}>
-                                                                    Hide Article</button>
-                        </div> */}
-
-                    {/* <ExtraImageLoop />       */}
-                       
+                <div className='articleBody'>
+                    <article><ParseHTML props={props.text}/></article>
                 </div> 
                 
             </div>

@@ -1079,15 +1079,56 @@ General Notes  Objectives:
                         ✔ Icons should have label alongside @done(13:38 - 28/05/21)
                         ✔ At higer width, the options menu get's lost to the right of the window. @done(12:12 - 02/06/21)
                             // added media queries at point where text in ui activates.
+
+                    Release Issues:
+                        ✔ Navbar buttons are too big @done(12:47 - 21/06/21)
+                            ✔ Solution -> @done(12:47 - 21/06/21)
+                                ✔ .uiBarItem>.dropdown>button -- set margin:0 @done(13:51 - 16/06/21)
+                                // ☐ (firefox) #bookmarkControls > button {height:inherit}
+                                ✔ button -> height: inherit, margin: inherit @done(13:51 - 16/06/21)
+
+
+                        ✔ Bookmark page just not working; returning a null error @done(12:47 - 21/06/21)
+                            ✔ Solution - Remove the console.log on line 25 > navbar.js @done(13:51 - 16/06/21)
+                            ✔ i also had to restructure code for the bookmarks.js file relating to starting card size. @done(14:11 - 16/06/21)
+                        ☐ Bookmark page -> Card Size look terrible when it's just one option
+                        ✔ Card Size drodown is center aligned, should be left @done(12:47 - 21/06/21)
+                        ✔ Home btn in liteKnews does nothing @done(13:33 - 16/06/21)
+                        ✔ Dragging on firefox is not working correctly. @done(13:32 - 16/06/21)
+                            ✔ Add to deployment message @done(13:29 - 16/06/21)
+                            ✔ Add to to-do @done(13:30 - 16/06/21)
+                        ✔ On internet explorer -> You might have to press the full website reset button for it to work on first load. @done(13:32 - 16/06/21)
+                            ✔ Add to deployment message @done(13:31 - 16/06/21)
+                            ✔ Add to to-do @done(13:32 - 16/06/21)
+                        Testing:
+                            ✔ Edge looks good @done(12:47 - 21/06/21)
+                            ✔ firefox @done(12:47 - 21/06/21)
+                                ✔ issue @done(12:47 - 21/06/21)
+                                    ✔ article @done(12:47 - 21/06/21)
+                                        ✔ bookmark controls are wonky @done(15:22 - 16/06/21)
+                            ✔ chrome @done(12:47 - 21/06/21)
+                                ✔ 1 instance of a blank page on article page. unable to replicate. @done(12:47 - 21/06/21)
+
+
             12.10.2 - Article Page:
-                ☐ Change layout of article
-                    ☐ At lower sizes, a single column layout
-                    ☐ At hiher res, put the article info to the left in a fixed div. Then let the article scroll.
+                To-Do:
+                    ☐ Change layout of article
+                        ☐ At lower sizes, a single column layout
+                        ☐ At hiher res, put the article info to the left in a fixed div. Then let the article scroll.
+                    ☐ Improve feedback for bookmarking articles
+                    ☐ Improve feedback for hiding articles
+                    ☐ Rework recommended reading section
+                    
+
+
             12.10.3 - Bookmark Page:
             12.10.4 - liteKnews:
                 ☐ Add keyboard support for article switching with left/right arrow keys.
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
+            12.10.6 - Website Feedback Rework:
+                ☐ Improved Feedback for bookmarking articles using button
+                ☐ Improved feedback for hiding articles using button
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -1262,35 +1303,8 @@ Part 2 Implement Database functionality:
             ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
             ✔ 12.9 - Misc Bug Fixes & Tweaks @done(10:53 - 14/06/21)
             ☐ 12.10 - Overhaul Main UI
-                ☐ V12.10.1 - Think about a release now as V12 might take a while.
-                    Release Issues:
-                        ☐ Navbar buttons are too big
-                            ☐ Solution -> 
-                                ✔ .uiBarItem>.dropdown>button -- set margin:0 @done(13:51 - 16/06/21)
-                                // ☐ (firefox) #bookmarkControls > button {height:inherit}
-                                ✔ button -> height: inherit, margin: inherit @done(13:51 - 16/06/21)
-
-
-                        ☐ Bookmark page just not working; returning a null error
-                            ✔ Solution - Remove the console.log on line 25 > navbar.js @done(13:51 - 16/06/21)
-                            ✔ i also had to restructure code for the bookmarks.js file relating to starting card size. @done(14:11 - 16/06/21)
-                        ☐ Bookmark page -> Card Size look terrible when it's just one option
-                        ☐ Card Size drodown is center aligned, should be left
-                        ✔ Home btn in liteKnews does nothing @done(13:33 - 16/06/21)
-                        ✔ Dragging on firefox is not working correctly. @done(13:32 - 16/06/21)
-                            ✔ Add to deployment message @done(13:29 - 16/06/21)
-                            ✔ Add to to-do @done(13:30 - 16/06/21)
-                        ✔ On internet explorer -> You might have to press the full website reset button for it to work on first load. @done(13:32 - 16/06/21)
-                            ✔ Add to deployment message @done(13:31 - 16/06/21)
-                            ✔ Add to to-do @done(13:32 - 16/06/21)
-                        Testing:
-                            ☐ Edge looks good
-                            ☐ firefox
-                                ☐ issue 
-                                    ☐ article
-                                        ✔ bookmark controls are wonky @done(15:22 - 16/06/21)
-                            ☐ chrome
-                                ☐ 1 instance of a blank page on article page. unable to replicate.
+                ✔ V12.10.1 - Think about a release now as V12 might take a while. @done(12:48 - 21/06/21)
+                ☐ V12.10.2 - Release
         
 
         Version 11.1 - Bug Fixes:
