@@ -47,7 +47,7 @@ export const RecReading = (props) =>{
 
     
         return(
-               <div className="recReadingWrapper"><h2>RecReading</h2>{recReadingItems}</div>
+               <div className="recReadingWrapper"><h2>Recommended Reading</h2>{recReadingItems}</div>
         )
     }
     

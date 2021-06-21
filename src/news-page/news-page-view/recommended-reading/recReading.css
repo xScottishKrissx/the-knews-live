@@ -1,8 +1,16 @@
 .recReadingWrapper{
-    
+    background-color: black;
     display: block;
+    flex-wrap: wrap;
+    /* outline: 10px solid black; */
     padding: 5px;
+    position: relative;
+
 }
+    .recReadingWrapper > h2{
+        color: grey;
+        width: 100%;
+    }
     .recReadingItem{
         border-top: 1px solid black;
     }
@@ -11,18 +19,24 @@
 @media (min-width: 768px) {
     .recReadingWrapper{
         display: flex;
-        max-width: 1200px;
+        /* max-width: 1200px; */
         margin: 0 auto;
-        width: 80%;
+        width: 100%;
 
     }
     .recReadingItem{
         margin: 5px;
         flex: 1;
     }
-        .recReadingItem > a > img{
-            /* height: 125px; */
+        .recReadingItem > a > h3{
+            color: white;
         }
+        .recReadingItem > a > p{
+            color: grey;
+        }
+            .recReadingItem > a > img{
+                /* height: 125px; */
+            }
 }
 @media (max-width: 768px) {
     .recReadingItem{

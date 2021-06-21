@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Link} from 'react-router-dom';
 import ParseHTML from '../../../utility_components/parse-database-html/parse-html.js';
+import RecReading from '../recommended-reading/recReading.js';
 // import PageScore from '../social/page-score.js';
 // import Share from '../social/share.js';
 
@@ -120,7 +121,7 @@ const ArticleArea = (props) => {
                 <div className='articleBody'>
                     <article><ParseHTML props={props.text}/></article>
                 </div> 
-                
+                {/* <RecReading fullDatabaseCall={props.fullDatabaseCall}/> */}
             </div>
 
     );
