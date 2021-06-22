@@ -3,6 +3,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import ParseHTML from '../../../utility_components/parse-database-html/parse-html.js';
 import RecReading from '../recommended-reading/recReading.js';
+
+import fbIcon from '../../../img/fb_icon_512px_black_and_white.png';
+import twitterIcon from '../../../img/twitter_icon_512px_black_and_white.png';
+import instagramIcon from '../../../img/instagram_icon_512px_black_and_white.png';
+import pinterestIcon from '../../../img/pinterest_icon_512px_black_and_white.png';
 // import PageScore from '../social/page-score.js';
 // import Share from '../social/share.js';
 
@@ -106,9 +111,16 @@ const ArticleArea = (props) => {
                     {/* </Link> */}
                 </div>
 
+                
                                 
             </div>
-            
+           
+            <div className="authorSocial">
+                <span><img title={props.author + "'s facebook"} src={fbIcon} /></span>
+                <span><img title={props.author + "'s twitter"} src={twitterIcon} /></span>
+                <span><img title={props.author + "'s instagram"} src={instagramIcon} /></span>
+                <span><img title={props.author + "'s pinterest for some reason"} src={pinterestIcon} /></span>
+            </div>
 
 
                 {/* {loggedInEmail === articleEmail ?

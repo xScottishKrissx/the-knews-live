@@ -53,6 +53,30 @@
             text-decoration: underline;
         }
 
+
+
+/* Author Social */
+
+.authorSocial{
+    display: flex;
+        /* justify-content: space-evenly; */
+    /* background-color: blue; */
+    height: min-content;
+    /* width: 100%; */
+}
+    .authorSocial > span{
+        /* outline: 1px solid red; */
+        /* background-color: orange; */
+        padding: 5px;
+        width: auto;
+    }
+    .authorSocial > span > img{
+        width: 32px;
+    }
+
+
+
+
 /* Article Body */
     .articleBody{
         /* outline: 1px solid green; */
