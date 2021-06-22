@@ -134,6 +134,15 @@ const ArticleArea = (props) => {
                 <div className='articleBody'>
                     <article><ParseHTML props={props.text}/></article>
                 </div> 
+
+
+
+                {/* <a class="twitter-share-button"
+                   href="https://twitter.com/intent/tweet?text=http://www.christopherdunne.co.uk/theKnews/home">
+                    Tweet
+                </a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
+
                 {/* <RecReading fullDatabaseCall={props.fullDatabaseCall}/> */}
                 
                 {/* <div class="postArticleBody"><br/>
