@@ -45,7 +45,8 @@ const ArticleArea = (props) => {
     
     return (
             
-            <div className='article'>
+            <div className='articleWrapper'>
+                <div className="articleContent">
             {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
             {/* Article Header */}
 
@@ -134,6 +135,11 @@ const ArticleArea = (props) => {
                     <article><ParseHTML props={props.text}/></article>
                 </div> 
                 {/* <RecReading fullDatabaseCall={props.fullDatabaseCall}/> */}
+                
+                {/* <div class="postArticleBody"><br/>
+                    <span>--Bookmarked 1230 times</span>
+                </div> */}
+            </div>
             </div>
 
     );
