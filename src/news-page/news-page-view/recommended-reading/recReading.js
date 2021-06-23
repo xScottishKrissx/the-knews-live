@@ -10,7 +10,7 @@ export const RecReading = (props) =>{
     var articleSelection = []
 
     // Random Articles
-    for(var i = 0; i < 6; i++){
+    for(var i = 0; i < 5; i++){
         var randomNumber = Math.floor(Math.random() * 80) + 1; 
         var getArticles = database[randomNumber]            
         articleSelection.push(getArticles)
@@ -25,7 +25,7 @@ export const RecReading = (props) =>{
 
     // Format the articles
     const recReadingItems = articleSelection.map((value) => {
-        const imgUrl = "https://unsplash.it/1000/1000?random=" + value.id;
+        const imgUrl = "https://unsplash.it/100/100?random=" + value.id;
         const style = {
             backgroundImage: 'url(' + imgUrl + ')',
             backgroundColor:"red",
