@@ -10,7 +10,7 @@ export const RecReading = (props) =>{
     var articleSelection = []
 
     // Random Articles
-    for(var i = 0; i < 4; i++){
+    for(var i = 0; i < 6; i++){
         var randomNumber = Math.floor(Math.random() * 80) + 1; 
         var getArticles = database[randomNumber]            
         articleSelection.push(getArticles)
@@ -25,29 +25,41 @@ export const RecReading = (props) =>{
 
     // Format the articles
     const recReadingItems = articleSelection.map((value) => {
-        // const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
+        const imgUrl = "https://unsplash.it/1000/1000?random=" + value.id;
         const style = {
-            // backgroundImage: 'url(' + imgUrl + ')',
+            backgroundImage: 'url(' + imgUrl + ')',
+            backgroundColor:"red",
             backgroundPosition: "bottom",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            width:"100%",
+            // width:"100%",
         }   
         return(
             
-            <div className="recReadingItem" key={value.key}>   
-                <Link to={{ pathname: value.id , state: {articleId: value.id} }}>
-                    {/* <img src={imgUrl} style={style} alt="literally all random images, don't worry about it" /> */}
-                    <h3>{value.title}</h3>
-                    <p>{value.postdate}</p>
-                </Link>
+            <div className="recReadingItem" key={value.key} style={style}>   
+                <div className="recReadingCaption">
+                    <Link to={{ pathname: value.id , state: {articleId: value.id} }}>
+                        {/* <img src={imgUrl} style={style} alt="literally all random images, don't worry about it" /> */}
+                        <span className="recReadingCaptionHeadline">{value.title}</span>
+                        {/* <p>{value.postdate}</p> */}
+                        <br/>
+                        <div className="recReadingCaptionArticleInfo">
+                            <span className="recReadingCaptionTag">{value.author || "author"}</span>
+                            <span className="recReadingCaptionPostDate">{value.postdate || "PostDate"}</span>
+                        </div>
+                    </Link>
+                </div>
             </div>
+            
         )
     })
 
     
         return(
-               <div className="recReadingWrapper"><h2>Recommended Reading</h2>{recReadingItems}</div>
+               <div className="recReadingWrapper">
+                   <h2>Recommended Reading</h2>
+                   <div className="recReadingItemsWrapper">{recReadingItems}</div>
+                </div>
         )
     }
     

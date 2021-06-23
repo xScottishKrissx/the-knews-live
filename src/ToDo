@@ -1122,6 +1122,9 @@ General Notes  Objectives:
                     ☐ Integrate Social for:
                         ☐ theKnews website
                             ☐ THink this belongs in the footer, although I do want the ability to share articles.
+                        ☐ Articles
+                            ☐ This might be better to attempt after i've uploaded the 12.10.2 to the portfolio.
+                            ☐ Will need to use React Hemlet as a start to get meta-data for each page.
                         ✔ author of articles @done(17:00 - 22/06/21)
                     ✔ Try adding some text to the fixed image @done(13:35 - 22/06/21)
                     ☐ What about user customisation for articles?
