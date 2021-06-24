@@ -1,5 +1,7 @@
 import React from 'react';
 import ParseHTML from '../../../utility_components/parse-database-html/parse-html.js';
+// import {Helmet} from 'react-helmet';
+import {Helmet} from 'react-helmet';
 
 import fbIcon from '../../../img/fb_icon_512px_black_and_white.png';
 import twitterIcon from '../../../img/twitter_icon_512px_black_and_white.png';
@@ -21,6 +23,7 @@ import ArticleInformation from './articleInformation/articleInformation.js';
 
 
 
+
 const ArticleArea = (props) => {
     //console.log(props.id)   
     //console.log("Logged in email:  " + fire.auth().currentUser.email)
@@ -39,10 +42,11 @@ const ArticleArea = (props) => {
     // console.log(props.fullDatabaseCall)
     // console.log(props.bookmarked)
 
-
+    // const htmlAttrs = helmet.htmlAttributes.toComponent();
+    // const bodyAttrs = helmet.bodyAttributes.toComponent();
 
     return (
-            
+
             <div className='articleWrapper'>
                 <div className="articleContent">
             {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
@@ -85,11 +89,11 @@ const ArticleArea = (props) => {
 
 
 
-                {/* <a class="twitter-share-button"
-                   href="https://twitter.com/intent/tweet?text=http://www.christopherdunne.co.uk/theKnews/home">
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">
                     Tweet
                 </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
+
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
                 
                 {/* <div class="postArticleBody"><br/>

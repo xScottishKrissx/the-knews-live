@@ -1123,8 +1123,10 @@ General Notes  Objectives:
                         ☐ theKnews website
                             ☐ THink this belongs in the footer, although I do want the ability to share articles.
                         ☐ Articles
-                            ☐ This might be better to attempt after i've uploaded the 12.10.2 to the portfolio.
-                            ☐ Will need to use React Hemlet as a start to get meta-data for each page.
+                            ✔ Will need to use React Hemlet as a start to get meta-data for each page. @done(17:15 - 24/06/21)
+                                ✔ Installed, was a lot easier than I was making it. @done(17:15 - 24/06/21)
+                                ☐ Although it might not work until it's been uploaded to the portfolio.
+
                         ✔ author of articles @done(17:00 - 22/06/21)
                     ✔ Try adding some text to the fixed image @done(13:35 - 22/06/21)
                         ✔ Change the <span> to >> <h1> @done(15:46 - 24/06/21)

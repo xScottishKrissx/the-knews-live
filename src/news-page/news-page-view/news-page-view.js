@@ -13,7 +13,7 @@ import HandleLike from '../../utility_components/handleSocialScore/handleLike.js
 import RecReading from './recommended-reading/recReading.js';
 import NextArticle from './nextArticle.js';
 
-
+import {Helmet} from 'react-helmet';
 
 export class NewsPageVIEW extends React.Component{
 
@@ -108,6 +108,13 @@ export class NewsPageVIEW extends React.Component{
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
+
+                    <Helmet>
+                      <title>{value.title} | theKnews | christopher dunne</title>
+
+                    </Helmet>
+
+
                     <NavBar 
                     // Menu Config
                     score={true} 
@@ -146,6 +153,7 @@ export class NewsPageVIEW extends React.Component{
                           arrayFromDatabase={this.state.articlesArray}
                           leftoverArticles={this.state.leftoverArticles}
                           fullDatabaseCall={this.state.fullDatabaseCall}
+
                           />
 
                         {/* <h1>Header Image</h1> */}

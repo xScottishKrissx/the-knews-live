@@ -11,6 +11,8 @@ import DeploymentMessage from './deployment-message/deploymentmessage.js';
 import { Routes } from './routes/routes';
 import OptionsMenu from './utility_components/optionsMenu/optionsMenu';
 
+import {Helmet} from 'react-helmet';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -73,7 +75,19 @@ handleClick(){
         <p id="hideArticleMessage">You have hidden an article. It will not appear again until you reset the page using <span className="material-icons">restart_alt</span> at the top right of page</p>
         <button onClick={() => this.handleClick()}>Undo</button>
       </div>
-      
+
+      <Helmet>
+        <title>Home | theKnews | christopherdunne.co.uk </title>
+        {/* This might not work until it's on the server. */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@nytimesbits" />
+        <meta name="twitter:creator" content="@nickbilton" />
+        <meta property="og:url" content="http://bits.blogs.nytimes.com/2011/12/08/a-twitter-for-my-sister/" />
+        <meta property="og:title" content="A Twitter for My Sister" />
+        <meta property="og:description" content="In the early days, Twitter grew so quickly that it was almost impossible to add new features because engineers spent their time trying to keep the rocket ship from stalling." />
+        <meta property="og:image" content="http://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg" />
+      </Helmet>
+
       {/* <Header /> */}
       <Routes />
       {/* <OptionsMenu urlInfo={window.location.pathname}/> */}
