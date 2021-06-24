@@ -28,6 +28,7 @@ h1,h2,h3,h4,h5,h6{
             margin-bottom: 10px;
             width: 75%;
         }
+
             .recReadingCaption{padding: 5px;}
             .recReadingCaptionHeadlineWrapper{
 
@@ -80,10 +81,14 @@ h1,h2,h3,h4,h5,h6{
         .recReadingItem{
             height:100%;
                 min-height:475px;
+            mix-blend-mode: luminosity;
             margin: inherit;
-            outline: 5px solid black;
+            border: 5px solid black;
             width:20%;
                 max-width:500px;
+        }
+        .recReadingItem:hover{
+            mix-blend-mode: initial;
         }
         
             .recReadingCaption{
@@ -93,10 +98,15 @@ h1,h2,h3,h4,h5,h6{
                 padding: 0px;
             }
             .recReadingCaption > a{
+                /* background-color: rgb(0 0 0 / 50%); */
                 display: flex;
                 flex-wrap: wrap;
                 width: 100%;
             }
+                .recReadingCaption > a:hover{
+                    text-decoration: none; 
+                    /* background-color:  rgb(0 0 0 / 0%) */
+                }
                 .recReadingCaptionHeadlineWrapper{
                     /* background-color: blue; */
                     width: 95%;
