@@ -51,6 +51,7 @@ h1,h2,h3,h4,h5,h6{
                             background-color: black;
                             color: white;
                             font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            font-size: 1.15rem;
                             margin: 5px;
                             height: fit-content;
                             width: min-content;
@@ -61,8 +62,13 @@ h1,h2,h3,h4,h5,h6{
 
 @media (min-width: 768px) {
     .recReadingWrapper{
+        /* background-color: red; */
         display: flex;
+        height: 600px;
         width: 100%;
+        align-items:center;
+        flex-direction:column;
+        justify-content:center;
     }
     .recReadingItemsWrapper{
         align-items: center; 
@@ -77,7 +83,7 @@ h1,h2,h3,h4,h5,h6{
             margin: inherit;
             outline: 5px solid black;
             width:20%;
-                max-width:275px;
+                max-width:500px;
         }
         
             .recReadingCaption{
@@ -105,7 +111,7 @@ h1,h2,h3,h4,h5,h6{
                         margin: 0;
                             margin-bottom: 5px;
                         white-space:normal;
-                        width: 90%;
+                        width: 80%;
                     }
                     .recReadingCaptionTag{
                         margin-bottom:5px;
@@ -119,8 +125,9 @@ h1,h2,h3,h4,h5,h6{
 }
 
 @media (min-width: 1000px) {
-    .recReadingItemsWrapper{
+    .recReadingCaptionHeadline{
+        font-size: 1.75rem;
 
-    } 
+    }
     
 }

@@ -51,6 +51,8 @@ export const RecReading = (props) =>{
                         <div className="recReadingCaptionArticleInfo">
                             <span className="recReadingCaptionTag">{value.author || "author"}</span>
                             <span className="recReadingCaptionPostDate">{value.postdate || "PostDate"}</span>
+                            
+                            <span className="recReadingCaptionPostDate">{value.tag || "No Tag"}</span>
                         </div>
                     </Link>
                 </div>
@@ -64,6 +66,7 @@ export const RecReading = (props) =>{
                <div className="recReadingWrapper">
                    <h2>Recommended Reading</h2>
                    <div className="recReadingItemsWrapper">{recReadingItems}</div>
+                   
                 </div>
         )
     }
