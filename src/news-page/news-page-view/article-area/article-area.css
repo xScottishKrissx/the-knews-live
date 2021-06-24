@@ -161,9 +161,10 @@
 }
 
 /* Move to header.css at some point */
-.bannerImageTextWrapper > span{
+.bannerImageTextWrapper > h1{
     background-color: black;
     color: white;
+    display: inline;
     /* mix-blend-mode: multiply; */
     text-transform: uppercase;
     font-size: 100px;

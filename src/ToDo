@@ -1127,7 +1127,10 @@ General Notes  Objectives:
                             ☐ Will need to use React Hemlet as a start to get meta-data for each page.
                         ✔ author of articles @done(17:00 - 22/06/21)
                     ✔ Try adding some text to the fixed image @done(13:35 - 22/06/21)
-                        ☐ Change the <span> to >> <h1>
+                        ✔ Change the <span> to >> <h1> @done(15:46 - 24/06/21)
+                        ✘ Add the article information here as well @cancelled(16:48 - 24/06/21)
+                            ✔ Create component for article information @done(16:48 - 24/06/21)
+                            // the article info just clogs the space up a little bit but I did create the component anyway.
                     ☐ What about user customisation for articles?
 
 

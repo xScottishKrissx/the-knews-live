@@ -1,8 +1,5 @@
 import React from 'react';
-
-import {Link} from 'react-router-dom';
 import ParseHTML from '../../../utility_components/parse-database-html/parse-html.js';
-import RecReading from '../recommended-reading/recReading.js';
 
 import fbIcon from '../../../img/fb_icon_512px_black_and_white.png';
 import twitterIcon from '../../../img/twitter_icon_512px_black_and_white.png';
@@ -16,6 +13,7 @@ import pinterestIcon from '../../../img/pinterest_icon_512px_black_and_white.png
 // import EditArticle from './edit-article.js';
 
 import './article-area.css';
+import ArticleInformation from './articleInformation/articleInformation.js';
 // import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
 // import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
 // import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
@@ -42,7 +40,7 @@ const ArticleArea = (props) => {
     // console.log(props.bookmarked)
 
 
-    
+
     return (
             
             <div className='articleWrapper'>
@@ -52,69 +50,19 @@ const ArticleArea = (props) => {
 
             <div className='articleHeadline'>
                 <header><h1>{props.title}</h1></header>
-            </div>   
-
-            <div className='articleInformation'>
-
-            <div className="articleTag">
-                <span>posted in </span>
-                    <Link className="newsItemLink" to={{pathname: '/theKnews/home/search/tag/' + props.tag , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
-                        {props.tag}
-                    </Link>
-                </div>
-
-
-
-                
-                <div className="articleAuthor">
-                    <span>by</span>
-                    <Link 
-                        className="newsItemLink" 
-                        to={{
-                            pathname: '/theKnews/home/search/author/' + props.author , 
-                            state:{
-                                author: props.author, 
-                                tag:props.tag,
-                                searchDBFor: "author",
-                                origin: "Article", 
-                                orderByChild: "author",
-                                thingFromArticle:props.tag,
-                                arrayFromDatabase:props.arrayFromDatabase,
-                                leftoverArticles:props.leftoverArticles,
-                                fullDatabaseCall:props.fullDatabaseCall
-                                }
-                            }}>
-                            {props.author}
-                    </Link>
-                </div>
-                
-
-                {/* <div className="articleEmail"><span>{props.email}</span></div> */}
-
-
-                <div className="articlePostdate">
-                    {/* Removed Until I can work out the date format issue */}
-                    {/* <Link 
-                        className="__news-item-link" 
-                        to={{
-                            pathname: '/theKnews/home/search/postdate/' + props.postdate, 
-                            state: {
-                                author: props.postdate, 
-                                searchDBFor: "postdate",
-                                origin: "Article", 
-                                orderByChild: "postdate",
-                                arrayFromDatabase:props.arrayFromDatabase,
-                                leftoverArticles:props.leftoverArticles,
-                                fullDatabaseCall:props.fullDatabaseCall
-                            }
-                        }}> */}
-                        <span>on {props.postdate}</span>
-                    {/* </Link> */}
-                </div>
-
-                
-                                
             </div>
+
+            <ArticleInformation
+                // Tag 
+                tag={props.tag}
+                // Author
+                author={props.author}
+                arrayFromDatabase={props.arrayFromDatabase}
+                leftoverArticles={props.leftoverArticles}
+                fullDatabaseCall={props.fullDatabaseCall}
+                // PostDate
+                postdate={props.postdate}
+            />
            
             <div className="authorSocial">
                 <span><img title={props.author + "'s facebook"} src={fbIcon} /></span>
@@ -143,7 +91,6 @@ const ArticleArea = (props) => {
                 </a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
 
-                {/* <RecReading fullDatabaseCall={props.fullDatabaseCall}/> */}
                 
                 {/* <div class="postArticleBody"><br/>
                     <span>--Bookmarked 1230 times</span>

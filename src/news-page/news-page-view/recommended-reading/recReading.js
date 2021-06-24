@@ -10,18 +10,18 @@ export const RecReading = (props) =>{
     var articleSelection = []
 
     // Random Articles
-    for(var i = 0; i < 5; i++){
-        var randomNumber = Math.floor(Math.random() * 80) + 1; 
-        var getArticles = database[randomNumber]            
-        articleSelection.push(getArticles)
-    }
+    // for(var i = 0; i < 5; i++){
+    //     var randomNumber = Math.floor(Math.random() * 80) + 1; 
+    //     var getArticles = database[randomNumber]            
+    //     articleSelection.push(getArticles)
+    // }
 
     // Precise Controls
-        // var compArray = [319,546,536,375]
-        // for(i = 0; i < 4; i++){
-        //     var getArticles = database.filter(obj => obj.id === compArray[i] ) 
-        //     articleSelection.push(getArticles[0])
-        // }
+        var compArray = [319,546,536,375,856]
+        for(var i = 0; i < 5; i++){
+            var getArticles = database.filter(obj => obj.id === compArray[i] ) 
+            articleSelection.push(getArticles[0])
+        }
 
     // Format the articles
     const recReadingItems = articleSelection.map((value) => {

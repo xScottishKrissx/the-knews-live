@@ -137,7 +137,17 @@ export class NewsPageVIEW extends React.Component{
                     
                     {/* Header Image */}
                     <div className='article-banner-image-wrapper'>
-                        <HeaderImage props={value.id} headline={value.title}/>
+                        <HeaderImage 
+                          props={value.id} 
+                          headline={value.title} 
+                          author={value.author} 
+                          postdate={value.postdate} 
+                          tag={value.tag}
+                          arrayFromDatabase={this.state.articlesArray}
+                          leftoverArticles={this.state.leftoverArticles}
+                          fullDatabaseCall={this.state.fullDatabaseCall}
+                          />
+
                         {/* <h1>Header Image</h1> */}
                     </div>
                   
