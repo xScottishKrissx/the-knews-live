@@ -29,35 +29,41 @@ h1,h2,h3,h4,h5,h6{
             width: 75%;
         }
             .recReadingCaption{padding: 5px;}
-                .recReadingCaption > a > span{
-                    background-color: black;
-                    color: white;
-                    font-size: 1.35rem;
-                    margin: 0;
-                    padding: 0;
+            .recReadingCaptionHeadlineWrapper{
 
-                    font-family: fantasy,Verdana, Geneva, Tahoma, sans-serif;
-                    text-transform: uppercase;
-                }
+            }
+                .recReadingCaptionHeadline{
+                        background-color: black;
+                        color: white;
+                        font-size: 1.35rem;
+                        margin: 0;
+                        padding: 0;
+
+                        font-family: fantasy,Verdana, Geneva, Tahoma, sans-serif;
+                        text-transform: uppercase;
+                    }
                     .recReadingCaptionArticleInfo{
                         display: flex;
                             justify-content: flex-start;
                             white-space: nowrap;
                     }
-                    .recReadingCaptionArticleInfo > span{
-                        background-color: black;
-                        color: white;
-                        font-family: fantasy,Verdana, Geneva, Tahoma, sans-serif;
-                        margin: 5px;
-                        height: fit-content;
-                        width: min-content;
+                        .recReadingCaptionArticleInfo > span{
+                            background-color: black;
+                            color: white;
+                            font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            margin: 5px;
+                            height: fit-content;
+                            width: min-content;
 
-                    }
+                        }
   
 
 
 @media (min-width: 768px) {
-    
+    .recReadingWrapper{
+        display: flex;
+        width: 100%;
+    }
     .recReadingItemsWrapper{
         align-items: center; 
 
@@ -65,27 +71,50 @@ h1,h2,h3,h4,h5,h6{
         flex-wrap: wrap;
         justify-content: center;
     }
-    .recReadingWrapper{
-        display: flex;
-        width: 100%;
-
-
-    }
-    
-    .recReadingItem{
-        height:100%;
-            min-height:475px;
-        margin: inherit;
-        outline: 5px solid black;
-        width:20%;
-            max-width:275px;
-    }
-    .recReadingCaptionArticleInfo{
-        flex-wrap:wrap
-    }
-        .recReadingCaptionArticleInfo > span {
-            white-space:normal
+        .recReadingItem{
+            height:100%;
+                min-height:475px;
+            margin: inherit;
+            outline: 5px solid black;
+            width:20%;
+                max-width:275px;
         }
+        
+            .recReadingCaption{
+                /* background-color: red; */
+                display:flex;
+                height:100%;
+                padding: 0px;
+            }
+            .recReadingCaption > a{
+                display: flex;
+                flex-wrap: wrap;
+            }
+                .recReadingCaptionHeadlineWrapper{
+                    /* background-color: blue; */
+                    width: 95%;
+                }
+
+                .recReadingCaptionArticleInfo{
+                    width:100%;
+                    align-items:flex-end;
+                    flex-direction:column;
+                    justify-content:flex-end;
+                }
+                    .recReadingCaptionArticleInfo > span {
+                        margin: 0;
+                            margin-bottom: 5px;
+                        white-space:normal;
+                        width: 90%;
+                    }
+                    .recReadingCaptionTag{
+                        margin-bottom:5px;
+                    }
+                
+
+        
+
+
             
 }
 
