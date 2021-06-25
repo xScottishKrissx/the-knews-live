@@ -112,6 +112,12 @@ export class NewsPageVIEW extends React.Component{
                     <Helmet>
                       <title>{value.title} | theKnews | christopher dunne</title>
 
+                    <meta property="og:type" content="website"></meta>
+                    <meta property="og:url" content={"https://christopherdunne.co.uk/theKnews/home/articles/news-page/" + value.id} />
+                    <meta property="og:title" content={value.title} />
+                    <meta property="og:description" content="Welcome to theKnews" />
+                    <meta property="og:image" content="https://christopherdunne.co.uk/wp-content/uploads/2021/06/IMG_20180405_135532.jpg" />
+
                     </Helmet>
 
 

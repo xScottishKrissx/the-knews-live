@@ -27,7 +27,7 @@ export const RecReading = (props) =>{
 
     // Format the articles
     const recReadingItems = articleSelection.map((value) => {
-        const imgUrl = "https://unsplash.it/190/100?random=" + value.id;
+        const imgUrl = "https://unsplash.it/1920/1080?random=" + value.id;
         const style = {
             backgroundImage: 'url(' + imgUrl + ')',
             backgroundColor:"red",
