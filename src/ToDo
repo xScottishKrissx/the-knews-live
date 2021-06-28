@@ -1149,18 +1149,16 @@ General Notes  Objectives:
                             Mobile:
                                 Chrome:No Issues
                                 Firefox: No Issues
-                    ☐ Commit
-                    ☐ Blog
-                    ☐ Portfolio
-                    ☐ Finished, move on.
+                    ✔ Commit @done(13:21 - 25/06/21)
+                    ✔ Blog @done(13:52 - 25/06/21)
+                    ✔ Portfolio @done(13:52 - 25/06/21)
+                    ✔ Finished, move on. @done(13:52 - 25/06/21)
 
             12.10.3 - Bookmark Page:
             12.10.4 - liteKnews:
                 ☐ Add keyboard support for article switching with left/right arrow keys.
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
-                ☐ Ensure the load articles button is always available
-                ☐ The navbar is swallowing the top of the cards
             12.10.6 - Website Footer:
                     ☐ Add a footer
             12.10.7 - Website Feedback Rework:
@@ -1340,8 +1338,12 @@ Part 2 Implement Database functionality:
             ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
             ✔ 12.9 - Misc Bug Fixes & Tweaks @done(10:53 - 14/06/21)
             ☐ 12.10 - Overhaul Main UI
-                ✔ V12.10.1 - Think about a release now as V12 might take a while. @done(12:48 - 21/06/21)
-                ☐ V12.10.2 - Release
+                ✔ V12.10.1 - Navbar - Release @done(12:48 - 21/06/21)
+                ✔ V12.10.2 - Article Page - Release @done(10:16 - 28/06/21)
+                ☐ V12.10.3 - Bookmark Page
+                    ✔ Fixed issue where top row of cards would disappear behind navbar 
+                    ☐ Ensure the load articles button is always available on the home page
+                    
         
 
         Version 11.1 - Bug Fixes:
