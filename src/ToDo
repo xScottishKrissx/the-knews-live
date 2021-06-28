@@ -1163,9 +1163,10 @@ General Notes  Objectives:
                 Bookmark Page:
                     ✔ Fix navbar swallowing cards @done(10:43 - 28/06/21)
                     ✔ Change hover on menu effects @done(10:56 - 28/06/21)
-
                 Tags:
-                    ☐ Fix page width
+                    ✔ Fix page width
+                    ☐ Add number of articles to navbar
+                    ✔ Remove header @done(11:08 - 28/06/21)
 
             12.10.4 - liteKnews:
                 ☐ Add keyboard support for article switching with left/right arrow keys.
@@ -1177,7 +1178,24 @@ General Notes  Objectives:
                 ☐ Improved Feedback for bookmarking articles using button
                 ☐ Improved feedback for hiding articles using button
                 ☐ Improved feedback for no further articles available to load(either scrolling or the button)
-                
+            
+            12.10.X - Misc:
+                ☐ Change styles for when clicking on stuff in the navbar
+                ☐ Home btn in liteKnews does nothing
+                ☐ Dragging on firefox is not working correctly.
+                ☐ Buttons that need to be added/created
+                    Navbar (sitewide):
+                        this will be mostyl sorted when I merge the 2 menus from home and bookmarks
+                        ☐ the same options menu should be available throughout the entire website
+                        ☐ Hide mark as read
+                        ☐ Include mark as read
+                        ☐ Mark All As Read
+                        ☐ Mark All as Unread
+                        ☐ Clear All Articles
+                        ☐ Reset Card Size
+                    Tags:
+                        ☐ Page Title
+                        ☐ Number of cards in tag
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -1329,11 +1347,10 @@ Part 2 Implement Database functionality:
                 // 12/5/2021 - article pages are currently not working when directly accessed from firefox
             ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
             ☐ 13.3 - (if missed in 12.10) - redo the feedback message to allow for undo of article.
-            ☐ 13.4 - Rework filters to work without need for current workaround.
-            ☐ 13.5 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
-            ☐ 13.6 - Add any buttons that are required on the navbar
-            ☐ 13.7 - Dragging on firefox is not working correctly.
-            ☐ 13.8 - Home btn in liteKnews does nothing
+            ☐ 13.4 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
+            ☐ 13.5 - Add any buttons that are required on the navbar
+
+
             
 
         Version 12 (Future Version) - Planned Notes:
@@ -1353,7 +1370,7 @@ Part 2 Implement Database functionality:
             ☐ 12.10 - Overhaul Main UI
                 ✔ V12.10.1 - Navbar - Release @done(12:48 - 21/06/21)
                 ✔ V12.10.2 - Article Page - Release @done(10:16 - 28/06/21)
-                ☐ V12.10.3 - Bookmark Page
+                ☐ V12.10.3 - Bookmark & Tags Page
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
                     ✔ Ensure the load articles button is always available on the home page 
                     

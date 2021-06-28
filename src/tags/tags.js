@@ -1,13 +1,9 @@
 import React from 'react';
 import fire from '../fire.js';
 
-import NavControls from '../utility_components/navControls/navControls.js';
 import '../tags/tags.css';
-import CustomCardSize from '../utility_components/custom-tile-size/custom-card-sizeV2.js';
-// import ScrollCheck from '../utility_components/ScrollCheck.js';
 
-// Working with Cache 
-import ClearCache from '../utility_components/handleCache/ClearCache.js';
+
 import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
 import RenderCard from '../utility_components/renderCard/renderCard.js';
 
@@ -141,14 +137,12 @@ class Tags extends React.Component{
         ) || this.props.location.state.arrayFromDatabase;
 
         const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
-        // console.log(renderTags)
+        // console.log(renderTags.length)
         return(
             
             <div className="tags-wrapper">
                 <div className="tags-item-wrapper">
-                        {/* <ClearCache /> */}
-                        
-                        {/* <NavControls props="only-home-button"/> */}
+
                         <NavBar 
                             bookmarks={true}
                             cardStyle={true}                         
@@ -162,60 +156,35 @@ class Tags extends React.Component{
                             fullDatabaseCall={this.state.fullDatabaseCall}
                             getFilteredArticles = {this.getFilteredArticles}
                             tagsArray={renderTags}
+
+                            // tag specific
+                            articleNumber={renderTags.length}
                         />
 
 
                         <FilterOptions fullDatabaseCall={this.state.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} tagsArray={renderTags}/>
 
+                        <div className="cardsWrapper">
+                            
+                            {renderTags.length === 0 ?
+                                <span> <img alt="now loading" src={loading} /> Loading   </span>
+                            :
+                                <RenderCard 
+                                database={renderTags}
+                                startingCardSize={this.state.startingCardSize}
+                                changedCardSize={this.state.changedCardSize}
+                                postsArray={this.state.postsArray}
 
+                                // This needs to be clean database call
+                                arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
+                                leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
+                                fullDatabaseCall={this.state.fullDatabaseCall}
+                            />
+                            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        {this.props.match.params.b || this.props.location.state.author === undefined ?
-                        <h1>Showing articles from {this.props.match.params.b || this.props.location.state.searchDBFor}</h1>
-                        : 
-                        <h1>Showing articles from {this.props.match.params.b || this.props.location.state.author}</h1>
-                        }      
-
-
-
-
-
-
-
-                        {/* <CustomCardSize getCardSizeToParent={this.getCardSize} /> */}
-                        {renderTags.length === 0 ?
-                        // <div>Nothing here</div>
-                        <span> <img alt="now loading" src={loading} /> Loading   </span>
-                        :
-                            <RenderCard 
-                            database={renderTags}
-                            startingCardSize={this.state.startingCardSize}
-                            changedCardSize={this.state.changedCardSize}
-                            postsArray={this.state.postsArray}
-
-                            // This needs to be clean database call
-                            arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
-                            leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
-                            fullDatabaseCall={this.state.fullDatabaseCall}
-                        />
-                        }
-
-
-                        <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} />
+                            <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} />
+                        </div>
                 </div>
-                {/* <CustomCardSize getCardSizeToParent={this.getCardSize}/> */}
             </div>
             
             
