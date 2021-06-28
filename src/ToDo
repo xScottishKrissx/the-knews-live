@@ -1164,6 +1164,7 @@ General Notes  Objectives:
             12.10.7 - Website Feedback Rework:
                 ☐ Improved Feedback for bookmarking articles using button
                 ☐ Improved feedback for hiding articles using button
+                ☐ Improved feedback for no further articles available to load(either scrolling or the button)
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
@@ -1342,7 +1343,7 @@ Part 2 Implement Database functionality:
                 ✔ V12.10.2 - Article Page - Release @done(10:16 - 28/06/21)
                 ☐ V12.10.3 - Bookmark Page
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
-                    ☐ Ensure the load articles button is always available on the home page
+                    ✔ Ensure the load articles button is always available on the home page 
                     
         
 
