@@ -1003,6 +1003,11 @@ General Notes  Objectives:
                                 ☐ Clear All Articles
                             Bookmarks:
                                 ☐ Reset Card Size
+                                ☐ 
+                            ☐ What about the ability to hide but not remove articles?
+                                ☐ then have a button that:
+                                    ☐ Lets you view read articles
+                                    ☐ hide read articles
 
                     ☐ Clicking an icon should keep it as the correct colour until deactivated
                     ✔ Just as being able to see when a filter is active, the same should be done for card size. @done(12:23 - 16/06/21)
@@ -1154,7 +1159,14 @@ General Notes  Objectives:
                     ✔ Portfolio @done(13:52 - 25/06/21)
                     ✔ Finished, move on. @done(13:52 - 25/06/21)
 
-            12.10.3 - Bookmark Page:
+            12.10.3 - Bookmark & Tags Page:
+                Bookmark Page:
+                    ✔ Fix navbar swallowing cards @done(10:43 - 28/06/21)
+                    ✔ Change hover on menu effects @done(10:56 - 28/06/21)
+
+                Tags:
+                    ☐ Fix page width
+
             12.10.4 - liteKnews:
                 ☐ Add keyboard support for article switching with left/right arrow keys.
             12.10.5 - Home Page / Cards:

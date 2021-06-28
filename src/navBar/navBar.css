@@ -112,7 +112,9 @@
             display: flex;
             justify-content: center;
             width: max-content;
-        }
+        } 
+            .uiBarItem > button> a:hover{ text-decoration: none; }
+            
             .uiBarItem > .btn-link{
                 color: black;
             }
@@ -120,6 +122,7 @@
                     color: black;
                     text-decoration: none;
                 }
+           
 
          
         

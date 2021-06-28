@@ -5,6 +5,7 @@
     #bookmarkItemsWrapper{
         display: flex;
         flex-wrap: wrap;
+       
     }
     #bookmarkItemsWrapper > .myClass{
         display: flex;
@@ -66,4 +67,11 @@
     /* border: 1px solid green; */
     color: green !important;
     /* opacity: 2.0  !important; */
+}
+
+@media (min-width: 768px){
+    #bookmarkItemsWrapper{
+        margin-top: 55px;
+        position: absolute;
+    }
 }
