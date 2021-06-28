@@ -4,6 +4,7 @@
     margin: 0 auto;
     /* max-width: 1200px; */
     position: fixed;
+    top: 55px;
     width: 100%;
     z-index: 50000;
 }

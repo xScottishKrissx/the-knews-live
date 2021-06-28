@@ -1097,6 +1097,7 @@ General Notes  Objectives:
                             ✔ Solution - Remove the console.log on line 25 > navbar.js @done(13:51 - 16/06/21)
                             ✔ i also had to restructure code for the bookmarks.js file relating to starting card size. @done(14:11 - 16/06/21)
                         ☐ Bookmark page -> Card Size look terrible when it's just one option
+
                         ✔ Card Size drodown is center aligned, should be left @done(12:47 - 21/06/21)
                         ✔ Home btn in liteKnews does nothing @done(13:33 - 16/06/21)
                         ✔ Dragging on firefox is not working correctly. @done(13:32 - 16/06/21)
@@ -1128,7 +1129,6 @@ General Notes  Objectives:
                         ☐ Articles
                             ✔ Will need to use React Hemlet as a start to get meta-data for each page. @done(17:15 - 24/06/21)
                                 ✔ Installed, was a lot easier than I was making it. @done(17:15 - 24/06/21)
-                                ☐ Although it might not work until it's been uploaded to the portfolio.
 
                         ✔ author of articles @done(17:00 - 22/06/21)
                     ✔ Try adding some text to the fixed image @done(13:35 - 22/06/21)
@@ -1370,9 +1370,10 @@ Part 2 Implement Database functionality:
             ☐ 12.10 - Overhaul Main UI
                 ✔ V12.10.1 - Navbar - Release @done(12:48 - 21/06/21)
                 ✔ V12.10.2 - Article Page - Release @done(10:16 - 28/06/21)
-                ☐ V12.10.3 - Bookmark & Tags Page
+                ✔ V12.10.3 - Bookmark & Tags Page @done(11:19 - 28/06/21)
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
                     ✔ Ensure the load articles button is always available on the home page 
+                ☐ V12.10.4 -liteKnews rework
                     
         
 
