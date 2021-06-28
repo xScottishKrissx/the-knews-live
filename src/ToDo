@@ -1169,7 +1169,9 @@ General Notes  Objectives:
                     ✔ Remove header @done(11:08 - 28/06/21)
 
             12.10.4 - liteKnews:
-                ☐ Add keyboard support for article switching with left/right arrow keys.
+                ✔ Add keyboard support for article switching with left/right arrow keys. @done(12:36 - 28/06/21)
+                    ☐ Handle when there are no more articles to read
+                ✔ Fixed navbar swallowing the top of liteKnews @done(12:12 - 28/06/21)
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
             12.10.6 - Website Footer:
@@ -1178,6 +1180,8 @@ General Notes  Objectives:
                 ☐ Improved Feedback for bookmarking articles using button
                 ☐ Improved feedback for hiding articles using button
                 ☐ Improved feedback for no further articles available to load(either scrolling or the button)
+                ☐ Feedback for reaching end of articles in liteKnews
+                ☐ Improved feedback for switching articles
             
             12.10.X - Misc:
                 ☐ Change styles for when clicking on stuff in the navbar

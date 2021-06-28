@@ -17,7 +17,12 @@
   /* Changing Colour when progress bar completes */
    .progressBarChange::-webkit-progress-value{ background: #6eff00;  border: 1px solid #6eff00;}
 
-   #speedKnews{max-width:1500px; width: 100%; margin: 0 auto;}
+   #speedKnews{
+       max-width:1500px; 
+       width: 100%; 
+       margin: 0 auto; 
+       margin-top: 55px;
+    }
    #speedKnewsWrapper{width: inherit;}
        .speedKnewsArticleContainer{
             display: flex;

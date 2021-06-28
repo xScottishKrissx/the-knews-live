@@ -17,6 +17,7 @@ class LiteKnews extends Component {
             progress:0
         }
         this.changeArticle = this.changeArticle.bind(this);
+        this.controls = this.controls.bind(this);
     }
 
     changeArticle(x){
@@ -42,9 +43,38 @@ class LiteKnews extends Component {
             document.getElementById("loading-article").classList.remove('progressBarChange')
         }
     }
+    componentDidMount(){
+        document.addEventListener("keyup", this.controls, false);
 
+    }
+
+    controls(event){
+    //    console.log(event)
+       if(event.keyCode === 37 && this.state.articleNumber > 0){
+           console.log("Go left")
+           this.setState({articleNumber: this.state.articleNumber - 1}) 
+       }
+       if(event.keyCode === 39){
+        console.log("Go Right")
+        this.setState({articleNumber: this.state.articleNumber + 1}) 
+    }
+    }
     render(){    
     window.scrollTo(0,0)
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
 
@@ -74,7 +104,7 @@ class LiteKnews extends Component {
                 />
 
 
-                <div id="speedKnews">                
+                <div id="speedKnews" >                
                     <div id="speedKnewsWrapper" >
                     {/* <h1>liteKnews - theKnews but lighter</h1> */}
 
