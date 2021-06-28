@@ -1,6 +1,7 @@
 // import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ArticleInformation from '../../news-page/news-page-view/article-area/articleInformation/articleInformation';
 import MarkAsRead from '../bookmarks/markAsRead';
 // import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 import HeaderImage from '../header-image/header-image';
@@ -30,9 +31,11 @@ export class LiteKnewsView extends React.Component{
 
             <header>
                 
-                {/* <HeaderImage props={this.props.id}/> */}
-                <h2>{this.props.title}</h2>
-                <h3>by: {this.props.author}</h3>
+                <HeaderImage props={this.props.id}/>
+                <h1>{this.props.title}</h1>
+                {/* <h3>by: {this.props.author}</h3> */}
+
+                
                 {/* <span>Read: {this.props.readStatus.toString()}</span> */}
                 {/* <Link                 
                     to={{
@@ -44,7 +47,19 @@ export class LiteKnewsView extends React.Component{
                     
                 {/* <p>{this.props.text}</p> */}
             </header>
-             
+
+            <ArticleInformation                 
+                // Tag 
+                tag={this.props.tag}
+                // Author
+                author={this.props.author}
+                arrayFromDatabase={this.props.arrayFromDatabase}
+                leftoverArticles={this.props.leftoverArticles}
+                fullDatabaseCall={this.props.fullDatabaseCall}
+                // PostDate
+                postdate={this.props.postdate}
+            />
+
             <article><ParseHTML props={this.props.text}/></article>
             
 

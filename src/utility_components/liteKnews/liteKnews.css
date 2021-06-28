@@ -1,3 +1,4 @@
+/* *{outline: 1px solid red;} */
 .speedKnewsArticleContainer > .onCardControls > div {
     position: relative;
     display: inline-flex;
@@ -19,11 +20,11 @@
 
    #speedKnews{
        max-width:1500px; 
-       width: 100%; 
+       width: 90%; 
        margin: 0 auto; 
-       margin-top: 55px;
+
     }
-   #speedKnewsWrapper{width: inherit;}
+   #speedKnewsWrapper{}
        .speedKnewsArticleContainer{
             display: flex;
                 flex-wrap: wrap;
@@ -33,23 +34,39 @@
            
        }
        .speedKnewsArticleContainer header {
-           margin-bottom: 2.5rem;
            min-width: 25%;
+           width: 100%;
        }
-       .speedKnewsArticleContainer header  div{min-width: 25vw;}
+        .speedKnewsArticleContainer header  div{
+                min-width: 25vw; 
+                height: 300px;
+            }
+
            .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
                display: block;
                margin: 0 auto;
                margin-top: 1rem;
                text-align: left;
-               width: 90%;
+               width: 100%;
            }
-       
+           .speedKnewsArticleContainer > .articleInformation{
+               width: 100%;
+           }
        .speedKnewsArticleContainer article{
            margin: 0 auto;
+            margin-top: 30px;
            max-width: 1000px;
+           width: 80%;
        }
-       .speedKnewsArticleContainer article p{margin-top: 0;}
+       .speedKnewsArticleContainer article p{
+           font-size: 1.25rem;
+           margin: 0; 
+            margin-bottom: 10px;
+            margin-top: 10px;
+           padding: 0; 
+           width: 100%;
+        }
+           
 #liteKnewsWrapper{
     width: 100%;
 }
@@ -105,8 +122,18 @@
 
 
 /* Media Queries */
-@media (min-width: 1200px) {
+/* margin-top: 55px; */
 
+@media (min-width: 768px) {
+    #speedKnews{
+        margin-top: 55px;
+    }
+}
+@media (min-width: 1000px) {
+    .speedKnewsArticleContainer > header >  .article-banner-image{
+        margin: 0;
+        position: relative;
+    }
     .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
         margin-bottom: 1rem;
         margin-top: 2rem;
@@ -115,16 +142,15 @@
     }
     .speedKnewsArticleContainer header{
         /* background-color: red; */
-        float: left;
+        /* float: left; */
 
         
         /* height: 90vh; */
     }
         .speedKnewsArticleContainer header div{
-            /* margin-top: 30vh; */
-            /* border: 1px solid yellow; */
             height: auto;
             min-height: 400px;
+            width: 100%;
 
 
         

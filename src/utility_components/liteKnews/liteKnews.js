@@ -45,19 +45,19 @@ class LiteKnews extends Component {
     }
     componentDidMount(){
         document.addEventListener("keyup", this.controls, false);
-
     }
 
+    // keyboard controls
     controls(event){
     //    console.log(event)
        if(event.keyCode === 37 && this.state.articleNumber > 0){
-           console.log("Go left")
-           this.setState({articleNumber: this.state.articleNumber - 1}) 
+        //    console.log("Go left")
+            this.setState({articleNumber: this.state.articleNumber - 1}) 
        }
        if(event.keyCode === 39){
-        console.log("Go Right")
-        this.setState({articleNumber: this.state.articleNumber + 1}) 
-    }
+        // console.log("Go Right")
+            this.setState({articleNumber: this.state.articleNumber + 1}) 
+        }
     }
     render(){    
     window.scrollTo(0,0)
@@ -148,6 +148,15 @@ class LiteKnews extends Component {
                                 
                                 bookmarkedStatus={articleFromArray.bookmarked}
                                 readStatus={articleFromArray.read}
+                                // Tag 
+                                tag={articleFromArray.tag}
+                                // Author
+                                author={articleFromArray.author}
+                                arrayFromDatabase={this.props.arrayFromDatabase}
+                                leftoverArticles={this.props.leftoverArticles}
+                                fullDatabaseCall={this.props.fullDatabaseCall}
+                                // PostDate
+                                postdate={articleFromArray.postdate}
                             />
                                                              
                             </SwipeableListItem>
