@@ -1,13 +1,13 @@
 import React from 'react';
-// import MediaQuery from 'react-responsive';
 
 import fire from '../fire.js'
 import {Link} from 'react-router-dom';
 import NewsPageVIEW from './news-page-view/news-page-view.js';
-// import DummyData from '../home-page/dummy-data.js';
-// import PracticeForm from '../myKnews/practice-form.js';
 
-// const dummyNews = DummyData;
+
+import loading from '../img/loading5.gif';
+import NavBar from '../navBar/navBar.js';
+
 
 
 export class NewsPage extends React.Component{
@@ -23,46 +23,73 @@ export class NewsPage extends React.Component{
             postdate:"",
             tag: "",
             articlesArray: [],
+
+            fullDatabaseCall:[],
+            //testing
+            showErrorMessage:false
         }
     }
 
     componentDidMount(){        
-        // console.log(this.props.match.params.id);
-        const dave = this.props.match.params.id;
-        
+
+        // console.log("Mounted")
+        // const dave = this.props.match.params.id;
         // console.log(dave)
-        const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
-        // console.log(dbRef)
-        // console.log(this.props.match.params.id);
+
+        // Old Method
+        // const dbRef = fire.database().ref("items").orderByKey().equalTo(dave);
+
+        // New Method
+        const dave = parseInt(this.props.match.params.id);
+        const dbRef = fire.database().ref("items").orderByChild("id").equalTo(dave);
+       
+        
+         // Main Database Call
         dbRef.on('value', (snapshot) => {
-            let articles = snapshot.val();
+            let dbObjects = snapshot.val();
             let newState = [];
-            for(let item in articles){
-                newState.push({
-                    key: item,
-                    author: articles[item].author,
-                    title: articles[item].title,
-                    id:articles[item].id,
-                    tag:articles[item].tag,
-                    email:articles[item].email,
-                    text: articles[item].text,
-                    likes: articles[item].likes,
-                    dislikes: articles[item].dislikes,
-                    postdate: articles[item].postdate,
-                });
-                // console.log("New State is:: " + newState)
+            for (let dbObject in dbObjects){
+              newState.push({
+                author: dbObjects[dbObject].author,
+                bookmarked: dbObjects[dbObject].bookmarked,
+                dislikes:dbObjects[dbObject].dislikes,
+                disliked:dbObjects[dbObject].disliked,
+                email:dbObjects[dbObject].email,
+                hidden:dbObjects[dbObject].hidden,
+                id:dbObjects[dbObject].id,
+                key:dbObject,
+                likes:dbObjects[dbObject].likes,
+                liked:dbObjects[dbObject].liked,
+                postdate:dbObjects[dbObject].postdate,
+                read: dbObjects[dbObject].read,
+                tag:dbObjects[dbObject].tag,
+                text:dbObjects[dbObject].text,
+                title:dbObjects[dbObject].title,
+               
+              })
             }
 
             this.setState({
-                articlesArray: newState
+                fullDatabaseCall: newState,
+                articlesArray: newState.slice(0,30),
+                leftoverArticles: newState.slice(30,97)
+                
             })
-            // console.log(this.state.articlesArray[0].id);
-            // console.log("DB: " + this.state.articlesArray)
+            if(this.state.articlesArray.length === 0 ){
+                this.setState({showErrorMessage:true})
+            }
+
+            if(this.state.articlesArray === 0){
+                setTimeout(function() {
+                    this.setState({showErrorMessage:true})
+                }, 5000);
+            }
         })
     }
     
     componentWillUnmount(){
         fire.database().ref("items").off();
+        this.setState({showErrorMessage:false})
     }
 
     
@@ -70,39 +97,37 @@ export class NewsPage extends React.Component{
     render(){    
 
     const arrayLength = this.state.articlesArray.length;
-    const test = arrayLength;
+
     return (
         
-        <span>
+        <div>
 
-        {/* I have no idea what is going on here... */}
-
-        {/* <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  />  */}
-
-        {/* If i comment out below(106>113) and leave above(97), the recommended reading bar will not display with 4 articles, only 1.
-            However, if i comment out above and leave below it works as intended.
-
-            I have no idea what the difference is here and why they would be behaving differently.
-        */}
-
-
-        {test >= 1 ?         
-            <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  /> 
-
-        
-            : 
-            <div className="error-message">
-            <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because they're monkeys at the end of the day.</p>
-            <Link to='/theKnews'><p>Home</p></Link>
-            </div>
-
-        }
-    
-
-        {/* <NewsPageVIEW database={this.state.articlesArray} params={this.props.match.params.id}  />  */}
-        {/* {checkIdMap} */}
-
-        </span>
+            {arrayLength >= 1 ?         
+                <NewsPageVIEW 
+                    database={this.state.articlesArray} 
+                    params={this.props.match.params.id} 
+                    fullDatabaseCall={this.state.fullDatabaseCall} 
+                    leftoverArticles={this.state.leftoverArticles}
+                    id={this.props.match.params.id}
+                    // articleId={this.props.location.state.articleId}
+                /> 
+                : 
+                <div>
+                    
+                    {this.state.showErrorMessage === false ?
+                        <img src={loading} alt="loading, please wait for results"/>
+                    :
+                        <span>
+                        <NavBar />
+                            <div className="error-message">
+                                <p>Nothing here mate. A team of monkeys have been dispatched from HQ where they have promptly started doing whatever they want because, at the end of the day, they're monkeys.</p>
+                            </div>
+                        </span>
+                    }
+                    
+                </div>
+            }
+        </div>
         );
             
             

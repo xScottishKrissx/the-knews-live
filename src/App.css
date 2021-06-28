@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+/* *{
+  border: 1px solid black;
+} */
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -28,3 +32,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+

@@ -1,0 +1,68 @@
+/* .cardControlSizeWrapper *{outline: 1px solid red;} */
+/* .cardControlSizeWrapper{
+    outline: 2px solid rgba(255, 255, 255, 0.44);
+    text-align: center;
+    visibility: visible;
+    width: 100%;
+    z-index: 20;
+}
+
+    .tileSizeControls{
+        background-color: white;
+        color: white;
+        font-weight: 400;
+        user-select: none;
+    }
+
+        .tileSizeControls h3{ display: contents;}
+            .tileSizeControls p{font-size: 3rem; margin: 0;}
+
+            .controlBtns{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .controlBtns button{
+                background-color: white;
+                cursor: pointer;
+                margin: 0px;
+                outline: 1px solid black;
+                padding: 0;
+
+            }
+            .controlBtns button:hover{
+                background-color: black;
+                color: white;
+            }
+                .controlBtns button span{
+                    
+                    display: block;
+                    padding: 10px;
+                }
+                    .controlBtns button span span{
+                       
+                        display: initial;
+                        font-size: 8px;
+                        padding: 5px;
+                    } */
+                
+
+                /* #cardControlsLargeBtn{display:none;} */
+
+
+                /* Standard Size */
+/* Compact     |> Height - 150px  | width - 330px */
+/* Comfortable |> Height - auto  | width - 260px */
+/* Big         |> Height - auto  | width - 470px */
+
+
+/* @media (min-width: 768px) {
+    #cardControlsLargeBtn{display:block;}
+}
+
+@media (min-width: 375px) {
+    .cardControlSizeWrapper{visibility: visible;}
+} */
+
+
+

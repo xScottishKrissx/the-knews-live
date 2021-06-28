@@ -9,16 +9,19 @@ class TagBar extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            test: "Sports",
+            // test: "Sports",
+            test:""
         }
 
     }
     getTagArticles(chosenTag){
+
         console.log("Get " + chosenTag)
         this.setState({
             test:chosenTag
-    })
-        
+         })
+    
+
         const dbRef = fire.database().ref('items').orderByChild("tag").startAt(this.state.test).endAt(this.state.test)
 
         dbRef.on('value', (snapshot) => {
@@ -39,9 +42,9 @@ class TagBar extends React.Component{
 
             this.setState({
                 // articlesArray: newState.reverse(),
-                articlesArray: newState.slice(0,50)
+                articlesArray: newState.slice(0,100)
             })
-            console.log("Articles Array is:: " + this.state.articlesArray);
+            console.log(this.state.articlesArray);
         })
     }
 
@@ -58,10 +61,6 @@ class TagBar extends React.Component{
                 <Link className="news-item-link" to={{pathname: '/theKnews/tags/news' , state: {searchDBFor: "News", tag3:this.state.articlesArray,origin: "Tagbar",orderByChild: "tag" }}}>
                     <li onClick={() => this.getTagArticles("News")} >News</li>
                 </Link>
-
-                {/* <Link className="__news-item-link" testprops="Weather" to={{pathname: '/theKnews/tags/weather' , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
-                            {props.tag}
-                </Link> */}
 
                 <Link className="news-item-link" to={{pathname: '/theKnews/tags/weather' , state: {searchDBFor: "Weather", tag3:this.state.articlesArray,origin: "Tagbar", orderByChild: "tag"}}}>
                     <li onClick={() => this.getTagArticles("Weather")} >Weather</li>

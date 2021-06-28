@@ -1,21 +1,36 @@
-/* NewMap Class */
-.news-square{
-    border:5px solid white;
-    display: flex;
-    flex: auto;
 
-    /* Default */
-    width: 260px;
+    .news-item-loop-wrapper{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        
+        margin: 0 auto;
+        
+        }
     
+        .news-item-loop-wrapper img{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .newsItemLoopViewWrapper{
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1;
+            margin: 0 auto;
+            position: relative;
+            
+        }
+        .newsItemLoopViewWrapper > div{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            
+        }
 
-    /* Small */
-    /* width: 200px; */
-}
 
-    .news-square:hover{
-        border: 5px solid #00000033;
-        border-radius: 1%;
-    }
 #saveScroll{
     position: fixed;
     right: 0;
@@ -32,17 +47,19 @@
 
 
 
+
 .swipeable-list-item{
     z-index: auto !important;
+    max-height: none !important;
 }
 
  .swipeable-list-item__content-left{
-    position: fixed !important;
-    opacity: 2 !important;
-    top: 0 !important;
+    /* position: fixed !important; */
+    /* opacity: 2 !important; */
+    /* top: 0 !important; */
     /* left: 0 !important; */
     /* background-color: white !important; */
-    height: auto !important;
-    z-index: 2 !important; 
+    /* height: auto !important; */
+    /* z-index: 2 !important;  */
 }
 

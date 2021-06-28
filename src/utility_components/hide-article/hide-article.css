@@ -1,34 +1,25 @@
 /* Universal Style */
 .hideArticleButtonWrapper{
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    /* color: white; */
 
 
 }
 
 .hideArticleButtonWrapper button{
     height: 2rem;
-    background-color: black;
-    color: white;
+    background-color: rgba(255, 255, 255, 0);
+    color: inherit;
 
     cursor: pointer;
 
-    width: 6rem;
+    width: auto;
 
     margin: 0 auto;
 }
 
 
-/* Home Page Hide Button */
 
-.myClass .hideArticleButtonWrapper{
-    position: absolute;
-    z-index: 1;
-    right: 5px;
-    top: 5px;
-    padding: 5px;
-    cursor: pointer;
-}
 
 /* Article Page Hide Button */
 

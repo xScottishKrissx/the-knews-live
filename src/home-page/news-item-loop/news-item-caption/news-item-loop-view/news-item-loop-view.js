@@ -1,18 +1,21 @@
 import React from 'react';
-import fire from '../../../../fire.js'
+import {Link} from 'react-router-dom';
+
 import '../news-item-loop-view/news-item-loop-view.css';
-import Caption from '../../news-item-caption/news-item-caption.js';
-import CustomCardSize from '../../custom-tile-size/custom-card-size.js';
 
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-sizeV2.js';
+import FilterOptions from '../../../../utility_components/filterOptions/filterOptions';
+import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
+import RenderCard from '../../../../utility_components/renderCard/renderCard';
+import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
+import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
 
-import SwipeLeftContent from './swipe-views/article-modal.js';
-import HideArticle from '../../../../utility_components/hide-article/hide-article';
-import ScrollCheck from '../../../../utility_components/ScrollCheck';
-import RenderCards from '../../../../utility_components/render-cards-unused/renderCards.js';
-import RenderCardStyle from '../../../../utility_components/render-cards-unused/renderCardStyles.js';
-import CheckCache from '../../../../utility_components/checkCache.js';
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import SplitButton from 'react-bootstrap/SplitButton'
+import OptionsMenu from '../../../../utility_components/optionsMenu/optionsMenu';
+import NavBar from '../../../../navBar/navBar';
+import PageTitle from '../../../../utility_components/pageTitle/pageTitle.js';
 
 
 class NewsItemLoopView extends React.Component{
@@ -22,115 +25,163 @@ class NewsItemLoopView extends React.Component{
         this.state = {
         // Card Size
         startingCardSize:"",
-        changedCardSize:{width: localStorage.getItem("myData")},
+        changedCardSize:{
+            // width: JSON.parse(localStorage.getItem("myData"))[0] ,
+            width: this.props.cardSize[0],
+            height: this.props.cardSize[1]
+        },
         postsArray:[],
-        }
-        this.getCardSize = this.getCardSize.bind(this);
-    }
 
-    getCardSize(value){
+        //hiding articles for filter views
+        getArticleBy:"All",
+        renderArray:[],
+        
+        // liteKnews
+        showArticle:false,
+        renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
+
+        }
+        // Card Size Controls
+        this.getCardSize = this.getCardSize.bind(this);
+        // liteKnews
+        this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
+    }
+componentDidMount(){
+    // console.log(this.state.changedCardSize)
+}
+
+
+componentDidUpdate(){
+    updateBookmarkStyles();
+}
+
+// Card Size Controls
+getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
+
+// LiteKnews
+    showArticle(){
         this.setState({
-            startingCardSize:{
-                width:value
-            }
+            showArticle:true,
+            renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
         })
     }
-
-    swipeLeftAction(text,id){
-        document.getElementById("popup" + id).style.display = "block";
-        document.getElementById("articlePopupBackground"  + id).style.display = "block";
-        document.body.style.overflow = "hidden";       
-    }
-        closePopup = (id) => {
-            document.getElementById("popup" + id).style.display = "none";
-            document.getElementById("articlePopupBackground" + id).style.display = "none";            
-            document.body.style.overflow = "auto";
-            console.log(id)
-        }
-
-    swipeRightAction(id){   
-        // console.log("Post Disappearing is Post:: " + id)
-        // console.log(this.state.postsArray)
-        document.getElementById(id).style.display = "none";
-        this.state.postsArray.push(id)
-        localStorage.setItem("hiddenPostList", this.state.postsArray);
-        // console.log(localStorage.getItem("hiddenPostList"));
+    closeLiteKnewsView(){
+        this.setState({ 
+            showArticle:false,
+            renderArray: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray })
+        // window.location.reload()
     }
 
-    render(){
-        console.log(this.props.databaseProp)
-        const HomePageView = this.props.databaseProp.map((value,key) => {        
+// filterViews
+    getFilteredArticles = (filteredByTag,getArticleBy) => {
+        this.setState({
+            renderArray: filteredByTag,
+            getArticleBy:getArticleBy,
+        })
+        
+    }
 
-
-            
-            // There is probably a better way of doing this...
-            const imgUrl = "https://unsplash.it/500/200?random=" + value.id;
-            ///... and this.
-            const style = {
-                backgroundImage: 'url(' + imgUrl + ')',
-                backgroundPosition: "bottom",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-                // width:"100%"
-            }    
-            
-            return (         
-                <div id={value.id} key={value.id} className="myClass">                   
-                    {/* <span className="hideArticleBtn" onClick={() => this.swipeRightAction(value.id)}>Hide</span>        */}
-                    <CheckCache id={value.id}/>
-                    
-                    <HideArticle articleId={value.id}/>     
-                    
-                    <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                        <SwipeableListItem 
-                            
-                            swipeLeft={{
-                                content: <SwipeLeftContent 
-                                        id={value.id} 
-                                        title={value.title} 
-                                        author={value.author} 
-                                        text={value.text} 
-                                        closePopup={this.closePopup} 
-                                        headerImage={value.id} />,
-                                action: () => this.swipeLeftAction(value.text, value.id) 
-                            }}
-                            
-                            swipeRight={{
-                                content: <div>Hiding article...</div>, 
-                                action: () => this.swipeRightAction(value.id)
-                            }}
-                        >
-                                
-                                <div className='news-square'  key={key}  
-                                style={ this.state.startingCardSize || this.state.changedCardSize } >                    
-                                    <Caption 
-                                        pageid={value.key}
-                                        style={style}
-                                        title={value.title}
-                                        author={value.author}
-                                        likes={value.likes}
-                                        dislikes={value.dislikes}
-                                        articleId={value.id}
-                                        />
-                                </div>
-                        
-                        </SwipeableListItem>
-                        </SwipeableList>
-                </div>
-                      
-            );
-            
-      }) 
+    handleMenu(x){
+        console.log("Show Menu")
+        document.getElementById(x).classList.add("showMenu")
+    }
+    render(){  
+        const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
+        const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
+        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+        // console.log(this.state.renderArray)
         return(
             
             <div className="newsItemLoopViewWrapper">
+            
+            {this.state.showArticle === true ?
+                <LiteKnews 
+                    renderToPage={this.state.renderLiteKnews}
+                    closeLiteKnews={()=>this.closeLiteKnewsView()}                     
+                    postsArray={this.state.postsArray}
+                    arrayFromDatabase={this.props.databaseProp} 
+                    leftoverArticles={this.props.leftoverArticles}  
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                />
+            :
+            
+            <div id="cardArea"> 
+
+                    <NavBar                         
+                        // selecting buttons for menu
+                        filter={true} 
+                        bookmarks={true} 
+                        cardStyle={true} 
+                        liteKnews={true} 
+                        bookmarks={true} 
+                        options={true}
+                        pageTitle="The current knews"
+                        
+                        // filter
+                        getArticleBy={this.state.getArticleBy}
+                        getFilteredArticles={this.getFilteredArticles}
+
+                        // card size
+                        getCardSize={this.getCardSize} 
+
+                        // liteKnews
+                        showArticle={() => this.showArticle()}
+
+                        // filter, bookmarks
+                        fullDatabaseCall={this.props.fullDatabaseCall}  
+                        
+                        bookmarkNumber={this.state.renderArray.length}
+                        
+                    />
+
                 
-                {HomePageView}
-                <ScrollCheck databaseReference={fire.database().ref('items').orderByKey().limitToFirst(100) } />
-                <CustomCardSize getCardSizeToParent={this.getCardSize} />
+                <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
+                
+                
+                {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
+
+                <div className="cardsWrapper">
+                {this.props.databaseProp.length >= 30 && thing ? 
+                // The Cards themselves...
+                 <RenderCard
+                    database={renderToPage}
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                    postsArray={this.state.postsArray}
+                    arrayFromDatabase={this.props.databaseProp} 
+                    leftoverArticles={this.props.leftoverArticles}  
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                    showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}          
+                 />
+                :
+                <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
+                }
+                
+               
+                {this.state.getArticleBy === "All" ?
+                //  Infinite Scroll
+                    <ScrollCheckV2 
+                        articlesArray={this.props.databaseProp}
+                        startingCardSize={this.state.startingCardSize}
+                        changedCardSize={this.state.changedCardSize}
+                        leftoverArticles={this.props.leftoverArticles}
+                        getArticleBy={this.state.getArticleBy}
+                        fullDatabaseCall={this.props.fullDatabaseCall}
+                        showMoreArticlesBtn={true}
+
+                        
+                    />   
+                    
+                
+                :
+                // <img alt="now loading" src={loading} />
+                <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
+                }      
+                </div> 
             </div>
-        )
+            }
+            </div>
+        )        
     }
 }
 

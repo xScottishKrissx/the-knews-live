@@ -20,7 +20,6 @@ export class PracticeForm extends React.Component{
         this.state = {
             author: '',
             email:'',
-            // articleID: '',
             title: '',
             // id: '',
             text: '',

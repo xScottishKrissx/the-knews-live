@@ -13,18 +13,12 @@ a, a:visited{
         
         border-bottom: 5px solid black;
         top: 0;
-        position: fixed;
+        /* position: fixed; */
         width: 100%;
         z-index: 3;
         background-color: white;
     }
-    .header-wrapper{
-        max-width: 1200px;
-    }
-
-    .header-wrapper nav{
-        /* border: 1px solid; */
-    }
+    .header-wrapper{ max-width: 1200px; }
 
     .header-wrapper nav ul {
         display: flex;
@@ -100,25 +94,6 @@ a, a:visited{
                     position: relative;
                     border: none;
                 }
-                .header-wrapper nav ul li a{
-                    /* position: absolute; */
-                    /* bottom: 0; */
-                    /* left: 0; */
-                }
 
-    }
-
-    @media (min-width: 576px) {
-
-        .header-wrapper{
-            /* background-color: blue; */
-        }
-    }
-     
-     @media (max-width: 576px) {
-
-        .header-wrapper{
-            /* background-color: red; */
-        }
     }
 

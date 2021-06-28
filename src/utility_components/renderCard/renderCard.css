@@ -1,0 +1,80 @@
+/* *{border:1px solid red} */
+
+/* Home Page Hide Button */
+.myClass{
+    color: black;
+    display: flex;
+    flex: 1 1;
+    margin: 3px;
+    position: relative;
+    /* border: -1px solid transparent; */
+}
+    .myClass:hover{
+        margin: 0px;
+        border: 3px solid black;
+    }
+    .onCardControls > div {
+        position: absolute;
+        z-index: 1;
+        padding: 0px;
+        cursor: pointer;
+        color: rgb(255, 254, 254);
+    }
+        .myClass .hideArticleButtonWrapper{
+            left: 72px;
+            top: 0px;
+        }
+        .myClass .bookmarkButtonWrapper{
+            left: 36px;
+            top: 0px;
+        }
+
+        .myClass .markAsReadButtonWrapper{
+            left: 0;
+            top: 0px;
+        }
+
+        .testButton{
+            left: 108px;
+            top: 0;
+        }
+        .onCardControls > div  > button{
+            background-color: #00000066;
+        }
+
+/* NewMap Class */
+.news-square{
+    /* border:5px solid white; */
+    display: flex;
+    flex: auto;
+
+    /* Compact */
+    width: 470px;
+    height: 120px;
+    
+    /* Default */
+    /* width: 260px; */
+    
+
+
+    /* Small */
+    /* width: 200px; */
+}
+
+    .news-square:hover{
+        /* border: 5px solid black; */
+        border-radius: 1%;
+    }
+
+    /*  */
+
+    @media (max-width: 550px) {
+        .news-square{
+            /* max-width: 450px; */
+            width: 300px !important;
+        }
+        /* .news-square{max-width: 450px !important;} */
+    }
+    
+/* Bookmarks */
+.markAsRead{opacity: 0.5; }

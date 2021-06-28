@@ -1,0 +1,146 @@
+h1,h2,h3,h4,h5,h6{
+    font-family: fantasy,Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+}
+
+.recReadingWrapper{
+    background-color: black;
+    display: block;
+    flex-wrap: wrap;
+    padding: 5px;
+    position: relative;
+
+}
+    .recReadingWrapper > h2{
+        color: grey;
+        font-family: fantasy,Verdana, Geneva, Tahoma, sans-serif;
+        text-transform: uppercase;
+    }
+    .recReadingItemsWrapper{
+        display: flex; 
+            flex-direction: column;
+        width: 100%;}
+        .recReadingItem{
+            /* border-top: 1px solid black; */
+            background-color: red;
+            height: 200px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            width: 75%;
+        }
+
+            .recReadingCaption{padding: 5px;}
+            .recReadingCaption > a:hover{
+                text-decoration: none; 
+                /* background-color:  rgb(0 0 0 / 0%) */
+            }
+            .recReadingCaptionHeadlineWrapper{
+
+            }
+                .recReadingCaptionHeadline{
+                        background-color: black;
+                        color: white;
+                        font-size: 1.35rem;
+                        margin: 0;
+                        padding: 0;
+
+                        font-family: fantasy,Verdana, Geneva, Tahoma, sans-serif;
+                        text-transform: uppercase;
+                    }
+                    .recReadingCaptionArticleInfo{
+                        display: flex;
+                            justify-content: flex-start;
+                            white-space: nowrap;
+                    }
+                        .recReadingCaptionArticleInfo > span{
+                            background-color: black;
+                            color: white;
+                            font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            font-size: 1.15rem;
+                            margin: 5px;
+                            height: fit-content;
+                            width: min-content;
+
+                        }
+  
+
+
+@media (min-width: 768px) {
+    .recReadingWrapper{
+        /* background-color: red; */
+        display: flex;
+        height: 600px;
+        width: 100%;
+        align-items:center;
+        flex-direction:column;
+        justify-content:center;
+    }
+    .recReadingItemsWrapper{
+        align-items: center; 
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+        .recReadingItem{
+            height:100%;
+                min-height:475px;
+            mix-blend-mode: luminosity;
+            margin: inherit;
+            border: 5px solid black;
+            width:20%;
+                max-width:500px;
+        }
+        .recReadingItem:hover{
+            mix-blend-mode: initial;
+        }
+        
+            .recReadingCaption{
+                /* background-color: red; */
+                display:flex;
+                height:100%;
+                padding: 0px;
+            }
+            .recReadingCaption > a{
+                /* background-color: rgb(0 0 0 / 50%); */
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+                .recReadingCaptionHeadlineWrapper{
+                    /* background-color: blue; */
+                    width: 95%;
+                }
+
+                .recReadingCaptionArticleInfo{
+                    width:100%;
+                    align-items:flex-end;
+                    flex-direction:column;
+                    justify-content:flex-end;
+                }
+                    .recReadingCaptionArticleInfo > span {
+                        margin: 0;
+                            margin-bottom: 5px;
+                        padding-right: 15px;
+                        white-space:normal;
+                        width: auto;
+                    }
+                    .recReadingCaptionTag{
+                        margin-bottom:5px;
+                    }
+                
+
+        
+
+
+            
+}
+
+@media (min-width: 1000px) {
+    .recReadingCaptionHeadline{
+        font-size: 1.75rem;
+
+    }
+    
+}

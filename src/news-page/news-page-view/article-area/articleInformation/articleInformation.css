@@ -1,0 +1,26 @@
+/* *{border: 1px solid red;} */
+
+/* Header Image Text */
+
+
+@media (min-width:1700px){
+    .bannerImageTextWrapper > .articleInformation, .articleContent > .articleInformation{
+        /* display: none; */
+    }
+    .bannerImageTextWrapper > .articleInformation{
+        background-color: black;
+        color: white;
+        display: none;
+        height: auto;
+        position: absolute;
+            right: 0;
+        width: auto;
+
+    }
+    .bannerImageTextWrapper > .articleInformation > div > :nth-child(1){
+        color: white;
+    }
+    .bannerImageTextWrapper > .articleInformation > div > :nth-child(2){
+        color: white;
+    }
+}

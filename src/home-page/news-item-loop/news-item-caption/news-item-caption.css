@@ -2,7 +2,9 @@
 .news-item-link{
     width: 100%;
     background-color: white;
+    display: contents;
 }
+
     .news-item-link{
         position: relative;
     }
@@ -17,17 +19,35 @@
             background-color: #000000b8;
             color: white;
         }
-        .news-item-link-text span{
+        #news-item-link-text-title{
             display: block;
-            font-size:18px;
+            font-size:inherit;
             height: 75px;
+            overflow: hidden;
             padding: 5px;
         }
+
+        .news-item-link-text p{
+            font-style: italic;
+            text-align: right;
+        }
+            #news-item-link-text-title{}
+            #news-item-link-text-tag-author-wrapper{
+                display: flex;
+                justify-content: space-around;
+               
+            }
+
+            
 
         .hover-caption{
             visibility: hidden;
         }
 
+
+@media (min-width: 765px){
+    /*  */
+}
 @media (min-width: 1000px){
     .hover-caption{
         visibility: visible;

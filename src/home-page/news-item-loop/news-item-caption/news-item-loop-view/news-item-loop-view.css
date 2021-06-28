@@ -1,53 +1,35 @@
-.news-item-wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 79px;
-}
-    .news-item-loop-wrapper{
-    /* background-color: blue; */
-    /* border-radius: 10px; */
+
+#cardArea{
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    
+}
+#cardArea > span{
+    display: block;
     margin: 0 auto;
-    /* max-width: 1600px; */
-    }
-    .newsItemLoopViewWrapper{
-        /* background-color: blue; */
-        /* border-radius: 10px; */
-        /* width: 100%; */
+    margin-top: 20px;
+    width: 100%;
+}
+
+    .cardsWrapper{
         display: flex;
-        flex-wrap: wrap;
-        flex: 1;
-        margin: 0 auto;
-        position: relative;
-        
+            flex-wrap: wrap;
+        /* margin-top: 0; */
     }
-        .myClass{
-            display: flex;
-            flex: 1 1;
-            position: relative;
-        }
-    .hideArticleBtn{
-        background-color: black;
-        color: white;
-        position: absolute;
-        z-index: 1;
-        right: 5px;
-        top: 5px;
-        padding: 20px;
-        cursor: pointer;
 
+/* Hide Article Message  */
+#hideArticleMessageWrapper{
+    background-color: white;
+    border: 10px solid #a0a0a0;
+    bottom: 10px;
+    right: 0;
+    max-width: 300px;
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+    z-index: 30;
+}
+    #hideArticleMessage{
+        font-weight: 900;
+        visibility: hidden;
     }
 
 
-@media (min-width: 768px) {
-.home-wrapper{
-    margin: 0 auto;
-    /* width: 90%; */
-}
-.news-item-wrapper{
-    margin-top: 119px;
-}
-}

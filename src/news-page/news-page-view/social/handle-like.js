@@ -29,12 +29,12 @@ export class HandleLike extends React.Component{
 
         // DON'T DELETE THIS -- IVE DISABLED THIS FOR TESTING -- DON'T DELETE THIS
        if(fire.auth().currentUser){
-           console.log("User Logged In")
+        //    console.log("User Logged In")
            this.setState({
                loggedIn: true
            })
        }else{
-           console.log("Not logged in")
+        //    console.log("Not logged in")
            this.setState({
                loggedIn: false
            })

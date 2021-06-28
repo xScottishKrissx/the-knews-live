@@ -1,7 +1,7 @@
 Part 1 - Implement the front end UI:
      ☐ Build from a mobile first approach
-        ☐ Design should be responsive
-     ☐ Focus on the non-logged functionality
+        ✔ Design should be responsive @done(13:24 - 26/05/21)
+     ✔ Focus on the non-logged functionality @done(13:24 - 26/05/21)
      ✔ Add Logged in functionality as a secondary feature @done(20-07-29 15:53)
      ✔ Most important is the ability to click on a link, go to a new page and then back again @done(20-07-29 15:53)
      ✘ With that core in place then add the CMS elements. @cancelled(20-10-12 15:36)
@@ -32,8 +32,8 @@ Known Bugs:
         ☐ When deployed, if you login with an article in the database the website UI doesnt update to reflect this. You need to manually refresh the page before the correct UI appears.
         ✔ When loading articles on scroll, the first 4 articles are repeats of the last 4 from the database. @started(20-09-17 18:55) @done(20-09-21 16:45) @lasted(3d21h50m48s)
             This is less of a bug and more of a incomplete feature that is working as expected given the current code.
-        ☐ Due to the placeholder text, some elements don't fit into the design. Ideally I could set rules like max characters but I am really relying on the lorem ipsum being of a reasonable length.(which it sometimes isn't) @started(20-10-27 17:43)
-            ☐ I could repopulate the database, ensuring my own rules, which might help solve the problem. @started(20-10-27 17:44)
+        ☐ Due to the placeholder text, some elements don't fit into the design. Ideally I could set rules like max characters but I am really relying on the lorem ipsum being of a reasonable length.(which it sometimes isn't) 
+            ☐ I could repopulate the database, ensuring my own rules, which might help solve the problem. 
 
 Codebase:
     ✔ news-item-loop.js is way too big and needs to be split up into components. @started(13:09 20-11-16) @done(17:06 - 15/01/21) @lasted()
@@ -49,9 +49,9 @@ Codebase:
                 ✔ Managed to get the code changing the size down from 37 lines to 7 @done(20-12-10 15:18)
         ✔ Create a new file specifically for showing the card list. @done(20-12-08 16:18)
             // Well, i've moved the code and It's not totally broken. It's only a broken a lot.
-            ✔ The card size controls aren't working again. @done(20-12-08 16:07)
-            ✔ Move the swiping code into this file. @done(20-12-08 16:08)
-            ✔ The hide article button is invisible. @done(20-12-08 16:18)
+            ✔ The card size controls aren't working again.
+            ✔ Move the swiping code into this file. 
+            ✔ The hide article button is invisible. 
                 // I think I want a file for this as well but one step at a time.
 
             //
@@ -88,8 +88,8 @@ Codebase:
                     -- 
                 ✔ So now that that works, what about plugging the home page scroll into the scrollcheck component? @done(12:16 - 22/12/20)
                     // Well it worked for the most part. Got a few presentational glitches but the actual component is working as expected.
-                ☐ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves.
-                    ☐ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20)
+                ✔ The main issue now is that I now think i need a separate component for the view that deals with the cards themselves. @done(13:52 - 20/04/21)
+                    ✔ With the new scrollcheck component none of the newly loaded cards have the swipe functionality. @started(12:18 - 22/12/20) @done(16:31 - 11/03/21) @lasted(11w2d4h13m42s)
     ✘ Create a new component for rendering the card view @started(12:28 - 22/12/20) @cancelled(13:27 - 14/01/21) @wasted(3w2d59m36s)
         ✔ Wait... didn't I already do this? Why not just use the news-item-loop-view from before? @done(11:59 - 14/01/21)
             // Just chucking the component in there threw up an error. 
@@ -102,6 +102,18 @@ Codebase:
         // I think the best course of action is to stop trying to fix older stuff, take what I've learned from this and apply it to the next project, one which I wont do bit's and pieces spaced years apart. 
         // There are good things about this project but I think it's beginning to get in the way of learning React properly.
     ✔ Created Component for Checking Cache for hidden posts and then hiding them. @done(15:49 - 15/01/21)
+    ✔ I'm pretty sure my css is all over the place with with styles not appearing in their correct corresponding styles file. Go through everything and make sure styles are placed where you would expect. @started(10:32 - 09/04/21) @done(11:24 - 09/04/21) @lasted(52m48s)
+
+
+    V12.4 Code Cleanup:
+        Objectives:
+            ✔ To significantly reduce the size of news-item-loop-view.js @done(17:20 - 12/05/21)
+            ✔ Reduce duplicate code and minimise bloat @done(17:20 - 12/05/21)
+            ✔ To identify areas of code that can be simplified or improved @done(17:20 - 12/05/21)
+        To-Do:
+            ✔ New Component For liteKnews @done(16:32 - 12/05/21)
+            ✔ New Component for Filter View Controls @done(16:33 - 12/05/21)
+            ✔ Cleanup the componentDidUpdates that all do the same thing @done(16:57 - 12/05/21)
 
             
                 
@@ -174,7 +186,7 @@ General Notes  Objectives:
 
 
         ✔ Get routes up and running once basic structure is in place. @done(18-07-24 17:47)
-        ☐ Mobile Menu should be controlled by swipe gesture or button located at bottom of page @started(18-08-29 11:13)
+        ✘ Mobile Menu should be controlled by swipe gesture or button located at bottom of page @started(18-08-29 11:13) @cancelled(17:15 - 30/04/21) @wasted(-57m31s)
             This is a good idea but I'm not sure where to even start with this.
             Could just use a basic menu for this project and integrate gestures in the next
        / ☐ Media Queries
@@ -209,20 +221,24 @@ General Notes  Objectives:
                         Well I've managed to get the swipe to hide multiple posts at a time... the only problem is that when i refresh and swipe away new posts, my previous swipes are overwritten, bringing back the old hidden posts. I'll count that as progress.Please.
                     16/11/2020
                         Got it working as expected. You can hide multiple articles and they will remain hidden as you work your way through the website. I did this by simply adding a check on component mount that checks the local storage for a list of hidden posts. If it's there it checks the artice id and hides the relevant articles, if not it initialises the with an empty array.
-                ☐ Ability to undo last hide action @started(20-12-15 12:45)
+                ☐ Ability to undo last hide action 
                 ✔ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37) @done(20-12-15 15:17) @lasted(1h40m19s)
                     ✔ Clear cache button should appear when hiding articles. @started(15/12/2020 15:18) @done(15:36 - 15/12/20) @lasted(18m29s)
+                ✔ The unhide all button isn't showing as soon as you hide an article @done(15:54 - 26/02/21)
+                    // Welp, now it's working all on its own. @done(15:54 - 26/02/21)
                 
-                ☐ Hide button not appearing on newly loaded articles on home page @started(13:30 - 13/01/21)
+                ✔ Hide button not appearing on newly loaded articles on home page @started(13:30 - 13/01/21) @done(16:32 - 11/03/21) @lasted(8w1d3h2m7s)
                     // Looks like I was in the middle of a new render cards component that would be responsible for the output of cards and everything with them. I didn't complete it which is why newly loaded articles don't have a hide button.
                     // The solution is to complete and implement the new component.
                     
-                ☐ Add Hide button to Tag Pages @started(15:49 - 15/12/20)
+                ✔ Add Hide button to Tag Pages @started(15:49 - 15/12/20) @done(13:52 - 20/04/21) @lasted(17w6d21h3m6s)
                     ✔ Got the UI in and I can hide articles. @done(15:50 - 15/12/20)
-                    ☐ The tags page is so bloated, let's get this cleaned up before carrying on
+                    ✔ The tags file is so bloated, let's get this cleaned up before carrying on @done(16:32 - 11/03/21)
                         // 280 Lines --> 184 Lines -- There's still a lot of room for optimsation though. 
-                    ☐ Just need to get the cache integration working. @started(15:49 - 15/12/20)
-                    ☐ Tag pages should use the hidden post list in the cache.
+                    ✔ Just need to get the cache integration working. @started(15:49 - 15/12/20) @done(16:32 - 11/03/21) @lasted(12w2d43m39s)
+                    ✔ Tag pages should use the hidden post list in the cache. @done(16:32 - 11/03/21)
+                
+
 
                     
 
@@ -232,6 +248,86 @@ General Notes  Objectives:
                         // Used the library to set the display property of the swiped news square to hidden. Currently comes back on a page refresh.
                         // A quick testing across multiple device sizes(using chrome) and it looks like the swipe is working fine.
                         // Minor issue is that when you release the swipe, link activation is a bit inconsistent. Sometimes the page changes and sometimes it doesn't. Keep an eye out for this.
+                    Rethink Swipe Left:
+                        ✔ With the popup reworked into the liteKnews feature, left swipes currently don't do anything. I was thinking that I can either just disable swiping left or I can do something here. @done(13:24 - 26/05/21)
+                            ✔ Ideas @done(17:47 - 30/04/21)
+                                Display a small excpert of the article in place of the card.(how would swiping back work??)
+                                Display information about article, like post date
+                                Display information about author like contact info, social media links etc
+                                ✔ Bookmark article, prevent from being hidden from view. 
+                                    ✔ I like this one but would need to allow for bookmarking via other means. @done(13:24 - 26/05/21)
+                                    ✔ I could also add them to a separate bookmark page @done(13:24 - 26/05/21)
+                                    
+                            
+                       12.3 Add Bookmarking Functionality to Swipe Left:
+                            ☐ Goals
+                                ✔ Swiping left on a card will add that card to a list of bookmarks @done(13:32 - 03/05/21)
+                                ✔ You can view these bookmarks in a separate page @done(13:32 - 03/05/21)
+                                ✔ Bookmarked cards will be immune to being hidden until unbookmarked @done(17:08 - 05/05/21)
+                                ✔ Bookmarked cards should be easily distinguished from regular cards. @done(15:40 - 11/05/21)
+                                ☐ All other website functionality should be retained and interact with bookmarks as normal.
+                                ✔ You shoulnt be able to permanently hide a bookmarked article from the onCardBookmark controls except when on the bookmark page. @done(13:23 - 26/05/21)
+                            To-Do:
+                                ✔ Bookmarked cards need to be integrated with the hide functionality. @done(17:09 - 05/05/21)
+                                ✔ Add the option to change card size in bookmark page @done(18:22 - 05/05/21)
+                                ✔ Add a clear all bookmarks button @done(18:23 - 05/05/21)
+                                    ✔ Also add an "unread all" button @done(13:22 - 11/05/21)
+                                    ✔ ...and a button that "hides all" articles @done(13:22 - 11/05/21)
+                                ✔ Ability to hide article by swiping @done(13:57 - 06/05/21)
+                                ✔ Ability to toggle bookmarks with a single button @done(15:48 - 10/05/21)
+                                    ✔ Toggle Mark as Read as well @done(17:19 - 10/05/21)
+                                ✔ Bookmark page controls @done(12:06 - 11/05/21)
+                                    ✔ With the above changes, i think some changes need to be made here @done(12:06 - 11/05/21)
+                                        ✔ Button 1 - Unbookmark @done(12:06 - 11/05/21)
+                                        ✔ Button 2 - Mark as Read @done(12:06 - 11/05/21)
+                                        ✔ Button 3 - Unbookmark and Hide @done(12:06 - 11/05/21)
+                                ✔ Mark articles as read if you click on them @done(13:54 - 11/05/21)
+                                    ✔ Show this in the article @done(13:54 - 11/05/21)
+                                    ✔ ...also added bookmarked status to the article @done(13:54 - 11/05/21)
+                                ☐ Put the bookmark page link somewhere else
+                                    // Leave this until the UI overhaul im planning (V12.10)
+                                ✔ Add bookmark functionality to articles and liteKnews @done(16:56 - 14/05/21)
+                                    // Do liteKnews after it's component has been created.
+                                ✔ Add filter options to bookmark pages @done(13:23 - 26/05/21)
+                                    // After splitting the filters code into its own component.
+                                ☐ Just an overall better UI
+                                    // After the code cleanup
+                                12.5 Finishing Bookmarks:
+                                    ✔ Add bookmark functionality to articles @done(14:14 - 13/05/21)
+                                        ✔ Also integrate mark as read functionality @done(16:14 - 13/05/21)
+                                        ✔ ...and hide article function @done(15:39 - 13/05/21)
+                                    ✔ Add Bookmark functionality to liteKnews @done(12:36 - 14/05/21)
+                                        // My first attempts at this didn't go anywhere. Next time let's try creating a separate area for the article. I think my .map is the right way to go. 
+
+                                        // Right now, liteKnews is a single page switching between contents but keeping one state for everything. 
+                                        
+                                        I need to split this up, maybe a new component, with its contents determined by the controls.
+                                        This is what I did and it worked as I wanted.
+                                    ✔ Integrate mark as read into liteKnews @done(12:50 - 14/05/21)
+                                        ✔ I want articles to be marked as read as you view them @done(12:50 - 14/05/21)
+                                    ✔ Integrate hiding articles into liteKnews @done(14:02 - 14/05/21)
+                                        ✔ My solution here is very clunky but im unable to come up with a better one at this point. The problem is that onCardBookmarj controls behave differently between liteKnews and everywhere else. This doesnt make any sense to me because the props and components are all the same.I'm unsure how to do better here.My current solution is fine and should not negatively affect the existing hide article functionality. However, I really want to figure out what the issue is with liteKnews but I also don't want to get bogged down here so im moving on and will revist this if I come up with something. @done(14:02 - 14/05/21)
+                                    ✔ Implement bookmark page only perma hiding of bookmark articles. @done(15:51 - 14/05/21)
+                                    ✔ Integrate all of this into scroll check @done(16:48 - 14/05/21)
+                                        I've integrated mark as read and bookmarks work to an extent. You can mark as a boomark but the UI will not reflect that on page reload. 
+                                         This isn't great but I think im going to have a look at the scrollCheck/HideArticleV2 component interaction. It's been a while since these where created and looking at them now im noticing some things that can be imrproved.
+                                         For now, i am content with the current situation and will mark this down as a bug to be fixed.
+                                    ✔ Add filter options to bookmark page @done(13:23 - 26/05/21)
+                                    
+
+                            Issues:
+                                ✔ Hiding a bookmarked article then reloading the page will return an error.(hide stuff hasn't been fully integrated yet) @done(12:58 - 04/05/21)
+                                ✔ Bookmarking an article then pressing the " mark as read and hide" button will result in an empty home page. Hiding an article on the home page BEFORE going to the bookmark page will NOT result in the same error but work as expected. @done(16:41 - 05/05/21)
+                                    ✔ Solution - I think i've fixed this by setting a cleanDatabaseCall in the render method of bookmarks.js @done(16:41 - 05/05/21)
+                                ☐ scrollCheck articles don't have the border when loaded while a bookmark
+                                ✔ I've added a button that let's you toggle a bookmark. It works but every now and then you need to press the button twice to create the bookmark. I'm unable to replicate the issue but it does happen. It may be an issue with the area you need to click and im just not pressing in the right area but I will need to keep an eye out for this. @done(13:23 - 26/05/21)
+                                ✔ There will be things a bit off due to the amount of variations and interactions that a single card can have with bookmarking, hiding and being marked as read. On top of browser interaction and the order components mount...things might be a bit buggy. @done(13:23 - 26/05/21)
+                                ☐ Bookmarks don't properly work with the scrollCheck component. This will be addressed in a future release where I have a look at both the scrollCheck and HideArticle components.
+                                ✔ 8/6/2021 - You can permanently hide a bookmarked article from the home page which should not be possible. @done(16:58 - 08/06/21)
+                                    ✔ Solution - Added a check for bookmarked  in the hide-article component, specifically the const that sets the changedFullDatabaseCall localstorage. @done(16:58 - 08/06/21)
+
+
+                            
 
                 Swipe Right:@done(20-11-16 12:58) @lasted(1w4d20h56m38s)
                     ✔ Use swipe right to see only the article text in a popup @started(20-11-16 12:58) @done(20-12-03 15:37) @lasted(2w3d2h39m9s)
@@ -240,61 +336,59 @@ General Notes  Objectives:
                                 // 2/12/2020 -  I'll circle back to this in a later release
                                 ✔ Used the HTML Parser component to solve this. @done(20-12-10 15:50)
                         ✔ Add Close Pop Up button @done(20-11-30 18:02)
-                            ☐ What about swiping again to close the popup? @started(20-11-30 18:04)
+                            ✘ What about swiping again to close the popup? @started(20-11-30 18:04) @cancelled(13:22 - 26/05/21) @wasted(-6h41m29s)
+                                ✔ No longer, relevant. @done(13:23 - 26/05/21)
                             //Just tried it, confused myself, stopped doing it and then went and cried in the corner. It was like looking into the eyes of cthulu himself.
 
                             // For the moment I have 2 methods - clicking the close popup button and ckicking off the popup area. 
 
-                        ☐ Add Link to Full Article
+                            
+
+                        ✔ Add Link to Full Article @done(13:51 - 20/04/21)
                         ✔ What about images in popup? @done(20-12-02 16:19)
                             //misses the point of the popup i think.
                             // added image anyway/
                         ✔ When scrolling in the popup, the main page scrolls in the background. @done(20-12-03 15:41)
                             // I have disabled scrolling for the background when you swipe right and re-enabled on pressing the close popup button. Not sure if it's a good solution but its certainly something.
                         ✔ Format popup to be not terrible at larger window sizes. @started(17:12 - 15/01/21) @done(17:29 - 15/01/21) @lasted(17m58s)
-                        ☐ Make author text clickable like the article page. @started(17:30 - 15/01/21)
-                        ☐ How about hiding the article from the popup?
-                        ☐ What about moving to the next article from the popup?
-                        ☐ BUG:: When you open the popup, you can keep dragging to hide the article...which is not ideal.
+                        ✔ Make author text clickable like the article page. @started(17:30 - 15/01/21) @done(16:32 - 11/03/21) @lasted(7w5d23h3m)
+                        ✔ How about hiding the article from the popup? @done(17:16 - 30/04/21)
+                        ✔ What about moving to the next article from the popup? @done(13:51 - 20/04/21)
+                    ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
+                        5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
 
-                ✔ Swipe should only work on mobile devices. @started(20-11-04 15:41) @done(20-11-05 12:38) @lasted(20h57m58s)
-                    5/11/2020 - I'm double thinking this now because I'm not sure there's any reason why swipe shouldn't be available on desktop. It works perfectly fine and although not ideal for a mouse, does give the same feeling of dismissing something from view quickly.
+                        I guess the only reason is that I spent the time to create the code for detecting smaller windows and now that it's in place I don't want to remove it. :-(
+                    ✔ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41) @done(20-11-05 13:56) @lasted(22h15m22s)
+                        // Like an "x" in the corner for example.
+                        ✔ Added UI for the X @done(20-11-05 13:55)
+                            ✔ What about hiding articles from WITHIN the article themselves? @started(20-11-30 12:20) @done(20-12-15 13:39) @lasted(2w1d1h19m34s)
+                                11/12/2020 - Let's find out.
+                                14/12/2020 - Managed to createa button that lets you hide articles from the article page itself. I have run into an error that happens when there is nothing in local storage.
+                                I've put in some more work and managed to make progress but there's some weirdness going on...
+                                    What works
+                                        Empty Cache -> Hiding on home  -> then hiding in article  - Works as intended
+                                        Empty Cache -> Hiding in article -> hide on home === home article doesnt stay hidden on page refresh (cache issue likely)
+                                        Empty Cache -> Hide Home -> Hide Home - Works As intended
+                                        Empty Cache -> Hide in Page -> hide in page -> Works as intended
 
-                    I guess the only reason is that I spent the time to create the code for detecting smaller windows and now that it's in place I don't want to remove it. :-(
-                ✔ Add alternative to swipe on non-mobile(i'm thinking a cross in the news square) @started(20-11-04 15:41) @done(20-11-05 13:56) @lasted(22h15m22s)
-                    // Like an "x" in the corner for example.
-                    ✔ Added UI for the X @done(20-11-05 13:55)
-                        ✔ What about hiding articles from WITHIN the article themselves? @started(20-11-30 12:20) @done(20-12-15 13:39) @lasted(2w1d1h19m34s)
-                            11/12/2020 - Let's find out.
-                            14/12/2020 - Managed to createa button that lets you hide articles from the article page itself. I have run into an error that happens when there is nothing in local storage.
-                            I've put in some more work and managed to make progress but there's some weirdness going on...
-                                What works
-                                    Empty Cache -> Hiding on home  -> then hiding in article  - Works as intended
-                                    Empty Cache -> Hiding in article -> hide on home === home article doesnt stay hidden on page refresh (cache issue likely)
-                                    Empty Cache -> Hide Home -> Hide Home - Works As intended
-                                    Empty Cache -> Hide in Page -> hide in page -> Works as intended
-
-                            ... here's an idea. What if I just use the current article button in the article page as a component on the home page. Why don't I just replace the current div i'm using as a hide button with the same component in the article??
-                            ... Yeah thats much better. The styles are completley broken but the code works perfectly which it should as instead of messing around with different caches and updating state, i just use the same code base for the 2 "different" buttons.
-                            ✔ Fix the styling. @started(20-12-14 14:34) @done(20-12-15 13:31) @lasted(22h57m31s)
-                   
-                            
-                        
-                            
-
-                                    
-
-
+                                ... here's an idea. What if I just use the current article button in the article page as a component on the home page. Why don't I just replace the current div i'm using as a hide button with the same component in the article??
+                                ... Yeah thats much better. The styles are completley broken but the code works perfectly which it should as instead of messing around with different caches and updating state, i just use the same code base for the 2 "different" buttons.
+                                ✔ Fix the styling. @started(20-12-14 14:34) @done(20-12-15 13:31) @lasted(22h57m31s)
+                    ✔ Clear Cache Button does not display if you hide with swipe @started(16:24 - 15/03/21) @done(16:35 - 15/03/21) @lasted(11m11s)
+                        // Fixed this by copying an if statement from the hide article file into the swipeRightAction file.
 
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)    
-                        ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears.
+                        ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears. -> v12.9
                     ✔ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00) @done(20-12-14 14:33) @lasted(4w33m55s)
                 ✔ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45) @done(20-12-03 15:41) @lasted(4w23h56m29s)
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
+                
+
+                            
                     
 
-            ☐ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29)
-            ☐ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29)
+            ✘ Use Swipe to Implement a Movile Nav Bar, replacing the current tags at the top of the page @started(20-11-05 13:29) @cancelled(17:17 - 30/04/21) @wasted(-3h11m41s)
+            ✘ Use swipe to modify how the next, prev and home buttons are used in articles @started(20-11-05 13:29) @cancelled(17:17 - 30/04/21) @wasted(-3h11m44s)
         
         ✔ If you click on a News Item at Home you should get a unique shareable URL @done(18-07-31 17:19)
             ✔ Right now you get a path simply ends with news-item @done(18-07-25 17:09)
@@ -341,7 +435,17 @@ General Notes  Objectives:
     
 
 
-
+    liteKnews:
+        V12.7 - Swiping to Change Articles:
+            Goals:
+                ✔ Ability to change articles by swiping @done(17:45 - 24/05/21)
+            To-Do:
+                ✔ I've more or less finished adding swipe to liteKnews. I needed to restructure the liteknews controls but I am happy with where I've ended up. I even added a progress bar showing how much you need to swipe to change the article. Before moving on i'm going to attempt some on progress completion styles, but this task has been completed. @done(17:45 - 24/05/21)
+                ✔ Change colour of progress bar when it completes. @done(11:40 - 25/05/21)
+                
+            Issues:
+                ✔ swiping left at the start returns an error because there's nothing to swipe to. @done(17:45 - 24/05/21)
+                    ✔ Solution - Added a check for null and undefined. @done(17:45 - 24/05/21)
     Header:
         ✔ Get basic structure in place @done(18-07-24 17:48)
         ✔ Mobile Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m48s)
@@ -352,7 +456,7 @@ General Notes  Objectives:
         ✔ Desktop Nav @started(18-07-25 11:08) @done(18-08-13 18:03) @lasted(2w5d6h55m51s)
             ✔ The entire thing just needs reworked. The spirit of the thing is there but it looks terrible and its starting to annoy me to look at it. @done(18-08-13 18:03)
         ✔ Clean up back/home button @started(18-08-30 11:35) @done(20-10-12 15:32) @lasted(2y6w2d3h57m16s)
-        ☐ Implement mobile nav bar @started(18-08-30 11:36)
+        ✘ Implement mobile nav bar @started(18-08-30 11:36) @cancelled(17:17 - 30/04/21) @wasted(-1h18m32s)
 
         
 
@@ -366,18 +470,44 @@ General Notes  Objectives:
              A component to loop each news item
              A component to display the end result
              Code is a wee bit more manageable
-        ✔ A button that lets you change the size of the news items @started(18-08-28 12:47) @done(18-08-31 17:21) @lasted(3d4h34m34s)
-            //Sort of, doesn't remember tile sizes if you leave the page.
-            ✘ Maybe some kind of randomised news tile size @started(18-08-31 17:24) @cancelled(20-10-12 17:39) @wasted(2y6w1d15m59s)
-            ✘ Work on controls appearance @started(18-09-04 12:29) @cancelled(20-10-12 17:39) @wasted(2y5w4d5h10m57s)
-                18/9/2020 - Removed sized controls, they're just adding too much work at the moment. Want to focus on the core of the project rather than the smaller details like this.
-                ✔ Controls Are back, get them done @done(20-12-11 17:04)
-                    ✔ So, the controls can be hidden if you want. However, there is a small BUG:: at the moment where if the controls are visible on load, you need to double click the button for it to work. @done(20-12-11 16:38)
-                    // Not a major problem, but this needs to be fixed for release.
-                    // Fixed it, looks like I was mutating state directly.
-            ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
-                //Might not be possible without another library
-                .... or I could use local storage/session storage to remember user choice.
+
+        Card Size Controls:
+            ✔ A button that lets you change the size of the news items @started(18-08-28 12:47) @done(18-08-31 17:21) @lasted(3d4h34m34s)
+                //Sort of, doesn't remember tile sizes if you leave the page.
+                ✘ Maybe some kind of randomised news tile size @started(18-08-31 17:24) @cancelled(20-10-12 17:39) @wasted(2y6w1d15m59s)
+                ✘ Work on controls appearance @started(18-09-04 12:29) @cancelled(20-10-12 17:39) @wasted(2y5w4d5h10m57s)
+                    18/9/2020 - Removed sized controls, they're just adding too much work at the moment. Want to focus on the core of the project rather than the smaller details like this.
+                    ✔ Controls Are back, get them done @done(20-12-11 17:04)
+                        ✔ So, the controls can be hidden if you want. However, there is a small BUG:: at the moment where if the controls are visible on load, you need to double click the button for it to work. @done(20-12-11 16:38)
+                        // Not a major problem, but this needs to be fixed for release.
+                        // Fixed it, looks like I was mutating state directly.
+                ✔ Ensure chosen size remains when moving throughout the website @started(18-09-04 12:29) @done(18-09-11 13:01) @lasted(1w32m47s)
+                    //Might not be possible without another library
+                    .... or I could use local storage/session storage to remember user choice.
+                ✔ Card Size Selector is not affecting newly loaded articles. @done(17:03 - 01/03/21)
+                // Fixed this by adding the startingCardSize and changedCardSize properties to the ScrollCheck component in news-item-loop-view. @done(17:04 - 01/03/21)
+                    ✔ Ok, not fixed. If you clear cache the cards just get really small. @started(17:21 - 01/03/21) @done(17:28 - 01/03/21) @lasted(7m12s)
+                        // Setting a default size in css prevents the cards changing size for  some reason.
+                        // Looks like I had an extra div in there, messing things up.
+                    ✔ ... and you also can't swipe newly loaded articles. @done(17:03 - 01/03/21)
+                        // Fixed this by adding the Swipeaple API and relevant code the scrollCheck.js file.
+            Redoing Card Size controls for V12.2:
+                ✔ Figure out new sizes @done(12:06 - 29/04/21)
+                     Size 1 - Compact (like thin tiles on mobile)
+                     Size 2  - Squares 
+                     Size 3 - Comfortable (the current normal)
+                     Size 4 - Long(maybe the comfortable but with a snippet of the article on the card??)
+                     Size 5 - Thick
+                     Size 6 - Big Squares
+
+                ✔ Figure out the new UI @done(12:06 - 29/04/21)
+                    ✔ I want it to be perma on the page, maybe in the header alongside theKnews @done(12:06 - 29/04/21)
+                        ✔ Ideally, integrate icons instead of text for the buttons. @done(12:06 - 29/04/21)
+                
+                 ✔ Add option to reset in the options menu @done(10:07 - 29/04/21)
+                 ✔ Add new controls to tags and author pages. @done(13:35 - 30/04/21)
+                    
+
         ✘ Some kind of delayed loading should be considered here beyond 20 items. @started(18-08-31 17:24) @cancelled(18-09-11 13:57) @wasted(1w3d20h33m16s)
             // Currently limited to last 20 in database.
             // Infinite Scrolling is the term Im looking for...
@@ -385,7 +515,9 @@ General Notes  Objectives:
         
         On Scroll:
             ✔ When scrolling down, sometimes the page won't load new pages. You need to scroll up and the back down to get it to load articles. @done(16:15 - 18/01/21)
-            // Fixed this by adding +100 to windowBottom variable.
+                // Fixed this by adding +100 to windowBottom variable.
+            ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)
+                // Looks like the issue was not correctly splicing the array of articles from the database. @done(17:30 - 26/02/21)
 
         News Items:
             ✘ Create Hover/Click caption @started(18-07-25 15:13) @cancelled(20-10-12 17:40) @wasted(2y11w3d2h27m3s)
@@ -394,9 +526,120 @@ General Notes  Objectives:
             // 5/11/2020 - A hover caption might not work but what about a nice effect for mousing over stuff?? Right? Sounds Amazing.
 
             // ... maybe? I've added a border to the squares when you hover over them for now. I'm not sure I really like it but I do want something to happen when you hover over the squares. I'll probably adjust and tweak this as I go.
-            ☐ BUG:: The newly loaded cards are different sizes from the selected size. @started(16:24 - 18/01/21)
+            ✔ BUG:: The newly loaded cards are different sizes from the selected size. @done(17:17 - 30/04/21)
+            
+            Handling All Articles Being Hidden: @started(16:38 - 10/03/21)
+                ✔ If you hide all of the initially loaded articles, the page will rendeer with nothing on it when you reload @done(18:14 - 15/04/21)
+                ✔  This is a fundamental flaw in how the website works and needs to be resolved before moving onto the more cosmetic issues of blank pages and dodgy user feedback. @started(16:53 - 15/03/21) @done(18:12 - 15/04/21) @lasted(4w3d19m56s)
+                    ✔ See below for more information but I have implemented a system that ensures a minium number of articles on page when rendering. @done(18:12 - 15/04/21)
+                ☐ My main requirements for this are:
+                    ✔ There must be a minimum number of articles on the page on load. @done(17:52 - 26/03/21)
+                        ✔ Articles don't need to load in as you hide articles(for the moment, could replace infinit scroll later on.) @done(17:52 - 26/03/21)
+                    ✔ If you get through all articles, display a message informing there are no articles currently available. @done(17:55 - 07/04/21)
+                    ✔ Must work with infinite scroll @done(17:55 - 07/04/21)
+                    // If there are no articles on screen initally, then the scrollCheck component won't work as it only activates on a scroll event. No Artiles => No Scrolling.
+                    // This might open a can of worms...i'm just saying.
+                    // Some solutions
+                        // Looks like using immutability-helper is a good place to start, with my first idea being to simply update the state of articles array everytime the hide article button is clicked. When clicked, the array updates with a new value added to the relevant field. If this field is found in the initial array, it's just removed from the array.
+                        This is different from the current solution as the articles are just hidden via css, updating state allows me to fill a full array with objects that don't have "hidden" in them....i think. That's my idea.
+                        // Whether it's viable I will probably spend the next month finding out -- CD 15/3/2021
+                        // I've figured out how to edit individual properities in an array of objects which is cool...
+                        // ...but it doesn't solve the problem of not having enough articles in the initial load.
+                        // Ideally it works like:
+                            Initial Load from database -> 
+                            Removal of matching object value -> 
+                            Remove from array -> 
+                            Go to next record -> 
+                            Repeat until 30 records in array -> 
+                            Pass Array to News Item Loop View
+                        // I just removed an object from one array and appended a record from a second array to the end of the first, keeping the number of obejects in the array at maximum.
+                        //  Is there something here? Could I just run a loop that ensures the array length remains at 30 on load?
 
-    
+                        ✔ 22/3/2021 - Ok, so i have the new code working as intended. The only small probem is that I can't figure out how to undo it. I can hide an article and have it replaced with another, ensuring a minimum of 30 articles in the initial array, but I can't get the website to load a fresh array.
+                            ✔ To fix this I added a line to the clear cache component that resets the array of filtered articles to blank, meaning the website reverts to the using the default articles from the inital call. @done(16:01 - 24/03/21)
+
+                        23/3/2021 -
+                        ✔ If you hide an article, the article added to the array is pulled from the same static array of leftover articles. This is a problem as it means the same articles are just duplicated over and over again. 
+                            ✔ I fixed the above by changing the way the 2 arrays (current articles and leftover articles) are spliced together. So now the articles I would expect to be added to the page are. However, i'm still seing some instances where hiding an article sort of resets the array so it starts repeating seqences of articles. I have been unable to replicate this issue. @started(15:59 - 24/03/21) @done(17:51 - 26/03/21) @lasted(2d1h52m49s)
+                            ✔ I am also seeing random null id errors popping up. Again, I have been unable to replicate these but I think they may have something to do with when i restart the server each day. @started(15:59 - 24/03/21) @done(17:51 - 26/03/21) @lasted(2d1h52m46s)
+                            ✔ When loading a new article, the sequence is skipping the first article in the array, always loading the second article. @started(16:10 - 24/03/21) @done(17:51 - 26/03/21) @lasted(2d1h41m43s)
+                        
+                            // I might need to filter the array from the database THEN splice them.
+                            ✔ ....IT MIGHT BE BECAUSE I HAVE ALL OF THE CODE RUNNING WHEN THE PAGE RENDERS INSTEAD OF IN THE HIDE ARTICLE COMPONENT BECAUSE CLEARLY THAT'S TOO HARD FOR ME TO WORK OUT SO EVERYTIME THE PAGE RENDERS THE SLICING CODE AND ARRAY APPENDING HAPPENS REGARDLESS OF WHETHER THE HIDE ARTICLE BUTTON WAS CLICKED WHICH IS THE ENTIRE PURPOSE OF WHAT IVE BEEN DOING THAT LAST WEEK. HOW HAS IT TAKEN ME THIS LONG TO NOTICE THIS!!!??!?!?!?!?!??!??!?!?!?!? @done(17:58 - 26/03/21)
+
+                        ✔ I have completed the meat of the problem, you can hide articles with an article replacing it at the end of the array. My main method was to break it down, step by step and work through the problem. My main failure was initially building the codebase in the render of news-item-loop-view.js. This caused major issues so my second attempt at this, primarily inside the hide-article.js proved much easier and less troublesome.
+                            ☐ Integrate the following with the new hide functionality:
+                                ✔ The in article hide article button @started(10:03 - 15/04/21) @done(10:30 - 15/04/21) @lasted(27m47s)
+                                ✔ Swiping to hide @started(13:11 - 14/04/21) @done(10:03 - 15/04/21) @lasted(20h52m37s)
+                                    bugs/issues:
+                                        ✔ Swiping does hide the article, however if you reloead the page you are met with an infite loop error. @done(15:48 - 14/04/21)
+                                            ✔ Solution - Removed the checkCache component as it is no longer necessary due to changes with hideArticle component @done(15:48 - 14/04/21)
+                                        
+                                ✔ Scroll Check @started(18:45 - 29/03/21) @done(16:13 - 31/03/21) @lasted(1d21h28m53s)
+                                    // Decided to create a new component for this as I don't want to have to use the static dbRef.
+                                    ☐ This new scroll check will need to be implemented into tags. 
+
+                                    ✔ Scroll Check now works without no filter, but has been removed for filtered views. @done(17:54 - 07/04/21)
+                                        ☐ I am looking into getting scroll check to work with tags.
+                                    
+                                    ✔ Hiding newly loaded articles is completley broken.Articles don't hide and if they do you get an error. @started(13:59 - 16/04/21) @done(16:51 - 16/04/21) @lasted(2h52m38s)
+                                        -- Hiding newly scrolled article with an empty cache will throw an error.
+                                        ✔ Solution - I was missing a prop in the scrolLCheck component in news-item-loop-view.js. @done(16:51 - 16/04/21)
+
+                                ☐ Next/Prev
+                                    // ...this will be much better and more usable than before. The previous hide article functionality didn't change the array of article loaded, so next/prev would navigate to articles that should be hidden. My new solution supplies a changed array each time an article is hidden, so next/prev will only go to non hidden articles.
+
+                                    // Let's see how this goes...
+                                    See "Rethink Articles" for more info but I removed these controls from the main article pages and integrated them into a new view, something I'm calling speedKnews, that quickly allows for switching between articles. 
+
+                                    ☐ However, this section has not yet been updated to include a hide article button as I'm not sure it will actually include one yet.
+                                        ☐ Thinking about a hide as you read option.
+
+                                ✔ Re-activate the card size controls. @done(13:51 - 16/04/21)
+                                
+                            ☐ Bugs / Errors / Issues:
+                                ✔ Hiding all articles will eventually return a null id error. done(16:15 - 31/03/21)
+                                    ✔ Solution - Included a filter that removes any null objects from the object array @done(16:15 - 31/03/21)
+                                ☐ If the database has more than 60 articles(it does) the code currently doesn't support rendering those articles.
+                                ☐ Loading replacement articles as articles are hidden would be a good addition.(but i don't know how to do that)
+                                ✔ The new scroll check has an issue where you can't hide all articles. Pressing the hide button does nothing @done(16:14 - 31/03/21)
+                                    ✔ Solution - My data had duplicate ID's in the database. Changing these solved this issue. @done(16:15 - 31/03/21)
+                                ✔ If you attempt to load more articles on scroll with an empty cache, you will get an error. @started(16:16 - 31/03/21) @done(11:28 - 09/04/21) @lasted(1w1d19h12m25s)
+                                ✔ OnScrollLoaded articles don't have any article info associated with them, showing a blank page on load. @started(16:36 - 31/03/21) @done(17:04 - 31/03/21) @lasted(28m11s)
+                                    ✔ SOlution - I had the prop "pageid" when it needed to be "pageId". @done(17:04 - 31/03/21)
+                                ☐ Hiding a loaded on scroll article adds 1 article to the initial array regardless of if the array is already at max intended capacity. it's not exactly an issue but isn't my intention.   
+                                ✔ There are 97 articles being rendered initially, causing article duplication - Solution - I've added a slice to the renderToPage const in newsitem-loop-view that takes the first 30 articles from the full database array. The scroll check starts with the 31st article from the same array so that should work. @done(16:36 - 16/04/21)
+                            
+                            ✔ Switch to hideArticlev2 component @started(15:52 - 14/04/21) @done(17:18 - 30/04/21) @lasted(2w2d1h26m19s)
+                            ✔ Move the UI for hiding articles on click into the renderCard component. @done(13:21 - 26/05/21)
+                                
+                            
+
+                 ✔ The website should have something ready in the event that all articles have been viewed. @started(15:45 - 11/03/21) @done(11:28 - 09/04/21) @lasted(4w18h43m50s)
+                 ✔ More likely however, is that there should ALWAYS be a minimum number of articles on page @started(15:45 - 11/03/21) @done(11:28 - 09/04/21) @lasted(4w18h43m54s)
+                 
+
+            ✔ Merge ScrollCheck and ScrollCheck.js @started(17:51 - 10/03/21) @done(16:33 - 11/03/21) @lasted(22h42m42s)
+                // Ive completed most of the work with both tags and home using the same scrollCheck component.
+                // The only issue is how i'm slicing the arrays and where the start point for render on scroll should be. Luckily this is only a problem because the number of articles with tags is uneven and low, so if I add more tags then there should be no issue. The issue is that the number of sports tags is lower than the initially loaded homepage articles, which would cut off articles. Again, if I add more tags to articles this isn't an issue and is only a problem because the project is still in development and there's a lack of actual content,.
+
+            ✔ Add user feedback for hiding article @started(13:48 - 20/04/21) @done(14:12 - 20/04/21) @lasted(24m18s)
+                ✔ I've already added a message that appears if you hide an article on the home page. The next step is to convert this into a component so it can be used wherever you can hide an article. @started(13:49 - 20/04/21) @done(14:12 - 20/04/21) @lasted(23m15s)
+                    To-Do:
+                        ✔ Convert current banner into separate component @done(14:10 - 20/04/21)
+                            message is in app.js by code is in its own component.
+                        ✔ Add new component to home page @done(14:11 - 20/04/21)
+                        ✔ Add new component to author page @done(14:12 - 20/04/21)
+                        ✔ Add new component to tags page @done(14:12 - 20/04/21)
+        Images:
+            ☐ Replacing random images with my own S3 hosted images. 
+                ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. 
+                    // 15/3/2021 - Is this relevant to this project? 
+            ✘ Investigate a separate component for getting and stytling the image. @started(16:08 - 11/03/21) @cancelled(16:14 - 15/03/21) @wasted(4d6m50s)
+                // Having the same exact code across 10 files seems a bit redundant.
+                ✔ Instead of this, I moved the code into the news-item-caption file. @done(16:15 - 15/03/21)
+                    // Not a separte component but does what I wanted, remove code duplication and allowing for easier editing later on.
+                    ✔ I have since created a separate component for getting an image. @done(11:29 - 09/04/21)
         Article:
             ✔ Basic Structure @done(18-08-13 18:03)
                 ✔ Large Header Image at top @done(18-08-01 11:50)
@@ -415,8 +658,9 @@ General Notes  Objectives:
             ✔ Implement some kind of social media area with icons, email, links etc @done(18-08-14 16:30)
             ✔ Should probably add the scroll to top button to the article page as well... @started(20-09-23 14:05) @done(20-09-23 16:48) @lasted(2h43m31s)
 
-            ☐ Have another look at the overall style of the article page @started(20-10-22 13:43)
+            ☐ Have another look at the overall style of the article page 
                  ✔ Look at the placement of the stuff at the top, maybe try and put all of this on a single line at the higher resolutions @started(20-10-26 18:39) @done(20-10-27 17:36) @lasted(22h57m3s)
+                 // I don't think I will ever be happy with how the articles look so I am just going to leave this open until it's the last thing I close. - 11/3/2021
                 
             ✘ Dark Mode? @started(20-10-27 17:53) @cancelled(20-11-25 17:29) @wasted(4w23h36m3s)
                 //What even constitutes a dark mode?
@@ -424,12 +668,15 @@ General Notes  Objectives:
                 // Too much work and i'm not sure how to fit into this project.
                 // Circle back in later projects.
             ✔ Added ability to hide article from article page @done(16:56 - 15/01/21)
+            ✔ Why does each news article need it's own separate datatabase call? @started(16:03 - 06/04/21) @done(11:31 - 09/04/21) @lasted(2d19h28m56s)
+                ✘ Surely all of the information from the master array is enough? @started(16:03 - 06/04/21) @cancelled(11:31 - 09/04/21) @wasted(2d19h28m52s)
+                    ✔ Answer - It's unreasonable to load an entire database of articles everytime the website loads. It's fine for the home page because that's a limited amount of articles but if you always call the entire database to the array when the website loads you get a massive array. Think about the bbc website or amazon or whatever, @done(11:31 - 09/04/21)
 
             Header Image and Article Info Area:
                 ✔ Changed layout of title and sub-title info @done(20-10-26 18:37)
                 ✔ Need to continue with 768px + res @done(20-10-27 17:36)
-                ☐ Large email addresses really mess with the look here @started(20-10-27 18:18)
-                    ☐ The design should be more flexible and better able to handle large emails and names. @started(20-10-27 18:18)
+                ☐ Large email addresses really mess with the look here 
+                    ☐ The design should be more flexible and better able to handle large emails and names. 
                 ✔ Clickable Elements in article sub-header @started(20-10-26 18:39) @done(20-11-30 12:39) @lasted(4w6d18h55s)
                     ✔ When clicking Posted, go to a new page with all of the articles posted on that day @done(20-11-30 12:39)
                     ✔ When clicking on author, go to a new page with all of the articles posted by that author @done(20-11-25 17:56)
@@ -437,18 +684,19 @@ General Notes  Objectives:
                         //  Looks like I can just use the existing tag page and change the call from the database.
                         //  I can actually get an author page working but I can't get both working at the same time at the moment.
                         //  Did It. I just added another property to the the state-props describing what I was looking for eg, tags, author, date posted etc.
-                ☐ Replacing random images with my own S3 hosted images. @started(20-11-30 17:22)
-                    ☐ I've worked out how to host my images, look into adding these to the website, replacing the current randomly generated images. @started(20-11-30 17:22)
+
 
             Actual Articles:
-                ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. @started(20-10-27 17:40)
-                ☐ Ability to edit articles on page. @started(20-10-27 17:46)
+                ☐ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. 
+                ☐ Ability to edit articles on page. 
                     //Wouldn't this just be a case of switching views when the article is clicked?
                     // Step 1 - Load the article into the edit box
                     // Step 2 - When article is clicked, switch views
                     // Step 3 - Upload and save article to database when ready
                     // Step 4 - Switch view back, with update article on page.
                     // Will NOT be as easy as that but a guy can dream...
+
+
             Recommended Reading Area:
                  ✔ Add a recommended reading column using contents from the database. @started(18-08-14 16:33) @done(18-08-24 12:17) @lasted(1w2d19h44m45s)
                 It Currently uses a href instead of redirect so I might want to rethink this later but it works just fine and I dont see an issue.
@@ -457,10 +705,24 @@ General Notes  Objectives:
                 ✔ Ability to control the exact articles that appear in recommended reading area @done(20-10-13 13:34)
                     // 13/10/2020 - Right now the area is populated with the first 4 articles in order of key. I want to be able to specify whatever article I want directly from the database.
                     // 13/10 - I have bascally copy and pasted the first main query to the database and then appended the results to the state. It is working as intended but i think there is definitley a better way of doing this.
-                        ☐ Do another pass on the styles here @started(20-10-13 13:34)
+                        ✔ Do another pass on the styles here @started(20-10-13 13:34) @done(13:20 - 26/05/21) @lasted(-7h13m1s)
+               
+                 V12.8 Rework:
+                    Goals:
+                        ✔ To improve codebase and functionality in prepartion for website UI improvements. @done(12:38 - 26/05/21)
+                    To-Do:
+                        ✔ Clicking on a recommended reading article should take you to the top of the next article. @done(12:17 - 26/05/21)
+                        ✔ This could be turned into a functional component as it doesnt' require state. @done(13:20 - 26/05/21)
+                            // window.scrollTo and remove scroll-behaviour smooth from html
+                    Bugs / Issues:
+                        ✔ I have created a new component and have managed to get a selection of random articles rendering on the page. However, the page breaks if you clear the cache. @done(12:54 - 25/05/21)
+                            ✔  Made the Database reference a call to the cleanDatabaseCall in localstorage - Didn't work. @done(13:05 - 25/05/21)
+                            ✔ Changed the call to changedDatabaseCall instead, that worked @done(13:05 - 25/05/21)
+
             Social Score Buttons:
                 ✔ Improve Control and Appearance of page score buttons @started(18-08-30 11:33) @done(18-08-30 12:27) @lasted(54m48s)
-                ☐ Let's try and get this working. it doesn't need to be a part of the myKnews update. Just enough functionality to work correctly with a valid email address. @started(20-12-10 15:58)
+                ✔ Let's try and get this working. it doesn't need to be a part of the myKnews update. Just enough functionality to work correctly with a valid email address. @started(20-12-10 15:58) @done(13:20 - 26/05/21) @lasted(-7h37m17s)
+                    ✔ Did this without the need for an email address. It's more vulnerable to manipulation but who cares. @done(13:20 - 26/05/21)
 
             Article Tags:
                 ✔ Each article should come with tags that can be filtered on the home page. @started(20-10-13 13:47) @done(20-10-20 14:40) @lasted(1w53m52s)
@@ -501,6 +763,7 @@ General Notes  Objectives:
                         ✔ Add the tag bar to the fixed header bar @started(20-10-15 16:41) @done(20-10-15 16:49) @lasted(9m)
                         ✔ Instead of going to a new page, how about just re-rerendering the current page with the relevant items? @started(20-10-15 16:41) @done(20-10-20 14:40) @lasted(4d21h59m58s)
                         ✔ I really need to add more tags to the database. I've delayed this for too long. @done(20-10-16 13:56)
+                    
             Article to Article Nav Controls:
                 ✔ Have a look at the back button and see if it can be better. It can but play around here and see if what you can do. @started(20-09-23 14:08) @done(20-09-28 12:57) @lasted(4d22h49m56s)
                     23/9/2020 - Removed for next deployment, rethink and see if it can be added in again, perhaps as a fixed scrolling button. The header current acts as a defacto back button so maybe a dedicated button isnt required.
@@ -521,16 +784,418 @@ General Notes  Objectives:
                         ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page. @started(20-10-16 12:10) @cancelled(20-10-26 17:27) @wasted(1w3d6h17m24s)
                             ✘ Having another go at this @started(20-10-26 15:51) @cancelled(20-10-26 16:30) @wasted(39m20s)
                             // I don't know how to get this to work in this project. Look at this in a dedicated project
-                        ☐ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10)
-                ☐ I think the nav controls should be in the same place regardless of screen size @started(20-10-27 18:22)
-                ☐ These controls don't account for articles that are hidden @started(17:56 - 15/01/21)
-
-
-                /// can leave email and tags already has its own page
-            
+                        ✘ Currently, the next and previous buttons only work if the page id is numeric. This will need to be switched to something more reliable. @started(20-10-16 12:10) @cancelled(18:07 - 15/04/21) @wasted(-2h2m54s)
+                ✘ I think the nav controls should be in the same place regardless of screen size @started(20-10-27 18:22) @cancelled(18:07 - 15/04/21) @wasted(-2h14m38s)
+                ✘ These controls don't account for articles that are hidden @started(17:56 - 15/01/21) @cancelled(18:07 - 15/04/21) @wasted(12w5d23h11m31s)
+                    // They currently just linearly go through every article in the array.
+                ✔ The article to article nav controls have been removed from the main articles and currently only appear on the speedKnews section @done(18:08 - 15/04/21)
             ✔ The ability to mark an article as hidden from the article page instead of just the cross on the homepage @started(20-11-30 12:21) @done(16:57 - 15/01/21) @lasted(-3h23m54s)
-                 
 
+    Rethink Articles:
+        ☐ This little project might not go anywhere but I want see if I can take what I've learned from tags and apply that to the article pages. More specifically I want to see if I can design a method by which articles can be loaded and switched on a button press. Currently, articles are loaded using a rigid set of props being passed through components and while this might be the best solution, it makes it difficult to switch between articles wthout using redirects(which i would like to avoid). Basically, i want to make it as easy to switch between articles as it is to switch between the tag filters on the home page. Like I said, this might not work but I want to give it a go and see what happens.
+            ☐ In the end, i created liteKnews which filled this gap. Articles need to remain unique things that can be accessed whenever...wait a minute. I just changed my method accessing articles to use ID...instead of key. So..isn't this the exact same thing as liteKnews? All im doing in liteKnews is changing id. PLUS! the new recommended news section literally just requieres and id...
+                ☐ this might be possible -> V12.9
+            To-Do:
+                ✔ Get a very basic article switching component up and running(changing id's on button press etc) @done(13:42 - 15/04/21)
+                --Getting a basic article switcher is simple enough, it's how to advance from here that is befuddling me. Ideally it would work like
+                     All Cards are rendered as normal
+                     Click on card
+                     All Card view is removed
+                     View with article is displayed
+                    ✔ The popup does actually function like this, so perhaps I could modify that to just be the default article view. @done(18:05 - 15/04/21)
+                    It might also be easier to switch articles.
+
+                ✔ My above method is actually looking pretty encouraging. I can open up an article and switch back and forward on button press. @done(18:03 - 15/04/21)
+                ✔ So having created my idea, i'm now seeing a problem -- accessible url links. I'm not sure how to ensure you can also have shareable links. Thinking back it's the reason tags have both filters and a tag page. Perhaps I can have both. This new article view could be a more advanced popup, with just the barebones of the article, while still having the full article, with shareable links, social aspects etc. I would essentially be back to where i started and I would have to decide what to do withe next/prev nav controls. I might have another go at making them work seeing as I have what I wanted with the new popup/article view. @done(18:03 - 15/04/21)
+                    ✔ So i've gone ahead and replaced the old popup with this new system. It's a lot better and allows me to have both quick switching low clutter articles as well as more feature rich, shareable article pages. @done(18:03 - 15/04/21)
+                ✔ Add link to full article @done(17:09 - 30/04/21)
+                ✘ Can i use the swiping stuff here? @cancelled(13:13 - 26/05/21)
+                    ✔ I think so but I might need a new separate component for speedKnews before I get to that. @done(13:13 - 26/05/21)
+     
+    Tags Page:
+        ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
+             ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(15:42 - 11/03/21)
+        ✔ Tags pages are currently repeating articles from other tags after it displays all available tags of that page(i.e there are 9 articles with a weather tag but about 30 articles on the weather page. @started(16:38 - 04/03/21) @done(16:38 - 10/03/21) @lasted(6d48s)
+        ✔ Tags - Pressing a card size and emptying the cache the page will always throw an error. @started(16:37 - 04/03/21) @done(15:25 - 15/03/21) @lasted(1w3d22h48m43s)
+            // Looks like the issue might actually be the scrollCheck.js file.
+            // Yup, disabling the scrollCheck component let's the page load and the card controls work as expected(although not saving to localstorage but that's expected for the moment)
+            // I may have solved it. I think the issue was with the clearCache component that triggers on clearing the cache. Previously I was clearing everything but I have changed the button to only clear the hiddenPostList from cache. With that the page is working as expected although there are some issues
+                1 - I dont fully know what effect my clearCache change has had. So i'll need to be careful and check everything is working.
+                2 - The tags page is duplicating articles again.
+                    // I have no idea what is going on here. I am almost at a stage where I want to create a new scrollCheck component from scratch just for tags to compare what is going on.
+            ✔ If you change card size on home and go to the tags page, it throws the same error as before. @started(15:48 - 08/03/21) @done(15:25 - 15/03/21) @lasted(6d23h37m40s)
+                // This also works going tags --> home    
+                // If you refresh the page the card sizes have all reset with no error so there's a clue at least. 
+                // Also if you disable the scrollCheck component you get no issues.
+                // I think i've narrowed it down to the line in scrollCheck that sets state to the articles stored in cache. These articles are correct to the previous page but not the current.
+                // I thin the duplication is down to the scrollCheck having a render component that immediately displays its contents as soon as the component is mounted. I want the contents of the scrollCheck component to only show when the page is scrolled.
+                // I think i solved the problem... even if im not sure how. I think it was down to incorrectly setting the parameters of the newstate.slice in the tags page and arrayStart and End state in scrollCheck.js. Not 100% certain so i'll play around and see if I can figure it out exactly.
+                // In regards to article duplication on the home page i manage to fix the issue by changing the newstate.slice and arraystart to be more in line with each other across news-item-loop.js and scrollcheck.js
+        ✔ Add the custom card controls to tags page. @started(16:37 - 11/03/21) @done(15:25 - 15/03/21) @lasted(3d22h48m55s)
+        ✔ Card Controls have no effect on tags page articles @started(16:30 - 11/03/21) @done(15:25 - 15/03/21) @lasted(3d22h55m21s)
+        // Chanhed this.props.changedCardSize in tags.js to this.state.changedCardSize.
+        // Although they are affecting the home page. So that's a win.
+        Rethinking Tags:
+             ✔ I've decided to redo the tags page... and by redo I mean remove altogether. Instead I have switched to using filters. The upside is that everything happens in one page and I don't need to worry about passing props an working with routes. It's a much simpler solution and uses 1 less call to the database. The major downside is that you can no longer directly go to a tag page. There is also more work being added to the news-item-loop-view. @started(16:02 - 05/04/21) @done(13:04 - 14/04/21) @lasted(1w1d21h2m26s)
+                ✔ So i ended up doing this and then undoing in. The "news/weather/sports" now function as a filter on the home page. The author and postdate in article will use a modified version of the old tags method of using routes to pass props. @done(11:33 - 09/04/21)
+                ✔ You can still go to "news" tag page via url params setting state. @done(11:34 - 09/04/21)
+                ✔ I also have as many database calls as I did when I started. However, the new tags3.1 component is much more flexible by allowing you to access tag pages via articles or url all from one component. @done(13:04 - 14/04/21)
+            Plan of Action:
+                ✔ The leftover articles array should be filled with the correct tag. Once the leftovers tag has been expended, no further articles should load. @started(16:04 - 05/04/21) @done(17:19 - 30/04/21) @lasted(3w4d1h15m21s)
+                    ✔ I have removed the scroll check from the filter options for now. I haven't yet worked out how to properly integrate the filtered array into the the hide functionality. The No Filter works as normal. @done(17:46 - 06/04/21)
+
+                ✔ There might actually be a way doing url accessible tags using routes and props. @started(16:05 - 05/04/21) @done(11:34 - 09/04/21) @lasted(3d19h29m53s)
+                    ✔ Yup, got it working by passing a url parameter from "../tags/:tagname" to state when the news-item-loop-view.js mounts @done(11:36 - 09/04/21)
+                ✔ Ensure articles that should be hidden are hidden until cache is cleared. @started(16:06 - 05/04/21) @done(16:20 - 06/04/21) @lasted(1d14m31s)
+                ✔ All current tags functionality should be retained @started(16:41 - 05/04/21) @done(17:19 - 30/04/21) @lasted(3w4d38m33s)
+                    ✔ Author and Date Pages for example. @done(17:19 - 30/04/21)
+                        ✔ I don't think there is a way around needing a database call for this if I want these pages to be directly accessible @started(17:53 - 08/04/21) @done(11:36 - 09/04/21) @lasted(17h43m58s)
+                            ✔ After some though I think this is correct and I will need to query the database @done(11:36 - 09/04/21)
+                        ✔ I have not yet included post date in this. Although that is more of a data format issue than a code thing. The code is there but I haven't yet decided how to move forward here. @done(13:09 - 14/04/21)
+                        ✔ I have restored functionality to click on author and tags to take you to a new page. @done(17:19 - 30/04/21)
+                            ✔ These will all need to be integrated into: @done(17:19 - 30/04/21)
+                                 ✔ hiding @started(11:42 - 09/04/21) @done(13:08 - 14/04/21) @lasted(5d1h26m54s)
+                                    ✔ Progress - I can hide articles and the rest of the website respects the hide, but refreshing the page renders the articles that should be hidden.
+                                    Hidden Articles should be hidden:
+                                        Issues:
+                                            ☐ Sometimes nothing appears on the post date page. I haven't been able to reliably replicate the issue. 
+                                            ☐ Random articles being added to the home filters. 
+                                                ☐ They don't have tags
+                                                ☐ They're the same 4 articles every time it happens
+                                                ☐ Clearing cache removes them
+                                                ☐ Appear after hiding anything on a tags page
+                                                ☐ Reloading the page removes them
+                                            ☐ Sometimes extra articles are added to the tags page. 
+
+                                    url redirects for tags:
+                                        ✔ My current attempt is to use another component(modified version of tags), would it not be easier to use redirects instead here? @done(13:06 - 14/04/21)
+                                            ✔ A bit of both, removed the props from the code and instead just used parameters to query the search term. I'm also using 2 separate components, one for search(tags3.1) and another for clicking through the article(TagsV3). @done(10:03 - 12/04/21)
+                                            ✔ The end result is that you can type search in the bar along with an author and go straight to that page if it exists. @done(10:03 - 12/04/21)
+                                            ✔ I would like to see if I can unify these so that's my next step. @started(10:03 - 12/04/21) @done(12:50 - 14/04/21) @lasted(2d2h47m37s)
+                                                ✔ Possible Breakthrough - So my attempt at using url params and switching the database call was being difficult due to needing 2 different database calls. I may have gotten around this requirement by simply adding a second required parameter to the url path. This allows me to specify which records to query much more precisely than before. It is case sensitive so home/search/tag/news will not work unless News is capitalised.
+                                                ✔ While not full complete, I do consider having the 2 tags files merged as complete. There are issues to be resolved but i am happy with the overall solution and so marking this section as done. @done(12:50 - 14/04/21)
+                                                Bugs / Issues:
+                                                    ☐ Post Date might not work well here 
+                                                        My dates are in the wrong format so...
+                                                        ...not sure what do about this. It does work if I remove the slashes in the database...
+                                                    ☐ Case sensitivity for url params(news will not work but News will) 
+                                                    ✔ Make sure hiding articlesworks @started(11:57 - 13/04/21) @done(12:45 - 14/04/21) @lasted(1d48m12s)
+                                                        ✔ Hiding works one way at the moment, if you hide an article on home it will be hidden if you go straight to tags. Howerver, if you do it the other way, things break down. @done(12:43 - 14/04/21)
+                                                        ✔ The reason being that the database call in tags3.1 is only calling the records specific to that page. In order for hiding to properly work, there needs to be at least 1 full call of the database articles. Without that populted array, the hide component takes that single article array, hides the objects(as expected) and renders the array on home(again as expected) @done(12:43 - 14/04/21)
+                                                        ✔ I might just need to add a separate database call to set the full datatbase call array. @started(12:55 - 13/04/21) @done(12:43 - 14/04/21) @lasted(23h48m44s)
+                                                            Yeah, that worked but I'm not happy about mutliple database calls on the same page. 
+                                                        ✔ I have encountered the same issue again. Hiding on tags/news then going to home gives you a blank page @started(16:42 - 14/04/21) @done(18:11 - 14/04/21) @lasted(1h29m7s)
+                                                            --You don't get a blank page if the you've already hidden something home before going to tags hiding and then home.
+                                                            
+                                                            --editedArticleArray = something is happening here. It's returning a single item in the array when it should be returning a full 30 item array.
+                                                            
+                                                            --Reenabling the old hidearticle component and it doesn't have this issue so that at least narrows it somewhat.
+
+                                                            ✔ Looks like the problem was incorrect parameters passed through the function. Removed the offending parameter and the hide button is working as expected @done(18:10 - 14/04/21)
+
+                                                            
+
+                                                    ✔ Integrate Next/Prev controls @started(11:57 - 13/04/21) @done(13:57 - 16/04/21) @lasted(3d2h25s)
+                                        
+                                        //If I removed the hide button, my current attempt would work quite nicely as a search bar. Removing the hide button would sort of defeat the purpose of what i want here. - a directly accessible page for author that can be used like the rest of the page.
+                                                    this proved to be irrelevant as I fixed the issue.
+
+                        SIDE PROJECT:
+                            ✔ Can i make .map in tags.v3 a component? It feels bad to have a huge piece of code copied and pasted across multiple files in the project. @started(18:04 - 08/04/21) @done(10:25 - 09/04/21) @lasted(16h21m41s)
+                                ✔ Looks like I can. I have the .map for tagsv3 as a functional component outputting a database query for articles matching an author. I'll see if this can be applied to the other similiar .maps I have. Would save a lot of space and be a lot more convenient if I can get this working @done(10:24 - 09/04/21)
+                                ✔ I have moved the home page over to the new component and everything is working as expected. @done(10:25 - 09/04/21)
+                         
+                    ✔ To do this I need work with routes and use the old tags page as a place to go @done(17:52 - 08/04/21)
+                        I may need another database call here If I want to be able to access each page without needing to go through home. This would be the 3rd required call
+                            1st - Home | 2nd - Article | 3rd - Tags
+                            ✔ I feel like this would just bring me back to where I was before redoing the tags page in the first place. @done(17:52 - 08/04/21)
+                                ✔ What If I pass a parameter from a url like theKnews.com/tags/news into state. Would that render the news tags the same as the getArticle button? @done(17:52 - 08/04/21)
+                                    ✔ Yup. I have created a redirect that allows me to pass a url param as a prop(news,weather, sports) and set the render view in news-item-loop-view.js as if I was pressing one of the filter buttons. @done(17:52 - 08/04/21)
+                        Bugs / Issues / To-do:
+                            ✔ To Start -> Get a prop from the article page to the new tags-v3 file. @done(17:54 - 08/04/21)
+            
+            Bugs / Issues / Notes:
+                ✔ If you clear cache you get an empty page until you select a filter option @started(16:39 - 05/04/21) @done(17:40 - 05/04/21) @lasted(1h1m)
+                    ✔ Solution - Basically just placed a number of fall backs and checks to check see if I need to load a default database. @done(17:40 - 05/04/21)
+                ✔ Clicking on an article and retunring home will always reset the filter. Make sure the chosen filter is maintained until cleared. @started(17:42 - 05/04/21) @done(17:58 - 05/04/21) @lasted(16m41s)
+                    ✔ Solution - Added the getArticle by function to component did mount. Then retrieved the option from local storage. @done(18:02 - 05/04/21)
+                ✔ Hiding an article removes half of the array on reload. Not sure what's going on here. @done(17:49 - 07/04/21)
+                    ✔ It's because the hide button returns an array that has other tags in it. These are then filtered out of the array in getArticles. I need a way of getting back just an array with the correct tags. I may need to tweak the hide-article component. @done(17:49 - 07/04/21)
+                        ✔ There is all sorts of weirdness going on here. I'm leaving this for now and sleeping on it. @started(18:46 - 06/04/21) @done(17:47 - 07/04/21) @lasted(23h1m16s)
+                        ✔ Solution - Added code into the hide-article file that retrieves and edits a full database call, sets the article to hidden, and returns that array to the page to be rendered. THis is also stored in local storage and is the main array used for rendering tags(after being filtered), so it works with both filter and no filter. @done(17:49 - 07/04/21)
+                ✔ I am once again seeing duplicate articles in the unfiltered view. @started(18:11 - 07/04/21) @done(17:20 - 30/04/21) @lasted(3w1d23h9m1s)
+                    // One of the classics...
+
+        
+        
+            
+    Options Menu:
+        ✔ Create Component and Basic Popup Menu to get started @done(12:05 - 27/04/21)
+        Goals:
+            ✔ A UI that displays the various things users can manipulate and interact with accordingly @done(13:12 - 26/05/21)
+                ✔ Ability to fully clear entire cache @done(16:24 - 29/04/21)
+                    ✔ Error - Fully clearing cache returns an error with - JSON.parse(localStorage.getItem("myData"))[0] @done(16:24 - 29/04/21)
+                    ✔ Solution - I was removing the myData but not replacing it with anything which is required for the page to load. @done(16:23 - 29/04/21)
+                ✔ Option to unhide articles without resetting card size @done(16:03 - 27/04/21)
+                ✔ Option to reset card size @done(16:02 - 29/04/21)
+                    ✔ When restting card size, the filter option is also being reset to All. @done(16:02 - 29/04/21)
+                    ✔ For some reason the filter option is being set to null at some point. @done(16:02 - 29/04/21)
+                        ✔ Solutiuon - i had localstorage.clear("myData) instead of...           localstorage.removeitem("myData) @done(16:02 - 29/04/21)
+                ✘ Option to change card size @cancelled(13:12 - 26/05/21)
+            ☐ A decent UI
+                ✔ Added a nifty opening animation @done(17:13 - 29/04/21)
+                ✔ The menu currently remains open when clearing the cache, it should probably shut when pressing one of the buttons. @done(12:47 - 30/04/21)
+            
+            ✔ Using any of the buttons on the tag/author pages returns you to the home page. I would prefer if it you stayed on the same page. @done(17:04 - 30/04/21)
+                ✔ POssible solution is passing window.location.pathname to the link in options menu @done(17:04 - 30/04/21)
+                    ✔ ISSUE - Using the above method, you get a null map error if you attempt to hide an article. @done(17:04 - 30/04/21)
+                        ✔ Added a setItem to the tags to ensure a clean database call, fixed the issue. @done(14:18 - 30/04/21)
+    v12.9 - Misc Bug Fixes / Tweaks
+        Goals:
+             ☐ To clean up a bunch of small things that need addressing and may not fit in anywhere else.
+        To-Do:
+            ✔ Fix the scroll activate for larger than 1800px wide windows 
+                //Not Sure what this means I can't see any issues.
+            ✔ Can I reset scroll position when switching articles in liteKnews? @done(13:34 - 26/05/21)
+                // window.scrollTo(0,0) in render
+            ☐ Look into "undo hide"
+                should be a simple object.assign i would think
+                nope, this might require a rework of the entire feedback system. However, this might be getting some attention as part of the UI overhaul so let's leave this until then.
+            ☐ Look into article switching for articles now that articles require just an id and database call instead of key.
+
+
+
+    
+
+
+
+    
+
+
+
+
+    General Appearance / UI / UX:
+        V12.10 The Great UI Overhaul:
+            Goals:
+                ☐ To improve the overall appearance and usibility of the website.
+            To-Do:
+                ✔ Do another style pass for card controls(different layout at larger widths?) @done(12:29 - 16/06/21)
+                ☐ Inform the user of how to interact with the website( swipe, hiding etc)
+                ☐ Look into animations for hiding articles.
+            12.10.1 - Home Page New Nav Bar:
+                Goals:
+                    ☐ All controls for page should be easily accessible
+                To-Do:
+                    ☐ Get working with new ui bar...
+                        ✔ Bookmark page link @done(15:43 - 28/05/21)
+                        ✔ liteKnews start @done(15:43 - 28/05/21)
+                        ✔ filter by tags @done(18:30 - 28/05/21)
+                        ✔ change card size @done(12:15 - 02/06/21)
+                        ☐ options menu
+                            ✔ Clear Bookmarks not currently working @done(17:35 - 08/06/21)
+                                ✔ Solution - Wrong file path for component import @done(17:35 - 08/06/21)
+                            ☐ Add mark all unread button.
+                            ☐ Instead of merging the 2 menus like my current plan, I think I should try adding more buttons to the nav bar on the home page.
+                        Buttons to be added to navbar:
+                            Home:
+                                ☐ Mark All As Read
+                                ☐ Mark All as Unread
+                                ☐ Clear All Articles
+                            Bookmarks:
+                                ☐ Reset Card Size
+                                ☐ 
+                            ☐ What about the ability to hide but not remove articles?
+                                ☐ then have a button that:
+                                    ☐ Lets you view read articles
+                                    ☐ hide read articles
+
+                    ☐ Clicking an icon should keep it as the correct colour until deactivated
+                    ✔ Just as being able to see when a filter is active, the same should be done for card size. @done(12:23 - 16/06/21)
+                    ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
+                    12.10.1.15:
+                        Goals / Reasoning:
+                            ☐ Moving the UI bar from the card page into it's own component that can then be reused.
+                            ☐ Will allow me to have a consistent navigation option throughout the website. Will also remove need for different nav solutions for bookmark page, tags pages and liteKnews among other areas.
+                            ☐ At the least, having a separate component for the large UI bar will make managing it much easier. Also possibility for further fragmentation of buttons into their own components if I wanted.
+                            ☐ Should function exactly the same as it currently does in the UI bar.
+                            ☐ Should be flexible enough to add/remove buttons where relevant.
+                        To-Do:
+                            ✔ Create New component @done(16:41 - 02/06/21)
+                            ✔ Integrate Bookmarks page @done(12:08 - 16/06/21)
+                                ✔ removed liteknews and bookmark button @done(16:44 - 02/06/21)
+                                ✔ Integrate filter options @done(17:38 - 08/06/21)
+                                    ✔ What do I want here? Do i want this to be the same as the home page or be different? It makes sense to be different but I can also see the argument for having the same filter throughout and let the user decide on their own. A single filter choice is easier to implement but separate filters seems more user friendly...or it could be seen as 1 more thing to think about. I don't know, might flip a coin 21 times or so.
+                                        ✔ I don't know what is the "optimal" choice but I am going with separate filters. If nothing else it's an interesting challenge for me to overcome. @done(17:11 - 08/06/21)
+                                            ✔ I've split the two and the home page is working fine. The bookmark page works fine if you press the filter button. However, on render you just get a blank page and I haven't been able to find a solution at this point. @done(17:55 - 02/06/21)
+                                    ✔ There is an issue with the react.bootstrap dropdown menu and the render of my bookmark page. Specifically, the bookmark page will render a blank page because the content of the dropdown menu(which control the filters) arent activated until the menu is activated. This is an issue because it means my filter options component is activated until the dropdown is activated, leaving the mentioned empty page for bookmarks. My workaround is to add the filterOptions component to the bookmark page and hide it's ui the same way i have for the card size on the home page. Not great but i can't see any other option here. @done(12:42 - 03/06/21)
+                                ✔ Integrate Card Size menu @done(13:12 - 03/06/21)
+                                ✔ Counter showing article number should update as articles are added/removed from bookmarks. @done(13:02 - 08/06/21)
+                                    ✔ I have a counter that counts the articles when adding/removing bookmarks. It doesnt change with the filter view however. @done(13:02 - 08/06/21)
+                                        ✔ This solution was actually correct but I had a spelling mistake with bookmarkCounter, should be bookmarksCount. With that corrected the counter displays the number of bookmarks as you move through the section. @done(13:02 - 08/06/21)
+                                    ✘ Same as above but for read/unread. @cancelled(12:08 - 16/06/21)
+
+                                ✔ I think it would be useful to have the number of articles for each filter appear in the menu dropdown. @done(16:08 - 08/06/21)
+                                ✔ Create mark all as read button @done(18:05 - 03/06/21)
+                                ✔ Change of direction - New Bookmark Options Menu. @done(16:33 - 09/06/21)
+                                    ✔ I've decided to change the bookmark bar into a dropdown menu that is activated by clicking on the existing bookmarks button. This will save me space and be more usable as I won't need to remove any information at lower screen sizes. @done(16:33 - 09/06/21)
+                                    ✔ As a result I have created a new component and I'm currently working on the appearance as all buttons are handled through props and require no changes to work. @done(16:33 - 09/06/21)
+                                New Website Nav Bar:
+                                    ✔ Following the sucess of the new nav bar for the home page and bookmarks, I am going to try the same for the rest of the website. I want every page to have a nav bar similiar to bookmarks and home. @done(12:08 - 16/06/21)
+                                        Pages to to integrate:
+                                            ✔ Home @done(17:29 - 09/06/21)
+                                            ✔ Bookmarks @done(17:29 - 09/06/21)
+                                                ✔ Add visual indicator of number of bookmarks, perhaps a separate area on the navbar. @done(11:02 - 16/06/21)
+                                            ✔ Article Page @done(11:32 - 15/06/21)
+                                                ✔ Add like/dislike buttons to navbar @done(10:55 - 14/06/21)
+                                                ✔ Add bookmark controls to navbar @done(10:56 - 14/06/21)
+                                                ✔ Add link to bookmark page @done(11:13 - 14/06/21)
+                                                ✔ Add Hide article button to nav bar @done(10:56 - 14/06/21)
+                                            ☐ Tags
+                                                Tags Bar Options:
+                                                    ✔ Home Button @done(12:21 - 15/06/21)
+                                                    ✔ Card Style @done(12:21 - 15/06/21)
+                                                    ☐ Filter(only for author)
+                                            ✔ liteKnews @done(16:49 - 15/06/21)
+                                                Options to add:
+                                                    ✔ Bookmark Controls @done(13:23 - 15/06/21)
+                                                    ✔ Link to bookmark page @done(13:23 - 15/06/21)
+                                                    ✔ Link to full article @done(13:30 - 15/06/21)
+                                                    ✔ liteKnews controls(?? - Might not be a good idea but I would like to try it just to see) @done(16:38 - 15/06/21)
+                                                        ✔ I actually now like the controls in the navbar, but for mobile the controls at the bottom of the page is the way to go. I might move the entire bar to the bottom of the page, at least the controls part. Maybe leave the header at the top. @done(16:39 - 15/06/21)
+                                        ✘ How about making the scroll back fixed, and adding the scrollUp button to the nav bar? @cancelled(16:37 - 15/06/21)
+                                                    ✔ Not everything needs to be added to the navbar and the scroll to top button makes more sense always being in the middle bottom of the page. @done(16:38 - 15/06/21)
+                                        ✔ Home button shouldn't appear on the home page. @done(16:49 - 15/06/21)
+                                    ☐ I think the website needs are clear indicator of where you are. look into adding a secondary title to the black theKnews area
+                                        ✔ I've tried a few things but nothing really stuck. I might circle back to this later If i have any other ideas @done(12:08 - 16/06/21)
+
+                        Issues:
+                            ☐ Many, probably.
+                            ✔ Clearing cookies and browser history results in a null error on the "myData" local storage item. @done(12:01 - 08/06/21)
+                                ✔ Solution - I created a check in the news-item-loop for null. @done(12:01 - 08/06/21)
+                            ✔ Leaving 1 bookmark, if you try to remove that last bookmark, the counter returns to the number before removing bookmarks.So if you have 5, remove 4, and try to remove the last 1 the counter returns to 5. @done(15:50 - 08/06/21)
+                                ✔ I think its because the this.state.bookmarkCounter goes to null, which passes the this.state.bookmarks.length to the prop instead. @done(15:47 - 08/06/21)
+                                    ✔ Solution - Removed the need for this.state.bookmark length ad switched to only using bookmarkCounter which seems to be working fine. @done(15:49 - 08/06/21)
+
+                    Mobile:
+                        ☐ Condense main interactables into mobile friendly interactables.
+                        ✔ It should be easy to see if a filter is active(i.e change colour of icon if filter != All) @done(17:44 - 28/05/21)
+                        ✔ The home options menu is appearing off screen @done(11:06 - 16/06/21)
+                    Desktop:
+                        ✔ Icons should have label alongside @done(13:38 - 28/05/21)
+                        ✔ At higer width, the options menu get's lost to the right of the window. @done(12:12 - 02/06/21)
+                            // added media queries at point where text in ui activates.
+
+                    Release Issues:
+                        ✔ Navbar buttons are too big @done(12:47 - 21/06/21)
+                            ✔ Solution -> @done(12:47 - 21/06/21)
+                                ✔ .uiBarItem>.dropdown>button -- set margin:0 @done(13:51 - 16/06/21)
+                                // ☐ (firefox) #bookmarkControls > button {height:inherit}
+                                ✔ button -> height: inherit, margin: inherit @done(13:51 - 16/06/21)
+
+
+                        ✔ Bookmark page just not working; returning a null error @done(12:47 - 21/06/21)
+                            ✔ Solution - Remove the console.log on line 25 > navbar.js @done(13:51 - 16/06/21)
+                            ✔ i also had to restructure code for the bookmarks.js file relating to starting card size. @done(14:11 - 16/06/21)
+                        ☐ Bookmark page -> Card Size look terrible when it's just one option
+
+                        ✔ Card Size drodown is center aligned, should be left @done(12:47 - 21/06/21)
+                        ✔ Home btn in liteKnews does nothing @done(13:33 - 16/06/21)
+                        ✔ Dragging on firefox is not working correctly. @done(13:32 - 16/06/21)
+                            ✔ Add to deployment message @done(13:29 - 16/06/21)
+                            ✔ Add to to-do @done(13:30 - 16/06/21)
+                        ✔ On internet explorer -> You might have to press the full website reset button for it to work on first load. @done(13:32 - 16/06/21)
+                            ✔ Add to deployment message @done(13:31 - 16/06/21)
+                            ✔ Add to to-do @done(13:32 - 16/06/21)
+                        Testing:
+                            ✔ Edge looks good @done(12:47 - 21/06/21)
+                            ✔ firefox @done(12:47 - 21/06/21)
+                                ✔ issue @done(12:47 - 21/06/21)
+                                    ✔ article @done(12:47 - 21/06/21)
+                                        ✔ bookmark controls are wonky @done(15:22 - 16/06/21)
+                            ✔ chrome @done(12:47 - 21/06/21)
+                                ✔ 1 instance of a blank page on article page. unable to replicate. @done(12:47 - 21/06/21)
+
+
+            12.10.2 - Article Page:
+                To-Do:
+                    ✔ Change layout of article @done(16:57 - 21/06/21)
+                        ✔ At lower sizes, a single column layout @done(16:57 - 21/06/21)
+                        ✔ At hiher res, put the article info to the left in a fixed div. Then let the article scroll. @done(16:57 - 21/06/21)
+                    ✔ Rework recommended reading section @done(18:13 - 24/06/21)
+                    ✔ Endlessly make changes because you're never happy with your work...:( @done(18:13 - 24/06/21)
+                    ☐ Integrate Social for:
+                        ☐ theKnews website
+                            ☐ THink this belongs in the footer, although I do want the ability to share articles.
+                        ☐ Articles
+                            ✔ Will need to use React Hemlet as a start to get meta-data for each page. @done(17:15 - 24/06/21)
+                                ✔ Installed, was a lot easier than I was making it. @done(17:15 - 24/06/21)
+
+                        ✔ author of articles @done(17:00 - 22/06/21)
+                    ✔ Try adding some text to the fixed image @done(13:35 - 22/06/21)
+                        ✔ Change the <span> to >> <h1> @done(15:46 - 24/06/21)
+                        ✘ Add the article information here as well @cancelled(16:48 - 24/06/21)
+                            ✔ Create component for article information @done(16:48 - 24/06/21)
+                            // the article info just clogs the space up a little bit but I did create the component anyway.
+                    ☐ What about user customisation for articles?
+
+                ☐ Ready for release?
+                    ✔ Yes @done(18:15 - 24/06/21)
+                    ✔ Uploaded @done(13:19 - 25/06/21)
+                    ✔ Tested @done(13:19 - 25/06/21)
+                        Issues:
+                            ☐ Check meta-data stuff.
+                                ☐ I don't know how to make this work for articles. I can get get a card working for the website but not for articles and I can't be bothered getting deep into trying fixing this. Might come back later.
+                            ✔ The anchor tags have a text-underline on hover. @done(13:19 - 25/06/21)
+                            Desktop:
+                                Chrome:No Issues So Far
+                                Firefox: 
+                                    ☐ The font is different. Make sure to grab a font from google fonts to a unified, consistant experience across browsers.
+                                Edge:No issues
+                            Mobile:
+                                Chrome:No Issues
+                                Firefox: No Issues
+                    ✔ Commit @done(13:21 - 25/06/21)
+                    ✔ Blog @done(13:52 - 25/06/21)
+                    ✔ Portfolio @done(13:52 - 25/06/21)
+                    ✔ Finished, move on. @done(13:52 - 25/06/21)
+
+            12.10.3 - Bookmark & Tags Page:
+                Bookmark Page:
+                    ✔ Fix navbar swallowing cards @done(10:43 - 28/06/21)
+                    ✔ Change hover on menu effects @done(10:56 - 28/06/21)
+                Tags:
+                    ✔ Fix page width
+                    ☐ Add number of articles to navbar
+                    ✔ Remove header @done(11:08 - 28/06/21)
+
+            12.10.4 - liteKnews:
+                ☐ Add keyboard support for article switching with left/right arrow keys.
+            12.10.5 - Home Page / Cards:
+                ☐ Change mark as read icon based on current read status.
+            12.10.6 - Website Footer:
+                    ☐ Add a footer
+            12.10.7 - Website Feedback Rework:
+                ☐ Improved Feedback for bookmarking articles using button
+                ☐ Improved feedback for hiding articles using button
+                ☐ Improved feedback for no further articles available to load(either scrolling or the button)
+            
+            12.10.X - Misc:
+                ☐ Change styles for when clicking on stuff in the navbar
+                ☐ Home btn in liteKnews does nothing
+                ☐ Dragging on firefox is not working correctly.
+                ☐ Buttons that need to be added/created
+                    Navbar (sitewide):
+                        this will be mostyl sorted when I merge the 2 menus from home and bookmarks
+                        ☐ the same options menu should be available throughout the entire website
+                        ☐ Hide mark as read
+                        ☐ Include mark as read
+                        ☐ Mark All As Read
+                        ☐ Mark All as Unread
+                        ☐ Clear All Articles
+                        ☐ Reset Card Size
+                    Tags:
+                        ☐ Page Title
+                        ☐ Number of cards in tag
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -543,7 +1208,6 @@ General Notes  Objectives:
         ✔ Automate Post Date @started(18-08-21 17:36) @done(18-08-24 11:24) @lasted(2d17h48m47s)
         ☐ Add View Post button to articles in myKnews
         ✔ Convert timestamp to readable date time format @done(20-09-23 16:49)
-        ☐ How do tags work here?
         // 1 per article or multiple?
         // multiple fields or pick the tags out 1 by one in the front end?
         
@@ -554,7 +1218,7 @@ General Notes  Objectives:
          Might put a small bar at the bottom to act as footer.
          23/9/2020 - Well I have one now so I may as well make it look presentable.
          27/10/2020 - Recommended Reading Bar currently footer.
-        ☐ Add Proper Footer sitewide. @started(20-10-27 17:51)
+        ☐ Add Proper Footer sitewide.
     
 
 Part 2 Implement Database functionality:
@@ -597,8 +1261,33 @@ Part 2 Implement Database functionality:
             // Copy and paste really. I could make it so you can't go negative dislikes
         ✔ Allow like/dislike ONLY for logged in users @started(18-08-29 11:25) @done(18-08-29 15:43) @lasted(4h18m58s)
             // I can now tell if someone is logged in, I just need to adjust the UI to represent this.
-        ☐ Ensure users can only like/dislike ONCE per account @started(18-08-29 15:44)
+        ✔ Ensure users can only like/dislike ONCE per account @started(18-08-29 15:44) @done(12:57 - 02/06/21) @lasted(-5h46m56s)
         ✔ Styling of Like and Dislike buttons are terrible, fix this @started(20-10-22 13:50) @done(20-12-03 16:22) @lasted(6w3h32m38s)
+
+        V12.6 Like/Dislike Button rework:
+            Goals:
+                ✔ Ability to vote on article WITHOUT the need to login. @done(18:04 - 21/05/21)
+                ✔ Limit to 1 vote per cache @done(18:04 - 21/05/21)
+            To-Do:
+                ✔ Look at current code and see what can be reused. @done(18:04 - 17/05/21)
+                    ✔ I had a look but I think I can do better with what I've learned since I first built the component. Especially now that I don't require being logged in. So im going to build a new component and see what happens. @done(18:04 - 21/05/21)
+                ✔ I have a solution in place that lets you vote on articles and have that vote saved throughout the website. It took a while, and multiple iterations of the code, to get the UI just as I want it but I managed it in the end. Of course the main flaw is still the vulnerability to vote manipulation but I don't know to avoid that without requiring a login. @done(18:16 - 21/05/21)
+
+                ✔ I suppose one method would be to update the database and undo the likes/dislikes when clearing the cache but that just seems convoluted and I don't want to go down that route. This project is already running way too long as it is. @done(18:16 - 21/05/21)
+
+                ✔ The Like/Dislike buttons are in place so let's move on. @done(18:16 - 21/05/21)
+
+
+            Issues:
+                 Vulnerable to manipulation, you could clear the cache -> vote and then repeat to upvote an article forever. However, I don't care about that for this project so I choose to ignore it. This is really about me understanding the interaction between React/JavaScript and updating a firebase database.
+                 I've come to accept that I don't know how to create a like button without the use of local storage. My inspiration for this is the BBC live text page but they're probably using some server side tech that detects a user and works around not having local storage or an account. Otherwise i don't know how to do it
+                ...or I'm just missing something very obvious.
+                there has to be vote manipulation protection of some sort that skips the front end entirely.
+                 Maybe something blocks a client from multiple interactions etc in the server side.
+             If that's the case then I think I need to stop worrying about this. I have a solution that works for my purposes(react development and learning) so its probably not a good idea to try and compete or compare myself with the BBC.
+
+
+
 
      ✔ Form should take in a series of mandatory inputs or not be able to submit @started(18-08-15 15:23) @done(18-08-17 13:43) @lasted(1d22h20m56s)
         ✔ Will need to complete User Auth before I can do Author @started(18-08-17 13:44) @done(18-08-22 17:02) @lasted(5d3h18m3s)
@@ -619,7 +1308,7 @@ Part 2 Implement Database functionality:
      ✔ Look into loading a limited number of news items on the home page. The scroll could be used to detect the scroll position and load more things from the database. @done(18-08-31 17:22)
         ☐ BUG:: There's an issue where the scroll doesn't trigger new load when scrolled all the way to the bottom.
             //YOu need to scroll up and then back down to get it to work
-     ☐ Ability to approve posts made by unauthorized users @started(18-08-22 16:04)
+     ☐ Ability to approve posts made by unauthorized users 
      ✔ Organise Components a bit neater @done(18-08-13 18:02)
         ✔ Organise CSS into neater file @done(18-08-14 13:52)
         ✔ Further Organise components @done(18-08-14 13:52)
@@ -631,44 +1320,133 @@ Part 2 Implement Database functionality:
              Remove everything but the home page
              Remove any sign of editing
              Only show the lazy loading and article views
+        ☐ 21/4/2021 - This is very annoying.
+            ☐ https://christopherdunne.co.uk/theKnews/home -- Doesnt work if you access directly
+            ☐ You need to go to - > https://christopherdunne.co.uk/theKnews/ and then click on the header to get to the actual website which is located at : https://christopherdunne.co.uk/theKnews/home
+            ☐ Solution - > I changed all of the routes from /home to /theKnews/home
+            ☐ Added a .htaccess to theKnews folder with the below code. The rewrite base and last rewrite rule need to match the folder the .htaccess file is in.
 
+            <IfModule mod_rewrite.c>
+                RewriteEngine On
+                RewriteBase /theKnews
+                RewriteRule ^index\.html$ - [L]
+                RewriteCond %{REQUEST_FILENAME} !-f
+                RewriteCond %{REQUEST_FILENAME} !-d
+                RewriteCond %{REQUEST_FILENAME} !-l
+                RewriteRule . /theKnews/index.html [L]
+            </IfModule>
 
  -----
 
-        Version 12 - Planned:
+        Version 13 - Planned:
             ✘ myKnews - The Return. @cancelled(13:10 - 13/01/21)
                 // I need to move on from this project so i'm cancelling this. It's time to move on, i'll incorporate this into other projects.
+                // 11 March 2021 - ...is it though?
 
-            ☐ Get Like and Dislike to work separate from myKnews
+            ☐ 13.1 - Ensure all pages can be shareable(articles, tag pages, bookmarks etc)
+                // 12/5/2021 - article pages are currently not working when directly accessed from firefox
+            ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
+            ☐ 13.3 - (if missed in 12.10) - redo the feedback message to allow for undo of article.
+            ☐ 13.4 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
+            ☐ 13.5 - Add any buttons that are required on the navbar
 
-        Version 11 (Future Version) - Planned Notes:
-            ☐ Implement Mobile Menu using swipe
+
             
-        Version 10.1 - Codebase Cleanup - Release Notes:
+
+        Version 12 (Future Version) - Planned Notes:
+            ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
+            ✔ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21) @done(16:05 - 27/04/21) @lasted(2h4m9s)
+                ✔ 12.1.4 - Improve Appearance of Options Menu with new controls in place. @started(12:10 - 29/04/21) @done(15:40 - 11/05/21) @lasted(1w5d3h30m20s)
+            ✔ 12.2 - Redo the card controls to improve the usablity of cards. @done(12:10 - 29/04/21)
+            ✘ 12.3 - Add proper back button to articles(i.e go back one page, not just home) @cancelled(13:27 - 30/04/21)
+                // It's really not necessary as the browser back button does the same thing and breadcrumbs are irrelevant for my website.
+            ✔ 12.3 - Implement Bookmarking into swipe left(and the rest of the website) @done(17:24 - 12/05/21)
+            ✔ 12.4 - Code Review (Splitting Code into components) @done(17:23 - 12/05/21)
+            ✔ 12.5 - Finish Remaining Bookmark work @done(16:43 - 17/05/21)
+            ✔ 12.6 - Get Like and Dislike to work separate from myKnews @done(18:17 - 21/05/21)
+            ✔ 12.7 - Look into swiping liteKnews to switch articles @done(11:41 - 25/05/21)
+            ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
+            ✔ 12.9 - Misc Bug Fixes & Tweaks @done(10:53 - 14/06/21)
+            ☐ 12.10 - Overhaul Main UI
+                ✔ V12.10.1 - Navbar - Release @done(12:48 - 21/06/21)
+                ✔ V12.10.2 - Article Page - Release @done(10:16 - 28/06/21)
+                ✔ V12.10.3 - Bookmark & Tags Page @done(11:19 - 28/06/21)
+                    ✔ Fixed issue where top row of cards would disappear behind navbar 
+                    ✔ Ensure the load articles button is always available on the home page 
+                ☐ V12.10.4 -liteKnews rework
+                    
+        
+
+        Version 11.1 - Bug Fixes:
+            ✔ Full Article link goes to blank pagRe @done(17:18 - 22/04/21)
+            ✔ ScrollCheck requires a two finger up and down scroll to work...not ideal. @done(17:18 - 22/04/21)
+                ✔ Solution - Increase the detection range for the scrollCheck component @done(17:18 - 22/04/21)
+            ☐ If there are 2 or less articles on the page when you refresh, you might get an error.
+            ✔ Changing card size and then attempting to hide articles causes an error on dev and does nothing on live. @done(18:02 - 22/04/21)
+                ✔ pressing a card size empties the cleanDatabaseCall cache for some reason. My solution right now is to disable the card size controls for the time being. My intention was to rework them in the next release anyway so not a big deal. @done(18:02 - 22/04/21)
+
+        Version 11 - Codebase Cleanup(Next Release) - Release Notes:
             // Feature Updates
-            ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components. @done(15:04 - 15/01/21)
-            ✔ Card Size Control Styles -> Let's get this done. @done(20-12-11 17:04)
-            ✔ Ability to hide articles from within article -> Like a mark as read button @done(15:04 - 15/01/21)
+            ✔ A review of the codebase and separation of larger code chunks into smaller more easily manageable components
+            ✔ Adjusted Card Size Control Styles
+            ✔ Ability to hide articles from within article
+            ✔ Added swipe to Tags Page.
+            ✔ Added Article Tag to Card
+            ✔ Add Card Size Controls to tag page 
+            ✔ Filter Views can now be directly accessed, function as tag pages.
+
+            // Finish these and get a new release to the portfolio.
+            ✔ Improved handling of hiding all articles @done(16:56 - 16/04/21)
+            ✔ Tags rethink @done(12:00 - 15/04/21)
+            ✔ Article Page rethink @started(12:00 - 15/04/21) @done(13:57 - 16/04/21) @lasted(1d1h57m35s)
+
+
+            
+            let's finally move to a release, but first:
+                ✔ The card size controls are ugly. Redo them @done(12:06 - 19/04/21)
+                ✔ the access of speedKnews is just... not good. Finish this @done(15:48 - 19/04/21)
+                ✔ The filter buttons need to have a finished UI @done(15:48 - 19/04/21)
+                ✔ The home button overlaps the clear cache button on tags pages @done(15:50 - 19/04/21)
+                ✔ The in article home button is awful on mobile @done(16:01 - 19/04/21)
+                    //Temp tweak, going to add breadcrumbs to articles in fututre
+                ✔ Add loading gifs to: @done(16:07 - 19/04/21)
+                    ✔ Loading author specific page @done(16:06 - 19/04/21)
+                    ✔ Loading tag specifc page @done(16:07 - 19/04/21)
+                    ✔ Clicking the header @done(16:07 - 19/04/21)
+                ✔ speedKnews: @done(12:13 - 20/04/21)
+                    ✔ Improve UI for next/prev/exit buttons @done(17:49 - 19/04/21)
+                    ✔ Add link to full article @done(12:10 - 20/04/21)
+                    ✔ account for running out of articles @done(11:45 - 20/04/21)
+                ✔ the clear cache button is ugly, look at this @done(12:41 - 20/04/21)
+                ✔ Clearing cache should reset card sizes @done(12:47 - 20/04/21)
+                ✔ Card controls are not affecting newly loaded articles with scrollCheck @done(12:54 - 20/04/21)
+                ✔ User feedback for hiding an article @done(14:12 - 20/04/21)
+                ✔ Fix recommended reading links in articles. @done(14:18 - 20/04/21)
+                ✔ Clearing cache makes the card size controls act weird. @done(09:44 - 21/04/21)
+                
+
+
             
             // Other Updates
             ✔ Tweaks to Article Styles @done(20-12-15 13:18)
+            ✔ Minor style tweaks to Cards @done(17:14 - 11/03/21)
             ✔ Removed Extra Image Loop from articles(as it's a bit pointless) @done(20-12-15 13:18)
-            ✔ Fixed format of popup html @done(20-12-10 15:50)
+            ✔ Adjusted format of popup html @done(20-12-10 15:50)
             ✔ Clear Cache button is now not shown if no articles are currently hidden @done(20-12-15 15:17)
             ✔ Tweaks to popup appearance. @done(17:55 - 15/01/21)
             ✔ Fixed issue with loading new articles on scroll @done(16:16 - 18/01/21)
+            ✔ Fixed issue with duplicate articles loading on scroll @done(17:35 - 01/03/21)
+            ✔ Adjusted number of articles appearing on tags page to be more inline with other pages. @done(17:35 - 01/03/21)
+            ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
+            ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
+            ☐ Fixed Issue where clear cache button failed to appear when swiping articles right.✔ @done(16:33 - 15/03/21)
+            ☐ Remove the database call in news-page.js.
 
-            // V10.1.1 Feb Return Issues 
-            ✔ Loading new articles on scroll is again loading duplicate articles. @done(17:30 - 26/02/21)
-                ✔ Looks like the issue was not correctly splicing the array of articles from the database. @done(17:30 - 26/02/21)
-            ✔ The unhide all button isn't showing as soon as you hide an article @done(15:54 - 26/02/21)
-                ✔ Welp, now it's working all on its own. @done(15:54 - 26/02/21)
-            ✔ Clicking on the tags page using the nav bar displays a lower amount of articles than clicking the topic link in the actual article. @done(16:08 - 26/02/21)
-                ✔ It's because I limited the calls from the article page to up to 50 articles are set the call from the tagbar to 5. @done(16:08 - 26/02/21)
-     
+              
 
+  
 
-        Version 10 - Swipe(Next Release) - Release Notes:
+        Version 10 - Swipe - Release Notes:
             ✘ Fixed Database ID issue @cancelled(20-10-26 16:30)
             ✘ When the button throws up an error or an article doesn't exist then you should be rerouted to the home page @cancelled(20-10-26 16:30)
             ✔ Add keyboard control @done(20-10-27 17:28)
@@ -754,3 +1532,40 @@ https://material.io/resources/icons/?style=baseline
 
 Images
 ...
+
+Loading GIF via loading.io
+https://loading.io/
+
+Open Options Menu button inspired by
+https://codepen.io/halvves/pen/ExjxaKj
+
+
+// Random Notes - Make sure the below follow a similiar numbering structure
+    ->Tags.js
+    -->newState.slice(0,30)
+
+    ->news-item-loop.js
+    -->newState.slice(0,30)
+    -->arrayStartState:30
+    -->arrayEndState:35
+
+    ->scrollCheck.js
+    -->arrayStartState:30
+    -->arrayEndState:35
+
+
+
+
+
+1: {key: "7", id: 546, hidden: undefined, author: "Callie Medina", title: "lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse", …}
+2: {key: "8", id: 536, hidden: undefined, author: "Ivory Alford", title: "lectus convallis est, vitae sodales nisi magna sed", …}
+3: {key: "9", id: 241, hidden: undefined, author: "Paloma Ward", title: "Nam ac nulla. In tincidunt", …}
+4: {key: "10", id: 605, hidden: undefined, author: "Jesse Blackburn", title: "dignissim pharetra. Nam ac nulla. In tincidunt", …}
+
+This is the latest release note entry. In the future, I will leave the talking to the blog, but I wanted to leave something here to mark the point I finally caught up. Version 11 has been a milestone in my commitment to, and understanding of, React.js and I am proud of where theKnews is at the moment. 
+
+I've been hard at work for over 2 months trying to get this release right, thinking I was close only to notice that I needed to rip out a quarter of the code and redo it, as you can see in Version 11 where I did that 3 times. I would go as far as to say, that, unlike triggers broom, V11 is a completley different website from V10, fundamental aesthetics aside.
+
+It's a project literally years in the making and I'm looking forward to where it goes next.
+
+My version numbers are...a choice. I am aware of that but they make sense to me so it's never really bothered me that much. Just know that the 11.1 to 11.5 was me trying to fix an issue with React Router and the .4 was tweaking the infinite scroll detection rate. In hindsight I should have probably gone for something like 11.0.1, 11.0.1.1, 11.0.1.2 etc but I didn't so 11.5.4 is what I ended up with for a release that is a few small bug fixes and not a piece of software getting a mid life update.
