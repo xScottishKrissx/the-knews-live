@@ -1176,6 +1176,7 @@ General Notes  Objectives:
                 ✔ Add keyboard support for article switching with left/right arrow keys. @done(12:36 - 28/06/21)
                     ☐ Handle when there are no more articles to read
                 ✔ Fixed navbar swallowing the top of liteKnews @done(12:12 - 28/06/21)
+                ☐ Make the swiping stuff more obvious.
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
             12.10.6 - Website Footer:
@@ -1188,6 +1189,7 @@ General Notes  Objectives:
                 ☐ Improved feedback for switching articles
             
             12.10.X - Misc:
+                ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Change styles for when clicking on stuff in the navbar
                 ☐ Home btn in liteKnews does nothing
                 ☐ Dragging on firefox is not working correctly.
@@ -1382,7 +1384,7 @@ Part 2 Implement Database functionality:
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
                     ✔ Ensure the load articles button is always available on the home page 
                 ☐ V12.10.4 -liteKnews rework
-                    ☐ Added a randomly changing background colour to the header because why not. It's fun.
+                    ✔ Added a randomly changing background colour to the header because why not. It's fun.
                     
         
 

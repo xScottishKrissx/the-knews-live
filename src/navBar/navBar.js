@@ -17,7 +17,27 @@ export class NavBar extends React.Component{
     
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            headerColour:JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"}
+        }
+    }
+    componentDidMount(){
+        const random1 = Math.floor((Math.random() * 255) + 1)
+        const random2 = Math.floor((Math.random() * 255) + 1)
+        const random3 = Math.floor((Math.random() * 255) + 1)
+        const randomColour = "rgb(" + random1 + "," + random2 + "," + random3 + ")";
+        const randomBackgroundColour = {
+            backgroundColor:randomColour
+        }
+        // this.setState({
+        //     headerColour:{
+        //         backgroundColor:randomColour
+        //     }
+        // })
+        if(localStorage.getItem("headerColour") === null){
+            console.log("undefined")
+            localStorage.setItem("headerColour",JSON.stringify(randomBackgroundColour))
+        }
     }
 
     render(){
@@ -26,20 +46,14 @@ export class NavBar extends React.Component{
         const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard";
 
         // Random Background colour for theKnews header.
-        const random1 = Math.floor((Math.random() * 255) + 1)
-        const random2 = Math.floor((Math.random() * 255) + 1)
-        const random3 = Math.floor((Math.random() * 255) + 1)
-        const randomColour = "rgb(" + random1 + "," + random2 + "," + random3 + ")";
-        const randomBackgroundColour = {
-            backgroundColor:randomColour
-        }
+
 
 
 
         return(
             <div className="headerWrapper">
 
-                <div className="headerText" style={randomBackgroundColour}>
+                <div className="headerText" style={this.state.headerColour}>
                     <Link to='/theKnews/home'>
                         {/* {this.props.pageTitle ?
                             <div>

@@ -128,7 +128,7 @@
          
         
         #filterActive{color: aqua;}   
-        #filterOptionDisplay > span{ display: flex; }
+        #filterOptionDisplay > span{ display: flex; align-items: center;}
         /* #filterOptionDisplay > span > p{display: none; margin: 0;} */
         #filterOptionDisplay > span > p{display: flex; margin: 0;}
 
@@ -175,6 +175,9 @@
                     /* .dropdownBtnTitle > p{display: none;}  */
 
                     .dropdownBtnTitle{display: flex; align-items: center;}
+                    .dropdownBtnTitle > *{
+                        font-size: 20px;
+                    }
                     .dropdownBtnTitle > p{display: contents;}
 
                     .navBarButton > p{display: none;} 
@@ -364,7 +367,7 @@
 
 /* Media Queries */
 @media (min-width: 768px) {
-    .uiBarItem{max-width: fit-content;}
+    .uiBarItem{max-width: fit-content; height: auto;}
         /* .dropdownBtnTitle{display: flex; align-items: center;}
             .dropdownBtnTitle > p{display: contents;} */
         .navBarButton{display: flex; align-items: center;}
@@ -406,4 +409,21 @@
 button{
     margin: inherit !important;
     height: inherit !important;
+}
+
+@media (min-width: 2160px) {
+    .material-icons{font-size: 30px;}
+    .dropdownBtnTitle > *{
+        font-size: 30px;
+    }
+    .headerText > a{
+        height: 57px;
+    }
+    .headerText > a > div > *{
+        font-size: 3.5rem;
+    }
+    .dropdownBtnTitle > div > span > p,
+    .dropdownBtnTitle > p{
+        font-size: 1.5rem;
+    }
 }
