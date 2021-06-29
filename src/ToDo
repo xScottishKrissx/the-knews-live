@@ -1075,6 +1075,10 @@ General Notes  Objectives:
                             ✔ Leaving 1 bookmark, if you try to remove that last bookmark, the counter returns to the number before removing bookmarks.So if you have 5, remove 4, and try to remove the last 1 the counter returns to 5. @done(15:50 - 08/06/21)
                                 ✔ I think its because the this.state.bookmarkCounter goes to null, which passes the this.state.bookmarks.length to the prop instead. @done(15:47 - 08/06/21)
                                     ✔ Solution - Removed the need for this.state.bookmark length ad switched to only using bookmarkCounter which seems to be working fine. @done(15:49 - 08/06/21)
+                            ✔ There is a problem when the window is exactly 768px wide. @done(12:32 - 29/06/21)
+                                ✔ The navbar and theKnews don't wrap. @done(12:32 - 29/06/21)
+                                    ✔ IDEA: What if I put theKnews inside the navbar instead of having its own separate section? @done(12:32 - 29/06/21)
+                                        ✔ Nah, it was already in the navbar. The actual solution is to change the max-width:768 > max-width 767 for the header-wrapper. @done(12:32 - 29/06/21)
 
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
@@ -1378,6 +1382,7 @@ Part 2 Implement Database functionality:
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
                     ✔ Ensure the load articles button is always available on the home page 
                 ☐ V12.10.4 -liteKnews rework
+                    ☐ Added a randomly changing background colour to the header because why not. It's fun.
                     
         
 

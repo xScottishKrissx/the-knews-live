@@ -23,11 +23,23 @@ export class NavBar extends React.Component{
     render(){
         const getArticle = this.props.getArticleBy || "All";
         // console.log(localStorage.getItem("cardStyleChoice"))
-        const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard"
+        const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard";
+
+        // Random Background colour for theKnews header.
+        const random1 = Math.floor((Math.random() * 255) + 1)
+        const random2 = Math.floor((Math.random() * 255) + 1)
+        const random3 = Math.floor((Math.random() * 255) + 1)
+        const randomColour = "rgb(" + random1 + "," + random2 + "," + random3 + ")";
+        const randomBackgroundColour = {
+            backgroundColor:randomColour
+        }
+
+
+
         return(
             <div className="headerWrapper">
 
-                <div className="headerText">
+                <div className="headerText" style={randomBackgroundColour}>
                     <Link to='/theKnews/home'>
                         {/* {this.props.pageTitle ?
                             <div>
@@ -40,7 +52,7 @@ export class NavBar extends React.Component{
                         </div>
                         } */}
                         <div>
-                            <h1>theKnews</h1>
+                            <h1 >theKnews</h1>
                         </div>
 
                     </Link>
@@ -49,25 +61,24 @@ export class NavBar extends React.Component{
                 <div className="navWrapper">     
                         <div className="newUIBarWrapper">
                         <div id="siteWideNavBar">  
-     
-                            
+
                         
 
-                            {/************ Home Button */}
-                            {this.props.homeButtonOn === true ?
-                                <div className="uiBarItem" title="Return Home" id="homeBtn">
-                                    <Button title="Home">
-                                        <Link to='/theKnews/home'>
-                                        <div className="dropdownBtnTitle">
-                                            <span className="material-icons">home</span>
-                                            <p>Home</p>
-                                        </div>
-                                        </Link>
-                                    </Button>
-                                </div>
-                            :
-                                null
-                            }
+                        {/************ Home Button */}
+                        {this.props.homeButtonOn === true ?
+                            <div className="uiBarItem" title="Return Home" id="homeBtn">
+                                <Button title="Home">
+                                    <Link to='/theKnews/home'>
+                                    <div className="dropdownBtnTitle">
+                                        <span className="material-icons">home</span>
+                                        <p>Home</p>
+                                    </div>
+                                    </Link>
+                                </Button>
+                            </div>
+                        :
+                            null
+                        }
                         
                         {/************Bookmark Number Indicator  */}
                         {this.props.bookmarked === true ?
