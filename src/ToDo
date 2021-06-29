@@ -1177,6 +1177,9 @@ General Notes  Objectives:
                     ☐ Handle when there are no more articles to read
                 ✔ Fixed navbar swallowing the top of liteKnews @done(12:12 - 28/06/21)
                 ☐ Make the swiping stuff more obvious.
+                    ☐ I'm rethinking the swiping indicators.
+                        ✔ Taking away the bar and leaving a number @done(16:46 - 29/06/21)
+                        ☐ Still need an indicator that you CAN even swipe in the first place.
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
             12.10.6 - Website Footer:

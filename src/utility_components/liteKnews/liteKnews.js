@@ -38,9 +38,11 @@ class LiteKnews extends Component {
     swipeProgress(progress){ 
         this.setState({progress:progress }) 
         if(progress > 48){
-            document.getElementById("loading-article").classList.add('progressBarChange')
+            document.getElementById("loadingStatus").classList.add('progressBarChange')
+            document.getElementById("loadingStatus2").classList.add('progressBarChange')
         }else{
-            document.getElementById("loading-article").classList.remove('progressBarChange')
+            document.getElementById("loadingStatus").classList.remove('progressBarChange')
+            document.getElementById("loadingStatus2").classList.remove('progressBarChange')
         }
     }
     componentDidMount(){
@@ -114,11 +116,25 @@ class LiteKnews extends Component {
                            
                             swipeLeft={{
                                 content:                        
-                                    <div className="testLiteKnews">
-                                        {/* {this.state.progress}  */}
-                                        <label for="loading-article">Loading Next Article: {this.state.progress * 2 + "%"} </label>
-                                        <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
-                                    </div>,
+                                    // <div className="testLiteKnews">
+
+                                    //     <p>Loading:{this.state.progress * 2 + "%"} </p>
+                                    //     {/* {this.state.progress}  */}
+                                    //     {/* <label for="loading-article">Loading Next Article: {this.state.progress * 2 + "%"} </label>
+                                    //     <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress> */}
+                                    // </div>
+                                    <div className="loadingStatus" id="loadingStatus">
+                                        {this.state.progress > 48 ?
+                                            <p>Load Complete</p>
+                                        :
+                                            <p>Loading Next Article:
+                                                <span className="loadingNumber">{this.state.progress * 2 + "%"}</span>
+                                            </p>
+                                        }
+                 
+                                    </div>
+                                    
+                                    ,
                                 actionAnimation:() => none,
                                 action:() => this.changeArticle("next"),
                                 
@@ -128,11 +144,22 @@ class LiteKnews extends Component {
                             
                             swipeRight={{
                                 content:                                    
-                                    <div className="testLiteKnews">
-                                        {/* {this.state.progress}  */}
-                                        <label for="loading-article">Loading Previous Article: {this.state.progress * 2 + "%"} </label>
-                                        <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
-                                    </div>,
+                                    // <div className="testLiteKnews">
+                                    //     {/* {this.state.progress}  */}
+                                    //     <label for="loading-article">Loading Previous Article: {this.state.progress * 2 + "%"} </label>
+                                    //     <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
+                                    // </div>
+                                    <div className="loadingStatus" id="loadingStatus2">
+                                    {this.state.progress > 48 ?
+                                        <p>Load Complete</p>
+                                    :
+                                        <p>Loading Next Article:
+                                            <span className="loadingNumber">{this.state.progress * 2 + "%"}</span>
+                                        </p>
+                                    }
+             
+                                </div>
+                                    ,
                                 actionAnimation:() => none,
                                 action:() => this.changeArticle("prev")
                         

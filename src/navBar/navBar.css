@@ -412,6 +412,7 @@ button{
 }
 
 @media (min-width: 2160px) {
+    .navWrapper{height: 57px;}
     .material-icons{font-size: 30px;}
     .dropdownBtnTitle > *{
         font-size: 30px;
@@ -426,4 +427,13 @@ button{
     .dropdownBtnTitle > p{
         font-size: 1.5rem;
     }
+}
+@media (min-width: 3000px) {
+    .cardsWrapper{margin-top: 85px;}
+    .navWrapper{height: 77px;}
+
+    .headerText > a{
+        height: 77px;
+    }
+
 }

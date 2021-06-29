@@ -4,19 +4,7 @@
     display: inline-flex;
 }
 
-#loading-article{background: white;}
 
-.progress {
-    height: 20px;
-    background: red;
-    border: 1px solid black;
-  }
-  /* .progress::-moz-progress-bar{ background: red; } */
-  .progress::-webkit-progress-bar{ background: transparent; }
-  .progress::-webkit-progress-value{ background: black; }
-
-  /* Changing Colour when progress bar completes */
-   .progressBarChange::-webkit-progress-value{ background: #6eff00;  border: 1px solid #6eff00;}
 
    #speedKnews{
        max-width:1500px; 
@@ -121,8 +109,77 @@
    }
 
 
+
+/* SwipingStuff */
+#speedKnewsWrapper{ outline: 1px solid black;}
+
+    /* .testLiteKnews{display: none;} */
+        .testLiteKnews > .progress{
+            height: 100vh;
+            width: 100%;
+        }
+
+    #speedKnewsWrapper > div > div > .swipeable-list-item__content{
+        /* opacity: 0; */
+    }
+    /* Forward */
+    #speedKnewsWrapper > div > div > .swipeable-list-item__content-left{
+        background-color: black;
+        align-content: flex-start;
+        align-items: flex-start;
+
+        opacity: 2 !important;
+    }
+
+    /* Back */
+    #speedKnewsWrapper > div > div > .swipeable-list-item__content-right{
+        background-color: black;
+    }
+
+
+    #loading-article{background: white;}
+
+    .progress {
+        height: 20px;
+        background: red;
+        border: 1px solid black;
+        color: red;
+      }
+      /* .progress::-moz-progress-bar{ background: red; } */
+      .progress::-webkit-progress-bar{ background: transparent; }
+      .progress::-webkit-progress-value{ background: red; }
+    
+      /* Changing Colour when progress bar completes */
+       .progressBarChange::-webkit-progress-value{ 
+           background: #6eff00;  
+           border: 1px solid #6eff00;
+        }
+        .progressBarChange{background-color: white; color: black !important;}
+
+           
+.loadingStatus{
+    outline: 1px solid black;
+    align-items: flex-start;
+    color: white;
+    display: flex;
+    height: 100%;
+}
+    .loadingStatus > p{width: auto; font-size: 1.5rem;}
+
+
+    .loadingNumber{font-size: 2rem;}
+
 /* Media Queries */
 /* margin-top: 55px; */
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 768px) {
     #speedKnews{
