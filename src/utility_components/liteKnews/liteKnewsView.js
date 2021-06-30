@@ -31,33 +31,29 @@ export class LiteKnewsView extends React.Component{
                                 
         <div className="speedKnewsArticleContainer">
 
+            <div className="swipePreviewWrapper">
+                {this.props.prevArticleTitle === undefined ?
+                    <div>
+                        <span class="material-icons">touch_app</span>
+                        <p><span>Next: </span>{this.props.nextArticleTitle.title}</p>
+                    </div>
+                :
+                    <div>
+                        <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
+                        <span class="material-icons">touch_app</span> 
+                        <p><span>Next: </span> {this.props.nextArticleTitle.title}</p>
+                    </div>
+                }
+            </div>
+
             <header>
-                
                 <HeaderImage props={this.props.id}/>
                 <h1>{this.props.title}</h1>
-               
-                {/* <h3>by: {this.props.author}</h3> */}
-
-                
-                {/* <span>Read: {this.props.readStatus.toString()}</span> */}
-                {/* <Link                 
-                    to={{
-                        pathname:'/theKnews/home/articles/news-page/' + this.props.id,
-                        state:{ articleId:this.props.id}
-                    }}>
-                    <h3>View Article Page</h3>
-                </Link> */}
-                    
-                {/* <p>{this.props.text}</p> */}
-            </header>
-
-
-                
-            
+            </header>      
             
             <ArticleInformation                 
                 // Tag 
-                tag={this.props.tag}
+                tag={this.props.tag || "placeholderTag"}
                 // Author
                 author={this.props.author}
                 arrayFromDatabase={this.props.arrayFromDatabase}
@@ -67,20 +63,6 @@ export class LiteKnewsView extends React.Component{
                 postdate={this.props.postdate}
             />
             
-            <div className="swipePreviewWrapper">
-                {this.props.prevArticleTitle === undefined ?
-                    <div>
-                        <span class="material-icons">touch_app</span>
-                        <p>Next:{this.props.nextArticleTitle.title}</p>
-                    </div>
-                :
-                    <div>
-                        <p>Previous: {this.props.prevArticleTitle.title}</p>
-                        <span class="material-icons">touch_app</span> 
-                        <p>Next: {this.props.nextArticleTitle.title}</p>
-                    </div>
-                }
-            </div>
             <article><ParseHTML props={this.props.text}/></article>
             
 

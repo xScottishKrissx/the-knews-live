@@ -176,7 +176,7 @@
 
                     .dropdownBtnTitle{display: flex; align-items: center;}
                     .dropdownBtnTitle > *{
-                        font-size: 20px;
+                        font-size: 16px;
                     }
                     .dropdownBtnTitle > p{display: contents;}
 

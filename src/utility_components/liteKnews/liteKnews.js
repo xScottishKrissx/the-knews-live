@@ -57,7 +57,7 @@ class LiteKnews extends Component {
     }
     render(){    
 
-    window.scrollTo(0,0)
+    // window.scrollTo(0,0)
 
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
