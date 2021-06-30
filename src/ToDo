@@ -1175,11 +1175,12 @@ General Notes  Objectives:
             12.10.4 - liteKnews:
                 ✔ Add keyboard support for article switching with left/right arrow keys. @done(12:36 - 28/06/21)
                     ☐ Handle when there are no more articles to read
+                ☐ Prevent previous/back when there are not articles to load
                 ✔ Fixed navbar swallowing the top of liteKnews @done(12:12 - 28/06/21)
-                ☐ Make the swiping stuff more obvious.
-                    ☐ I'm rethinking the swiping indicators.
+                ✔ Make the swiping stuff more obvious. @done(17:16 - 30/06/21)
+                    ✔ I'm rethinking the swiping indicators. @done(17:16 - 30/06/21)
                         ✔ Taking away the bar and leaving a number @done(16:46 - 29/06/21)
-                        ☐ Still need an indicator that you CAN even swipe in the first place.
+                        ✔ Still need an indicator that you CAN even swipe in the first place. @done(17:16 - 30/06/21)
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
             12.10.6 - Website Footer:
@@ -1209,6 +1210,7 @@ General Notes  Objectives:
                     Tags:
                         ☐ Page Title
                         ☐ Number of cards in tag
+                
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)

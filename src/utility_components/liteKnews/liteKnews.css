@@ -7,7 +7,7 @@
 
 
    #speedKnews{
-       cursor: pointer;
+       cursor: grab;
        max-width:1500px; 
        width: 90%; 
        margin: 0 auto; 
@@ -20,13 +20,21 @@
                 justify-content: center;
             margin: 0 auto;   
             margin-bottom: 300px;
-           
+
+
        }
+        .swipeable-list-item__content{
+                box-shadow: 0 0 2px 13px rgba(82 85 88);
+                clip-path: inset(0px -15px 0px -15px);
+                position: relative;
+        }
+
        .speedKnewsArticleContainer header {
            
            min-width: 25%;
            width: 100%;
        }
+
         .speedKnewsArticleContainer header  div{
                 min-width: 25vw; 
                 height: 300px;
@@ -170,8 +178,10 @@
     /* background: red; */
     color: rgb(197, 197, 197);
     display: flex;
+    font-family: monospace,sans-serif;
     height: 50vh;
     justify-content: flex-end;
+    position: fixed;
     text-align: center;
 }
     .loadingNumber > span{font-size: 5rem; }
@@ -182,6 +192,7 @@
     background-color: #6c757d;
     color: white;
     font-size: 12px;
+    font-family: monospace,sans-serif;
     padding-left: 5px;
     padding-right: 5px;
     width: 100%;
@@ -197,6 +208,15 @@
         padding: 10px; 
         animation: swipeIndicator 3s infinite;
     }
+    /* swipe */
+        @keyframes swipeIndicator {
+            0%{transform: translateX(0px);}
+            25%{transform: translateX(20px);}
+            50%{transform: translateX(0px);}
+            /* 75%{transform: translateX(-20px);} */
+            /* 100%{transform: translateX(0px);} */
+        }
+
     .swipePreviewWrapper > div > p{
         font-size: 14px;
         margin: 0; 
@@ -219,17 +239,10 @@
     100%{transform: rotate(0deg);}
 } */
 
-/* swipe */
-@keyframes swipeIndicator {
-    0%{transform: translateX(0px);}
-    25%{transform: translateX(20px);}
-    50%{transform: translateX(0px);}
-    /* 75%{transform: translateX(-20px);} */
-    /* 100%{transform: translateX(0px);} */
-}
 
 
 
+  
 
 
 
@@ -238,6 +251,12 @@
 @media (min-width: 768px) {
     #speedKnews{
         margin-top: 55px;
+    }
+}
+
+@media (max-width: 767px) {
+    .speedKnewsArticleContainer article{
+        width: 100%;
     }
 }
 @media (min-width: 1000px) {
@@ -292,7 +311,7 @@
 @media (min-width: 1400px) {
 
     .speedKnewsArticleContainer > .articleInformation{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .speedKnewsArticleContainer article{

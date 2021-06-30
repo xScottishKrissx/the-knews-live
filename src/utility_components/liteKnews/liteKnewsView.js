@@ -30,7 +30,7 @@ export class LiteKnewsView extends React.Component{
         return(
                                 
         <div className="speedKnewsArticleContainer">
-
+            <div className="boxShadow"></div>
             <div className="swipePreviewWrapper">
                 {this.props.prevArticleTitle === undefined ?
                     <div>

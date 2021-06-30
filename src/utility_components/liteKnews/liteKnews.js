@@ -4,6 +4,7 @@ import LiteKnewsView from './liteKnewsView';
 
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import NavBar from '../../navBar/navBar';
+import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
 class LiteKnews extends Component {
 
@@ -65,6 +66,7 @@ class LiteKnews extends Component {
     // console.log(filterHidden[this.state.articleNumber + 1])
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
+    console.log(prevArticleTitle)
     
         return (
             <div id="liteKnewsWrapper">              
@@ -98,15 +100,24 @@ class LiteKnews extends Component {
 
                     {articleFromArray != null || undefined ? 
                         <SwipeableList threshold= {0.48} swipeStartThreshold={0.5} >
+
                         <SwipeableListItem 
-                           
+                        
                             swipeLeft={{
                                 content:
                                     <div className="loadingStatus" >
                                         {this.state.progress > 48 ?
                                             <div className="loadComplete"> 
-                                                <span>100%</span>
-                                                <p>Load Complete</p>
+                                            {nextArticleTitle === undefined ?
+                                                <div className="loadComplete"> 
+                                                    <p>You're at the end, no more articles to load :(</p>
+                                                </div>    
+                                            :
+                                                <div className="loadComplete"> 
+                                                    <p>Load Complete</p>
+                                                    <span>100%</span>
+                                                </div>     
+                                            }                                                   
                                             </div>
                                         :
                                             <div className="loadingNumber">
@@ -116,19 +127,28 @@ class LiteKnews extends Component {
                                         }                 
                                     </div>,
                                 actionAnimation:() => none,
-                                action:() => this.changeArticle("next"),
-                                
-                                
+                                action:() => this.changeArticle("next"),                               
                             }}
+                            
                             onSwipeProgress={progress => this.swipeProgress(progress)}
                             
                             swipeRight={{
+                                
                                 content:
                                     <div className="loadingStatus" >
                                         {this.state.progress > 48 ?
                                             <div className="loadComplete"> 
-                                                <span>100%</span>
-                                                <p>Load Complete</p>
+                                            {prevArticleTitle === undefined ?
+                                                <div className="loadComplete"> 
+                                                    <p>You're at the start you can't go back. Onwards! :)</p>
+                                                    <p>liteKnews only displays unread articles. For now. I might change this later on</p>
+                                                </div>    
+                                            :
+                                                <div className="loadComplete"> 
+                                                    <p>Load Complete</p>
+                                                    <span>100%</span>
+                                                </div>     
+                                            }                                                   
                                             </div>
                                         :
                                             <div className="loadingNumber"> 
@@ -178,11 +198,6 @@ class LiteKnews extends Component {
                         </div>    
                      }
                         
-                        {/* <div id="liteKnewsControls">
-                            <button onClick={()=>this.changeArticle("prev")}><span className="material-icons">skip_previous</span></button>
-                            <button onClick={()=>this.changeArticle("close")}><span className="material-icons">close</span></button>
-                            <button onClick={()=>this.changeArticle("next")}><span className="material-icons">skip_next</span></button>
-                        </div> */}
                         
                     </div>
                 </div>
