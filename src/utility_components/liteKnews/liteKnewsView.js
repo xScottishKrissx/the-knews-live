@@ -20,11 +20,13 @@ export class LiteKnewsView extends React.Component{
         
     }
     // onMouseDown={mouseDownEvent => this.handleMouseDown(mouseDownEvent)}
-
+    
     render(){
         // console.log(this.props.bookmarkedStatus)
         // console.log(this.props.readStatus)
         // console.log(this.props.id)
+        // console.log(this.props.nextArticleTitle)
+        // console.log(this.props.prevArticleTitle)
         return(
                                 
         <div className="speedKnewsArticleContainer">
@@ -33,6 +35,7 @@ export class LiteKnewsView extends React.Component{
                 
                 <HeaderImage props={this.props.id}/>
                 <h1>{this.props.title}</h1>
+               
                 {/* <h3>by: {this.props.author}</h3> */}
 
                 
@@ -48,6 +51,10 @@ export class LiteKnewsView extends React.Component{
                 {/* <p>{this.props.text}</p> */}
             </header>
 
+
+                
+            
+            
             <ArticleInformation                 
                 // Tag 
                 tag={this.props.tag}
@@ -59,7 +66,21 @@ export class LiteKnewsView extends React.Component{
                 // PostDate
                 postdate={this.props.postdate}
             />
-
+            
+            <div className="swipePreviewWrapper">
+                {this.props.prevArticleTitle === undefined ?
+                    <div>
+                        <span class="material-icons">touch_app</span>
+                        <p>Next:{this.props.nextArticleTitle.title}</p>
+                    </div>
+                :
+                    <div>
+                        <p>Previous: {this.props.prevArticleTitle.title}</p>
+                        <span class="material-icons">touch_app</span> 
+                        <p>Next: {this.props.nextArticleTitle.title}</p>
+                    </div>
+                }
+            </div>
             <article><ParseHTML props={this.props.text}/></article>
             
 

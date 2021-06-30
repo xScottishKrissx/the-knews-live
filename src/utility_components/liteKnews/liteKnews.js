@@ -61,7 +61,11 @@ class LiteKnews extends Component {
 
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
-
+    // console.log(filterHidden[this.state.articleNumber - 1])
+    // console.log(filterHidden[this.state.articleNumber + 1])
+    const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
+    const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
+    
         return (
             <div id="liteKnewsWrapper">              
                 <NavBar 
@@ -158,6 +162,10 @@ class LiteKnews extends Component {
                                 fullDatabaseCall={this.props.fullDatabaseCall}
                                 // PostDate
                                 postdate={articleFromArray.postdate}
+
+                                // swiping-indicator
+                                nextArticleTitle={nextArticleTitle}
+                                prevArticleTitle={prevArticleTitle}
                             />
                                                              
                             </SwipeableListItem>

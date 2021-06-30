@@ -111,7 +111,7 @@
 
 
 /* SwipingStuff */
-#speedKnewsWrapper{ outline: 1px solid black;}
+/* #speedKnewsWrapper{ outline: 1px solid #6c757d;} */
 
     /* .testLiteKnews{display: none;} */
         .testLiteKnews > .progress{
@@ -124,16 +124,16 @@
     }
     /* Forward */
     #speedKnewsWrapper > div > div > .swipeable-list-item__content-left{
-        background-color: black;
+        background-color: #6c757d;
         align-content: flex-start;
         align-items: flex-start;
 
-        /* opacity: 2 !important; */
+        opacity: 2 !important;
     }
 
     /* Back */
     #speedKnewsWrapper > div > div > .swipeable-list-item__content-right{
-        background-color: black;
+        background-color: #6c757d;
         align-content: flex-start;
         align-items: flex-start;
 
@@ -146,7 +146,7 @@
     .progress {
         height: 20px;
         background: red;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         color: red;
       }
       /* .progress::-moz-progress-bar{ background: red; } */
@@ -158,14 +158,14 @@
            background: #6eff00;  
            border: 1px solid #6eff00;
         }
-        .progressBarChange{background-color: black; color: grey !important; font-size: 5rem;}
+        .progressBarChange{background-color: black; color: white !important; font-size: 5rem;}
 
            
 .loadingStatus{
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
     align-items: flex-end;
     /* background: red; */
-    color: grey;
+    color: rgb(197, 197, 197);
     display: flex;
     height: 50vh;
     justify-content: flex-end;
@@ -174,18 +174,60 @@
     .loadingNumber > span{font-size: 5rem; }
     .loadComplete > span{ font-size: 5rem; color: white;    }
 
+.swipePreviewWrapper{
+    /* outline: 1px solid red; */
+    background-color: #6c757d;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+}
+    .swipePreviewWrapper > div {
+        display: flex;
+            align-items: center;
+            justify-content: center;
+        /* flex-wrap: wrap; */
+        text-align: center;
+    }
+    .swipePreviewWrapper > div > .material-icons{
+        padding: 10px; 
+        animation: swipeIndicator 3s infinite;
+    }
+    .swipePreviewWrapper > div > p{
+        margin: 0; 
+        padding: 0; 
+        max-width: 400px;
+    }
+
+
+
+/* rotate */
+/* @keyframes swipeIndicator {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(40deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(-40deg);}
+    100%{transform: rotate(0deg);}
+} */
+
+/* swipe */
+@keyframes swipeIndicator {
+    0%{transform: translateX(0px);}
+    25%{transform: translateX(20px);}
+    50%{transform: translateX(0px);}
+    /* 75%{transform: translateX(-20px);} */
+    /* 100%{transform: translateX(0px);} */
+}
+
+
+
+
+
+
+
 /* Media Queries */
-/* margin-top: 55px; */
-
-
-
-
-
-
-
-
-
-
 @media (min-width: 768px) {
     #speedKnews{
         margin-top: 55px;
