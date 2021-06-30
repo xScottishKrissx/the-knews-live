@@ -128,12 +128,16 @@
         align-content: flex-start;
         align-items: flex-start;
 
-        opacity: 2 !important;
+        /* opacity: 2 !important; */
     }
 
     /* Back */
     #speedKnewsWrapper > div > div > .swipeable-list-item__content-right{
         background-color: black;
+        align-content: flex-start;
+        align-items: flex-start;
+
+        /* opacity: 2 !important; */
     }
 
 
@@ -154,20 +158,21 @@
            background: #6eff00;  
            border: 1px solid #6eff00;
         }
-        .progressBarChange{background-color: white; color: black !important;}
+        .progressBarChange{background-color: black; color: grey !important; font-size: 5rem;}
 
            
 .loadingStatus{
     outline: 1px solid black;
-    align-items: flex-start;
-    color: white;
+    align-items: flex-end;
+    /* background: red; */
+    color: grey;
     display: flex;
-    height: 100%;
+    height: 50vh;
+    justify-content: flex-end;
+    text-align: center;
 }
-    .loadingStatus > p{width: auto; font-size: 1.5rem;}
-
-
-    .loadingNumber{font-size: 2rem;}
+    .loadingNumber > span{font-size: 5rem; }
+    .loadComplete > span{ font-size: 5rem; color: white;    }
 
 /* Media Queries */
 /* margin-top: 55px; */
@@ -240,20 +245,22 @@
     .speedKnewsArticleContainer > .articleInformation{
         font-size: 1.2rem;
     }
-    .speedKnewsArticleContainer article p{
-        font-size: 1.5rem;
+
+    .speedKnewsArticleContainer article{
+        width: 60%;
     }
 }
 
 @media(min-width: 2160px){
     .speedKnewsArticleContainer > header > h1{
-        font-size: 3.75rem;
+        font-size: 2.5rem;
     }
     .speedKnewsArticleContainer > .articleInformation{
-        font-size: 1.75rem;
+        font-size: 1rem;
     }
-    .speedKnewsArticleContainer article p{
-        font-size: 2rem;
-    }
+
+        .speedKnewsArticleContainer article p{
+            font-size: 1rem;
+        }
 }
 

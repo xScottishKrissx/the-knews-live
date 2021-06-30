@@ -19,6 +19,10 @@ class LiteKnews extends Component {
         this.changeArticle = this.changeArticle.bind(this);
         this.controls = this.controls.bind(this);
     }
+    componentDidMount(){
+        document.addEventListener("keyup", this.controls, false);
+    }
+
 
     changeArticle(x){
         // Close liteKnews
@@ -35,19 +39,9 @@ class LiteKnews extends Component {
         }
     }
 
-    swipeProgress(progress){ 
-        this.setState({progress:progress }) 
-        if(progress > 48){
-            document.getElementById("loadingStatus").classList.add('progressBarChange')
-            document.getElementById("loadingStatus2").classList.add('progressBarChange')
-        }else{
-            document.getElementById("loadingStatus").classList.remove('progressBarChange')
-            document.getElementById("loadingStatus2").classList.remove('progressBarChange')
-        }
-    }
-    componentDidMount(){
-        document.addEventListener("keyup", this.controls, false);
-    }
+    swipeProgress(progress){ this.setState({progress:progress }) }
+
+
 
     // keyboard controls
     controls(event){
@@ -62,20 +56,8 @@ class LiteKnews extends Component {
         }
     }
     render(){    
+
     window.scrollTo(0,0)
-
-    
-
-
-
-
-
-
-
-
-
-
-
 
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
@@ -115,26 +97,20 @@ class LiteKnews extends Component {
                         <SwipeableListItem 
                            
                             swipeLeft={{
-                                content:                        
-                                    // <div className="testLiteKnews">
-
-                                    //     <p>Loading:{this.state.progress * 2 + "%"} </p>
-                                    //     {/* {this.state.progress}  */}
-                                    //     {/* <label for="loading-article">Loading Next Article: {this.state.progress * 2 + "%"} </label>
-                                    //     <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress> */}
-                                    // </div>
-                                    <div className="loadingStatus" id="loadingStatus">
+                                content:
+                                    <div className="loadingStatus" >
                                         {this.state.progress > 48 ?
-                                            <p>Load Complete</p>
+                                            <div className="loadComplete"> 
+                                                <span>100%</span>
+                                                <p>Load Complete</p>
+                                            </div>
                                         :
-                                            <p>Loading Next Article:
-                                                <span className="loadingNumber">{this.state.progress * 2 + "%"}</span>
-                                            </p>
-                                        }
-                 
-                                    </div>
-                                    
-                                    ,
+                                            <div className="loadingNumber">
+                                                <p>Loading Next Article:</p>
+                                                <span >{this.state.progress * 2 + "%"}</span>
+                                            </div>
+                                        }                 
+                                    </div>,
                                 actionAnimation:() => none,
                                 action:() => this.changeArticle("next"),
                                 
@@ -143,22 +119,20 @@ class LiteKnews extends Component {
                             onSwipeProgress={progress => this.swipeProgress(progress)}
                             
                             swipeRight={{
-                                content:                                    
-                                    // <div className="testLiteKnews">
-                                    //     {/* {this.state.progress}  */}
-                                    //     <label for="loading-article">Loading Previous Article: {this.state.progress * 2 + "%"} </label>
-                                    //     <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
-                                    // </div>
-                                    <div className="loadingStatus" id="loadingStatus2">
-                                    {this.state.progress > 48 ?
-                                        <p>Load Complete</p>
-                                    :
-                                        <p>Loading Next Article:
-                                            <span className="loadingNumber">{this.state.progress * 2 + "%"}</span>
-                                        </p>
-                                    }
-             
-                                </div>
+                                content:
+                                    <div className="loadingStatus" >
+                                        {this.state.progress > 48 ?
+                                            <div className="loadComplete"> 
+                                                <span>100%</span>
+                                                <p>Load Complete</p>
+                                            </div>
+                                        :
+                                            <div className="loadingNumber"> 
+                                                <p>Loading Previous Article:</p>
+                                                <span>{this.state.progress * 2 + "%"}</span>
+                                            </div>
+                                        }
+                                    </div>
                                     ,
                                 actionAnimation:() => none,
                                 action:() => this.changeArticle("prev")

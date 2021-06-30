@@ -413,19 +413,19 @@ button{
 
 @media (min-width: 2160px) {
     .navWrapper{height: 57px;}
-    .material-icons{font-size: 30px;}
+    /* .material-icons{font-size: 30px;} */
     .dropdownBtnTitle > *{
-        font-size: 30px;
+        /* font-size: 30px; */
     }
     .headerText > a{
         height: 57px;
     }
     .headerText > a > div > *{
-        font-size: 3.5rem;
+        /* font-size: 3.5rem; */
     }
     .dropdownBtnTitle > div > span > p,
     .dropdownBtnTitle > p{
-        font-size: 1.5rem;
+        /* font-size: 1.5rem; */
     }
 }
 @media (min-width: 3000px) {
