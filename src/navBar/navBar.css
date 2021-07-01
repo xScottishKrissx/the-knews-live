@@ -176,7 +176,7 @@
 
                     .dropdownBtnTitle{display: flex; align-items: center;}
                     .dropdownBtnTitle > *{
-                        font-size: 16px;
+                        font-size: 18px;
                     }
                     .dropdownBtnTitle > p{display: contents;}
 
@@ -372,8 +372,8 @@
             /* #filterOptionDisplay > span > p{display: flex; } */
     /* #siteWideNavBar{flex-wrap: nowrap;} */
     .headerWrapper{flex-wrap: nowrap; position: fixed;}
-        .headerText{width: 50%;}
-            .navWrapper{width: 50%;}
+        .headerText{width: 40%;}
+            .navWrapper{width: 60%;}
                 .newUIBarWrapper{width: 100%; }
                     #siteWideNavBar{flex-wrap:nowrap; justify-content:  space-evenly; width: 100%;}
 
@@ -416,12 +416,16 @@ button{
     height: inherit !important;
 }
 
+@media (min-width: 1000px) {
+    .headerText{width: 50%}
+    .navWrapper{width:50%}
+}
+
+
 @media (min-width: 2160px) {
     .navWrapper{height: 57px;}
     /* .material-icons{font-size: 30px;} */
-    .dropdownBtnTitle > *{
-        /* font-size: 30px; */
-    }
+ 
     .headerText > a{
         height: 57px;
     }
@@ -429,8 +433,9 @@ button{
         /* font-size: 3.5rem; */
     }
     .dropdownBtnTitle > div > span > p,
-    .dropdownBtnTitle > p{
-        /* font-size: 1.5rem; */
+    .dropdownBtnTitle > p,
+    .dropdownBtnTitle > *{
+        font-size: 20px;
     }
 }
 @media (min-width: 3000px) {

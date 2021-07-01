@@ -55,16 +55,7 @@ export class NavBar extends React.Component{
 
                 <div className="headerText" style={this.state.headerColour} onClick={this.props.closeLiteKnews}>
                     <Link to='/theKnews/home'>
-                        {/* {this.props.pageTitle ?
-                            <div>
-                                <h1>theKnews</h1>
-                                <span>&nbsp;{"| " + this.props.pageTitle}</span>
-                            </div>
-                        :
-                        <div>
-                            <h1>theKnews</h1>
-                        </div>
-                        } */}
+                       
                         <div>
                             <h1 >theKnews</h1>
                         </div>
@@ -309,7 +300,7 @@ export class NavBar extends React.Component{
                                         title={ 
                                             <div className="dropdownBtnTitle">
                                                 <span className="material-icons">article</span>
-                                                <p>Full Article Page</p>
+                                                <p>Full Page</p>
                                             </div>
                                         }> 
                                     </DropdownButton>
