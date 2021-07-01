@@ -2,24 +2,26 @@ import { Link } from "react-router-dom";
 
 import '../articleInformation/articleInformation.css';
 export const ArticleInformation = (props) =>{
-    
+    const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
 return(
     
     <div className="articleInformation">
 
                 <div className="articleTag">
                     <span>posted in </span>
-                        <Link className="newsItemLink" to={{pathname: '/theKnews/home/search/tag/' + props.tag , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
+                        <Link className="newsItemLink" style={setRandomColour} to={{pathname: '/theKnews/home/search/tag/' + props.tag , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
                             {props.tag}
                         </Link>
                 </div>
                 
-                <div className="articleAuthor">
+                <div className="articleAuthor" >
                     <span>by</span>
                     <Link 
-                        className="newsItemLink" 
+                        className="newsItemLink"
+                        style={setRandomColour}
                         to={{
                             pathname: '/theKnews/home/search/author/' + props.author , 
+                            
                             state:{
                                 author: props.author, 
                                 tag:props.tag,

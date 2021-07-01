@@ -53,7 +53,7 @@ export class NavBar extends React.Component{
         return(
             <div className="headerWrapper">
 
-                <div className="headerText" style={this.state.headerColour}>
+                <div className="headerText" style={this.state.headerColour} onClick={this.props.closeLiteKnews}>
                     <Link to='/theKnews/home'>
                         {/* {this.props.pageTitle ?
                             <div>

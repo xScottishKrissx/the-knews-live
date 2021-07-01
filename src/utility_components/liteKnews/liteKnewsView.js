@@ -22,6 +22,7 @@ export class LiteKnewsView extends React.Component{
     // onMouseDown={mouseDownEvent => this.handleMouseDown(mouseDownEvent)}
     
     render(){
+        const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
         // console.log(this.props.bookmarkedStatus)
         // console.log(this.props.readStatus)
         // console.log(this.props.id)
@@ -31,20 +32,21 @@ export class LiteKnewsView extends React.Component{
                                 
         <div className="speedKnewsArticleContainer">
             <div className="boxShadow"></div>
-            <div className="swipePreviewWrapper">
-                {this.props.prevArticleTitle === undefined ?
-                    <div>
-                        <span class="material-icons">touch_app</span>
-                        <p><span>Next: </span>{this.props.nextArticleTitle.title}</p>
-                    </div>
-                :
-                    <div>
-                        <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
-                        <span class="material-icons">touch_app</span> 
-                        <p><span>Next: </span> {this.props.nextArticleTitle.title}</p>
-                    </div>
-                }
-            </div>
+
+                {/* <div className="swipePreviewWrapper">
+                    {this.props.prevArticleTitle === undefined ?
+                        <div>
+                            <span class="material-icons">touch_app</span>
+                            <p><span>Next: </span>{this.props.nextArticleTitle.title}</p>
+                        </div>
+                    :
+                        <div>
+                            <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
+                            <span class="material-icons">touch_app</span> 
+                            <p><span>Next: </span> {this.props.nextArticleTitle.title}</p>
+                        </div>
+                    }
+                </div> */}
 
             <header>
                 <HeaderImage props={this.props.id}/>
@@ -64,7 +66,20 @@ export class LiteKnewsView extends React.Component{
             />
             
             <article><ParseHTML props={this.props.text}/></article>
-            
+                            <div className="swipePreviewWrapper" style={setRandomColour}>
+                    {this.props.prevArticleTitle === undefined ?
+                        <div>
+                            <span class="material-icons">touch_app</span>
+                            <p><span>Next: </span>{this.props.nextArticleTitle.title}</p>
+                        </div>
+                    :
+                        <div>
+                            <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
+                            <span class="material-icons">touch_app</span> 
+                            <p><span>Next: </span> {this.props.nextArticleTitle.title}</p>
+                        </div>
+                    }
+                </div>
 
         </div>
         )

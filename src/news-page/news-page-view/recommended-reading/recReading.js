@@ -5,7 +5,7 @@ import './recReading.css';
 
 
 export const RecReading = (props) =>{
-    
+    const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
     const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || props.database
     // console.log(database)
     
@@ -65,7 +65,7 @@ export const RecReading = (props) =>{
 
     
         return(
-               <div className="recReadingWrapper">
+               <div className="recReadingWrapper" style={setRandomColour}>
                    <h2>Recommended Reading</h2>
                    <div className="recReadingItemsWrapper">{recReadingItems}</div>
                    

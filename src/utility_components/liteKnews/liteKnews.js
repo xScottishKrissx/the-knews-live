@@ -33,10 +33,12 @@ class LiteKnews extends Component {
         // Return to previous article IF it isnt the first item in the array 
         if(x === "prev" && this.state.articleNumber > 0){ 
             this.setState({articleNumber: this.state.articleNumber - 1}) 
+            window.scrollTo(0,0)
         }
 
         if(x === "next"){ 
             this.setState({articleNumber: this.state.articleNumber + 1}) 
+            window.scrollTo(0,0)
         }
     }
 
@@ -50,10 +52,12 @@ class LiteKnews extends Component {
        if(event.keyCode === 37 && this.state.articleNumber > 0){
         //    console.log("Go left")
             this.setState({articleNumber: this.state.articleNumber - 1}) 
+            window.scrollTo(0,0)
        }
        if(event.keyCode === 39){
         // console.log("Go Right")
             this.setState({articleNumber: this.state.articleNumber + 1}) 
+            window.scrollTo(0,0)
         }
     }
     render(){    
@@ -66,7 +70,7 @@ class LiteKnews extends Component {
     // console.log(filterHidden[this.state.articleNumber + 1])
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
-    console.log(prevArticleTitle)
+    // console.log(prevArticleTitle)
     
         return (
             <div id="liteKnewsWrapper">              
