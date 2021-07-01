@@ -1216,6 +1216,7 @@ General Notes  Objectives:
                 ☐ Dragging on firefox is not working correctly.
                 ☐ Separate navbar.js into components
                 //it's getting quite big
+                ☐ Bookmarking an article should unhide any hidden article.
                 ☐ Buttons that need to be added/created
                     Navbar (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
