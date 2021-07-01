@@ -1390,6 +1390,8 @@ Part 2 Implement Database functionality:
                     ✔ Ensure the load articles button is always available on the home page 
                 ☐ V12.10.4 -liteKnews rework
                     ✔ Added a randomly changing background colour to the header because why not. It's fun.
+                        // Added this throughout the website
+                    ✔ Asjusted navbar proportions, now everything is more evenly spaced and less cramped
                     
         
 

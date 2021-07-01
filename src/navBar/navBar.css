@@ -367,19 +367,24 @@
 
 /* Media Queries */
 @media (min-width: 768px) {
-    .uiBarItem{max-width: fit-content; height: auto;}
-        /* .dropdownBtnTitle{display: flex; align-items: center;}
-            .dropdownBtnTitle > p{display: contents;} */
-        .navBarButton{display: flex; align-items: center;}
-            .navBarButton > p{display: contents;}
-            #pageInfo > span > p{display: contents;}
+
 
             /* #filterOptionDisplay > span > p{display: flex; } */
     /* #siteWideNavBar{flex-wrap: nowrap;} */
     .headerWrapper{flex-wrap: nowrap; position: fixed;}
+        .headerText{width: 50%;}
+            .navWrapper{width: 50%;}
+                .newUIBarWrapper{width: 100%; }
+                    #siteWideNavBar{flex-wrap:nowrap; justify-content:  space-evenly; width: 100%;}
+
+                        .uiBarItem{height: auto;}
+                        /* .dropdownBtnTitle{display: flex; align-items: center;}
+                            .dropdownBtnTitle > p{display: contents;} */
+                        .navBarButton{display: flex; align-items: center;}
+                            .navBarButton > p{display: contents;}
+                            #pageInfo > span > p{display: contents;}
     .cardsWrapper{margin-top: 55px;}
-        .navWrapper{width: max-content;}
-            /* .newUIBarWrapper{margin-top: 30px; } */
+
 
     /* Bookmark Controls */
     #bookmarkControls > button > .onCardControls > div{
