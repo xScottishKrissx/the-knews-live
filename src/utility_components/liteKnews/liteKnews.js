@@ -4,6 +4,7 @@ import LiteKnewsView from './liteKnewsView';
 
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import NavBar from '../../navBar/navBar';
+import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
 class LiteKnews extends Component {
 
@@ -17,7 +18,12 @@ class LiteKnews extends Component {
             progress:0
         }
         this.changeArticle = this.changeArticle.bind(this);
+        this.controls = this.controls.bind(this);
     }
+    componentDidMount(){
+        document.addEventListener("keyup", this.controls, false);
+    }
+
 
     changeArticle(x){
         // Close liteKnews
@@ -27,27 +33,45 @@ class LiteKnews extends Component {
         // Return to previous article IF it isnt the first item in the array 
         if(x === "prev" && this.state.articleNumber > 0){ 
             this.setState({articleNumber: this.state.articleNumber - 1}) 
+            window.scrollTo(0,0)
         }
 
         if(x === "next"){ 
             this.setState({articleNumber: this.state.articleNumber + 1}) 
+            window.scrollTo(0,0)
         }
     }
 
-    swipeProgress(progress){ 
-        this.setState({progress:progress }) 
-        if(progress > 48){
-            document.getElementById("loading-article").classList.add('progressBarChange')
-        }else{
-            document.getElementById("loading-article").classList.remove('progressBarChange')
+    swipeProgress(progress){ this.setState({progress:progress }) }
+
+
+
+    // keyboard controls
+    controls(event){
+    //    console.log(event)
+       if(event.keyCode === 37 && this.state.articleNumber > 0){
+        //    console.log("Go left")
+            this.setState({articleNumber: this.state.articleNumber - 1}) 
+            window.scrollTo(0,0)
+       }
+       if(event.keyCode === 39){
+        // console.log("Go Right")
+            this.setState({articleNumber: this.state.articleNumber + 1}) 
+            window.scrollTo(0,0)
         }
     }
-
     render(){    
-    window.scrollTo(0,0)
+
+    // window.scrollTo(0,0)
+
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
-
+    // console.log(filterHidden[this.state.articleNumber - 1])
+    // console.log(filterHidden[this.state.articleNumber + 1])
+    const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
+    const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
+    // console.log(prevArticleTitle)
+    
         return (
             <div id="liteKnewsWrapper">              
                 <NavBar 
@@ -74,35 +98,70 @@ class LiteKnews extends Component {
                 />
 
 
-                <div id="speedKnews">                
+                <div id="speedKnews" >                
                     <div id="speedKnewsWrapper" >
                     {/* <h1>liteKnews - theKnews but lighter</h1> */}
 
                     {articleFromArray != null || undefined ? 
                         <SwipeableList threshold= {0.48} swipeStartThreshold={0.5} >
+
                         <SwipeableListItem 
-                           
+                        
                             swipeLeft={{
-                                content:                        
-                                    <div className="testLiteKnews">
-                                        {/* {this.state.progress}  */}
-                                        <label for="loading-article">Loading Next Article: {this.state.progress * 2 + "%"} </label>
-                                        <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
+                                content:
+                                    <div className="loadingStatus" >
+                                        {this.state.progress > 48 ?
+                                            <div className="loadComplete"> 
+                                            {nextArticleTitle === undefined ?
+                                                <div className="loadComplete"> 
+                                                    <p>You're at the end, no more articles to load :(</p>
+                                                </div>    
+                                            :
+                                                <div className="loadComplete"> 
+                                                    <p>Load Complete</p>
+                                                    <span>100%</span>
+                                                </div>     
+                                            }                                                   
+                                            </div>
+                                        :
+                                            <div className="loadingNumber">
+                                                <p>Loading Next Article:</p>
+                                                <span >{this.state.progress * 2 + "%"}</span>
+                                            </div>
+                                        }                 
                                     </div>,
                                 actionAnimation:() => none,
-                                action:() => this.changeArticle("next"),
-                                
-                                
+                                action:() => this.changeArticle("next"),                               
                             }}
+                            
                             onSwipeProgress={progress => this.swipeProgress(progress)}
                             
                             swipeRight={{
-                                content:                                    
-                                    <div className="testLiteKnews">
-                                        {/* {this.state.progress}  */}
-                                        <label for="loading-article">Loading Previous Article: {this.state.progress * 2 + "%"} </label>
-                                        <progress className="progress" id="loading-article" value={this.state.progress} max="48"></progress>
-                                    </div>,
+                                
+                                content:
+                                    <div className="loadingStatus" >
+                                        {this.state.progress > 48 ?
+                                            <div className="loadComplete"> 
+                                            {prevArticleTitle === undefined ?
+                                                <div className="loadComplete"> 
+                                                    <p>You're at the start you can't go back. Onwards! :)</p>
+                                                    <p>liteKnews only displays unread articles. For now. I might change this later on</p>
+                                                </div>    
+                                            :
+                                                <div className="loadComplete"> 
+                                                    <p>Load Complete</p>
+                                                    <span>100%</span>
+                                                </div>     
+                                            }                                                   
+                                            </div>
+                                        :
+                                            <div className="loadingNumber"> 
+                                                <p>Loading Previous Article:</p>
+                                                <span>{this.state.progress * 2 + "%"}</span>
+                                            </div>
+                                        }
+                                    </div>
+                                    ,
                                 actionAnimation:() => none,
                                 action:() => this.changeArticle("prev")
                         
@@ -118,6 +177,19 @@ class LiteKnews extends Component {
                                 
                                 bookmarkedStatus={articleFromArray.bookmarked}
                                 readStatus={articleFromArray.read}
+                                // Tag 
+                                tag={articleFromArray.tag}
+                                // Author
+                                author={articleFromArray.author}
+                                arrayFromDatabase={this.props.arrayFromDatabase}
+                                leftoverArticles={this.props.leftoverArticles}
+                                fullDatabaseCall={this.props.fullDatabaseCall}
+                                // PostDate
+                                postdate={articleFromArray.postdate}
+
+                                // swiping-indicator
+                                nextArticleTitle={nextArticleTitle}
+                                prevArticleTitle={prevArticleTitle}
                             />
                                                              
                             </SwipeableListItem>
@@ -130,11 +202,6 @@ class LiteKnews extends Component {
                         </div>    
                      }
                         
-                        {/* <div id="liteKnewsControls">
-                            <button onClick={()=>this.changeArticle("prev")}><span className="material-icons">skip_previous</span></button>
-                            <button onClick={()=>this.changeArticle("close")}><span className="material-icons">close</span></button>
-                            <button onClick={()=>this.changeArticle("next")}><span className="material-icons">skip_next</span></button>
-                        </div> */}
                         
                     </div>
                 </div>

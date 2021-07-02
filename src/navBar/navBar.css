@@ -34,7 +34,7 @@
     z-index: 100;
 }
     .headerText{
-        background-color: black;
+        background-color: red;
         display: flex;
             justify-content: center;
         color:white;
@@ -54,6 +54,7 @@
             margin:0;
             padding: 0;
             /* border: 1px solid red; */
+            -webkit-text-stroke: 1px black;
         }
         .headerText > a > div > span{
             font-size: x-large;
@@ -127,7 +128,7 @@
          
         
         #filterActive{color: aqua;}   
-        #filterOptionDisplay > span{ display: flex; }
+        #filterOptionDisplay > span{ display: flex; align-items: center;}
         /* #filterOptionDisplay > span > p{display: none; margin: 0;} */
         #filterOptionDisplay > span > p{display: flex; margin: 0;}
 
@@ -174,6 +175,9 @@
                     /* .dropdownBtnTitle > p{display: none;}  */
 
                     .dropdownBtnTitle{display: flex; align-items: center;}
+                    .dropdownBtnTitle > *{
+                        font-size: 18px;
+                    }
                     .dropdownBtnTitle > p{display: contents;}
 
                     .navBarButton > p{display: none;} 
@@ -363,19 +367,24 @@
 
 /* Media Queries */
 @media (min-width: 768px) {
-    .uiBarItem{max-width: fit-content;}
-        /* .dropdownBtnTitle{display: flex; align-items: center;}
-            .dropdownBtnTitle > p{display: contents;} */
-        .navBarButton{display: flex; align-items: center;}
-            .navBarButton > p{display: contents;}
-            #pageInfo > span > p{display: contents;}
+
 
             /* #filterOptionDisplay > span > p{display: flex; } */
     /* #siteWideNavBar{flex-wrap: nowrap;} */
     .headerWrapper{flex-wrap: nowrap; position: fixed;}
+        .headerText{width: 40%;}
+            .navWrapper{width: 60%;}
+                .newUIBarWrapper{width: 100%; }
+                    #siteWideNavBar{flex-wrap:nowrap; justify-content:  space-evenly; width: 100%;}
+
+                        .uiBarItem{height: auto;}
+                        /* .dropdownBtnTitle{display: flex; align-items: center;}
+                            .dropdownBtnTitle > p{display: contents;} */
+                        .navBarButton{display: flex; align-items: center;}
+                            .navBarButton > p{display: contents;}
+                            #pageInfo > span > p{display: contents;}
     .cardsWrapper{margin-top: 55px;}
-        .navWrapper{width: max-content;}
-            /* .newUIBarWrapper{margin-top: 30px; } */
+
 
     /* Bookmark Controls */
     #bookmarkControls > button > .onCardControls > div{
@@ -396,7 +405,7 @@
     .headerWrapper{flex-wrap: wrap; justify-content: space-around;}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .headerWrapper{flex-wrap: wrap; justify-content: space-around; height: fit-content;}
      .navWrapper{width: inherit;}
         .newUIBarWrapper{justify-content: space-evenly;}
@@ -405,4 +414,36 @@
 button{
     margin: inherit !important;
     height: inherit !important;
+}
+
+@media (min-width: 1000px) {
+    .headerText{width: 50%}
+    .navWrapper{width:50%}
+}
+
+
+@media (min-width: 2160px) {
+    .navWrapper{height: 57px;}
+    /* .material-icons{font-size: 30px;} */
+ 
+    .headerText > a{
+        height: 57px;
+    }
+    .headerText > a > div > *{
+        /* font-size: 3.5rem; */
+    }
+    .dropdownBtnTitle > div > span > p,
+    .dropdownBtnTitle > p,
+    .dropdownBtnTitle > *{
+        font-size: 20px;
+    }
+}
+@media (min-width: 3000px) {
+    .cardsWrapper{margin-top: 85px;}
+    .navWrapper{height: 77px;}
+
+    .headerText > a{
+        height: 77px;
+    }
+
 }

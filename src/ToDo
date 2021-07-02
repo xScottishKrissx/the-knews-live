@@ -1075,6 +1075,10 @@ General Notes  Objectives:
                             ✔ Leaving 1 bookmark, if you try to remove that last bookmark, the counter returns to the number before removing bookmarks.So if you have 5, remove 4, and try to remove the last 1 the counter returns to 5. @done(15:50 - 08/06/21)
                                 ✔ I think its because the this.state.bookmarkCounter goes to null, which passes the this.state.bookmarks.length to the prop instead. @done(15:47 - 08/06/21)
                                     ✔ Solution - Removed the need for this.state.bookmark length ad switched to only using bookmarkCounter which seems to be working fine. @done(15:49 - 08/06/21)
+                            ✔ There is a problem when the window is exactly 768px wide. @done(12:32 - 29/06/21)
+                                ✔ The navbar and theKnews don't wrap. @done(12:32 - 29/06/21)
+                                    ✔ IDEA: What if I put theKnews inside the navbar instead of having its own separate section? @done(12:32 - 29/06/21)
+                                        ✔ Nah, it was already in the navbar. The actual solution is to change the max-width:768 > max-width 767 for the header-wrapper. @done(12:32 - 29/06/21)
 
                     Mobile:
                         ☐ Condense main interactables into mobile friendly interactables.
@@ -1169,7 +1173,32 @@ General Notes  Objectives:
                     ✔ Remove header @done(11:08 - 28/06/21)
 
             12.10.4 - liteKnews:
-                ☐ Add keyboard support for article switching with left/right arrow keys.
+                ✔ Add keyboard support for article switching with left/right arrow keys. @done(12:36 - 28/06/21)
+                    ✔ Handle when there are no more articles to read @done(16:32 - 01/07/21)
+                ☐ Prevent previous/back when there are not articles to load.
+                    // Havent worked this out yet but I do have UI elements to inform there are not further articles.
+                ✔ Fixed navbar swallowing the top of liteKnews @done(12:12 - 28/06/21)
+                ✔ Make the swiping stuff more obvious. @done(17:16 - 30/06/21)
+                    ✔ I'm rethinking the swiping indicators. @done(17:16 - 30/06/21)
+                        ✔ Taking away the bar and leaving a number @done(16:46 - 29/06/21)
+                        ✔ Still need an indicator that you CAN even swipe in the first place. @done(17:16 - 30/06/21)
+                ✔ Home btn in liteKnews does nothing @done(16:37 - 01/07/21)
+                    ✔ This now closes liteKnews in the same manner as the close liteKnews button @done(16:37 - 01/07/21)
+                
+                ☐ Code Cleanup
+                Release:
+                    ☐ Uploaded
+                    ☐ Test
+                        Issues:
+                            Desktop:
+                                Chrome:
+                                Firefox:
+                                Edge:
+                            Mobile:
+                                Chrome:
+                                Firefox:
+                
+
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
             12.10.6 - Website Footer:
@@ -1178,11 +1207,16 @@ General Notes  Objectives:
                 ☐ Improved Feedback for bookmarking articles using button
                 ☐ Improved feedback for hiding articles using button
                 ☐ Improved feedback for no further articles available to load(either scrolling or the button)
+                ☐ Feedback for reaching end of articles in liteKnews
+                ☐ Improved feedback for switching articles
             
             12.10.X - Misc:
+                ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Change styles for when clicking on stuff in the navbar
-                ☐ Home btn in liteKnews does nothing
                 ☐ Dragging on firefox is not working correctly.
+                ☐ Separate navbar.js into components
+                //it's getting quite big
+                ☐ Bookmarking an article should unhide any hidden article.
                 ☐ Buttons that need to be added/created
                     Navbar (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
@@ -1196,6 +1230,7 @@ General Notes  Objectives:
                     Tags:
                         ☐ Page Title
                         ☐ Number of cards in tag
+                
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)
             ✔ Log In Button @started(18-08-21 14:02) @done(18-08-21 17:31) @lasted(3h29m9s)
@@ -1374,6 +1409,13 @@ Part 2 Implement Database functionality:
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
                     ✔ Ensure the load articles button is always available on the home page 
                 ☐ V12.10.4 -liteKnews rework
+                     ✔ Various appearance tweaks that create a more refined version of liteKnews
+                    ✔ Added a swipe indicator to the bottom of the page with an animation demonstrating what do.
+                    ✔ Added a randomly changing background colour to the header because why not. It's fun.
+                        // Added this throughout the website
+                    ✔ Asjusted navbar proportions, now everything is more evenly spaced and less cramped
+                    ✔ Fixed navbar swalloing top of cards. 
+                   
                     
         
 
