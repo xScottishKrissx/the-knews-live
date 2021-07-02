@@ -3,7 +3,7 @@ import React from 'react';
 import './header-image.css';
 
 const HeaderImage = (props) =>{
-    const imgUrl = "https://unsplash.it/192/108?random=" + props.props;
+    const imgUrl = "https://unsplash.it/1920/1080?random=" + props.props;
     
     const style = {
         backgroundImage: 'url(' + imgUrl + ')',        

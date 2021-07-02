@@ -1,141 +1,197 @@
-.speedKnewsArticleContainer > .onCardControls > div {
+/* *{outline: 1px solid red;} */
+#liteKnewsWrapper{ width: 100%; }
+
+.liteKnewsArticleContainer > .onCardControls > div {
     position: relative;
     display: inline-flex;
 }
 
-#loading-article{background: white;}
+   #liteKnews{
+       cursor: grab;
+       max-width:1500px; 
+       width: 90%; 
+       margin: 0 auto; 
+    }
+    /* SwipingStuff */
+/* #liteKnewsWrapper{ outline: 1px solid #6c757d;} */
 
-.progress {
-    height: 20px;
-    background: red;
-    border: 1px solid black;
-  }
-  /* .progress::-moz-progress-bar{ background: red; } */
-  .progress::-webkit-progress-bar{ background: transparent; }
-  .progress::-webkit-progress-value{ background: black; }
+    /* .testLiteKnews{display: none;} */
+    .testLiteKnews > .progress{ height: 100vh; width: 100%; }
 
-  /* Changing Colour when progress bar completes */
-   .progressBarChange::-webkit-progress-value{ background: #6eff00;  border: 1px solid #6eff00;}
+    /* Useful when working on swiping left/right ui */
+    #liteKnewsWrapper > div > div > .swipeable-list-item__content{
+        /* opacity: 0; */
+    }
 
-   #speedKnews{max-width:1500px; width: 100%; margin: 0 auto;}
-   #speedKnewsWrapper{width: inherit;}
-       .speedKnewsArticleContainer{
+    /* Next Article Loading*/
+    #liteKnewsWrapper > div > div > .swipeable-list-item__content-left{
+        background-color: #6c757d;
+        align-content: flex-start;
+        align-items: flex-start;
+        opacity: 2 !important;
+    }
+
+    /* Previous Article Loading */
+    #liteKnewsWrapper > div > div > .swipeable-list-item__content-right{
+        background-color: #6c757d;
+        align-content: flex-start;
+        align-items: flex-start;
+        /* opacity: 2 !important; */
+    }
+
+    .swipeable-list-item__content{
+        box-shadow: 0 0 2px 13px rgba(82 85 88);
+        clip-path: inset(0px -15px 0px -15px);
+        position: relative;
+    }
+
+/* liteKnews article wrapper */
+       .liteKnewsArticleContainer{
             display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
             margin: 0 auto;   
-            margin-bottom: 300px;
-           
+            margin-bottom: 100px;
        }
-       .speedKnewsArticleContainer header {
-           margin-bottom: 2.5rem;
-           min-width: 25%;
-       }
-       .speedKnewsArticleContainer header  div{min-width: 25vw;}
-           .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
-               display: block;
-               margin: 0 auto;
-               margin-top: 1rem;
-               text-align: left;
-               width: 90%;
-           }
-       
-       .speedKnewsArticleContainer article{
-           margin: 0 auto;
-           max-width: 1000px;
-       }
-       .speedKnewsArticleContainer article p{margin-top: 0;}
-#liteKnewsWrapper{
+
+
+/* liteKnews header - image + title */
+.liteKnewsArticleContainer header { min-width: 25%; width: 100%; }
+.liteKnewsArticleContainer header div{ min-width: 25vw; height: 300px; }
+    .liteKnewsArticleContainer header h2, .liteKnewsArticleContainer header h3, .liteKnewsArticleContainer header span{
+        display: block;
+        margin: 0 auto;
+        margin-top: 1rem;
+        text-align: left;
+        width: 100%;
+    }
+/* liteknews article information - tag, author, postdate */
+.liteKnewsArticleContainer > .articleInformation{ width: 100%; }
+
+/* liteKnews article - lots of p tags */
+.liteKnewsArticleContainer article{             
+    margin: 0 auto;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    width: 80%;
+}
+.liteKnewsArticleContainer article p{
+    font-size: 1rem;
+    margin: 0; 
+        margin-bottom: 10px;
+        margin-top: 10px;
+    padding: 0; 
     width: 100%;
 }
-   #liteKnewsControls{
-       position: fixed;
-       bottom: 0;
-       width: 100%;
-       display: flex;
-   }
-   #liteKnewsControls span{
-       display: flex;
-       width: 100%;
-   
-   }
-       #liteKnewsControls span button{
-           background-color: black;
-           color: white;
-           margin: 0;
-           outline: 1px solid white;
-           width: 50%;
-       }
-       #liteKnewsControls span button span{
-           width: fit-content;
-           margin: 0 auto;
-       }   
-       #liteKnewsControls span span{
-           width: 100%;
-       }
-   
-   #speedKnewsButtonWrapper {
-       position: relative;
-       left: 0;
-       display: inline-block;
-       width: 100%;
-       cursor: pointer;
-   }
-   
-       #speedKnewsButtonWrapper button{
-           background-color: black;
-           color: white;
-           cursor: pointer;
-           font-size: 2rem;
-           outline: 1px solid black;
-           width: 100%;
-           
-       }
-           #speedKnewsButtonWrapper button span{
-               font-size: 1rem;
-           }
-   .mutedBtn{
-       background-color: #bbbbbb !important;
-   }
+
+/* liteKnews swipe indicator controls */
+.swipePreviewWrapper{
+    background-color: #6c757d;
+    color: white;
+    font-size: 12px;
+    font-family: monospace,sans-serif;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+}
+    .swipePreviewWrapper > div {
+        display: flex;
+            align-items: center;
+            justify-content: center;
+        text-align: center;
+    }
+    .swipePreviewWrapper > div > .material-icons{ padding: 10px; animation: swipeIndicator 3s infinite; }
+    /* swipe */
+        @keyframes swipeIndicator {
+            0%{transform: translateX(0px);}
+            25%{transform: translateX(20px);}
+            50%{transform: translateX(0px);}
+        }
+
+    .swipePreviewWrapper > div > p{
+        font-size: 14px;
+        margin: 0; 
+        padding: 0; 
+        max-width: 400px;
+    }
+        .swipePreviewWrapper > div > p > span{ font-weight: 500; text-transform: uppercase; }
+
+/* swiping loading card UI */
+.loadingStatus{
+    align-items: flex-end;
+    color: rgb(197, 197, 197);
+    display: flex;
+    font-family: monospace,sans-serif;
+    height: 50vh;
+    justify-content: flex-end;
+    position: fixed;
+    text-align: center;
+}
+    .loadingNumber > span{font-size: 5rem; }
+    .loadComplete > span{ font-size: 5rem; color: white;    }
+
+/* liteKnews mobile controls */
+#liteKnewsControls{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+#liteKnewsControls span{ display: flex; width: 100%; }
+    #liteKnewsControls span button{
+        background-color: black;
+        color: white;
+        margin: 0;
+        outline: 1px solid white;
+        width: 50%;
+    }
+    #liteKnewsControls span button span{ margin: 0 auto; width: fit-content; }   
+    #liteKnewsControls span span{ width: 100%; }
+
+
+
+
+ 
+/* rotate */
+/* @keyframes swipeIndicator {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(40deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(-40deg);}
+    100%{transform: rotate(0deg);}
+} */
 
 
 /* Media Queries */
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
+    #liteKnews{ margin-top: 55px; }
+    .swipePreviewWrapper{ width: 80%; }
+}
 
-    .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
+@media (max-width: 767px) { .liteKnewsArticleContainer article{ width: 100%; } }
+
+@media (min-width: 1000px) {
+    .liteKnewsArticleContainer > header >  .article-banner-image{ margin: 0; position: relative;}
+
+    .liteKnewsArticleContainer header h2, 
+    .liteKnewsArticleContainer header h3, 
+    .liteKnewsArticleContainer header span{
         margin-bottom: 1rem;
         margin-top: 2rem;
         text-align: center;
         width: 90%;
     }
-    .speedKnewsArticleContainer header{
-        /* background-color: red; */
-        float: left;
-
-        
-        /* height: 90vh; */
+    .liteKnewsArticleContainer header div{
+        height: auto;
+        min-height: 400px;
+        width: 100%;       
     }
-        .speedKnewsArticleContainer header div{
-            /* margin-top: 30vh; */
-            /* border: 1px solid yellow; */
-            height: auto;
-            min-height: 400px;
+    .liteKnewsArticleContainer > .articleInformation{ font-size: 1rem; }
+    .liteKnewsArticleContainer article{ display: flow-root; }
 
 
-        
-        }
-    .speedKnewsArticleContainer article{
-        /* border: 10px solid black; */
-        display: flow-root;
-    }
-    #liteKnewsControls{
-        bottom: 100px;
-        max-width: 1500px;
-    }
-    #liteKnewsControls span{
-        margin: 0 auto;
-        width: 50%;
-    }
+    #liteKnewsControls{ bottom: 100px; max-width: 1500px; }
+    #liteKnewsControls span{ margin: 0 auto; width: 50%; }
         #liteKnewsControls span button{
             background-color: white;
             color: black;
@@ -143,3 +199,14 @@
             bottom: 10px;
         }
 } 
+
+@media (min-width: 1400px) {
+    .liteKnewsArticleContainer > .articleInformation{ font-size: 1rem;}
+    .liteKnewsArticleContainer article, .swipePreviewWrapper{ width: 60%; }
+}
+
+@media(min-width: 2160px){
+    .liteKnewsArticleContainer > header > h1{ font-size: 2.5rem; }
+    .liteKnewsArticleContainer > .articleInformation{ font-size: 1rem; }
+        .liteKnewsArticleContainer article p{ font-size: 1rem; }
+}

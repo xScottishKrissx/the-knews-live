@@ -20,7 +20,7 @@ export class Caption extends React.Component{
         const author = this.props.author;
         const tag = this.props.tag;
         const imageId = this.props.imageId;
-        const imgUrl = "https://unsplash.it/192/108?random=" + imageId;
+        const imgUrl = "https://unsplash.it/1920/1080?random=" + imageId;
         const style = {
             backgroundImage: 'url(' + imgUrl + ')',
             backgroundPosition: "bottom",

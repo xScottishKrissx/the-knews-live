@@ -35,14 +35,14 @@ export const MessageBody = () =>{
 
         <div>
             <h1>theKnews </h1>
-            <h3>Deployed Version 12.10.3 - 28/6/2021</h3>
+            <h3>Deployed Version 12.10.4 - liteKnews Update - 2/7/2021</h3>
 
             <h5>you can temporarily hide this message by pressing it. Refresh the page/click the full website reset button in the options menu to get it back</h5>
 
             <p><a href="https://christopherswebdevdiary.wordpress.com/"> Check out my blog for this in progress project where I post updates and detail what I am doing HERE</a></p>
             
             <hr />
-            <p>Notice: 12.10.3 is the third in a series of updates to theKnews focused on reworking the User Interface across the entire project. So as a result some things may not look "right" and other things might appear out of place. This release focuses on fixing smaller issues with the bookmark and tags pages.</p>
+            <p>Notice: 12.10.4 is the fourth in a series of updates to theKnews focused on reworking the User Interface across the entire project. As a result some things may not look "right" and other things might appear out of place. This release focuses on improving the appearance of liteKnews.</p>
             <p>KNOWN ISSUE - If there are 2 or less articles on the page when you attempt to reload, you may get an error. Resetting the page using the full website reset button in the options menu at the top right of this page will "fix" the issue and return to page to a default state.</p>
             <p>Known Issue - Firefox(89.0): Dragging cards on the home page is not working correctly. I would avoid interacting with this for now.</p>
             <p>Known Issue - clicking "theKnews" in liteKnews is currently not doing anything. Press the "x" to leave liteKnews</p>
