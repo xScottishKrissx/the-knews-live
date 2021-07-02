@@ -1171,6 +1171,7 @@ General Notes  Objectives:
                     ✔ Fix page width
                     ☐ Add number of articles to navbar
                     ✔ Remove header @done(11:08 - 28/06/21)
+                    ☐ Add a title to the tags page, it's a bit unclear what page you're own on mobile.
 
             12.10.4 - liteKnews:
                 ✔ Add keyboard support for article switching with left/right arrow keys. @done(12:36 - 28/06/21)
@@ -1185,19 +1186,22 @@ General Notes  Objectives:
                 ✔ Home btn in liteKnews does nothing @done(16:37 - 01/07/21)
                     ✔ This now closes liteKnews in the same manner as the close liteKnews button @done(16:37 - 01/07/21)
                 
-                ☐ Code Cleanup
+                ✔ Code Cleanup 
                 Release:
-                    ☐ Uploaded
-                    ☐ Test
+                    ✔ Uploaded @done(13:09 - 02/07/21)
+                    ✔ Test @done(13:19 - 02/07/21)
                         Issues:
                             Desktop:
-                                Chrome:
-                                Firefox:
-                                Edge:
+                                Chrome:No issues
+                                Firefox:the font needs to be addressed
+                                Edge:no issues
                             Mobile:
-                                Chrome:
-                                Firefox:
-                
+                                Chrome:no issues
+                                Firefox:no issues
+                    ☐ Portfolio Page
+                    ☐ Portfolio Home Page
+                    ☐ Blog
+                    ☐ Finished, moving on
 
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
@@ -1209,6 +1213,7 @@ General Notes  Objectives:
                 ☐ Improved feedback for no further articles available to load(either scrolling or the button)
                 ☐ Feedback for reaching end of articles in liteKnews
                 ☐ Improved feedback for switching articles
+                ☐ Add the random colour to the swipe background
             
             12.10.X - Misc:
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
@@ -1217,6 +1222,8 @@ General Notes  Objectives:
                 ☐ Separate navbar.js into components
                 //it's getting quite big
                 ☐ Bookmarking an article should unhide any hidden article.
+                ☐ PICK A FONT!!
+                ☐ Add a 
                 ☐ Buttons that need to be added/created
                     Navbar (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
@@ -1409,12 +1416,15 @@ Part 2 Implement Database functionality:
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
                     ✔ Ensure the load articles button is always available on the home page 
                 ☐ V12.10.4 -liteKnews rework
-                     ✔ Various appearance tweaks that create a more refined version of liteKnews
-                    ✔ Added a swipe indicator to the bottom of the page with an animation demonstrating what do.
+                    liteKnews specific 
+                    ✔ Various appearance tweaks that create a more refined version of liteKnews
+                    ✔ Added support for switching liteKnews article with left/right arrow keys
+                    ✔ Added a swipe indicator to the bottom of the page with an animation demonstrating what do. @done(13:17 - 02/07/21)
+                    ✔ Fixed issue where pressing theKnews would do nothing in liteKnews. This now closes liteKnews. @done(13:19 - 02/07/21)
+                    General
                     ✔ Added a randomly changing background colour to the header because why not. It's fun.
-                        // Added this throughout the website
                     ✔ Asjusted navbar proportions, now everything is more evenly spaced and less cramped
-                    ✔ Fixed navbar swalloing top of cards. 
+                    ✔ Fixed navbar swallowing top of cards. 
                    
                     
         
