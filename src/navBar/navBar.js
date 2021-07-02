@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './navBar.css';
+
 import HomeBtn from './navBarButtons/homeButton';
 import BookmarkCounter from './navBarButtons/bookmarkPage/bookmarkCounter';
 import FilterOptionsButton from './navBarButtons/filterOptionsButton';

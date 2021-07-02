@@ -1,195 +1,91 @@
 /* *{outline: 1px solid red;} */
-.speedKnewsArticleContainer > .onCardControls > div {
+#liteKnewsWrapper{ width: 100%; }
+
+.liteKnewsArticleContainer > .onCardControls > div {
     position: relative;
     display: inline-flex;
 }
 
-
-
-   #speedKnews{
+   #liteKnews{
        cursor: grab;
        max-width:1500px; 
        width: 90%; 
        margin: 0 auto; 
-
     }
-   #speedKnewsWrapper{}
-       .speedKnewsArticleContainer{
+    /* SwipingStuff */
+/* #liteKnewsWrapper{ outline: 1px solid #6c757d;} */
+
+    /* .testLiteKnews{display: none;} */
+    .testLiteKnews > .progress{ height: 100vh; width: 100%; }
+
+    /* Useful when working on swiping left/right ui */
+    #liteKnewsWrapper > div > div > .swipeable-list-item__content{
+        /* opacity: 0; */
+    }
+
+    /* Next Article Loading*/
+    #liteKnewsWrapper > div > div > .swipeable-list-item__content-left{
+        background-color: #6c757d;
+        align-content: flex-start;
+        align-items: flex-start;
+        opacity: 2 !important;
+    }
+
+    /* Previous Article Loading */
+    #liteKnewsWrapper > div > div > .swipeable-list-item__content-right{
+        background-color: #6c757d;
+        align-content: flex-start;
+        align-items: flex-start;
+        /* opacity: 2 !important; */
+    }
+
+    .swipeable-list-item__content{
+        box-shadow: 0 0 2px 13px rgba(82 85 88);
+        clip-path: inset(0px -15px 0px -15px);
+        position: relative;
+    }
+
+/* liteKnews article wrapper */
+       .liteKnewsArticleContainer{
             display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
             margin: 0 auto;   
             margin-bottom: 100px;
-
-
-       }
-        .swipeable-list-item__content{
-                box-shadow: 0 0 2px 13px rgba(82 85 88);
-                clip-path: inset(0px -15px 0px -15px);
-                position: relative;
-        }
-
-       .speedKnewsArticleContainer header {
-           
-           min-width: 25%;
-           width: 100%;
        }
 
-        .speedKnewsArticleContainer header  div{
-                min-width: 25vw; 
-                height: 300px;
-            }
 
-           .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
-               display: block;
-               margin: 0 auto;
-               margin-top: 1rem;
-               text-align: left;
-               width: 100%;
-           }
-           .speedKnewsArticleContainer > .articleInformation{
-                   
-                width: 100%;
-           }
-       .speedKnewsArticleContainer article{
-             
-            margin: 0 auto;
-            margin-bottom: 30px;
-            margin-top: 10px;
-           /* max-width: 1000px; */
-           width: 80%;
-       }
-       .speedKnewsArticleContainer article p{
-           font-size: 1rem;
-           margin: 0; 
-            margin-bottom: 10px;
-            margin-top: 10px;
-           padding: 0; 
-           width: 100%;
-        }
-           
-#liteKnewsWrapper{
+/* liteKnews header - image + title */
+.liteKnewsArticleContainer header { min-width: 25%; width: 100%; }
+.liteKnewsArticleContainer header div{ min-width: 25vw; height: 300px; }
+    .liteKnewsArticleContainer header h2, .liteKnewsArticleContainer header h3, .liteKnewsArticleContainer header span{
+        display: block;
+        margin: 0 auto;
+        margin-top: 1rem;
+        text-align: left;
+        width: 100%;
+    }
+/* liteknews article information - tag, author, postdate */
+.liteKnewsArticleContainer > .articleInformation{ width: 100%; }
+
+/* liteKnews article - lots of p tags */
+.liteKnewsArticleContainer article{             
+    margin: 0 auto;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    width: 80%;
+}
+.liteKnewsArticleContainer article p{
+    font-size: 1rem;
+    margin: 0; 
+        margin-bottom: 10px;
+        margin-top: 10px;
+    padding: 0; 
     width: 100%;
 }
-   #liteKnewsControls{
-       position: fixed;
-       bottom: 0;
-       width: 100%;
-       display: flex;
-   }
-   #liteKnewsControls span{
-       display: flex;
-       width: 100%;
-   
-   }
-       #liteKnewsControls span button{
-           background-color: black;
-           color: white;
-           margin: 0;
-           outline: 1px solid white;
-           width: 50%;
-       }
-       #liteKnewsControls span button span{
-           width: fit-content;
-           margin: 0 auto;
-       }   
-       #liteKnewsControls span span{
-           width: 100%;
-       }
-   
-   #speedKnewsButtonWrapper {
-       position: relative;
-       left: 0;
-       display: inline-block;
-       width: 100%;
-      
-   }
-   
-       #speedKnewsButtonWrapper button{
-           background-color: black;
-           color: white;
-           font-size: 2rem;
-           outline: 1px solid black;
-           width: 100%;
-           
-       }
-           #speedKnewsButtonWrapper button span{
-               font-size: 1rem;
-           }
-   .mutedBtn{
-       background-color: #bbbbbb !important;
-   }
 
-
-
-/* SwipingStuff */
-/* #speedKnewsWrapper{ outline: 1px solid #6c757d;} */
-
-    /* .testLiteKnews{display: none;} */
-        .testLiteKnews > .progress{
-            height: 100vh;
-            width: 100%;
-        }
-
-    #speedKnewsWrapper > div > div > .swipeable-list-item__content{
-        /* opacity: 0; */
-    }
-    /* Forward */
-    #speedKnewsWrapper > div > div > .swipeable-list-item__content-left{
-        background-color: #6c757d;
-        align-content: flex-start;
-        align-items: flex-start;
-
-        opacity: 2 !important;
-    }
-
-    /* Back */
-    #speedKnewsWrapper > div > div > .swipeable-list-item__content-right{
-        background-color: #6c757d;
-        align-content: flex-start;
-        align-items: flex-start;
-
-        /* opacity: 2 !important; */
-    }
-
-
-    #loading-article{background: white;}
-
-    .progress {
-        height: 20px;
-        background: red;
-        /* border: 1px solid black; */
-        color: red;
-      }
-      /* .progress::-moz-progress-bar{ background: red; } */
-      .progress::-webkit-progress-bar{ background: transparent; }
-      .progress::-webkit-progress-value{ background: red; }
-    
-      /* Changing Colour when progress bar completes */
-       .progressBarChange::-webkit-progress-value{ 
-           background: #6eff00;  
-           border: 1px solid #6eff00;
-        }
-        .progressBarChange{background-color: black; color: white !important; font-size: 5rem;}
-
-           
-.loadingStatus{
-    /* outline: 1px solid black; */
-    align-items: flex-end;
-    /* background: red; */
-    color: rgb(197, 197, 197);
-    display: flex;
-    font-family: monospace,sans-serif;
-    height: 50vh;
-    justify-content: flex-end;
-    position: fixed;
-    text-align: center;
-}
-    .loadingNumber > span{font-size: 5rem; }
-    .loadComplete > span{ font-size: 5rem; color: white;    }
-
+/* liteKnews swipe indicator controls */
 .swipePreviewWrapper{
-    /* outline: 1px solid red; */
     background-color: #6c757d;
     color: white;
     font-size: 12px;
@@ -202,20 +98,14 @@
         display: flex;
             align-items: center;
             justify-content: center;
-        /* flex-wrap: wrap; */
         text-align: center;
     }
-    .swipePreviewWrapper > div > .material-icons{
-        padding: 10px; 
-        animation: swipeIndicator 3s infinite;
-    }
+    .swipePreviewWrapper > div > .material-icons{ padding: 10px; animation: swipeIndicator 3s infinite; }
     /* swipe */
         @keyframes swipeIndicator {
             0%{transform: translateX(0px);}
             25%{transform: translateX(20px);}
             50%{transform: translateX(0px);}
-            /* 75%{transform: translateX(-20px);} */
-            /* 100%{transform: translateX(0px);} */
         }
 
     .swipePreviewWrapper > div > p{
@@ -224,13 +114,44 @@
         padding: 0; 
         max-width: 400px;
     }
-        .swipePreviewWrapper > div > p > span{
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-    
+        .swipePreviewWrapper > div > p > span{ font-weight: 500; text-transform: uppercase; }
+
+/* swiping loading card UI */
+.loadingStatus{
+    align-items: flex-end;
+    color: rgb(197, 197, 197);
+    display: flex;
+    font-family: monospace,sans-serif;
+    height: 50vh;
+    justify-content: flex-end;
+    position: fixed;
+    text-align: center;
+}
+    .loadingNumber > span{font-size: 5rem; }
+    .loadComplete > span{ font-size: 5rem; color: white;    }
+
+/* liteKnews mobile controls */
+#liteKnewsControls{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+#liteKnewsControls span{ display: flex; width: 100%; }
+    #liteKnewsControls span button{
+        background-color: black;
+        color: white;
+        margin: 0;
+        outline: 1px solid white;
+        width: 50%;
+    }
+    #liteKnewsControls span button span{ margin: 0 auto; width: fit-content; }   
+    #liteKnewsControls span span{ width: 100%; }
 
 
+
+
+ 
 /* rotate */
 /* @keyframes swipeIndicator {
     0%{transform: rotate(0deg);}
@@ -241,67 +162,36 @@
 } */
 
 
-
-
-  
-
-
-
-
 /* Media Queries */
 @media (min-width: 768px) {
-    #speedKnews{
-        margin-top: 55px;
-    }
-    .swipePreviewWrapper{
-        width: 80%;
-    }
+    #liteKnews{ margin-top: 55px; }
+    .swipePreviewWrapper{ width: 80%; }
 }
 
-@media (max-width: 767px) {
-    .speedKnewsArticleContainer article{
-        width: 100%;
-    }
- 
-}
+@media (max-width: 767px) { .liteKnewsArticleContainer article{ width: 100%; } }
+
 @media (min-width: 1000px) {
-    .speedKnewsArticleContainer > header >  .article-banner-image{
-        margin: 0;
-        position: relative;
-    }
-    .speedKnewsArticleContainer header h2, .speedKnewsArticleContainer header h3, .speedKnewsArticleContainer header span{
+    .liteKnewsArticleContainer > header >  .article-banner-image{ margin: 0; position: relative;}
+
+    .liteKnewsArticleContainer header h2, 
+    .liteKnewsArticleContainer header h3, 
+    .liteKnewsArticleContainer header span{
         margin-bottom: 1rem;
         margin-top: 2rem;
         text-align: center;
         width: 90%;
     }
-    .speedKnewsArticleContainer header{
-        /* background-color: red; */
-        /* float: left; */
+    .liteKnewsArticleContainer header div{
+        height: auto;
+        min-height: 400px;
+        width: 100%;       
+    }
+    .liteKnewsArticleContainer > .articleInformation{ font-size: 1rem; }
+    .liteKnewsArticleContainer article{ display: flow-root; }
 
-        
-        /* height: 90vh; */
-    }
-        .speedKnewsArticleContainer header div{
-            height: auto;
-            min-height: 400px;
-            width: 100%;       
-        }
-         .speedKnewsArticleContainer > .articleInformation{
-            font-size: 1rem;
-        }
-    .speedKnewsArticleContainer article{
-        /* border: 10px solid black; */
-        display: flow-root;
-    }
-    #liteKnewsControls{
-        bottom: 100px;
-        max-width: 1500px;
-    }
-    #liteKnewsControls span{
-        margin: 0 auto;
-        width: 50%;
-    }
+
+    #liteKnewsControls{ bottom: 100px; max-width: 1500px; }
+    #liteKnewsControls span{ margin: 0 auto; width: 50%; }
         #liteKnewsControls span button{
             background-color: white;
             color: black;
@@ -311,27 +201,12 @@
 } 
 
 @media (min-width: 1400px) {
-
-    .speedKnewsArticleContainer > .articleInformation{
-        font-size: 1rem;
-    }
-
-    .speedKnewsArticleContainer article, .swipePreviewWrapper{
-        width: 60%;
-    }
-   
+    .liteKnewsArticleContainer > .articleInformation{ font-size: 1rem;}
+    .liteKnewsArticleContainer article, .swipePreviewWrapper{ width: 60%; }
 }
 
 @media(min-width: 2160px){
-    .speedKnewsArticleContainer > header > h1{
-        font-size: 2.5rem;
-    }
-    .speedKnewsArticleContainer > .articleInformation{
-        font-size: 1rem;
-    }
-
-        .speedKnewsArticleContainer article p{
-            font-size: 1rem;
-        }
+    .liteKnewsArticleContainer > header > h1{ font-size: 2.5rem; }
+    .liteKnewsArticleContainer > .articleInformation{ font-size: 1rem; }
+        .liteKnewsArticleContainer article p{ font-size: 1rem; }
 }
-

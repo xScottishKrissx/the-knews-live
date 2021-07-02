@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
-import '../liteKnews/liteKnews.css';
-import LiteKnewsView from './liteKnewsView';
-
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
+
+import '../liteKnews/liteKnews.css';
+
+import LiteKnewsView from './liteKnewsView';
 import NavBar from '../../navBar/navBar';
-import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
 class LiteKnews extends Component {
 
@@ -13,8 +13,6 @@ class LiteKnews extends Component {
         this.state = {
             articleNumber:0, 
             nextArticleNumber:1,
-            // bookmarked:[]
-            //testing
             progress:0
         }
         this.changeArticle = this.changeArticle.bind(this);
@@ -23,7 +21,6 @@ class LiteKnews extends Component {
     componentDidMount(){
         document.addEventListener("keyup", this.controls, false);
     }
-
 
     changeArticle(x){
         // Close liteKnews
@@ -44,33 +41,23 @@ class LiteKnews extends Component {
 
     swipeProgress(progress){ this.setState({progress:progress }) }
 
-
-
     // keyboard controls
     controls(event){
-    //    console.log(event)
        if(event.keyCode === 37 && this.state.articleNumber > 0){
-        //    console.log("Go left")
             this.setState({articleNumber: this.state.articleNumber - 1}) 
             window.scrollTo(0,0)
        }
        if(event.keyCode === 39){
-        // console.log("Go Right")
             this.setState({articleNumber: this.state.articleNumber + 1}) 
             window.scrollTo(0,0)
         }
     }
-    render(){    
 
-    // window.scrollTo(0,0)
-
+    render(){ 
     const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
-    // console.log(filterHidden[this.state.articleNumber - 1])
-    // console.log(filterHidden[this.state.articleNumber + 1])
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
-    // console.log(prevArticleTitle)
     
         return (
             <div id="liteKnewsWrapper">              
@@ -98,9 +85,8 @@ class LiteKnews extends Component {
                 />
 
 
-                <div id="speedKnews" >                
-                    <div id="speedKnewsWrapper" >
-                    {/* <h1>liteKnews - theKnews but lighter</h1> */}
+                <div id="liteKnews" >                
+                    <div id="liteKnewsWrapper" >
 
                     {articleFromArray != null || undefined ? 
                         <SwipeableList threshold= {0.48} swipeStartThreshold={0.5} >
