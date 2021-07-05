@@ -39,7 +39,8 @@ class NewsItemLoopView extends React.Component{
         // liteKnews
         showArticle:false,
         renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
-
+        // loading progress
+        loadingProgress:{}
         }
         // Card Size Controls
         this.getCardSize = this.getCardSize.bind(this);
@@ -80,7 +81,12 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         })
         
     }
-
+    swipeThing(x){
+        console.log(x)
+        this.setState({
+            loadingProgress:x
+        })
+    }
     handleMenu(x){
         console.log("Show Menu")
         document.getElementById(x).classList.add("showMenu")
@@ -90,6 +96,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         // console.log(this.state.renderArray)
+        
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -151,7 +158,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     arrayFromDatabase={this.props.databaseProp} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
-                    showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}          
+                    showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}       
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 

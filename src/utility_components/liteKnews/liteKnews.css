@@ -32,7 +32,8 @@
     }
 
     /* Previous Article Loading */
-    #liteKnewsWrapper > div > div > .swipeable-list-item__content-right{
+    #liteKnewsWrapper > div > div > .swipeable-list-item__content-right
+    {
         background-color: #6c757d;
         align-content: flex-start;
         align-items: flex-start;

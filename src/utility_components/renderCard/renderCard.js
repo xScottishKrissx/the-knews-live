@@ -17,6 +17,7 @@ export const RenderCard = (props) => {
     const pageView = props.database.map((value,key) => {
         
         // console.log(props.hideBookmarkedArticle)
+        // console.log(props.loadingProgress)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
     
@@ -37,7 +38,7 @@ export const RenderCard = (props) => {
                     <SwipeableListItem 
                         
                         swipeLeft={{
-                            content:<div>Bookmarking Article...</div>,
+                            content:<div>Bookmarking Article..</div>,
                             action: () => swipeLeftAction(value.id,props.fullDatabaseCall ),
                             
                         }}
@@ -55,6 +56,8 @@ export const RenderCard = (props) => {
                                 
                             )
                         }}
+                        // onSwipeProgress={progress => console.log(progress)}
+                        
                         
                     >
                             
