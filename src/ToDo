@@ -1218,13 +1218,12 @@ General Notes  Objectives:
             
             12.10.X - Misc:
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
-                ☐ Change styles for when clicking on stuff in the navbar
+                ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
-                ☐ Separate navbar.js into components
+                ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 //it's getting quite big
                 ☐ Bookmarking an article should unhide any hidden article.
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
-                ☐ Add a 
                 ☐ Buttons that need to be added/created
                     Navbar (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks

@@ -26,3 +26,15 @@ p,span,div{
   font-family: "Open Sans", sans-serif; 
   font-family: "Roboto", sans-serif;
 }
+
+button:focus{
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus{
+  box-shadow: none  !important;
+}
+
+.btn-primary.focus, .btn-primary:focus{
+  box-shadow: none !important;
+}
