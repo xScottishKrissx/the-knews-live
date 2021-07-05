@@ -89,7 +89,7 @@
     background-color: #6c757d;
     color: white;
     font-size: 12px;
-    font-family: monospace,sans-serif;
+    
     padding-left: 5px;
     padding-right: 5px;
     width: 100%;
@@ -121,7 +121,7 @@
     align-items: flex-end;
     color: rgb(197, 197, 197);
     display: flex;
-    font-family: monospace,sans-serif;
+    
     height: 50vh;
     justify-content: flex-end;
     position: fixed;

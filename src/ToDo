@@ -1198,13 +1198,14 @@ General Notes  Objectives:
                             Mobile:
                                 Chrome:no issues
                                 Firefox:no issues
-                    ☐ Portfolio Page
-                    ☐ Portfolio Home Page
-                    ☐ Blog
-                    ☐ Finished, moving on
+                    ✔ Portfolio Page @done(12:16 - 05/07/21)
+                    ✔ Portfolio Home Page @done(12:16 - 05/07/21)
+                    ✔ Blog @done(12:16 - 05/07/21)
+                    ✔ Finished, moving on @done(12:16 - 05/07/21)
 
             12.10.5 - Home Page / Cards:
                 ☐ Change mark as read icon based on current read status.
+                ✔ Pick fonts for the website @done(13:01 - 05/07/21)
             12.10.6 - Website Footer:
                     ☐ Add a footer
             12.10.7 - Website Feedback Rework:
@@ -1222,7 +1223,7 @@ General Notes  Objectives:
                 ☐ Separate navbar.js into components
                 //it's getting quite big
                 ☐ Bookmarking an article should unhide any hidden article.
-                ☐ PICK A FONT!!
+                ✔ PICK A FONT!! @done(13:01 - 05/07/21)
                 ☐ Add a 
                 ☐ Buttons that need to be added/created
                     Navbar (sitewide):
@@ -1415,7 +1416,7 @@ Part 2 Implement Database functionality:
                 ✔ V12.10.3 - Bookmark & Tags Page @done(11:19 - 28/06/21)
                     ✔ Fixed issue where top row of cards would disappear behind navbar 
                     ✔ Ensure the load articles button is always available on the home page 
-                ☐ V12.10.4 -liteKnews rework
+                ✔ V12.10.4 -liteKnews rework @done(12:13 - 05/07/21)
                     liteKnews specific 
                     ✔ Various appearance tweaks that create a more refined version of liteKnews
                     ✔ Added support for switching liteKnews article with left/right arrow keys
