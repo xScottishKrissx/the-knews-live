@@ -126,7 +126,11 @@ render(){
         :
         <div className="markAsReadButtonWrapper">
             <button title="Mark As Read" onClick={()=>this.markAsRead(this.props.id)}> 
-                <span class="material-icons" >done</span>
+            {this.state.read === true ? 
+                <span class="material-icons" >check_circle</span>
+                :
+                <span class="material-icons" >check_circle_outline</span>
+                }
             </button>
         </div>  
         }

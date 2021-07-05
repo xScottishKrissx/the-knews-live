@@ -70,15 +70,18 @@ export class Caption extends React.Component{
                         <span id="news-item-link-text-tag-author-wrapper">
                             <span id="news-item-link-text-tag">{tag}</span>
                             <span id="news-item-link-text-author">by {author}</span>
-                            <button className="showThing" onClick={()=>this.handleClick(imageId)}>
-                                
-                                {this.state.status === true ? 
-                                <span class="material-icons"> arrow_drop_down</span>
-                                :
-                                <span class="material-icons"> arrow_drop_up</span>
-                                }
                             
-                            </button>
+                            {/*
+                            // Slide Up Caption that i might want to use.
+                                <button className="showThing" onClick={()=>this.handleClick(imageId)}>
+                                    {this.state.status === true ? 
+                                    <span class="material-icons"> arrow_drop_down</span>
+                                    :
+                                    <span class="material-icons"> arrow_drop_up</span>
+                                    }
+                                </button> 
+                            */}
+
                         </span>
 
                     </div>                    
