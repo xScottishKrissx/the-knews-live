@@ -7,12 +7,32 @@ export class Caption extends React.Component{
 
     constructor(props){
         super(props);
+        this.state = {
+            status:false
+        }
         this.dragFriendlyCaption = this.dragFriendlyCaption.bind(this);
+
     }
 
     dragFriendlyCaption(e){e.preventDefault();}
 
-    handleClick(){console.log("Show Article")}
+    handleClick(x){
+        // console.log("Show Article")
+        // document.getElementById("cardId"+x).classList.add("test1")
+       console.log(this.state.status)
+        if(this.state.status === true){
+            document.getElementById("cardId"+x).classList.add("removeHeight")
+            document.getElementById("cardId"+x).classList.remove("addHeight")
+
+            this.setState({status:false})
+        }
+        if(this.state.status === false){
+            document.getElementById("cardId"+x).classList.add("addHeight")            
+            document.getElementById("cardId"+x).classList.remove("removeHeight")
+
+            this.setState({status:true})
+        }
+    }
     
     render(){
         const pageId = this.props.id;
@@ -45,12 +65,22 @@ export class Caption extends React.Component{
                 
             >
                 <div style={style} loading="lazy">
-                    <div className="news-item-link-text" onClick={this.dragFriendlyCaption}>
+                    <div className="news-item-link-text" id={"cardId"+imageId} onClick={this.dragFriendlyCaption}>
                         <span id="news-item-link-text-title">{title}</span>
                         <span id="news-item-link-text-tag-author-wrapper">
                             <span id="news-item-link-text-tag">{tag}</span>
                             <span id="news-item-link-text-author">by {author}</span>
+                            <button className="showThing" onClick={()=>this.handleClick(imageId)}>
+                                
+                                {this.state.status === true ? 
+                                <span class="material-icons"> arrow_drop_down</span>
+                                :
+                                <span class="material-icons"> arrow_drop_up</span>
+                                }
+                            
+                            </button>
                         </span>
+
                     </div>                    
                 </div> 
             </Link>
