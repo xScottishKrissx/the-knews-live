@@ -32,6 +32,16 @@
             text-align: right;
         }
             #news-item-link-text-title{}
+
+            #news-item-link-text-tag > a,
+            #news-item-link-text-author > a{
+                color: white;
+            }
+
+            #news-item-link-text-tag > a :hover,
+            #news-item-link-text-author > a :hover{
+                text-decoration: underline;
+            }
             #news-item-link-text-tag-author-wrapper{
                 display: flex;
                 justify-content: space-around;

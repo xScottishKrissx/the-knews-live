@@ -1206,6 +1206,9 @@ General Notes  Objectives:
             12.10.5 - Home Page / Cards:
                 ✔ Change mark as read icon based on current read status. @done(17:30 - 05/07/21)
                 ✔ Pick fonts for the website @done(13:01 - 05/07/21)
+                ☐ Add tag link to card tag and author
+                    ☐ Tag
+                    ☐ Author
             12.10.6 - Website Footer:
                     ☐ Add a footer
             12.10.7 - Website Feedback Rework:
@@ -1236,7 +1239,10 @@ General Notes  Objectives:
                         ☐ Reset Card Size
                     Tags:
                         ☐ Page Title
+                            ☐ Name of Author
+                            ☐ Tag
                         ☐ Number of cards in tag
+                            ☐ eg = 24 articles found
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)

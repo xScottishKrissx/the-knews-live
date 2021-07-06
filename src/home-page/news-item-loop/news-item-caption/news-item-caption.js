@@ -68,9 +68,45 @@ export class Caption extends React.Component{
                     <div className="news-item-link-text" id={"cardId"+imageId} onClick={this.dragFriendlyCaption}>
                         <span id="news-item-link-text-title">{title}</span>
                         <span id="news-item-link-text-tag-author-wrapper">
-                            <span id="news-item-link-text-tag">{tag}</span>
-                            <span id="news-item-link-text-author">by {author}</span>
-                            
+                            <span id="news-item-link-text-tag">
+                            <Link 
+                                    className="newsItemLink"  
+                                    to={{
+                                        pathname: '/theKnews/home/search/tag/' + this.props.tag , 
+                                        state: {
+                                            author: this.props.tag, 
+                                            searchDBFor: "tag",
+                                            origin: "Article", 
+                                            orderByChild: "tag"}
+                                    }}
+                                >
+                                {this.props.tag}
+                            </Link>
+                            </span>
+
+                            {/* <span id="news-item-link-text-author">by {author}</span> */}
+                            <span id="news-item-link-text-author">
+                                <Link 
+                                    className="newsItemLink"
+                                
+                                    to={{
+                                        pathname: '/theKnews/home/search/author/' + this.props.author , 
+                                        
+                                        state:{
+                                            author: this.props.author, 
+                                            tag:this.props.tag,
+                                            searchDBFor: "author",
+                                            origin: "Article", 
+                                            orderByChild: "author",
+                                            thingFromArticle:this.props.tag,
+                                            arrayFromDatabase:this.props.arrayFromDatabase,
+                                            leftoverArticles:this.props.leftoverArticles,
+                                            fullDatabaseCall:this.props.fullDatabaseCall
+                                            }
+                                        }}>
+                                        {this.props.author}
+                                </Link>
+                            </span>
                             {/*
                             // Slide Up Caption that i might want to use.
                                 <button className="showThing" onClick={()=>this.handleClick(imageId)}>
