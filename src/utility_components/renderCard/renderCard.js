@@ -35,10 +35,10 @@ export const RenderCard = (props) => {
                 />
                
                <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
-                    <SwipeableListItem 
+                    <SwipeableListItem                    
                         
                         swipeLeft={{
-                            content:<div>Bookmarking Article..</div>,
+                            content:<div>Bookmarking Article..{props.showProgress}</div>,
                             action: () => swipeLeftAction(value.id,props.fullDatabaseCall ),
                             
                         }}
