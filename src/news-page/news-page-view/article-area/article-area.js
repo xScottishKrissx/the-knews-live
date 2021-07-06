@@ -68,12 +68,12 @@ const ArticleArea = (props) => {
                 postdate={props.postdate}
             />
            
-            <div className="authorSocial">
+            {/* <div className="authorSocial">
                 <span><img title={props.author + "'s facebook"} src={fbIcon} /></span>
                 <span><img title={props.author + "'s twitter"} src={twitterIcon} /></span>
                 <span><img title={props.author + "'s instagram"} src={instagramIcon} /></span>
                 <span><img title={props.author + "'s pinterest for some reason"} src={pinterestIcon} /></span>
-            </div>
+            </div> */}
 
 
                 {/* {loggedInEmail === articleEmail ?

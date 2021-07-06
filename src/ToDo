@@ -1199,13 +1199,28 @@ General Notes  Objectives:
                     ✘ Add a footer @cancelled(17:22 - 06/07/21)
                         ✔ Final Answer:: I don't need a footer for this. Everything is in the fixed bar at the top. @done(17:22 - 06/07/21)
             12.10.7 - Website Feedback Rework:
-                ☐ Improved Feedback for bookmarking articles using button
-                ☐ Improved feedback for hiding articles using button
-                ☐ Improved feedback for no further articles available to load(either scrolling or the button)
-                ☐ Feedback for reaching end of articles in liteKnews
-                ☐ Improved feedback for switching articles
-                ☐ Add the random colour to the swipe background
-                ☐ Hiding an article should be more than just an instant vanishing act.
+                Bookmarking:
+                    ☐ Improved Feedback for bookmarking articles using button
+                    ☐ Improved feedback for bookmarking by swiping
+                Hiding Articles: 
+                    ☐ Improved feedback for hiding articles using button
+                    ☐ improved feedback for hiding by swiping
+                    ☐ Hiding an article should be more than just an instant vanishing act.
+                Scrolling:
+                    ☐ Improved feedback for no further articles available to load(either scrolling or the button)
+                liteKnews:
+                    ☐ Feedback for reaching end of articles in liteKnews
+                    ☐ Improved feedback for switching articles
+                        ☐ Can i animate this?
+                    ☐ Add the random colour to the swipe background
+                article page:
+                    ☐ better feedback for voting on article
+                    ☐ better feedback for bookmarking article
+                    ☐ better feedback for hiding article
+                    ☐ ability to undo hide
+                home:
+                    ☐ better feedback for hiding articles
+                    ☐ better feedback for bookmarking articles
             
             12.10.X - Misc:
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
