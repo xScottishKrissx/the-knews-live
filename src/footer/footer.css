@@ -1,0 +1,27 @@
+footer{
+    background-color: black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    display: flex !important;
+        justify-content: center;
+    /* position: absolute; */
+    width: 100%;
+}
+
+#footerContent{
+    background-color: black;
+    /* color: white; */
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    height: 100px;
+    width: 90%;
+    /* max-width: 1200px; */
+}
+    #footerContent > h4, #footerContent > p{margin:0; padding: 0; width: initial;}
+        #footerContent > p > a{color: inherit;}
+
+#bookmarkWrapper > footer{
+    bottom: 0;
+}

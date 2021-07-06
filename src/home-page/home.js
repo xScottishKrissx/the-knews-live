@@ -13,7 +13,8 @@ export class Home extends React.Component{
         return(
             <div className='home-wrapper' >                
                 <div className="news-item-wrapper">                   
-                    <NewsItemLoop urlTagProp={this.props.match.params.tagname }/>        
+                    <NewsItemLoop urlTagProp={this.props.match.params.tagname }/>   
+                     
                 </div>
             </div>
         )

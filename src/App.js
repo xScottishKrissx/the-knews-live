@@ -6,7 +6,7 @@ import fire from './fire.js';
 // import {Route, Redirect, Switch} from 'react-router-dom';
 
 import Header from './header/header.js';
-// import Footer from './footer/footer.js';
+import Footer from './footer/footer.js';
 import DeploymentMessage from './deployment-message/deploymentmessage.js';
 import { Routes } from './routes/routes';
 import OptionsMenu from './utility_components/optionsMenu/optionsMenu';
@@ -97,6 +97,7 @@ handleClick(){
       <Routes />
       {/* <OptionsMenu urlInfo={window.location.pathname}/> */}
       {/* <Footer /> */}
+ 
         
       </div>
     )

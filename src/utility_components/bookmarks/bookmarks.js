@@ -14,7 +14,7 @@ import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
 import markAllRead from './markAllRead.js';
 import PageTitle from '../pageTitle/pageTitle.js';
-
+import Footer from '../../footer/footer.js';
 
 class Bookmarks extends Component {
     constructor(props){
@@ -218,7 +218,7 @@ class Bookmarks extends Component {
                 />
                 }
             </div>
-            
+            {/* <Footer /> */}
             </div>
         )
     }

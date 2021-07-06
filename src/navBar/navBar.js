@@ -38,6 +38,9 @@ export class NavBar extends React.Component{
         if(localStorage.getItem("headerColour") === null){
             localStorage.setItem("headerColour",JSON.stringify(randomBackgroundColour))
         }
+        if(localStorage.getItem("randomColour") === null){           
+            localStorage.setItem("randomColour",JSON.stringify(randomColour))
+        }
     }
 
     render(){
