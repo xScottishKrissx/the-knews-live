@@ -1,6 +1,7 @@
 import React from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import FilterOptions from '../../utility_components/filterOptions/filterOptions';
+// styles in navbar.css
 
 export const FilterOptionsButton = (props) =>{
     

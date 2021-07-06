@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/esm/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { Link } from 'react-router-dom';
 import OptionsMenu from '../../../utility_components/optionsMenu/optionsMenu';
-
+// styles in navbar.css
 
 
 

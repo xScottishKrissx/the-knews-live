@@ -20,6 +20,7 @@ class Tags extends React.Component{
             leftoverArticles:[],
             searchDBFor: this.props.match.params.a || this.props.location.state.searchDBFor,
             fullDatabaseCall:[],
+            numberOfItemsInArray:[],
 
             // Hiding Posts
             postsArray:[],
@@ -137,7 +138,10 @@ class Tags extends React.Component{
         ) || this.props.location.state.arrayFromDatabase;
 
         const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
-        // console.log(renderTags.length)
+        // console.log(this.state.searchDBFor)
+        // console.log(this.props.match.params.a)        
+        // console.log(this.props.match.params.b)
+        console.log(renderTags.length)
         return(
             
             <div className="tags-wrapper">
@@ -158,6 +162,10 @@ class Tags extends React.Component{
                             tagsArray={renderTags}
 
                             // tag specific
+                            showArticleCounter={true}
+                            showTagPageTitle={true}
+                            tagPageTitle={this.props.match.params.a}
+                            tagPageTitle2={this.props.match.params.b}
                             articleNumber={renderTags.length}
                         />
 
@@ -182,7 +190,7 @@ class Tags extends React.Component{
                             />
                             }
 
-                            <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} />
+                            <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} fullDatabaseCall={this.state.fullDatabaseCall}/>
                         </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+// styles in navbar.css
 
 export const BookmarkCounter = (props) =>{
     

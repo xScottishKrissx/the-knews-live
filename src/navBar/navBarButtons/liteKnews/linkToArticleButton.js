@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton'
+// styles in navbar.css
 
 export const LinkToArticleButton = (props) =>{
     

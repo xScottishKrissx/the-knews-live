@@ -1206,9 +1206,25 @@ General Notes  Objectives:
             12.10.5 - Home Page / Cards:
                 ✔ Change mark as read icon based on current read status. @done(17:30 - 05/07/21)
                 ✔ Pick fonts for the website @done(13:01 - 05/07/21)
-                ☐ Add tag link to card tag and author
-                    ☐ Tag
-                    ☐ Author
+                ✔ Add tag link to card tag and author @done(12:48 - 06/07/21)
+                    ✔ Tag @done(12:48 - 06/07/21)
+                    ✔ Author @done(12:48 - 06/07/21)
+                Navbar (sitewide):
+                    this will be mostyl sorted when I merge the 2 menus from home and bookmarks
+                    ☐ the same options menu should be available throughout the entire website
+                    ☐ Hide mark as read
+                    ☐ Include mark as read
+                    ☐ Mark All As Read
+                    ☐ Mark All as Unread
+                    ☐ Clear All Articles
+                    ☐ Reset Card Size
+                Tags:
+                    ✔ Page Title @done(15:54 - 06/07/21)
+                        ✔ Name of Author @done(15:54 - 06/07/21)
+                        ✔ Tag @done(15:54 - 06/07/21)
+                    ✔ Number of cards in tag @done(15:54 - 06/07/21)
+                        ✔ eg = 24 articles found @done(15:54 - 06/07/21)
+
             12.10.6 - Website Footer:
                     ☐ Add a footer
             12.10.7 - Website Feedback Rework:
@@ -1228,21 +1244,10 @@ General Notes  Objectives:
                 ☐ Bookmarking an article should unhide any hidden article.
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
                 ☐ Buttons that need to be added/created
-                    Navbar (sitewide):
-                        this will be mostyl sorted when I merge the 2 menus from home and bookmarks
-                        ☐ the same options menu should be available throughout the entire website
-                        ☐ Hide mark as read
-                        ☐ Include mark as read
-                        ☐ Mark All As Read
-                        ☐ Mark All as Unread
-                        ☐ Clear All Articles
-                        ☐ Reset Card Size
-                    Tags:
-                        ☐ Page Title
-                            ☐ Name of Author
-                            ☐ Tag
-                        ☐ Number of cards in tag
-                            ☐ eg = 24 articles found
+                ☐ Issues
+                    ✔ Full Website Reset -> Tag on card -> error in scrollCheckV2(84, map undefined) @done(16:03 - 06/07/21)
+                    ✔ Fixed by adding a fulldatabase call prop to scrollCheckV2 in tags.js@done(16:03 - 06/07/21)
+
                 
     theKnews:
         ✔ Create Login System @started(18-08-21 13:58) @done(18-08-21 17:31) @lasted(3h33m15s)

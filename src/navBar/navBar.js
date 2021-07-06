@@ -15,6 +15,8 @@ import ScoreButtons from './navBarButtons/articlePage/scoreButtons';
 import BookmarkControlButtons from './navBarButtons/bookmarkControlButtons';
 import LinkToArticleButton from './navBarButtons/liteKnews/linkToArticleButton';
 import LiteKnewsControlButtons from './navBarButtons/liteKnews/liteKnewsControlButtons';
+import ArticleNumber from './navBarButtons/tagsPage/articleNumber';
+import TagPageTitle from './navBarButtons/tagsPage/tagPageTitle';
 
 export class NavBar extends React.Component{
     
@@ -151,7 +153,19 @@ export class NavBar extends React.Component{
                                 closeLiteKnews={this.props.closeLiteKnews}
                                 nextArticle={this.props.nextArticle}
                             />
-
+                            {/************Tags  */}
+                            <TagPageTitle 
+                                showTagPageTitle={this.props.showTagPageTitle}
+                                tagPageTitle={this.props.tagPageTitle}
+                                tagPageTitle2={this.props.tagPageTitle2}
+                            />
+                            <ArticleNumber 
+                                showArticleCounter={this.props.showArticleCounter} 
+                                articleNumberCount={this.props.articleNumber}
+                                />
+                        
+                            
+                                
                         </div>
 
                     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/esm/Button';
-
+// styles in navbar.css
 
 export const LiteKnewsControlButtons = (props) =>{
     

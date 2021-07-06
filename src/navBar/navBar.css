@@ -218,6 +218,16 @@
             width: inherit;
         }
 
+
+
+
+/************************************ Tags  */
+#articleNumberCount > div > p, #tagPageTitle > div > p{
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
 /* customising react.bootstrap  */
 .dropdown-toggle::after { display: none !important;}
 .btn-primary{border: 0px !important; background: inherit !important;}

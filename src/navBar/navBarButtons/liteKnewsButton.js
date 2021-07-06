@@ -1,5 +1,6 @@
 import React from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+// styles in navbar.css
 
 export const LiteKnewsButton = (props) =>{
     
