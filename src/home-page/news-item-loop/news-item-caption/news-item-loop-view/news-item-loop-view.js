@@ -1,21 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 import '../news-item-loop-view/news-item-loop-view.css';
 
-import CustomCardSize from '../../../../utility_components/custom-tile-size/custom-card-sizeV2.js';
 import FilterOptions from '../../../../utility_components/filterOptions/filterOptions';
 import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
 import RenderCard from '../../../../utility_components/renderCard/renderCard';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
 
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import SplitButton from 'react-bootstrap/SplitButton'
-import OptionsMenu from '../../../../utility_components/optionsMenu/optionsMenu';
 import NavBar from '../../../../navBar/navBar';
-import PageTitle from '../../../../utility_components/pageTitle/pageTitle.js';
 
 
 class NewsItemLoopView extends React.Component{
@@ -45,10 +38,6 @@ class NewsItemLoopView extends React.Component{
         // liteKnews
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
     }
-componentDidMount(){
-    // console.log(this.state.changedCardSize)
-}
-
 
 componentDidUpdate(){
     updateBookmarkStyles();
@@ -94,9 +83,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-        // console.log(this.state.renderArray)
-        
+                
         return(
             
             <div className="newsItemLoopViewWrapper">

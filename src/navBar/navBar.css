@@ -180,23 +180,37 @@
 }
     #bookmarkCountIndicator > div > p{margin: 0;}
 
-/************************************* Bookmark Controls */
-#bookmarkControls{ min-width: min-content; }
-    #bookmarkControls > button {width: 100%;}
-        #bookmarkControls > button > .onCardControls{display: flex; width: inherit;}
-            #bookmarkControls > button > .onCardControls > div{
-                position: relative;
-                width: inherit;
-            }
+/************************************* In Article Bookmark Controls */
+#bookmarkControls{ 
+    /* min-width: min-content;  */
+    /* outline: 1px solid red;  */
+}
+    #bookmarkControls > button {
+        width: 90%; 
+        padding: 0;
+    }
+
+        #bookmarkControls > button > .onCardControls{
+            background-color: white;
+            display: flex; 
+                justify-content: space-evenly;
+            position: relative;
+            width: inherit;
+        }
             #bookmarkControls > button > .onCardControls > div > button{
                 color: black;
                 display: contents;
-                padding: 0;
+                /* padding: 0; */
             }
                 #bookmarkControls > button > .onCardControls > div > button > span{
-                    display: inline;
-                    line-height: inherit;
+                    opacity: 2;
                 }
+                #bookmarkControls > button > .onCardControls > div > button > span:hover{
+                    text-decoration: underline;
+                }
+
+
+
 
 .tags-item-wrapper > .filterButtonWrapper {position: absolute; left: -9999999999px;}
 

@@ -1,27 +1,23 @@
 import React,{Component} from 'react';
 
-import "../bookmarks/bookmarks.css";
-
+import "../bookmarks/onCardBookmarkControls.css";
 
 // Bookmarks
 import MarkAsRead from '../bookmarks/markAsRead.js';
-import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 
 // Hiding
 import HideArticle from '../../utility_components/hide-article/hide-articlev2.js';
 import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
 import removeBookmark from './removeBookmark';
-import updateBookmarkStyles from './updateBookmarkStyle';
 import createBookmark from './createBookmark';
-
 
 class OnCardBookMarkControls extends Component {
     constructor(props){
         super(props);
         this.state = {
             bookmarks:[],
+        }
     }
-}
 
 
 markAsRead(id){
@@ -39,8 +35,6 @@ markAsRead(id){
 hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
 
-    // console.log(arrayFromDatabase.length)
-    // handleHideArticleFeedback();
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
     console.log(articles)
     var hideArticle = articles.map(el => {
@@ -49,7 +43,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
             return el
     });
     if(this.props.hideBookmarkedArticle === true){
-        console.log("Perma Hide Bookmark")
+        // console.log("Perma Hide Bookmark")
         var hideArticle = articles.map(el => {
             if(el.id === id && el != null )
                 return Object.assign({}, el, {bookmarked:false, hidden:true})
@@ -62,10 +56,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
 
-    // document.getElementById(id).classList.add('markAsRead')
-    // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
     hideArticleFeedback()
-    // removeBookmark(id)
 }
 
 componentDidMount(){
@@ -73,38 +64,10 @@ componentDidMount(){
         bookmarked:this.props.bookmarkedStatus,
         read:this.props.readStatus
     })
-    // if(JSON.parse(localStorage.getItem("bookmarkArray")) === null){
-    //     // console.log("Thing is null")
-    //     this.setState({toggle:false, read:false})
-    // } 
 }
 
-componentDidUpdate(){
-    // updateBookmarkStyles();
-
-}
-
-// toggle(id){
-//     console.log("Button Clicked")
-//     if(this.state.toggle === false){
-//         this.setState({toggle: true})
-//         console.log("Bookmark Created")
-//         swipeLeftAction(this.props.id,this.props.fullDatabaseCall)
-//     }
-//     if(this.state.toggle === true){
-//         this.setState({toggle: false})
-//         console.log("Bookmark Removed")
-//         removeBookmark(id)
-//     }
-// }
 
 handleClick(){
-
-    // console.log(this.props.bookmarkedStatus)
-    // console.log(this.state.bookmarked)
-
-    // console.log(this.props.bookmarkedStatus)
-    // console.log(this.state.bookmarked)
     
     if(this.state.bookmarked === true){
         this.setState({bookmarked:false})
@@ -116,15 +79,13 @@ handleClick(){
 }
 
 render(){
-    // console.log(this.props.hideBookmarkedArticle)
     return(
-        <div className="onCardControls">
-                    
+        <div className="onCardControls">          
         
         {this.props.showMarkAsReadButton === false ?
             null
         :
-        <div className="markAsReadButtonWrapper">
+        <div className="">
             <button title="Mark As Read" onClick={()=>this.markAsRead(this.props.id)}> 
             {this.state.read === true ? 
                 <span class="material-icons" >check_circle</span>
@@ -135,7 +96,7 @@ render(){
         </div>  
         }
 
-        <div className="bookmarkButtonWrapper">
+        <div>
             {this.state.bookmarked === false ? 
         
                 <button onClick={()=>this.handleClick(this.props.id)}>
@@ -144,14 +105,14 @@ render(){
                 </button>
                 :
                 <button onClick={()=>this.handleClick(this.props.id)}>
-                    <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in</span> 
+                    <span  class="material-icons increaseCardBookmarkOpacity" id={this.props.id + "bookmarkIcon"}>turned_in</span> 
                    
                 </button>
                 
                 
             }
         </div>
-        <div className="hideArticleButtonWrapper">
+        <div>
             {this.props.hideBookmarkedArticle === true ?
             <button title="Permanently Remove Bookmark and Hide" onClick={() => this.hideArticle(
                 this.props.id,

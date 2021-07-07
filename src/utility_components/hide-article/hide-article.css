@@ -1,28 +1,4 @@
-/* Universal Style */
-.hideArticleButtonWrapper{
-    /* background-color: black; */
-    /* color: white; */
-
-
-}
-
-.hideArticleButtonWrapper button{
-    height: 2rem;
-    background-color: rgba(255, 255, 255, 0);
-    color: inherit;
-
-    cursor: pointer;
-
-    width: auto;
-
-    margin: 0 auto;
-}
-
-
-
-
 /* Article Page Hide Button */
-
 .news-article-body .hideArticleButtonWrapper{
     /* position: absolute; */
     z-index: 1;

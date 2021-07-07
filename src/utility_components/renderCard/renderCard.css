@@ -1,5 +1,3 @@
-/* *{border:1px solid red} */
-
 /* Home Page Hide Button */
 .myClass{
     color: black;
@@ -8,25 +6,8 @@
     margin: 3px;
     position: relative;
 }
-    .myClass:hover{ 
-         /* border: 3px solid black;  */
-         /* margin: 0px; */
-         outline: 2px solid black;
-        }
+    .myClass:hover{ outline: 2px solid black; }
     
-    .onCardControls > div {
-        position: absolute;
-        z-index: 1;
-        padding: 0px;
-        cursor: pointer;
-        color: rgb(255, 254, 254);
-    }
-        .myClass .hideArticleButtonWrapper{ left: 72px; top: 0px; }
-        .myClass .bookmarkButtonWrapper{ left: 36px; top: 0px; }
-        .myClass .markAsReadButtonWrapper{ left: 0; top: 0px; }
-        
-        .onCardControls > div  > button{ background-color: #00000066; }
-
 /* NewMap Class */
 .news-square{
     display: flex;
@@ -42,7 +23,6 @@
     
 /* Bookmarks */
 .markAsRead{opacity: 0.5; }
-
 
 /* .swipeable-list-item__content{opacity: 0 !important;} */
 .myClass > div > div > .swipeable-list-item__content-right,

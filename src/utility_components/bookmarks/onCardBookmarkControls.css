@@ -1,63 +1,23 @@
-/* Bookmark.js */
-#bookmarkWrapper{
-    margin-top: 100px;
-}
-    #bookmarkItemsWrapper{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    #bookmarkItemsWrapper > .myClass{
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-/* rendercard.js */
-.bookmarkControlsWrapper{
+.onCardControls{
+    background-color: #00000066;
     display: flex;
-    justify-content: space-evenly;
-}
-.bookmarkControlsWrapper > button{
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    outline: 1px solid black;
-    width: 100%;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    width: fill-available;
+    line-height: 0;
+    padding: 1px;
+    position: absolute;
+        right: 0;
+        top: 0;
+    
+        z-index: 1;
 }
 
-.bookmarkButtonWrapper button{
-    height: 2rem;
-    background-color:#00000000;
-    color: inherit;
+    .onCardControls > div > button{
+        background-color: inherit;
+        color: white;
+        height: auto; 
+        width: auto;
+    }
 
-    cursor: pointer;
+    .onCardControls > div > button > span{ opacity: 0.5; }
+    .onCardControls > div > button > span:hover{ opacity: 2; }
+        .increaseCardBookmarkOpacity{opacity: 2 !important;}
 
-    width: auto;
-
-    margin: 0 auto;
-}
-
-.markAsReadButtonWrapper button{
-    height: 2rem;
-    background-color:#00000000;
-    color: inherit;
-
-    cursor: pointer;
-
-    width: auto;
-
-    margin: 0 auto;
-}
-
-/* Remove Bookmark */
-
-
-.bookmarkStyle{
-    /* border: 1px solid green; */
-    color: red !important;
-    /* opacity: 2.0  !important; */
-}
