@@ -10,7 +10,7 @@ import updateBookmarkStyles from '../../../../utility_components/bookmarks/updat
 
 import NavBar from '../../../../navBar/navBar';
 
-
+import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
 class NewsItemLoopView extends React.Component{
 
     constructor(props){
@@ -135,6 +135,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
 
                 <div className="cardsWrapper">
+                <RenderCardState database={renderToPage}/>
                 {this.props.databaseProp.length >= 30 && thing ? 
                 // The Cards themselves...
                  <RenderCard

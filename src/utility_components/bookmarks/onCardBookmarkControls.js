@@ -60,10 +60,17 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
 }
 
 componentDidMount(){
+//     const otherthing = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
+//    const thing =  otherthing.filter(x => x.bookmarked === true && x.id === this.props.id) 
+//    console.log(thing)
+
     this.setState({
         bookmarked:this.props.bookmarkedStatus,
         read:this.props.readStatus
     })
+    // if(thing.length > 0){
+    //     this.setState({bookmarked:true})
+    // }
 }
 
 
@@ -79,6 +86,7 @@ handleClick(){
 }
 
 render(){
+    // console.log(this.props.bookmarkTest)
     return(
         <div className="onCardControls">          
         

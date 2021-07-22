@@ -1200,12 +1200,21 @@ General Notes  Objectives:
                         ✔ Final Answer:: I don't need a footer for this. Everything is in the fixed bar at the top. @done(17:22 - 06/07/21)
             12.10.7 - Website Feedback Rework:
                 Bookmarking:
-                    ☐ Improved Feedback for bookmarking articles using button
+                    ✔ Improved Feedback for bookmarking articles using button @done(12:13 - 07/07/21)
+                        lowered opacity by default and increased it on hover and when bookmarked making the bookmark standout more
                     ☐ Improved feedback for bookmarking by swiping
+                        ☐ Change Bookmark icon on swipe
+                        ☐ I want to update the card but I need to update state to do that. I think the best way of doing that is to wrap the renderCard component in a stateful component that can handle state and update bookmarked status.
+                            ☐ I've moved over to a stateful component to see if I can make this easier.
+                                ☐ No luck so far, I can update the array and state but the card controls don't update to reflect the new value. Not sure where to go from here. 
+                                ☐ I need this to work so I need to figure this out
+                                ☐ There's a a lot of things to consider here. Maybe try and recreate the issue in a smaller scale and work from there.
+
                 Hiding Articles: 
                     ☐ Improved feedback for hiding articles using button
                     ☐ improved feedback for hiding by swiping
                     ☐ Hiding an article should be more than just an instant vanishing act.
+                    ☐ Ability to undo a hide
                 Scrolling:
                     ☐ Improved feedback for no further articles available to load(either scrolling or the button)
                 liteKnews:
@@ -1436,6 +1445,10 @@ Part 2 Implement Database functionality:
                     ✔ Added a randomly changing background colour to the header because why not. It's fun.
                     ✔ Asjusted navbar proportions, now everything is more evenly spaced and less cramped
                     ✔ Fixed navbar swallowing top of cards. 
+                ✔ V12.10.5 - Nothing of note, just small tweaks @done(12:09 - 07/07/21)
+                ✔ V12.10.6- Cancelled footer @done(12:09 - 07/07/21)
+                ☐ V12.10.7 - Website Feedback Overhaul
+                    ✔ Tweaked on card bookmark controls by centering them in the area and moving the area to the right for easier use with hands. @done(12:10 - 07/07/21)
                    
                     
         
