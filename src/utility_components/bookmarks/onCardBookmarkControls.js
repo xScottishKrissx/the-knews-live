@@ -60,9 +60,9 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
 }
 
 componentDidMount(){
-//     const otherthing = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
-//    const thing =  otherthing.filter(x => x.bookmarked === true && x.id === this.props.id) 
-//    console.log(thing)
+    //     const otherthing = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
+    //    const thing =  otherthing.filter(x => x.bookmarked === true && x.id === this.props.id) 
+    //    console.log(thing)
 
     this.setState({
         bookmarked:this.props.bookmarkedStatus,
@@ -70,12 +70,11 @@ componentDidMount(){
     })
     // if(thing.length > 0){
     //     this.setState({bookmarked:true})
-    // }
+    // }   
 }
 
 
 handleClick(){
-    
     if(this.state.bookmarked === true){
         this.setState({bookmarked:false})
         removeBookmark(this.props.id)
@@ -83,10 +82,12 @@ handleClick(){
         this.setState({bookmarked:true})
         createBookmark(this.props.id,this.props.fullDatabaseCall)
     }
+    console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
 }
 
 render(){
     // console.log(this.props.bookmarkTest)
+    // console.log(this.props.bookmarkedStatus)    
     return(
         <div className="onCardControls">          
         
@@ -120,6 +121,21 @@ render(){
                 
             }
         </div>
+        {/* New Version */}
+        <div>
+            {this.props.bookmarkedStatus === true ? 
+                                <button onClick={()=>this.handleClick(this.props.id)}>
+                                <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in</span>
+                                
+                            </button>
+                :
+                <button onClick={()=>this.handleClick(this.props.id)}>
+                <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>
+                
+            </button>                 
+            }
+        </div>
+
         <div>
             {this.props.hideBookmarkedArticle === true ?
             <button title="Permanently Remove Bookmark and Hide" onClick={() => this.hideArticle(

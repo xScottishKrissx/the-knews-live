@@ -79,11 +79,20 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         document.getElementById(x).classList.add("showMenu")
     }
 
+    // handleBookmark Swipe to change icon or something i dont know...
+    testThing = (articles) => {
+        console.log(articles)
+        console.log(this.state.renderArray)
+        this.setState({
+            renderArray:articles
+        })
+    }
+
 
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-                
+        console.log(renderToPage)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -135,9 +144,20 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
 
                 <div className="cardsWrapper">
-                <RenderCardState database={renderToPage}/>
+                <RenderCardState 
+                    database={renderToPage}
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+                    postsArray={this.state.postsArray}
+                    arrayFromDatabase={this.props.databaseProp} 
+                    leftoverArticles={this.props.leftoverArticles}  
+                    fullDatabaseCall={this.props.fullDatabaseCall}
+                    
+                    //
+                    testThing={this.testThing}
+                    />
+{/*                     
                 {this.props.databaseProp.length >= 30 && thing ? 
-                // The Cards themselves...
                  <RenderCard
                     database={renderToPage}
                     startingCardSize={this.state.startingCardSize}
@@ -150,7 +170,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
-                }
+                } */}
                 
                
                 {this.state.getArticleBy === "All" ?

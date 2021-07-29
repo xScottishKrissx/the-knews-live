@@ -11,26 +11,33 @@ import swipeLeftAction from '../swipeLeftAction.js';
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
 import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
+import createBookmark from '../bookmarks/createBookmark';
+
 
 class RenderCardState extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            
         }
     }
 
-    swipeLeftAction(id,b){
-        console.log("Swipe")
+    swipeLeftAction(id,b,database){
         this.setState({bookmarked:b})
-        console.log(id)
-        console.log(b)
-        console.log(this.state.bookmarked)
+        createBookmark(id,database)
+        this.setState({bookmarked:b})
+        console.log(this.props.database)
+        
+        
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // console.log(articles)
+        this.props.testThing(articles)
     }
     // console.log(this.props.database.length)
     render(){
-        console.log(this.state.bookmarked)
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // console.log(articles)
+        console.log(this.props.database)
     const pageView = this.props.database.map((value,key) => {
         
         // console.log(this.props.hideBookmarkedArticle)
@@ -58,7 +65,7 @@ class RenderCardState extends React.Component{
                         
                         swipeLeft={{
                             content:<div>Bookmarking Article..{this.props.showProgress}</div>,
-                            action: () => this.swipeLeftAction(value.id,true),
+                            action: () => this.swipeLeftAction(value.id,true,this.props.fullDatabaseCall),
                             
                         }}
 
