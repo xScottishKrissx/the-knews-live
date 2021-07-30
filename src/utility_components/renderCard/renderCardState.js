@@ -22,26 +22,26 @@ class RenderCardState extends React.Component{
         }
     }
 
-    swipeLeftAction(id,b,database){
-        this.setState({bookmarked:b})
+    swipeLeftAction(id,b,database,bookmarked){
+        // this.setState({bookmarked:b})
         createBookmark(id,database)
-        this.setState({bookmarked:b})
-        console.log(this.props.database)
-        
+        // this.setState({bookmarked:b})
+        // console.log(this.props.database)
+        // console.log(bookmarked)
         
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(articles)
         this.props.testThing(articles)
     }
     // console.log(this.props.database.length)
     render(){
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         // console.log(articles)
-        console.log(this.props.database)
+        console.log(this.props.database[0])
     const pageView = this.props.database.map((value,key) => {
         
         // console.log(this.props.hideBookmarkedArticle)
         // console.log(this.props.loadingProgress)
+        // console.log(value.bookmarked)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
     
@@ -65,7 +65,7 @@ class RenderCardState extends React.Component{
                         
                         swipeLeft={{
                             content:<div>Bookmarking Article..{this.props.showProgress}</div>,
-                            action: () => this.swipeLeftAction(value.id,true,this.props.fullDatabaseCall),
+                            action: () => this.swipeLeftAction(value.id,true,this.props.fullDatabaseCall,value.bookmarked),
                             
                         }}
 
@@ -103,6 +103,7 @@ class RenderCardState extends React.Component{
 
                                     />
                             </div>
+                            
                     
                     </SwipeableListItem>
                 </SwipeableList>

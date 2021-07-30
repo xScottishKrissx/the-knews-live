@@ -16,7 +16,10 @@ class OnCardBookMarkControls extends Component {
         super(props);
         this.state = {
             bookmarks:[],
+            bookmarked:this.props.bookmarkedStatus
         }
+        this.updateProp = this.updateProp.bind(this);
+
     }
 
 
@@ -64,16 +67,26 @@ componentDidMount(){
     //    const thing =  otherthing.filter(x => x.bookmarked === true && x.id === this.props.id) 
     //    console.log(thing)
 
-    this.setState({
-        bookmarked:this.props.bookmarkedStatus,
-        read:this.props.readStatus
-    })
+    // this.setState({
+    //     bookmarked:this.props.bookmarkedStatus,
+    //     read:this.props.readStatus
+    // })
     // if(thing.length > 0){
     //     this.setState({bookmarked:true})
     // }   
 }
+componentDidUpdate(prevProps){
+    if (this.props.bookmarkedStatus !== prevProps.bookmarkedStatus) {
+        this.updateProp(this.props.bookmarkedStatus);
+      }
+}
 
-
+updateProp(a){
+    console.log(a)
+    this.setState({
+            bookmarked:a
+    })
+}
 handleClick(){
     if(this.state.bookmarked === true){
         this.setState({bookmarked:false})
@@ -82,15 +95,28 @@ handleClick(){
         this.setState({bookmarked:true})
         createBookmark(this.props.id,this.props.fullDatabaseCall)
     }
-    console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+    // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
 }
 
 render(){
     // console.log(this.props.bookmarkTest)
     // console.log(this.props.bookmarkedStatus)    
+    // console.log(this.props.fullDatabaseCall)
     return(
-        <div className="onCardControls">          
-        
+        <div className="onCardControls">   
+        <section>     
+        {this.props.bookmarkedStatus === true ?
+            <p>True</p>    
+        :
+            <p>False</p>
+        }
+        </section>  
+        {this.state.bookmarked === true ?
+            <p>True</p>    
+        :
+            <p>False</p>
+        }
+
         {this.props.showMarkAsReadButton === false ?
             null
         :
@@ -116,23 +142,19 @@ render(){
                 <button onClick={()=>this.handleClick(this.props.id)}>
                     <span  class="material-icons increaseCardBookmarkOpacity" id={this.props.id + "bookmarkIcon"}>turned_in</span> 
                    
-                </button>
-                
-                
+                </button>   
             }
         </div>
         {/* New Version */}
         <div>
-            {this.props.bookmarkedStatus === true ? 
-                                <button onClick={()=>this.handleClick(this.props.id)}>
-                                <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in</span>
-                                
-                            </button>
+            {this.props.bookmarkedStatus === false ? 
+                <button onClick={()=>this.handleClick(this.props.id)}>
+                    <span class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>                                
+                </button>
                 :
                 <button onClick={()=>this.handleClick(this.props.id)}>
-                <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>
-                
-            </button>                 
+                    <span class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in</span>
+                </button>                 
             }
         </div>
 
