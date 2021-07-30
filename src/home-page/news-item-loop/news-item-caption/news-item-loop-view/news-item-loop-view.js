@@ -81,7 +81,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
     // handleBookmark Swipe to change icon or something i dont know...
     testThing = (articles) => {
-        console.log(articles)
+        // console.log(articles)
        
         this.setState({
             renderArray:articles

@@ -12,6 +12,8 @@ import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-
 
 import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 import createBookmark from '../bookmarks/createBookmark';
+import removeBookmark from '../bookmarks/removeBookmark';
+
 
 
 class RenderCardState extends React.Component{
@@ -23,12 +25,9 @@ class RenderCardState extends React.Component{
     }
 
     swipeLeftAction(id,b,database,bookmarked){
-        // this.setState({bookmarked:b})
-        createBookmark(id,database)
-        // this.setState({bookmarked:b})
-        // console.log(this.props.database)
-        // console.log(bookmarked)
-        
+        if(bookmarked === true){ removeBookmark(id) }
+        if(bookmarked === false){ createBookmark(id,database) }
+            
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.testThing(articles)
     }
@@ -36,7 +35,7 @@ class RenderCardState extends React.Component{
     render(){
         // const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         // console.log(articles)
-        console.log(this.props.database[0])
+        // console.log(this.props.database[0])
     const pageView = this.props.database.map((value,key) => {
         
         // console.log(this.props.hideBookmarkedArticle)
@@ -64,7 +63,15 @@ class RenderCardState extends React.Component{
                     <SwipeableListItem                    
                         
                         swipeLeft={{
-                            content:<div>Bookmarking Article..{this.props.showProgress}</div>,
+                            content:                            
+                                <div>
+                                    {value.bookmarked === false ? 
+                                        <span> Bookmarking Article..</span> 
+                                            : 
+                                        <span>Removing Bookmark</span>
+                                    }                                   
+                                </div>
+                                ,
                             action: () => this.swipeLeftAction(value.id,true,this.props.fullDatabaseCall,value.bookmarked),
                             
                         }}

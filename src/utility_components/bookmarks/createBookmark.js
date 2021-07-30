@@ -2,7 +2,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     // console.log(id)
     // console.log(database)
     // console.log(changedFullDatabaseCall)
-    console.log("Bookmark created with article " + id)
+    // console.log("Bookmark created with article " + id)
 
     // document.getElementById(id + "bookmarkIcon").classList.add('bookmarkStyle')
     // document.getElementById(id).classList.remove('markAsRead')
