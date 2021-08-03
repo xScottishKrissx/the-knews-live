@@ -1199,7 +1199,7 @@ General Notes  Objectives:
                     ✘ Add a footer @cancelled(17:22 - 06/07/21)
                         ✔ Final Answer:: I don't need a footer for this. Everything is in the fixed bar at the top. @done(17:22 - 06/07/21)
             12.10.7 - Website Feedback Rework:
-                Bookmarking:
+               12.10.7.1 - Bookmarking:
                     ✔ Improved Feedback for bookmarking articles using button @done(12:13 - 07/07/21)
                         lowered opacity by default and increased it on hover and when bookmarked making the bookmark standout more
                     ✔ Improved feedback for bookmarking by swiping @done(11:30 - 03/08/21)
@@ -1221,27 +1221,27 @@ General Notes  Objectives:
                             ☐ Q: Having create the new component, do I actually need state for this??
                                 ☐ A:
 
-                Hiding Articles: 
+                12.10.7.2 - Hiding Articles: 
                     ☐ Improved feedback for hiding articles using button
                     ☐ improved feedback for hiding by swiping
                     ☐ Hiding an article should be more than just an instant vanishing act.
                     ☐ Ability to undo a hide
-                Scrolling:
+                12.10.7.3 - Scrolling:
                     ☐ Improved feedback for no further articles available to load(either scrolling or the button)
-                liteKnews:
+                12.10.7.4 - liteKnews:
                     ☐ Feedback for reaching end of articles in liteKnews
                     ☐ Improved feedback for switching articles
                         ☐ Can i animate this?
                     ☐ Add the random colour to the swipe background
-                article page:
+                12.10.7.5 - article page:
                     ☐ better feedback for voting on article
                     ☐ better feedback for bookmarking article
                     ☐ better feedback for hiding article
                     ☐ ability to undo hide
-                home:
+                12.10.7.6 - home:
                     ☐ better feedback for hiding articles
                     ☐ better feedback for bookmarking articles
-                recommended reading:
+                12.10.7.7 - recommended reading:
                     ☐ looks terrible
             
             12.10.X - Misc:
