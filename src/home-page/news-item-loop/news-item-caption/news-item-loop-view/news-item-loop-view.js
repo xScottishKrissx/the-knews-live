@@ -65,35 +65,20 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         this.setState({
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
-        })
-        
-    }
-    swipeThing(x){
-        console.log(x)
-        this.setState({
-            loadingProgress:x
-        })
-    }
-    handleMenu(x){
-        console.log("Show Menu")
-        document.getElementById(x).classList.add("showMenu")
+        })        
     }
 
-    // handleBookmark Swipe to change icon or something i dont know...
-    testThing = (articles) => {
-        // console.log(articles)
-       
-        this.setState({
-            renderArray:articles
-        })
-        // console.log(this.state.renderArray)
-    }
+    swipeThing(x){ this.setState({ loadingProgress:x }) }
+    handleMenu(x){ document.getElementById(x).classList.add("showMenu") }
+
+    // Updates the main render array when bookmarking articles. 
+    // This let's me change the bookmark icon when using any of the bookmark options 
+    updateBookmarkStatus = (articles) => { this.setState({ renderArray:articles }) }
 
 
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-        // console.log(renderToPage)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -145,6 +130,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
 
                 <div className="cardsWrapper">
+                {this.props.databaseProp.length >= 30 && thing ? 
                 <RenderCardState 
                     database={renderToPage}
                     startingCardSize={this.state.startingCardSize}
@@ -153,12 +139,13 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     arrayFromDatabase={this.props.databaseProp} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
-                    
-                    //
-                    testThing={this.testThing}
+                    updateBookmarkStatus={this.updateBookmarkStatus}
                     />
-{/*                     
-                {this.props.databaseProp.length >= 30 && thing ? 
+                :
+                <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
+                }
+                    
+                {/* {this.props.databaseProp.length >= 30 && thing ? 
                  <RenderCard
                     database={renderToPage}
                     startingCardSize={this.state.startingCardSize}
@@ -168,6 +155,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
+                    updateBookmarkStatus={this.updateBookmarkStatus}
                  />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 

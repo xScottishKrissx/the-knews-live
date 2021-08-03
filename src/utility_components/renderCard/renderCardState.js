@@ -1,6 +1,5 @@
 import React from 'react'
 import './renderCard.css';
-// Things needed for map items test
 // Swiping
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
@@ -14,8 +13,6 @@ import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 import createBookmark from '../bookmarks/createBookmark';
 import removeBookmark from '../bookmarks/removeBookmark';
 
-
-
 class RenderCardState extends React.Component{
 
     constructor(props){
@@ -25,28 +22,22 @@ class RenderCardState extends React.Component{
     }
 
     swipeLeftAction(id,b,database,bookmarked){
+         // Handles updating the bookmark when swiping
         if(bookmarked === true){ removeBookmark(id) }
         if(bookmarked === false){ createBookmark(id,database) }
             
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        this.props.testThing(articles)
+        this.props.updateBookmarkStatus(articles)
     }
-    updateProp(bookmarked){
-        if(bookmarked === true)console.log("True")
-        if(bookmarked === false)console.log("False")
+    updateProp(){
+        // Handles updating the bookmark when clicking the bookmark icon
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        this.props.testThing(articles)
+        this.props.updateBookmarkStatus(articles)
     }
-    // console.log(this.props.database.length)
+
     render(){
-        // const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(articles)
-        // console.log(this.props.database[0])
+
     const pageView = this.props.database.map((value,key) => {
-        
-        // console.log(this.props.hideBookmarkedArticle)
-        // console.log(this.props.loadingProgress)
-        // console.log(value.bookmarked)
         
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   

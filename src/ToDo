@@ -1202,13 +1202,24 @@ General Notes  Objectives:
                 Bookmarking:
                     ✔ Improved Feedback for bookmarking articles using button @done(12:13 - 07/07/21)
                         lowered opacity by default and increased it on hover and when bookmarked making the bookmark standout more
-                    ☐ Improved feedback for bookmarking by swiping
-                        ☐ Change Bookmark icon on swipe
-                        ☐ I want to update the card but I need to update state to do that. I think the best way of doing that is to wrap the renderCard component in a stateful component that can handle state and update bookmarked status.
-                            ☐ I've moved over to a stateful component to see if I can make this easier.
-                                ☐ No luck so far, I can update the array and state but the card controls don't update to reflect the new value. Not sure where to go from here. 
-                                ☐ I need this to work so I need to figure this out
-                                ☐ There's a a lot of things to consider here. Maybe try and recreate the issue in a smaller scale and work from there.
+                    ✔ Improved feedback for bookmarking by swiping @done(11:30 - 03/08/21)
+                        ✔ Change Bookmark icon on swipe @done(11:30 - 03/08/21)
+                            ✔ Add/Remove bookmark using same swipe depending on current bookmark status @done(11:31 - 03/08/21)
+                        Integrate:
+                            ☐ ScrollCheckV2
+                            ☐ liteKnews
+                            ☐ in article bookmarks
+                        
+                         I want to update the card but I need to update state to do that. I think the best way of doing that is to wrap the renderCard component in a stateful component that can handle state and update bookmarked status.
+                             I've moved over to a stateful component to see if I can make this easier.
+                                 No luck so far, I can update the array and state but the card controls don't update to reflect the new value. Not sure where to go from here. 
+                                 I need this to work so I need to figure this out
+                                 There's a a lot of things to consider here. Maybe try and recreate the issue in a smaller scale and work from there.
+                                 3/8 - I've done it. You can now add or remove bookmarks using both the buttons and swiping.
+                                     The solution was to use both a prop and state within the oncardcontrols and update them to match eatch other when clicking or gesturing.
+                                     This involved lifting the state from the oncardcontrols file, into the new state based render card method.
+                            ☐ Q: Having create the new component, do I actually need state for this??
+                                ☐ A:
 
                 Hiding Articles: 
                     ☐ Improved feedback for hiding articles using button
@@ -1230,6 +1241,8 @@ General Notes  Objectives:
                 home:
                     ☐ better feedback for hiding articles
                     ☐ better feedback for bookmarking articles
+                recommended reading:
+                    ☐ looks terrible
             
             12.10.X - Misc:
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
