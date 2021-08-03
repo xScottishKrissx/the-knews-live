@@ -1207,8 +1207,11 @@ General Notes  Objectives:
                             ✔ Add/Remove bookmark using same swipe depending on current bookmark status @done(11:31 - 03/08/21)
                         Integrate:
                             ☐ ScrollCheckV2
-                            ☐ liteKnews
-                            ☐ in article bookmarks
+                                leaving this until i get to the scrollCheck rework
+                            ✔ liteKnews @done(12:28 - 03/08/21)
+                            ✔ in article bookmarks @done(12:29 - 03/08/21)
+                            ☐ filter views
+                            ☐ bookmark page
                         
                          I want to update the card but I need to update state to do that. I think the best way of doing that is to wrap the renderCard component in a stateful component that can handle state and update bookmarked status.
                              I've moved over to a stateful component to see if I can make this easier.
@@ -1218,8 +1221,8 @@ General Notes  Objectives:
                                  3/8 - I've done it. You can now add or remove bookmarks using both the buttons and swiping.
                                      The solution was to use both a prop and state within the oncardcontrols and update them to match eatch other when clicking or gesturing.
                                      This involved lifting the state from the oncardcontrols file, into the new state based render card method.
-                            ☐ Q: Having create the new component, do I actually need state for this??
-                                ☐ A:
+                             Q: Having create the new component, do I actually need state for this??
+                                A: I don't need the state but I do need the non-functional component for my code to work
 
                 12.10.7.2 - Hiding Articles: 
                     ☐ Improved feedback for hiding articles using button

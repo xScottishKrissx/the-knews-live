@@ -12,7 +12,7 @@ import removeBookmark from './removeBookmark';
 import createBookmark from './createBookmark';
 
 class OnCardBookMarkControls extends Component {
-    
+
     constructor(props){
         super(props);
         this.state = {
@@ -69,12 +69,12 @@ handleClick(){
     if(this.state.bookmarked === true){
         this.setState({bookmarked:false})
         removeBookmark(this.props.id)
-        this.props.updateProp(false)
+        if(this.props.updateProp)this.props.updateProp(false)
         
     }else{
         this.setState({bookmarked:true})
         createBookmark(this.props.id,this.props.fullDatabaseCall)
-        this.props.updateProp(true)
+        if(this.props.updateProp)this.props.updateProp(true)
     }
     
 }

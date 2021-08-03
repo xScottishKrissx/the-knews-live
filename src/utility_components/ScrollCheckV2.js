@@ -2,7 +2,8 @@ import React from 'react';
 import fire from '../fire.js';
 
 // Render Card
-import RenderCard from './renderCard/renderCard.js';
+import RenderCard from './renderCard/renderCardState.js';
+
 
 class ScrollCheckV2 extends React.Component{
     constructor(props){

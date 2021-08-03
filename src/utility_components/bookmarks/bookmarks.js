@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import fire from '../../fire.js';
 
 import "../bookmarks/bookmarks.css";
-import RenderCard from '../renderCard/renderCard.js';
+import RenderCard from '../renderCard/renderCardState.js';
 
 // Bookmarks
 import clearAllBookmarks from './clearAllBookmarks.js';
