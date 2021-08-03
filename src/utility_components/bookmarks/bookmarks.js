@@ -151,6 +151,23 @@ class Bookmarks extends Component {
         
     }
 
+    updateBookmarkStatus = (articles) => { 
+        //    console.log( localStorage.getItem("storedFilterOptionTest"))
+        //    Need to account for filtered articles
+
+
+        // This is mostly right, but when removing bookmarks with a filter active -> the render is overwritten with the full non filtered array. 
+           const filterForBookmarks = articles.filter(x=>x.bookmarked === true)
+           const filterChoice = localStorage.getItem("filterOption")
+           const filteredArticles = filterForBookmarks.filter(x=> x.tag === filterChoice && x.bookmarked === true)
+    
+            if(filterChoice === "All"){
+                this.setState({ bookmarks:filterForBookmarks })
+            }else{
+                this.setState({ bookmarks:filteredArticles }) 
+            }
+        }
+
 
     render(){
 
@@ -214,6 +231,8 @@ class Bookmarks extends Component {
                     // Custom Card Size
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
+
+                    updateBookmarkStatus={this.updateBookmarkStatus}
                     
                 />
                 }
