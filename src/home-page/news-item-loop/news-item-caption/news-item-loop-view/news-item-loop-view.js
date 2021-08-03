@@ -66,7 +66,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
         })        
-        console.log( localStorage.getItem("storedFilterOptionTest"))
+        // console.log( localStorage.getItem("storedFilterOptionTest"))
     }
 
     swipeThing(x){ this.setState({ loadingProgress:x }) }
@@ -75,12 +75,16 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     // Updates the main render array when bookmarking articles. 
     // This let's me change the bookmark icon when using any of the bookmark options 
     updateBookmarkStatus = (articles) => { 
-       console.log( localStorage.getItem("storedFilterOptionTest"))
+    //    console.log( localStorage.getItem("storedFilterOptionTest"))
     //    Need to account for filtered articles
-       const filterChoice = localStorage.getItem("storedFilterOptionTest")
+       const filterChoice = localStorage.getItem("filterOption")
        const filteredArticles = articles.filter(x=> x.tag === filterChoice)
-    //    console.log(forFilter)
-        this.setState({ renderArray:filteredArticles }) 
+
+        if(filterChoice === "All"){
+            this.setState({ renderArray:articles })
+        }else{
+            this.setState({ renderArray:filteredArticles }) 
+        }
     }
 
 
