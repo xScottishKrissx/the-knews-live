@@ -73,10 +73,12 @@ class FilterOptions extends Component {
         var updateState = this.props.getFilteredArticles;
         // console.log(updateState)
         if(this.props.bookmarked != true){
+            localStorage.setItem("storedFilterOptionTest",value)
             if(value === "All" ){
                 updateState(filteredForHiddenArticlesDB,value)
             }else{
                 updateState(filteredByTag,value)
+                
             }
         }else{
             if(value.includes("All") ){
