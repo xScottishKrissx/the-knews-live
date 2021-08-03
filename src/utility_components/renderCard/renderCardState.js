@@ -31,6 +31,12 @@ class RenderCardState extends React.Component{
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.testThing(articles)
     }
+    updateProp(bookmarked){
+        if(bookmarked === true)console.log("True")
+        if(bookmarked === false)console.log("False")
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        this.props.testThing(articles)
+    }
     // console.log(this.props.database.length)
     render(){
         // const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
@@ -41,6 +47,7 @@ class RenderCardState extends React.Component{
         // console.log(this.props.hideBookmarkedArticle)
         // console.log(this.props.loadingProgress)
         // console.log(value.bookmarked)
+        
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
     
@@ -56,6 +63,7 @@ class RenderCardState extends React.Component{
                         arrayFromDatabase={this.props.arrayFromDatabase}
 
                         bookmarkTest={this.state.bookmarked}
+                        updateProp={()=>this.updateProp(value.bookmarked)}
  
                 />
                

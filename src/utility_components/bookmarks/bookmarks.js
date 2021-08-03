@@ -48,7 +48,7 @@ class Bookmarks extends Component {
         })
     }
     componentDidMount(){
-        console.log(JSON.parse(localStorage.getItem("myData"))[0])
+        // console.log(JSON.parse(localStorage.getItem("myData"))[0])
         if(JSON.parse(localStorage.getItem("myData"))[0] === null){
             // console.log(JSON.parse(localStorage.getItem("myData"))[0])
         }

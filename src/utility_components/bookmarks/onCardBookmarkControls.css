@@ -21,3 +21,8 @@
     .onCardControls > div > button > span:hover{ opacity: 2; }
         .increaseCardBookmarkOpacity{opacity: 2 !important;}
 
+/* tESTING */
+.onCardControls > p{
+    align-self: flex-end;
+    color: white;
+}

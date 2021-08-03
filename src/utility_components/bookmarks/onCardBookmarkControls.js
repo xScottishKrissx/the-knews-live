@@ -64,27 +64,36 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
 
 
 componentDidUpdate(prevProps){
+    // console.log("Prev Props: " + prevProps.bookmarkedStatus)
+    // console.log("Current Prop: " + this.props.bookmarkedStatus)
     if (this.props.bookmarkedStatus !== prevProps.bookmarkedStatus) {
         this.updateProp(this.props.bookmarkedStatus);
       }
 }
 
-updateProp(a){
-    console.log(a)
-    this.setState({ bookmarked:a })
-}
-
-
 handleClick(){   
+    console.log("Prop: " + this.props.bookmarkedStatus + " || " + "State: " + this.state.bookmarked )
+
+    // console.log(this.props.bookmarkedStatus)
     if(this.state.bookmarked === true){
         this.setState({bookmarked:false})
         removeBookmark(this.props.id)
+        this.props.updateProp(false)
+        
     }else{
         this.setState({bookmarked:true})
         createBookmark(this.props.id,this.props.fullDatabaseCall)
+        this.props.updateProp(true)
     }
+    // console.log(this.props.bookmarkedStatus)
     
     // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+    
+}
+
+updateProp(a){
+    // console.log(a)
+    this.setState({ bookmarked:a })
 }
 
 render(){
