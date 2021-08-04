@@ -28,13 +28,16 @@ class FilterOptions extends Component {
         if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
 
         // Set filter option.
-        // console.log(this.props.bookmarked)
-        if(this.props.bookmarked  === undefined){
+        console.log(this.props.bookmarked)
+        if(this.props.bookmarked  === false || undefined){
             this.getArticlesBy(localStorage.getItem("filterOption"))
+            // console.log("Home")
         }else{
             this.getArticlesBy(localStorage.getItem("bookmarksFilterOption"))
+            // console.log("Not Home")
         }
         
+
     }
     getArticlesBy(value){
         // console.log(value)
@@ -74,6 +77,7 @@ class FilterOptions extends Component {
         // console.log(updateState)
         if(this.props.bookmarked != true){
             localStorage.setItem("filterOption",value)
+            // console.log(value)
             if(value === "All" ){
                 updateState(filteredForHiddenArticlesDB,value)
             }else{
@@ -81,6 +85,8 @@ class FilterOptions extends Component {
                 
             }
         }else{
+            localStorage.setItem("bookmarksFilterOption",value)
+            // console.log(value)
             if(value.includes("All") ){
                 updateState(filterBookmarksAll,value,filterBookmarksAll.length)
             }else{
@@ -89,17 +95,18 @@ class FilterOptions extends Component {
         }
         
         // Set Filter Option into local storage
-        if(this.props.bookmarked  === undefined){
-            localStorage.setItem("filterOption",value)
-        }else{
-            localStorage.setItem("bookmarksFilterOption",value)
-            }
+        // if(this.props.bookmarked  === false){
+        //     localStorage.setItem("filterOption",value)
+        // }else{
+        //     localStorage.setItem("bookmarksFilterOption",value)
+        //     }
     }
 
     render(){
         
         // console.log(this.props.tagsArray)
-
+        // console.log("Main Filter -> " + localStorage.getItem("filterOption"))
+        // console.log("Bookmark Page -> " + localStorage.getItem("bookmarksFilterOption"))
 
         
         // Adding article count to dropdown menu.

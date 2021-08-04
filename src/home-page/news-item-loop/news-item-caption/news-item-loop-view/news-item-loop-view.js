@@ -78,6 +78,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     //    console.log( localStorage.getItem("storedFilterOptionTest"))
     //    Need to account for filtered articles
        const filterChoice = localStorage.getItem("filterOption")
+       console.log(filterChoice)
        const filteredArticles = articles.filter(x=> x.tag === filterChoice)
 
         if(filterChoice === "All"){

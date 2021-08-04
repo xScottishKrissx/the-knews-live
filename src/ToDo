@@ -1213,7 +1213,7 @@ General Notes  Objectives:
                             ✔ filter views @done(13:30 - 03/08/21)
                                 The main issue is that i am re-rerendering the page everytime an article is bookmarked, which overwrites the filtered views render.
                                 Solved it by adding a filter just before setting state in updateBookmarkStatus
-                            ☐ bookmark page
+                            ✔ bookmark page @done(10:59 - 04/08/21)
                         
                          I want to update the card but I need to update state to do that. I think the best way of doing that is to wrap the renderCard component in a stateful component that can handle state and update bookmarked status.
                              I've moved over to a stateful component to see if I can make this easier.
