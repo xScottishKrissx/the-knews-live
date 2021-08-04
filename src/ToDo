@@ -1238,6 +1238,10 @@ General Notes  Objectives:
                                 ✔ to do this i think i need a new row in the database, "marked as Hidden". @done(13:14 - 04/08/21)
                                     ✔ Added the new row and now the card doesnt instantly disappear but vanishes when the page reloads or you activate filters. Next is the UI overlay for the marked as hidden card. @done(13:15 - 04/08/21)
                                 ☐ this will be used to sign post that the article can be removed but can appear on screen until a new render.
+                                    ✔ created the overlay ui @done(13:35 - 04/08/21)
+                                    ✔ activate on pressing the hide button @done(13:47 - 04/08/21)
+                                    ☐ issue: bookmarking a card re-rerenders the page and removes the markedforhide cards which i don't want. 
+                                    ☐ issue: the card controls are accessible with the overlay active.
                                 
 
 

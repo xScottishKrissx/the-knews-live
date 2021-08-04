@@ -19,6 +19,38 @@
 
     .news-square:hover{ border-radius: 1%; }
 
+
+    .markedAsHideOverlayWrapper{
+        background-color: #000000b3;
+        display:none;
+        align-items: center;
+        height: 100%;
+        outline: 1px solid red;
+
+        position: absolute;
+        text-align: center;
+        
+        width: 100%;
+        
+    }
+    .markedAsHideOverlayWrapper > div{
+        background-color: white;
+        display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+        outline: 1px solid black;
+        -ms-flex-align: center;
+        width: 100%;
+    }
+    .displayFlex{
+        display: flex;
+    }
+
+
+
+
 @media (max-width: 550px) { .news-square{ width: 300px !important; } }
     
 /* Bookmarks */

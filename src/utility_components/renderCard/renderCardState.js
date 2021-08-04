@@ -36,7 +36,9 @@ class RenderCardState extends React.Component{
         
         this.props.updateBookmarkStatus(articles)
     }
-
+    hideOverlay(id){
+        document.getElementById(id + "markedAsHiddenOverlay").classList.remove("displayFlex")
+    }
     render(){
 
     const pageView = this.props.database.map((value,key) => {
@@ -110,6 +112,14 @@ class RenderCardState extends React.Component{
                                     // Testing
 
                                     />
+                            </div>
+                            <div className="markedAsHideOverlayWrapper" id={value.id + "markedAsHiddenOverlay"}>
+                                <div>
+                                    <h3>Marked As Hidden</h3>
+                                    {/* <p>You've marked this card as hidden. It will be removed when the page reloads or you activate the filter menu.</p>
+                                    <p>It will not appear unless you reset the website or you press the undo button below.</p> */}
+                                    <button onClick={()=>this.hideOverlay(value.id)}>Undo</button>
+                                </div>
                             </div>
                             
                     

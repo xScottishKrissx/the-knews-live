@@ -60,7 +60,8 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
 
-    hideArticleFeedback()
+    // hideArticleFeedback()
+    document.getElementById(this.props.id + "markedAsHiddenOverlay").classList.add("displayFlex")
 }
 
 
@@ -92,7 +93,7 @@ updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 render(){
     return(
         <div className="onCardControls">   
-
+        {/* <p>Hello</p> */}
 {/* Mark as Read button */}
         {this.props.showMarkAsReadButton === false ?
             null
