@@ -1231,6 +1231,13 @@ General Notes  Objectives:
                     ☐ improved feedback for hiding by swiping
                     ☐ Hiding an article should be more than just an instant vanishing act.
                     ☐ Ability to undo a hide
+
+                        ☐ I dont want articles to instantly disappear.
+                            ☐ My idea is to "replace" the card with a message that the article will be removed on the next reload of the page. This also gives users the chance to undo if the hide was a miss-click.
+                                ☐ to do this i think i need a new row in the database, "marked as Hidden".
+                                ☐ this will be used to sign post that the article can be removed but can appear on screen until a new render.
+
+
                 12.10.7.3 - Scrolling:
                     ☐ Improved feedback for no further articles available to load(either scrolling or the button)
                 12.10.7.4 - liteKnews:
@@ -1274,6 +1281,7 @@ General Notes  Objectives:
                 ☐ Issues
                     ✔ Full Website Reset -> Tag on card -> error in scrollCheckV2(84, map undefined) @done(16:03 - 06/07/21)
                     ✔ Fixed by adding a fulldatabase call prop to scrollCheckV2 in tags.js@done(16:03 - 06/07/21)
+                    ☐ the mark as read button is behaving weird. It's taking multiple clicks to initially activate.
 
                 
     theKnews:

@@ -22,16 +22,8 @@ class Bookmarks extends Component {
         this.state = {
             fullDatabaseCall:[],
             bookmarks:[],
-
-                    // Card Size
-        startingCardSize:"",
-        // changedCardSize:{
-        //     width: JSON.parse(localStorage.getItem("myData"))[0] || "250px",
-        //     height: JSON.parse(localStorage.getItem("myData"))[1] || "300px"
-        //     },
-            // getArticleBy:localStorage.getItem("bookmarksFilterOption")
-
-
+            // Card Size
+            startingCardSize:"",
         }
         this.getCardSize = this.getCardSize.bind(this);
         // this.clearBookmarks = this.clearBookmarks.bind(this);
@@ -39,7 +31,6 @@ class Bookmarks extends Component {
 
 
     getCardSize(width,height){
-        // console.log(width +" "+ height)
         this.setState({
             startingCardSize:{
                 width:width,
@@ -48,16 +39,8 @@ class Bookmarks extends Component {
         })
     }
     componentDidMount(){
-        // console.log(JSON.parse(localStorage.getItem("myData"))[0])
-        if(JSON.parse(localStorage.getItem("myData"))[0] === null){
-            // console.log(JSON.parse(localStorage.getItem("myData"))[0])
-        }
-
-
-        // var cardSize = {}
         const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
         if(cardSizeInStorage === null){
-            // cardSize = ["260px","400px"]
             this.setState({changedCardSize:{
                 width:"260px",
                 height:"400px"
@@ -67,7 +50,6 @@ class Bookmarks extends Component {
                 width:cardSizeInStorage[0],
                 height:cardSizeInStorage[1]
             }})
-            // cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
         }
 
 
@@ -102,8 +84,6 @@ class Bookmarks extends Component {
               
             })    
       })  
-
-
         if(this.state.getArticleBy === undefined){
             this.setState({getArticleBy:localStorage.getItem("bookmarksFilterOption")})
         }
@@ -119,30 +99,22 @@ class Bookmarks extends Component {
         this.setState({bookmarks:[]})
     }
     
-    componentDidUpdate(){
-        updateBookmarkStyles();
-    }
+    componentDidUpdate(){ updateBookmarkStyles(); }
 
     updateBookmarkCount(){ 
         // Update Bookmark count on removing/adding bookmarks
         const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
         var filterBookmarks = {}
         if(this.state.getArticleBy === "All"){
-            // console.log("Filter By All")
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true)
         }else{
-            // console.log("Filter By Tag")
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
         }
         this.setState({ bookmarksCount: filterBookmarks.length}) 
-        // console.log(this.state.bookmarks)
     }
 
     // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy,length) => {
-        // console.log(filteredByTag)
-        // console.log(getArticleBy)
-        // console.log(length)
         this.setState({
             bookmarks: filteredByTag,
             getArticleBy:getArticleBy,
@@ -151,20 +123,13 @@ class Bookmarks extends Component {
         
     }
 
-    updateBookmarkStatus = (articles) => { 
-        //    console.log( localStorage.getItem("storedFilterOptionTest"))
-        //    Need to account for filtered articles
-
-
-        // This is mostly right, but when removing bookmarks without a filter active -> the render is overwritten with the full non filtered array. 
+    updateBookmarkStatus = (articles) => {
            const filterForBookmarks = articles.filter(x=>x.bookmarked === true)
            const filterChoice = localStorage.getItem("bookmarksFilterOption")
-           console.log(filterChoice)
            const filteredArticles = filterForBookmarks.filter(x=> x.tag === filterChoice )
     
             if(filterChoice.includes("All")){
-                this.setState({ bookmarks:filterForBookmarks })
-                
+                this.setState({ bookmarks:filterForBookmarks })                
             }else{
                 this.setState({ bookmarks:filteredArticles }) 
             }
@@ -172,13 +137,10 @@ class Bookmarks extends Component {
 
 
     render(){
-
-
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         
         const fullDatabaseCall = this.state.fullDatabaseCall
         const bookmarkCount = this.state.bookmarksCount;
-        // console.log(bookmarkCount)
         return(
 
         <div id="bookmarkWrapper">

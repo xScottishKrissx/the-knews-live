@@ -6,7 +6,6 @@ class FilterOptions extends Component {
     constructor(props){
         super(props);
         this.state = {
-                    //hiding articles for filter views
         getArticleBy:"All",
         renderArray:[],
         bookmarkArray:[]
@@ -14,13 +13,11 @@ class FilterOptions extends Component {
     }
 
     componentDidMount(){
-        // console.log("Filter Options Mounted")
         // If no filter option exists in storage, set as All to display a default view.
         if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
         if(localStorage.getItem("bookmarksFilterOption") === null)localStorage.setItem("bookmarksFilterOption","All");
 
         // Detect url params and set the view as appropriate. This functions as the tag page.
-        // console.log(this.props.urlTagProp)
         const urlTagProp = this.props.urlTagProp;  
         if(urlTagProp && urlTagProp.includes("news" || "News"))localStorage.setItem("filterOption","News");
         if(urlTagProp && urlTagProp.includes("sports"||"Sports"))localStorage.setItem("filterOption","Sports");
@@ -31,22 +28,17 @@ class FilterOptions extends Component {
         console.log(this.props.bookmarked)
         if(this.props.bookmarked  === false || undefined){
             this.getArticlesBy(localStorage.getItem("filterOption"))
-            // console.log("Home")
         }else{
             this.getArticlesBy(localStorage.getItem("bookmarksFilterOption"))
-            // console.log("Not Home")
         }
         
 
     }
     getArticlesBy(value){
-        // console.log(value)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const fullDatabaseCallFromProp = this.props.fullDatabaseCall
-        // console.log(fullDatabaseCallFromProp)
+
         const fullDatabaseCall = fullDatabaseCallFromStorage || fullDatabaseCallFromProp;
-        // const fullDatabaseCall = fullDatabaseCallFromProp || fullDatabaseCallFromStorage;
-        // console.log(fullDatabaseCall)
 
         // Filter array for null objects and remove anything marked as hidden.
         const filteredForHiddenArticlesDB = fullDatabaseCall.filter(obj => 
@@ -56,8 +48,6 @@ class FilterOptions extends Component {
 
         // Filter Article By Tag --> Has to be separate from above to allow for unfiltered view.
         const filteredByTag = filteredForHiddenArticlesDB.filter(obj => obj.tag === value);
-        // console.log(filteredByTag)
-        // console.log(value)
         this.setState({
             getArticleBy:value,
             renderArray:filteredByTag,
@@ -65,54 +55,29 @@ class FilterOptions extends Component {
 
         // bookmark page
         const filterBookmarks = filteredForHiddenArticlesDB.filter(obj => obj.tag === value && obj.bookmarked === true);
-        // console.log(filterBookmarks.length)
-
         const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
-        // console.log(filterBookmarks)
-        // console.log(filterBookmarksAll)
         this.setState({bookmarkArray:filterBookmarksAll})
 
-
         var updateState = this.props.getFilteredArticles;
-        // console.log(updateState)
         if(this.props.bookmarked != true){
             localStorage.setItem("filterOption",value)
-            // console.log(value)
             if(value === "All" ){
                 updateState(filteredForHiddenArticlesDB,value)
             }else{
-                updateState(filteredByTag,value)
-                
+                updateState(filteredByTag,value)                
             }
         }else{
             localStorage.setItem("bookmarksFilterOption",value)
-            // console.log(value)
             if(value.includes("All") ){
                 updateState(filterBookmarksAll,value,filterBookmarksAll.length)
             }else{
                 updateState(filterBookmarks,value,filterBookmarks.length)
             }
         }
-        
-        // Set Filter Option into local storage
-        // if(this.props.bookmarked  === false){
-        //     localStorage.setItem("filterOption",value)
-        // }else{
-        //     localStorage.setItem("bookmarksFilterOption",value)
-        //     }
     }
 
-    render(){
-        
-        // console.log(this.props.tagsArray)
-        // console.log("Main Filter -> " + localStorage.getItem("filterOption"))
-        // console.log("Bookmark Page -> " + localStorage.getItem("bookmarksFilterOption"))
-
-        
-        // Adding article count to dropdown menu.
-        
-
-
+    render(){        
+  
         var allTags = {}
         if(this.props.bookmarked === true){
             // Bookmarks Page

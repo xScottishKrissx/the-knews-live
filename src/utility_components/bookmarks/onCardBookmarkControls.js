@@ -42,7 +42,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     console.log(articles)
     var hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
-            return Object.assign({}, el, {hidden:true})
+            return Object.assign({}, el, {hidden:false})
             return el
     });
     if(this.props.hideBookmarkedArticle === true){

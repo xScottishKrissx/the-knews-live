@@ -104,7 +104,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         // console.log(changedFullDatabaseCall)
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changedFullDatabaseCall))
 
-       if(document.getElementById(value))document.getElementById(value).style.display = "none";    
+    //    if(document.getElementById(value))document.getElementById(value).style.display = "none";    
 }
     
 
