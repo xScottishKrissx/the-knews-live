@@ -56,6 +56,7 @@ export class NewsPage extends React.Component{
                 disliked:dbObjects[dbObject].disliked,
                 email:dbObjects[dbObject].email,
                 hidden:dbObjects[dbObject].hidden,
+                markedforhide:dbObjects[dbObject].markedforhide,
                 id:dbObjects[dbObject].id,
                 key:dbObject,
                 likes:dbObjects[dbObject].likes,

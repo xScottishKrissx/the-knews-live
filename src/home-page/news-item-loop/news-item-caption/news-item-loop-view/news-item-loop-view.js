@@ -75,17 +75,16 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     // Updates the main render array when bookmarking articles. 
     // This let's me change the bookmark icon when using any of the bookmark options 
     updateBookmarkStatus = (articles) => { 
-    //    console.log( localStorage.getItem("storedFilterOptionTest"))
-    //    Need to account for filtered articles
+       const removeMarkedForHide = articles.filter(x=> x.markedforhide === false)
        const filterChoice = localStorage.getItem("filterOption")
-       console.log(filterChoice)
-       const filteredArticles = articles.filter(x=> x.tag === filterChoice)
 
-        if(filterChoice === "All"){
-            this.setState({ renderArray:articles })
-        }else{
-            this.setState({ renderArray:filteredArticles }) 
-        }
+       const filteredArticles = removeMarkedForHide.filter(x=> x.tag === filterChoice )
+
+       if(filterChoice === "All"){
+            this.setState({ renderArray:removeMarkedForHide })
+       }else{
+           this.setState({ renderArray:filteredArticles }) 
+       }
     }
 
 
@@ -93,7 +92,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
-        // console.log(localStorage.getItem("filterOption"))
+        // renderToPage.filter(x=>x.markedforhide === false)
+        
         return(
             
             <div className="newsItemLoopViewWrapper">

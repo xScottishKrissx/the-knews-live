@@ -27,11 +27,13 @@ class RenderCardState extends React.Component{
         if(bookmarked === false){ createBookmark(id,database) }
             
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+
         this.props.updateBookmarkStatus(articles)
     }
     updateProp(){
         // Handles updating the bookmark when clicking the bookmark icon
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        
         this.props.updateBookmarkStatus(articles)
     }
 
