@@ -1246,9 +1246,11 @@ General Notes  Objectives:
                                         ✔ to answer the original problem i simply removed the filter from the update bookmark status function in news-item-loop-view. This lead me to change the code as detailed above. @done(11:34 - 05/08/21)
                                     ✔ issue: the card controls are accessible with the overlay active. @done(11:57 - 05/08/21)
                                         ✔ added a check for value.markedforhide to onCardBookmark controls in the renderCard component. @done(11:58 - 05/08/21)
-                                    ☐ dragging should be disabled while the overlay is active
+                                    ✔ dragging should be disabled while the overlay is active @done(12:09 - 05/08/21)
+                                    ☐ integrate undo hide button
                                     ☐ the overlay should overwrite any other styles(eg. mark as read)
                                     ☐ marked for hide articles shouldnt appear in liteKnews
+                                    ☐ integrate swiping to hide
                                 
 
 

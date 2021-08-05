@@ -74,7 +74,7 @@ class RenderCardState extends React.Component{
                
                <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                     <SwipeableListItem                    
-                        
+                        blockSwipe={value.markedforhide}
                         swipeLeft={{
                             content:                            
                                 <div>
