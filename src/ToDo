@@ -1247,7 +1247,7 @@ General Notes  Objectives:
                                     ✔ issue: the card controls are accessible with the overlay active. @done(11:57 - 05/08/21)
                                         ✔ added a check for value.markedforhide to onCardBookmark controls in the renderCard component. @done(11:58 - 05/08/21)
                                     ✔ dragging should be disabled while the overlay is active @done(12:09 - 05/08/21)
-                                    ☐ integrate undo hide button
+                                    ✔ integrate undo hide button @done(12:19 - 05/08/21)
                                     ☐ the overlay should overwrite any other styles(eg. mark as read)
                                     ☐ marked for hide articles shouldnt appear in liteKnews
                                     ☐ integrate swiping to hide
@@ -1273,6 +1273,7 @@ General Notes  Objectives:
                     ☐ looks terrible
             
             12.10.X - Misc:
+                ☐ the mark as read button is pretty broken.
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Move the on card bookmark controls out of the bookmark folder
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)

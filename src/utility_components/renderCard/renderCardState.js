@@ -37,8 +37,21 @@ class RenderCardState extends React.Component{
         
         this.props.updateBookmarkStatus(articles)
     }
-    hideOverlay(id){
-        document.getElementById(id + "markedAsHiddenOverlay").classList.remove("displayFlex")
+    unhideArticle(id){
+        // document.getElementById(id + "markedAsHiddenOverlay").classList.remove("displayFlex")
+
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        console.log(articles)
+        var unhideArticle = articles.map(el => {
+            if(el.id === id && el.markedforhide === true && el != null )
+                // return Object.assign({}, el, {hidden:false})
+                return Object.assign({}, el, {markedforhide:false})
+                return el
+        });
+    
+        localStorage.setItem("bookmarkArray", JSON.stringify(unhideArticle))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(unhideArticle))
+        this.props.updateHideStatus(unhideArticle)
     }
     hidePressed(){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
@@ -129,7 +142,7 @@ class RenderCardState extends React.Component{
                                         <h3>Marked As Hidden</h3>
                                         {/* <p>You've marked this card as hidden. It will be removed when the page reloads or you activate the filter menu.</p>
                                         <p>It will not appear unless you reset the website or you press the undo button below.</p> */}
-                                        <button onClick={()=>this.hideOverlay(value.id)}>Undo</button>
+                                        <button onClick={()=>this.unhideArticle(value.id)}>Undo</button>
                                     </div>
                                 </div>
                             :
