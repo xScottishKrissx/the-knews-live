@@ -160,7 +160,12 @@ class RenderCardState extends React.Component{
                                         <h3>Marked As Hidden</h3>
                                         {/* <p>You've marked this card as hidden. It will be removed when the page reloads or you activate the filter menu.</p>
                                         <p>It will not appear unless you reset the website or you press the undo button below.</p> */}
-                                        <button onClick={()=>this.unhideArticle(value.id)}>Undo</button>
+                                        <div className="undoHideButton" onClick={()=>this.unhideArticle(value.id)}>
+                                            <span>
+                                                <span class="material-icons">cancel</span>
+                                                <span>Cancel</span>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             :

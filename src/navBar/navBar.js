@@ -17,6 +17,7 @@ import LinkToArticleButton from './navBarButtons/liteKnews/linkToArticleButton';
 import LiteKnewsControlButtons from './navBarButtons/liteKnews/liteKnewsControlButtons';
 import ArticleNumber from './navBarButtons/tagsPage/articleNumber';
 import TagPageTitle from './navBarButtons/tagsPage/tagPageTitle';
+import Reload from './navBarButtons/reload';
 
 export class NavBar extends React.Component{
     
@@ -62,6 +63,11 @@ export class NavBar extends React.Component{
                         
                             {/************ Home Button */}
                             <HomeBtn homeButtonOn={this.props.homeButtonOn}/>
+                            
+                            <Reload 
+                                reload={this.props.reload}
+                                forceReload={this.props.forceReload}
+                            />
                             
                             {/************Bookmark Number Indicator  */}
                             <BookmarkCounter 
@@ -166,6 +172,7 @@ export class NavBar extends React.Component{
                                 showArticleCounter={this.props.showArticleCounter} 
                                 articleNumberCount={this.props.articleNumber}
                                 />
+
                         
                             
                                 

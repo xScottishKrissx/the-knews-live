@@ -101,7 +101,15 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         // articles.filter(x=>x.markedforhide === false)
         this.setState({renderArray:articles})
     }
-
+    reload(){
+        const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        if(localStorageCards){
+            const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
+            this.setState({renderArray:filterMarkedAsHiddenForReload})
+            console.log(this.state.renderArray)
+        }
+    }
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
@@ -134,6 +142,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         liteKnews={true} 
                         bookmarks={true} 
                         options={true}
+                        reload={true}
                         pageTitle="The current knews"
                         
                         // filter
@@ -150,6 +159,9 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         fullDatabaseCall={this.props.fullDatabaseCall}  
                         
                         bookmarkNumber={this.state.renderArray.length}
+
+                        //forceReload
+                        forceReload={()=>this.reload()}
                         
                     />
 
@@ -160,6 +172,9 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
 
                 <div className="cardsWrapper">
+                
+
+
                 {this.props.databaseProp.length >= 30 && thing ? 
                 <RenderCardState 
                     database={renderToPage}

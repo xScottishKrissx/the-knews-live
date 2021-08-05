@@ -1254,6 +1254,9 @@ General Notes  Objectives:
                                     ✔ integrate swiping to hide @done(13:28 - 05/08/21)
                                         ☐ include feedback that you can't hide a bookmarked article
                                     ☐ integrate in article hide button
+                                    ✔ add a force refresh button @done(14:00 - 05/08/21)
+                                        ☐ styles need improving(but the functionality is good)
+                                        
                                         
                                     ✔ the unhide article button in options isn't unhiding the articles. @done(12:56 - 05/08/21)   
                                         ->changed the hide to markedforhide

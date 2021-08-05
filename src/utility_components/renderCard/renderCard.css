@@ -48,6 +48,24 @@
         display: flex;
     }
 
+    .undoHideButton{
+        background-color: #404040;
+        /* outline: 1px solid red; */
+        cursor: pointer;
+        display: flex;
+            justify-content: center;
+        width: 100%;
+    }
+    .undoHideButton > span{
+        color: white;
+        display: flex;
+            align-items: center;
+            justify-content: space-around;
+        /* outline: 1px solid peru; */
+        width: 30%;
+    }
+    .undoHideButton > span > .material-icons{font-size: 30px;}
+
 
 
 
