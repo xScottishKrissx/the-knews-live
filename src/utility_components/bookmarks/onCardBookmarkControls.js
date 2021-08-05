@@ -46,7 +46,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
             return Object.assign({}, el, {markedforhide:true})
             return el
     });
-
+    
     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     

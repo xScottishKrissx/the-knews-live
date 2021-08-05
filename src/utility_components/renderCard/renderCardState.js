@@ -31,6 +31,22 @@ class RenderCardState extends React.Component{
 
         this.props.updateBookmarkStatus(articles)
     }
+    swipeRightAction(id,fullDatabaseCall){
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
+        console.log(articles)
+        var hideArticle = articles.map(el => {
+            if(el.id === id && el.bookmarked === false && el != null )
+                // return Object.assign({}, el, {hidden:false})
+                return Object.assign({}, el, {markedforhide:true})
+                return el
+        });
+        
+        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+        
+        // Shows the overlay
+        this.props.updateBookmarkStatus(hideArticle)
+    }
     updateProp(){
         // Handles updating the bookmark when clicking the bookmark icon
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
@@ -56,6 +72,7 @@ class RenderCardState extends React.Component{
     hidePressed(){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.updateHideStatus(articles)
+        // document.getElementById(id).classList.remove("markAsRead")
     }
     render(){
 
@@ -78,7 +95,7 @@ class RenderCardState extends React.Component{
 
                         bookmarkTest={this.state.bookmarked}
                         updateProp={()=>this.updateProp(value.bookmarked)}
-                        hidePressed={()=> this.hidePressed()}         
+                        hidePressed={()=> this.hidePressed(value.id)}   
                     />
                 : 
                 null
@@ -105,15 +122,16 @@ class RenderCardState extends React.Component{
                         swipeRight={{
                             content: <div>Hiding article...</div>, 
                             
-                            action: () => swipeRightAction(
-                                value.id, 
-                                this.props.postsArray,
-                                this.props.arrayFromDatabase,
-                                this.props.leftoverArticles,
-                                this.props.fullDatabaseCall,
-                                this.props.bookmarked
+                            // action: () => swipeRightAction(
+                            //     value.id, 
+                            //     this.props.postsArray,
+                            //     this.props.arrayFromDatabase,
+                            //     this.props.leftoverArticles,
+                            //     this.props.fullDatabaseCall,
+                            //     this.props.bookmarked
                                 
-                            )
+                            // )
+                            action:() => this.swipeRightAction(value.id,this.props.fullDatabaseCall)
                         }}
                         // onSwipeProgress={progress => console.log(progress)}
                         

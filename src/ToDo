@@ -1249,29 +1249,35 @@ General Notes  Objectives:
                                     ✔ dragging should be disabled while the overlay is active @done(12:09 - 05/08/21)
                                     ✔ integrate undo hide button @done(12:19 - 05/08/21)
                                     ☐ the overlay should overwrite any other styles(eg. mark as read)
+                                        ☐ wait for 12.10.7.3
                                     ☐ marked for hide articles shouldnt appear in liteKnews
-                                    ☐ integrate swiping to hide
+                                    ✔ integrate swiping to hide @done(13:28 - 05/08/21)
+                                        ☐ include feedback that you can't hide a bookmarked article
+                                    ☐ integrate in article hide button
+                                        
                                     ✔ the unhide article button in options isn't unhiding the articles. @done(12:56 - 05/08/21)   
                                         ->changed the hide to markedforhide
                                 
 
+                12.10.7.3 - Mark As Read:
+                    ☐ With the new hiding, mark as read is totally borked.
 
-                12.10.7.3 - Scrolling:
+                12.10.7.4 - Scrolling:
                     ☐ Improved feedback for no further articles available to load(either scrolling or the button)
-                12.10.7.4 - liteKnews:
+                12.10.7.5 - liteKnews:
                     ☐ Feedback for reaching end of articles in liteKnews
                     ☐ Improved feedback for switching articles
                         ☐ Can i animate this?
                     ☐ Add the random colour to the swipe background
-                12.10.7.5 - article page:
+                12.10.7.6 - article page:
                     ☐ better feedback for voting on article
                     ☐ better feedback for bookmarking article
                     ☐ better feedback for hiding article
                     ☐ ability to undo hide
-                12.10.7.6 - home:
+                12.10.7.7 - home:
                     ☐ better feedback for hiding articles
                     ☐ better feedback for bookmarking articles
-                12.10.7.7 - recommended reading:
+                12.10.7.8 - recommended reading:
                     ☐ looks terrible
             
             12.10.X - Misc:

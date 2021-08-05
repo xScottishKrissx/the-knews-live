@@ -54,7 +54,7 @@ class LiteKnews extends Component {
     }
 
     render(){ 
-    const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false)
+    const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false && obj.markedforhide === false)
     const articleFromArray = filterHidden[this.state.articleNumber];
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]

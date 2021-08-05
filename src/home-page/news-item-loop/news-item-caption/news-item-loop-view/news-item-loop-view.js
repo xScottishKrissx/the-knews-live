@@ -43,7 +43,7 @@ componentDidMount(){
     const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
     if(localStorageCards){
         const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
-        // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
         this.setState({renderArray:filterMarkedAsHiddenForReload})
         console.log(this.state.renderArray)
     }
