@@ -49,7 +49,9 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
 
     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
-    this.props.hidePressed()
+    
+    // Shows the overlay
+    if(this.props.hidePressed)this.props.hidePressed()
 
 
     if(this.props.hideBookmarkedArticle === true){

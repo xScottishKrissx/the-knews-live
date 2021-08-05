@@ -1241,9 +1241,11 @@ General Notes  Objectives:
                                     ✔ created the overlay ui @done(13:35 - 04/08/21)
                                     ✔ activate on pressing the hide button @done(13:47 - 04/08/21)
                                     ✔ issue: bookmarking a card re-rerenders the page and removes the markedforhide cards which i don't want. @done(11:33 - 05/08/21)
-                                        ✔ solved this by removing the hideArticle component from the oncardbookmark controls and instead made the website filter out mark for hide articles on component mount in news-item-loop-view. This means you can mark articles as hidden and only when the page reloads will they disappear @done(11:33 - 05/08/21)
+                                        ✔ solved this by removing the hideArticle component from the oncardbookmark controls that instantly hid articles, and instead made the website filter out mark for hide articles on component mount in news-item-loop-view. This means you can mark articles as hidden and only when the page reloads will they disappear @done(11:33 - 05/08/21)
+                                        ✔ This is a big change but I think its for the better. It gives users a greater degree of control over the interface and also helps with the problem of what happens if you hide all articles on screen without reloading. Now, you're forced to reload the interface which will result in a full page of articles(as long as there's something in the database, another issue still to be solved.) @done(11:39 - 05/08/21)
                                         ✔ to answer the original problem i simply removed the filter from the update bookmark status function in news-item-loop-view. This lead me to change the code as detailed above. @done(11:34 - 05/08/21)
-                                    ☐ issue: the card controls are accessible with the overlay active.
+                                    ✔ issue: the card controls are accessible with the overlay active. @done(11:57 - 05/08/21)
+                                        ✔ added a check for value.markedforhide to onCardBookmark controls in the renderCard component. @done(11:58 - 05/08/21)
                                     ☐ dragging should be disabled while the overlay is active
                                     ☐ the overlay should overwrite any other styles(eg. mark as read)
                                     ☐ marked for hide articles shouldnt appear in liteKnews

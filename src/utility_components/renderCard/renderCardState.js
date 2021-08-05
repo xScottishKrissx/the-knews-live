@@ -18,7 +18,7 @@ class RenderCardState extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            test:false
+            
         }
     }
 
@@ -41,7 +41,6 @@ class RenderCardState extends React.Component{
         document.getElementById(id + "markedAsHiddenOverlay").classList.remove("displayFlex")
     }
     hidePressed(){
-        console.log("Test")
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.updateHideStatus(articles)
     }
@@ -52,7 +51,8 @@ class RenderCardState extends React.Component{
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
     
-                <OnCardBookMarkControls 
+                {value.markedforhide === false  ?
+                    <OnCardBookMarkControls 
                         id={value.id}
                         bookmarkedStatus={value.bookmarked}
                         readStatus={value.read}
@@ -65,9 +65,12 @@ class RenderCardState extends React.Component{
 
                         bookmarkTest={this.state.bookmarked}
                         updateProp={()=>this.updateProp(value.bookmarked)}
-                        hidePressed={()=> this.hidePressed()}
- 
-                />
+                        hidePressed={()=> this.hidePressed()}         
+                    />
+                : 
+                null
+                }
+
                
                <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
                     <SwipeableListItem                    
@@ -120,7 +123,7 @@ class RenderCardState extends React.Component{
 
                                     />
                             </div>
-                            {value.markedforhide === true || this.state.test === true ? 
+                            {value.markedforhide === true  ? 
                                 <div className="markedAsHideOverlayWrapper" id={value.id + "markedAsHiddenOverlay"}>
                                     <div>
                                         <h3>Marked As Hidden</h3>

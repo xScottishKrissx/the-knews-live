@@ -40,17 +40,14 @@ class NewsItemLoopView extends React.Component{
     }
 
 componentDidMount(){
-    console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-if(JSON.parse(localStorage.getItem("changedFullDatabaseCall"))){
     const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-    const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
-    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
-    console.log(filterMarkedAsHiddenForReload)
-    this.setState({renderArray:filterMarkedAsHiddenForReload})
+    if(localStorageCards){
+        const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
+        this.setState({renderArray:filterMarkedAsHiddenForReload})
+    }
 }
 
-
-}
 componentDidUpdate(){
     updateBookmarkStyles();
 }
