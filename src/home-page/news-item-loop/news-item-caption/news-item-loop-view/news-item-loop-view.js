@@ -39,6 +39,18 @@ class NewsItemLoopView extends React.Component{
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
     }
 
+componentDidMount(){
+    console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+if(JSON.parse(localStorage.getItem("changedFullDatabaseCall"))){
+    const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+    const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
+    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
+    console.log(filterMarkedAsHiddenForReload)
+    this.setState({renderArray:filterMarkedAsHiddenForReload})
+}
+
+
+}
 componentDidUpdate(){
     updateBookmarkStyles();
 }
@@ -75,24 +87,27 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     // Updates the main render array when bookmarking articles. 
     // This let's me change the bookmark icon when using any of the bookmark options 
     updateBookmarkStatus = (articles) => { 
-       const removeMarkedForHide = articles.filter(x=> x.markedforhide === false)
+    //    const removeMarkedForHide = articles.filter(x=> x.markedforhide === false)
        const filterChoice = localStorage.getItem("filterOption")
 
-       const filteredArticles = removeMarkedForHide.filter(x=> x.tag === filterChoice )
+       const filteredArticles = articles.filter(x=> x.tag === filterChoice )
 
        if(filterChoice === "All"){
-            this.setState({ renderArray:removeMarkedForHide })
+            this.setState({ renderArray:articles })
        }else{
            this.setState({ renderArray:filteredArticles }) 
        }
     }
-
+    updateHideStatus = (articles) =>{
+        this.setState({renderArray:articles})
+    }
 
     render(){  
         const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
         // renderToPage.filter(x=>x.markedforhide === false)
+        console.log(renderToPage)
         
         return(
             
@@ -155,6 +170,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     updateBookmarkStatus={this.updateBookmarkStatus}
+                    updateHideStatus={this.updateHideStatus}
                     />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 

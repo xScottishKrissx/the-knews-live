@@ -29,12 +29,17 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
         // console.log(currentBookmarks)
     const mainArray = currentBookmarks || cleanDB;
+
+    
    
     var setBookmarkTrue = mainArray.map(el => {
         if(el.id === id && el != null && el.bookmarked === false )
             return Object.assign({}, el, {bookmarked:true})
             return el
     });
+
+    // const a = setBookmarkTrue.filter(x=>x.markedforhide === false)
+    // console.log(a)
 
 
     
@@ -43,7 +48,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
     // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))).length)
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkTrue))
     // console.log(JSON.parse((localStorage.getItem("changedFullDatabaseCall"))))
-    // changedFullDatabaseCall
+
 }
 
 export default createBookmark;

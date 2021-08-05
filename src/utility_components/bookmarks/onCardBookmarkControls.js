@@ -36,7 +36,7 @@ markAsRead(id){
 }
 
 hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
-    HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+    // HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
 
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
     console.log(articles)
@@ -46,6 +46,12 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
             return Object.assign({}, el, {markedforhide:true})
             return el
     });
+
+    localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+    this.props.hidePressed()
+
+
     if(this.props.hideBookmarkedArticle === true){
         // console.log("Perma Hide Bookmark")
         var hideArticle = articles.map(el => {
@@ -57,11 +63,10 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     }
-    localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+
 
     // hideArticleFeedback()
-    document.getElementById(this.props.id + "markedAsHiddenOverlay").classList.add("displayFlex")
+    // document.getElementById(this.props.id + "markedAsHiddenOverlay").classList.add("displayFlex")
 }
 
 

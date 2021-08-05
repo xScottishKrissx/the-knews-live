@@ -22,7 +22,7 @@
 
     .markedAsHideOverlayWrapper{
         background-color: #000000b3;
-        display:none;
+        display:flex;
         align-items: center;
         height: 100%;
         outline: 1px solid red;

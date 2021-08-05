@@ -18,6 +18,7 @@ class RenderCardState extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            test:false
         }
     }
 
@@ -39,6 +40,11 @@ class RenderCardState extends React.Component{
     hideOverlay(id){
         document.getElementById(id + "markedAsHiddenOverlay").classList.remove("displayFlex")
     }
+    hidePressed(){
+        console.log("Test")
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        this.props.updateHideStatus(articles)
+    }
     render(){
 
     const pageView = this.props.database.map((value,key) => {
@@ -59,6 +65,7 @@ class RenderCardState extends React.Component{
 
                         bookmarkTest={this.state.bookmarked}
                         updateProp={()=>this.updateProp(value.bookmarked)}
+                        hidePressed={()=> this.hidePressed()}
  
                 />
                
@@ -113,14 +120,19 @@ class RenderCardState extends React.Component{
 
                                     />
                             </div>
-                            <div className="markedAsHideOverlayWrapper" id={value.id + "markedAsHiddenOverlay"}>
-                                <div>
-                                    <h3>Marked As Hidden</h3>
-                                    {/* <p>You've marked this card as hidden. It will be removed when the page reloads or you activate the filter menu.</p>
-                                    <p>It will not appear unless you reset the website or you press the undo button below.</p> */}
-                                    <button onClick={()=>this.hideOverlay(value.id)}>Undo</button>
+                            {value.markedforhide === true || this.state.test === true ? 
+                                <div className="markedAsHideOverlayWrapper" id={value.id + "markedAsHiddenOverlay"}>
+                                    <div>
+                                        <h3>Marked As Hidden</h3>
+                                        {/* <p>You've marked this card as hidden. It will be removed when the page reloads or you activate the filter menu.</p>
+                                        <p>It will not appear unless you reset the website or you press the undo button below.</p> */}
+                                        <button onClick={()=>this.hideOverlay(value.id)}>Undo</button>
+                                    </div>
                                 </div>
-                            </div>
+                            :
+                                null
+                            }
+ 
                             
                     
                     </SwipeableListItem>
