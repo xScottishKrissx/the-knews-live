@@ -1251,6 +1251,8 @@ General Notes  Objectives:
                                     ☐ the overlay should overwrite any other styles(eg. mark as read)
                                     ☐ marked for hide articles shouldnt appear in liteKnews
                                     ☐ integrate swiping to hide
+                                    ✔ the unhide article button in options isn't unhiding the articles. @done(12:56 - 05/08/21)   
+                                        ->changed the hide to markedforhide
                                 
 
 

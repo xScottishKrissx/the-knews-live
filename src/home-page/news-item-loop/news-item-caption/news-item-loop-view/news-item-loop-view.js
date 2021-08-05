@@ -43,9 +43,11 @@ componentDidMount(){
     const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
     if(localStorageCards){
         const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
+        // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
         this.setState({renderArray:filterMarkedAsHiddenForReload})
+        console.log(this.state.renderArray)
     }
+
 }
 
 componentDidUpdate(){
@@ -96,6 +98,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
        }
     }
     updateHideStatus = (articles) =>{
+        // articles.filter(x=>x.markedforhide === false)
         this.setState({renderArray:articles})
     }
 
@@ -104,7 +107,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
         // renderToPage.filter(x=>x.markedforhide === false)
-        console.log(renderToPage)
+        console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         
         return(
             

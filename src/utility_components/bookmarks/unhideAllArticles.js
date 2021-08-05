@@ -3,8 +3,8 @@ export const unhideAllArticles = () =>{
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(database){
                 var unhideAllArticles = database.map(el => {
-                if(el.hidden === true && el != null )
-                        return Object.assign({}, el, {hidden:false,bookmarked:false})
+                if(el.markedforhide === true && el != null )
+                        return Object.assign({}, el, {markedforhide:false,hidden:false,bookmarked:false})
                         return el
                 });
                 console.log(unhideAllArticles)
