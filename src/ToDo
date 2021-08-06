@@ -1254,15 +1254,23 @@ General Notes  Objectives:
                                     ✔ integrate swiping to hide @done(13:28 - 05/08/21)
                                         ✔ include feedback that you can't hide a bookmarked article @done(12:44 - 06/08/21)
                                             ✔ added a confirmation box @done(12:44 - 06/08/21)
-                                            ☐ integrate bookmark page with this.
+                                            ✔ integrate bookmark page with this. @done(12:57 - 06/08/21)
+                                            ☐ there is still no feedback in the actual article
+                                                ☐ working on this, have the bones of it in place and it's mostly working but there a few things to be worked out.
+
                                     ☐ integrate in article hide button
                                     ✔ add a force refresh button @done(14:00 - 05/08/21)
                                         ✔ styles need improving(but the functionality is good) @done(10:25 - 06/08/21)
+                                        ✔ the reload button is causing an error if you access an article after hitting refresh @started(13:54 - 06/08/21) @done(13:58 - 06/08/21) @lasted(4m31s)
+                                            ✔ unsure of where exactly the error is happening. @done(13:58 - 06/08/21)
+                                            ✔ UPDATE: removing recReading removes the error, not sure what the problem is though for the error to exist. @done(13:58 - 06/08/21)
+                                            ✔ SOLVED: It's because the recReading is set up to use fixed article's from the array. However, when I hide articles i am removing them from the array which causes the error. I have switched the recReading over to use random id's which should fix the issue. @done(13:58 - 06/08/21)
                                     ✔ Tweak to code @done(11:45 - 06/08/21)
                                         ✔ Made some changes to the code so now instead of filtering out the markforhide, i am instead waiting for the main component to mount and then setting the article to hidden if markedforhidden is true. This is in answer to a problem where i needed to have markedforhidden to be set as true to show the overlay, but articles markedashidden are removed when setState is called. So now the only time an article is hidden is on mount instead of when the state is set. @done(11:45 - 06/08/21)
                                         
                                     ✔ the unhide article button in options isn't unhiding the articles. @done(12:56 - 05/08/21)   
                                         ->changed the hide to markedforhide
+                                    ☐ do a code cleanup, rendercard is looking awful at the moment.
                                 
 
                 12.10.7.3 - Mark As Read:

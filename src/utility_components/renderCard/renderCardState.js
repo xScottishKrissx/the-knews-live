@@ -97,15 +97,17 @@ class RenderCardState extends React.Component{
                 return Object.assign({}, el, {markedforhide:true, bookmarked:false})
                 return el
         });
-        console.log(hideBookmarkedArticle)
+        // console.log(hideBookmarkedArticle)
         this.props.updateHideStatus(hideBookmarkedArticle)
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideBookmarkedArticle))
     }
+
     hidePressed(){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.updateHideStatus(articles)
         // document.getElementById(id).classList.remove("markAsRead")
     }
+
     render(){
 
     const pageView = this.props.database.map((value,key) => {
@@ -204,8 +206,7 @@ class RenderCardState extends React.Component{
 
                             {
                             value.markedforhide === true && 
-                            value.bookmarked === true  && 
-                            this.props.hideBookmarkedArticle === false ? 
+                            value.bookmarked === true  ? 
                                 <div className="markedAsHideOverlayWrapper" id={value.id + "confirmHide"}>
                                     <div>
                                         <h3>Confirm Hide</h3>

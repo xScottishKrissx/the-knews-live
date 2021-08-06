@@ -136,7 +136,9 @@ class Bookmarks extends Component {
             }
         }
 
-
+        updateHideStatus = (articles) =>{
+            this.setState({bookmarks:articles})
+        }
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         
@@ -198,6 +200,7 @@ class Bookmarks extends Component {
                     changedCardSize={this.state.changedCardSize}
 
                     updateBookmarkStatus={this.updateBookmarkStatus}
+                    updateHideStatus={this.updateBookmarkStatus}
                     
                 />
                 }

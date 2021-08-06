@@ -113,7 +113,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false)
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
             this.setState({renderArray:filterMarkedAsHiddenForReload})
-            // console.log(this.state.renderArray)
+            console.log(this.state.renderArray)
         }
     }
     render(){  

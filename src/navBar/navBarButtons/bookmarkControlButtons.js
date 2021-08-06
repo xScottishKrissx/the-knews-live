@@ -12,6 +12,7 @@ return(
     <>
         {props.showBookmarkControlButtons === true ?
         <div className="uiBarItem" id="bookmarkControls">
+            <span>jefefb</span>
             <Button title="Bookmark article" >
                 <OnCardBookMarkControls 
                     bookmarkedStatus={props.bookmarkedStatus}
@@ -21,6 +22,8 @@ return(
                     showMarkAsReadButton={props.showMarkAsReadButton}
                     arrayFromDatabase={props.arrayFromDatabase}
                     leftoverArticles={props.leftoverArticles}
+
+                    hidePressed={props.hidePressed}
                 />
             </Button>
         </div> 

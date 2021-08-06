@@ -146,6 +146,7 @@ export class NavBar extends React.Component{
                                 showMarkAsReadButton={this.props.showMarkAsReadButton}
                                 arrayFromDatabase={this.props.arrayFromDatabase}
                                 leftoverArticles={this.props.leftoverArticles}
+                                hidePressed={this.props.hidePressed}
                             />
 
                             {/************Article Link (liteKnews)  */}

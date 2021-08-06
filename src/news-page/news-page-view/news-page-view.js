@@ -85,6 +85,10 @@ export class NewsPageVIEW extends React.Component{
         // console.log("Unmount on practice-form.js")
         fire.database().ref("items").off();     
       }
+      showBox =(bookmarked) => {
+        console.log("Show Box")
+        this.setState({showBox:bookmarked})
+      }
     render(){
 
       
@@ -106,18 +110,18 @@ export class NewsPageVIEW extends React.Component{
             // console.log(value.liked + " " + value.disliked)
 
             MarkAsRead(value.id, false)
+            console.log(this.state.showBox)
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
 
                     <Helmet>
                       <title>{value.title} | theKnews | christopher dunne</title>
-
-                    <meta property="og:type" content="website"></meta>
-                    <meta property="og:url" content={"https://christopherdunne.co.uk/theKnews/home/articles/news-page/" + value.id} />
-                    <meta property="og:title" content={value.title} />
-                    <meta property="og:description" content="Welcome to theKnews" />
-                    <meta property="og:image" content="https://christopherdunne.co.uk/wp-content/uploads/2021/06/IMG_20180405_135532.jpg" />
+                      <meta property="og:type" content="website"></meta>
+                      <meta property="og:url" content={"https://christopherdunne.co.uk/theKnews/home/articles/news-page/" + value.id} />
+                      <meta property="og:title" content={value.title} />
+                      <meta property="og:description" content="Welcome to theKnews" />
+                      <meta property="og:image" content="https://christopherdunne.co.uk/wp-content/uploads/2021/06/IMG_20180405_135532.jpg" />
 
                     </Helmet>
 
@@ -146,6 +150,7 @@ export class NewsPageVIEW extends React.Component{
                     arrayFromDatabase={this.state.articlesArray}
                     leftoverArticles={this.state.leftoverArticles}
                     fullDatabaseCall={this.state.fullDatabaseCall}
+                    hidePressed={()=>this.showBox(value.bookmarked)}
                   />
                     
                     
@@ -190,6 +195,19 @@ export class NewsPageVIEW extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                        
                     />
+                    {this.state.showBox === true ? 
+                                        <div className="confirmHide">
+                                        <div>
+                                            <h3>Confirm Hide</h3>
+                                            <p>This article is bookmarked, hide anyway?</p>
+                                            <div>
+                                                <span>Confirm</span>
+                                                <span>Cancel</span>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      :
+                                      null}
                     {/* <NextArticle id={value.id} database={database}/> */}
                     <RecReading fullDatabaseCall={database}/>                    
                     <ScrollToTopButton  />   

@@ -13,6 +13,47 @@
 /* Article Headline */
     .articleHeadline{ width: 100%; }
 
+
+/* Confirm Hide */
+.confirmHide{
+    /* Centering the div */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+
+    background-color: #00000099;
+    /* border: 5px solid black; */
+    display: flex;
+        align-items: center;
+        justify-content: center;
+
+    height: 100%;
+    width: 100%;
+
+}
+    .confirmHide > div{
+        background-color: white;
+        display: flex;
+            align-items: center;
+            flex-direction: column;
+        outline: 5px solid black;
+        padding: 25px;
+    }
+        .confirmHide > div > div{
+            display: flex;
+                align-items: center;
+                /* flex-direction: column; */
+            width: 100%;
+        }
+            .confirmHide > div > div > span{
+                cursor: pointer;
+                outline: 1px solid red;
+                text-align: center;
+                width: 100%;
+            }
+
 /* Author Social */
 .authorSocial{ display: flex; height: min-content; }
     .authorSocial > span{ padding: 5px; width: auto; }
