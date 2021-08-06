@@ -1252,7 +1252,9 @@ General Notes  Objectives:
                                         ☐ wait for 12.10.7.3
                                     ✔ marked for hide articles shouldnt appear in liteKnews @done(10:22 - 06/08/21)
                                     ✔ integrate swiping to hide @done(13:28 - 05/08/21)
-                                        ☐ include feedback that you can't hide a bookmarked article
+                                        ✔ include feedback that you can't hide a bookmarked article @done(12:44 - 06/08/21)
+                                            ✔ added a confirmation box @done(12:44 - 06/08/21)
+                                            ☐ integrate bookmark page with this.
                                     ☐ integrate in article hide button
                                     ✔ add a force refresh button @done(14:00 - 05/08/21)
                                         ✔ styles need improving(but the functionality is good) @done(10:25 - 06/08/21)

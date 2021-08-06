@@ -31,7 +31,11 @@ class RenderCardState extends React.Component{
 
         this.props.updateBookmarkStatus(articles)
     }
-    swipeRightAction(id,fullDatabaseCall){
+
+    // this entire thing is a mess.
+    swipeRightAction(id,fullDatabaseCall,bookmarked){
+
+    
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
         // console.log(articles)
         var hideArticle = articles.map(el => {
@@ -43,9 +47,22 @@ class RenderCardState extends React.Component{
         
         localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+
+        if(bookmarked === true && this.props.hideBookmarkedArticle === false){
+            var hideArticle = articles.map(el => {
+                if(el.id === id && el.bookmarked === true  && el != null )
+                    return Object.assign({}, el, {markedforhide:true})
+                    return el
+            });
+    
+            localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+            if(this.props.hidePressed)this.props.hidePressed()
+            console.log("You're hiding a bookmarked article? Are you sure you want to proceed?")
+            // document.getElementById(id + "confirmHide").classList.add("displayFlex")
+        }
         
         // Shows the overlay
-        
         this.props.updateBookmarkStatus(hideArticle)
     }
     updateProp(){
@@ -70,6 +87,20 @@ class RenderCardState extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(unhideArticle))
         this.props.updateHideStatus(unhideArticle)
     }
+    hideBookmarkedArticle(id){
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // console.log(articles)
+        var hideBookmarkedArticle = articles.map(el => {
+            if(el.id === id && el.markedforhide === true && el.bookmarked === true && el != null )
+                // return Object.assign({}, el, {hidden:false})
+                // console.log("Hide Bookmarked Article")
+                return Object.assign({}, el, {markedforhide:true, bookmarked:false})
+                return el
+        });
+        console.log(hideBookmarkedArticle)
+        this.props.updateHideStatus(hideBookmarkedArticle)
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideBookmarkedArticle))
+    }
     hidePressed(){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.updateHideStatus(articles)
@@ -78,7 +109,7 @@ class RenderCardState extends React.Component{
     render(){
 
     const pageView = this.props.database.map((value,key) => {
-        
+        // console.log(value.bookmarked + " " +  value.markedforhide)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
     
@@ -132,7 +163,7 @@ class RenderCardState extends React.Component{
                             //     this.props.bookmarked
                                 
                             // )
-                            action:() => this.swipeRightAction(value.id,this.props.fullDatabaseCall)
+                            action:() => this.swipeRightAction(value.id,this.props.fullDatabaseCall,value.bookmarked)
                         }}
                         // onSwipeProgress={progress => console.log(progress)}
                         
@@ -155,12 +186,10 @@ class RenderCardState extends React.Component{
 
                                     />
                             </div>
-                            {value.markedforhide === true  ? 
+                            {value.markedforhide === true  && value.bookmarked === false? 
                                 <div className="markedAsHideOverlayWrapper" id={value.id + "markedAsHiddenOverlay"}>
                                     <div>
                                         <h3>Marked As Hidden</h3>
-                                        {/* <p>You've marked this card as hidden. It will be removed when the page reloads or you activate the filter menu.</p>
-                                        <p>It will not appear unless you reset the website or you press the undo button below.</p> */}
                                         <div className="undoHideButton" onClick={()=>this.unhideArticle(value.id)}>
                                             <span>
                                                 <span class="material-icons">cancel</span>
@@ -172,6 +201,32 @@ class RenderCardState extends React.Component{
                             :
                                 null
                             }
+
+                            {
+                            value.markedforhide === true && 
+                            value.bookmarked === true  && 
+                            this.props.hideBookmarkedArticle === false ? 
+                                <div className="markedAsHideOverlayWrapper" id={value.id + "confirmHide"}>
+                                    <div>
+                                        <h3>Confirm Hide</h3>
+                                        <p>Hide this bookmarked article?</p>
+                                        <div className="undoHideButton" >
+                                            <span onClick={()=>this.hideBookmarkedArticle(value.id)}>
+                                                <span class="material-icons">verified</span>
+                                                <span>Confirm</span>
+                                            </span>
+
+                                            <span onClick={()=>this.unhideArticle(value.id)}>
+                                                <span class="material-icons">cancel</span>
+                                                <span>Cancel</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            :
+                                null
+                                
+                            }           
  
                             
                     

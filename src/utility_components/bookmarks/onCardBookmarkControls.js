@@ -35,7 +35,7 @@ markAsRead(id){
     }
 }
 
-hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
+hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,bookmarked){
     // HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
 
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
@@ -53,9 +53,10 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
     // Shows the overlay
     if(this.props.hidePressed)this.props.hidePressed()
 
-
-    if(this.props.hideBookmarkedArticle === true){
+    // hiding bookmarks on bookmark.js
+    if(this.props.hideBookmarkedArticle === true ){
         // console.log("Perma Hide Bookmark")
+        console.log("Hide Bookmarked article")
         var hideArticle = articles.map(el => {
             if(el.id === id && el != null )
                 return Object.assign({}, el, {bookmarked:false, hidden:true})
@@ -66,6 +67,19 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     }
 
+    if(this.state.bookmarked === true && this.props.hideBookmarkedArticle === false){
+        var hideArticle = articles.map(el => {
+            if(el.id === id && el.bookmarked === true  && el != null )
+                return Object.assign({}, el, {markedforhide:true})
+                return el
+        });
+
+        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+        if(this.props.hidePressed)this.props.hidePressed()
+        console.log("You're hiding a bookmarked article? Are you sure you want to proceed?")
+        // document.getElementById(id + "confirmHide").classList.add("displayFlex")
+    }
 
     // hideArticleFeedback()
     // document.getElementById(this.props.id + "markedAsHiddenOverlay").classList.add("displayFlex")
@@ -138,7 +152,8 @@ render(){
                 this.props.postsArray,
                 this.props.arrayFromDatabase,
                 this.props.leftoverArticles,
-                this.props.fullDatabaseCall
+                this.props.fullDatabaseCall,
+                this.state.bookmarked
             )}>
                 <span class="material-icons">delete</span>
             </button>

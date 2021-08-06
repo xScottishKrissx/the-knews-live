@@ -193,6 +193,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     updateBookmarkStatus={this.updateBookmarkStatus}
                     updateHideStatus={this.updateHideStatus}
+                    hideBookmarkedArticle={false}
                     />
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
