@@ -25,7 +25,7 @@ class FilterOptions extends Component {
         if(urlTagProp && urlTagProp.includes(""||undefined))localStorage.setItem("filterOption","All");
 
         // Set filter option.
-        console.log(this.props.bookmarked)
+        // console.log(this.props.bookmarked)
         if(this.props.bookmarked  === false || undefined){
             this.getArticlesBy(localStorage.getItem("filterOption"))
         }else{

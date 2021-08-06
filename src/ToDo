@@ -1250,13 +1250,14 @@ General Notes  Objectives:
                                     ✔ integrate undo hide button @done(12:19 - 05/08/21)
                                     ☐ the overlay should overwrite any other styles(eg. mark as read)
                                         ☐ wait for 12.10.7.3
-                                    ☐ marked for hide articles shouldnt appear in liteKnews
+                                    ✔ marked for hide articles shouldnt appear in liteKnews @done(10:22 - 06/08/21)
                                     ✔ integrate swiping to hide @done(13:28 - 05/08/21)
                                         ☐ include feedback that you can't hide a bookmarked article
                                     ☐ integrate in article hide button
                                     ✔ add a force refresh button @done(14:00 - 05/08/21)
-                                        ☐ styles need improving(but the functionality is good)
-                                        
+                                        ✔ styles need improving(but the functionality is good) @done(10:25 - 06/08/21)
+                                    ✔ Tweak to code @done(11:45 - 06/08/21)
+                                        ✔ Made some changes to the code so now instead of filtering out the markforhide, i am instead waiting for the main component to mount and then setting the article to hidden if markedforhidden is true. This is in answer to a problem where i needed to have markedforhidden to be set as true to show the overlay, but articles markedashidden are removed when setState is called. So now the only time an article is hidden is on mount instead of when the state is set. @done(11:45 - 06/08/21)
                                         
                                     ✔ the unhide article button in options isn't unhiding the articles. @done(12:56 - 05/08/21)   
                                         ->changed the hide to markedforhide
@@ -1287,6 +1288,7 @@ General Notes  Objectives:
                 ☐ the mark as read button is pretty broken.
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Move the on card bookmark controls out of the bookmark folder
+                ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)

@@ -2,7 +2,7 @@ export const removeBookmark = (id) =>{
         // console.log("Bookmark "+ id +" removed")
         // console.log("Mark " + id + " as read")
 
-        const currentBookmarks = JSON.parse(localStorage.getItem("bookmarkArray"));
+        const currentBookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall"));
 
         var setBookmarkFalse = currentBookmarks.map(el => {
             if(el.id === id && el != null )
@@ -15,8 +15,7 @@ export const removeBookmark = (id) =>{
         if(document.getElementById(id + "bookmarkIcon")){
                 document.getElementById(id + "bookmarkIcon").classList.remove('bookmarkStyle')
         }
-        // document.getElementById(id).classList.add('markAsRead')
-        // console.log(JSON.parse((localStorage.getItem("bookmarkArray"))))
+
 
 }
 

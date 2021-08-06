@@ -12,7 +12,9 @@ return(
             <div className="uiBarItem" title="Force Reload" id="reloadBtn">
                 <Button title="Home">
                 <span onClick={props.forceReload}>
-                    <span class="material-icons">refresh</span></span>
+                    <span class="material-icons">refresh</span>
+                    <p className="navButtonText">Refresh</p>
+                </span>
                 </Button>
             </div>
         :

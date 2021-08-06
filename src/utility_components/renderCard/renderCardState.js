@@ -33,7 +33,7 @@ class RenderCardState extends React.Component{
     }
     swipeRightAction(id,fullDatabaseCall){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
-        console.log(articles)
+        // console.log(articles)
         var hideArticle = articles.map(el => {
             if(el.id === id && el.bookmarked === false && el != null )
                 // return Object.assign({}, el, {hidden:false})
@@ -45,19 +45,20 @@ class RenderCardState extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
         
         // Shows the overlay
+        
         this.props.updateBookmarkStatus(hideArticle)
     }
     updateProp(){
         // Handles updating the bookmark when clicking the bookmark icon
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        
+        // console.log(articles)
         this.props.updateBookmarkStatus(articles)
     }
     unhideArticle(id){
         // document.getElementById(id + "markedAsHiddenOverlay").classList.remove("displayFlex")
 
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        console.log(articles)
+        // console.log(articles)
         var unhideArticle = articles.map(el => {
             if(el.id === id && el.markedforhide === true && el != null )
                 // return Object.assign({}, el, {hidden:false})

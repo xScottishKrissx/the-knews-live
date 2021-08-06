@@ -40,14 +40,7 @@ class NewsItemLoopView extends React.Component{
     }
 
 componentDidMount(){
-    const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-    if(localStorageCards){
-        const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
-        this.setState({renderArray:filterMarkedAsHiddenForReload})
-        console.log(this.state.renderArray)
-    }
-
+    this.reload()
 }
 
 componentDidUpdate(){
@@ -86,10 +79,14 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     // Updates the main render array when bookmarking articles. 
     // This let's me change the bookmark icon when using any of the bookmark options 
     updateBookmarkStatus = (articles) => { 
-    //    const removeMarkedForHide = articles.filter(x=> x.markedforhide === false)
+       
+    //    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(removeMarkedForHide))
        const filterChoice = localStorage.getItem("filterOption")
-
        const filteredArticles = articles.filter(x=> x.tag === filterChoice )
+       
+    //    console.log(removeMarkedForHide)
+    //    console.log(articles)
+
 
        if(filterChoice === "All"){
             this.setState({ renderArray:articles })
@@ -98,16 +95,25 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
        }
     }
     updateHideStatus = (articles) =>{
-        // articles.filter(x=>x.markedforhide === false)
         this.setState({renderArray:articles})
     }
     reload(){
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(localStorageCards){
-            const filterMarkedAsHiddenForReload = localStorageCards.filter(x=> x.markedforhide === false)
+
+            var hideArticle = localStorageCards.map(el => {
+                if(el.bookmarked === false && el.markedforhide === true && el != null )
+                    // return Object.assign({}, el, {hidden:false})
+                    return Object.assign({}, el, {hidden:true})
+                    return el
+            });
+            // console.log(hideArticle)
+    
+            console.log("news-item-loop-view.js mounted")
+            const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false)
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
             this.setState({renderArray:filterMarkedAsHiddenForReload})
-            console.log(this.state.renderArray)
+            // console.log(this.state.renderArray)
         }
     }
     render(){  
@@ -115,7 +121,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
         // renderToPage.filter(x=>x.markedforhide === false)
-        console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
+        // console.log(renderToPage)
+        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         
         return(
             

@@ -77,11 +77,19 @@
         position: relative;
     }
 
-        #bookmarkBtn:hover{color: #28a745; }
-        #liteKnewsBtn:hover{color: orange; }
-        #filterBtn:hover{color: aqua; }
-        #changeCardBtn:hover{color: rgb(17, 0, 255); }
-        #settingsBtn:hover{color: pink; } 
+        /* #bookmarkBtn:hover{color: #28a745; } */
+        /* #liteKnewsBtn:hover{color: orange; } */
+        /* #filterBtn:hover{color: aqua; } */
+        /* #changeCardBtn:hover{color: rgb(17, 0, 255); } */
+        /* #settingsBtn:hover{color: pink; }  */
+
+        #reloadBtn > button:hover{color: black; }
+            #reloadBtn > button > span{
+                display: flex;
+                    align-items: center;
+                line-height: 0;
+            }
+            #reloadBtn > button > span > p{margin: 0;}
 
         .uiBarItem > div { position: relative; width: 100%; }
 
