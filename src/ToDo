@@ -1263,7 +1263,7 @@ General Notes  Objectives:
                                                         ☐ Hide box on confirm
                                                         ☐ Provide final feedback that article has been hidden(or redirect to home page)
                                                     ☐ 3 - Hookup Cancel button
-                                                        ☐ Hide box on cancel, nothing else needs to change.
+                                                        ✔ Hide box on cancel. @done(12:21 - 09/08/21)
                                                     ☐ 4 - Improved Box styling
 
                                     ☐ integrate in article hide button

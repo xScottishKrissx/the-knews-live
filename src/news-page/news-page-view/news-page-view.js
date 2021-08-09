@@ -96,6 +96,10 @@ export class NewsPageVIEW extends React.Component{
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.updateArticle(articles)
       }
+
+      confirmHide(){
+        console.log("Confirm Hide!! :)")
+      }
     render(){
 
       
@@ -119,7 +123,7 @@ export class NewsPageVIEW extends React.Component{
 
             MarkAsRead(value.id, false)
             // console.log(this.state.showBox)
-            console.log(value.bookmarked)
+            // console.log(value.bookmarked)
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
@@ -207,13 +211,13 @@ export class NewsPageVIEW extends React.Component{
                        
                     />
                     {this.state.showBox === true ? 
-                                        <div className="confirmHide">
-                                        <div>
+                                        <div className="confirmHide" >
+                                        <div >
                                             <h3>Confirm Hide</h3>
                                             <p>This article is bookmarked, hide anyway?</p>
                                             <div>
-                                                <span>Confirm</span>
-                                                <span>Cancel</span>
+                                                <span onClick={()=>this.confirmHide()}>Confirm</span>
+                                                <span onClick={()=>this.showBox(false)}>Cancel</span>
                                             </div>
                                         </div>
                                       </div>
