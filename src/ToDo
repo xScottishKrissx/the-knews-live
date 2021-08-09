@@ -1257,6 +1257,14 @@ General Notes  Objectives:
                                             ✔ integrate bookmark page with this. @done(12:57 - 06/08/21)
                                             ☐ there is still no feedback in the actual article
                                                 ☐ working on this, have the bones of it in place and it's mostly working but there a few things to be worked out.
+                                                    ✔ 1 - I need to press the hide button twice after bookmarking the article.It DOES work once the article had already been bookmarked. @done(12:04 - 09/08/21)
+                                                        ✔ Solution - Added the updateProp from the renderCardState that simply updates the article array with the latest stored array when the bookmark icon is clicked. @done(12:04 - 09/08/21)
+                                                    ☐ 2 - Hookup Confirm Button
+                                                        ☐ Hide box on confirm
+                                                        ☐ Provide final feedback that article has been hidden(or redirect to home page)
+                                                    ☐ 3 - Hookup Cancel button
+                                                        ☐ Hide box on cancel, nothing else needs to change.
+                                                    ☐ 4 - Improved Box styling
 
                                     ☐ integrate in article hide button
                                     ✔ add a force refresh button @done(14:00 - 05/08/21)

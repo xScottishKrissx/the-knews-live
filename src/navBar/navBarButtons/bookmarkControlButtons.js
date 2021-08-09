@@ -24,6 +24,7 @@ return(
                     leftoverArticles={props.leftoverArticles}
 
                     hidePressed={props.hidePressed}
+                    updateProp={props.updateArticle}
                 />
             </Button>
         </div> 

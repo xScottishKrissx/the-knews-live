@@ -93,7 +93,9 @@ export class NewsPage extends React.Component{
         this.setState({showErrorMessage:false})
     }
 
-    
+    updateArticle = (articles) =>{
+        this.setState({articlesArray:articles})
+    }
 
     render(){    
 
@@ -111,6 +113,7 @@ export class NewsPage extends React.Component{
                     leftoverArticles={this.state.leftoverArticles}
                     id={this.props.match.params.id}
                     // articleId={this.props.location.state.articleId}
+                    updateArticle={this.updateArticle}
                 /> 
                 : 
                 <div>

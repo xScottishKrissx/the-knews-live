@@ -86,8 +86,15 @@ export class NewsPageVIEW extends React.Component{
         fire.database().ref("items").off();     
       }
       showBox =(bookmarked) => {
+        console.log(bookmarked)
         console.log("Show Box")
         this.setState({showBox:bookmarked})
+      }
+      updateArticle =(x) => {
+        console.log("Update Bookmark" + x)
+            
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        this.props.updateArticle(articles)
       }
     render(){
 
@@ -96,9 +103,10 @@ export class NewsPageVIEW extends React.Component{
       // console.log("Render news-page-view.js")
       window.scrollTo(0,0);
 
-        const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
+        // const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
+        const database = this.props.database
         // const database = this.props.database
-        // console.log(database)
+        console.log(database)
         // console.log(this.props.params)
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
@@ -110,7 +118,8 @@ export class NewsPageVIEW extends React.Component{
             // console.log(value.liked + " " + value.disliked)
 
             MarkAsRead(value.id, false)
-            console.log(this.state.showBox)
+            // console.log(this.state.showBox)
+            console.log(value.bookmarked)
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
@@ -150,7 +159,9 @@ export class NewsPageVIEW extends React.Component{
                     arrayFromDatabase={this.state.articlesArray}
                     leftoverArticles={this.state.leftoverArticles}
                     fullDatabaseCall={this.state.fullDatabaseCall}
+
                     hidePressed={()=>this.showBox(value.bookmarked)}
+                    updateArticle={this.updateArticle}
                   />
                     
                     
