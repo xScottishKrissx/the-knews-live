@@ -148,6 +148,8 @@ export class NavBar extends React.Component{
                                 leftoverArticles={this.props.leftoverArticles}
                                 hidePressed={this.props.hidePressed}
                                 updateArticle={this.props.updateArticle}
+
+                                hideStatus={this.props.hideStatus}
                             />
 
                             {/************Article Link (liteKnews)  */}

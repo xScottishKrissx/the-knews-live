@@ -112,6 +112,7 @@ componentDidUpdate(prevProps){
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
+    console.log(this.props.hideStatus)
     return(
         <div className="onCardControls">   
         {/* <p>Hello</p> */}
@@ -119,7 +120,7 @@ render(){
         {this.props.showMarkAsReadButton === false ?
             null
         :
-            <div className="">
+            <div >
                 <button title="Mark As Read" onClick={()=>this.markAsRead(this.props.id)}> 
                 {this.state.read === true ? 
                     <span class="material-icons" >check_circle</span>
@@ -158,6 +159,7 @@ render(){
                 <span class="material-icons">delete</span>
             </button>
             :
+
             <button title="Hide Article" onClick={() => this.hideArticle(
                 this.props.id,
                 this.props.postsArray,
@@ -165,8 +167,55 @@ render(){
                 this.props.leftoverArticles,
                 this.props.fullDatabaseCall
             )}>
+              {this.props.hideStatus === true ? 
                 <span class="material-icons">visibility_off</span>
-            </button>
+                :                
+                <span class="material-icons">visibility_on</span>
+              }
+                
+
+            </button> 
+                        
+                    //   <button title="Hide Article" onClick={() => this.hideArticle(
+                    //     this.props.id,
+                    //     this.props.postsArray,
+                    //     this.props.arrayFromDatabase,
+                    //     this.props.leftoverArticles,
+                    //     this.props.fullDatabaseCall
+                    // )}>
+                      
+                    //     <span class="material-icons">visibility_off</span>
+                        
+
+                    // </button> 
+
+                    
+
+            // <div>
+            // {this.props.hideStatus === true ? 
+            //           <button title="Hide Article" onClick={() => this.hideArticle(
+            //             this.props.id,
+            //             this.props.postsArray,
+            //             this.props.arrayFromDatabase,
+            //             this.props.leftoverArticles,
+            //             this.props.fullDatabaseCall
+            //         )}>
+            //             <span class="material-icons">visibility_off</span>
+            //         </button> 
+            //     : 
+            //     <button title="Hide Article" onClick={() => this.hideArticle(
+            //         this.props.id,
+            //         this.props.postsArray,
+            //         this.props.arrayFromDatabase,
+            //         this.props.leftoverArticles,
+            //         this.props.fullDatabaseCall
+            //     )}>
+            //         <span class="material-icons">visibility_on</span>
+            //     </button> 
+            // }
+
+
+            // </div>
             }
         
 

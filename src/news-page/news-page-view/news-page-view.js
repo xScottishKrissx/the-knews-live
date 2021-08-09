@@ -85,11 +85,17 @@ export class NewsPageVIEW extends React.Component{
         // console.log("Unmount on practice-form.js")
         fire.database().ref("items").off();     
       }
+
+
       handleHideClick =(bookmarked,markedforhide) => {
         this.setState({showBox:bookmarked})      
         // if(bookmarked === false)this.setState({showHideMessage:true})
 
         console.log(markedforhide)
+
+        // Next Step of undoing hide
+        if(markedforhide === true)console.log("Unhide Article On Click")
+        if(markedforhide === false)console.log("Hide Article On Click")
       }
 
       updateArticle =(x) => {
@@ -182,6 +188,8 @@ export class NewsPageVIEW extends React.Component{
                     arrayFromDatabase={this.state.articlesArray}
                     leftoverArticles={this.state.leftoverArticles}
                     fullDatabaseCall={this.state.fullDatabaseCall}
+
+                    hideStatus={value.markedforhide}
 
                     hidePressed={()=>this.handleHideClick(value.bookmarked,value.markedforhide)}
                     updateArticle={this.updateArticle}

@@ -10,7 +10,7 @@
         z-index: 1;
 }
 
-    .onCardControls > div > button{
+    .onCardControls > div > button, .onCardControls > div > div > button{
         background-color: inherit;
         color: white;
         height: auto; 
