@@ -85,30 +85,49 @@ export class NewsPageVIEW extends React.Component{
         // console.log("Unmount on practice-form.js")
         fire.database().ref("items").off();     
       }
-      showBox =(bookmarked) => {
-        console.log(bookmarked)
-        console.log("Show Box")
-        this.setState({showBox:bookmarked})
+      handleHideClick =(bookmarked,markedforhide) => {
+        this.setState({showBox:bookmarked})      
+        // if(bookmarked === false)this.setState({showHideMessage:true})
+
+        console.log(markedforhide)
       }
+
       updateArticle =(x) => {
-        console.log("Update Bookmark" + x)
-            
+        // console.log("Update Bookmark" + x)
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         this.props.updateArticle(articles)
       }
 
-      confirmHide(){
-        console.log("Confirm Hide!! :)")
+      confirmHide(id){
+        // console.log("Confirm Hide!! :)")
+
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // console.log(articles)
+        var hideArticle = articles.map(el => {
+            if(el.id === id && el.bookmarked === true && el != null )
+                // return Object.assign({}, el, {hidden:false})
+                return Object.assign({}, el, {hidden:true})
+                return el
+        });
+        // console.log(hideArticle)
+        // localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+        this.setState({showBox:false})
+        // this.setState({showHideMessage:true})
+        
+      }
+      cancelHide(){
+        this.setState({showBox:false})
       }
     render(){
-
+      
       
 
       // console.log("Render news-page-view.js")
       window.scrollTo(0,0);
 
-        // const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
-        const database = this.props.database
+        const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
+        // const database = this.props.database
         // const database = this.props.database
         console.log(database)
         // console.log(this.props.params)
@@ -164,7 +183,7 @@ export class NewsPageVIEW extends React.Component{
                     leftoverArticles={this.state.leftoverArticles}
                     fullDatabaseCall={this.state.fullDatabaseCall}
 
-                    hidePressed={()=>this.showBox(value.bookmarked)}
+                    hidePressed={()=>this.handleHideClick(value.bookmarked,value.markedforhide)}
                     updateArticle={this.updateArticle}
                   />
                     
@@ -208,6 +227,7 @@ export class NewsPageVIEW extends React.Component{
                         arrayFromDatabase={this.state.articlesArray}
                         leftoverArticles={this.state.leftoverArticles}
                         fullDatabaseCall={this.state.fullDatabaseCall}
+                        showHideInfo={this.state.showHideMessage}
                        
                     />
                     {this.state.showBox === true ? 
@@ -216,15 +236,15 @@ export class NewsPageVIEW extends React.Component{
                                             <h3>Confirm Hide</h3>
                                             <p>This article is bookmarked, hide anyway?</p>
                                             <div>
-                                                <span onClick={()=>this.confirmHide()}>Confirm</span>
-                                                <span onClick={()=>this.showBox(false)}>Cancel</span>
+                                                <span onClick={()=>this.confirmHide(value.id)}>Confirm</span>
+                                                <span onClick={()=>this.cancelHide()}>Cancel</span>
                                             </div>
                                         </div>
                                       </div>
                                       :
                                       null}
                     {/* <NextArticle id={value.id} database={database}/> */}
-                    <RecReading fullDatabaseCall={database}/>                    
+                    {/* <RecReading fullDatabaseCall={database}/>                     */}
                     <ScrollToTopButton  />   
                 </div>
             )

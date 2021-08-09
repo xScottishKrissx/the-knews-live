@@ -12,7 +12,7 @@ return(
     <>
         {props.showBookmarkControlButtons === true ?
         <div className="uiBarItem" id="bookmarkControls">
-            <span>jefefb</span>
+            {/* <span>jefefb</span> */}
             <Button title="Bookmark article" >
                 <OnCardBookMarkControls 
                     bookmarkedStatus={props.bookmarkedStatus}

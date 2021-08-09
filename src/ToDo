@@ -1260,13 +1260,25 @@ General Notes  Objectives:
                                                     ✔ 1 - I need to press the hide button twice after bookmarking the article.It DOES work once the article had already been bookmarked. @done(12:04 - 09/08/21)
                                                         ✔ Solution - Added the updateProp from the renderCardState that simply updates the article array with the latest stored array when the bookmark icon is clicked. @done(12:04 - 09/08/21)
                                                     ☐ 2 - Hookup Confirm Button
-                                                        ☐ Hide box on confirm
+                                                        ✔ Hide article from view on confirm @done(12:42 - 09/08/21)
+                                                        ✔ Hide box on confirm @done(12:42 - 09/08/21)
                                                         ☐ Provide final feedback that article has been hidden(or redirect to home page)
-                                                    ☐ 3 - Hookup Cancel button
+                                                            ☐ How about some text above the article title?
+
+                                                    ✔ 3 - Hookup Cancel button @done(12:25 - 09/08/21)
                                                         ✔ Hide box on cancel. @done(12:21 - 09/08/21)
-                                                    ☐ 4 - Improved Box styling
+                                                    ☐ 4 - Account for the permutations that might cause issue
+                                                        ☐ the basic functionality is fine but there are many ways that the message can show at the wrong time.
+                                                        ☐ article hide message should ONLY show when the article is marked as hidden.
+                                                        ☐ should NOT appear with the confirm hide box(unless the article was marked as hidden before)
+                                                        ☐ Given all of the various permutations, it would actually make the code simpler if I could undo a hide.
+
+                                                    ☐ 5 - Add ability to undo a hide in article.
 
                                     ☐ integrate in article hide button
+                                        ✔ Add feedback that the article has been hidden @done(13:06 - 09/08/21)
+                                        ☐ Do i want to add an undo button?
+
                                     ✔ add a force refresh button @done(14:00 - 05/08/21)
                                         ✔ styles need improving(but the functionality is good) @done(10:25 - 06/08/21)
                                         ✔ the reload button is causing an error if you access an article after hitting refresh @started(13:54 - 06/08/21) @done(13:58 - 06/08/21) @lasted(4m31s)
