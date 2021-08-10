@@ -51,6 +51,7 @@ const ArticleArea = (props) => {
                 <div className="articleContent">
             {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
             {/* Article Header */}
+            
            {props.showHideInfo === true ? 
             <p>This article has been hidden. You won't see it anymore.</p>   
             :

@@ -1264,25 +1264,26 @@ General Notes  Objectives:
                                                         ✔ Hide box on confirm @done(12:42 - 09/08/21)
                                                         ☐ Provide final feedback that article has been hidden(or redirect to home page)
                                                             ☐ How about some text above the article title?
+                                                                ☐ text in place, just need to style it.
 
                                                     ✔ 3 - Hookup Cancel button @done(12:25 - 09/08/21)
                                                         ✔ Hide box on cancel. @done(12:21 - 09/08/21)
-                                                    ☐ 4 - Account for the permutations that might cause issue
-                                                        ☐ the basic functionality is fine but there are many ways that the message can show at the wrong time.
-                                                        ☐ article hide message should ONLY show when the article is marked as hidden.
-                                                        ☐ should NOT appear with the confirm hide box(unless the article was marked as hidden before)
-                                                        ☐ Given all of the various permutations, it would actually make the code simpler if I could undo a hide.
+                                                    ✔ 4 - Account for the permutations that might cause issue @done(11:17 - 10/08/21)
+                                                        ✔ the basic functionality is fine but there are many ways that the message can show at the wrong time. @done(11:17 - 10/08/21)
+                                                        ✔ article hide message should ONLY show when the article is marked as hidden. @done(11:17 - 10/08/21)
+                                                        ✔ should NOT appear with the confirm hide box(unless the article was marked as hidden before) @done(11:17 - 10/08/21)
+                                                        ✔ Given all of the various permutations, it would actually make the code simpler if I could undo a hide. @done(11:17 - 10/08/21)
 
-                                                    ☐ 5 - Add ability to undo a hide in article.
-                                                        ☐ I have an undo button but there are, again, a few things I need to look at.
+                                                    ✔ 5 - Add ability to undo a hide in article. @done(11:17 - 10/08/21)
+                                                        ✔ I have an undo button but there are, again, a few things I need to look at. @done(11:17 - 10/08/21)
                                                             ✔ If you bookmark a hidden article, set the article to unhidden @done(10:46 - 10/08/21)
-                                                            ☐ Display the article is hidden message
+                                                            ✔ Display the article is hidden message @done(11:16 - 10/08/21)
                                                             ✔ Confirming a hide bookmarked article does not change the icon. @done(10:56 - 10/08/21)
                                                             ✔ Add ability to cancel a hide on a bookmarked article @done(11:06 - 10/08/21)
 
-                                    ☐ integrate in article hide button
+                                    ✔ integrate in article hide button @done(11:17 - 10/08/21)
                                         ✔ Add feedback that the article has been hidden @done(13:06 - 09/08/21)
-                                        ☐ Do i want to add an undo button?
+                                        ✔ Do i want to add an undo button? @done(11:17 - 10/08/21)
 
                                     ✔ add a force refresh button @done(14:00 - 05/08/21)
                                         ✔ styles need improving(but the functionality is good) @done(10:25 - 06/08/21)

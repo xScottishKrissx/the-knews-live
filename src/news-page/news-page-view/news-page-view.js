@@ -81,6 +81,7 @@ export class NewsPageVIEW extends React.Component{
         })
     }
 
+
     componentWillUnmount(){
         // console.log("Unmount on practice-form.js")
         fire.database().ref("items").off();     
@@ -88,14 +89,8 @@ export class NewsPageVIEW extends React.Component{
 
 
       handleHideClick =(bookmarked,markedforhide) => {
+        console.log(markedforhide)
         this.setState({showBox:bookmarked})      
-        // if(bookmarked === false)this.setState({showHideMessage:true})
-
-        // console.log(markedforhide)
-
-        // Next Step of undoing hide
-        // if(markedforhide === true && bookmarked === true)console.log("Unhide Article On Click")
-        // if(markedforhide === false)console.log("Hide Article On Click")
       }
 
       updateArticle =(x) => {
@@ -120,7 +115,6 @@ export class NewsPageVIEW extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
         this.setState({showBox:false})
         this.props.updateArticle(hideArticle)
-        // this.setState({showHideMessage:true})
         
       }
       cancelHide(id){
@@ -137,7 +131,6 @@ export class NewsPageVIEW extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
         this.setState({showBox:false})
         this.props.updateArticle(hideArticle)
-        this.setState({showBox:false})
       }
     render(){
       
@@ -250,7 +243,7 @@ export class NewsPageVIEW extends React.Component{
                         arrayFromDatabase={this.state.articlesArray}
                         leftoverArticles={this.state.leftoverArticles}
                         fullDatabaseCall={this.state.fullDatabaseCall}
-                        showHideInfo={this.state.showHideMessage}
+                        showHideInfo={value.markedforhide}
                        
                     />
                     {this.state.showBox === true ? 

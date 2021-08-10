@@ -40,7 +40,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
 
     // Hiding an article on the home page
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
-    console.log(articles)
+    // console.log(articles)
     var hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
             // return Object.assign({}, el, {hidden:false})
