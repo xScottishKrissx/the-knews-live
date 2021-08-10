@@ -82,80 +82,43 @@ export class NewsPageVIEW extends React.Component{
     }
 
 
-    componentWillUnmount(){
-        // console.log("Unmount on practice-form.js")
-        fire.database().ref("items").off();     
-      }
+    componentWillUnmount(){ fire.database().ref("items").off(); }
 
+    // Used to update the article array with the latest bookmark status
+    updateArticle = () => {
+      console.log("Update Article")
+      const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+      this.props.updateArticle(articles)
+    }
 
-      handleHideClick =(bookmarked,markedforhide) => {
-        console.log(markedforhide)
-        this.setState({showBox:bookmarked})      
-      }
+    // Shows the confirmation box if attempting to hide a bookmarked article
+    handleHideClick = (bookmarked) => { this.setState({showBox:bookmarked}) }
 
-      updateArticle =(x) => {
-        // console.log("Update Bookmark" + x)
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        this.props.updateArticle(articles)
-      }
+    // The confirmation box itself.
+    handleHideBookmarkedArticle(id,x){
+      const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+      var hideArticle = articles.map(el => {
+          if(el.id === id && el.bookmarked === true && el != null )
+              return Object.assign({}, el, {hidden:x, markedforhide:x})
+              return el
+      });
+      this.setState({showBox:false})
+      localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+      this.props.updateArticle(hideArticle)
+    }
 
-      confirmHide(id){
-        // console.log("Confirm Hide!! :)")
-
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(articles)
-        var hideArticle = articles.map(el => {
-            if(el.id === id && el.bookmarked === true && el != null )
-                // return Object.assign({}, el, {hidden:false})
-                return Object.assign({}, el, {hidden:true, markedforhide:true})
-                return el
-        });
-        // console.log(hideArticle)
-        // localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
-        this.setState({showBox:false})
-        this.props.updateArticle(hideArticle)
-        
-      }
-      cancelHide(id){
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(articles)
-        var hideArticle = articles.map(el => {
-            if(el.id === id && el.bookmarked === true && el != null )
-                // return Object.assign({}, el, {hidden:false})
-                return Object.assign({}, el, {hidden:false, markedforhide:false})
-                return el
-        });
-        // console.log(hideArticle)
-        // localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
-        this.setState({showBox:false})
-        this.props.updateArticle(hideArticle)
-      }
     render(){
-      
-      
-
-      // console.log("Render news-page-view.js")
-      window.scrollTo(0,0);
+        window.scrollTo(0,0);
 
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
-        // const database = this.props.database
-        // const database = this.props.database
-        // console.log(database)
-        // console.log(this.props.params)
+
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
-        //  console.log(getArticle)
+
         const NewsPageView = getArticle.map((value) => {
-            // console.log(value.likes)
-            //console.log("current author email:: " + value.email)
-            
-            // console.log(value.liked + " " + value.disliked)
+
 
             MarkAsRead(value.id, false)
-            // console.log(this.state.showBox)
-            // console.log(value.bookmarked)
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 
@@ -199,27 +162,27 @@ export class NewsPageVIEW extends React.Component{
 
                     hideStatus={value.markedforhide}
 
-                    hidePressed={()=>this.handleHideClick(value.bookmarked,value.markedforhide)}
+                    hidePressed={()=>this.handleHideClick(value.bookmarked)}
                     updateArticle={this.updateArticle}
                   />
                     
                     
-                    {/* Header Image */}
-                    <div className='article-banner-image-wrapper'>
-                        <HeaderImage 
-                          props={value.id} 
-                          headline={value.title} 
-                          author={value.author} 
-                          postdate={value.postdate} 
-                          tag={value.tag}
-                          arrayFromDatabase={this.state.articlesArray}
-                          leftoverArticles={this.state.leftoverArticles}
-                          fullDatabaseCall={this.state.fullDatabaseCall}
+                  {/* Header Image */}
+                  <div className='article-banner-image-wrapper'>
+                      <HeaderImage 
+                        props={value.id} 
+                        headline={value.title} 
+                        author={value.author} 
+                        postdate={value.postdate} 
+                        tag={value.tag}
+                        arrayFromDatabase={this.state.articlesArray}
+                        leftoverArticles={this.state.leftoverArticles}
+                        fullDatabaseCall={this.state.fullDatabaseCall}
 
-                          />
+                        />
 
-                        {/* <h1>Header Image</h1> */}
-                    </div>
+                      {/* <h1>Header Image</h1> */}
+                  </div>
                   
                    {/* Header, Sub Title and Body of Article */}
                     <ArticleArea 
@@ -247,18 +210,19 @@ export class NewsPageVIEW extends React.Component{
                        
                     />
                     {this.state.showBox === true ? 
-                                        <div className="confirmHide" >
-                                        <div >
-                                            <h3>Confirm Hide</h3>
-                                            <p>This article is bookmarked, hide anyway?</p>
-                                            <div>
-                                                <span onClick={()=>this.confirmHide(value.id)}>Yes, Hide</span>
-                                                <span onClick={()=>this.cancelHide(value.id)}>No, Don't Hide</span>
-                                            </div>
-                                        </div>
-                                      </div>
-                                      :
-                                      null}
+                      <div className="confirmHide" >
+                        <div>
+                            <h3>Confirm Hide</h3>
+                            <p>This article is bookmarked, hide anyway?</p>
+                            <div>
+                              <span onClick={()=>this.handleHideBookmarkedArticle(value.id,true)}>Yes, Hide</span>
+                              <span onClick={()=>this.handleHideBookmarkedArticle(value.id,false)}>No, Don't Hide</span>
+                            </div>
+                        </div>
+                      </div>
+                    :
+                    null
+                      }
                     {/* <NextArticle id={value.id} database={database}/> */}
                     {/* <RecReading fullDatabaseCall={database}/>                     */}
                     <ScrollToTopButton  />   

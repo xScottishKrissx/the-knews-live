@@ -1302,7 +1302,8 @@ General Notes  Objectives:
                                     ✔ the unhide article button in options isn't unhiding the articles. @done(12:56 - 05/08/21)   
                                         ->changed the hide to markedforhide
                                     ☐ do a code cleanup, rendercard is looking awful at the moment.
-                                        ☐ oncardbookmarkcontrols.js - done
+                                        ✔ oncardbookmarkcontrols.js - done @done(12:15 - 10/08/21)
+                                        ✔ news-page-view.js - done @done(12:15 - 10/08/21)
                                 
 
                 12.10.7.3 - Mark As Read:
