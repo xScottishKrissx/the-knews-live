@@ -38,6 +38,7 @@ markAsRead(id){
 hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,bookmarked){
     // HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
 
+    // Hiding an article on the home page
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
     console.log(articles)
     var hideArticle = articles.map(el => {
@@ -46,17 +47,45 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
             return Object.assign({}, el, {markedforhide:true})
             return el
     });
+
+
+    // Undo Hide Article In Article
+    // in article hide button switching
+    if(this.props.hideButtonSwitching === true && this.state.bookmarked === false){
+        if(this.state.hideStatus === true){
+            this.setState({hideStatus:false})
+            var hideArticle = articles.map(el => {
+                if(el.id === id && el.bookmarked === false && el != null )
+                    // return Object.assign({}, el, {hidden:false})
+                    return Object.assign({}, el, {markedforhide:false})
+                    return el
+            });
+        }else{
+            this.setState({hideStatus:true})
+            var hideArticle = articles.map(el => {
+                if(el.id === id && el.bookmarked === false && el != null )
+                    // return Object.assign({}, el, {hidden:false})
+                    return Object.assign({}, el, {markedforhide:true})
+                    return el
+            });
+        }
+    }
     
     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     
-    // Shows the overlay
+
+
+
+
+    // Shows the overlay for comfirming a hide on a bookmark
     if(this.props.hidePressed)this.props.hidePressed()
+
 
     // hiding bookmarks on bookmark.js
     if(this.props.hideBookmarkedArticle === true ){
         // console.log("Perma Hide Bookmark")
-        console.log("Hide Bookmarked article")
+        // console.log("Hide Bookmarked article")
         var hideArticle = articles.map(el => {
             if(el.id === id && el != null )
                 return Object.assign({}, el, {bookmarked:false, hidden:true})
@@ -67,6 +96,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     }
 
+    // Hiding a bookmarked article in article
     if(this.state.bookmarked === true && this.props.hideBookmarkedArticle === false){
         var hideArticle = articles.map(el => {
             if(el.id === id && el.bookmarked === true  && el != null )
@@ -80,6 +110,8 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
         console.log("You're hiding a bookmarked article? Are you sure you want to proceed?")
         // document.getElementById(id + "confirmHide").classList.add("displayFlex")
     }
+
+
 
     // hideArticleFeedback()
     // document.getElementById(this.props.id + "markedAsHiddenOverlay").classList.add("displayFlex")
@@ -108,7 +140,10 @@ componentDidUpdate(prevProps){
     if (this.props.bookmarkedStatus !== prevProps.bookmarkedStatus) {
         this.updateStateBasedOnProp(this.props.bookmarkedStatus);
       }
+    
 }
+
+
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
@@ -160,17 +195,17 @@ render(){
             </button>
             :
 
-            <button title="Hide Article" onClick={() => this.hideArticle(
+            <button  onClick={() => this.hideArticle(
                 this.props.id,
                 this.props.postsArray,
                 this.props.arrayFromDatabase,
                 this.props.leftoverArticles,
                 this.props.fullDatabaseCall
             )}>
-              {this.props.hideStatus === true ? 
-                <span class="material-icons">visibility_off</span>
+              {this.state.hideStatus === true ? 
+                <span title="Click to Unhide" class="material-icons">visibility_off</span>
                 :                
-                <span class="material-icons">visibility_on</span>
+                <span title="Click to Hide" class="material-icons">visibility</span>
               }
                 
 

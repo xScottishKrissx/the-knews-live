@@ -150,6 +150,7 @@ export class NavBar extends React.Component{
                                 updateArticle={this.props.updateArticle}
 
                                 hideStatus={this.props.hideStatus}
+                                hideButtonSwitching={this.props.hideButtonSwitching}
                             />
 
                             {/************Article Link (liteKnews)  */}

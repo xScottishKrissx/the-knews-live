@@ -26,6 +26,7 @@ return(
                     hidePressed={props.hidePressed}
                     updateProp={props.updateArticle}
                     hideStatus={props.hideStatus}
+                    hideButtonSwitching={props.hideButtonSwitching}
                 />
             </Button>
         </div> 

@@ -91,11 +91,11 @@ export class NewsPageVIEW extends React.Component{
         this.setState({showBox:bookmarked})      
         // if(bookmarked === false)this.setState({showHideMessage:true})
 
-        console.log(markedforhide)
+        // console.log(markedforhide)
 
         // Next Step of undoing hide
-        if(markedforhide === true)console.log("Unhide Article On Click")
-        if(markedforhide === false)console.log("Hide Article On Click")
+        // if(markedforhide === true && bookmarked === true)console.log("Unhide Article On Click")
+        // if(markedforhide === false)console.log("Hide Article On Click")
       }
 
       updateArticle =(x) => {
@@ -170,6 +170,7 @@ export class NewsPageVIEW extends React.Component{
                     bookmarkControls={true}
                     bookmarks={true}
                     homeButtonOn={true}
+                    hideButtonSwitching={true}
 
                     // Handle Like
                     id={value.id} 
