@@ -123,7 +123,20 @@ export class NewsPageVIEW extends React.Component{
         // this.setState({showHideMessage:true})
         
       }
-      cancelHide(){
+      cancelHide(id){
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // console.log(articles)
+        var hideArticle = articles.map(el => {
+            if(el.id === id && el.bookmarked === true && el != null )
+                // return Object.assign({}, el, {hidden:false})
+                return Object.assign({}, el, {hidden:false, markedforhide:false})
+                return el
+        });
+        // console.log(hideArticle)
+        // localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+        this.setState({showBox:false})
+        this.props.updateArticle(hideArticle)
         this.setState({showBox:false})
       }
     render(){
@@ -136,7 +149,7 @@ export class NewsPageVIEW extends React.Component{
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
         // const database = this.props.database
         // const database = this.props.database
-        console.log(database)
+        // console.log(database)
         // console.log(this.props.params)
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
@@ -247,7 +260,7 @@ export class NewsPageVIEW extends React.Component{
                                             <p>This article is bookmarked, hide anyway?</p>
                                             <div>
                                                 <span onClick={()=>this.confirmHide(value.id)}>Confirm</span>
-                                                <span onClick={()=>this.cancelHide()}>Cancel</span>
+                                                <span onClick={()=>this.cancelHide(value.id)}>Cancel</span>
                                             </div>
                                         </div>
                                       </div>

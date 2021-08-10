@@ -148,7 +148,7 @@ componentDidUpdate(prevProps){
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
-    console.log(this.props.hideStatus)
+    // console.log(this.props.hideStatus)
     return(
         <div className="onCardControls">   
         {/* <p>Hello</p> */}
