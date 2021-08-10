@@ -112,13 +112,14 @@ export class NewsPageVIEW extends React.Component{
         var hideArticle = articles.map(el => {
             if(el.id === id && el.bookmarked === true && el != null )
                 // return Object.assign({}, el, {hidden:false})
-                return Object.assign({}, el, {hidden:true})
+                return Object.assign({}, el, {hidden:true, markedforhide:true})
                 return el
         });
         // console.log(hideArticle)
         // localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
         this.setState({showBox:false})
+        this.props.updateArticle(hideArticle)
         // this.setState({showHideMessage:true})
         
       }

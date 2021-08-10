@@ -18,7 +18,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
    
     var setBookmarkTrue = mainArray.map(el => {
         if(el.id === id && el != null && el.bookmarked === false )
-            return Object.assign({}, el, {bookmarked:true})
+            return Object.assign({}, el, {bookmarked:true, hidden:false, markedforhide:false})
             return el
     });    
 

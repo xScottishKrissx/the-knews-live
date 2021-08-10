@@ -1275,9 +1275,9 @@ General Notes  Objectives:
 
                                                     ☐ 5 - Add ability to undo a hide in article.
                                                         ☐ I have an undo button but there are, again, a few things I need to look at.
-                                                            ☐ If you bookmark a hidden article, set the article to unhidden
+                                                            ✔ If you bookmark a hidden article, set the article to unhidden @done(10:46 - 10/08/21)
                                                             ☐ Display the article is hidden message
-                                                            ☐ Confirming a hide bookmarked article does not change the icon.
+                                                            ✔ Confirming a hide bookmarked article does not change the icon. @done(10:56 - 10/08/21)
 
                                     ☐ integrate in article hide button
                                         ✔ Add feedback that the article has been hidden @done(13:06 - 09/08/21)

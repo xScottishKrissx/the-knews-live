@@ -130,6 +130,7 @@ handleClick(){
         this.setState({bookmarked:true})
         createBookmark(this.props.id,this.props.fullDatabaseCall)
         if(this.props.updateProp)this.props.updateProp(true)
+        this.setState({hideStatus:false})
     }
     
 }
@@ -202,7 +203,7 @@ render(){
                 this.props.leftoverArticles,
                 this.props.fullDatabaseCall
             )}>
-              {this.state.hideStatus === true ? 
+              {this.props.hideStatus === true ? 
                 <span title="Click to Unhide" class="material-icons">visibility_off</span>
                 :                
                 <span title="Click to Hide" class="material-icons">visibility</span>
