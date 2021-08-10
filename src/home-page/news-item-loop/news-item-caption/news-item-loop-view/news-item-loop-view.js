@@ -97,6 +97,10 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     updateHideStatus = (articles) =>{
         this.setState({renderArray:articles})
     }
+    updateRender = (articles) => {
+        this.setState({renderLiteKnews:articles})
+        console.log("updateRender")
+    }
     reload(){
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(localStorageCards){
@@ -123,7 +127,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         // renderToPage.filter(x=>x.markedforhide === false)
         // console.log(renderToPage)
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-        
+        console.log(this.state.renderLiteKnews)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -136,6 +140,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     arrayFromDatabase={this.props.databaseProp} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
+                    updateRender={this.updateRender}
                 />
             :
             

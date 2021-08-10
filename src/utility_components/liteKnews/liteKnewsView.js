@@ -24,6 +24,11 @@ export class LiteKnewsView extends React.Component{
             <header>
                 <HeaderImage props={this.props.id}/>
                 <h1>{this.props.title}</h1>
+                {this.props.bookmarkedStatus === true ? 
+                    <p>True</p>
+                    :
+                    <p>False</p>
+                }
             </header>      
             
             <ArticleInformation                 

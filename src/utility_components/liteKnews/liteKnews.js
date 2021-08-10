@@ -23,6 +23,7 @@ class LiteKnews extends Component {
     }
 
     changeArticle(x){
+
         // Close liteKnews
         var close = this.props.closeLiteKnews;
         if(x === "close")close()
@@ -43,6 +44,7 @@ class LiteKnews extends Component {
 
     // keyboard controls
     controls(event){
+
        if(event.keyCode === 37 && this.state.articleNumber > 0){
             this.setState({articleNumber: this.state.articleNumber - 1}) 
             window.scrollTo(0,0)
@@ -53,16 +55,38 @@ class LiteKnews extends Component {
         }
     }
 
+    // handleHideClick(id){
+    //     console.log("handleHideClick")
+    //     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+    //     var hideArticle = articles.map(el => {
+    //         if(el.id === id && el.bookmarked === false && el != null )
+    //             // return Object.assign({}, el, {hidden:false})
+    //             return Object.assign({}, el, {markedforhide:true})
+    //             return el
+    //     });
+
+    //     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+    //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+    //     console.log(hideArticle)
+    // }
+
+
+
     render(){ 
-    const filterHidden = this.props.renderToPage.filter(obj => obj.hidden === false && obj.read === false && obj.markedforhide === false)
+    const filterHidden = this.props.renderToPage.filter(obj => 
+        obj.hidden === false && 
+        obj.read === false  
+        // && obj.markedforhide === false
+        )
+    // const filterHidden = this.props.renderToPage
     const articleFromArray = filterHidden[this.state.articleNumber];
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
-    
+    console.log(articleFromArray.markedforhide)
         return (
             <div id="liteKnewsWrapper">              
                 <NavBar 
-                    bookmarkControls={true}
+                    bookmarkControls={false}
                     bookmarks={true}
                     articleLink={true}
                     liteKnewsControls={true}
@@ -82,6 +106,8 @@ class LiteKnews extends Component {
                     nextArticle = {()=>this.changeArticle("next")}
                     closeLiteKnews = {()=>this.changeArticle("close")}
                  
+                    // hideStatus={articleFromArray.markedforhide}
+                    // hidePressed={()=>this.handleHideClick(articleFromArray.id)}
                 />
 
 

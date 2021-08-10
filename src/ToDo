@@ -1255,36 +1255,37 @@ General Notes  Objectives:
                                         ✔ include feedback that you can't hide a bookmarked article @done(12:44 - 06/08/21)
                                             ✔ added a confirmation box @done(12:44 - 06/08/21)
                                             ✔ integrate bookmark page with this. @done(12:57 - 06/08/21)
-                                            ☐ there is still no feedback in the actual article
-                                                ☐ working on this, have the bones of it in place and it's mostly working but there a few things to be worked out.
-                                                    ✔ 1 - I need to press the hide button twice after bookmarking the article.It DOES work once the article had already been bookmarked. @done(12:04 - 09/08/21)
-                                                        ✔ Solution - Added the updateProp from the renderCardState that simply updates the article array with the latest stored array when the bookmark icon is clicked. @done(12:04 - 09/08/21)
-                                                    ✔ 2 - Hookup Confirm Button @done(11:29 - 10/08/21)
-                                                        ✔ Hide article from view on confirm @done(12:42 - 09/08/21)
-                                                        ✔ Hide box on confirm @done(12:42 - 09/08/21)
-                                                        ✔ Provide final feedback that article has been hidden(or redirect to home page) @done(11:29 - 10/08/21)
-                                                            ✔ How about some text above the article title? @done(11:29 - 10/08/21)
-                                                                ✔ text in place, just need to style it. @done(11:29 - 10/08/21)
 
-                                                    ✔ 3 - Hookup Cancel button @done(12:25 - 09/08/21)
-                                                        ✔ Hide box on cancel. @done(12:21 - 09/08/21)
-                                                    ✔ 4 - Account for the permutations that might cause issue @done(11:17 - 10/08/21)
-                                                        ✔ the basic functionality is fine but there are many ways that the message can show at the wrong time. @done(11:17 - 10/08/21)
-                                                        ✔ article hide message should ONLY show when the article is marked as hidden. @done(11:17 - 10/08/21)
-                                                        ✔ should NOT appear with the confirm hide box(unless the article was marked as hidden before) @done(11:17 - 10/08/21)
-                                                        ✔ Given all of the various permutations, it would actually make the code simpler if I could undo a hide. @done(11:17 - 10/08/21)
+                        ☐ there is still no feedback in the actual article
+                            ☐ working on this, have the bones of it in place and it's mostly working but there a few things to be worked out.
+                                ✔ 1 - I need to press the hide button twice after bookmarking the article.It DOES work once the article had already been bookmarked. @done(12:04 - 09/08/21)
+                                    ✔ Solution - Added the updateProp from the renderCardState that simply updates the article array with the latest stored array when the bookmark icon is clicked. @done(12:04 - 09/08/21)
+                                ✔ 2 - Hookup Confirm Button @done(11:29 - 10/08/21)
+                                    ✔ Hide article from view on confirm @done(12:42 - 09/08/21)
+                                    ✔ Hide box on confirm @done(12:42 - 09/08/21)
+                                    ✔ Provide final feedback that article has been hidden(or redirect to home page) @done(11:29 - 10/08/21)
+                                        ✔ How about some text above the article title? @done(11:29 - 10/08/21)
+                                            ✔ text in place, just need to style it. @done(11:29 - 10/08/21)
 
-                                                    ✔ 5 - Add ability to undo a hide in article. @done(11:17 - 10/08/21)
-                                                        ✔ I have an undo button but there are, again, a few things I need to look at. @done(11:17 - 10/08/21)
-                                                            ✔ If you bookmark a hidden article, set the article to unhidden @done(10:46 - 10/08/21)
-                                                            ✔ Display the article is hidden message @done(11:16 - 10/08/21)
-                                                            ✔ Confirming a hide bookmarked article does not change the icon. @done(10:56 - 10/08/21)
-                                                            ✔ Add ability to cancel a hide on a bookmarked article @done(11:06 - 10/08/21)
-                                                    ☐ 6 - A small bug @started(11:42 - 10/08/21)
-                                                        ☐ Step 1 - Bookmark Article
-                                                        ☐ Step 2 - Hide Article
-                                                        ☐ Step 3 - Remove Bookmark
-                                                        ☐ Step 4 - With article still hidden, it takes 2 clicks for the icon to change.
+                                ✔ 3 - Hookup Cancel button @done(12:25 - 09/08/21)
+                                    ✔ Hide box on cancel. @done(12:21 - 09/08/21)
+                                ✔ 4 - Account for the permutations that might cause issue @done(11:17 - 10/08/21)
+                                    ✔ the basic functionality is fine but there are many ways that the message can show at the wrong time. @done(11:17 - 10/08/21)
+                                    ✔ article hide message should ONLY show when the article is marked as hidden. @done(11:17 - 10/08/21)
+                                    ✔ should NOT appear with the confirm hide box(unless the article was marked as hidden before) @done(11:17 - 10/08/21)
+                                    ✔ Given all of the various permutations, it would actually make the code simpler if I could undo a hide. @done(11:17 - 10/08/21)
+
+                                ✔ 5 - Add ability to undo a hide in article. @done(11:17 - 10/08/21)
+                                    ✔ I have an undo button but there are, again, a few things I need to look at. @done(11:17 - 10/08/21)
+                                        ✔ If you bookmark a hidden article, set the article to unhidden @done(10:46 - 10/08/21)
+                                        ✔ Display the article is hidden message @done(11:16 - 10/08/21)
+                                        ✔ Confirming a hide bookmarked article does not change the icon. @done(10:56 - 10/08/21)
+                                        ✔ Add ability to cancel a hide on a bookmarked article @done(11:06 - 10/08/21)
+                                ☐ 6 - A small bug @started(11:42 - 10/08/21)
+                                    ☐ Step 1 - Bookmark Article
+                                    ☐ Step 2 - Hide Article
+                                    ☐ Step 3 - Remove Bookmark
+                                    ☐ Step 4 - With article still hidden, it takes 2 clicks for the icon to change.
 
                                     ✔ integrate in article hide button @done(11:17 - 10/08/21)
                                         ✔ Add feedback that the article has been hidden @done(13:06 - 09/08/21)
@@ -1301,10 +1302,17 @@ General Notes  Objectives:
                                         
                                     ✔ the unhide article button in options isn't unhiding the articles. @done(12:56 - 05/08/21)   
                                         ->changed the hide to markedforhide
-                                    ☐ do a code cleanup, rendercard is looking awful at the moment.
+                                    ✔ do a code cleanup, rendercard is looking awful at the moment. @done(12:44 - 10/08/21)
                                         ✔ oncardbookmarkcontrols.js - done @done(12:15 - 10/08/21)
                                         ✔ news-page-view.js - done @done(12:15 - 10/08/21)
                                         ✔ renderCardState - @done(12:43 - 10/08/21)
+                
+                        ☐ Integrate liteKnews hide button
+                            ☐ Add ability to unhide articles
+                            ☐ Should use the same message as the regualar article page
+                            ☐ Bookmarking a liteKnews article leaves the bookmark icon turned out as you switch articles
+                            ✔ Removed ability to bookmark and hide articles in Lite Knews @done(14:46 - 10/08/21)
+                                ✔ I'm unable to figure out how to make bookmarks and hiding work here. @done(14:46 - 10/08/21)
                                 
 
                 12.10.7.3 - Mark As Read:
