@@ -252,8 +252,8 @@ export class NewsPageVIEW extends React.Component{
                                             <h3>Confirm Hide</h3>
                                             <p>This article is bookmarked, hide anyway?</p>
                                             <div>
-                                                <span onClick={()=>this.confirmHide(value.id)}>Confirm</span>
-                                                <span onClick={()=>this.cancelHide(value.id)}>Cancel</span>
+                                                <span onClick={()=>this.confirmHide(value.id)}>Yes, Hide</span>
+                                                <span onClick={()=>this.cancelHide(value.id)}>No, Don't Hide</span>
                                             </div>
                                         </div>
                                       </div>

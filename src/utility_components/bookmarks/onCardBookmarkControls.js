@@ -5,9 +5,6 @@ import "../bookmarks/onCardBookmarkControls.css";
 // Bookmarks
 import MarkAsRead from '../bookmarks/markAsRead.js';
 
-// Hiding
-import HideArticle from '../../utility_components/hide-article/hide-articlev2.js';
-import hideArticleFeedback from '../hide-article/hideArticleFeedback.js';
 import removeBookmark from './removeBookmark';
 import createBookmark from './createBookmark';
 
@@ -36,18 +33,17 @@ markAsRead(id){
 }
 
 hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,bookmarked){
-    // HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
 
     // Hiding an article on the home page
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
-    // console.log(articles)
+
     var hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
             // return Object.assign({}, el, {hidden:false})
             return Object.assign({}, el, {markedforhide:true})
             return el
     });
-
+  
 
     // Undo Hide Article In Article
     // in article hide button switching
@@ -56,7 +52,6 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
             this.setState({hideStatus:false})
             var hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === false && el != null )
-                    // return Object.assign({}, el, {hidden:false})
                     return Object.assign({}, el, {markedforhide:false})
                     return el
             });
@@ -64,36 +59,19 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
             this.setState({hideStatus:true})
             var hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === false && el != null )
-                    // return Object.assign({}, el, {hidden:false})
                     return Object.assign({}, el, {markedforhide:true})
                     return el
             });
         }
-    }
-    
-    localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
-    
-
-
-
-
-    // Shows the overlay for comfirming a hide on a bookmark
-    if(this.props.hidePressed)this.props.hidePressed()
-
+    }    
 
     // hiding bookmarks on bookmark.js
     if(this.props.hideBookmarkedArticle === true ){
-        // console.log("Perma Hide Bookmark")
-        // console.log("Hide Bookmarked article")
         var hideArticle = articles.map(el => {
             if(el.id === id && el != null )
                 return Object.assign({}, el, {bookmarked:false, hidden:true})
                 return el
         });
-
-        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     }
 
     // Hiding a bookmarked article in article
@@ -103,18 +81,13 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
                 return Object.assign({}, el, {markedforhide:true})
                 return el
         });
-
-        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
-        if(this.props.hidePressed)this.props.hidePressed()
-        console.log("You're hiding a bookmarked article? Are you sure you want to proceed?")
-        // document.getElementById(id + "confirmHide").classList.add("displayFlex")
     }
 
 
-
-    // hideArticleFeedback()
-    // document.getElementById(this.props.id + "markedAsHiddenOverlay").classList.add("displayFlex")
+    localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+    // Shows the overlay for comfirming a hide on a bookmark
+    if(this.props.hidePressed)this.props.hidePressed()
 }
 
 
@@ -122,36 +95,31 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
 
 handleClick(){   
     if(this.state.bookmarked === true){
-        this.setState({bookmarked:false})
+        this.setState({bookmarked:false,hideStatus:false})
         removeBookmark(this.props.id)
         if(this.props.updateProp)this.props.updateProp(false)
-        
     }else{
-        this.setState({bookmarked:true})
+        this.setState({bookmarked:true,hideStatus:false})
         createBookmark(this.props.id,this.props.fullDatabaseCall)
         if(this.props.updateProp)this.props.updateProp(true)
-        this.setState({hideStatus:false})
     }
     
 }
 // Handles the change when swiping the card.
 componentDidUpdate(prevProps){
-    // console.log("Prev Props: " + prevProps.bookmarkedStatus)
-    // console.log("Current Prop: " + this.props.bookmarkedStatus)
     if (this.props.bookmarkedStatus !== prevProps.bookmarkedStatus) {
         this.updateStateBasedOnProp(this.props.bookmarkedStatus);
       }
-    
 }
 
 
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
-    // console.log(this.props.hideStatus)
+
     return(
         <div className="onCardControls">   
-        {/* <p>Hello</p> */}
+
 {/* Mark as Read button */}
         {this.props.showMarkAsReadButton === false ?
             null
@@ -208,50 +176,7 @@ render(){
                 :                
                 <span title="Click to Hide" class="material-icons">visibility</span>
               }
-                
-
-            </button> 
-                        
-                    //   <button title="Hide Article" onClick={() => this.hideArticle(
-                    //     this.props.id,
-                    //     this.props.postsArray,
-                    //     this.props.arrayFromDatabase,
-                    //     this.props.leftoverArticles,
-                    //     this.props.fullDatabaseCall
-                    // )}>
-                      
-                    //     <span class="material-icons">visibility_off</span>
-                        
-
-                    // </button> 
-
-                    
-
-            // <div>
-            // {this.props.hideStatus === true ? 
-            //           <button title="Hide Article" onClick={() => this.hideArticle(
-            //             this.props.id,
-            //             this.props.postsArray,
-            //             this.props.arrayFromDatabase,
-            //             this.props.leftoverArticles,
-            //             this.props.fullDatabaseCall
-            //         )}>
-            //             <span class="material-icons">visibility_off</span>
-            //         </button> 
-            //     : 
-            //     <button title="Hide Article" onClick={() => this.hideArticle(
-            //         this.props.id,
-            //         this.props.postsArray,
-            //         this.props.arrayFromDatabase,
-            //         this.props.leftoverArticles,
-            //         this.props.fullDatabaseCall
-            //     )}>
-            //         <span class="material-icons">visibility_on</span>
-            //     </button> 
-            // }
-
-
-            // </div>
+            </button>       
             }
         
 
