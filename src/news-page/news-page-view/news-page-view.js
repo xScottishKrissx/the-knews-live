@@ -86,7 +86,6 @@ export class NewsPageVIEW extends React.Component{
 
     // Used to update the article array with the latest bookmark status
     updateArticle = () => {
-      console.log("Update Article")
       const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
       this.props.updateArticle(articles)
     }
@@ -181,7 +180,7 @@ export class NewsPageVIEW extends React.Component{
 
                         />
 
-                      {/* <h1>Header Image</h1> */}
+                      
                   </div>
                   
                    {/* Header, Sub Title and Body of Article */}

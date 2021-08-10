@@ -1304,6 +1304,7 @@ General Notes  Objectives:
                                     ☐ do a code cleanup, rendercard is looking awful at the moment.
                                         ✔ oncardbookmarkcontrols.js - done @done(12:15 - 10/08/21)
                                         ✔ news-page-view.js - done @done(12:15 - 10/08/21)
+                                        ✔ renderCardState - @done(12:43 - 10/08/21)
                                 
 
                 12.10.7.3 - Mark As Read:

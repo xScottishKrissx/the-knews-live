@@ -37,48 +37,44 @@ class RenderCardState extends React.Component{
 
     
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
-        // console.log(articles)
+
+        // Hide an article as normal
         var hideArticle = articles.map(el => {
             if(el.id === id && el.bookmarked === false && el != null )
                 // return Object.assign({}, el, {hidden:false})
                 return Object.assign({}, el, {markedforhide:true})
                 return el
-        });
-        
-        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+        });       
 
+        // Hiding a bookmarked article
         if(bookmarked === true && this.props.hideBookmarkedArticle === false){
             var hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === true  && el != null )
                     return Object.assign({}, el, {markedforhide:true})
                     return el
             });
-    
-            localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
-            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
-            if(this.props.hidePressed)this.props.hidePressed()
-            console.log("You're hiding a bookmarked article? Are you sure you want to proceed?")
-            // document.getElementById(id + "confirmHide").classList.add("displayFlex")
         }
-        
+
+        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
+        if(this.props.hidePressed)this.props.hidePressed()
         // Shows the overlay
         this.props.updateBookmarkStatus(hideArticle)
     }
+
+
+
     updateProp(){
         // Handles updating the bookmark when clicking the bookmark icon
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(articles)
         this.props.updateBookmarkStatus(articles)
     }
-    unhideArticle(id){
-        // document.getElementById(id + "markedAsHiddenOverlay").classList.remove("displayFlex")
 
+
+    unhideArticle(id){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(articles)
         var unhideArticle = articles.map(el => {
             if(el.id === id && el.markedforhide === true && el != null )
-                // return Object.assign({}, el, {hidden:false})
                 return Object.assign({}, el, {markedforhide:false})
                 return el
         });
@@ -87,31 +83,24 @@ class RenderCardState extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(unhideArticle))
         this.props.updateHideStatus(unhideArticle)
     }
+
+
     hideBookmarkedArticle(id){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        // console.log(articles)
         var hideBookmarkedArticle = articles.map(el => {
             if(el.id === id && el.markedforhide === true && el.bookmarked === true && el != null )
-                // return Object.assign({}, el, {hidden:false})
-                // console.log("Hide Bookmarked Article")
                 return Object.assign({}, el, {markedforhide:true, bookmarked:false})
                 return el
         });
-        // console.log(hideBookmarkedArticle)
         this.props.updateHideStatus(hideBookmarkedArticle)
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideBookmarkedArticle))
     }
 
-    hidePressed(){
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        this.props.updateHideStatus(articles)
-        // document.getElementById(id).classList.remove("markAsRead")
-    }
+
 
     render(){
 
     const pageView = this.props.database.map((value,key) => {
-        // console.log(value.bookmarked + " " +  value.markedforhide)
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
     
@@ -128,8 +117,8 @@ class RenderCardState extends React.Component{
                         arrayFromDatabase={this.props.arrayFromDatabase}
 
                         bookmarkTest={this.state.bookmarked}
-                        updateProp={()=>this.updateProp(value.bookmarked)}
-                        hidePressed={()=> this.hidePressed(value.id)}   
+                        updateProp={()=>this.updateProp()}
+                        hidePressed={()=> this.updateProp()}   
                     />
                 : 
                 null
@@ -155,21 +144,8 @@ class RenderCardState extends React.Component{
 
                         swipeRight={{
                             content: <div>Hiding article...</div>, 
-                            
-                            // action: () => swipeRightAction(
-                            //     value.id, 
-                            //     this.props.postsArray,
-                            //     this.props.arrayFromDatabase,
-                            //     this.props.leftoverArticles,
-                            //     this.props.fullDatabaseCall,
-                            //     this.props.bookmarked
-                                
-                            // )
                             action:() => this.swipeRightAction(value.id,this.props.fullDatabaseCall,value.bookmarked)
                         }}
-                        // onSwipeProgress={progress => console.log(progress)}
-                        
-                        
                     >
                             
                             <div className='news-square' name="tags-original-load-news"  key={key}  
@@ -184,10 +160,11 @@ class RenderCardState extends React.Component{
                                     tag={value.tag}
                                     imageId={value.id}
                                     showArticle={this.props.showArticle}
-                                    // Testing
 
                                     />
                             </div>
+
+
                             {value.markedforhide === true  && value.bookmarked === false? 
                                 <div className="markedAsHideOverlayWrapper" id={value.id + "markedAsHiddenOverlay"}>
                                     <div>

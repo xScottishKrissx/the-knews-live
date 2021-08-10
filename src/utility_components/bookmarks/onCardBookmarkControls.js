@@ -8,6 +8,8 @@ import MarkAsRead from '../bookmarks/markAsRead.js';
 import removeBookmark from './removeBookmark';
 import createBookmark from './createBookmark';
 
+
+
 class OnCardBookMarkControls extends Component {
 
     constructor(props){
@@ -36,6 +38,7 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
 
     // Hiding an article on the home page
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
+
 
     var hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
