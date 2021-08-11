@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleInformation from '../../news-page/news-page-view/article-area/articleInformation/articleInformation';
-import MarkAsRead from '../bookmarks/markAsRead';
+import MarkAsRead from '../bookmarks/markAsReadV2';
 import HeaderImage from '../header-image/header-image';
 import ParseHTML from '../parse-database-html/parse-html';
 
@@ -11,7 +11,7 @@ export class LiteKnewsView extends React.Component{
         this.state = {}
     }
     componentDidMount(){
-        MarkAsRead(this.props.id,false)        
+        MarkAsRead(this.props.id,this.props.readStatus)        
     }
     
     render(){

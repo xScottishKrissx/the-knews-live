@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import "../bookmarks/onCardBookmarkControls.css";
 
 // Bookmarks
-import MarkAsRead from '../bookmarks/markAsRead.js';
+import MarkAsRead from './markAsReadV2.js';
 
 import removeBookmark from './removeBookmark';
 import createBookmark from './createBookmark';
@@ -16,25 +16,19 @@ class OnCardBookMarkControls extends Component {
         super(props);
         this.state = {
             bookmarks:[],
-            bookmarked:this.props.bookmarkedStatus
+            bookmarked:this.props.bookmarkedStatus,
+            read:this.props.readStatus
         }
         this.updateStateBasedOnProp = this.updateStateBasedOnProp.bind(this);
     }
 
 
-markAsRead(id){
-
-    if(this.state.read === false){
-        MarkAsRead(id,this.state.read)
-        this.setState({read:true})
-       
-    }else{
-        MarkAsRead(id,this.state.read)
-        this.setState({read:false})
-    }
+markAsRead(id,markAs){
+    MarkAsRead(id,markAs)
+    if(this.props.updateProp)this.props.updateProp(markAs)    
 }
 
-hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,bookmarked){
+hideArticle(id,fullDatabaseCall){
     console.log("Hide Article " + id + " Hide Status: " + this.props.hideStatus)
     
     // Hiding an article on the home page
@@ -128,8 +122,8 @@ render(){
             null
         :
             <div >
-                <button title="Mark As Read" onClick={()=>this.markAsRead(this.props.id)}> 
-                {this.state.read === true ? 
+                <button title="Mark As Read" onClick={()=>this.markAsRead(this.props.id,this.props.readStatus)}> 
+                {this.props.readStatus === true ? 
                     <span class="material-icons" >check_circle</span>
                     :
                     <span class="material-icons" >check_circle_outline</span>

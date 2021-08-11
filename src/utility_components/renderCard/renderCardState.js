@@ -103,7 +103,12 @@ class RenderCardState extends React.Component{
     const pageView = this.props.database.map((value,key) => {
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
-    
+
+                {/* {value.read === true ? 
+                <h1>Read</h1>
+                :
+                <h1>Unread</h1>    
+                }  */}
                 {value.markedforhide === false  ?
                     <OnCardBookMarkControls 
                         id={value.id}

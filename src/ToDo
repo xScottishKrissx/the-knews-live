@@ -1308,7 +1308,7 @@ General Notes  Objectives:
                                         ✔ renderCardState - @done(12:43 - 10/08/21)
                         ✔ Bookmark Page @done(10:26 - 11/08/21)
                             ✔ Added the confirm hide box to bookmark page @done(10:26 - 11/08/21)
-                            
+
                         ☐ Integrate liteKnews hide button
                             ☐ Add ability to unhide articles
                             ☐ Should use the same message as the regualar article page
@@ -1318,7 +1318,19 @@ General Notes  Objectives:
                                 
 
                 12.10.7.3 - Mark As Read:
-                    ☐ With the new hiding, mark as read is totally borked.
+                    ✔ 12.10.7.3.1 -  With the new hiding, mark as read is totally borked. @done(14:03 - 11/08/21)
+                        ✔ 1 - It takes 2 clicks to mark as articles as read @done(10:40 - 11/08/21)
+                        ✔ 2 - Entering an article, leaving it and mark it as unread. If you then bookmark another card, that previous card will revert to marked as read styles @done(13:43 - 11/08/21)
+                            ✔ I think this is because the markAsRead in the onCardControls is not working correctly. @done(13:43 - 11/08/21)
+                            ✔ The issue is that for some reason I can't remove the markAsRead style from a visited article. I literally have no explanation for this and can't for life of me understand my I can remove the myClass class but no the markAsRead class. It only does this for articles you visit, the same code works perfectly fine for non-visited articles. @done(13:43 - 11/08/21)
+                            ✔ Solution - There was a stray .add(markasRead) in scrolLCgeckV2 that was wrongly adding a markasRead in componentDidUpdate. @done(13:43 - 11/08/21)
+                        ✔ Clean up the 2 mark as reads in news-page-view and oncardbookmarcontrols into 1 @done(13:53 - 11/08/21)
+                    
+                    ☐ 12.10.7.3.2 - what about adding a message in the article that the user has read the article previously?
+                        ☐ ...maybe even a timestamp?
+                        ☐ ...and an icon showing this>
+                        ☐ "Article read on: date - icon ....simples.Probably.
+                        
 
                 12.10.7.4 - Scrolling:
                     ☐ Improved feedback for no further articles available to load(either scrolling or the button)
@@ -1339,10 +1351,12 @@ General Notes  Objectives:
                     ☐ looks terrible
             
             12.10.X - Misc:
-                ☐ the mark as read button is pretty broken.
+                ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
+                ☐ add a keypress shortcut for the escape key to exit liteKnews
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Move the on card bookmark controls out of the bookmark folder
                 ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
+                ☐ try and move the hideArticle code from onCardBookmarkControls into it's own file.
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)

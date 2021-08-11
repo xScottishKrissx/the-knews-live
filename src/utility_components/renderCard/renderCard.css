@@ -73,6 +73,11 @@
     
 /* Bookmarks */
 .markAsRead{opacity: 0.5; }
+/* .true{opacity: 0.5;} */
+/* .false{opacity: 2.0;} */
+/* .markAsUnread{opacity: 2; } */
+
+
 
 /* .swipeable-list-item__content{opacity: 0 !important;} */
 .myClass > div > div > .swipeable-list-item__content-right,

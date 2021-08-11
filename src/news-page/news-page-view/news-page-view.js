@@ -8,7 +8,7 @@ import HeaderImage from '../../utility_components/header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
-import MarkAsRead from '../../utility_components/bookmarks/markAsRead.js';
+import MarkAsRead from '../../utility_components/bookmarks/markAsReadV2.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
 import RecReading from './recommended-reading/recReading.js';
 import NextArticle from './nextArticle.js';
@@ -106,18 +106,23 @@ export class NewsPageVIEW extends React.Component{
       this.props.updateArticle(hideArticle)
     }
 
+    markAsRead(id,markAs){
+      MarkAsRead(id,markAs)
+      if(this.props.updateProp)this.props.updateProp(markAs)      
+    }
+
     render(){
         window.scrollTo(0,0);
 
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.database
-
+        // console.log(database)
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
-
+        
         const NewsPageView = getArticle.map((value) => {
 
 
-            MarkAsRead(value.id, false)
+            this.markAsRead(value.id,value.readStatus)
             return(
               
                 <div className='news-page-wrapper' key={value.id}> 

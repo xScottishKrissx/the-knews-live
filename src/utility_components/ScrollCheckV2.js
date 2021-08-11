@@ -82,10 +82,10 @@ class ScrollCheckV2 extends React.Component{
         // console.log("componentDidUpdate")
         // console.log(this.state.mainArray)
         
-        var markArticleRead = this.state.thing.map(el => {
-            if(el.read === true && el != null )if( document.getElementById(el.id))
-                document.getElementById(el.id).classList.add('markAsRead')
-        });
+        // var markArticleRead = this.state.thing.map(el => {
+        //     if(el.read === true && el != null )if( document.getElementById(el.id))
+        //         document.getElementById(el.id).classList.add('markAsRead')
+        // });
     }
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll, {passive:true});

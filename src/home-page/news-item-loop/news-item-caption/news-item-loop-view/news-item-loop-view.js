@@ -41,10 +41,17 @@ class NewsItemLoopView extends React.Component{
 
 componentDidMount(){
     this.reload()
+
+
 }
 
 componentDidUpdate(){
     updateBookmarkStyles();
+    var markArticleRead = this.state.renderArray.map(el => {
+        if(el.read === true && el != null )if( document.getElementById(el.id))
+            document.getElementById(el.id).classList.add('markAsRead')
+    });
+    
 }
 
 // Card Size Controls
@@ -97,6 +104,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     updateHideStatus = (articles) =>{
         this.setState({renderArray:articles})
     }
+
     updateRender = (articles) => {
         this.setState({renderLiteKnews:articles})
         console.log("updateRender")
@@ -113,11 +121,11 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             });
             // console.log(hideArticle)
     
-            console.log("news-item-loop-view.js mounted")
+            // console.log("news-item-loop-view.js mounted")
             const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false)
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
             this.setState({renderArray:filterMarkedAsHiddenForReload})
-            console.log(this.state.renderArray)
+            // console.log(this.state.renderArray)
         }
     }
     render(){  
@@ -128,6 +136,11 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         // console.log(renderToPage)
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         // console.log(this.state.renderLiteKnews)
+
+        var markArticleRead = renderToPage.map(el => {
+            if(el.read === true && el != null )if( document.getElementById(el.id))
+                document.getElementById(el.id).classList.add('markAsRead')
+        });
         return(
             
             <div className="newsItemLoopViewWrapper">

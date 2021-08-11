@@ -98,7 +98,7 @@ export class NewsPage extends React.Component{
     }
 
     render(){    
-
+        // console.log(this.state.fullDatabaseCall)
     const arrayLength = this.state.articlesArray.length;
 
     return (
