@@ -201,6 +201,8 @@ class Bookmarks extends Component {
 
                     updateBookmarkStatus={this.updateBookmarkStatus}
                     updateHideStatus={this.updateBookmarkStatus}
+                    hideBookmarkedArticle={false}
+                    
                     
                 />
                 }

@@ -1306,7 +1306,9 @@ General Notes  Objectives:
                                         ✔ oncardbookmarkcontrols.js - done @done(12:15 - 10/08/21)
                                         ✔ news-page-view.js - done @done(12:15 - 10/08/21)
                                         ✔ renderCardState - @done(12:43 - 10/08/21)
-                
+                        ✔ Bookmark Page @done(10:26 - 11/08/21)
+                            ✔ Added the confirm hide box to bookmark page @done(10:26 - 11/08/21)
+                            
                         ☐ Integrate liteKnews hide button
                             ☐ Add ability to unhide articles
                             ☐ Should use the same message as the regualar article page
@@ -1347,6 +1349,9 @@ General Notes  Objectives:
                 //it's getting quite big
                 ☐ Bookmarking an article should unhide any hidden article.
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
+                ☐ Have another look at litesKnews and the bookmark controls. See if I can get that working.
+                    ...what about just removing liteKnews?
+
                 ☐ Buttons that need to be added/created
                     Navbar (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks

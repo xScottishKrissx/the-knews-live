@@ -37,13 +37,8 @@ markAsRead(id){
 hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,bookmarked){
     console.log("Hide Article " + id + " Hide Status: " + this.props.hideStatus)
     
-
-
-
-
     // Hiding an article on the home page
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
-
 
     var hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
@@ -52,7 +47,6 @@ hideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall,b
             return el
     });
   
-
     // Undo Hide Article In Article
     // in article hide button switching
     if(this.props.hideButtonSwitching === true && this.state.bookmarked === false){
@@ -125,7 +119,7 @@ componentDidUpdate(prevProps){
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
-    console.log(this.props.bookmarkedStatus)
+    // console.log(this.props.bookmarkedStatus)
     return(
         <div className="onCardControls">   
 

@@ -34,7 +34,7 @@ class RenderCardState extends React.Component{
 
     // this entire thing is a mess.
     swipeRightAction(id,fullDatabaseCall,bookmarked){
-
+        console.log("Hide!")
     
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
 

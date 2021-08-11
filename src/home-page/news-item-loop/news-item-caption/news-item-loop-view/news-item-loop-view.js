@@ -127,7 +127,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         // renderToPage.filter(x=>x.markedforhide === false)
         // console.log(renderToPage)
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-        console.log(this.state.renderLiteKnews)
+        // console.log(this.state.renderLiteKnews)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -190,12 +190,17 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 {this.props.databaseProp.length >= 30 && thing ? 
                 <RenderCardState 
                     database={renderToPage}
+                    
+                    
+                    // Card Size
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
                     postsArray={this.state.postsArray}
                     arrayFromDatabase={this.props.databaseProp} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
+                    
+                    // Controls
                     updateBookmarkStatus={this.updateBookmarkStatus}
                     updateHideStatus={this.updateHideStatus}
                     hideBookmarkedArticle={false}
