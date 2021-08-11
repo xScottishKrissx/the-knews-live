@@ -74,6 +74,7 @@ class ScrollCheckV2 extends React.Component{
             // if(document.getElementById(id)){
             //     document.getElementById(id).classList.add('markAsRead')
             //     }
+            console.log("New Articles!!")
         }else{
             // console.log("Not At Bottom Yet")
         }
@@ -96,6 +97,7 @@ class ScrollCheckV2 extends React.Component{
     render(){
         // console.log(this.state.mainArray)
         // console.log(this.props.databaseProp)
+        // console.log("New Article!!")
         return(
             <React.Fragment>
                 {/* {pageView} */}

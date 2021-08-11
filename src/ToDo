@@ -1248,8 +1248,9 @@ General Notes  Objectives:
                                         ✔ added a check for value.markedforhide to onCardBookmark controls in the renderCard component. @done(11:58 - 05/08/21)
                                     ✔ dragging should be disabled while the overlay is active @done(12:09 - 05/08/21)
                                     ✔ integrate undo hide button @done(12:19 - 05/08/21)
-                                    ☐ the overlay should overwrite any other styles(eg. mark as read)
-                                        ☐ wait for 12.10.7.3
+                                    ✘ the overlay should overwrite any other styles(eg. mark as read) @cancelled(15:22 - 11/08/21)
+                                        ✘ wait for 12.10.7.3 @cancelled(15:22 - 11/08/21)
+                                        ✔ ...actually, i like the difference between a marked as read article that has been hidden and one that hasn't. @done(15:22 - 11/08/21)
                                     ✔ marked for hide articles shouldnt appear in liteKnews @done(10:22 - 06/08/21)
                                     ✔ integrate swiping to hide @done(13:28 - 05/08/21)
                                         ✔ include feedback that you can't hide a bookmarked article @done(12:44 - 06/08/21)
@@ -1281,11 +1282,6 @@ General Notes  Objectives:
                                         ✔ Display the article is hidden message @done(11:16 - 10/08/21)
                                         ✔ Confirming a hide bookmarked article does not change the icon. @done(10:56 - 10/08/21)
                                         ✔ Add ability to cancel a hide on a bookmarked article @done(11:06 - 10/08/21)
-                                ☐ 6 - A small bug @started(11:42 - 10/08/21)
-                                    ☐ Step 1 - Bookmark Article
-                                    ☐ Step 2 - Hide Article
-                                    ☐ Step 3 - Remove Bookmark
-                                    ☐ Step 4 - With article still hidden, it takes 2 clicks for the icon to change.
 
                                     ✔ integrate in article hide button @done(11:17 - 10/08/21)
                                         ✔ Add feedback that the article has been hidden @done(13:06 - 09/08/21)
@@ -1324,16 +1320,11 @@ General Notes  Objectives:
                             ✔ I think this is because the markAsRead in the onCardControls is not working correctly. @done(13:43 - 11/08/21)
                             ✔ The issue is that for some reason I can't remove the markAsRead style from a visited article. I literally have no explanation for this and can't for life of me understand my I can remove the myClass class but no the markAsRead class. It only does this for articles you visit, the same code works perfectly fine for non-visited articles. @done(13:43 - 11/08/21)
                             ✔ Solution - There was a stray .add(markasRead) in scrolLCgeckV2 that was wrongly adding a markasRead in componentDidUpdate. @done(13:43 - 11/08/21)
-                        ✔ Clean up the 2 mark as reads in news-page-view and oncardbookmarcontrols into 1 @done(13:53 - 11/08/21)
-                    
-                    ☐ 12.10.7.3.2 - what about adding a message in the article that the user has read the article previously?
-                        ☐ ...maybe even a timestamp?
-                        ☐ ...and an icon showing this>
-                        ☐ "Article read on: date - icon ....simples.Probably.
-                        
+                        ✔ Clean up the 2 mark as reads in news-page-view and oncardbookmarcontrols into 1 @done(13:53 - 11/08/21)                    
 
                 12.10.7.4 - Scrolling:
                     ☐ Improved feedback for no further articles available to load(either scrolling or the button)
+                    ☐ better indication that articles are being loaded as you scroll
                 12.10.7.5 - liteKnews:
                     ☐ Feedback for reaching end of articles in liteKnews
                     ☐ Improved feedback for switching articles
@@ -1352,6 +1343,7 @@ General Notes  Objectives:
             
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
+                ☐ add progress indicator for bookmarking/hiding cards on home page
                 ☐ add a keypress shortcut for the escape key to exit liteKnews
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Move the on card bookmark controls out of the bookmark folder
@@ -1360,8 +1352,6 @@ General Notes  Objectives:
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
-                //it's getting quite big
-                ☐ Bookmarking an article should unhide any hidden article.
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
                 ☐ Have another look at litesKnews and the bookmark controls. See if I can get that working.
                     ...what about just removing liteKnews?

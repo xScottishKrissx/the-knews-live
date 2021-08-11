@@ -104,11 +104,6 @@ class RenderCardState extends React.Component{
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
 
-                {/* {value.read === true ? 
-                <h1>Read</h1>
-                :
-                <h1>Unread</h1>    
-                }  */}
                 {value.markedforhide === false  ?
                     <OnCardBookMarkControls 
                         id={value.id}

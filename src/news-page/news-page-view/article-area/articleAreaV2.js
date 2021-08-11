@@ -34,7 +34,7 @@ const ArticleArea = (props) => {
         HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
     }
-    
+    console.log(props.read)
     return (
             
             <div className='article'>
@@ -73,7 +73,11 @@ const ArticleArea = (props) => {
                         {/* </Link> */}
                     </h3>
 
-                    
+                    {props.read === true ? 
+                    <p>Read</p>
+                    :
+                    <p>False</p>    
+                     }
                     <h3 className="__article-author">
                         <span>Author</span>
                         <Link 
