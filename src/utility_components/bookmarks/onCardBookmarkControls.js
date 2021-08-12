@@ -140,7 +140,7 @@ render(){
                     <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>                    
                 </button>
                 :
-                <button onClick={()=>this.handleClick(this.props.id)}>
+                <button className="animateVote" onClick={()=>this.handleClick(this.props.id)}>
                     <span class="material-icons increaseCardBookmarkOpacity" id={this.props.id + "bookmarkIcon"}>turned_in</span>              
                 </button>   
             }
