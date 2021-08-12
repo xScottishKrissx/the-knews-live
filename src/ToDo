@@ -1323,8 +1323,12 @@ General Notes  Objectives:
                         ✔ Clean up the 2 mark as reads in news-page-view and oncardbookmarcontrols into 1 @done(13:53 - 11/08/21)                    
 
                 12.10.7.4 - Scrolling:
-                    ☐ Improved feedback for no further articles available to load(either scrolling or the button)
-                    ☐ better indication that articles are being loaded as you scroll
+                    ✘ Improved feedback for no further articles available to load(either scrolling or the button) @cancelled(10:25 - 12/08/21)
+                    ✘ better indication that articles are being loaded as you scroll @cancelled(10:25 - 12/08/21)
+                    ✘ mark as read button throwing an error on newly scrolled articles @cancelled(10:25 - 12/08/21)
+                    ✘ bookmark button throwing an error on newly scrolled articles @cancelled(10:25 - 12/08/21)
+                    ✔ I've removed infinite scrolling to rework it in V13. There's too much to be done to get it up to speed with the current design that I don't want to waste the time on it. @done(10:25 - 12/08/21)
+
                 12.10.7.5 - liteKnews:
                     ☐ Feedback for reaching end of articles in liteKnews
                     ☐ Improved feedback for switching articles
@@ -1349,6 +1353,7 @@ General Notes  Objectives:
                 ☐ Move the on card bookmark controls out of the bookmark folder
                 ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
                 ☐ try and move the hideArticle code from onCardBookmarkControls into it's own file.
+                ☐ give the card sizes a max-width to prevent stretching
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)

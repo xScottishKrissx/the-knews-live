@@ -129,7 +129,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         }
     }
     render(){  
-        const renderToPage = this.state.renderArray.slice(0,30) || this.props.databaseProp ;
+        const renderToPage = this.state.renderArray.slice(0,96) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
         // renderToPage.filter(x=>x.markedforhide === false)
@@ -238,9 +238,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 } */}
                 
-               
-                {this.state.getArticleBy === "All" ?
-                //  Infinite Scroll
+               <h5>Infinite Scrolling Coming Soon...</h5>
+                {/* {this.state.getArticleBy === "All" ?
                     <ScrollCheckV2 
                         articlesArray={this.props.databaseProp}
                         startingCardSize={this.state.startingCardSize}
@@ -249,15 +248,13 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         getArticleBy={this.state.getArticleBy}
                         fullDatabaseCall={this.props.fullDatabaseCall}
                         showMoreArticlesBtn={true}
-
-                        
-                    />   
-                    
-                
+                        updateBookmarkStatus={this.updateBookmarkStatus}
+                        updateHideStatus={this.updateHideStatus}
+                        hideBookmarkedArticle={false}
+                    />                   
                 :
-                // <img alt="now loading" src={loading} />
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
-                }      
+                }       */}
                 </div> 
             </div>
             }

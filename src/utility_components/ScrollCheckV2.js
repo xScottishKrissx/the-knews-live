@@ -25,12 +25,12 @@ class ScrollCheckV2 extends React.Component{
         window.addEventListener('touchstart', this.scroll);       
 
         const editedArticlesArray = JSON.parse(localStorage.getItem("editedArticleArray"));
-        // const editedArticlesArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall"));
 
-        // console.log(editedArticlesArray)
+
+
         if(editedArticlesArray != null)this.setState({articlesArray:editedArticlesArray})
 
-        // console.log(JSON.parse(localStorage.getItem("editedArticleArray")));
+
     }
 
     scroll = (e) => {
@@ -49,9 +49,7 @@ class ScrollCheckV2 extends React.Component{
 
 
         if(windowBottom >= docHeight){
-            // console.log("Load New Articles")
-            
-            // console.log(editedArticlesArray)
+
 
             // Get the articles that should be rendered on scroll...
             // console.log(editedArticlesArray.splice(0,5))
@@ -61,8 +59,7 @@ class ScrollCheckV2 extends React.Component{
 
             // const filterArticlesBy = renderNewArticlesOnScroll.filter(obj => obj.tag === localStorage.getItem("filterOption"));
 
-            // console.log(renderNewArticlesOnScroll)
-            // console.log(filterArticlesBy)
+
 
             // Setting state will then update the page with the new articles attached to the end of the array.
             this.setState({
@@ -70,24 +67,17 @@ class ScrollCheckV2 extends React.Component{
                 arrayStartState: this.state.arrayStartState + 5,
                 arrayEndState: this.state.arrayEndState + 5
             })    
-            
-            // if(document.getElementById(id)){
-            //     document.getElementById(id).classList.add('markAsRead')
-            //     }
-            console.log("New Articles!!")
+
+            console.log(this.state.mainArray)
         }else{
             // console.log("Not At Bottom Yet")
         }
-    }
-    componentDidUpdate(){
-        // console.log("componentDidUpdate")
-        // console.log(this.state.mainArray)
-        
         // var markArticleRead = this.state.thing.map(el => {
         //     if(el.read === true && el != null )if( document.getElementById(el.id))
         //         document.getElementById(el.id).classList.add('markAsRead')
         // });
     }
+
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll, {passive:true});
         window.removeEventListener('touchstart',this.scroll, {passive:true});
@@ -95,12 +85,10 @@ class ScrollCheckV2 extends React.Component{
       }
 
     render(){
-        // console.log(this.state.mainArray)
-        // console.log(this.props.databaseProp)
-        // console.log("New Article!!")
+
         return(
             <React.Fragment>
-                {/* {pageView} */}
+              
                 <RenderCard 
                     database={this.state.mainArray}
                     startingCardSize={this.props.startingCardSize}
@@ -109,15 +97,20 @@ class ScrollCheckV2 extends React.Component{
                     arrayFromDatabase={this.props.articlesArray} 
                     leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
-                    
-                
+
+                    updateBookmarkStatus={this.props.updateBookmarkStatus}
+                    updateHideStatus={this.props.updateHideStatus}
+                    hideBookmarkedArticle={false}
                 />
+
                {this.props.showMoreArticlesBtn ?
                     <span id="loadMoreArticlesButton">
                         <button onClick={()=>this.scroll()}>Load More Articles</button>
                     </span>
                :
-                    null
+               <span id="loadMoreArticlesButton">
+                    <button>No articles to load. Check back later.</button>
+                </span>
                 }
 
             </React.Fragment>   
