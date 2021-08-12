@@ -166,6 +166,7 @@ export class NavBar extends React.Component{
                                 prevArticle={this.props.prevArticle}
                                 closeLiteKnews={this.props.closeLiteKnews}
                                 nextArticle={this.props.nextArticle}
+                                endOfLiteKnews={this.props.endOfLiteKnews}
                             />
                             {/************Tags  */}
                             <TagPageTitle 

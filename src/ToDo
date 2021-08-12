@@ -1330,10 +1330,14 @@ General Notes  Objectives:
                     ✔ I've removed infinite scrolling to rework it in V13. There's too much to be done to get it up to speed with the current design that I don't want to waste the time on it. @done(10:25 - 12/08/21)
 
                 12.10.7.5 - liteKnews:
-                    ☐ Feedback for reaching end of articles in liteKnews
+                    ✔ Feedback for reaching end of articles in liteKnews @done(11:17 - 12/08/21)
                     ☐ Improved feedback for switching articles
                         ☐ Can i animate this?
                     ☐ Add the random colour to the swipe background
+                    ☐ add a keypress shortcut for the escape key to exit liteKnews
+                    ☐ Have another look at litesKnews and the bookmark controls. See if I can get that working.
+                    ...what about just removing liteKnews?
+
                 12.10.7.6 - article page:
                     ☐ better feedback for voting on article
                     ☐ better feedback for bookmarking article
@@ -1348,7 +1352,6 @@ General Notes  Objectives:
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
                 ☐ add progress indicator for bookmarking/hiding cards on home page
-                ☐ add a keypress shortcut for the escape key to exit liteKnews
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Move the on card bookmark controls out of the bookmark folder
                 ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
@@ -1358,8 +1361,7 @@ General Notes  Objectives:
                 ☐ Dragging on firefox is not working correctly.
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
-                ☐ Have another look at litesKnews and the bookmark controls. See if I can get that working.
-                    ...what about just removing liteKnews?
+
 
                 ☐ Buttons that need to be added/created
                     Navbar (sitewide):
@@ -1378,7 +1380,7 @@ General Notes  Objectives:
                 ☐ Issues
                     ✔ Full Website Reset -> Tag on card -> error in scrollCheckV2(84, map undefined) @done(16:03 - 06/07/21)
                     ✔ Fixed by adding a fulldatabase call prop to scrollCheckV2 in tags.js@done(16:03 - 06/07/21)
-                    ☐ the mark as read button is behaving weird. It's taking multiple clicks to initially activate.
+                    ✔ the mark as read button is behaving weird. It's taking multiple clicks to initially activate. @done(10:26 - 12/08/21)
 
                 
     theKnews:

@@ -129,7 +129,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         }
     }
     render(){  
-        const renderToPage = this.state.renderArray.slice(0,96) || this.props.databaseProp ;
+        const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
         // renderToPage.filter(x=>x.markedforhide === false)
@@ -200,7 +200,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 
 
 
-                {this.props.databaseProp.length >= 30 && thing ? 
+                {this.props.databaseProp.length >= 10 && thing ? 
                 <RenderCardState 
                     database={renderToPage}
                     

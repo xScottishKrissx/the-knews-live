@@ -1,5 +1,5 @@
 /* *{outline: 1px solid red;} */
-#liteKnewsWrapper{ width: 100%; }
+#liteKnewsWrapper, #liteKnewsWrapper > div{ width: 100%; }
 
 .liteKnewsArticleContainer > .onCardControls > div {
     position: relative;
@@ -149,8 +149,25 @@
     #liteKnewsControls span button span{ margin: 0 auto; width: fit-content; }   
     #liteKnewsControls span span{ width: 100%; }
 
+/* End of Lite Knews */
+#endOfLiteKnewsMessage{
+        /* Centering the div */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
 
-
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+        text-align: center;
+        cursor: default;
+}
+    #endOfLiteKnewsMessage > span{
+        font-size: 25vh;
+        opacity: 0.25;
+    }
 
  
 /* rotate */

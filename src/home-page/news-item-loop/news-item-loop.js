@@ -29,7 +29,7 @@ class MapDatabaseItems extends React.Component{
         // console.log("mount")
     // This is the initial database query.
       // Main Database Call
-     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);     
+     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(10);     
         dbRef.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
             let newState = [];
@@ -56,7 +56,7 @@ class MapDatabaseItems extends React.Component{
             }
             this.setState({
                 //Set's the initial number of articles loaded into home.
-                articlesArray: newState.slice(0,30),
+                articlesArray: newState.slice(0,10),
                 leftoverArticles: newState.slice(30,97),
                 fullDatabaseCall: newState
             })
@@ -92,7 +92,7 @@ class MapDatabaseItems extends React.Component{
          return (
             <div className="news-item-loop-wrapper"> 
             
-                {this.state.articlesArray.length === 30 ? 
+                {this.state.articlesArray.length === 10 ? 
                         <React.Fragment>
                             <NewsItemLoopView 
                                 databaseProp={arrayWithArticlesHidden } 

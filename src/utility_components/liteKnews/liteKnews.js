@@ -82,141 +82,182 @@ class LiteKnews extends Component {
     const articleFromArray = filterHidden[this.state.articleNumber];
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
-    console.log(articleFromArray.markedforhide)
+    // console.log(articleFromArray.markedforhide)
+    console.log(articleFromArray)
+    console.log(this.props.renderToPage)
+    console.log(this.props.renderToPage.length)
+    console.log(this.state.articleNumber)
         return (
-            <div id="liteKnewsWrapper">              
-                <NavBar 
+            <div id="liteKnewsWrapper">     
+            {this.props.renderToPage.length === this.state.articleNumber || !articleFromArray  ? 
+                
+                <div>
+                    <NavBar 
+                    homeButtonOn={true}
                     bookmarkControls={false}
                     bookmarks={true}
-                    articleLink={true}
+                    articleLink={false}
                     liteKnewsControls={true}
-                    pageTitle="liteKnews"
-
-                    // Bookmark Controls
-                    bookmarkedStatus={articleFromArray.bookmarked}
-                    id={articleFromArray.id}
-                    readStatus={articleFromArray.read}
-                    showMarkAsReadButton={false}
-                    arrayFromDatabase={this.props.arrayFromDatabase}
-                    leftoverArticles={this.props.leftoverArticles}
-                    fullDatabaseCall={this.props.fullDatabaseCall}
-
-                    // Article COntrols
+                    endOfLiteKnews={true}
+                    pageTitle="liteKnews"             
+                    // hideStatus={articleFromArray.markedforhide}
+                    // hidePressed={()=>this.handleHideClick(articleFromArray.id)}
+                                                    // Article COntrols
                     prevArticle = {()=>this.changeArticle("prev")}
                     nextArticle = {()=>this.changeArticle("next")}
                     closeLiteKnews = {()=>this.changeArticle("close")}
-                 
-                    // hideStatus={articleFromArray.markedforhide}
-                    // hidePressed={()=>this.handleHideClick(articleFromArray.id)}
-                />
+                    />
 
-
-                <div id="liteKnews" >                
-                    <div id="liteKnewsWrapper" >
-
-                    {articleFromArray != null || undefined ? 
-                        <SwipeableList threshold= {0.48} swipeStartThreshold={0.5} >
-
-                        <SwipeableListItem 
-                        
-                            swipeLeft={{
-                                content:
-                                    <div className="loadingStatus" >
-                                        {this.state.progress > 48 ?
-                                            <div className="loadComplete"> 
-                                            {nextArticleTitle === undefined ?
-                                                <div className="loadComplete"> 
-                                                    <p>You're at the end, no more articles to load :(</p>
-                                                </div>    
-                                            :
-                                                <div className="loadComplete"> 
-                                                    <p>Load Complete</p>
-                                                    <span>100%</span>
-                                                </div>     
-                                            }                                                   
-                                            </div>
-                                        :
-                                            <div className="loadingNumber">
-                                                <p>Loading Next Article:</p>
-                                                <span >{this.state.progress * 2 + "%"}</span>
-                                            </div>
-                                        }                 
-                                    </div>,
-                                actionAnimation:() => none,
-                                action:() => this.changeArticle("next"),                               
-                            }}
-                            
-                            onSwipeProgress={progress => this.swipeProgress(progress)}
-                            
-                            swipeRight={{
-                                
-                                content:
-                                    <div className="loadingStatus" >
-                                        {this.state.progress > 48 ?
-                                            <div className="loadComplete"> 
-                                            {prevArticleTitle === undefined ?
-                                                <div className="loadComplete"> 
-                                                    <p>You're at the start you can't go back. Onwards! :)</p>
-                                                    <p>liteKnews only displays unread articles. For now. I might change this later on</p>
-                                                </div>    
-                                            :
-                                                <div className="loadComplete"> 
-                                                    <p>Load Complete</p>
-                                                    <span>100%</span>
-                                                </div>     
-                                            }                                                   
-                                            </div>
-                                        :
-                                            <div className="loadingNumber"> 
-                                                <p>Loading Previous Article:</p>
-                                                <span>{this.state.progress * 2 + "%"}</span>
-                                            </div>
-                                        }
-                                    </div>
-                                    ,
-                                actionAnimation:() => none,
-                                action:() => this.changeArticle("prev")
-                        
-                            }}
-                            
-                        >
-                            <LiteKnewsView 
-                                id={articleFromArray.id}
-                                title={articleFromArray.title}
-                                author={articleFromArray.author}
-                                key={articleFromArray.key}
-                                text={articleFromArray.text}
-                                
-                                bookmarkedStatus={articleFromArray.bookmarked}
-                                readStatus={articleFromArray.read}
-                                // Tag 
-                                tag={articleFromArray.tag}
-                                // Author
-                                author={articleFromArray.author}
-                                arrayFromDatabase={this.props.arrayFromDatabase}
-                                leftoverArticles={this.props.leftoverArticles}
-                                fullDatabaseCall={this.props.fullDatabaseCall}
-                                // PostDate
-                                postdate={articleFromArray.postdate}
-
-                                // swiping-indicator
-                                nextArticleTitle={nextArticleTitle}
-                                prevArticleTitle={prevArticleTitle}
-                            />
-                                                             
-                            </SwipeableListItem>
-                        </SwipeableList>
-                        
-                    :
-                        <div>
-                            <h1>Nothing here</h1>
-                            <button onClick={()=>this.changeArticle("close",filterHidden.length)}>Close</button>
-                        </div>    
-                     }
-                        
-                        
+                    <div id="endOfLiteKnewsMessage">
+                        <h2>Nothing to read.<br/> Check back later...</h2>
+                        <span class="material-icons">auto_stories</span>
                     </div>
+                
                 </div>
+                            
+            :
+
+
+            <span>
+                <NavBar 
+                bookmarkControls={false}
+                bookmarks={true}
+                articleLink={true}
+                liteKnewsControls={true}
+                pageTitle="liteKnews"
+                endOfLiteKnews={false}
+
+                // Bookmark Controls
+                bookmarkedStatus={articleFromArray.bookmarked}
+                id={articleFromArray.id}
+                readStatus={articleFromArray.read}
+                showMarkAsReadButton={false}
+                arrayFromDatabase={this.props.arrayFromDatabase}
+                leftoverArticles={this.props.leftoverArticles}
+                fullDatabaseCall={this.props.fullDatabaseCall}
+
+                // Article COntrols
+                prevArticle = {()=>this.changeArticle("prev")}
+                nextArticle = {()=>this.changeArticle("next")}
+                closeLiteKnews = {()=>this.changeArticle("close")}
+                
+                // hideStatus={articleFromArray.markedforhide}
+                // hidePressed={()=>this.handleHideClick(articleFromArray.id)}
+            />
+
+
+            <div id="liteKnews" >                
+                <div id="liteKnewsWrapper" >
+
+                {articleFromArray != null || undefined ? 
+                    <SwipeableList threshold= {0.48} swipeStartThreshold={0.5} >
+
+                    <SwipeableListItem 
+                    
+                        swipeLeft={{
+                            content:
+                                <div className="loadingStatus" >
+                                    {this.state.progress > 48 ?
+                                        <div className="loadComplete"> 
+                                        {nextArticleTitle === undefined ?
+                                            <div className="loadComplete"> 
+                                                <p>You're at the end, no more articles to load :(</p>
+                                            </div>    
+                                        :
+                                            <div className="loadComplete"> 
+                                                <p>Load Complete</p>
+                                                <span>100%</span>
+                                            </div>     
+                                        }                                                   
+                                        </div>
+                                    :
+                                        <div className="loadingNumber">
+                                            <p>Loading Next Article:</p>
+                                            <span >{this.state.progress * 2 + "%"}</span>
+                                        </div>
+                                    }                 
+                                </div>,
+                            actionAnimation:() => none,
+                            action:() => this.changeArticle("next"),                               
+                        }}
+                        
+                        onSwipeProgress={progress => this.swipeProgress(progress)}
+                        
+                        swipeRight={{
+                            
+                            content:
+                                <div className="loadingStatus" >
+                                    {this.state.progress > 48 ?
+                                        <div className="loadComplete"> 
+                                        {prevArticleTitle === undefined ?
+                                            <div className="loadComplete"> 
+                                                <p>You're at the start you can't go back. Onwards! :)</p>
+                                                <p>liteKnews only displays unread articles. For now. I might change this later on</p>
+                                            </div>    
+                                        :
+                                            <div className="loadComplete"> 
+                                                <p>Load Complete</p>
+                                                <span>100%</span>
+                                            </div>     
+                                        }                                                   
+                                        </div>
+                                    :
+                                        <div className="loadingNumber"> 
+                                            <p>Loading Previous Article:</p>
+                                            <span>{this.state.progress * 2 + "%"}</span>
+                                        </div>
+                                    }
+                                </div>
+                                ,
+                            actionAnimation:() => none,
+                            action:() => this.changeArticle("prev")
+                    
+                        }}
+                        
+                    >
+                        <LiteKnewsView 
+                            id={articleFromArray.id}
+                            title={articleFromArray.title}
+                            author={articleFromArray.author}
+                            key={articleFromArray.key}
+                            text={articleFromArray.text}
+                            
+                            bookmarkedStatus={articleFromArray.bookmarked}
+                            readStatus={articleFromArray.read}
+                            // Tag 
+                            tag={articleFromArray.tag}
+                            // Author
+                            author={articleFromArray.author}
+                            arrayFromDatabase={this.props.arrayFromDatabase}
+                            leftoverArticles={this.props.leftoverArticles}
+                            fullDatabaseCall={this.props.fullDatabaseCall}
+                            // PostDate
+                            postdate={articleFromArray.postdate}
+
+                            // swiping-indicator
+                            nextArticleTitle={nextArticleTitle}
+                            prevArticleTitle={prevArticleTitle}
+                        />
+                                                            
+                        </SwipeableListItem>
+                    </SwipeableList>
+                    
+                :
+                    <div>
+                        <h1>Nothing here</h1>
+                        <button onClick={()=>this.changeArticle("close",filterHidden.length)}>Close</button>
+                    </div>    
+                    }
+                    
+                    
+                </div>
+            </div>
+            </span>
+
+
+                
+            }         
+
 
             </div>
         )
