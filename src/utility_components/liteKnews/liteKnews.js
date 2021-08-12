@@ -44,15 +44,20 @@ class LiteKnews extends Component {
 
     // keyboard controls
     controls(event){
+        
+    //Left
+    if(event.keyCode === 37 && this.state.articleNumber > 0){
+        this.setState({articleNumber: this.state.articleNumber - 1}) 
+        window.scrollTo(0,0)
+    }
+    //Right
+    if(event.keyCode === 39 && this.state.articleNumber < this.props.renderToPage.length ){
+        this.setState({articleNumber: this.state.articleNumber + 1}) 
+        window.scrollTo(0,0)
+    }
 
-       if(event.keyCode === 37 && this.state.articleNumber > 0){
-            this.setState({articleNumber: this.state.articleNumber - 1}) 
-            window.scrollTo(0,0)
-       }
-       if(event.keyCode === 39){
-            this.setState({articleNumber: this.state.articleNumber + 1}) 
-            window.scrollTo(0,0)
-        }
+    // Escape
+    if(event.keyCode === 27 )this.props.closeLiteKnews() 
     }
 
     // handleHideClick(id){
@@ -76,7 +81,7 @@ class LiteKnews extends Component {
     const filterHidden = this.props.renderToPage.filter(obj => 
         obj.hidden === false && 
         obj.read === false  
-        // && obj.markedforhide === false
+        && obj.markedforhide === false
         )
     // const filterHidden = this.props.renderToPage
     const articleFromArray = filterHidden[this.state.articleNumber];
@@ -89,7 +94,7 @@ class LiteKnews extends Component {
     console.log(this.state.articleNumber)
         return (
             <div id="liteKnewsWrapper">     
-            {this.props.renderToPage.length === this.state.articleNumber || !articleFromArray  ? 
+            {filterHidden.length === this.state.articleNumber || !articleFromArray  ? 
                 
                 <div>
                     <NavBar 
@@ -111,6 +116,8 @@ class LiteKnews extends Component {
                     <div id="endOfLiteKnewsMessage">
                         <h2>Nothing to read.<br/> Check back later...</h2>
                         <span class="material-icons">auto_stories</span>
+                        <p>Tips: Use the left and right arrow keys to switch articles in liteKnews</p>
+                        <p>You can also use the Esc key to close liteKnews</p>
                     </div>
                 
                 </div>

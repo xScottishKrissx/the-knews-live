@@ -30,9 +30,9 @@ return(
             :
             
             <div id="navBarLiteKnewsControls">   
-                <button title="go to previous article" onClick={props.prevArticle}>
+                {/* <button title="go to previous article" onClick={props.prevArticle}>
                     <span className="material-icons">skip_previous</span>
-                </button>                
+                </button>                 */}
                 <button title="close lite knews" onClick={props.closeLiteKnews}>
                     <span className="material-icons">close</span>
                 </button>

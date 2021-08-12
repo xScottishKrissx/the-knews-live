@@ -1334,9 +1334,14 @@ General Notes  Objectives:
                     ☐ Improved feedback for switching articles
                         ☐ Can i animate this?
                     ☐ Add the random colour to the swipe background
-                    ☐ add a keypress shortcut for the escape key to exit liteKnews
+                    ✔ add a keypress shortcut for the escape key to exit liteKnews @done(11:36 - 12/08/21)
+                        ✔ What about escaping the full article using the keyboard(yes, i know the backspace key exists) @done(12:04 - 12/08/21)
+                        
                     ☐ Have another look at litesKnews and the bookmark controls. See if I can get that working.
                     ...what about just removing liteKnews?
+                    ✔ ISSUE: @done(11:49 - 12/08/21)
+                        ✔ Having a single article in the liteKnews array throws an error.2+ is fine, 1 is a no. @done(11:47 - 12/08/21)
+                            ✔ Solution: The issue was the undefined nextArticleTitle, mainly there wasn't once because there is no next record. So i added a check for an undefined nextArticleTitle. @done(11:48 - 12/08/21)
 
                 12.10.7.6 - article page:
                     ☐ better feedback for voting on article

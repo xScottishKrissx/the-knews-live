@@ -81,7 +81,9 @@ export class NewsPageVIEW extends React.Component{
         })
     }
 
-
+    componentDidMount(){
+      document.addEventListener("keyup", this.controls, false);
+    }
     componentWillUnmount(){ fire.database().ref("items").off(); }
 
     // Used to update the article array with the latest bookmark status
@@ -110,6 +112,11 @@ export class NewsPageVIEW extends React.Component{
       MarkAsRead(id,markAs)
       if(this.props.updateProp)this.props.updateProp(markAs)      
     }
+
+    controls = (event) => {
+      // Escape
+      if(event.keyCode === 27 )this.setState({exit:true})
+      }
 
     render(){
         window.scrollTo(0,0);
@@ -240,8 +247,8 @@ export class NewsPageVIEW extends React.Component{
                 
                 {/* <NavControls currentarticleid={this.props.params} arrayFromDatabase={this.state.articlesArray}/> */}
                 
-                {this.props.params === "5" ? 
-                <Redirect to='/home' />
+                {this.props.params === "5" || this.state.exit === true ? 
+                <Redirect to='/theKnews/home' />
                 :  
                 NewsPageView
                 }

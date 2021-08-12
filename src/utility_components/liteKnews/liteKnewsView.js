@@ -48,39 +48,32 @@ export class LiteKnewsView extends React.Component{
             <div className="swipePreviewWrapper" style={setRandomColour}>
                 {this.props.prevArticleTitle === undefined ?
                     <div>
-                        <span class="material-icons">touch_app</span>
-                        <p><span>Next: </span>{this.props.nextArticleTitle.title}</p>
+                        {this.props.nextArticleTitle === undefined ?  
+                            null
+                        :
+                            <span> 
+                                <span class="material-icons">touch_app</span>
+                                <p><span>Next: </span>{this.props.nextArticleTitle.title}</p>
+                            </span>
+                        }
+
                     </div>
                 :
                 
-                    // <div>
-                    //     <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
-                    //     <span class="material-icons">touch_app</span> 
-                    //     <p><span>Next: </span> {this.props.nextArticleTitle.title}</p>
-                    // </div>
                 <div>
-                {this.props.nextArticleTitle === undefined ? 
-                    <div>
-                        <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
-                        <span class="material-icons">touch_app</span> 
-                        
-                    </div>
-                :    
-                    <div>
-                        <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
-                        <span class="material-icons">touch_app</span> 
-                        <p><span>Next: </span> {this.props.nextArticleTitle.title}</p>
-                    </div>
-                }
+                    {this.props.nextArticleTitle === undefined ? 
+                        <div>
+                            <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
+                            <span class="material-icons">touch_app</span> 
+                        </div>
+                    :    
+                        <div>
+                            <p><span>Previous: </span> {this.props.prevArticleTitle.title}</p>
+                            <span class="material-icons">touch_app</span> 
+                            <p><span>Next: </span> {this.props.nextArticleTitle.title}</p>
+                        </div>
+                    }
                 </div>
-
-
-
-
-
-
-
-
                 }
             </div>
 
