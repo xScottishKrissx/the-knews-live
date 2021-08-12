@@ -140,7 +140,7 @@ render(){
                     <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>                    
                 </button>
                 :
-                <button className="animateVote" onClick={()=>this.handleClick(this.props.id)}>
+                <button className="animateScale" onClick={()=>this.handleClick(this.props.id)}>
                     <span class="material-icons increaseCardBookmarkOpacity" id={this.props.id + "bookmarkIcon"}>turned_in</span>              
                 </button>   
             }
@@ -161,7 +161,7 @@ render(){
             </button>
             :
 
-            <button  onClick={() => this.hideArticle(
+            <button    onClick={() => this.hideArticle(
                 this.props.id,
                 this.props.postsArray,
                 this.props.arrayFromDatabase,
@@ -169,10 +169,13 @@ render(){
                 this.props.fullDatabaseCall
             )}>
               {this.props.hideStatus === true ? 
+              <span className="animateScale">
                 <span title="Click to Unhide" class="material-icons">visibility_off</span>
+                </span>
                 :                
-                <span title="Click to Hide" class="material-icons">visibility</span>
+                <span  title="Click to Hide" class="material-icons">visibility</span>
               }
+              
             </button>       
             }
         

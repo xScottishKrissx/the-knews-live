@@ -114,7 +114,7 @@ export class HandleLike extends React.Component{
                 <div>
                     <button  onClick={()=>this.handleClick("like","dislike")}>
                         {this.state.liked === true ? 
-                        <span className="animateVote">
+                        <span className="animateScale">
                             <span  className="large material-icons">thumb_up_alt</span>
                             <p>{this.state.likeCounter}</p>
                         </span>
@@ -128,7 +128,7 @@ export class HandleLike extends React.Component{
 
                     <button onClick={()=>this.handleClick("dislike","like")}>
                         {this.state.disliked === true ? 
-                        <span className="animateVote">
+                        <span className="animateScale">
                             <span className="large material-icons">thumb_down_alt</span>
                             <p>{this.state.dislikeCounter}</p>
                         </span>

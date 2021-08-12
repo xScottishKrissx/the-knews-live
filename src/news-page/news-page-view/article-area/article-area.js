@@ -55,6 +55,7 @@ const ArticleArea = (props) => {
            {props.showHideInfo === true ? 
             <span className="hiddenArticleInfo">This article has been hidden. You won't see it anymore.</span>   
             :
+            // <span className="hideMessage">This article has been hidden. You won't see it anymore.</span>  
             null
         }
             <div className='articleHeadline'>

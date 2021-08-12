@@ -1347,8 +1347,9 @@ General Notes  Objectives:
 
                 12.10.7.6 - article page:
                     ✔ better feedback for voting on article @done(13:26 - 12/08/21)
-                    ☐ better feedback for bookmarking article
+                    ✔ better feedback for bookmarking article @done(13:35 - 12/08/21)
                     ☐ better feedback for hiding article
+                        ☐ animate the message that appears on article hide
                     ☐ ability to undo hide               
                     ☐ remove the highlight for articles. Incorportate the random colour in a different way as the wrong colour can make reading difficult or impossible. Also concerns for colour blindness.
                 12.10.7.7 - home:
