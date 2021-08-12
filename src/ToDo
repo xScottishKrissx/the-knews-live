@@ -1332,11 +1332,13 @@ General Notes  Objectives:
                 12.10.7.5 - liteKnews:
                     ✔ Feedback for reaching end of articles in liteKnews @done(11:17 - 12/08/21)
                     ☐ Improved feedback for switching articles
-                        ☐ Can i animate this?
-                    ☐ Add the random colour to the swipe background
+                        ✔ Can i animate this? @done(12:27 - 12/08/21)
+                            ✔ Yes, altough best not to over do it. A simple fade in looks pretty good and breaks the instant in your face nature of the article appearing. @done(12:26 - 12/08/21)
+                    ✘ Add the random colour to the swipe background @cancelled(12:13 - 12/08/21)
+                        ✔ nah, i think this needs to be kept as a neutral colour to ensure it's clear whats happening. @done(12:13 - 12/08/21)
                     ✔ add a keypress shortcut for the escape key to exit liteKnews @done(11:36 - 12/08/21)
                         ✔ What about escaping the full article using the keyboard(yes, i know the backspace key exists) @done(12:04 - 12/08/21)
-                        
+
                     ☐ Have another look at litesKnews and the bookmark controls. See if I can get that working.
                     ...what about just removing liteKnews?
                     ✔ ISSUE: @done(11:49 - 12/08/21)
@@ -1353,6 +1355,12 @@ General Notes  Objectives:
                     ☐ better feedback for bookmarking articles
                 12.10.7.8 - recommended reading:
                     ☐ looks terrible
+                12.10.7.9 - Improve Feedback when using nav buttons:
+                    ☐ Active
+                    ☐ Hover
+                    ☐ Visited
+                    ☐ Interacting with menu and dropdowns
+                    ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
             
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)

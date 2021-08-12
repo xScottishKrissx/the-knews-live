@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/esm/Button';
 // styles in navbar.css
 
 export const LiteKnewsControlButtons = (props) =>{
-    console.log(props.endOfLiteKnews)
 return(
     // react-fragment - <> + </>
     <>

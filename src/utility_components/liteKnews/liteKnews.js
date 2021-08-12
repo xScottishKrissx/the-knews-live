@@ -88,17 +88,17 @@ class LiteKnews extends Component {
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
     // console.log(articleFromArray.markedforhide)
-    console.log(articleFromArray)
-    console.log(this.props.renderToPage)
-    console.log(this.props.renderToPage.length)
-    console.log(this.state.articleNumber)
+    // console.log(articleFromArray)
+    // console.log(this.props.renderToPage)
+    // console.log(this.props.renderToPage.length)
+    // console.log(this.state.articleNumber)
         return (
             <div id="liteKnewsWrapper">     
             {filterHidden.length === this.state.articleNumber || !articleFromArray  ? 
                 
                 <div>
                     <NavBar 
-                    homeButtonOn={true}
+                    homeButtonOn={false}
                     bookmarkControls={false}
                     bookmarks={true}
                     articleLink={false}
@@ -118,6 +118,7 @@ class LiteKnews extends Component {
                         <span class="material-icons">auto_stories</span>
                         <p>Tips: Use the left and right arrow keys to switch articles in liteKnews</p>
                         <p>You can also use the Esc key to close liteKnews</p>
+                        {/* <i class="bi-alarm"></i> */}
                     </div>
                 
                 </div>

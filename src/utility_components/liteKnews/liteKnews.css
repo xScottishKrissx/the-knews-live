@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
 /* *{outline: 1px solid red;} */
 #liteKnewsWrapper, #liteKnewsWrapper > div{ width: 100%; }
 
@@ -53,7 +55,15 @@
                 justify-content: center;
             margin: 0 auto;   
             margin-bottom: 100px;
+            
+            animation: fadeIn 2s;
+            animation-iteration-count: 1;
        }
+       @keyframes fadeIn {
+        0%{opacity: 0;}
+       
+    }
+       
 
 
 /* liteKnews header - image + title */
@@ -158,11 +168,12 @@
         /* bring your own prefixes */
         transform: translate(-50%, -50%);
 
+        cursor: default;
         display: flex;
             flex-direction: column;
             align-items: center;
+        opacity: 0.5;
         text-align: center;
-        cursor: default;
 }
     #endOfLiteKnewsMessage > span{
         font-size: 25vh;
