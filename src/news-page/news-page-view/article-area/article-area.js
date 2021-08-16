@@ -48,16 +48,22 @@ const ArticleArea = (props) => {
     return (
 
             <div className='articleWrapper'>
+
+            {/* props.showHideInfo === true ?  */}
+
+
+
                 <div className="articleContent">
             {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
             {/* Article Header */}
-            
-           {props.showHideInfo === true ? 
-            <span className="hiddenArticleInfo">This article has been hidden. You won't see it anymore.</span>   
-            :
-            // <span className="hideMessage">This article has been hidden. You won't see it anymore.</span>  
-            null
-        }
+            <div className="hideArticleInfoWrapper">
+            {props.showHideInfo === true ?
+                <div className="showHideMessage">Article is hidden and removed from your feed</div>
+                :
+                <div className="hideHideMessage">Article is hidden and removed from your feed</div>
+            }
+            </div>
+
             <div className='articleHeadline'>
                 <header><h1>{props.title}</h1></header>
             </div>

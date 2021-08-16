@@ -11,43 +11,29 @@
     }
 
 /* Message that displays when you hide an article */
-.hiddenArticleInfo{
-    background-color: #000000;
-    color: white;
-    margin-bottom: 25px;
-    position: fixed;
-        bottom: 0;
-        right: 0;
-    text-transform: uppercase;
-    width: 250px;
-    z-index: 1000;
-    animation: showMessage 2s;
+.hideArticleInfoWrapper{
+    /* outline: 1px solid red; */
+    color: #00000085;
 }
+    .showHideMessage{
+        opacity: 2;
+        animation: showMessage 2s;
+    }
+        @keyframes showMessage {
+            0%{opacity: 0;}
+            50%{opacity: 2}   
+        
+        }
 
-@keyframes showMessage {
-    0%{right:-100%;}
-    50%{right:0%}   
-   
-}
-.hideMessage{
-    background-color: #000000;
-    color: white;
-    margin-bottom: 25px;
-    opacity: 2;
-    position: fixed;
-        bottom: 0;
-        right: -100%;
-    text-transform: uppercase;
-    width: 250px;
-    z-index: 1000;
-    animation: hideMessage 1s;
-}
-@keyframes hideMessage {
-    0%{right:0; opacity: 0;}
-
-    100%{right:-100%;opacity: 2;}  
-   
-}
+    .hideHideMessage{
+        opacity: 0;
+        /* animation: hideMessage 1s; */
+    }
+        @keyframes hideMessage {
+            0%{opacity: 2;}
+            50%{opacity: 0}   
+        
+        }
 
 /* Article Headline */
     .articleHeadline{ width: 100%; }
