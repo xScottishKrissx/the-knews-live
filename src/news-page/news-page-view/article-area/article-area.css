@@ -40,7 +40,7 @@
 
 
 /* Confirm Hide */
-.confirmHide{
+.hideArticleDialogueBox{
     /* Centering the div */
     position: fixed;
     top: 50%;
@@ -58,24 +58,40 @@
     width: 100%;
 
 }
-    .confirmHide > div{
+    .hideArticleDialogueBox > div{
         background-color: white;
         display: flex;
             align-items: center;
             flex-direction: column;
         outline: 5px solid black;
         padding: 25px;
+        text-align: center;
     }
-        .confirmHide > div > div{
+        #confirmHideButtons{
             display: flex;
                 align-items: center;
+                justify-content: space-evenly;
                 /* flex-direction: column; */
-            width: 100%;
+            width: 50%;
         }
-            .confirmHide > div > div > span{
+        #cancelHideButtons{            
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            /* flex-direction: column; */width: 100%;
+        }
+        #confirmHideBox > p{
+            margin-top: 1rem;
+            width: 50%;
+        }
+        #cancelHideBox > p{margin-top: 1rem; width: 100%;}
+
+            .hideArticleDialogueBox > div > div > span{
                 cursor: pointer;
-                outline: 1px solid red;
+                color: black;
+                /* outline: 1px solid red; */
                 text-align: center;
+                text-decoration: underline;
                 width: 100%;
             }
 

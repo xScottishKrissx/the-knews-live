@@ -54,66 +54,66 @@ const ArticleArea = (props) => {
 
 
                 <div className="articleContent">
-            {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
-            {/* Article Header */}
-            <div className="hideArticleInfoWrapper">
-            {props.showHideInfo === true ?
-                <div className="showHideMessage">Article is hidden and removed from your feed</div>
-                :
-                <div className="hideHideMessage">Article is hidden and removed from your feed</div>
-            }
-            </div>
+                {/* <img src="https://the-knews.s3.eu-west-2.amazonaws.com/027+-+0fVAsZf.jpg" /> */}
+                {/* Article Header */}
+                    <div className="hideArticleInfoWrapper">
+                    {props.showHideInfo === true ?
+                        <div className="showHideMessage">This article is hidden and removed from your feed</div>
+                        :
+                        <div className="hideHideMessage">This article is hidden and removed from your feed</div>
+                    }
+                    </div>
 
-            <div className='articleHeadline'>
-                <header><h1>{props.title}</h1></header>
-            </div>
-
-
-
-            <ArticleInformation
-                // Tag 
-                tag={props.tag}
-                // Author
-                author={props.author}
-                arrayFromDatabase={props.arrayFromDatabase}
-                leftoverArticles={props.leftoverArticles}
-                fullDatabaseCall={props.fullDatabaseCall}
-                // PostDate
-                postdate={props.postdate}
-            />
-           
-            {/* <div className="authorSocial">
-                <span><img title={props.author + "'s facebook"} src={fbIcon} /></span>
-                <span><img title={props.author + "'s twitter"} src={twitterIcon} /></span>
-                <span><img title={props.author + "'s instagram"} src={instagramIcon} /></span>
-                <span><img title={props.author + "'s pinterest for some reason"} src={pinterestIcon} /></span>
-            </div> */}
+                    <div className='articleHeadline'>
+                        <header><h1>{props.title}</h1></header>
+                    </div>
 
 
-                {/* {loggedInEmail === articleEmail ?
-                <EditArticle articleText={props.text} articleID={props.id} articleTitle={props.title}/>
-                :
-                <p>No Edit Button for you</p>
-                } */}             
-                   
-                {/* Article Body */}
-                <div className='articleBody'>
-                    <article><ParseHTML props={props.text}/></article>
-                </div> 
 
-
-{/* 
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">
-                    Tweet
-                </a>
-
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
-
+                    <ArticleInformation
+                        // Tag 
+                        tag={props.tag}
+                        // Author
+                        author={props.author}
+                        arrayFromDatabase={props.arrayFromDatabase}
+                        leftoverArticles={props.leftoverArticles}
+                        fullDatabaseCall={props.fullDatabaseCall}
+                        // PostDate
+                        postdate={props.postdate}
+                    />
                 
-                {/* <div class="postArticleBody"><br/>
-                    <span>--Bookmarked 1230 times</span>
-                </div> */}
-            </div>
+                    {/* <div className="authorSocial">
+                        <span><img title={props.author + "'s facebook"} src={fbIcon} /></span>
+                        <span><img title={props.author + "'s twitter"} src={twitterIcon} /></span>
+                        <span><img title={props.author + "'s instagram"} src={instagramIcon} /></span>
+                        <span><img title={props.author + "'s pinterest for some reason"} src={pinterestIcon} /></span>
+                    </div> */}
+
+
+                        {/* {loggedInEmail === articleEmail ?
+                        <EditArticle articleText={props.text} articleID={props.id} articleTitle={props.title}/>
+                        :
+                        <p>No Edit Button for you</p>
+                        } */}             
+                        
+                        {/* Article Body */}
+                        <div className='articleBody'>
+                            <article><ParseHTML props={props.text}/></article>
+                        </div> 
+
+
+        {/* 
+                        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">
+                            Tweet
+                        </a>
+
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
+
+                        
+                        {/* <div class="postArticleBody"><br/>
+                            <span>--Bookmarked 1230 times</span>
+                        </div> */}
+                </div>
             </div>
 
     );

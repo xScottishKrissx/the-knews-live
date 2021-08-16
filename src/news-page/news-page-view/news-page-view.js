@@ -13,6 +13,8 @@ import HandleLike from '../../utility_components/handleSocialScore/handleLike.js
 import RecReading from './recommended-reading/recReading.js';
 import NextArticle from './nextArticle.js';
 
+import Button from 'react-bootstrap/esm/Button';
+
 import {Helmet} from 'react-helmet';
 
 export class NewsPageVIEW extends React.Component{
@@ -220,20 +222,39 @@ export class NewsPageVIEW extends React.Component{
                         showHideInfo={value.markedforhide}
                        
                     />
+
+                    {/* Show hide article dialogue box */}
                     {this.state.showBox === true ? 
-                      <div className="confirmHide" >
-                        <div>
-                            <h3>Confirm Hide</h3>
-                            <p>This article is bookmarked, hide anyway?</p>
-                            <div>
-                              <span onClick={()=>this.handleHideBookmarkedArticle(value.id,true)}>Yes, Hide</span>
-                              <span onClick={()=>this.handleHideBookmarkedArticle(value.id,false)}>No, Don't Hide</span>
+                      <div className="hideArticleDialogueBox" >
+
+                          {value.markedforhide === false ? 
+                            <div id="confirmHideBox">
+                              <h3>Hide Article?</h3>
+                              <p>This article is bookmarked, hide anyway?</p>
+                              <div id="confirmHideButtons">                            
+                                  <Button onClick={()=>this.handleHideBookmarkedArticle(value.id,true)} variant="outline-dark">Yes</Button>                          
+                                  <Button onClick={()=>this.handleHideBookmarkedArticle(value.id,false)} variant="outline-dark">No</Button>
+                              </div>
+                              <p>Pressing "Yes" will remove the article from your feed. It will not be visible until you reset the website using the full website reset option, or by using the unhide button at the top of this page.</p>
                             </div>
+                          :
+                            <div id="cancelHideBox">
+                              <h3>Cancel Hide?</h3>
+                              <div id="cancelHideButtons">
+                                <Button onClick={()=>this.handleHideBookmarkedArticle(value.id,false)} variant="outline-dark">Yes</Button>
+                                <Button onClick={()=>this.handleHideBookmarkedArticle(value.id,true)} variant="outline-dark">No</Button>
+                              </div>
+                              <p>Pressing "Yes" will restore this article to your feed.</p>
+                            </div>
+                          }
+
+
                         </div>
-                      </div>
+
                     :
                     null
-                      }
+                    }
+
                     {/* <NextArticle id={value.id} database={database}/> */}
                     {/* <RecReading fullDatabaseCall={database}/>                     */}
                     <ScrollToTopButton  />   
