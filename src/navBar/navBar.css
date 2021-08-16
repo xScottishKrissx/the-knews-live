@@ -7,7 +7,7 @@
 
 /* The overall navbar wrapper */
 .headerWrapper{
-    background-color: black;    
+    /* background-color: black;     */
     display: flex;
         align-items: center;
     height: inherit;
@@ -29,7 +29,7 @@
             color: white !important; 
             display: flex;
                 align-items: center;
-            height: 52px;
+            height: 53px;
         }
 
         .headerText > a > div{ display: flex; align-items: flex-end; }

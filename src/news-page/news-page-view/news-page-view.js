@@ -13,6 +13,7 @@ import HandleLike from '../../utility_components/handleSocialScore/handleLike.js
 import RecReading from './recommended-reading/recReading.js';
 import NextArticle from './nextArticle.js';
 
+
 import Button from 'react-bootstrap/esm/Button';
 
 import {Helmet} from 'react-helmet';
@@ -95,10 +96,15 @@ export class NewsPageVIEW extends React.Component{
     }
 
     // Shows the confirmation box if attempting to hide a bookmarked article
-    handleHideClick = (bookmarked) => { this.setState({showBox:bookmarked}) }
+    handleHideClick = (bookmarked) => { 
+      this.setState({showBox:bookmarked})
+      console.log("Show box")
+      console.log(this.state.showBox)
+    }
 
     // The confirmation box itself.
     handleHideBookmarkedArticle(id,x){
+      console.log(x)
       const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
       var hideArticle = articles.map(el => {
           if(el.id === id && el.bookmarked === true && el != null )
@@ -179,7 +185,7 @@ export class NewsPageVIEW extends React.Component{
                     updateArticle={this.updateArticle}
                   />
                     
-                    <div style={setRandomColour} id="articleLine"></div>
+                  <div style={setRandomColour} id="articleLine"></div>
                   {/* Header Image */}
                   <div className='article-banner-image-wrapper'>
                       <HeaderImage 
@@ -224,7 +230,8 @@ export class NewsPageVIEW extends React.Component{
                     />
 
                     {/* Show hide article dialogue box */}
-                    {this.state.showBox === true ? 
+                    
+                     {this.state.showBox === true ? 
                       <div className="hideArticleDialogueBox" >
 
                           {value.markedforhide === false ? 
@@ -253,7 +260,9 @@ export class NewsPageVIEW extends React.Component{
 
                     :
                     null
-                    }
+                    } 
+                    
+                    
 
                     {/* <NextArticle id={value.id} database={database}/> */}
                     {/* <RecReading fullDatabaseCall={database}/>                     */}

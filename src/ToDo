@@ -1356,8 +1356,10 @@ General Notes  Objectives:
                         ✔ added a line that animates from bottom to top on page load. Is this better? I don't know. Is it fun? Yes, yes it is. I also removed the lines from the navbar so that's something ill need to tweak. @done(13:45 - 16/08/21)
                             ✔ I've changed the line to be horizontal and appear below the navbar, the idea is to draw attention to the bookmarks, score etc at the top of the page. @done(13:55 - 16/08/21)
                             
-                    ☐ move the hide article dialogue box into it's own component.
-                12.10.7.7 - home:
+                    ✔ move the hide article dialogue box into it's own component. @done(15:57 - 16/08/21)
+                        ✔ tried, couldnt work it out. Gave up. @done(15:57 - 16/08/21)
+                
+                        12.10.7.7 - home:
                     ☐ better feedback for hiding articles
                     ☐ better feedback for bookmarking articles
                     ☐ add like/dislike button to card IF a vote has been cast
@@ -1380,6 +1382,8 @@ General Notes  Objectives:
                 ☐ try and move the hideArticle code from onCardBookmarkControls into it's own file.
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
+                ☐ there is a gap above the navbar, 1px high, when the page loads.
+                ☐ move the hide article dialogue box into it's own component.
 
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
