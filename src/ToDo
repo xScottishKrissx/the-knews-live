@@ -1352,7 +1352,10 @@ General Notes  Objectives:
                         ✔ animate the message that appears on article hide @done(11:43 - 16/08/21)
                     ✔ ability to undo hide @done(13:00 - 16/08/21)
                         ✔ It already exists, just need to adjust the message in the box @done(13:00 - 16/08/21)
-                    ☐ remove the highlight for articles. Incorportate the random colour in a different way as the wrong colour can make reading difficult or impossible. Also concerns for colour blindness.
+                    ✔ remove the highlight for articles. Incorportate the random colour in a different way as the wrong colour can make reading difficult or impossible. Also concerns for colour blindness. @done(13:44 - 16/08/21)
+                        ✔ added a line that animates from bottom to top on page load. Is this better? I don't know. Is it fun? Yes, yes it is. I also removed the lines from the navbar so that's something ill need to tweak. @done(13:45 - 16/08/21)
+                            ✔ I've changed the line to be horizontal and appear below the navbar, the idea is to draw attention to the bookmarks, score etc at the top of the page. @done(13:55 - 16/08/21)
+                            
                     ☐ move the hide article dialogue box into it's own component.
                 12.10.7.7 - home:
                     ☐ better feedback for hiding articles

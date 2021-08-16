@@ -12,7 +12,7 @@
         align-items: center;
     height: inherit;
         min-height: 53px;
-    outline: 2px solid black;
+    /* outline: 2px solid black; */
     width: 100%;
     z-index: 100;
 }
@@ -73,7 +73,7 @@
             justify-content: center;
         height: inherit;
             min-height: 53px;
-        outline: 2px solid black;
+        /* outline: 2px solid black; */
         position: relative;
     }
 

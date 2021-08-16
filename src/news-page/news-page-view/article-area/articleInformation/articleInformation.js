@@ -9,7 +9,18 @@ return(
 
                 <div className="articleTag">
                     <span>posted in </span>
-                        <Link className="newsItemLink" style={setRandomColour} to={{pathname: '/theKnews/home/search/tag/' + props.tag , state: {author: props.tag, searchDBFor: "tag",origin: "Article", orderByChild: "tag"}}}>
+                        <Link 
+                            className="newsItemLink" 
+                            // style={setRandomColour} 
+                            to={{
+                                pathname: '/theKnews/home/search/tag/' + props.tag ,
+                                state: {
+                                    author: props.tag, 
+                                    searchDBFor: "tag",
+                                    origin: "Article", 
+                                    orderByChild: "tag"
+                                    }
+                                }}>
                             {props.tag}
                         </Link>
                 </div>
@@ -18,7 +29,7 @@ return(
                     <span>by</span>
                     <Link 
                         className="newsItemLink"
-                        style={setRandomColour}
+                        // style={setRandomColour}
                         to={{
                             pathname: '/theKnews/home/search/author/' + props.author , 
                             

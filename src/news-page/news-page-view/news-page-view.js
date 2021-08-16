@@ -127,7 +127,7 @@ export class NewsPageVIEW extends React.Component{
         // console.log(database)
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
-        
+        const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
         const NewsPageView = getArticle.map((value) => {
 
 
@@ -179,7 +179,7 @@ export class NewsPageVIEW extends React.Component{
                     updateArticle={this.updateArticle}
                   />
                     
-                    
+                    <div style={setRandomColour} id="articleLine"></div>
                   {/* Header Image */}
                   <div className='article-banner-image-wrapper'>
                       <HeaderImage 
@@ -194,9 +194,9 @@ export class NewsPageVIEW extends React.Component{
 
                         />
 
-                      
+                 
                   </div>
-                  
+
                    {/* Header, Sub Title and Body of Article */}
                     <ArticleArea 
                         title={value.title}
