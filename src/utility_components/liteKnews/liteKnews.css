@@ -192,6 +192,7 @@
 
 
 /* Media Queries */
+
 @media (min-width: 768px) {
     #liteKnews{ margin-top: 55px; }
     .swipePreviewWrapper{ width: 80%; }
