@@ -1373,12 +1373,25 @@ General Notes  Objectives:
                         ✔ styled @done(12:41 - 17/08/21)
                     ☐ give the card sizes a max-width to prevent stretching
                         ☐ I think i just need to accept that there is going to be some stretching with the format i'm using...or try and make up for the "ugliness"
-                        ☐ To try and alleviate this, add some different layouts
+                        ☐ To try and alleviate this, add some different layouts. This gives the user the option to have something more rigid, meaning less chance for ugly cards.
                         ☐ This could be a "Page Layout" option rather than card layout.
                             ✔ Single Column @done(15:23 - 17/08/21)
-                            ☐ Central column with 2 articles per row
-                                ☐ 3x per row 
-                                ☐ 4x per row etc
+                            ☐ Doing multi column is looking quite a piece of work.
+                                ☐ I will need to change what some card layouts do according to each page layout. However, not everything will need to be changed but some do, like the big squares in a 2 layout will not currently splut into 2. This(and others like it) will need new logic. Althoughi do think this can be done using conditional operators in the custom-card-size-v2 file to simply switch out the paramaters based on the current active page layout.
+                                
+                            ☐ Columns in place but adjustments needed to fit each layout
+                                Dual Column Adjustments Needed to:
+                                    ☐ Compact
+                                    ☐ Thick
+                                    ☐ Big Squares
+                                Triple Column Adjustments Needed to:
+                                    ☐ Compact
+                                    ☐ Thick
+                                    ☐ Big Squares
+                                Quad Column Adjustments Needed to:
+                                    ☐ Compact
+                                    ☐ Thick
+                                    ☐ Big Squares
 
                     ☐ add message for 0 article left on home page
 

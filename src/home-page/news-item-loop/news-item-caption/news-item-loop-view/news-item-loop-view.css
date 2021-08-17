@@ -10,9 +10,10 @@
 }
 
     .cardsWrapper{
+        /* background-color: red; */
         display: flex;
             flex-wrap: wrap;
-        /* margin-top: 0; */
+        margin-top: 55px !important;
     }
 
 /* Hide Article Message  */
@@ -33,3 +34,19 @@
     }
 
 
+
+/* To make this work i will need to change what each card layout does in each page layout. */
+
+/* Dual Column */
+/* .CardWrapper */
+/* 
+    flex-flow:wrap
+    max-width:600px
+
+*/
+/* 3x Column
+.CardWrapper
+    flex-flow:wrap
+    max-width:800px
+
+*/

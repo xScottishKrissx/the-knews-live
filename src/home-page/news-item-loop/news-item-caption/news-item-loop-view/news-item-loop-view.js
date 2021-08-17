@@ -11,6 +11,10 @@ import updateBookmarkStyles from '../../../../utility_components/bookmarks/updat
 import NavBar from '../../../../navBar/navBar';
 
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
+
+import Button from 'react-bootstrap/esm/Button';
+import Container from 'react-bootstrap/esm/Container';
+import Row from 'react-bootstrap/esm/Row';
 class NewsItemLoopView extends React.Component{
 
     constructor(props){
@@ -26,7 +30,8 @@ class NewsItemLoopView extends React.Component{
         postsArray:[],
         pageLayout:{
             flexDirection:this.props.pageLayout[0],
-            margin:this.props.pageLayout[1]
+            margin:this.props.pageLayout[1],
+            maxWidth:this.props.pageLayout[2]
         },
 
         //hiding articles for filter views
@@ -60,12 +65,13 @@ componentDidUpdate(){
 
 // Card Size Controls
 getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
-getPageLayout = (param1,param2) => {
+getPageLayout = (param1,param2,maxWidth) => {
     console.log("Update Page layout" + param1 + param2)
     this.setState({
         pageLayout:{
             flexDirection:param1, 
-            margin:param2
+            margin:param2,
+            maxWidth:maxWidth
         }
     })
 }
@@ -216,9 +222,8 @@ getPageLayout = (param1,param2) => {
 
                 <div className="cardsWrapper" style={customPageLayout}>
                 
-
-
-                {this.props.databaseProp.length >= 10 && thing ? 
+     
+                             {this.props.databaseProp.length >= 10 && thing ? 
                 <RenderCardState 
                     database={renderToPage}
                     
@@ -239,7 +244,10 @@ getPageLayout = (param1,param2) => {
                 :
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 }
-                    
+
+                
+       
+               
                 {/* {this.props.databaseProp.length >= 30 && thing ? 
                  <RenderCard
                     database={renderToPage}

@@ -38,18 +38,22 @@ class CustomCardSize extends React.Component{
 
     }
 
-    changePageLayout(param1,param2){
-        var array = [param1,param2]
+    changePageLayout(flexFlow,margin,pageLayout,maxWidth){
+        var array = [flexFlow,margin,maxWidth]
+        console.log(pageLayout)
         localStorage.setItem("pageLayout",JSON.stringify(array))
-        if(this.props.updatePageLayout)this.props.updatePageLayout(param1,param2)
+        if(this.props.updatePageLayout)this.props.updatePageLayout(flexFlow,margin,maxWidth)
     }
 
 
 
     render(){
 
-        const pageLayout1 = "Single Column"
-        const pageLayout2 = "Freeform"
+        const pageLayout1 = "Freeform"
+        const pageLayout2 = "Single Column"
+        const pageLayout3 = "Dual Column"
+        const pageLayout4 = "Triple Column"
+        const pageLayout5 = "Quad Column"
 
         const size1 = "Compact"
         const size2 = "Different Compact"
@@ -61,14 +65,29 @@ class CustomCardSize extends React.Component{
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
                 <span>----- Page Layout</span>
-                <button  onClick={() => this.changePageLayout("column","0 auto",pageLayout1)}>
+                <button  onClick={() => this.changePageLayout("row","0 auto",pageLayout1)}>
                     <span class="material-icons">view_list</span>
                     {pageLayout1}
                 </button>
 
-                <button  onClick={() => this.changePageLayout("row","0 auto",pageLayout2)}>
+                <button  onClick={() => this.changePageLayout("column","0 auto",pageLayout2)}>
                     <span class="material-icons">view_list</span>
                     {pageLayout2}
+                </button>
+
+                <button  onClick={() => this.changePageLayout("row","0 auto",pageLayout3,"600px")}>
+                    <span class="material-icons">view_list</span>
+                    {pageLayout3}
+                </button>
+
+                <button  onClick={() => this.changePageLayout("row","0 auto",pageLayout4,"800px")}>
+                    <span class="material-icons">view_list</span>
+                    {pageLayout4}
+                </button>               
+                
+                 <button  onClick={() => this.changePageLayout("row","0 auto",pageLayout5,"1100px")}>
+                    <span class="material-icons">view_list</span>
+                    {pageLayout5}
                 </button>
 
                 <span>----- Card Style</span>

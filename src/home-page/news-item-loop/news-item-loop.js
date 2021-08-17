@@ -92,9 +92,9 @@ class MapDatabaseItems extends React.Component{
         var pageLayout={}
         const pageLayoutInStorage = JSON.parse(localStorage.getItem("pageLayout"))
         if(pageLayoutInStorage === null){
-            pageLayout = ["row", "0 auto"]
+            pageLayout = ["row", "0 auto","auto"]
         }else{
-            pageLayout = [pageLayoutInStorage[0], pageLayoutInStorage[1]]
+            pageLayout = [pageLayoutInStorage[0], pageLayoutInStorage[1], pageLayoutInStorage[2]]
         }
 
 
