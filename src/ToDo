@@ -1381,17 +1381,17 @@ General Notes  Objectives:
                                 
                             ☐ Columns in place but adjustments needed to fit each layout
                                 Dual Column Adjustments Needed to:
-                                    ☐ Compact
-                                    ☐ Thick
-                                    ☐ Big Squares
+                                    ☐ Compact - maxWidth:960px
+                                    ☐ Thick - maxWidth:960px
+                                    ☐ Big Squares - maxWidth:1060px
                                 Triple Column Adjustments Needed to:
-                                    ☐ Compact
-                                    ☐ Thick
-                                    ☐ Big Squares
+                                    ☐ Compact - maxWidth:1430px
+                                    ☐ Thick - maxWidth:1430px
+                                    ☐ Big Squares - maxWidth:1580px
                                 Quad Column Adjustments Needed to:
-                                    ☐ Compact
-                                    ☐ Thick
-                                    ☐ Big Squares
+                                    ☐ Compact - maxWidth:1910px
+                                    ☐ Thick - maxWidth:1910px
+                                    ☐ Big Squares - maxWidth:2110px
 
                     ☐ add message for 0 article left on home page
 

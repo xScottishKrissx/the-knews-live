@@ -62,6 +62,18 @@ class CustomCardSize extends React.Component{
         const size5 = "Thick"
         const size6 = "Big Squares"
 
+        // Get the current active page layout
+        const activeLayout = localStorage.getItem("pageLayout")
+        const activeCardStyle = localStorage.getItem("cardStyleChoice")
+
+        console.log(activeLayout)
+        console.log(activeCardStyle)
+        // If active layout === dual / triple / quad column 
+        // and 
+        // card layout === compact/thick/big squares...
+        // ...then make the required changes
+    // otherwise nothing else is required.
+
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
                 <span>----- Page Layout</span>
