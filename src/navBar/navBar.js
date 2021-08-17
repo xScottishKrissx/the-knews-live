@@ -91,7 +91,9 @@ export class NavBar extends React.Component{
                             <CardStyleButton 
                                 cardStyleButtonOn={this.props.cardStyle}
                                 getCardSize={this.props.getCardSize}
-                                cardStyle={cardStyle}                            
+                                cardStyle={cardStyle} 
+                                
+                                getPageLayout={this.props.getPageLayout}
                             />
     
 

@@ -88,6 +88,15 @@ class MapDatabaseItems extends React.Component{
             cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
         }
 
+        // Starting Page Layout
+        var pageLayout={}
+        const pageLayoutInStorage = JSON.parse(localStorage.getItem("pageLayout"))
+        if(pageLayoutInStorage === null){
+            pageLayout = ["row", "0 auto"]
+        }else{
+            pageLayout = [pageLayoutInStorage[0], pageLayoutInStorage[1]]
+        }
+
 
          return (
             <div className="news-item-loop-wrapper"> 
@@ -100,6 +109,7 @@ class MapDatabaseItems extends React.Component{
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                                 urlTagProp={this.props.props}
                                 cardSize={cardSize}
+                                pageLayout = {pageLayout}
                             /> 
             
                             <ScrollToTopButton   />

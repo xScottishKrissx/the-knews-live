@@ -34,13 +34,23 @@ class CustomCardSize extends React.Component{
 
         localStorage.setItem("cardStyleChoice", cardStyleChoice);
 
-        this.props.getCardSizeToParent(width,height);
+        if(this.props.getCardSizeToParent)this.props.getCardSizeToParent(width,height);
 
+    }
+
+    changePageLayout(param1,param2){
+        var array = [param1,param2]
+        localStorage.setItem("pageLayout",JSON.stringify(array))
+        if(this.props.updatePageLayout)this.props.updatePageLayout(param1,param2)
     }
 
 
 
     render(){
+
+        const pageLayout1 = "Single Column"
+        const pageLayout2 = "Freeform"
+
         const size1 = "Compact"
         const size2 = "Different Compact"
         const size3 = "Standard"
@@ -50,6 +60,18 @@ class CustomCardSize extends React.Component{
 
         return(            
             <div className="cardControlSizeWrapper" style={this.state.style}>
+                <span>----- Page Layout</span>
+                <button  onClick={() => this.changePageLayout("column","0 auto",pageLayout1)}>
+                    <span class="material-icons">view_list</span>
+                    {pageLayout1}
+                </button>
+
+                <button  onClick={() => this.changePageLayout("row","0 auto",pageLayout2)}>
+                    <span class="material-icons">view_list</span>
+                    {pageLayout2}
+                </button>
+
+                <span>----- Card Style</span>
                 <button  onClick={() => this.changeCardSize("470px","135px",size1)}>
                     <span class="material-icons">view_list</span>
                     {size1}

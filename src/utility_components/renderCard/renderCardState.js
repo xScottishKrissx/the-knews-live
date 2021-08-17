@@ -100,9 +100,12 @@ class RenderCardState extends React.Component{
 
     render(){
         console.log(this.state.progress)
+
     const pageView = this.props.database.map((value,key) => {
+
+
         return(              
-            <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
+            <div id={value.id} key={value.id} className="myClass"   name="original-tags-load">   
 
                 {value.markedforhide === false  ?
                     <OnCardBookMarkControls 
@@ -165,7 +168,7 @@ class RenderCardState extends React.Component{
                                         }   
                                          
                                         <span>Hiding article...</span> 
-                                        
+
                                         {this.state.progress >= 40 ? <span>-<br/>Complete</span> :null }
                                     </div>, 
                             action:() => this.swipeRightAction(value.id,this.props.fullDatabaseCall,value.bookmarked)

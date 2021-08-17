@@ -1372,7 +1372,17 @@ General Notes  Objectives:
                         ✔ indicator in place, just need to style @done(12:16 - 17/08/21)
                         ✔ styled @done(12:41 - 17/08/21)
                     ☐ give the card sizes a max-width to prevent stretching
+                        ☐ I think i just need to accept that there is going to be some stretching with the format i'm using...or try and make up for the "ugliness"
+                        ☐ To try and alleviate this, add some different layouts
+                        ☐ This could be a "Page Layout" option rather than card layout.
+                            ✔ Single Column @done(15:23 - 17/08/21)
+                            ☐ Central column with 2 articles per row
+                                ☐ 3x per row 
+                                ☐ 4x per row etc
+
                     ☐ add message for 0 article left on home page
+
+
                 12.10.7.8 - recommended reading:
                     ☐ looks terrible
                 12.10.7.9 - Navbar:

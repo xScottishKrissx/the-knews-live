@@ -24,6 +24,10 @@ class NewsItemLoopView extends React.Component{
             height: this.props.cardSize[1]
         },
         postsArray:[],
+        pageLayout:{
+            flexDirection:this.props.pageLayout[0],
+            margin:this.props.pageLayout[1]
+        },
 
         //hiding articles for filter views
         getArticleBy:"All",
@@ -56,6 +60,15 @@ componentDidUpdate(){
 
 // Card Size Controls
 getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
+getPageLayout = (param1,param2) => {
+    console.log("Update Page layout" + param1 + param2)
+    this.setState({
+        pageLayout:{
+            flexDirection:param1, 
+            margin:param2
+        }
+    })
+}
 
 // LiteKnews
     showArticle(){
@@ -142,6 +155,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
 
+        var customPageLayout = this.state.pageLayout
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -178,6 +192,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                         // card size
                         getCardSize={this.getCardSize} 
+                        getPageLayout={this.getPageLayout}
 
                         // liteKnews
                         showArticle={() => this.showArticle()}
@@ -199,7 +214,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
 
-                <div className="cardsWrapper">
+                <div className="cardsWrapper" style={customPageLayout}>
                 
 
 
