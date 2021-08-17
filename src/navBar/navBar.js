@@ -47,6 +47,7 @@ export class NavBar extends React.Component{
     render(){
         const getArticle = this.props.getArticleBy || "All";
         const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard";
+        console.log(this.props.getFilters)
 
         return(
             <div className="headerWrapper">
@@ -83,6 +84,7 @@ export class NavBar extends React.Component{
                                 fullDatabaseCall={this.props.fullDatabaseCall}
                                 getFilteredArticles={this.props.getFilteredArticles}
                                 tagsArray={this.props.tagsArray}
+                                filterCounter={this.props.getFilters}
                             />
 
                             {/************** Card Size */}
@@ -106,6 +108,7 @@ export class NavBar extends React.Component{
                             <BookmarkButton
                                 showBookmarkButton={this.props.bookmarks}
                                 fullDatabaseCall={this.props.fullDatabaseCall}
+                                bookmarkCounter={this.props.bookmarkCounter}
 
                             />
 

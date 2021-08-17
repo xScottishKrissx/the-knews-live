@@ -1359,38 +1359,31 @@ General Notes  Objectives:
                     ✔ move the hide article dialogue box into it's own component. @done(15:57 - 16/08/21)
                         ✔ tried, couldnt work it out. Gave up. @done(15:57 - 16/08/21)
                 
-                        12.10.7.7 - home:
-                    ☐ better feedback for hiding articles
+                12.10.7.7 - home:
+                    ✔ better feedback for hiding articles @done(10:07 - 17/08/21)
                     ☐ better feedback for bookmarking articles
+                        ✔ i have the animation from the article page which is pretty good. @done(10:14 - 17/08/21)
+                        ✔ what about a counter in the navbar everytime an article is bookmarked @done(10:29 - 17/08/21)
+                            ✔ do the same for active filters @done(10:48 - 17/08/21)
                     ☐ add like/dislike button to card IF a vote has been cast
                     ☐ add progress indicator for bookmarking/hiding cards on home page
                     ☐ give the card sizes a max-width to prevent stretching
                 12.10.7.8 - recommended reading:
                     ☐ looks terrible
-                12.10.7.9 - Improve Feedback when using nav buttons:
-                    ☐ Active
-                    ☐ Hover
-                    ☐ Visited
-                    ☐ Interacting with menu and dropdowns
-                    ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
-            
-            12.10.X - Misc:
-                ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
-                ☐ Do another pass for responsive design, too many things become small at 2k and up.
-                ☐ Move the on card bookmark controls out of the bookmark folder
-                ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
-                ☐ try and move the hideArticle code from onCardBookmarkControls into it's own file.
-                ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
-                ☐ Dragging on firefox is not working correctly.
-                ☐ there is a gap above the navbar, 1px high, when the page loads.
-                ☐ move the hide article dialogue box into it's own component.
+                12.10.7.9 - Navbar:
+                    ☐ add border-line to navbar(like the article page)
+                    ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
+                    ☐ improve appearance of dropdown menu's
 
-                ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
-                ✔ PICK A FONT!! @done(13:01 - 05/07/21)
+                    Improve Feedback when using nav buttons:
+                        ☐ Active
+                        ☐ Hover
+                        ☐ Visited
+                        ☐ Interacting with menu and dropdowns
+                        ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
+                        ☐ there is a gap above the navbar, 1px high, when the page loads.
 
-
-                ☐ Buttons that need to be added/created
-                    Navbar (sitewide):
+                    Add buttons to Navbar / merge option menu's (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
                         ☐ the same options menu should be available throughout the entire website
                         ☐ Hide mark as read
@@ -1399,6 +1392,26 @@ General Notes  Objectives:
                         ☐ Mark All as Unread
                         ☐ Clear All Articles
                         ☐ Reset Card Size
+
+                12.10.7.10 - Bookmark Page:
+                    ☐  The bookmark counter should remain constant, but the filter should have a counter that can change.
+            
+            12.10.X - Misc:
+                ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
+                ☐ Do another pass for responsive design, too many things become small at 2k and up.
+                ☐ Move the on card bookmark controls out of the bookmark folder
+                ☐ try and move the hideArticle code from onCardBookmarkControls into it's own file.
+                ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
+                ☐ Dragging on firefox is not working correctly.
+                ☐ move the hide article dialogue box into it's own component.
+                ☐ refreshing the page with an active filter does not maintain the filter.
+                    ☐ correction - bookmarking an article causes a re-render which doesn't maintain the filter and seems to cause other issues.
+
+                ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
+                ✔ PICK A FONT!! @done(13:01 - 05/07/21)
+
+
+                ☐ Buttons that need to be added/created
                     tags:
                         ☐ Add filter button ONLY for author
                 ☐ When hiding/removing articles, counts should decrease

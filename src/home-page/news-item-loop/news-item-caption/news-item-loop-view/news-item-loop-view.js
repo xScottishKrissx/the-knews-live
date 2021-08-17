@@ -132,15 +132,19 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
 
-        // renderToPage.filter(x=>x.markedforhide === false)
-        // console.log(renderToPage)
-        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
-        // console.log(this.state.renderLiteKnews)
-
         var markArticleRead = renderToPage.map(el => {
             if(el.read === true && el != null )if( document.getElementById(el.id))
                 document.getElementById(el.id).classList.add('markAsRead')
         });
+
+        // bookmark counter
+        const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
+
+        // filter counter
+        console.log(this.state.getArticleBy)
+        const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
+        console.log(getFilters)
+
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -173,6 +177,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         // filter
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
+                        getFilters={getFilters.length}
 
                         // card size
                         getCardSize={this.getCardSize} 
@@ -184,6 +189,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         fullDatabaseCall={this.props.fullDatabaseCall}  
                         
                         bookmarkNumber={this.state.renderArray.length}
+                        bookmarkCounter={getBookmarks.length}
 
                         //forceReload
                         forceReload={()=>this.reload()}

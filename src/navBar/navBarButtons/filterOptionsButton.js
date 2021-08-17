@@ -25,6 +25,7 @@ return(
                                         <span id="filterActive" className="material-icons">filter_alt</span>
                                         <p className="filterIsActive">Filter: { props.getArticle }</p>
                                         {/* <span> ({this.props.bookmarkNumber})</span> */}
+                                        <span className="bookmarkCounter">{props.filterCounter}</span>
                                     </span>                                        
                                 }
                             </div>

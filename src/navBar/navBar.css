@@ -155,7 +155,10 @@
 .uiBarDivider{ font-weight: 900; padding: 2px; }
 
 
-
+.bookmarkCounter{
+    color: black;
+    font-variant: diagonal-fractions;
+}
 
 /*************************************** Article Page */
 /** Score Buttons */
