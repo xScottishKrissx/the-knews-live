@@ -1368,8 +1368,11 @@ General Notes  Objectives:
                     ✔ add like/dislike button to card IF a vote has been cast @done(11:37 - 17/08/21)
                         ✔ i like this because if prevents "didn't read the article but comments anyway" culture. @done(11:37 - 17/08/21)
                         ✔ change the cursor to default @done(11:46 - 17/08/21)
-                    ☐ add progress indicator for bookmarking/hiding cards on home page
+                    ✔ add progress indicator for bookmarking/hiding cards on home page @done(12:41 - 17/08/21)
+                        ✔ indicator in place, just need to style @done(12:16 - 17/08/21)
+                        ✔ styled @done(12:41 - 17/08/21)
                     ☐ give the card sizes a max-width to prevent stretching
+                    ☐ add message for 0 article left on home page
                 12.10.7.8 - recommended reading:
                     ☐ looks terrible
                 12.10.7.9 - Navbar:

@@ -96,10 +96,10 @@ class RenderCardState extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideBookmarkedArticle))
     }
 
-
+    swipeProgress(progress){ this.setState({progress:progress }) }
 
     render(){
-
+        console.log(this.state.progress)
     const pageView = this.props.database.map((value,key) => {
         return(              
             <div id={value.id} key={value.id} className="myClass" name="original-tags-load">   
@@ -129,25 +129,45 @@ class RenderCardState extends React.Component{
                 }
 
                
-               <SwipeableList threshold= {0.25} swipeStartThreshold={1}>
+               <SwipeableList threshold={0.4}>
                     <SwipeableListItem                    
                         blockSwipe={value.markedforhide}
                         swipeLeft={{
                             content:                            
-                                <div>
+                                <div className="swipeIndicatorBookmark">   
+                                    {this.state.progress <= 40 ? 
+                                    <span>{Math.round(this.state.progress * 2.5) +  "%"}</span> 
+                                    :
+                                    <span>100%</span> 
+                                    }                                         
+                                     
                                     {value.bookmarked === false ? 
-                                        <span> Bookmarking Article..</span> 
-                                            : 
-                                        <span>Removing Bookmark</span>
-                                    }                                   
-                                </div>
-                                ,
+                                        <span className="displaySwipeText">Bookmarking <br/>Article</span>
+                                            :
+                                        <span className="displaySwipeText2">Removing Bookmark</span>
+                                    }       
+
+                                    {this.state.progress >= 40 ? <span>-<br/>Complete</span> :null }     
+                                </div>,
                             action: () => this.swipeLeftAction(value.id,true,this.props.fullDatabaseCall,value.bookmarked),
                             
                         }}
+                        
+                        onSwipeProgress={progress => this.swipeProgress(progress)}
 
                         swipeRight={{
-                            content: <div>Hiding article...</div>, 
+                            content: 
+                                    <div className="swipeIndicatorHide">
+                                        {this.state.progress <= 40 ? 
+                                        <span>{Math.round(this.state.progress * 2.5) +  "%"}</span> 
+                                        :
+                                        <span>100%</span> 
+                                        }   
+                                         
+                                        <span>Hiding article...</span> 
+                                        
+                                        {this.state.progress >= 40 ? <span>-<br/>Complete</span> :null }
+                                    </div>, 
                             action:() => this.swipeRightAction(value.id,this.props.fullDatabaseCall,value.bookmarked)
                         }}
                     >

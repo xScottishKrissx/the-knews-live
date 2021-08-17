@@ -53,7 +53,7 @@
         /* outline: 1px solid red; */
         cursor: pointer;
         display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
         width: 100%;
     }
     .undoHideButton > span{
@@ -66,8 +66,34 @@
     }
     .undoHideButton > span > .material-icons{font-size: 30px;}
 
+.swipeIndicatorBookmark{
+    display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+    text-align: right;
+    
+}
 
+.swipeIndicatorHide{
+    display: flex;
+        flex-direction: column;
+}
+    .swipeIndicatorHide > span:nth-child(1),
+    .swipeIndicatorBookmark > span:nth-child(1){
+        font-size: xx-large;
+    }
 
+.displaySwipeText{ animation: showText 3s; }
+@keyframes showText {
+    0%{opacity: 0;}
+    100%{opacity: 2;}
+}
+
+.displaySwipeText2{ animation: showText2 3s; }
+@keyframes showText2 {
+    0%{opacity: 0;}
+    100%{opacity: 2;}
+}
 
 @media (max-width: 550px) { .news-square{ width: 300px !important; } }
     
