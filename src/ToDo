@@ -1361,11 +1361,13 @@ General Notes  Objectives:
                 
                 12.10.7.7 - home:
                     ✔ better feedback for hiding articles @done(10:07 - 17/08/21)
-                    ☐ better feedback for bookmarking articles
+                    ✔ better feedback for bookmarking articles @done(11:18 - 17/08/21)
                         ✔ i have the animation from the article page which is pretty good. @done(10:14 - 17/08/21)
                         ✔ what about a counter in the navbar everytime an article is bookmarked @done(10:29 - 17/08/21)
                             ✔ do the same for active filters @done(10:48 - 17/08/21)
-                    ☐ add like/dislike button to card IF a vote has been cast
+                    ✔ add like/dislike button to card IF a vote has been cast @done(11:37 - 17/08/21)
+                        ✔ i like this because if prevents "didn't read the article but comments anyway" culture. @done(11:37 - 17/08/21)
+                        ✔ change the cursor to default @done(11:46 - 17/08/21)
                     ☐ add progress indicator for bookmarking/hiding cards on home page
                     ☐ give the card sizes a max-width to prevent stretching
                 12.10.7.8 - recommended reading:

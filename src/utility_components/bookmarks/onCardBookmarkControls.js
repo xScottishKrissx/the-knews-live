@@ -113,41 +113,66 @@ componentDidUpdate(prevProps){
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
-    // console.log(this.props.bookmarkedStatus)
+
     return(
         <div className="onCardControls">   
+
+     
+{/* Social Score */}
+    {this.props.liked === true  || this.props.disliked === true ? 
+        <div className="onCardSocialScore" >
+            <button> 
+                {this.props.liked === true ? 
+                        <span title="You liked this article"  className="large material-icons">thumb_up_alt</span> 
+                    : 
+                        null
+                    }
+            
+                {this.props.disliked === true ? 
+                        <span title="You disliked this article"  className="large material-icons">thumb_down_alt</span> 
+                    : 
+                        null
+                    }
+            </button>
+        </div>  
+    :
+        null
+    }
+
+{/* Bookmark button */}
+<div className="onCardBookmarkedButton">
+            {this.state.bookmarked === false ? 
+        
+                <button title="Click to bookmark this article" onClick={()=>this.handleClick(this.props.id)}>
+                    <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>                    
+                </button>
+                :
+                <button title="Click to un-bookmark this article" className="animateScale" onClick={()=>this.handleClick(this.props.id)}>
+                    <span class="material-icons increaseCardBookmarkOpacity" id={this.props.id + "bookmarkIcon"}>turned_in</span>              
+                </button>   
+            }
+        </div>
+        
 
 {/* Mark as Read button */}
         {this.props.showMarkAsReadButton === false ?
             null
         :
-            <div >
-                <button title="Mark As Read" onClick={()=>this.markAsRead(this.props.id,this.props.readStatus)}> 
+            <div className="onCardMarkAsReadButton" >
+                <button  onClick={()=>this.markAsRead(this.props.id,this.props.readStatus)}> 
                 {this.props.readStatus === true ? 
-                    <span class="material-icons" >check_circle</span>
+                    <span title="Mark As Unread" class="material-icons" >check_circle</span>
                     :
-                    <span class="material-icons" >check_circle_outline</span>
+                    <span title="Mark As Read" class="material-icons" >check_circle_outline</span>
                 }
                 </button>
         </div>  
         }
 
-{/* Bookmark button */}
-        <div>
-            {this.state.bookmarked === false ? 
-        
-                <button onClick={()=>this.handleClick(this.props.id)}>
-                    <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>                    
-                </button>
-                :
-                <button className="animateScale" onClick={()=>this.handleClick(this.props.id)}>
-                    <span class="material-icons increaseCardBookmarkOpacity" id={this.props.id + "bookmarkIcon"}>turned_in</span>              
-                </button>   
-            }
-        </div>
+
 
 {/* Hide Article Button */}
-        <div>
+        <div className="onCardHideButton">
             {this.props.hideBookmarkedArticle === true ?
             <button title="Permanently Remove Bookmark and Hide" onClick={() => this.hideArticle(
                 this.props.id,
@@ -161,7 +186,7 @@ render(){
             </button>
             :
 
-            <button    onClick={() => this.hideArticle(
+            <button onClick={() => this.hideArticle(
                 this.props.id,
                 this.props.postsArray,
                 this.props.arrayFromDatabase,

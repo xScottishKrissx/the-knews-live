@@ -119,6 +119,10 @@ class RenderCardState extends React.Component{
                         bookmarkTest={this.state.bookmarked}
                         updateProp={()=>this.updateProp()}
                         hidePressed={()=> this.updateProp()}   
+
+                        
+                        liked={value.liked}
+                        disliked={value.disliked}
                     />
                 : 
                 null

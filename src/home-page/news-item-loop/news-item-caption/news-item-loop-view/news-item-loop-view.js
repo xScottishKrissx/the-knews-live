@@ -139,11 +139,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
         // bookmark counter
         const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
-
         // filter counter
-        console.log(this.state.getArticleBy)
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
-        console.log(getFilters)
 
         return(
             

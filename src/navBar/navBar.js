@@ -47,7 +47,7 @@ export class NavBar extends React.Component{
     render(){
         const getArticle = this.props.getArticleBy || "All";
         const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard";
-        console.log(this.props.getFilters)
+        // console.log(this.props.getFilters)
 
         return(
             <div className="headerWrapper">
