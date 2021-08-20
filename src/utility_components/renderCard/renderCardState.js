@@ -99,8 +99,6 @@ class RenderCardState extends React.Component{
     swipeProgress(progress){ this.setState({progress:progress }) }
 
     render(){
-        console.log(this.state.progress)
-
     const pageView = this.props.database.map((value,key) => {
 
 

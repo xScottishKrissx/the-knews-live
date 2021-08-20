@@ -1377,12 +1377,28 @@ General Notes  Objectives:
                         ☐ This could be a "Page Layout" option rather than card layout.
                             ✔ Single Column @done(15:23 - 17/08/21)
                             ☐ Doing multi column is looking quite a piece of work.
-                                ☐ I will need to change what some card layouts do according to each page layout. However, not everything will need to be changed but some do, like the big squares in a 2 layout will not currently splut into 2. This(and others like it) will need new logic. Althoughi do think this can be done using conditional operators in the custom-card-size-v2 file to simply switch out the paramaters based on the current active page layout.
+                                ☐ I will need to change what some card layouts do according to each page layout. However, not everything will need to be changed but some do, like the big squares in a 2 layout will not currently split into 2. This(and others like it) will need new logic. Althoughi do think this can be done using conditional operators in the custom-card-size-v2 file to simply switch out the paramaters based on the current active page layout.
                                 
                             ☐ Columns in place but adjustments needed to fit each layout
                                 Dual Column Adjustments Needed to:
                                     ☐ Compact - maxWidth:960px
                                     ☐ Thick - maxWidth:960px
+                                        ☐ Issue: I have this working but... it requires a double click to apply the dual column style. I don't understand why. @started(12:12 - 19/08/21)
+                                            ☐ I understand why(because i am figuring out the active layout then changing it. I think this needs to be the other way around) i dont know to fix it.
+                                            ☐ I might be coming at this wrong. I'm so focused on making sure the website remembers the style that I've totally forgotten about state. I might need to rethink the enire custom card style component because I am going around in circle right now. I may also need 2 separate components to make this work because I can't think of a way of making this work at the moment other than rendering different card style component depending on the page layout. @started(13:45 - 19/08/21)
+                                            ☐ New Approach: @started(10:25 - 20/08/21)
+                                                ☐ Pick a Page Layout
+                                                ☐ ...then pick a card layout.
+                                                    ☐ Should solve the issues im having and also be more user friendly if there's an order to setting up the page.
+                                            ☐ I have majorly underestimated the amount of work this would need to properly function. If a "page layout" feature is to be useful, it needs to maintain the actual layout mention for each card style.So the Dual column would need to work with all card styles and THEN it needs to maintain dual columns at least until mobile res. 
+                                            ☐ I think i need to cut my losses with this. It's a good idea but not useful enough for the time and effort I have put into this so far and would need to. I have spent 2 days on this...it's time to call it quits. This was suppossed to be a about small tweaks and updates but this has been a large project.
+                                            
+                                            ☐  WAIT!!!
+                                                 ☐  I may have found a way of making this work. I might also have been doing this totally from the wrong angle the entire time.
+                                                 ☐ Instead of changing the overall wrapper to limit space and force the cards into "columns"....change the size of the cards.
+                                                ☐ Never mind, didnt work.
+                                                    
+
                                     ☐ Big Squares - maxWidth:1060px
                                 Triple Column Adjustments Needed to:
                                     ☐ Compact - maxWidth:1430px
@@ -1837,3 +1853,44 @@ I've been hard at work for over 2 months trying to get this release right, think
 It's a project literally years in the making and I'm looking forward to where it goes next.
 
 My version numbers are...a choice. I am aware of that but they make sense to me so it's never really bothered me that much. Just know that the 11.1 to 11.5 was me trying to fix an issue with React Router and the .4 was tweaking the infinite scroll detection rate. In hindsight I should have probably gone for something like 11.0.1, 11.0.1.1, 11.0.1.2 etc but I didn't so 11.5.4 is what I ended up with for a release that is a few small bug fixes and not a piece of software getting a mid life update.
+
+
+
+
+
+
+Single :
+    ☐ max-width:
+                ☐ compact:              none
+                ☐ different compact:    none
+                ☐ standard:             none
+                ☐ long:                 none
+                ☐ thick:                none
+                ☐ big squares:          none
+
+Dual:    
+    ☐ max-width:
+                ☐ compact:              960px
+                ☐ different compact:    690px
+                ☐ standard:             790px
+                ☐ long:                 790px
+                ☐ thick:                960px
+                ☐ big squares:          1060px
+
+Triple:    
+    ☐ max-width:
+                ☐ compact:              1430px
+                ☐ different compact:    700px
+                ☐ standard:             800px
+                ☐ long:                 800px
+                ☐ thick:                1430px
+                ☐ big squares:          1600px
+
+Column:    
+    ☐ max-width:
+                ☐ compact:              none
+                ☐ different compact:    none
+                ☐ standard:             none
+                ☐ long:                 none
+                ☐ thick:                none
+                ☐ big squares:          none

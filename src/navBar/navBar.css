@@ -120,7 +120,8 @@
             flex-direction: column;
             flex-wrap: wrap;
         }
-            .uiBarItem > div > .dropdown-menu > div > button{
+            .uiBarItem > div > .dropdown-menu > div > button,
+            .uiBarItem > div > .dropdown-menu > div > div > button{
                 background-color: white;
                 color: black;
                 display: flex;
@@ -129,11 +130,15 @@
                 width: auto;
                 white-space: nowrap;
             }
-            .uiBarItem > div > .dropdown-menu > div > button > span{margin-right: 5px;}
+            .uiBarItem > div > .dropdown-menu > div > button > span,
+            .uiBarItem > div > .dropdown-menu > div > div > button > span{margin-right: 5px;}
 
             .uiBarItem > div > .dropdown-menu > div > button:focus,
             .uiBarItem > div > .dropdown-menu > div > button:hover,
-            .uiBarItem > div > .dropdown-menu > div > button:active{
+            .uiBarItem > div > .dropdown-menu > div > button:active,
+            .uiBarItem > div > .dropdown-menu > div > div > button:focus,
+            .uiBarItem > div > .dropdown-menu > div > div > button:hover,
+            .uiBarItem > div > .dropdown-menu > div > div > button:active{
                 background-color: black;
                 color: white;
                 outline: 1px solid black !important;

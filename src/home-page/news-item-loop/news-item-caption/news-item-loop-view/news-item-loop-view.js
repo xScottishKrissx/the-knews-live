@@ -66,7 +66,7 @@ componentDidUpdate(){
 // Card Size Controls
 getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 getPageLayout = (param1,param2,maxWidth) => {
-    console.log("Update Page layout" + param1 + param2)
+    // console.log("Update Page layout" + param1 + param2)
     this.setState({
         pageLayout:{
             flexDirection:param1, 
@@ -160,7 +160,7 @@ getPageLayout = (param1,param2,maxWidth) => {
         const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
-
+        console.log(window.innerWidth)
         var customPageLayout = this.state.pageLayout
         return(
             

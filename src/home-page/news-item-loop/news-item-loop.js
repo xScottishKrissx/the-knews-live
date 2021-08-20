@@ -96,7 +96,7 @@ class MapDatabaseItems extends React.Component{
         }else{
             pageLayout = [pageLayoutInStorage[0], pageLayoutInStorage[1], pageLayoutInStorage[2]]
         }
-
+        
 
          return (
             <div className="news-item-loop-wrapper"> 
