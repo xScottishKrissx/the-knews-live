@@ -1371,28 +1371,29 @@ General Notes  Objectives:
                     ✔ add progress indicator for bookmarking/hiding cards on home page @done(12:41 - 17/08/21)
                         ✔ indicator in place, just need to style @done(12:16 - 17/08/21)
                         ✔ styled @done(12:41 - 17/08/21)
-                    ☐ give the card sizes a max-width to prevent stretching
-                        ☐ I think i just need to accept that there is going to be some stretching with the format i'm using...or try and make up for the "ugliness"
-                        ☐ To try and alleviate this, add some different layouts. This gives the user the option to have something more rigid, meaning less chance for ugly cards.
-                        ☐ This could be a "Page Layout" option rather than card layout.
+                    ✘ give the card sizes a max-width to prevent stretching @cancelled(14:53 - 20/08/21)
+                        ✘ I think i just need to accept that there is going to be some stretching with the format i'm using...or try and make up for the "ugliness" @cancelled(14:53 - 20/08/21)
+                        ✘ To try and alleviate this, add some different layouts. This gives the user the option to have something more rigid, meaning less chance for ugly cards. @cancelled(14:53 - 20/08/21)
+                        ✘ This could be a "Page Layout" option rather than card layout. @cancelled(14:53 - 20/08/21)
                             ✔ Single Column @done(15:23 - 17/08/21)
-                            ☐ Doing multi column is looking quite a piece of work.
-                                ☐ I will need to change what some card layouts do according to each page layout. However, not everything will need to be changed but some do, like the big squares in a 2 layout will not currently splut into 2. This(and others like it) will need new logic. Althoughi do think this can be done using conditional operators in the custom-card-size-v2 file to simply switch out the paramaters based on the current active page layout.
+                            ✘ Doing multi column is looking quite a piece of work. @cancelled(14:53 - 20/08/21)
+                                ✘ I will need to change what some card layouts do according to each page layout. However, not everything will need to be changed but some do, like the big squares in a 2 layout will not currently splut into 2. This(and others like it) will need new logic. Althoughi do think this can be done using conditional operators in the custom-card-size-v2 file to simply switch out the paramaters based on the current active page layout. @cancelled(14:53 - 20/08/21)
                                 
-                            ☐ Columns in place but adjustments needed to fit each layout
+                            ✘ Columns in place but adjustments needed to fit each layout @cancelled(14:53 - 20/08/21)
                                 Dual Column Adjustments Needed to:
-                                    ☐ Compact - maxWidth:960px
-                                    ☐ Thick - maxWidth:960px
-                                    ☐ Big Squares - maxWidth:1060px
+                                    ✘ Compact - maxWidth:960px @cancelled(14:53 - 20/08/21)
+                                    ✘ Thick - maxWidth:960px @cancelled(14:53 - 20/08/21)
+                                    ✘ Big Squares - maxWidth:1060px @cancelled(14:53 - 20/08/21)
                                 Triple Column Adjustments Needed to:
-                                    ☐ Compact - maxWidth:1430px
-                                    ☐ Thick - maxWidth:1430px
-                                    ☐ Big Squares - maxWidth:1580px
+                                    ✘ Compact - maxWidth:1430px @cancelled(14:53 - 20/08/21)
+                                    ✘ Thick - maxWidth:1430px @cancelled(14:53 - 20/08/21)
+                                    ✘ Big Squares - maxWidth:1580px @cancelled(14:53 - 20/08/21)
                                 Quad Column Adjustments Needed to:
-                                    ☐ Compact - maxWidth:1910px
-                                    ☐ Thick - maxWidth:1910px
-                                    ☐ Big Squares - maxWidth:2110px
-
+                                    ✘ Compact - maxWidth:1910px @cancelled(14:53 - 20/08/21)
+                                    ✘ Thick - maxWidth:1910px @cancelled(14:53 - 20/08/21)
+                                    ✘ Big Squares - maxWidth:2110px @cancelled(14:53 - 20/08/21)
+                        ✔ On second thoughts...maybe not a big deal. @done(14:54 - 20/08/21)
+                        
                     ☐ add message for 0 article left on home page
 
 
