@@ -1,6 +1,6 @@
 import React from 'react';
-import RecommendedReading from '../../news-page/news-page-view/recommendedReading/recommendedReading';
-import AuthorInfo from '../aboutAuthor/aboutAuthor';
+import RecommendedReading from '../recommendedReading/recommendedReading';
+import AuthorInfo from '../../../utility_components/aboutAuthor/aboutAuthor';
 
 import './articleFooter.css';
 

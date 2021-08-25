@@ -9,7 +9,7 @@ return(
     // react-fragment - <> + </>
     <>
         {props.filter === true ?
-            <div className="uiBarItem" title="Filter By Tag" id="filterDropdown">
+            <div className="uiBarItem" title={"Current Filter is " + props.getArticle + ", click to change"} id="filterDropdown">
                 <DropdownButton 
                     id="filterBtn" 
                     title={ 
@@ -18,12 +18,12 @@ return(
                                 {props.getArticle === "All" ?                                         
                                     <span>
                                         <span className="material-icons">filter_alt</span>
-                                        <p>No Filter</p>
+                                        {/* <p>No Filter</p> */}
                                     </span>                                           
                                     :                                   
                                     <span>
                                         <span id="filterActive" className="material-icons">filter_alt</span>
-                                        <p className="filterIsActive">Filter: { props.getArticle }</p>
+                                        <p className="filterIsActive">{ props.getArticle }</p>
                                         {/* <span> ({this.props.bookmarkNumber})</span> */}
                                         <span className="bookmarkCounter">{props.filterCounter}</span>
                                     </span>                                        

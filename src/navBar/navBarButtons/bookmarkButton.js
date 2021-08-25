@@ -22,7 +22,9 @@ return(
                         title={ 
                             <div className="dropdownBtnTitle">
                                 <span className="material-icons">bookmarks</span>
-                                <p>Bookmarks<span className="bookmarkCounter">{props.bookmarkCounter}</span></p>
+                                <p>
+                                    {/* Bookmarks */}
+                                    <span className="bookmarkCounter">{props.bookmarkCounter}</span></p>
                             </div>
                         }> 
                     </DropdownButton>

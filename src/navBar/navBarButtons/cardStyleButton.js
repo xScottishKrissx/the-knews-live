@@ -9,13 +9,14 @@ return(
     // react-fragment - <> + </>
     <>
         {props.cardStyleButtonOn === true ?  
-            <div className="uiBarItem" title="Change Card Size" id="changeCardSizeDropdown">
+            <div className="uiBarItem" title={"Current Card Style: " + props.cardStyle + ", click to change"} id="changeCardSizeDropdown">
                 <DropdownButton 
                     id="changeCardBtn" 
                     title={ 
                         <div className="dropdownBtnTitle">
                             <span className="material-icons">view_module</span>
-                            <p>{props.cardStyle}</p>
+                            {props.cardStyle.includes("Standard") ? null : <p>{props.cardStyle}</p>}
+                            {/* <p>{props.cardStyle}</p> */}
                         </div>
                     }>
                     <CustomCardSize getCardSizeToParent={props.getCardSize} updatePageLayout={props.getPageLayout}/>

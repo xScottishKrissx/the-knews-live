@@ -14,7 +14,7 @@ return(
                     title={ 
                         <div className="dropdownBtnTitle">
                             <span className="material-icons">bolt</span>
-                            <p>liteKnews</p>
+                            {/* <p>liteKnews</p> */}
                         </div>
                     }>                        
                 </DropdownButton>

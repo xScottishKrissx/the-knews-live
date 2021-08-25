@@ -44,7 +44,11 @@
 
 
 /* wrapper for the buttons*/
-.navWrapper{ height: 100%; width: auto; }
+.navWrapper{ 
+    background-color: white;
+    height: 100%; 
+    width: auto; 
+}
 
 .newUIBarWrapper{
     align-items: center;
@@ -58,7 +62,7 @@
 #siteWideNavBar{
     display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
     height: inherit;
     width: 100%;
 }
@@ -68,7 +72,7 @@
         background-color: white;
         box-sizing: content-box;
         display: flex;
-            flex: 1 40%;
+            /* flex: 1 40%; */
             flex-wrap: wrap;
             justify-content: center;
         height: inherit;
@@ -83,13 +87,27 @@
         /* #changeCardBtn:hover{color: rgb(17, 0, 255); } */
         /* #settingsBtn:hover{color: pink; }  */
 
-        #reloadBtn > button:hover{color: black; }
-            #reloadBtn > button > span{
-                display: flex;
-                    align-items: center;
-                line-height: 0;
-            }
-            #reloadBtn > button > span > p{margin: 0;}
+/****************** Reload Button */
+    #reloadBtn > button:hover{color: black; }
+        #reloadBtn > button > span{
+            display: flex;
+                align-items: center;
+            line-height: 0;
+        }
+        #reloadBtn > button > span > p{margin: 0;}
+
+        #reloadBtn > .btn-primary.focus-visible, #reloadBtn > .btn-primary:focus{
+            color: black;
+            animation: animateReloadBtn 1s;
+        }
+        @keyframes animateReloadBtn {
+            0%{transform: rotateZ(0deg);}
+            50%{transform: rotateZ(90deg);}
+            
+            100%{transform: rotateZ(0deg);}
+        }
+
+
 
         .uiBarItem > div { position: relative; width: 100%; }
 
@@ -306,7 +324,13 @@
 }
 
 @media (max-width: 767px) {
-    .headerWrapper{flex-wrap: wrap; justify-content: space-around; height: fit-content;}
+    .headerWrapper{
+        flex-wrap: wrap; 
+        justify-content: space-around; 
+        height: fit-content;
+        position: fixed;
+    }
+
      .navWrapper{width: inherit;}
         .newUIBarWrapper{justify-content: space-evenly;}
 
@@ -321,8 +345,13 @@
 }
 
 @media (min-width: 1000px) {
-    .headerText{width: 50%}
-    .navWrapper{width:50%}
+    .headerText{width: 60%}
+    .navWrapper{
+        position: absolute;
+            right: 0;
+        width:40%
+
+    }
 }
 
 

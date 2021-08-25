@@ -10,7 +10,7 @@ import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
 import MarkAsRead from '../../utility_components/bookmarks/markAsReadV2.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
-import ArticleFooter from '../../utility_components/articleFooter/articleFooter.js';
+import ArticleFooter from './articleFooter/articleFooter.js';
 import NextArticle from './nextArticle.js';
 
 

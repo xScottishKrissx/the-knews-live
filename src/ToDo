@@ -1419,8 +1419,8 @@ General Notes  Objectives:
 
 
                 12.10.7.9 - Navbar:
-                    ☐ add border-line to navbar(like the article page)
-                    ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
+                    ✔ add border-line to navbar(like the article page) @done(16:49 - 25/08/21)
+                    ✔ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here. @done(17:20 - 25/08/21)
                     ☐ improve appearance of dropdown menu's
 
                     Improve Feedback when using nav buttons:
@@ -1431,6 +1431,7 @@ General Notes  Objectives:
                         ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
                         ☐ there is a gap above the navbar, 1px high, when the page loads.
                         ☐ when pressing the refresh button, animate it doing a complete 360.
+                            ☐ i think i need to do a .addClass on click. The css animation only fires once and then stops working until you click again somewhere else...which makes sense come to think of it. I want this to be more repeatable so the onClick might be better.
 
                     Add buttons to Navbar / merge option menu's (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
@@ -1459,6 +1460,7 @@ General Notes  Objectives:
                 ☐ move the hide article dialogue box into it's own component.
                 ☐ refreshing the page with an active filter does not maintain the filter.
                     ☐ correction - bookmarking an article causes a re-render which doesn't maintain the filter and seems to cause other issues.
+                    ☐ correction correction - filter is not respected
 
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
