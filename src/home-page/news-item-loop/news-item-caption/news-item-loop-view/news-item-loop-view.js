@@ -242,7 +242,11 @@ getPageLayout = (param1,param2,maxWidth) => {
                     hideBookmarkedArticle={false}
                     />
                 :
-                <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
+                <div className="blankLoopMessage">
+                    <h2>Nothing to read,<br/> Check back later...</h2>
+                    <span class="material-icons">auto_stories</span>
+                    <p>Tips: Use the refresh button to check for new articles</p>
+                </div>
                 }
 
                 
@@ -264,7 +268,7 @@ getPageLayout = (param1,param2,maxWidth) => {
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 } */}
                 
-               <h5>Infinite Scrolling Coming Soon...</h5>
+               {/* <h5>Infinite Scrolling Coming Soon...</h5> */}
                 {/* {this.state.getArticleBy === "All" ?
                     <ScrollCheckV2 
                         articlesArray={this.props.databaseProp}

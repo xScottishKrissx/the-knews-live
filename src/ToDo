@@ -1393,12 +1393,13 @@ General Notes  Objectives:
                                     ✘ Thick - maxWidth:1910px @cancelled(14:53 - 20/08/21)
                                     ✘ Big Squares - maxWidth:2110px @cancelled(14:53 - 20/08/21)
                         ✔ On second thoughts...maybe not a big deal. @done(14:54 - 20/08/21)
-                        
-                    ☐ add message for 0 article left on home page
+
+                    ✔ add message for 0 article left on home page @done(11:08 - 25/08/21)
 
 
                 12.10.7.8 - recommended reading:
                     ☐ looks terrible
+                    
                 12.10.7.9 - Navbar:
                     ☐ add border-line to navbar(like the article page)
                     ☐ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here.
@@ -1411,6 +1412,7 @@ General Notes  Objectives:
                         ☐ Interacting with menu and dropdowns
                         ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
                         ☐ there is a gap above the navbar, 1px high, when the page loads.
+                        ☐ when pressing the refresh button, animate it doing a complete 360.
 
                     Add buttons to Navbar / merge option menu's (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks

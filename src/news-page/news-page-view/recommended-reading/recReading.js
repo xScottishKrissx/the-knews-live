@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import clearAllBookmarks from '../../../utility_components/bookmarks/clearAllBookmarks';
 import './recReading.css';
 
 
@@ -7,15 +8,20 @@ import './recReading.css';
 export const RecReading = (props) =>{
     const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
     const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || props.database
-    // console.log(database)
+    console.log(database)
     
     var articleSelection = []
 
     // Random Articles
     for(var i = 0; i < 5; i++){
-        var randomNumber = Math.floor(Math.random() * 80) + 1; 
-        var getArticles = database[randomNumber]            
+        var randomNumber = Math.floor(Math.random() * 9) + 1; 
+        console.log(randomNumber)
+        
+        var getArticles = database[randomNumber]      
+        console.log(getArticles)      
+        
         articleSelection.push(getArticles)
+        console.log(articleSelection)
     }
 
     // Precise Controls
@@ -27,6 +33,7 @@ export const RecReading = (props) =>{
 
     // Format the articles
     const recReadingItems = articleSelection.map((value) => {
+        console.log(value.id)
         const imgUrl = "https://unsplash.it/190/108?random=" + value.id;
         const style = {
             backgroundImage: 'url(' + imgUrl + ')',

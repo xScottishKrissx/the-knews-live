@@ -47,7 +47,7 @@ export class Caption extends React.Component{
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             height: "auto",
-            maxWidth:"1200px",
+            // maxWidth:"1200px",
             width:"100%"
         }
     

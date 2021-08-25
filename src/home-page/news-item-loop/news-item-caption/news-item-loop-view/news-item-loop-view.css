@@ -33,7 +33,29 @@
         visibility: hidden;
     }
 
+.blankLoopMessage{
 
+}
+
+.blankLoopMessage{
+    /* Centering the div */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+
+    cursor: default;
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+    opacity: 0.5;
+    text-align: center;
+}
+.blankLoopMessage > span{
+    font-size: 25vh;
+    opacity: 0.25;
+}
 
 /* To make this work i will need to change what each card layout does in each page layout. */
 
