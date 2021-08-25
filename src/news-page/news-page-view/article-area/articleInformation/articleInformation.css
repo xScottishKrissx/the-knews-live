@@ -43,6 +43,7 @@
     height: 60px;
     position: fixed;
     left: 0%;
+    top: 0;
     width: 100%;
     z-index: 1;
     /* background-color: red; */

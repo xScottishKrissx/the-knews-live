@@ -6,6 +6,47 @@
     position: relative;
 
 }
+
+.articleInfo{
+    display: flex;
+        align-items: center;
+        flex-direction: column;
+    width: 100%;
+        /* max-width: 500px; */
+}
+    #articleInfo_icon_author{text-align: center;}
+        #articleInfo_icon_author > span > i{
+                font-size: 80px;
+                text-align: center;
+        }
+
+    .articleInfoSocial{
+        display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        margin: 0 auto;
+            margin-bottom: 10px;
+        text-align: center;
+        width: 90%;
+            max-width: 500px;
+    }
+        .articleInfoSocial > div > i{
+            font-size:25px ;
+            /* margin-right: 10px; */
+
+        }
+        .articleInfoSocial > div > span{
+            display: none;
+        }
+
+    .articleInfoAbout > h3{
+        /* max-width: 500px; */
+        text-align: center;
+        width: 100%;
+    }
+
+    .articleInfoAbout > p{max-width: 600px;}
+
     .recReadingWrapper > h2{
         color: white;
         
@@ -22,7 +63,7 @@
             height: 200px;
             margin: 0 auto;
             margin-bottom: 10px;
-            width: 75%;
+            width: 90%;
         }
 
             .recReadingCaption{padding: 5px;}
@@ -36,7 +77,7 @@
                 .recReadingCaptionHeadline{
                         background-color: black;
                         color: white;
-                        font-size: 1.35rem;
+                        font-size: 18px;
                         margin: 0;
                         padding: 0;
 
@@ -52,7 +93,7 @@
                             background-color: black;
                             color: white;
                             
-                            font-size: 1.15rem;
+                            font-size: 16px;
                             margin: 5px;
                             height: fit-content;
                             width: min-content;
@@ -65,27 +106,36 @@
     .recReadingWrapper{
         /* background-color: red; */
         display: flex;
-        height: 600px;
+            align-items:center;
+            flex-direction:column;
+            /* flex-wrap: nowrap; */
+            justify-content:center;
+        /* height: 600px; */
+            min-height: 500px;
         width: 100%;
-        align-items:center;
-        flex-direction:column;
-        justify-content:center;
+
     }
+    .articleInfoSocial {
+        max-width: 500px;
+    }
+        .articleInfoSocial > div > span{
+            /* display: block; */
+        }
     .recReadingItemsWrapper{
         align-items: center; 
 
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
     }
         .recReadingItem{
-            height:100%;
-                min-height:475px;
+            height:250px;
+                /* min-height:250px; */
             /* mix-blend-mode: luminosity; */
             margin: inherit;
             border: 5px solid black;
-            width:20%;
-                max-width:500px;
+            /* width:20%; */
+                max-width:250px;
         }
         .recReadingItem:hover{
             mix-blend-mode: initial;
@@ -137,9 +187,30 @@
 }
 
 @media (min-width: 1000px) {
+    .recReadingWrapper{
+        flex-direction: row;
+    }
+        .articleInfo{width: 50%;}
+        .recReadingContainer{width: 50%;}
+        .recReadingItemsWrapper{
+            flex-wrap: wrap;
+        }
+
+
+
+
+
+
     .recReadingCaptionHeadline{
-        font-size: 1.75rem;
+        /* font-size: 1.75rem; */
 
     }
     
+    
+}
+
+@media (min-width: 1400px) {
+    .recReadingItemsWrapper{
+        flex-wrap: nowrap;
+    }
 }
