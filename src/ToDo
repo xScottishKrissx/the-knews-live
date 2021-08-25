@@ -1409,6 +1409,14 @@ General Notes  Objectives:
                             ✘ Photo credit, word count @cancelled(13:54 - 25/08/21)
                             i think what I have right now is fine
                     ✔ Turn the title in a link to the author's tag page. @done(14:17 - 25/08/21)
+                    Maintenance:
+                        ✔ Convert about author into separate component @done(16:05 - 25/08/21)
+                        ✔ Convert rec reading into separate component @done(16:41 - 25/08/21)
+                        ✔ Rename rec reading to article footer @done(16:41 - 25/08/21)
+                            ✔ Adjust css @done(16:41 - 25/08/21)
+                            ✔ class names in file @done(16:41 - 25/08/21)
+                            ✔ file names @done(16:41 - 25/08/21)
+
 
                 12.10.7.9 - Navbar:
                     ☐ add border-line to navbar(like the article page)

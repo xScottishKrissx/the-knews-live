@@ -10,7 +10,7 @@ import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.
 import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls.js';
 import MarkAsRead from '../../utility_components/bookmarks/markAsReadV2.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
-import RecReading from './recommended-reading/recReading.js';
+import ArticleFooter from '../../utility_components/articleFooter/articleFooter.js';
 import NextArticle from './nextArticle.js';
 
 
@@ -265,14 +265,15 @@ export class NewsPageVIEW extends React.Component{
                     
 
                     {/* <NextArticle id={value.id} database={database}/> */}
-                    <RecReading 
+                    <ArticleFooter 
                         fullDatabaseCall={database} 
                         author={value.author}
                         tag={value.tag}
                         id={value.id}                         
                         arrayFromDatabase={this.state.articlesArray}
                         leftoverArticles={this.state.leftoverArticles}
-                        fullDatabaseCall={this.state.fullDatabaseCall}/>                    
+                        fullDatabaseCall={this.state.fullDatabaseCall}
+                      />                    
                     <ScrollToTopButton  />   
                 </div>
             )

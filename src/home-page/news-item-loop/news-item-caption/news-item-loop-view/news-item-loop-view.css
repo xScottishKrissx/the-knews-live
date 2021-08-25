@@ -13,7 +13,7 @@
         /* background-color: red; */
         display: flex;
             flex-wrap: wrap;
-        margin-top: 55px !important;
+        margin-top: 60px !important;
     }
 
 /* Hide Article Message  */
@@ -32,10 +32,6 @@
         font-weight: 900;
         visibility: hidden;
     }
-
-.blankLoopMessage{
-
-}
 
 .blankLoopMessage{
     /* Centering the div */

@@ -156,6 +156,8 @@ getPageLayout = (param1,param2,maxWidth) => {
                 document.getElementById(el.id).classList.add('markAsRead')
         });
 
+        const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
+
         // bookmark counter
         const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
         // filter counter
@@ -213,7 +215,7 @@ getPageLayout = (param1,param2,maxWidth) => {
                         forceReload={()=>this.reload()}
                         
                     />
-
+                <div style={setRandomColour} id="articleLine"></div>
                 
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
                 
