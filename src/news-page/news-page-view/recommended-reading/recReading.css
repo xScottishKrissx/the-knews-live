@@ -30,14 +30,15 @@
         width: 90%;
             max-width: 500px;
     }
-        .articleInfoSocial > div > i{
-            font-size:25px ;
-            /* margin-right: 10px; */
+        .articleInfoSocial > div{cursor: pointer;}
+            .articleInfoSocial > div > i{
+                font-size:25px ;
+                /* margin-right: 10px; */
 
-        }
-        .articleInfoSocial > div > span{
-            display: none;
-        }
+            }
+            .articleInfoSocial > div > span{
+                display: none;
+            }
 
     .articleInfoAbout > h3{
         /* max-width: 500px; */
@@ -191,6 +192,7 @@
         flex-direction: row;
     }
         .articleInfo{width: 50%;}
+        .articleInfoAbout{margin-top: 30px;}
         .recReadingContainer{width: 50%;}
         .recReadingItemsWrapper{
             flex-wrap: wrap;
@@ -212,5 +214,12 @@
 @media (min-width: 1400px) {
     .recReadingItemsWrapper{
         flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 2300px) {
+    .recReadingItem{
+        height: 300px;
+        max-width: 300px;
     }
 }

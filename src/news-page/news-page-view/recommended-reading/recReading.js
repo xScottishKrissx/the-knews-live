@@ -82,7 +82,26 @@ export const RecReading = (props) =>{
 
                 <div id="articleInfo_icon_author">
                     <span><i class="bi bi-image"></i></span>
-                    <h3>{value.author}</h3>
+                    <Link 
+                        className="newsItemLink"
+                        // style={setRandomColour}
+                        to={{
+                            pathname: '/theKnews/home/search/author/' + props.author , 
+                            
+                            state:{
+                                author: props.author, 
+                                tag:props.tag,
+                                searchDBFor: "author",
+                                origin: "Article", 
+                                orderByChild: "author",
+                                thingFromArticle:props.tag,
+                                arrayFromDatabase:props.arrayFromDatabase,
+                                leftoverArticles:props.leftoverArticles,
+                                fullDatabaseCall:props.fullDatabaseCall
+                                }
+                            }}>
+                            <h3>{value.author}</h3>
+                    </Link>
                 </div>
 
                 <div className="articleInfoSocial">

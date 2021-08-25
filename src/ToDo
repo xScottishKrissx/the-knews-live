@@ -1400,15 +1400,15 @@ General Notes  Objectives:
                 12.10.7.8 - recommended reading:
                     ✘ looks terrible @cancelled(13:54 - 25/08/21)
                         ✔ now looks a lot better @done(13:54 - 25/08/21)
-                    ☐ How about a "About the Author" section
-                        ☐ This could provide a link to the original authors 
+                    ✔ How about a "About the Author" section @done(14:17 - 25/08/21)
+                        ✔ This could provide a link to the original authors @done(14:17 - 25/08/21)
                             ✔ website, social media etc @done(13:54 - 25/08/21)
                             ✔ Author biography @done(13:54 - 25/08/21)
                             ✔ icon @done(13:54 - 25/08/21)
                         ✘ Maybe extra info about the article @cancelled(13:54 - 25/08/21)
                             ✘ Photo credit, word count @cancelled(13:54 - 25/08/21)
                             i think what I have right now is fine
-                    ☐ Turn the title in a link to the author's tag page.
+                    ✔ Turn the title in a link to the author's tag page. @done(14:17 - 25/08/21)
 
                 12.10.7.9 - Navbar:
                     ☐ add border-line to navbar(like the article page)
@@ -1436,6 +1436,10 @@ General Notes  Objectives:
 
                 12.10.7.10 - Bookmark Page:
                     ☐  The bookmark counter should remain constant, but the filter should have a counter that can change.
+                
+                12.10.7.11 - Tags Page:
+                    ☐ Author Page
+                        ☐ add the author bio from the recommended reading section to the author tag page.
             
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
@@ -1461,6 +1465,11 @@ General Notes  Objectives:
                     ✔ Full Website Reset -> Tag on card -> error in scrollCheckV2(84, map undefined) @done(16:03 - 06/07/21)
                     ✔ Fixed by adding a fulldatabase call prop to scrollCheckV2 in tags.js@done(16:03 - 06/07/21)
                     ✔ the mark as read button is behaving weird. It's taking multiple clicks to initially activate. @done(10:26 - 12/08/21)
+                
+            ☐ Random Colours I like
+                ☐ A dark matte-looking audi sort of green
+                    rgb(79, 101, 90)
+
 
                 
     theKnews:

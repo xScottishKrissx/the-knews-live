@@ -265,7 +265,14 @@ export class NewsPageVIEW extends React.Component{
                     
 
                     {/* <NextArticle id={value.id} database={database}/> */}
-                    <RecReading fullDatabaseCall={database} id={value.id}/>                    
+                    <RecReading 
+                        fullDatabaseCall={database} 
+                        author={value.author}
+                        tag={value.tag}
+                        id={value.id}                         
+                        arrayFromDatabase={this.state.articlesArray}
+                        leftoverArticles={this.state.leftoverArticles}
+                        fullDatabaseCall={this.state.fullDatabaseCall}/>                    
                     <ScrollToTopButton  />   
                 </div>
             )
