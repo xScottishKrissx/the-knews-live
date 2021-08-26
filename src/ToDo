@@ -1422,6 +1422,7 @@ General Notes  Objectives:
                     ✔ add border-line to navbar(like the article page) @done(16:49 - 25/08/21)
                     ✔ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here. @done(17:20 - 25/08/21)
                     ☐ improve appearance of dropdown menu's
+                    ☐ add counter to filter button when it's at all.
 
                     Improve Feedback when using nav buttons:
                         ☐ Active
@@ -1430,8 +1431,13 @@ General Notes  Objectives:
                         ☐ Interacting with menu and dropdowns
                         ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
                         ☐ there is a gap above the navbar, 1px high, when the page loads.
-                        ☐ when pressing the refresh button, animate it doing a complete 360.
-                            ☐ i think i need to do a .addClass on click. The css animation only fires once and then stops working until you click again somewhere else...which makes sense come to think of it. I want this to be more repeatable so the onClick might be better.
+                        ✔ when pressing the refresh button, animate it doing a complete 360. @done(13:54 - 26/08/21)
+                            ✘ i think i need to do a .addClass on click. The css animation only fires once and then stops working until you click again somewhere else...which makes sense come to think of it. I want this to be more repeatable so the onClick might be better. @cancelled(13:54 - 26/08/21)
+                            ✔ Nah, just used active and let users decide if they want to hold the button. @done(13:54 - 26/08/21)
+                        ☐ the icons for filter and card style should change in the navbar as you change them to reflect each selection
+                            ✔ filter icons @done(15:17 - 26/08/21)
+                            ☐ card style icons
+
 
                     Add buttons to Navbar / merge option menu's (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
@@ -1475,6 +1481,11 @@ General Notes  Objectives:
                     ✔ Full Website Reset -> Tag on card -> error in scrollCheckV2(84, map undefined) @done(16:03 - 06/07/21)
                     ✔ Fixed by adding a fulldatabase call prop to scrollCheckV2 in tags.js@done(16:03 - 06/07/21)
                     ✔ the mark as read button is behaving weird. It's taking multiple clicks to initially activate. @done(10:26 - 12/08/21)
+                    ✔ Attempting to hide a card in the main loop using the hide button results in an empty page regardless of the number of cards left @started(13:35 - 26/08/21) @done(13:49 - 26/08/21) @lasted(14m17s)
+                        in article hide button is unaffected.
+                        swipe is unaffected and the hide button works as normal if you swipe first then hide. So im guessing im not properly passing on the main render array at some point.
+                        ✔ Yup, i wasn't passing a database call to the hide button in the event of an empty cache. @done(13:49 - 26/08/21)
+
                 
             ☐ Random Colours I like
                 ☐ A dark matte-looking audi sort of green

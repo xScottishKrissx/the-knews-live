@@ -98,13 +98,18 @@
 
         #reloadBtn > .btn-primary.focus-visible, #reloadBtn > .btn-primary:focus{
             color: black;
+            /* animation: animateReloadBtn 1s; */
+        }
+
+        #animateReloadBtnBtn :active{
+            /* color: red !important; */
             animation: animateReloadBtn 1s;
+                animation-fill-mode: forwards;
         }
         @keyframes animateReloadBtn {
-            0%{transform: rotateZ(0deg);}
-            50%{transform: rotateZ(90deg);}
-            
-            100%{transform: rotateZ(0deg);}
+            0%{transform: rotateZ(0deg);}            
+            50%{transform: rotateZ(240deg);}
+            100%{transform: rotateZ(240deg); color: rgb(0, 255, 13);}
         }
 
 
@@ -162,7 +167,12 @@
 
                     .navBarButton > span{line-height: inherit;}
 
-                    .dropdownBtnTitle{display: flex; align-items: center;}
+                    .dropdownBtnTitle{
+                        display: flex; 
+                        height: 24px;
+                        width: 24px;
+                        align-items: center; 
+                    }
                     .dropdownBtnTitle > *{ font-size: 18px; }
                     .dropdownBtnTitle > p{display: contents;}
 

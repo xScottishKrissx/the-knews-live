@@ -4,7 +4,7 @@ import FilterOptions from '../../utility_components/filterOptions/filterOptions'
 // styles in navbar.css
 
 export const FilterOptionsButton = (props) =>{
-    
+    console.log(props.getFilteredArticles)
 return(
     // react-fragment - <> + </>
     <>
@@ -18,13 +18,28 @@ return(
                                 {props.getArticle === "All" ?                                         
                                     <span>
                                         <span className="material-icons">filter_alt</span>
-                                        {/* <p>No Filter</p> */}
+                                        <span className="bookmarkCounter">{props.currentCardCount}</span>
                                     </span>                                           
                                     :                                   
                                     <span>
-                                        <span id="filterActive" className="material-icons">filter_alt</span>
-                                        <p className="filterIsActive">{ props.getArticle }</p>
-                                        {/* <span> ({this.props.bookmarkNumber})</span> */}
+                                        {/* <span id="filterActive" className="material-icons">filter_alt</span> */}
+
+                                        {props.getArticle === "Sports" ? 
+                                            <span class="material-icons">emoji_events</span> 
+                                        : null
+                                        }
+                                        
+                                        {props.getArticle === "News" ? 
+                                            <span class="material-icons">article</span> 
+                                        : null
+                                        }
+
+                                        {props.getArticle === "Weather" ? 
+                                            <span class="material-icons">cloud_queue</span> 
+                                        : null
+                                        }
+
+                                        {/* Counter Next to filter icon */}
                                         <span className="bookmarkCounter">{props.filterCounter}</span>
                                     </span>                                        
                                 }

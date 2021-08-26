@@ -29,11 +29,12 @@ markAsRead(id,markAs){
 }
 
 hideArticle(id,fullDatabaseCall){
-    console.log("Hide Article " + id + " Hide Status: " + this.props.hideStatus)
-    
+    // console.log("Hide Article " + id + " Hide Status: " + this.props.hideStatus)
+    // console.log(fullDatabaseCall)
     // Hiding an article on the home page
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
 
+    // console.log(articles)
     var hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
             // return Object.assign({}, el, {hidden:false})
@@ -176,10 +177,10 @@ render(){
             {this.props.hideBookmarkedArticle === true ?
             <button title="Permanently Remove Bookmark and Hide" onClick={() => this.hideArticle(
                 this.props.id,
+                this.props.fullDatabaseCall,
                 this.props.postsArray,
                 this.props.arrayFromDatabase,
                 this.props.leftoverArticles,
-                this.props.fullDatabaseCall,
                 this.state.bookmarked
             )}>
                 <span class="material-icons">delete</span>
@@ -188,10 +189,10 @@ render(){
 
             <button onClick={() => this.hideArticle(
                 this.props.id,
+                this.props.fullDatabaseCall,
                 this.props.postsArray,
                 this.props.arrayFromDatabase,
                 this.props.leftoverArticles,
-                this.props.fullDatabaseCall
             )}>
               {this.props.hideStatus === true ? 
               <span className="animateScale">

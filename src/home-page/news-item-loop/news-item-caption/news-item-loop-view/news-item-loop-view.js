@@ -129,6 +129,7 @@ getPageLayout = (param1,param2,maxWidth) => {
         console.log("updateRender")
     }
     reload(){
+
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(localStorageCards){
 
@@ -144,12 +145,16 @@ getPageLayout = (param1,param2,maxWidth) => {
             const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false)
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
             this.setState({renderArray:filterMarkedAsHiddenForReload})
+            document.getElementById("reloadBtn").classList.remove('testClass1')
             // console.log(this.state.renderArray)
         }
+
+
     }
     render(){  
         const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
+        // document.getElementById("reloadBtn2").classList.remove('testClass1')
 
         var markArticleRead = renderToPage.map(el => {
             if(el.read === true && el != null )if( document.getElementById(el.id))
@@ -164,6 +169,8 @@ getPageLayout = (param1,param2,maxWidth) => {
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
 
         var customPageLayout = this.state.pageLayout
+
+        console.log(renderToPage.length)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -197,6 +204,7 @@ getPageLayout = (param1,param2,maxWidth) => {
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
                         getFilters={getFilters.length}
+                        currentCardCount={renderToPage.length}
 
                         // card size
                         getCardSize={this.getCardSize} 

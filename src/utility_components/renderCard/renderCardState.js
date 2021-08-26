@@ -66,7 +66,8 @@ class RenderCardState extends React.Component{
 
     updateProp(){
         // Handles updating the bookmark when clicking the bookmark icon
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall
+        
         this.props.updateBookmarkStatus(articles)
     }
 
@@ -99,7 +100,7 @@ class RenderCardState extends React.Component{
     swipeProgress(progress){ this.setState({progress:progress }) }
 
     render(){
-        console.log(this.state.progress)
+        // console.log(this.state.progress)
 
     const pageView = this.props.database.map((value,key) => {
 

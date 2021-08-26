@@ -11,7 +11,7 @@ return(
         {props.reload === true ?
             <div className="uiBarItem" title="Force Reload" id="reloadBtn">
                 <Button title="Update Page">
-                <span onClick={props.forceReload}>
+                <span id="animateReloadBtnBtn" onClick={props.forceReload}>
                     <span class="material-icons">refresh</span>
                     {/* <p className="navButtonText">Refresh</p> */}
                 </span>
