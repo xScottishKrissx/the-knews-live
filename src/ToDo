@@ -1422,6 +1422,13 @@ General Notes  Objectives:
                     ✔ add border-line to navbar(like the article page) @done(16:49 - 25/08/21)
                     ✔ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here. @done(17:20 - 25/08/21)
                     ☐ improve appearance of dropdown menu's
+                        ✔ added animation and increased padding and they're looking better. I've focused on the mobile card style menu so a good amount of work left. However, I am much happier with the menu's than before. They're nicer to look at and with the increased space between buttons, better to use. @done(17:40 - 26/08/21)
+                        Things to tweak:
+                            ☐ Watch for mobile, desktop etch as the dropdown position will get ya
+                            ☐ Filter Menu
+                            ☐ Options Menu
+                            ☐ will need to be integrated with the work to be done on active, hover, visited etc.
+
                     ✔ add counter to filter button when it's at all. @done(15:20 - 26/08/21)
 
                     Improve Feedback when using nav buttons:

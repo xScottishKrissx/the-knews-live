@@ -24,7 +24,10 @@ return(
                             {/* <p>{props.cardStyle}</p> */}
                         </div>
                     }>
-                    <CustomCardSize getCardSizeToParent={props.getCardSize} updatePageLayout={props.getPageLayout}/>
+                    <CustomCardSize 
+                        getCardSizeToParent={props.getCardSize} 
+                        updatePageLayout={props.getPageLayout}
+                    />
                 </DropdownButton>
             </div>
         :

@@ -113,8 +113,16 @@
         }
 
 
-
-        .uiBarItem > div { position: relative; width: 100%; }
+        .uiBarItem :focus{
+            /* border: 5px solid black !important; */
+            /* background-color: black  !important; */
+            /* color: white !important; */
+        }
+        .uiBarItem > div { 
+            animation: showMenuAni 1s; 
+            position: relative; 
+            width: 100%; 
+        }
 
         .uiBarItem > button{
             align-items: center;
@@ -138,46 +146,75 @@
         
         
         /* Dropdown Appearance */
-        .uiBarItem > div > .dropdown-menu > div{
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
+        .uiBarItem > div > .dropdown-menu{
+            background-color: #fff0;
+            transform: translateY(30px)  !important;
+            
+            
         }
-            .uiBarItem > div > .dropdown-menu > div > button{
-                background-color: white;
-                color: black;
+
+
+            .uiBarItem > div > .dropdown-menu > div{
                 display: flex;
-                    align-items: center;
-                font-weight: 900;
-                width: auto;
-                white-space: nowrap;
-            }
-            .uiBarItem > div > .dropdown-menu > div > button > span,
-            .uiBarItem > div > .dropdown-menu > div > button > i{margin-right: 5px;}
-
-            .uiBarItem > div > .dropdown-menu > div > button:focus,
-            .uiBarItem > div > .dropdown-menu > div > button:hover,
-            .uiBarItem > div > .dropdown-menu > div > button:active{
-                background-color: black;
-                color: white;
-                outline: 1px solid black !important;
+                flex-direction: column;
+                flex-wrap: wrap;
+                animation: showMenuAni 2s; 
+                transform: translateY(0px);
             }
 
+            @keyframes showMenuAni {
+                0%{ opacity: 0; transform: translateY(100px);}
+                15%{opacity: 2; transform: translateY(0px);}
+                50%{opacity: 2; transform: translateY(0px);}
+                100%{opacity: 2; transform: translateY(0px);}
+            }
+                .uiBarItem > div > .dropdown-menu > div > button{
+                    background-color: white;
+                    color: inherit;
+                    display: flex;
+                        align-items: center;
+                    font-weight: 900;
+                    /* padding: 15px; */
+                        padding-bottom: 15px;
+                        padding-top: 15px;
+                        padding-left: 12px;
+                    width: auto;
+                    white-space: nowrap;
+                    
+                }
+                .uiBarItem > div > .dropdown-menu > div > button > span,
+                .uiBarItem > div > .dropdown-menu > div > button > i{margin-right: 5px;}
 
-                .uiBarItem > .dropdown > div{ padding: 0;  border: 4px solid; }
+                .uiBarItem > div > .dropdown-menu > div > button:focus,
+                .uiBarItem > div > .dropdown-menu > div > button:hover,
+                .uiBarItem > div > .dropdown-menu > div > button:active{
+                    background-color: black;
+                    color: white;
+                    outline: 0px solid black !important;
+                }
 
-                    .navBarButton > span{line-height: inherit;}
 
-                    .dropdownBtnTitle{
-                        display: flex; 
-                        height: 24px;
-                        width: 24px;
-                        align-items: center; 
+                    .uiBarItem > .dropdown > div{ 
+                        border-top: 0px solid;
+                        border-radius: 0;
+                        padding: 0; 
+                       
+                        width: 100px;
+                        
                     }
-                    .dropdownBtnTitle > *{ font-size: 18px; margin: 0 auto; }
-                    .dropdownBtnTitle > p{display: contents;}
+         
+                        .navBarButton > span{line-height: inherit;}
 
-                    .navBarButton > p{display: none;} 
+                        .dropdownBtnTitle{
+                            display: flex; 
+                            height: 24px;
+                            width: 24px;
+                            align-items: center; 
+                        }
+                        .dropdownBtnTitle > *{ font-size: 18px; margin: 0 auto; }
+                        .dropdownBtnTitle > p{display: contents;}
+
+                        .navBarButton > p{display: none;} 
 
 
 /* Just in case I want to use it */

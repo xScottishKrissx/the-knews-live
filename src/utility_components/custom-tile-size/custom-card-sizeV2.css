@@ -64,5 +64,12 @@
     .cardControlSizeWrapper{visibility: visible;}
 } */
 
+.menuBorder{
+    background-color: black;
+    height: 14px;
+    /* position: absolute; */
+    width: 30%;
+    
 
+}
 

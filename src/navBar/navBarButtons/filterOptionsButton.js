@@ -4,7 +4,7 @@ import FilterOptions from '../../utility_components/filterOptions/filterOptions'
 // styles in navbar.css
 
 export const FilterOptionsButton = (props) =>{
-    console.log(props.getFilteredArticles)
+    // console.log(props.getFilteredArticles)
 return(
     // react-fragment - <> + </>
     <>
