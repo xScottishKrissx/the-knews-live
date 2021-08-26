@@ -14,8 +14,13 @@ return(
                     id="changeCardBtn" 
                     title={ 
                         <div className="dropdownBtnTitle">
-                            <span className="material-icons">view_module</span>
-                            {props.cardStyle.includes("Standard") ? null : <p>{props.cardStyle}</p>}
+                             {/* <i class="bi bi-grid-3x3"></i> */}
+                            {props.cardStyle.includes("Slim") ?  <i class="bi bi-view-list"></i> : null}
+                            {props.cardStyle.includes("Compact") ?  <i class="bi bi-grid-3x2"></i> : null}
+                            {props.cardStyle.includes("Standard") ?  <i class="bi bi-grid-3x3"></i> : null}
+                            {props.cardStyle.includes("Long") ?  <i class="bi bi-grid-1x2"></i> : null}
+                            {props.cardStyle.includes("Thick") ?   <i class="bi bi-layout-split"></i> : null}
+                            {props.cardStyle.includes("Big Squares") ?  <i class="bi bi-grid"></i> : null}
                             {/* <p>{props.cardStyle}</p> */}
                         </div>
                     }>

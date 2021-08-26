@@ -55,8 +55,8 @@ class CustomCardSize extends React.Component{
         // const pageLayout4 = "Triple Column"
         // const pageLayout5 = "Quad Column"
 
-        const size1 = "Compact"
-        const size2 = "Different Compact"
+        const size1 = "Slim"
+        const size2 = "Compact"
         const size3 = "Standard"
         const size4 = "Long"
         const size5 = "Thick"
@@ -103,33 +103,42 @@ class CustomCardSize extends React.Component{
                 </button> */}
 
                 {/* <span>----- Card Style</span> */}
+
+
                 <button  onClick={() => this.changeCardSize("470px","135px",size1)}>
-                    <span class="material-icons">view_list</span>
+                    {/* <span class="material-icons">view_list</span> */}
+                    <i class="bi bi-view-list"></i>
                     {size1}
                 </button>
 
                 <button  onClick={() => this.changeCardSize("225px","225px",size2)}>
-                    <span class="material-icons">view_list</span>
+                    {/* <span class="material-icons">view_list</span> */}
+                    <i class="bi bi-grid-3x2"></i>
                     {size2}
                 </button>
-                
+
                 <button  onClick={() => this.changeCardSize("260px","400px",size3)}>
-                    <span class="material-icons">view_list</span>
+                    {/* <span class="material-icons">view_list</span> */}
+                    <i class="bi bi-grid-3x3"></i>
                     {size3}
                 </button>
+
                 
                 <button  onClick={() => this.changeCardSize("260px","73vh",size4)}>
-                    <span class="material-icons">view_list</span>
+                    {/* <span class="material-icons">view_list</span> */}
+                    <i class="bi bi-grid-1x2"></i>
                     {size4}
                 </button>
                 
                 <button  onClick={() => this.changeCardSize("470px","800px",size5)}>
-                    <span class="material-icons">view_list</span>
+                    {/* <span class="material-icons">view_list</span> */}
+                    <i class="bi bi-layout-split"></i>
                     {size5}
                 </button>
                 
                 <button  onClick={() => this.changeCardSize("520px","520px",size6)}>
-                    <span class="material-icons">view_list</span>
+                    {/* <span class="material-icons">view_list</span> */}
+                    <i class="bi bi-grid"></i>
                     {size6}
                 </button>
             </div>

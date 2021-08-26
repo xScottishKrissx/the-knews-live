@@ -1422,7 +1422,7 @@ General Notes  Objectives:
                     ✔ add border-line to navbar(like the article page) @done(16:49 - 25/08/21)
                     ✔ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here. @done(17:20 - 25/08/21)
                     ☐ improve appearance of dropdown menu's
-                    ☐ add counter to filter button when it's at all.
+                    ✔ add counter to filter button when it's at all. @done(15:20 - 26/08/21)
 
                     Improve Feedback when using nav buttons:
                         ☐ Active
@@ -1434,9 +1434,11 @@ General Notes  Objectives:
                         ✔ when pressing the refresh button, animate it doing a complete 360. @done(13:54 - 26/08/21)
                             ✘ i think i need to do a .addClass on click. The css animation only fires once and then stops working until you click again somewhere else...which makes sense come to think of it. I want this to be more repeatable so the onClick might be better. @cancelled(13:54 - 26/08/21)
                             ✔ Nah, just used active and let users decide if they want to hold the button. @done(13:54 - 26/08/21)
-                        ☐ the icons for filter and card style should change in the navbar as you change them to reflect each selection
+                        ✔ the icons for filter and card style should change in the navbar as you change them to reflect each selection @done(15:52 - 26/08/21)
                             ✔ filter icons @done(15:17 - 26/08/21)
-                            ☐ card style icons
+                            ✔ card style icons @done(15:50 - 26/08/21)
+                                although the navbar is changing size for some of these.
+                                    it actually because the scroll bar appears which is fine.
 
 
                     Add buttons to Navbar / merge option menu's (sitewide):

@@ -152,7 +152,8 @@
                 width: auto;
                 white-space: nowrap;
             }
-            .uiBarItem > div > .dropdown-menu > div > button > span{margin-right: 5px;}
+            .uiBarItem > div > .dropdown-menu > div > button > span,
+            .uiBarItem > div > .dropdown-menu > div > button > i{margin-right: 5px;}
 
             .uiBarItem > div > .dropdown-menu > div > button:focus,
             .uiBarItem > div > .dropdown-menu > div > button:hover,
@@ -173,7 +174,7 @@
                         width: 24px;
                         align-items: center; 
                     }
-                    .dropdownBtnTitle > *{ font-size: 18px; }
+                    .dropdownBtnTitle > *{ font-size: 18px; margin: 0 auto; }
                     .dropdownBtnTitle > p{display: contents;}
 
                     .navBarButton > p{display: none;} 
