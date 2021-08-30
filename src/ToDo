@@ -1424,18 +1424,19 @@ General Notes  Objectives:
                     ☐ improve appearance of dropdown menu's
                         ✔ added animation and increased padding and they're looking better. I've focused on the mobile card style menu so a good amount of work left. However, I am much happier with the menu's than before. They're nicer to look at and with the increased space between buttons, better to use. @done(17:40 - 26/08/21)
                         Things to tweak:
-                            ☐ Watch for mobile, desktop etch as the dropdown position will get ya
-                            ☐ Filter Menu
+                            ✔ Watch for mobile, desktop etch as the dropdown position will get ya @done(16:43 - 30/08/21)
+                            ✔ Filter Menu @done(16:43 - 30/08/21)
                             ☐ Options Menu
+                                ☐ Wait for new options menu
                             ☐ will need to be integrated with the work to be done on active, hover, visited etc.
 
                     ✔ add counter to filter button when it's at all. @done(15:20 - 26/08/21)
 
                     Improve Feedback when using nav buttons:
-                        ☐ Active
-                        ☐ Hover
-                        ☐ Visited
-                        ☐ Interacting with menu and dropdowns
+                        ✔ Active @done(17:54 - 30/08/21)
+                        ✔ Hover @done(17:55 - 30/08/21)
+                        ✔ Visited @done(17:55 - 30/08/21)
+                        ✔ Interacting with menu and dropdowns @done(17:55 - 30/08/21)
                         ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
                         ☐ there is a gap above the navbar, 1px high, when the page loads.
                         ✔ when pressing the refresh button, animate it doing a complete 360. @done(13:54 - 26/08/21)

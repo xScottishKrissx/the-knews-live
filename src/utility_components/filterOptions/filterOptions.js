@@ -95,6 +95,7 @@ class FilterOptions extends Component {
 
         return (
             <div className="filterButtonWrapper">
+            <span className="menuBorder"></span>
                 <button className="filterButton" id="newsFilterBtn" onClick={() => this.getArticlesBy("News")}>
                     <span class="material-icons">article</span>
                     News - {newsCount.length}

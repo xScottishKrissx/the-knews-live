@@ -97,6 +97,7 @@ class OptionsMenu extends Component {
         return (
             <div id="optionsMenuWrapper">
                 
+                <span className="menuBorder"></span>
                 {/* <span onClick={()=> this.toggleMenu()} id="optionsMenuIcon" className="material-icons">settings</span> */}
                         {/* <button onClick={()=> this.clearBookmarks()}><span class="material-icons">bookmark_remove</span>Remove All Bookmarks</button>
                         <button onClick={()=> markAllRead()}><span class="material-icons">done_all</span>Mark All As Read</button>

@@ -70,6 +70,7 @@
     .uiBarItem{
         align-items: center;
         background-color: white;
+        color: black;
         box-sizing: content-box;
         display: flex;
             /* flex: 1 40%; */
@@ -80,6 +81,19 @@
         /* outline: 2px solid black; */
         position: relative;
     }
+    .uiBarItem:focus-visible, .uiBarItem:focus{
+        /* background-color: black; */
+        /* color: white; */
+        outline: 1px solid black;
+    }
+    
+    .uiBarItem:active{
+        box-shadow:inset 0px -10px 0px 0px;
+    }
+
+    .uiBarItem:hover{
+        box-shadow:inset 0px -10px 0px 0px;
+    }
 
         /* #bookmarkBtn:hover{color: #28a745; } */
         /* #liteKnewsBtn:hover{color: orange; } */
@@ -88,7 +102,10 @@
         /* #settingsBtn:hover{color: pink; }  */
 
 /****************** Reload Button */
-    #reloadBtn > button:hover{color: black; }
+    
+    #reloadBtn > button{transition: none; }
+    #reloadBtn > button:hover{color: inherit; }
+
         #reloadBtn > button > span{
             display: flex;
                 align-items: center;
@@ -97,7 +114,7 @@
         #reloadBtn > button > span > p{margin: 0;}
 
         #reloadBtn > .btn-primary.focus-visible, #reloadBtn > .btn-primary:focus{
-            color: black;
+            color: inherit;
             /* animation: animateReloadBtn 1s; */
         }
 
@@ -126,7 +143,7 @@
 
         .uiBarItem > button{
             align-items: center;
-            color: black;
+            color: inherit;
             display: flex;
             justify-content: center;
             width: max-content;
@@ -148,8 +165,8 @@
         /* Dropdown Appearance */
         .uiBarItem > div > .dropdown-menu{
             background-color: #fff0;
-            transform: translateY(30px)  !important;
-            
+            /* transform: translateY(30px)  !important; */
+                transform: translateY(44px)  !important;
             
         }
 
@@ -158,7 +175,7 @@
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
-                animation: showMenuAni 2s; 
+                animation: showMenuAni 1s; 
                 transform: translateY(0px);
             }
 
@@ -190,13 +207,15 @@
                 .uiBarItem > div > .dropdown-menu > div > button:active{
                     background-color: black;
                     color: white;
-                    outline: 0px solid black !important;
+                    outline: 1px solid black !important;
                 }
 
 
                     .uiBarItem > .dropdown > div{ 
+                        border-left: 1px solid black;
                         border-top: 0px solid;
                         border-radius: 0;
+                        box-shadow: -10px 0px 0px 0px;
                         padding: 0; 
                        
                         width: 100px;
@@ -334,7 +353,7 @@
 .uiBarItem > a > .dropdown > button{width: 100% !important}
 
     .uiBarItem > .dropdown > .btn-primary, .uiBarItem > a > .dropdown > .btn-primary{
-        background-color: white;
+        background-color: inherit;
         color: black;
     }    
         .uiBarItem > .dropdown > .btn, .uiBarItem > a .dropdown > .btn { border-radius: 0;}
@@ -342,8 +361,8 @@
     .btn-primary:not(:disabled):not(.disabled).active, 
     .btn-primary:not(:disabled):not(.disabled):active, 
     .show>.btn-primary.dropdown-toggle{
-        color: black !important;
-        background-color: white !important;
+        color: inherit !important;
+        background-color: inherit !important;
     }
 
 
