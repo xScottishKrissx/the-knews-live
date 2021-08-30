@@ -1,5 +1,7 @@
 #optionsMenuWrapper{
+    background-color: white;
     padding: 3px;
+    width: auto;
 }
     #optionsMenuWrapper span{
         align-items: center;

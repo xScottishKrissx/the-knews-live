@@ -14,7 +14,7 @@ return(
                     <Link to='/theKnews/home'>
                     <div className="dropdownBtnTitle">
                         <span className="material-icons">home</span>
-                        <p>Home</p>
+                        {/* <p>Home</p> */}
                     </div>
                     </Link>
                 </Button>

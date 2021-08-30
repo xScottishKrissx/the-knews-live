@@ -88,11 +88,11 @@
     }
     
     .uiBarItem:active{
-        box-shadow:inset 0px -10px 0px 0px;
+        box-shadow:inset 0px -10px 0px 0px rgb(0, 0, 0);
     }
 
     .uiBarItem:hover{
-        box-shadow:inset 0px -10px 0px 0px;
+        box-shadow:inset 0px -10px 0px 0px rgb(0, 0, 0);
     }
 
         /* #bookmarkBtn:hover{color: #28a745; } */
@@ -103,7 +103,7 @@
 
 /****************** Reload Button */
     
-    #reloadBtn > button{transition: none; }
+    #reloadBtn > button{border-radius: 0; transition: none; }
     #reloadBtn > button:hover{color: inherit; }
 
         #reloadBtn > button > span{
@@ -136,13 +136,13 @@
             /* color: white !important; */
         }
         .uiBarItem > div { 
-            animation: showMenuAni 1s; 
             position: relative; 
             width: 100%; 
         }
 
         .uiBarItem > button{
             align-items: center;
+            border-radius: 0;
             color: inherit;
             display: flex;
             justify-content: center;
@@ -168,6 +168,9 @@
             /* transform: translateY(30px)  !important; */
                 transform: translateY(44px)  !important;
             
+        }
+        #settingsDropdown > div > .dropdown-menu{
+            transform: translate(-145px,44px)  !important;
         }
 
 
@@ -207,7 +210,7 @@
                 .uiBarItem > div > .dropdown-menu > div > button:active{
                     background-color: black;
                     color: white;
-                    outline: 1px solid black !important;
+                    /* outline: 1px solid black !important; */
                 }
 
 
@@ -218,7 +221,7 @@
                         box-shadow: -10px 0px 0px 0px;
                         padding: 0; 
                        
-                        width: 100px;
+                        /* width: 100px; */
                         
                     }
          
@@ -303,8 +306,13 @@
                     opacity: 2;
                 }
                 #bookmarkControls > button > .onCardControls > div > button > span:hover{
-                    text-decoration: underline;
+                    box-shadow: 0px 14px 0px 0px;
+                    /* text-decoration: underline; */
+
                 }
+            #bookmarkOptionsMenu > div > div {
+                transform: translate(-120px,44px)  !important;
+            }
 
 
 

@@ -112,7 +112,7 @@ export class HandleLike extends React.Component{
             
             <div className="socialScoreWrapper">
                 <div>
-                    <button  onClick={()=>this.handleClick("like","dislike")}>
+                    <button className="likeButton" onClick={()=>this.handleClick("like","dislike")}>
                         {this.state.liked === true ? 
                         <span className="animateScale">
                             <span  className="large material-icons">thumb_up_alt</span>
@@ -126,7 +126,7 @@ export class HandleLike extends React.Component{
                         }
                     </button>         
 
-                    <button onClick={()=>this.handleClick("dislike","like")}>
+                    <button className="dislikeButton" onClick={()=>this.handleClick("dislike","like")}>
                         {this.state.disliked === true ? 
                         <span className="animateScale">
                             <span className="large material-icons">thumb_down_alt</span>

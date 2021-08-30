@@ -1426,18 +1426,21 @@ General Notes  Objectives:
                         Things to tweak:
                             ✔ Watch for mobile, desktop etch as the dropdown position will get ya @done(16:43 - 30/08/21)
                             ✔ Filter Menu @done(16:43 - 30/08/21)
-                            ☐ Options Menu
-                                ☐ Wait for new options menu
-                            ☐ will need to be integrated with the work to be done on active, hover, visited etc.
+                            ✔ Options Menu @done(18:16 - 30/08/21)
+                            ✔ will need to be integrated with the work to be done on active, hover, visited etc. @done(18:16 - 30/08/21)
+                                ✔ will need to adjust article page @done(19:03 - 30/08/21)
+                                ✔ and bookmark page @done(19:03 - 30/08/21)
 
                     ✔ add counter to filter button when it's at all. @done(15:20 - 26/08/21)
+                    
+                    ☐ Should I have labels in the navbar? Is it clear what each button does? 
 
                     Improve Feedback when using nav buttons:
                         ✔ Active @done(17:54 - 30/08/21)
                         ✔ Hover @done(17:55 - 30/08/21)
                         ✔ Visited @done(17:55 - 30/08/21)
                         ✔ Interacting with menu and dropdowns @done(17:55 - 30/08/21)
-                        ☐ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard.
+                        ✔ Not a navbar thing, but it should be clearer whats happening when you're moving through the website with the keyboard. @done(18:06 - 30/08/21)
                         ☐ there is a gap above the navbar, 1px high, when the page loads.
                         ✔ when pressing the refresh button, animate it doing a complete 360. @done(13:54 - 26/08/21)
                             ✘ i think i need to do a .addClass on click. The css animation only fires once and then stops working until you click again somewhere else...which makes sense come to think of it. I want this to be more repeatable so the onClick might be better. @cancelled(13:54 - 26/08/21)
