@@ -182,10 +182,6 @@
                 transform: translateY(0px);
                 
             }
-            .test1{animation: showMenuAni 1s; }
-            .test2{animation: showMenuAni 2s; }
-            .test3{animation: showMenuAni 3s; }
-            .test4{animation: showMenuAni 4s; }
 
             @keyframes showMenuAni {
                 0%{ opacity: 0; transform: translateY(100px);}

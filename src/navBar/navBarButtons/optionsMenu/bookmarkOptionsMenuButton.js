@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/esm/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { Link } from 'react-router-dom';
 import BookmarkOptionsMenu from '../../../utility_components/bookmarks/bookmarkOptionsMenu';
+
+
 // styles in navbar.css
 
 export const BookmarkOptionsMenuButton = (props) =>{

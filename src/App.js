@@ -9,7 +9,7 @@ import Header from './header/header.js';
 import Footer from './footer/footer.js';
 import DeploymentMessage from './deployment-message/deploymentmessage.js';
 import { Routes } from './routes/routes';
-import OptionsMenu from './utility_components/optionsMenu/optionsMenu';
+// import OptionsMenu from './utility_components/optionsMenu/optionsMenu';
 
 import {Helmet} from 'react-helmet';
 

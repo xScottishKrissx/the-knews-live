@@ -15,6 +15,7 @@ import RenderCardState from '../../../../utility_components/renderCard/renderCar
 import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
+
 class NewsItemLoopView extends React.Component{
 
     constructor(props){
@@ -230,9 +231,9 @@ getPageLayout = (param1,param2,maxWidth) => {
                 
                 
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
-
+               
                 <div className="cardsWrapper" style={customPageLayout}>
-                
+
      
                              {this.props.databaseProp.length >= 10 && thing ? 
                 <RenderCardState 

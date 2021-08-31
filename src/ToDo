@@ -1456,12 +1456,25 @@ General Notes  Objectives:
                 12.10.7.10 - Add buttons to Navbar / merge option menu's (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
                         ☐ the same options menu should be available throughout the entire website
-                        ☐ Hide mark as read
-                        ☐ Include mark as read
-                        ☐ Mark All As Read
-                        ☐ Mark All as Unread
-                        ☐ Clear All Articles
-                        ☐ Reset Card Size
+
+                        New Options Menu:
+                            ☐ Full Website Reset
+                            ☐ Reset Card Size
+                            //Bookmarks
+                            ☐ Mark All As Bookmarked
+                            ☐ Remove All Bookmarks
+                            //Hide
+                            ☐ Hide All Cards
+                            ☐ Reset Hide Cards
+                            ☐ Hide Mark as Read only
+                            // Read
+                            ☐ Mark All Read
+                            ☐ Mark All Unread
+                            // (new) Sort
+                            ☐ Sort By Author
+                            ☐ Sort By Date
+                            ☐ Sort by Tag
+
 
                 12.10.7.11 - Bookmark Page:
                     ☐  The bookmark counter should remain constant, but the filter should have a counter that can change.
