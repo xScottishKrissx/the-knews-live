@@ -180,7 +180,12 @@
                 flex-wrap: wrap;
                 animation: showMenuAni 1s; 
                 transform: translateY(0px);
+                
             }
+            .test1{animation: showMenuAni 1s; }
+            .test2{animation: showMenuAni 2s; }
+            .test3{animation: showMenuAni 3s; }
+            .test4{animation: showMenuAni 4s; }
 
             @keyframes showMenuAni {
                 0%{ opacity: 0; transform: translateY(100px);}
@@ -188,6 +193,11 @@
                 50%{opacity: 2; transform: translateY(0px);}
                 100%{opacity: 2; transform: translateY(0px);}
             }
+
+
+
+                
+            
                 .uiBarItem > div > .dropdown-menu > div > button{
                     background-color: white;
                     color: inherit;

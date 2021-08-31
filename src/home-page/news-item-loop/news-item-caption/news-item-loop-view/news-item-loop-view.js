@@ -171,6 +171,7 @@ getPageLayout = (param1,param2,maxWidth) => {
         var customPageLayout = this.state.pageLayout
 
         // console.log(renderToPage.length)
+        var elem = document.getElementById("")
         return(
             
             <div className="newsItemLoopViewWrapper">

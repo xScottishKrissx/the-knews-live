@@ -41,6 +41,8 @@ export class Caption extends React.Component{
         const tag = this.props.tag;
         const imageId = this.props.imageId;
         const imgUrl = "https://unsplash.it/192/108?random=" + imageId;
+        var randomNumber = Math.floor(Math.random() * 2) + 1; 
+
         const style = {
             backgroundImage: 'url(' + imgUrl + ')',
             backgroundPosition: "bottom",
@@ -48,7 +50,11 @@ export class Caption extends React.Component{
             backgroundSize: "cover",
             height: "auto",
             // maxWidth:"1200px",
-            width:"100%"
+            width:"100%",
+
+            animation:"animateCardsIn",
+            animationDuration:randomNumber + "s"
+            
         }
     
         return (            

@@ -104,7 +104,7 @@ class RenderCardState extends React.Component{
 
     const pageView = this.props.database.map((value,key) => {
 
-
+          
         return(              
             <div id={value.id} key={value.id} className="myClass"   name="original-tags-load">   
 
