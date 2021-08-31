@@ -90,27 +90,33 @@ class OptionsMenu extends Component {
   
   <Card>
     <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="0">
-        Click me!
+      <Accordion.Toggle as={Button} variant="link" eventKey="1">
+      Full Website Reset
       </Accordion.Toggle>
     </Card.Header>
-    <Accordion.Collapse eventKey="0">
-      <Card.Body>Hello! I'm the body</Card.Body>
+
+    <Accordion.Collapse eventKey="1">
+        <button ><span class="material-icons">done_all</span>Full Website Reset</button>
     </Accordion.Collapse>
   </Card>
 
   <Card>
     <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="1">
-        Click me!
+      <Accordion.Toggle as={Button} variant="link" eventKey="2">
+      Bookmarks
       </Accordion.Toggle>
     </Card.Header>
-    <Accordion.Collapse eventKey="1">
-      <Card.Body>Hello! I'm another body</Card.Body>
+
+    <Accordion.Collapse eventKey="2">
+        <React.Fragment>
+            <button ><span class="material-icons">done_all</span>Mark All As Bookmarked</button>
+            <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
+        </React.Fragment>
     </Accordion.Collapse>
   </Card>
+
 </Accordion>
-        <button ><span class="material-icons">done_all</span>Full Website Reset</button>
+        {/* <button ><span class="material-icons">done_all</span>Full Website Reset</button>
         -
         <button ><span class="material-icons">done_all</span>Mark All As Bookmarked</button>
         <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
@@ -124,7 +130,7 @@ class OptionsMenu extends Component {
         -
         <button ><span class="material-icons">done_all</span>Sort By Author</button>
         <button ><span class="material-icons">done_all</span>Sort By Date</button>
-        <button ><span class="material-icons">done_all</span>Sort By Tag</button>
+        <button ><span class="material-icons">done_all</span>Sort By Tag</button> */}
 
                             </React.Fragment>
 

@@ -1456,7 +1456,7 @@ General Notes  Objectives:
                 12.10.7.10 - Add buttons to Navbar / merge option menu's (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
                         ☐ the same options menu should be available throughout the entire website
-
+                        ☐ tried to add an accordion but turns out I was looking at the bootstrap 2.0 docs, my boostrap version is 1.6.1 ...need to remember that.
                         New Options Menu:
                             ☐ Full Website Reset
                             ☐ Reset Card Size
