@@ -17,7 +17,7 @@ return(
                 title={
                     <div className="dropdownBtnTitle">
                             <span className="material-icons">settings</span> 
-                            <p>Options </p>
+                            {/* <p>Options </p> */}
                             {/* <span> ({this.props.bookmarkNumber})</span> */}
                     </div>
                 }>

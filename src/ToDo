@@ -1305,10 +1305,10 @@ General Notes  Objectives:
                         ✔ Bookmark Page @done(10:26 - 11/08/21)
                             ✔ Added the confirm hide box to bookmark page @done(10:26 - 11/08/21)
 
-                        ☐ Integrate liteKnews hide button
-                            ☐ Add ability to unhide articles
-                            ☐ Should use the same message as the regualar article page
-                            ☐ Bookmarking a liteKnews article leaves the bookmark icon turned out as you switch articles
+                        ✘ Integrate liteKnews hide button @cancelled(10:55 - 31/08/21)
+                            ✘ Add ability to unhide articles @cancelled(10:55 - 31/08/21)
+                            ✘ Should use the same message as the regualar article page @cancelled(10:55 - 31/08/21)
+                            ✘ Bookmarking a liteKnews article leaves the bookmark icon turned out as you switch articles @cancelled(10:55 - 31/08/21)
                             ✔ Removed ability to bookmark and hide articles in Lite Knews @done(14:46 - 10/08/21)
                                 ✔ I'm unable to figure out how to make bookmarks and hiding work here. @done(14:46 - 10/08/21)
                                 
@@ -1430,10 +1430,11 @@ General Notes  Objectives:
                             ✔ will need to be integrated with the work to be done on active, hover, visited etc. @done(18:16 - 30/08/21)
                                 ✔ will need to adjust article page @done(19:03 - 30/08/21)
                                 ✔ and bookmark page @done(19:03 - 30/08/21)
+                                ✔ and liteKnews @done(10:55 - 31/08/21)
 
                     ✔ add counter to filter button when it's at all. @done(15:20 - 26/08/21)
                     
-                    ☐ Should I have labels in the navbar? Is it clear what each button does? 
+                    ✘ Should I have labels in the navbar? Is it clear what each button does? @cancelled(10:56 - 31/08/21)
 
                     Improve Feedback when using nav buttons:
                         ✔ Active @done(17:54 - 30/08/21)
@@ -1656,7 +1657,6 @@ Part 2 Implement Database functionality:
             ☐ 13.1 - Ensure all pages can be shareable(articles, tag pages, bookmarks etc)
                 // 12/5/2021 - article pages are currently not working when directly accessed from firefox
             ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
-            ☐ 13.3 - (if missed in 12.10) - redo the feedback message to allow for undo of article.
             ☐ 13.4 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
             ☐ 13.5 - Add any buttons that are required on the navbar
 

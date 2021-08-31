@@ -311,7 +311,7 @@
 
                 }
             #bookmarkOptionsMenu > div > div {
-                transform: translate(-120px,44px)  !important;
+                transform: translate(-145px,44px)  !important;
             }
 
 
@@ -326,6 +326,8 @@
     padding: 0;
     width: 100%;
 }
+#navBarLiteKnewsWrapper:hover{box-shadow: 0px 0px 0px 0px;}
+
     #navBarLiteKnewsControls{
         display: flex;
             justify-content: space-evenly;
@@ -333,9 +335,15 @@
     }
         #navBarLiteKnewsControls  > button{
             background-color: white;
-            min-width: fit-content;
+            line-height: 0;
+            /* padding: 3px; */
+            /* min-width: fit-content; */
             width: inherit;
         }
+       
+            #navBarLiteKnewsControls  > button:hover{
+                box-shadow: 0px 14px 0px 0px;
+            }
 
 
 

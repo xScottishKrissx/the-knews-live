@@ -22,7 +22,7 @@ return(
                             title={ 
                                 <div className="dropdownBtnTitle">
                                     <span className="material-icons">article</span>
-                                    <p>Full Page</p>
+                                    {/* <p>Full Page</p> */}
                                 </div>
                             }> 
                         </DropdownButton>
