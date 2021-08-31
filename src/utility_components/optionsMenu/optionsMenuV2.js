@@ -88,34 +88,88 @@ class OptionsMenu extends Component {
 
 <Accordion defaultActiveKey="0">
   
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="1">
-      Full Website Reset
-      </Accordion.Toggle>
-    </Card.Header>
+  {/******************* Full Website Reset */}
+    <Card>
+        <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="1" block><i class="bi bi-caret-down"></i>Full Website Reset</Accordion.Toggle>
+        </Card.Header>
 
-    <Accordion.Collapse eventKey="1">
-        <button ><span class="material-icons">done_all</span>Full Website Reset</button>
-    </Accordion.Collapse>
-  </Card>
+        <Accordion.Collapse eventKey="1" className="accordionItems">
+            <button ><span class="material-icons">done_all</span>Full Website Reset</button>
+        </Accordion.Collapse>
+    </Card>
 
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="2">
-      Bookmarks
-      </Accordion.Toggle>
-    </Card.Header>
 
-    <Accordion.Collapse eventKey="2">
-        <React.Fragment>
-            <button ><span class="material-icons">done_all</span>Mark All As Bookmarked</button>
-            <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
-        </React.Fragment>
-    </Accordion.Collapse>
-  </Card>
+{/******************* Bookmarks */}
+    <Card>
+        <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="2"><i class="bi bi-caret-down"></i>Bookmarks</Accordion.Toggle>
+        </Card.Header>
+
+        <Accordion.Collapse eventKey="2" className="accordionItems" >
+                <button ><span class="material-icons">done_all</span>Mark All As Bookmarked</button>    
+        </Accordion.Collapse>
+        <Accordion.Collapse eventKey="2" className="accordionItems">
+                <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>    
+        </Accordion.Collapse>
+    </Card>
+
+
+
+{/******************* Hiding Cards */}
+    <Card>
+        <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="3"><i class="bi bi-caret-down"></i>Hide Cards</Accordion.Toggle>
+        </Card.Header>
+        
+        <Accordion.Collapse eventKey="3" className="accordionItems">
+                <button><span class="material-icons">done_all</span>Mark All As Bookmarked</button> 
+        </Accordion.Collapse>
+        <Accordion.Collapse eventKey="3" className="accordionItems">
+                <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
+        </Accordion.Collapse>
+        <Accordion.Collapse eventKey="3" className="accordionItems"> 
+                <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
+        </Accordion.Collapse>
+    </Card>
+
+
+{/******************* Read Cards */}
+    <Card>
+        <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="4"><i class="bi bi-caret-down"></i>Read Cards</Accordion.Toggle>
+        </Card.Header>
+
+        <Accordion.Collapse eventKey="4" className="accordionItems">
+            <button ><span class="material-icons">done_all</span>Mark All As Read</button>
+        </Accordion.Collapse>       
+        <Accordion.Collapse eventKey="4" className="accordionItems">
+                <button ><span class="material-icons">done_all</span>Mark All Unread</button>
+        </Accordion.Collapse>
+    </Card> 
+
+{/******************* Sorting */}
+    <Card>
+        <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey="5"><i class="bi bi-caret-down"></i>Sort Cards</Accordion.Toggle>
+        </Card.Header>
+
+        <Accordion.Collapse eventKey="5" className="accordionItems">
+                <button ><span class="material-icons">done_all</span>Sort By Tag</button>
+        </Accordion.Collapse>
+        <Accordion.Collapse eventKey="5" className="accordionItems">
+                <button ><span class="material-icons">done_all</span>Sort By Author</button>
+        </Accordion.Collapse>
+    </Card>
+
+
 
 </Accordion>
+
+
+
+
+
         {/* <button ><span class="material-icons">done_all</span>Full Website Reset</button>
         -
         <button ><span class="material-icons">done_all</span>Mark All As Bookmarked</button>

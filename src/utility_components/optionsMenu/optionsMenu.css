@@ -1,14 +1,95 @@
 #optionsMenuWrapper{
     background-color: white;
-    padding: 3px;
+    /* padding: 3px; */
     width: auto;
 }
-    #optionsMenuWrapper span{
+
+    #optionsMenuWrapper > .accordion > .card {
+        background-color: white;
+        border: none;
+            border-radius: 0;
+        color: black;
+        white-space: nowrap;
+    }
+
+    #optionsMenuWrapper > .accordion > .card:hover {
+        text-decoration: none !important;
+    }
+
+        /* Menu Accordion Header */
+        #optionsMenuWrapper > .accordion > .card > .card-header{
+            background-color: inherit;
+        }
+        #optionsMenuWrapper > .accordion > .card > .card-header:hover{
+          
+        }
+            #optionsMenuWrapper > .accordion > .card > .card-header > button{
+                color: inherit;
+                text-align: left;
+            }
+            #optionsMenuWrapper > .accordion > .card > .card-header > button:hover{
+                text-decoration: inherit;
+            }
+
+        /* Menu Accordion Items */
+        .accordionItems{
+            white-space: nowrap;
+            /* animation:smoothAccordion 1s; */
+                animation-fill-mode: forwards;
+                
+        }
+        @keyframes smoothAccordion {
+            0%{
+                opacity: 0;
+                height: 0;
+            }
+            50%{
+                opacity: 2;
+                height: 50px ; 
+            }
+            
+            100%{
+                opacity: 2;
+                height: 50px ; 
+            }
+        }
+        .accordionItems:hover{
+            background-color: black; 
+            color:  white;
+        }
+        .card > div:nth-child(N+2){
+            /* padding: 10px; */
+
+        }
+         .accordionItems > button{
+                /* width: 100%; */
+                background-color: #6c757d ;
+                color: white;
+                display: flex;
+                    /* align-items: center; */
+                padding-bottom: 10px;
+                padding-top: 10px;
+                width: 100%;
+
+
+            }
+
+
+                .accordionItems > button > span{
+                    margin-right: 10px;
+                }
+
+
+        /* button{width: 100% !important} */
+
+
+
+
+    /* #optionsMenuWrapper span{
         align-items: center;
         display: flex;
         margin-bottom: 10px;
         margin-top: 10px;
-        /* outline: 1px solid red; */
     }
     #optionsMenuWrapper span p{
         cursor: default;
@@ -29,7 +110,7 @@
         background-color: inherit;
         color: white;
         width: auto;
-    }
+    } */
 /* 
 
     #optionsMenuIcon{
