@@ -1464,10 +1464,10 @@ General Notes  Objectives:
                             ✔ !!!!!! IT'S THE BUTTON TAG!!!!! REPLACING IT WITH A SPAN REMOVES THE JITTERING !!!!!!! @done(12:06 - 01/09/21)
                             ☐ now i just need to get the buttons to work...shouldn't be a problem...right??
                         New Options Menu:
-                            ☐ Full Website Reset
-                            ☐ Reset Card Size
+                            ✔ Full Website Reset @done(13:32 - 01/09/21)
                             //Bookmarks
                             ☐ Mark All As Bookmarked
+                                ☐ The complicated part here is the filters. I can mark all as read on the home page just fine but with filters all I want is the current array. This means I need to set the current array bookmarked and then update those changes with the changedFullDatabaseCall. Not quite sure how to do this but i have a vague idea of what I need to do. I think it involves using .map and .find but i'll see.
                             ☐ Remove All Bookmarks
                             //Hide
                             ☐ Hide All Cards

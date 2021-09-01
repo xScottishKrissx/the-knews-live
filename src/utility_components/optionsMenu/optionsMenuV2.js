@@ -58,6 +58,59 @@ class OptionsMenu extends Component {
         hideAllArticles();
         this.setState({bookmarks:[]})
     }
+
+    markAllBookmarks(x){
+
+
+
+
+
+
+
+        console.log(this.props.currentCardArray)
+        const currentCards = this.props.currentCardArray;
+
+
+
+
+
+
+
+        // console.log(removeUndefined)
+
+        // let n = 0;
+        // var setBookmarkTrue = []
+        // while (n < removeUndefined.length - 1 ){
+            // n++
+            // console.log(removeUndefined[n].id)
+
+            // var filterCards = this.state.test || currentCards.filter(x=> x.hidden === false)
+
+            // setBookmarkTrue = filterCards.map(el => {
+            //     if(el.id === removeUndefined[n].id && el != null )
+            //         return Object.assign({}, el, {bookmarked:true, hidden:false, markedforhide:false})
+            //         return el
+            // });   
+            // console.log(setBookmarkTrue)
+            // this.setState({test:setBookmarkTrue})
+
+        // }
+        // console.log(n)
+        // console.log(this.state.test)
+        // var filterCards = currentCards.filter(x=> x.hidden === false)
+
+        // var setBookmark = filterCards.map(el => {
+        //     if(el != null )
+        //         return Object.assign({}, el, {bookmarked:x, hidden:false, markedforhide:false})
+        //         return el
+        // });   
+
+        const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        console.log(localStorageCards)
+        console.log(setBookmarkTrue)
+        // localStorage.setItem("bookmarkArray", JSON.stringify(setBookmark))
+        // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmark))
+    }
     render(){
         // console.log(this.props.urlInfo)
 
@@ -115,12 +168,14 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="2" className="accordionItems" >
-                <span>
-                    <i class="bi bi-caret-right-fill"></i>Mark All As Bookmarked
+                <span onClick={()=> this.markAllBookmarks(true)}>
+                    
+                        <i class="bi bi-caret-right-fill"></i>Mark All As Bookmarked
+                    
                 </span>    
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="2" className="accordionItems">
-                <span >
+                <span onClick={()=> this.markAllBookmarks(false)}>
                     <i class="bi bi-caret-right-fill"></i>Remove All Bookmarks
                 </span>    
         </Accordion.Collapse>

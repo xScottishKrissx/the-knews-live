@@ -225,6 +225,9 @@ getPageLayout = (param1,param2,maxWidth) => {
 
                         //forceReload
                         forceReload={()=>this.reload()}
+
+                        // options
+                        currentCardArray={renderToPage}
                         
                     />
                 <div style={setRandomColour} id="articleLine"></div>

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/esm/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import { Link } from 'react-router-dom';
 import BookmarkOptionsMenu from '../../../utility_components/bookmarks/bookmarkOptionsMenu';
+import OptionsMenu from '../../../utility_components/optionsMenu/optionsMenuV2';
 
 
 // styles in navbar.css
@@ -23,7 +24,7 @@ return(
                             {/* <span> ({this.props.bookmarkNumber})</span> */}
                     </div>
                 }>
-                    <BookmarkOptionsMenu 
+                    <OptionsMenu 
                         clearBookmarks={props.clearBookmarks}
                         markAllUnread={props.markAllUnread} 
                         markAllRead={props.markAllRead} 

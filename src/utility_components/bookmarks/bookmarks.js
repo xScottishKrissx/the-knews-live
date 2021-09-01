@@ -162,6 +162,7 @@ class Bookmarks extends Component {
                     getFilteredArticles = {this.getFilteredArticles}
                     bookmarked={true}
                     getArticleBy={this.state.getArticleBy}
+                    
                     // Bookmark UI
                     clearBookmarks={() => this.clearBookmarks()}
                     markAllUnread={() => markAllUnread()}
