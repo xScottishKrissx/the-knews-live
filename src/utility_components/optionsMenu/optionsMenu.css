@@ -61,7 +61,7 @@
             /* padding: 10px; */
 
         }
-         .accordionItems > button{
+         .accordionItems > span{
                 /* width: 100%; */
                 background-color: #6c757d ;
                 color: white;
@@ -75,7 +75,7 @@
             }
 
 
-                .accordionItems > button > span{
+                .accordionItems > span > span{
                     margin-right: 10px;
                 }
 

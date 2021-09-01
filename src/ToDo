@@ -1457,9 +1457,12 @@ General Notes  Objectives:
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
                         ☐ the same options menu should be available throughout the entire website
                         ☐ tried to add an accordion but turns out I was looking at the bootstrap 2.0 docs, my boostrap version is 1.6.1 ...need to remember that.
-                        ☐ i can't get the dropdown smooth and I dont know how to fix it at the moment. Going to leave it and move on to the functionality of the menu, will come back to this later
-                            ☐ fix options menu smoothness. @started(17:15 - 31/08/21)
-                            ☐ im getting less and less happy about this menu, i might call it a day here and have a look tommorow because i feel like I want to redo the entire thing.
+                        ✔ i can't get the dropdown smooth and I dont know how to fix it at the moment. Going to leave it and move on to the functionality of the menu, will come back to this later @done(12:06 - 01/09/21)
+                            ✔ fix options menu smoothness. @started(17:15 - 31/08/21) @done(12:06 - 01/09/21) @lasted(18h51m54s)
+                            ✔ im getting less and less happy about this menu, i might call it a day here and have a look tommorow because i feel like I want to redo the entire thing. @done(12:06 - 01/09/21)
+                            ...the next day
+                            ✔ !!!!!! IT'S THE BUTTON TAG!!!!! REPLACING IT WITH A SPAN REMOVES THE JITTERING !!!!!!! @done(12:06 - 01/09/21)
+                            ☐ now i just need to get the buttons to work...shouldn't be a problem...right??
                         New Options Menu:
                             ☐ Full Website Reset
                             ☐ Reset Card Size

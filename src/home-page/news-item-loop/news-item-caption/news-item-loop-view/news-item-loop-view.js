@@ -13,6 +13,8 @@ import NavBar from '../../../../navBar/navBar';
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
 
 import Button from 'react-bootstrap/esm/Button';
+import Accordion from 'react-bootstrap/Accordion'
+import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
 
@@ -228,7 +230,7 @@ getPageLayout = (param1,param2,maxWidth) => {
                 <div style={setRandomColour} id="articleLine"></div>
                 
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
-                
+
                 
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
                

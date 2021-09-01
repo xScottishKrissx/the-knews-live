@@ -66,22 +66,22 @@ class OptionsMenu extends Component {
                         <span className="menuBorder"></span>                        
                         {/* <span>
                             <p>Full Website Reset</p>
-                            <Link to='/' onClick={()=> this.clearCache("clearCache")}><button>Confirm</button></Link>
+                            <Link to='/' onClick={()=> this.clearCache("clearCache")}><span>Confirm</span></Link>
                         </span>
                         
                         <span>
                             <p>Unhide Articles </p>
-                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("unhideArticles")}><button>Confirm</button></Link>
+                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("unhideArticles")}><span>Confirm</span></Link>
                         </span>
                         
                         <span>
                             <p>Reset Card Size </p>
-                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("resetCardSize")}><button>Confirm</button></Link>
+                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("resetCardSize")}><span>Confirm</span></Link>
                         </span>   
 
                         <span>
                             <p>Clear Bookmarks</p>
-                            <Link to='/' onClick={()=> this.clearCache("removeBookmarks")}><button>Confirm</button></Link>
+                            <Link to='/' onClick={()=> this.clearCache("removeBookmarks")}><span>Confirm</span></Link>
                         </span>  */}
              
 <React.Fragment >
@@ -95,7 +95,7 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="1" className="accordionItems">
-            <button ><span class="material-icons">done_all</span>Full Website Reset</button>
+            <span ><span class="material-icons">done_all</span>Full Website Reset</span>
         </Accordion.Collapse>
     </Card>
 
@@ -107,10 +107,10 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="2" className="accordionItems" >
-                <button ><span class="material-icons">done_all</span>Mark All As Bookmarked</button>    
+                <span ><span class="material-icons">done_all</span>Mark All As Bookmarked</span>    
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="2" className="accordionItems">
-                <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>    
+                <span ><span class="material-icons">done_all</span>Remove All Bookmarks</span>    
         </Accordion.Collapse>
     </Card>
 
@@ -123,13 +123,13 @@ class OptionsMenu extends Component {
         </Card.Header>
         
         <Accordion.Collapse eventKey="3" className="accordionItems">
-                <button><span class="material-icons">done_all</span>Mark All As Bookmarked</button> 
+                <span><span class="material-icons">done_all</span>Mark All As Bookmarked</span> 
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="3" className="accordionItems">
-                <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
+                <span ><span class="material-icons">done_all</span>Remove All Bookmarks</span>
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="3" className="accordionItems"> 
-                <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
+                <span ><span class="material-icons">done_all</span>Remove All Bookmarks</span>
         </Accordion.Collapse>
     </Card>
 
@@ -141,10 +141,10 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="4" className="accordionItems">
-            <button ><span class="material-icons">done_all</span>Mark All As Read</button>
+            <span ><span class="material-icons">done_all</span>Mark All As Read</span>
         </Accordion.Collapse>       
         <Accordion.Collapse eventKey="4" className="accordionItems">
-                <button ><span class="material-icons">done_all</span>Mark All Unread</button>
+                <span ><span class="material-icons">done_all</span>Mark All Unread</span>
         </Accordion.Collapse>
     </Card> 
 
@@ -155,10 +155,10 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="5" className="accordionItems">
-                <button ><span class="material-icons">done_all</span>Sort By Tag</button>
+                <span ><span class="material-icons">done_all</span>Sort By Tag</span>
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="5" className="accordionItems">
-                <button ><span class="material-icons">done_all</span>Sort By Author</button>
+                <span ><span class="material-icons">done_all</span>Sort By Author</span>
         </Accordion.Collapse>
     </Card>
 
@@ -170,21 +170,21 @@ class OptionsMenu extends Component {
 
 
 
-        {/* <button ><span class="material-icons">done_all</span>Full Website Reset</button>
+        {/* <span ><span class="material-icons">done_all</span>Full Website Reset</span>
         -
-        <button ><span class="material-icons">done_all</span>Mark All As Bookmarked</button>
-        <button ><span class="material-icons">done_all</span>Remove All Bookmarks</button>
+        <span ><span class="material-icons">done_all</span>Mark All As Bookmarked</span>
+        <span ><span class="material-icons">done_all</span>Remove All Bookmarks</span>
         -
-        <button ><span class="material-icons">done_all</span>Hide All Cards</button>
-        <button ><span class="material-icons">done_all</span>Unhide All Cards</button>
-        <button ><span class="material-icons">done_all</span>Hide Mark as Read only</button>
+        <span ><span class="material-icons">done_all</span>Hide All Cards</span>
+        <span ><span class="material-icons">done_all</span>Unhide All Cards</span>
+        <span ><span class="material-icons">done_all</span>Hide Mark as Read only</span>
         -
-        <button ><span class="material-icons">done_all</span>Mark All Read</button>
-        <button ><span class="material-icons">done_all</span>Mark All Unread</button>        
+        <span ><span class="material-icons">done_all</span>Mark All Read</span>
+        <span ><span class="material-icons">done_all</span>Mark All Unread</span>        
         -
-        <button ><span class="material-icons">done_all</span>Sort By Author</button>
-        <button ><span class="material-icons">done_all</span>Sort By Date</button>
-        <button ><span class="material-icons">done_all</span>Sort By Tag</button> */}
+        <span ><span class="material-icons">done_all</span>Sort By Author</span>
+        <span ><span class="material-icons">done_all</span>Sort By Date</span>
+        <span ><span class="material-icons">done_all</span>Sort By Tag</span> */}
 
                             </React.Fragment>
 
