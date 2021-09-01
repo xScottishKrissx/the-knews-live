@@ -24,6 +24,7 @@ class OptionsMenu extends Component {
     clearCache(removeFromCache){
             // console.log("Clear Cache" + " " + removeFromCache)
             if(removeFromCache.includes("clearCache")){
+                console.log("Full Website Reset")
                 localStorage.clear()
                 var arrayThing = ["260px","400px"]
                 localStorage.setItem("myData", JSON.stringify(arrayThing));
@@ -91,11 +92,18 @@ class OptionsMenu extends Component {
   {/******************* Full Website Reset */}
     <Card>
         <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="1" block><i class="bi bi-caret-down"></i>Full Website Reset</Accordion.Toggle>
+            <Accordion.Toggle as={Button} variant="link" eventKey="1" block>
+                <i class="bi bi-caret-down"></i>Full Website Reset
+            </Accordion.Toggle>
         </Card.Header>
 
         <Accordion.Collapse eventKey="1" className="accordionItems">
-            <span ><span class="material-icons">done_all</span>Full Website Reset</span>
+            <span>
+                <Link to='/' onClick={()=> this.clearCache("clearCache")}>
+                <i class="bi bi-caret-right-fill"></i>Full Website Reset
+                </Link>
+            </span>
+            {/* <Link to='/' onClick={()=> this.clearCache("clearCache")}><span>Confirm</span></Link> */}
         </Accordion.Collapse>
     </Card>
 
@@ -107,10 +115,14 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="2" className="accordionItems" >
-                <span ><span class="material-icons">done_all</span>Mark All As Bookmarked</span>    
+                <span>
+                    <i class="bi bi-caret-right-fill"></i>Mark All As Bookmarked
+                </span>    
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="2" className="accordionItems">
-                <span ><span class="material-icons">done_all</span>Remove All Bookmarks</span>    
+                <span >
+                    <i class="bi bi-caret-right-fill"></i>Remove All Bookmarks
+                </span>    
         </Accordion.Collapse>
     </Card>
 
@@ -123,13 +135,13 @@ class OptionsMenu extends Component {
         </Card.Header>
         
         <Accordion.Collapse eventKey="3" className="accordionItems">
-                <span><span class="material-icons">done_all</span>Mark All As Bookmarked</span> 
+                <span><i class="bi bi-caret-right-fill"></i>Mark All As Bookmarked</span> 
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="3" className="accordionItems">
-                <span ><span class="material-icons">done_all</span>Remove All Bookmarks</span>
+                <span ><i class="bi bi-caret-right-fill"></i>Remove All Bookmarks</span>
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="3" className="accordionItems"> 
-                <span ><span class="material-icons">done_all</span>Remove All Bookmarks</span>
+                <span ><i class="bi bi-caret-right-fill"></i>Remove All Bookmarks</span>
         </Accordion.Collapse>
     </Card>
 
@@ -141,10 +153,10 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="4" className="accordionItems">
-            <span ><span class="material-icons">done_all</span>Mark All As Read</span>
+            <span ><i class="bi bi-caret-right-fill"></i>Mark All As Read</span>
         </Accordion.Collapse>       
         <Accordion.Collapse eventKey="4" className="accordionItems">
-                <span ><span class="material-icons">done_all</span>Mark All Unread</span>
+                <span ><i class="bi bi-caret-right-fill"></i>Mark All Unread</span>
         </Accordion.Collapse>
     </Card> 
 
@@ -155,10 +167,10 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="5" className="accordionItems">
-                <span ><span class="material-icons">done_all</span>Sort By Tag</span>
+                <span ><i class="bi bi-caret-right-fill"></i>Sort By Tag</span>
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="5" className="accordionItems">
-                <span ><span class="material-icons">done_all</span>Sort By Author</span>
+                <span ><i class="bi bi-caret-right-fill"></i>Sort By Author</span>
         </Accordion.Collapse>
     </Card>
 
