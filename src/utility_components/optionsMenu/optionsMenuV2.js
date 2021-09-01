@@ -17,7 +17,8 @@ class OptionsMenu extends Component {
         this.state = {
             optionsMenuOpen:false,
             fullDatabaseCall:[],
-            bookmarks:[]
+            bookmarks:[],
+            test:[]
         }
     }
 
@@ -66,9 +67,40 @@ class OptionsMenu extends Component {
 
 
 
+        // console.log(this.props.currentCardArray)
+        var currentCards = this.props.currentCardArray;
+        // console.log(currentCards.find (({id}) => id === currentCards[0].id))
+        
+        // get Current Id
+        var currentCardIds = []
+        currentCards.forEach(e => currentCardIds.push(e.id))
+        console.log(currentCardIds)
 
-        console.log(this.props.currentCardArray)
-        const currentCards = this.props.currentCardArray;
+
+        var localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        console.log(localStorageCards)
+
+        for(var i = 0; i < localStorageCards.length; i++){
+            
+            // console.log(localStorageCards[i])
+            // console.log(currentCardIds[i])
+        }
+        var testArray = []
+        const testMap = currentCardIds.map ((x) => {
+            console.log(x)
+            console.log(localStorageCards)
+            for(var i = 0; i < localStorageCards.length; i++){
+                if(localStorageCards[i].id === x){
+                    console.log("Assign " + localStorageCards[i].id)
+                    // Good lord this might actually be it!!
+                }
+                // console.log(localStorageCards[i])
+                // console.log(currentCardIds[i])
+            }
+            
+            testArray.push(x)
+        })
+        console.log(testArray)
 
 
 
@@ -76,25 +108,78 @@ class OptionsMenu extends Component {
 
 
 
-        // console.log(removeUndefined)
+        var setBookmark = []
+        setBookmark = currentCards.map(el => {
+        if(el != null )
+            return Object.assign({}, el, {bookmarked:true,})
+            return el
+        });   
+        console.log(setBookmark)
+            
+
+
+
+
+
+
+
+
+
+        // var setArray = []
+        // for(var i = 0; i<currentCards.length; i++){
+        //     console.log(currentCards[i].id)
+
+        //     var setBookmark = []
+        //     setBookmark = localStorageCards.map(el => {
+        //     if(el.id === currentCards[i].id && el != null )
+        //         return Object.assign({}, el, {bookmarked:true, hidden:false, markedforhide:false})
+        //         return el
+        //     });   
+
+        //     console.log(setBookmark)
+        //     console.log(i++)
+        //     localStorage.setItem("bookmarkArray", JSON.stringify(setBookmark))
+            
+        // }
+        // console.log(setArray)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var removeUndefined = currentCards.filter(x=> x.id)
+        // // console.log(removeUndefined)
 
         // let n = 0;
         // var setBookmarkTrue = []
+        // var newArray = []
         // while (n < removeUndefined.length - 1 ){
-            // n++
-            // console.log(removeUndefined[n].id)
+        //     n++
+        //     // console.log(removeUndefined[n].id)
 
-            // var filterCards = this.state.test || currentCards.filter(x=> x.hidden === false)
+        //     var filterCards = this.state.test || currentCards.filter(x=> x.hidden === false)
 
-            // setBookmarkTrue = filterCards.map(el => {
-            //     if(el.id === removeUndefined[n].id && el != null )
-            //         return Object.assign({}, el, {bookmarked:true, hidden:false, markedforhide:false})
-            //         return el
-            // });   
-            // console.log(setBookmarkTrue)
-            // this.setState({test:setBookmarkTrue})
+        //     setBookmarkTrue = filterCards.map(el => {
+        //         if(el.id === removeUndefined[n].id && el != null )
+        //             return Object.assign({}, el, {bookmarked:true, hidden:false, markedforhide:false})
+        //             return el
+        //     });   
+           
+        //     newArray.push(setBookmarkTrue)
 
         // }
+        // console.log(newArray)
         // console.log(n)
         // console.log(this.state.test)
         // var filterCards = currentCards.filter(x=> x.hidden === false)
@@ -105,9 +190,9 @@ class OptionsMenu extends Component {
         //         return el
         // });   
 
-        const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        console.log(localStorageCards)
-        console.log(setBookmarkTrue)
+        // const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        // console.log(localStorageCards)
+        // console.log(setBookmarkTrue)
         // localStorage.setItem("bookmarkArray", JSON.stringify(setBookmark))
         // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmark))
     }
