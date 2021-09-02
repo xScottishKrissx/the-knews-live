@@ -71,21 +71,42 @@ class OptionsMenu extends Component {
         var currentCards = this.props.currentCardArray;        
         var localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
 
-        console.log(currentCards)
-        console.log(localStorageCards)
+        // console.log(currentCards)
+        // console.log(localStorageCards)
 
         // Christ this actually worked.
-        for (var i = 0; i < localStorageCards.length; i++) {
+        // for (var i = 0; i < localStorageCards.length; i++) {
 
-            for (var k = 0; k < currentCards.length; k++) {
-              if (localStorageCards[i].id === currentCards[k].id) {
-                localStorageCards[i].bookmarked = true;
-                break;
-              }
+        //     for (var k = 0; k < currentCards.length; k++) {
 
-            }
+        //       if (localStorageCards[i].id === currentCards[k].id) {
+        //         localStorageCards[i].bookmarked = true;
+        //         break;
+        //       }
 
-          }
+        //     }
+        //   }
+
+        // this also works
+        // localStorageCards.map(function(x){ 
+        //     var result=currentCards.filter(a1=> a1.id==x.id);
+        //     if(result.length>0) { 
+        //         x.bookmarked=true;
+        //     }
+        //     return x 
+        // })
+        
+        // converting to arrow functions and making it easier for me to understand
+        localStorageCards.map(x => { 
+            var getMatchingRecord = currentCards.filter(obj => obj.id === x.id);
+            if( getMatchingRecord.length > 0 ) x.bookmarked = true;
+            console.log(x);
+            return x 
+            
+        })
+          
+
+
         console.log(localStorageCards)
         localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
