@@ -68,39 +68,134 @@ class OptionsMenu extends Component {
 
 
         // console.log(this.props.currentCardArray)
-        var currentCards = this.props.currentCardArray;
-        // console.log(currentCards.find (({id}) => id === currentCards[0].id))
-        
-        // get Current Id
-        var currentCardIds = []
-        currentCards.forEach(e => currentCardIds.push(e.id))
-        console.log(currentCardIds)
-
-
+        var currentCards = this.props.currentCardArray;        
         var localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+
+        console.log(currentCards)
         console.log(localStorageCards)
 
-        for(var i = 0; i < localStorageCards.length; i++){
-            
-            // console.log(localStorageCards[i])
-            // console.log(currentCardIds[i])
-        }
-        var testArray = []
-        const testMap = currentCardIds.map ((x) => {
-            console.log(x)
-            console.log(localStorageCards)
-            for(var i = 0; i < localStorageCards.length; i++){
-                if(localStorageCards[i].id === x){
-                    console.log("Assign " + localStorageCards[i].id)
-                    // Good lord this might actually be it!!
-                }
-                // console.log(localStorageCards[i])
-                // console.log(currentCardIds[i])
+        // Christ this actually worked.
+        for (var i = 0; i < localStorageCards.length; i++) {
+
+            for (var k = 0; k < currentCards.length; k++) {
+              if (localStorageCards[i].id === currentCards[k].id) {
+                localStorageCards[i].bookmarked = true;
+                break;
+              }
+
             }
+
+          }
+        console.log(localStorageCards)
+        localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Experiments
+
+        // localStorageCards.map(x => {
+        //     var result = currentCards.filter(a1 => a1.id === x.id)
+        //     console.log(result)
+        //     if(result){
+        //         x.bookmarked === true
+                
+        //         // console.log(x)
+        //     }
+        //     return x;
+        // })
+        // console.log(localStorageCards)
+
+
+
+
+
+
+
+
+        // var setBookmark = currentCards.map(el => {
+        //     if(el != null && el.bookmarked === false )
+        //             return Object.assign({}, el, {bookmarked:true})
+        //             return el
+        // });
+        // console.log(setBookmark)
+        // const setFullArray = localStorageCards.filter(obj => obj.read === false && obj.bookmarked === true)
+
+
+
+
+
+        // var setBookmark = []
+        // for(var i = 0; i<currentCards.length; i++){
+
+        //     console.log(currentCards)
+        // }
+
+        // var result = localStorageCards.filter(o1 => {
+        //     // filter out (!) items in result2
+        //     return currentCards.some(function(o2){
+        //         return o1.id === o2.id;          // assumes unique id
+        //     });
+        // })
+
+        // console.log(result)
+
+        // get Current Id
+        // var currentCardIds = []
+        // currentCards.forEach(e => currentCardIds.push(e.id))
+        // console.log(currentCardIds)
+
+
+
+        // var newArray = []
+        // var setBookmark = []
+        // console.log(localStorageCards)
+        // for (let i = 0; i < currentCardIds.length; i++) {
+        //     // console.log(i)
+        //     // console.log(localStorageCards)
+        //     console.log(currentCardIds[i])
+
+
             
-            testArray.push(x)
-        })
-        console.log(testArray)
+        //     const found = localStorageCards.find(element => element.id === currentCardIds[i]);
+        //     console.log(found);
+
+        //     // var setBookmark = []
+        //     setBookmark = localStorageCards.map(el => {
+        //     if(el.id === currentCards[i].id && el != null )
+        //         return Object.assign({}, el, {bookmarked:true})
+        //         return el
+        //     });   
+        //     console.log(setBookmark)
+        //     newArray.push(setBookmark)
+        //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(newArray))
+            
+
+        //     const element = currentCardIds[i];
+
+        // }
+        // console.log(newArray)
+        // console.log(setBookmark)
 
 
 
@@ -108,13 +203,56 @@ class OptionsMenu extends Component {
 
 
 
-        var setBookmark = []
-        setBookmark = currentCards.map(el => {
-        if(el != null )
-            return Object.assign({}, el, {bookmarked:true,})
-            return el
-        });   
-        console.log(setBookmark)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+       var testArray = []
+        // const testMap2 = currentCardIds.map ((x) => {
+            // console.log(x)
+            // console.log(localStorageCards)
+            // for(var i = 0; i < localStorageCards.length; i++){
+            //     if(localStorageCards[i].id === x){
+            //         // console.log("Assign " + localStorageCards[i].id)                    
+            //         // Good lord this might actually be it!!
+            //         testArray.push(localStorageCards[0])
+            //     }
+            // }
+        // })
+
+
+        
+        // console.log(testArray)
+
+
+
+
+
+
+
+        // var setBookmark = []
+        // setBookmark = currentCards.map(el => {
+        // if(el != null )
+        //     return Object.assign({}, el, {bookmarked:true,})
+        //     return el
+        // });   
+        // console.log(setBookmark)
             
 
 

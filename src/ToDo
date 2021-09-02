@@ -1468,7 +1468,10 @@ General Notes  Objectives:
                             //Bookmarks
                             ☐ Mark All As Bookmarked
                                 ✔ The complicated part here is the filters. I can mark all as read on the home page just fine but with filters all I want is the current array. This means I need to set the current array bookmarked and then update those changes with the changedFullDatabaseCall. Not quite sure how to do this but i have a vague idea of what I need to do. I think it involves using .map and .find but i'll see. @done(17:45 - 01/09/21)
-                                ☐ Spent a few hours going nowhere but I may have found something towards the end of the day. Will carry on tommorow...
+                                ✔ Spent a few hours going nowhere but I may have found something towards the end of the day. Will carry on tommorow...nope.didnt go anywhere @done(13:29 - 02/09/21)
+                                ✔ I have it. It's not mine but a second ranked answer in a stackoverflow thread. but I dont care. It does what I want. @done(15:25 - 02/09/21)
+                                    ✔ I'm going to spend time seeing if I can improve the code I have just copied and fully understand what's going on, but it's a great relief that I can move on. @done(15:25 - 02/09/21)
+                                    ✔ It does exactly what I wanted but didnt know how to create. It compares the two arrays (one with just the things to be changed, the other the original main array)and changes the original array if both arrays share the same id. What I missed was the break, I think this is where I was going wrong in all my attempts. @done(15:27 - 02/09/21)
 
                                 
                             ☐ Remove All Bookmarks
