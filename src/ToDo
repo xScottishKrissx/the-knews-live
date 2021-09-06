@@ -1472,6 +1472,10 @@ General Notes  Objectives:
                                 ✔ I have it. It's not mine but a second ranked answer in a stackoverflow thread. but I dont care. It does what I want. @done(15:25 - 02/09/21)
                                     ✔ I'm going to spend time seeing if I can improve the code I have just copied and fully understand what's going on, but it's a great relief that I can move on. @done(15:25 - 02/09/21)
                                     ✔ It does exactly what I wanted but didnt know how to create. It compares the two arrays (one with just the things to be changed, the other the original main array)and changes the original array if both arrays share the same id. What I missed was the break, I think this is where I was going wrong in all my attempts. @done(15:27 - 02/09/21)
+                                Before Moving On:
+                                    ✔ Update State on Button press so the bookmark icon changes straight away. @done(13:06 - 06/09/21)
+                                    ✔ If cache is empty, marking all will throw an error because localStorageCards is empty @done(13:19 - 06/09/21)
+                                    ☐ Fix the filter thing or it's going to make the rest of this more awkward than it needs to be.
 
                                 
                             ☐ Remove All Bookmarks

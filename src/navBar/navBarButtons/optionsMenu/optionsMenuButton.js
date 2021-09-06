@@ -20,6 +20,8 @@ return(
                     <OptionsMenu 
                         urlInfo={window.location.pathname}
                         currentCardArray={props.currentCardArray}
+                        updateBookmarkStatus={props.updateBookmarkStatus}
+                        fullDatabaseCall={props.fullDatabaseCall}
                          />
                 </DropdownButton>
             </div>

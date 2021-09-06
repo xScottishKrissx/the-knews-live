@@ -129,6 +129,8 @@ export class NavBar extends React.Component{
                             <OptionsMenuButton 
                                 showOptionsMenuButton={this.props.options}
                                 currentCardArray={this.props.currentCardArray}
+                                updateBookmarkStatus={this.props.updateBookmarkStatus}
+                                fullDatabaseCall={this.props.fullDatabaseCall}
                             />
 
                             {/************Score Buttons  */}

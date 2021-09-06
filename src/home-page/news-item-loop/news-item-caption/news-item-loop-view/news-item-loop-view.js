@@ -219,6 +219,7 @@ getPageLayout = (param1,param2,maxWidth) => {
 
                         // filter, bookmarks
                         fullDatabaseCall={this.props.fullDatabaseCall}  
+                        updateBookmarkStatus={this.updateBookmarkStatus}
                         
                         bookmarkNumber={this.state.renderArray.length}
                         bookmarkCounter={getBookmarks.length}
