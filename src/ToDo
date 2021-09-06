@@ -1475,7 +1475,10 @@ General Notes  Objectives:
                                 Before Moving On:
                                     ✔ Update State on Button press so the bookmark icon changes straight away. @done(13:06 - 06/09/21)
                                     ✔ If cache is empty, marking all will throw an error because localStorageCards is empty @done(13:19 - 06/09/21)
-                                    ☐ Fix the filter thing or it's going to make the rest of this more awkward than it needs to be.
+                                    ✔ Fix the filter thing or it's going to make the rest of this more awkward than it needs to be. @done(15:23 - 06/09/21)
+                                        ✔ Might have solved it, going for lunch and will check afterwards if I have @done(15:22 - 06/09/21)
+                                            ✔ Can't see anything wrong so far. My solution was to update the state without updating local storage. @done(15:22 - 06/09/21)
+
 
                                 
                             ☐ Remove All Bookmarks

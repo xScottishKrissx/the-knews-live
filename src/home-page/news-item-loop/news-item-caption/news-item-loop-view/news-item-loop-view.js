@@ -38,7 +38,7 @@ class NewsItemLoopView extends React.Component{
         },
 
         //hiding articles for filter views
-        getArticleBy:"All",
+        getArticleBy:localStorage.getItem("filterOption") || "All",
         renderArray:[],
         
         // liteKnews
@@ -53,12 +53,11 @@ class NewsItemLoopView extends React.Component{
 
 componentDidMount(){
     this.reload()
-
-
 }
 
 componentDidUpdate(){
     updateBookmarkStyles();
+
     var markArticleRead = this.state.renderArray.map(el => {
         if(el.read === true && el != null )if( document.getElementById(el.id))
             document.getElementById(el.id).classList.add('markAsRead')
@@ -95,11 +94,13 @@ getPageLayout = (param1,param2,maxWidth) => {
 
 // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
+        // console.log(filteredByTag,getArticleBy)
         this.setState({
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
         })        
-        // console.log( localStorage.getItem("storedFilterOptionTest"))
+        // console.log( localStorage.getItem("filterOption"))
+        // console.log(this.state.getArticleBy)
     }
 
     swipeThing(x){ this.setState({ loadingProgress:x }) }
@@ -136,6 +137,7 @@ getPageLayout = (param1,param2,maxWidth) => {
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(localStorageCards){
 
+            // Check For Hidden Articles
             var hideArticle = localStorageCards.map(el => {
                 if(el.bookmarked === false && el.markedforhide === true && el != null )
                     // return Object.assign({}, el, {hidden:false})
@@ -143,11 +145,25 @@ getPageLayout = (param1,param2,maxWidth) => {
                     return el
             });
             // console.log(hideArticle)
+
+            // Check if a filter is active
+            
+
     
             // console.log("news-item-loop-view.js mounted")
-            const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false)
+            const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false )
+
+            const getFilter = localStorage.getItem("filterOption")
+            var checkFilter = {}
+            if(getFilter === "All"){
+                checkFilter = filterMarkedAsHiddenForReload;
+            }else{
+                checkFilter = filterMarkedAsHiddenForReload.filter(x=>x.tag === getFilter)
+            }
+
+
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
-            this.setState({renderArray:filterMarkedAsHiddenForReload})
+            this.setState({renderArray:checkFilter})
             document.getElementById("reloadBtn").classList.remove('testClass1')
             // console.log(this.state.renderArray)
         }
@@ -155,6 +171,7 @@ getPageLayout = (param1,param2,maxWidth) => {
 
     }
     render(){  
+        // console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         // document.getElementById("reloadBtn2").classList.remove('testClass1')
@@ -164,6 +181,7 @@ getPageLayout = (param1,param2,maxWidth) => {
                 document.getElementById(el.id).classList.add('markAsRead')
         });
 
+        
         const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
 
         // bookmark counter
@@ -174,7 +192,8 @@ getPageLayout = (param1,param2,maxWidth) => {
         var customPageLayout = this.state.pageLayout
 
         // console.log(renderToPage.length)
-        var elem = document.getElementById("")
+        // console.log(renderToPage)
+
         return(
             
             <div className="newsItemLoopViewWrapper">

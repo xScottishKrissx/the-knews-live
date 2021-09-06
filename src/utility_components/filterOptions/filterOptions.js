@@ -14,6 +14,7 @@ class FilterOptions extends Component {
 
     componentDidMount(){
         // If no filter option exists in storage, set as All to display a default view.
+        // console.log(localStorage.getItem("filterOption"))
         if(localStorage.getItem("filterOption") === null)localStorage.setItem("filterOption","All");
         if(localStorage.getItem("bookmarksFilterOption") === null)localStorage.setItem("bookmarksFilterOption","All");
 
