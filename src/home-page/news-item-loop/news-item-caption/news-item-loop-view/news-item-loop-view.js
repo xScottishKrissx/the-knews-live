@@ -146,13 +146,14 @@ getPageLayout = (param1,param2,maxWidth) => {
             });
             // console.log(hideArticle)
 
-            // Check if a filter is active
+
             
 
     
             // console.log("news-item-loop-view.js mounted")
             const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false )
-
+            
+            // Check if a filter is active
             const getFilter = localStorage.getItem("filterOption")
             var checkFilter = {}
             if(getFilter === "All"){

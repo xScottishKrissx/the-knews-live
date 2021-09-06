@@ -60,31 +60,21 @@ class OptionsMenu extends Component {
         this.setState({bookmarks:[]})
     }
 
-    markAllBookmarks(x){
-
-        // console.log(this.props.currentCardArray)
-        var currentCards = this.props.currentCardArray;        
+    markAll(thingToChange,changeThingTo){
+        var currentCards = this.props.currentCardArray;   
         var localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall;
-
-        // console.log(currentCards)
-        // console.log(localStorageCards)
 
         localStorageCards.map(x => { 
             var getMatchingRecord = currentCards.filter(obj => obj.id === x.id);
-            if( getMatchingRecord.length > 0 ) x.bookmarked = true;
-            console.log(x);
+            if( getMatchingRecord.length > 0 ) x[thingToChange] = changeThingTo;
             return x 
-            
-        })       
-
-        // console.log(localStorageCards)
-        // Update the page
+        }) 
+        console.log(localStorageCards)
         this.props.updateBookmarkStatus(localStorageCards)
-        
         localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
     }
-    
+
     render(){
         // console.log(this.props.urlInfo)
 
@@ -142,14 +132,14 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="2" className="accordionItems" >
-                <span onClick={()=> this.markAllBookmarks(true)}>
+                <span onClick={()=> this.markAll("bookmarked",true)}>
                     
                         <i class="bi bi-caret-right-fill"></i>Mark All As Bookmarked
                     
                 </span>    
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="2" className="accordionItems">
-                <span onClick={()=> this.markAllBookmarks(false)}>
+                <span onClick={()=> this.markAll("bookmarked",false)}>
                     <i class="bi bi-caret-right-fill"></i>Remove All Bookmarks
                 </span>    
         </Accordion.Collapse>

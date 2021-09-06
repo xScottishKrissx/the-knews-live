@@ -1478,10 +1478,12 @@ General Notes  Objectives:
                                     ✔ Fix the filter thing or it's going to make the rest of this more awkward than it needs to be. @done(15:23 - 06/09/21)
                                         ✔ Might have solved it, going for lunch and will check afterwards if I have @done(15:22 - 06/09/21)
                                             ✔ Can't see anything wrong so far. My solution was to update the state without updating local storage. @done(15:22 - 06/09/21)
+                                ✔ Now that I have a working "Mark All" solution, try and create a reusable piece of code that can be used for ALL mark all solutions. @done(15:48 - 06/09/21)
 
 
                                 
                             ☐ Remove All Bookmarks
+                                    ☐ The bookmark counter should count ALL bookmarks, not just the current view.
                             //Hide
                             ☐ Hide All Cards
                             ☐ Reset Hide Cards
