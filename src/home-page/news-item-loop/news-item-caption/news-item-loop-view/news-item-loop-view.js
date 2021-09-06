@@ -57,12 +57,7 @@ componentDidMount(){
 
 componentDidUpdate(){
     updateBookmarkStyles();
-
-    var markArticleRead = this.state.renderArray.map(el => {
-        if(el.read === true && el != null )if( document.getElementById(el.id))
-            document.getElementById(el.id).classList.add('markAsRead')
-    });
-    
+    this.updateReadStyles();    
 }
 
 // Card Size Controls
@@ -124,6 +119,7 @@ getPageLayout = (param1,param2,maxWidth) => {
            this.setState({ renderArray:filteredArticles }) 
        }
     }
+
     updateHideStatus = (articles) =>{
         this.setState({renderArray:articles})
     }
@@ -132,6 +128,21 @@ getPageLayout = (param1,param2,maxWidth) => {
         this.setState({renderLiteKnews:articles})
         console.log("updateRender")
     }
+
+    
+    updateReadStyles = () => {
+        const renderToPage = this.state.renderArray || this.props.databaseProp ;
+        // console.log("UpdateReadStyles")
+        var markArticleRead = renderToPage.map(el => {
+            if(el.read === true && el != null )if( document.getElementById(el.id)){
+                document.getElementById(el.id).classList.add('markAsRead')
+            }
+            if(el.read === false && el != null )if( document.getElementById(el.id)){
+                document.getElementById(el.id).classList.remove('markAsRead')
+            }
+        });
+    }
+
     reload(){
 
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
@@ -144,11 +155,7 @@ getPageLayout = (param1,param2,maxWidth) => {
                     return Object.assign({}, el, {hidden:true})
                     return el
             });
-            // console.log(hideArticle)
-
-
-            
-
+            // console.log(hideArticle)           
     
             // console.log("news-item-loop-view.js mounted")
             const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false )
@@ -176,12 +183,7 @@ getPageLayout = (param1,param2,maxWidth) => {
         const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         // document.getElementById("reloadBtn2").classList.remove('testClass1')
-
-        var markArticleRead = renderToPage.map(el => {
-            if(el.read === true && el != null )if( document.getElementById(el.id))
-                document.getElementById(el.id).classList.add('markAsRead')
-        });
-
+        
         
         const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
 
@@ -195,6 +197,8 @@ getPageLayout = (param1,param2,maxWidth) => {
         // console.log(renderToPage.length)
         // console.log(renderToPage)
 
+        // Add/Remove Mark as read styles on page render
+        this.updateReadStyles()
         return(
             
             <div className="newsItemLoopViewWrapper">

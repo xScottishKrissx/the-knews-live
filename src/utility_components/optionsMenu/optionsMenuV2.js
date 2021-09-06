@@ -64,11 +64,20 @@ class OptionsMenu extends Component {
         var currentCards = this.props.currentCardArray;   
         var localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall;
 
+        if(thingToChange === "hideread" ){
+            console.log("Only Hide Read")
+            localStorageCards.map(x => { 
+                var getMatchingRecord = currentCards.filter(obj => obj.read === true && obj.id === x.id);
+                if( getMatchingRecord.length > 0 ) x.markedforhide = changeThingTo;
+                return x 
+            }) 
+        }else{
         localStorageCards.map(x => { 
             var getMatchingRecord = currentCards.filter(obj => obj.id === x.id);
             if( getMatchingRecord.length > 0 ) x[thingToChange] = changeThingTo;
             return x 
         }) 
+    }
         console.log(localStorageCards)
         this.props.updateBookmarkStatus(localStorageCards)
         localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
@@ -77,7 +86,7 @@ class OptionsMenu extends Component {
 
     render(){
         // console.log(this.props.urlInfo)
-
+        console.log(this.props.currentCardArray)
         return (
             <div id="optionsMenuWrapper">
                 
@@ -154,13 +163,13 @@ class OptionsMenu extends Component {
         </Card.Header>
         
         <Accordion.Collapse eventKey="3" className="accordionItems">
-                <span><i class="bi bi-caret-right-fill"></i>Mark All As Bookmarked</span> 
+                <span onClick={()=> this.markAll("markedforhide",true)}><i class="bi bi-caret-right-fill"></i>Hide All</span> 
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="3" className="accordionItems">
-                <span ><i class="bi bi-caret-right-fill"></i>Remove All Bookmarks</span>
+                <span onClick={()=> this.markAll("markedforhide",false)}><i class="bi bi-caret-right-fill"></i>Unhide All</span>
         </Accordion.Collapse>
         <Accordion.Collapse eventKey="3" className="accordionItems"> 
-                <span ><i class="bi bi-caret-right-fill"></i>Remove All Bookmarks</span>
+                <span onClick={()=> this.markAll("hideread",true)}><i class="bi bi-caret-right-fill"></i>Hide Read</span>
         </Accordion.Collapse>
     </Card>
 
@@ -172,10 +181,10 @@ class OptionsMenu extends Component {
         </Card.Header>
 
         <Accordion.Collapse eventKey="4" className="accordionItems">
-            <span ><i class="bi bi-caret-right-fill"></i>Mark All As Read</span>
+            <span onClick={()=> this.markAll("read",true)}><i class="bi bi-caret-right-fill"></i>Mark All As Read</span>
         </Accordion.Collapse>       
         <Accordion.Collapse eventKey="4" className="accordionItems">
-                <span ><i class="bi bi-caret-right-fill"></i>Mark All Unread</span>
+                <span onClick={()=> this.markAll("read",false)}><i class="bi bi-caret-right-fill"></i>Mark All Unread</span>
         </Accordion.Collapse>
     </Card> 
 

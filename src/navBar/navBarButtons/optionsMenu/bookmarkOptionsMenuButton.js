@@ -26,6 +26,7 @@ return(
                 }>
                     <OptionsMenu 
                         clearBookmarks={props.clearBookmarks}
+                        currentCardArray={props.currentCardArray}
                         markAllUnread={props.markAllUnread} 
                         markAllRead={props.markAllRead} 
                         hideAllArticles={props.hideAllArticles}

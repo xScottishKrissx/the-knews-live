@@ -1482,19 +1482,20 @@ General Notes  Objectives:
 
 
                                 
-                            ☐ Remove All Bookmarks
-                                    ☐ The bookmark counter should count ALL bookmarks, not just the current view.
+                            ✔ Remove All Bookmarks @done(17:11 - 06/09/21)
                             //Hide
-                            ☐ Hide All Cards
-                            ☐ Reset Hide Cards
-                            ☐ Hide Mark as Read only
+                            ✔ Hide All Cards @done(16:04 - 06/09/21)
+                            ✔ Reset Hide Cards @done(16:04 - 06/09/21)
+                            ✔ Hide Mark as Read only @done(16:04 - 06/09/21)
                             // Read
-                            ☐ Mark All Read
-                            ☐ Mark All Unread
+                            ✔ Mark All Read @done(16:04 - 06/09/21)
+                            ✔ Mark All Unread @done(16:41 - 06/09/21)
+                                    ✔ This isn't removing the style because life is pain. @done(16:41 - 06/09/21)
                             // (new) Sort
                             ☐ Sort By Author
                             ☐ Sort By Date
                             ☐ Sort by Tag
+
 
 
                 12.10.7.11 - Bookmark Page:
@@ -1509,6 +1510,8 @@ General Notes  Objectives:
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ☐ Move the on card bookmark controls out of the bookmark folder
                 ☐ try and move the hideArticle code from onCardBookmarkControls into it's own file.
+                ☐ the reload function can be moved to it's own component.
+                ☐ updatereadstyles should be moved to it's own component and added back to newsitemloopview and bookmarks.js
                 ✔ added animation to cards so they now do a little fade in when they render. @done(12:28 - 31/08/21)
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.

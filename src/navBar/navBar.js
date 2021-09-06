@@ -116,14 +116,14 @@ export class NavBar extends React.Component{
                             />
 
                             {/************Bookmark Options Menu  */}
-                            <BookmarkOptionsMenuButton
+                            {/* <BookmarkOptionsMenuButton
                                 showBookmarkOptionsMenu={this.props.bookmarked}
                                 clearBookmarks={this.props.clearBookmarks}
                                 markAllUnread={this.props.markAllUnread}
                                 markAllRead={this.props.markAllRead}
                                 hideAllArticles={this.props.hideAllArticles}
 
-                            />
+                            /> */}
 
                             {/************** Options Menu */}
                             <OptionsMenuButton 

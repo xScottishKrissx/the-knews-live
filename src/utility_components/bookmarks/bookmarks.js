@@ -136,14 +136,29 @@ class Bookmarks extends Component {
             }
         }
 
+        updateReadStyles = () => {
+            const renderToPage = this.state.bookmarks ;
+            // console.log("UpdateReadStyles")
+            var markArticleRead = renderToPage.map(el => {
+                if(el.read === true && el != null )if( document.getElementById(el.id)){
+                    document.getElementById(el.id).classList.add('markAsRead')
+                }
+                if(el.read === false && el != null )if( document.getElementById(el.id)){
+                    document.getElementById(el.id).classList.remove('markAsRead')
+                }
+            });
+        }
+
         updateHideStatus = (articles) =>{
             this.setState({bookmarks:articles})
         }
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        
+        // console.log(this.state.bookmarks)
         const fullDatabaseCall = this.state.fullDatabaseCall
         const bookmarkCount = this.state.bookmarksCount;
+
+        this.updateReadStyles()
         return(
 
         <div id="bookmarkWrapper">
@@ -154,6 +169,7 @@ class Bookmarks extends Component {
                     filter={true} 
                     cardStyle={true} 
                     homeButtonOn={true}
+                    options={true}
                     pageTitle="Your Bookmarks"
                     // options={true} 
                     
@@ -171,6 +187,9 @@ class Bookmarks extends Component {
                     bookmarkNumber={bookmarkCount || this.state.bookmarks.length}
                     // filter ui
                     bookmarkArray={this.state.bookmarks}
+                    // Options
+                    currentCardArray={this.state.bookmarks}
+                    updateBookmarkStatus={this.updateBookmarkStatus}
 
 
 

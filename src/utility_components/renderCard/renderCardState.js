@@ -99,11 +99,36 @@ class RenderCardState extends React.Component{
 
     swipeProgress(progress){ this.setState({progress:progress }) }
 
+    updateReadStyles = (value,id,read) => {
+        // const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
+        console.log("UpdateReadStyles")
+        console.log(id,read)
+
+        // if(read === true){
+        //     if( document.getElementById(id)){
+        //         document.getElementById(id).classList.add('markAsRead')
+        //     }            
+        // }else{
+        //     if( document.getElementById(id)){
+        //         document.getElementById(id).classList.remove('markAsRead')
+        //     }   
+        // }
+
+        // var markArticleRead = renderToPage.map(el => {
+        //     if(el.read === true && el != null )if( document.getElementById(el.id)){
+        //         document.getElementById(el.id).classList.add('markAsRead')
+        //     }
+        //     if(el.read === false && el != null )if( document.getElementById(el.id)){
+        //         document.getElementById(el.id).classList.remove('markAsRead')
+        //     }
+        // });
+    }
+
     render(){
         // console.log(this.state.progress)
-
+    
     const pageView = this.props.database.map((value,key) => {
-
+    // this.updateReadStyles(value,value.id,value.read)
           
         return(              
             <div id={value.id} key={value.id} className="myClass"   name="original-tags-load">   
