@@ -1462,11 +1462,12 @@ General Notes  Objectives:
                             ✔ im getting less and less happy about this menu, i might call it a day here and have a look tommorow because i feel like I want to redo the entire thing. @done(12:06 - 01/09/21)
                             ...the next day
                             ✔ !!!!!! IT'S THE BUTTON TAG!!!!! REPLACING IT WITH A SPAN REMOVES THE JITTERING !!!!!!! @done(12:06 - 01/09/21)
-                            ☐ now i just need to get the buttons to work...shouldn't be a problem...right??
+                            ✔ now i just need to get the buttons to work...shouldn't be a problem...right?? @done(17:52 - 06/09/21)
                         New Options Menu:
                             ✔ Full Website Reset @done(13:32 - 01/09/21)
+                            ☐ Add a close menu button
                             //Bookmarks
-                            ☐ Mark All As Bookmarked
+                            ✔ Mark All As Bookmarked @done(17:53 - 06/09/21)
                                 ✔ The complicated part here is the filters. I can mark all as read on the home page just fine but with filters all I want is the current array. This means I need to set the current array bookmarked and then update those changes with the changedFullDatabaseCall. Not quite sure how to do this but i have a vague idea of what I need to do. I think it involves using .map and .find but i'll see. @done(17:45 - 01/09/21)
                                 ✔ Spent a few hours going nowhere but I may have found something towards the end of the day. Will carry on tommorow...nope.didnt go anywhere @done(13:29 - 02/09/21)
                                 ✔ I have it. It's not mine but a second ranked answer in a stackoverflow thread. but I dont care. It does what I want. @done(15:25 - 02/09/21)
@@ -1492,43 +1493,56 @@ General Notes  Objectives:
                             ✔ Mark All Unread @done(16:41 - 06/09/21)
                                     ✔ This isn't removing the style because life is pain. @done(16:41 - 06/09/21)
                             // (new) Sort
-                            ☐ Sort By Author
+                            ✔ Sort By Author @done(17:45 - 06/09/21)
                             ☐ Sort By Date
-                            ☐ Sort by Tag
-
+                                    ☐ I need to fix the data for this to work correctly.
+                            ✔ Sort by Tag @done(17:45 - 06/09/21)
+                
+                    before moving on - code cleanup:
+                        ☐ Move the on card bookmark controls out of the bookmark folder
+                        ☐ Move the hideArticle code from onCardBookmarkControls into it's own file.
+                        ☐ Move the reload function can be moved to it's own component.
+                        ☐ updatereadstyles should be moved to it's own component and added back to newsitemloopview and bookmarks.js
+                        ☐ Move the hide article dialogue box into it's own component.
+                        ☐ the mark all and sort all components can be moved to separate components.
+                        ☐ have a look and see how the code can be futher tidied and optimised.
+                        ☐ there will be component that are no longer in use, remove these.
 
 
                 12.10.7.11 - Bookmark Page:
+                    ☐  Integrate Options Menu
                     ☐  The bookmark counter should remain constant, but the filter should have a counter that can change.
                 
                 12.10.7.12 - Tags Page:
-                    ☐ Author Page
+                    Both:
+                        ☐ add the options menu
+                        ☐ the oncard hide button isn't working
+                        ☐ When hiding/removing articles, counts should decrease
+                        ☐ the article count in tags doesn't
+
+                    Author Page:
                         ☐ add the author bio from the recommended reading section to the author tag page.
+                        ☐ Add filter button
+
+                    Filter Page:
+
+
             
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
+                ☐ Fix the post date issue
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
-                ☐ Move the on card bookmark controls out of the bookmark folder
-                ☐ try and move the hideArticle code from onCardBookmarkControls into it's own file.
-                ☐ the reload function can be moved to it's own component.
-                ☐ updatereadstyles should be moved to it's own component and added back to newsitemloopview and bookmarks.js
                 ✔ added animation to cards so they now do a little fade in when they render. @done(12:28 - 31/08/21)
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
-                ☐ move the hide article dialogue box into it's own component.
-                ☐ refreshing the page with an active filter does not maintain the filter.
-                    ☐ correction - bookmarking an article causes a re-render which doesn't maintain the filter and seems to cause other issues.
-                    ☐ correction correction - filter is not respected
+                ✔ refreshing the page with an active filter does not maintain the filter. @done(17:48 - 06/09/21)
+                    ✔ correction - bookmarking an article causes a re-render which doesn't maintain the filter and seems to cause other issues. @done(17:48 - 06/09/21)
+                    ✔ correction correction - filter is not respected @done(17:48 - 06/09/21)
 
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
 
 
-                ☐ Buttons that need to be added/created
-                    tags:
-                        ☐ Add filter button ONLY for author
-                ☐ When hiding/removing articles, counts should decrease
-                    ☐ the article count in tags doesn't
                 ☐ Issues
                     ✔ Full Website Reset -> Tag on card -> error in scrollCheckV2(84, map undefined) @done(16:03 - 06/07/21)
                     ✔ Fixed by adding a fulldatabase call prop to scrollCheckV2 in tags.js@done(16:03 - 06/07/21)
