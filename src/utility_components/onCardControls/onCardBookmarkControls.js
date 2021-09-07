@@ -3,13 +3,11 @@ import React,{Component} from 'react';
 import "./onCardBookmarkControls.css";
 
 // Bookmarks
-import MarkAsRead from '../bookmarks/markAsReadV2';
 import removeBookmark from '../bookmarks/removeBookmark';
 import createBookmark from '../bookmarks/createBookmark';
 import SocialScore from './socialScore/socialScore';
 import Bookmark from './bookmark/bookmark';
-
-
+import MarkAsReadButton from './markAsReadButton/markAsReadButton';
 
 class OnCardBookMarkControls extends Component {
 
@@ -22,12 +20,6 @@ class OnCardBookMarkControls extends Component {
         }
         this.updateStateBasedOnProp = this.updateStateBasedOnProp.bind(this);
     }
-
-
-markAsRead(id,markAs){
-    MarkAsRead(id,markAs)
-    if(this.props.updateProp)this.props.updateProp(markAs)    
-}
 
 hideArticle(id,fullDatabaseCall){
     // Hiding an article on the home page
@@ -108,31 +100,12 @@ componentDidUpdate(prevProps){
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
-    console.log(this.props)
+    // console.log(this.props)
     return(
         <div className="onCardControls">   
         <SocialScore liked={this.props.liked} disliked={this.props.disliked}/>
         <Bookmark bookmarked={this.state.bookmarked} id={this.props.id} handleClick={()=>this.handleClick()} />
-
-
-        
-
-{/* Mark as Read button */}
-        {this.props.showMarkAsReadButton === false ?
-            null
-        :
-            <div className="onCardMarkAsReadButton" >
-                <button  onClick={()=>this.markAsRead(this.props.id,this.props.readStatus)}> 
-                {this.props.readStatus === true ? 
-                    <span title="Mark As Unread" class="material-icons" >check_circle</span>
-                    :
-                    <span title="Mark As Read" class="material-icons" >check_circle_outline</span>
-                }
-                </button>
-        </div>  
-        }
-
-
+        <MarkAsReadButton id={this.props.id} showMarkAsReadButton={this.props.showMarkAsReadButton} readStatus={this.props.readStatus} updateProp={this.props.updateProp} />
 
 {/* Hide Article Button */}
         <div className="onCardHideButton">
