@@ -9,6 +9,7 @@ import updateBookmarkStyles from '../../../../utility_components/bookmarks/updat
 import NavBar from '../../../../navBar/navBar';
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
 
+
 class NewsItemLoopView extends React.Component{
 
     constructor(props){

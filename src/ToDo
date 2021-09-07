@@ -1513,15 +1513,19 @@ General Notes  Objectives:
                     ✔ Add a "hide non bookmarked articles" option to the menu @done(16:10 - 07/09/21)
                 
                 12.10.7.12 - Tags Page:
+                    ☐ I think i need to create a tags-view file and separate the database call and the rest. This should make things easier for me.
+
                     Both:
                         ☐ Add the options menu
-                        ☐ The oncard hide button isn't working
+                        ✔ The oncard hide button isn't working @done(16:58 - 07/09/21)
                         ☐ When hiding/removing articles, counts should decrease
                         ☐ The article count in tags doesn't
-                        ☐ Add swiping
-                        ☐ Add Bookmarking
+                        ✔ Add swiping @done(16:58 - 07/09/21)
+                        ✔ Add Bookmarking @done(16:58 - 07/09/21)
                         ☐ add mark as read
+                            ☐ the style isnt being applied
                         ☐ add hiding articles
+                        ☐ add reload button
 
                     Author Page:
                         ☐ Add the author bio from the recommended reading section to the author tag page.
