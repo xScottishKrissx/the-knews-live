@@ -7,7 +7,7 @@ import NavBar from '../../navBar/navBar';
 import HeaderImage from '../../utility_components/header-image/header-image.js';
 import ArticleArea from './article-area/article-area.js';
 import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
-import OnCardBookMarkControls from '../../utility_components/onCardControls/onCardBookmarkControls.js';
+// import OnCardBookMarkControls from '../../utility_components/onCardControls/onCardBookmarkControls.js';
 import MarkAsRead from '../../utility_components/bookmarks/markAsReadV2.js';
 import HandleLike from '../../utility_components/handleSocialScore/handleLike.js';
 import ArticleFooter from './articleFooter/articleFooter.js';

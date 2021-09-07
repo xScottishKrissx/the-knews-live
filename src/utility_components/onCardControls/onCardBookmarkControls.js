@@ -6,6 +6,7 @@ import "./onCardBookmarkControls.css";
 import MarkAsRead from '../bookmarks/markAsReadV2';
 import removeBookmark from '../bookmarks/removeBookmark';
 import createBookmark from '../bookmarks/createBookmark';
+import SocialScore from './socialScore/socialScore';
 
 
 
@@ -28,23 +29,31 @@ markAsRead(id,markAs){
 }
 
 hideArticle(id,fullDatabaseCall){
-    // console.log("Hide Article " + id + " Hide Status: " + this.props.hideStatus)
-    // console.log(fullDatabaseCall)
     // Hiding an article on the home page
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
 
     // console.log(articles)
     var hideArticle = articles.map(el => {
+        console.log("Option 1")
         if(el.id === id && el.bookmarked === false && el != null )
-            // return Object.assign({}, el, {hidden:false})
             return Object.assign({}, el, {markedforhide:true})
             return el
     });
+
+    // Hiding a bookmarked article
+        if(this.state.bookmarked === true ){
+            console.log("Option 3")
+            var hideArticle = articles.map(el => {
+                if(el.id === id && el.bookmarked === true  && el != null )
+                    return Object.assign({}, el, {markedforhide:true})
+                    return el
+            });
+        }
   
-    // Undo Hide Article In Article
-    // in article hide button switching
+    // Undo Hide Article In Article 
     if(this.props.hideButtonSwitching === true && this.state.bookmarked === false){
         if(this.state.hideStatus === true){
+            console.log("Option 2a")
             this.setState({hideStatus:false})
             var hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === false && el != null )
@@ -52,6 +61,7 @@ hideArticle(id,fullDatabaseCall){
                     return el
             });
         }else{
+            console.log("Option 2b")
             this.setState({hideStatus:true})
             var hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === false && el != null )
@@ -61,23 +71,7 @@ hideArticle(id,fullDatabaseCall){
         }
     }    
 
-    // hiding bookmarks on bookmark.js
-    if(this.props.hideBookmarkedArticle === true ){
-        var hideArticle = articles.map(el => {
-            if(el.id === id && el != null )
-                return Object.assign({}, el, {bookmarked:false, hidden:true})
-                return el
-        });
-    }
 
-    // Hiding a bookmarked article in article
-    if(this.state.bookmarked === true && this.props.hideBookmarkedArticle === false){
-        var hideArticle = articles.map(el => {
-            if(el.id === id && el.bookmarked === true  && el != null )
-                return Object.assign({}, el, {markedforhide:true})
-                return el
-        });
-    }
 
 
     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
@@ -116,28 +110,7 @@ render(){
 
     return(
         <div className="onCardControls">   
-
-     
-{/* Social Score */}
-    {this.props.liked === true  || this.props.disliked === true ? 
-        <div className="onCardSocialScore" >
-            <button> 
-                {this.props.liked === true ? 
-                        <span title="You liked this article"  className="large material-icons">thumb_up_alt</span> 
-                    : 
-                        null
-                    }
-            
-                {this.props.disliked === true ? 
-                        <span title="You disliked this article"  className="large material-icons">thumb_down_alt</span> 
-                    : 
-                        null
-                    }
-            </button>
-        </div>  
-    :
-        null
-    }
+        <SocialScore liked={this.props.liked} disliked={this.props.disliked}/>
 
 {/* Bookmark button */}
 <div className="onCardBookmarkedButton">

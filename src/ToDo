@@ -1501,6 +1501,7 @@ General Notes  Objectives:
                     before moving on - code cleanup:
                         ✔ Move the on card bookmark controls out of the bookmark folder @done(10:12 - 07/09/21)
                         ☐ Move the hideArticle code from onCardBookmarkControls into it's own file.
+                            ☐ There's a lot of state involved here so rather than move it, im going to trim the code and move the buttons into their own components.
                         ☐ Move the reload function can be moved to it's own component.
                         ☐ updatereadstyles should be moved to it's own component and added back to newsitemloopview and bookmarks.js
                         ☐ Move the hide article dialogue box into it's own component.
@@ -1573,6 +1574,7 @@ General Notes  Objectives:
         ✔ Convert timestamp to readable date time format @done(20-09-23 16:49)
         // 1 per article or multiple?
         // multiple fields or pick the tags out 1 by one in the front end?
+        ☐ after unhiding a bookmarked article, it takes 2 clicks for the hide to activate if you want to hide straight away
         
     
     

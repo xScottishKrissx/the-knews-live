@@ -4,19 +4,10 @@ import '../news-item-loop-view/news-item-loop-view.css';
 
 import FilterOptions from '../../../../utility_components/filterOptions/filterOptions';
 import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
-import RenderCard from '../../../../utility_components/renderCard/renderCard';
 import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
-
 import NavBar from '../../../../navBar/navBar';
-
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
-
-import Button from 'react-bootstrap/esm/Button';
-import Accordion from 'react-bootstrap/Accordion'
-import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/esm/Container';
-import Row from 'react-bootstrap/esm/Row';
 
 class NewsItemLoopView extends React.Component{
 
