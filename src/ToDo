@@ -1518,6 +1518,10 @@ General Notes  Objectives:
                         ☐ The oncard hide button isn't working
                         ☐ When hiding/removing articles, counts should decrease
                         ☐ The article count in tags doesn't
+                        ☐ Add swiping
+                        ☐ Add Bookmarking
+                        ☐ add mark as read
+                        ☐ add hiding articles
 
                     Author Page:
                         ☐ Add the author bio from the recommended reading section to the author tag page.
@@ -1541,7 +1545,7 @@ General Notes  Objectives:
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
                 ☐ Move the hide article dialogue box into it's own component.
-                ☐ the mark all and sort all components can be moved to separate components.
+                ✔ the mark all and sort all components can be moved to separate components. @done(16:35 - 07/09/21)
                 ☐ have a look and see how the code can be futher tidied and optimised.
                 ☐ there will be component that are no longer in use, remove these.
 

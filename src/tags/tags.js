@@ -5,7 +5,7 @@ import '../tags/tags.css';
 
 
 import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
-import RenderCard from '../utility_components/renderCard/renderCard.js';
+import RenderCard from '../utility_components/renderCard/renderCardState.js';
 
 import loading from '../img/loading5.gif';
 import NavBar from '../navBar/navBar.js';
@@ -35,15 +35,7 @@ class Tags extends React.Component{
         this.getCardSize = this.getCardSize.bind(this);
     }
     // There must be a way to only have one of these across the entire project.
-    getCardSize(width,height){
-        // console.log(width +" "+ height)
-        this.setState({
-            startingCardSize:{
-                width:width,
-                height:height
-            }
-        })
-    }
+    getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 
     getFilteredArticles = (filteredByTag,getArticleBy,length) => {
         // console.log(filteredByTag)

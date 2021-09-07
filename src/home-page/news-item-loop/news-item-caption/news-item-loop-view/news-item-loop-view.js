@@ -42,9 +42,7 @@ class NewsItemLoopView extends React.Component{
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
     }
 
-componentDidMount(){
-    this.reload()
-}
+componentDidMount(){ this.reload() }
 
 componentDidUpdate(){
     updateBookmarkStyles();
@@ -53,16 +51,6 @@ componentDidUpdate(){
 
 // Card Size Controls
 getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
-getPageLayout = (param1,param2,maxWidth) => {
-    console.log("Update Page layout" + param1 + param2)
-    this.setState({
-        pageLayout:{
-            flexDirection:param1, 
-            margin:param2,
-            maxWidth:maxWidth
-        }
-    })
-}
 
 // LiteKnews
     showArticle(){
@@ -75,7 +63,6 @@ getPageLayout = (param1,param2,maxWidth) => {
         this.setState({ 
             showArticle:false,
             renderArray: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray })
-        // window.location.reload()
     }
 
 // filterViews
@@ -84,9 +71,7 @@ getPageLayout = (param1,param2,maxWidth) => {
         this.setState({
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
-        })        
-        // console.log( localStorage.getItem("filterOption"))
-        // console.log(this.state.getArticleBy)
+        })
     }
 
     swipeThing(x){ this.setState({ loadingProgress:x }) }
@@ -96,14 +81,9 @@ getPageLayout = (param1,param2,maxWidth) => {
     // This let's me change the bookmark icon when using any of the bookmark options 
     updateBookmarkStatus = (articles) => { 
        
-    //    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(removeMarkedForHide))
        const filterChoice = localStorage.getItem("filterOption")
        const filteredArticles = articles.filter(x=> x.tag === filterChoice )
        
-    //    console.log(removeMarkedForHide)
-    //    console.log(articles)
-
-
        if(filterChoice === "All"){
             this.setState({ renderArray:articles })
        }else{
@@ -111,19 +91,15 @@ getPageLayout = (param1,param2,maxWidth) => {
        }
     }
 
-    updateHideStatus = (articles) =>{
-        this.setState({renderArray:articles})
-    }
+    updateHideStatus = (articles) =>{ this.setState({renderArray:articles}) }
 
     updateRender = (articles) => {
         this.setState({renderLiteKnews:articles})
         console.log("updateRender")
     }
-
     
     updateReadStyles = () => {
         const renderToPage = this.state.renderArray || this.props.databaseProp ;
-        // console.log("UpdateReadStyles")
         var markArticleRead = renderToPage.map(el => {
             if(el.read === true && el != null )if( document.getElementById(el.id)){
                 document.getElementById(el.id).classList.add('markAsRead')

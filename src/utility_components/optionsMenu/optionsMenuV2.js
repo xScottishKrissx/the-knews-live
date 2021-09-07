@@ -1,13 +1,16 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+
+// Menu Elements
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+
 // Bookmarks
 import clearAllBookmarks from '../bookmarks/clearAllBookmarks.js';
 import hideAllArticles from '../bookmarks/hideAllArticles.js';
-import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
+// Options Menu
 import "../optionsMenu/optionsMenu.css";
 import MarkAll from './optionsCode/markAll.js';
 import SortAll from './optionsCode/sortAll.js';
