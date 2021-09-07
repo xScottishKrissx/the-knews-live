@@ -7,6 +7,7 @@ import MarkAsRead from '../bookmarks/markAsReadV2';
 import removeBookmark from '../bookmarks/removeBookmark';
 import createBookmark from '../bookmarks/createBookmark';
 import SocialScore from './socialScore/socialScore';
+import Bookmark from './bookmark/bookmark';
 
 
 
@@ -107,24 +108,13 @@ componentDidUpdate(prevProps){
 updateStateBasedOnProp(a){ this.setState({ bookmarked:a }) }
 
 render(){
-
+    console.log(this.props)
     return(
         <div className="onCardControls">   
         <SocialScore liked={this.props.liked} disliked={this.props.disliked}/>
+        <Bookmark bookmarked={this.state.bookmarked} id={this.props.id} handleClick={()=>this.handleClick()} />
 
-{/* Bookmark button */}
-<div className="onCardBookmarkedButton">
-            {this.state.bookmarked === false ? 
-        
-                <button title="Click to bookmark this article" onClick={()=>this.handleClick(this.props.id)}>
-                    <span  class="material-icons" id={this.props.id + "bookmarkIcon"}>turned_in_not</span>                    
-                </button>
-                :
-                <button title="Click to un-bookmark this article" className="animateScale" onClick={()=>this.handleClick(this.props.id)}>
-                    <span class="material-icons increaseCardBookmarkOpacity" id={this.props.id + "bookmarkIcon"}>turned_in</span>              
-                </button>   
-            }
-        </div>
+
         
 
 {/* Mark as Read button */}
