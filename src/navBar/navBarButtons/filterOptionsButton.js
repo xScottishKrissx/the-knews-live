@@ -25,7 +25,10 @@ return(
                                         {/* <span id="filterActive" className="material-icons">filter_alt</span> */}
 
                                         {props.getArticle === "Sports" ? 
+                                        <>
                                             <span class="material-icons">emoji_events</span> 
+                                            
+                                          </>  
                                         : null
                                         }
                                         

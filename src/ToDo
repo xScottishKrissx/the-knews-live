@@ -1500,29 +1500,27 @@ General Notes  Objectives:
                 
                     before moving on - code cleanup:
                         ✔ Move the on card bookmark controls out of the bookmark folder @done(10:12 - 07/09/21)
-                        ☐ Move the hideArticle code from onCardBookmarkControls into it's own file.
-                            ☐ There's a lot of state involved here so rather than move it, im going to trim the code and move the buttons into their own components.
-                        ☐ Move the reload function can be moved to it's own component.
-                        ☐ updatereadstyles should be moved to it's own component and added back to newsitemloopview and bookmarks.js
-                        ☐ Move the hide article dialogue box into it's own component.
-                        ☐ the mark all and sort all components can be moved to separate components.
-                        ☐ have a look and see how the code can be futher tidied and optimised.
-                        ☐ there will be component that are no longer in use, remove these.
+                        ✔ Move the hideArticle code from onCardBookmarkControls into it's own file. @done(13:16 - 07/09/21)
+                            ✔ There's a lot of state involved here so rather than move it, im going to trim the code and move the buttons into their own components. @done(13:16 - 07/09/21)
+
 
 
                 12.10.7.11 - Bookmark Page:
-                    ☐  Integrate Options Menu
-                    ☐  The bookmark counter should remain constant, but the filter should have a counter that can change.
+                    ✔  Integrate Options Menu @done(15:25 - 07/09/21)
+                    ✔  The bookmark counter should remain constant, @done(15:45 - 07/09/21)
+                    ✔  The filter should have a counter that can change.(like the home page) @done(15:47 - 07/09/21)
+                    ✔ add a better 0 bookmark message @done(15:56 - 07/09/21)
+                    ☐ Add a "hide non bookmarked articles" option to the menu
                 
                 12.10.7.12 - Tags Page:
                     Both:
-                        ☐ add the options menu
-                        ☐ the oncard hide button isn't working
+                        ☐ Add the options menu
+                        ☐ The oncard hide button isn't working
                         ☐ When hiding/removing articles, counts should decrease
-                        ☐ the article count in tags doesn't
+                        ☐ The article count in tags doesn't
 
                     Author Page:
-                        ☐ add the author bio from the recommended reading section to the author tag page.
+                        ☐ Add the author bio from the recommended reading section to the author tag page.
                         ☐ Add filter button
 
                     Filter Page:
@@ -1542,6 +1540,10 @@ General Notes  Objectives:
 
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
+                ☐ Move the hide article dialogue box into it's own component.
+                ☐ the mark all and sort all components can be moved to separate components.
+                ☐ have a look and see how the code can be futher tidied and optimised.
+                ☐ there will be component that are no longer in use, remove these.
 
 
                 ☐ Issues

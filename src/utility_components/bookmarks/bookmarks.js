@@ -105,17 +105,23 @@ class Bookmarks extends Component {
     updateBookmarkCount(){ 
         // Update Bookmark count on removing/adding bookmarks
         const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
+
         var filterBookmarks = {}
         if(this.state.getArticleBy === "All"){
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true)
+            
         }else{
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true && x.tag === this.state.getArticleBy)
+
         }
+
+
         this.setState({ bookmarksCount: filterBookmarks.length}) 
     }
 
     // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy,length) => {
+       
         this.setState({
             bookmarks: filteredByTag,
             getArticleBy:getArticleBy,
@@ -158,7 +164,13 @@ class Bookmarks extends Component {
         const fullDatabaseCall = this.state.fullDatabaseCall
         const bookmarkCount = this.state.bookmarksCount;
 
+
         this.updateReadStyles()
+
+        var cleanDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall
+        var totalBookmarks = cleanDatabaseCall.filter(obj => obj.bookmarked === true);
+        // console.log(totalBookmarks.length)
+
         return(
 
         <div id="bookmarkWrapper">
@@ -184,9 +196,11 @@ class Bookmarks extends Component {
                     markAllUnread={() => markAllUnread()}
                     markAllRead={() => markAllRead()}
                     hideAllArticles={()=>this.hideAllArticles()}
-                    bookmarkNumber={bookmarkCount || this.state.bookmarks.length}
+                    bookmarkNumber={totalBookmarks.length || this.state.bookmarks.length}
                     // filter ui
                     bookmarkArray={this.state.bookmarks}
+                    getFilters = {bookmarkCount}
+                    currentCardCount={totalBookmarks.length}
                     // Options
                     currentCardArray={this.state.bookmarks}
                     updateBookmarkStatus={this.updateBookmarkStatus}
@@ -204,7 +218,11 @@ class Bookmarks extends Component {
             
             <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
                 {this.state.bookmarks.length === 0 ?
-                <p>You haven't bookmarked anything yet :(</p>
+                    <div className="blankLoopMessage">
+                        <h2>You don't have any bookmarks<br/></h2>
+                        <span class="material-icons">auto_stories</span>
+                        <p>Tips: You can create bookmarks by pressing the <span  class="material-icons" >turned_in_not</span> icon wherever you see it.</p>
+                    </div>
                 :
                 <RenderCard 
                     // Bookmarking
@@ -221,9 +239,7 @@ class Bookmarks extends Component {
 
                     updateBookmarkStatus={this.updateBookmarkStatus}
                     updateHideStatus={this.updateBookmarkStatus}
-                    hideBookmarkedArticle={false}
-                    
-                    
+                    hideBookmarkedArticle={false}                    
                 />
                 }
             </div>
