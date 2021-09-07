@@ -1,12 +1,11 @@
 import React,{Component} from 'react';
 
-import "../bookmarks/onCardBookmarkControls.css";
+import "./onCardBookmarkControls.css";
 
 // Bookmarks
-import MarkAsRead from './markAsReadV2.js';
-
-import removeBookmark from './removeBookmark';
-import createBookmark from './createBookmark';
+import MarkAsRead from '../bookmarks/markAsReadV2';
+import removeBookmark from '../bookmarks/removeBookmark';
+import createBookmark from '../bookmarks/createBookmark';
 
 
 

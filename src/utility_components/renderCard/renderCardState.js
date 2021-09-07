@@ -9,9 +9,11 @@ import swipeLeftAction from '../swipeLeftAction.js';
 
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
-import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
+// import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 import createBookmark from '../bookmarks/createBookmark';
 import removeBookmark from '../bookmarks/removeBookmark';
+
+import OnCardBookMarkControls from '../onCardControls/onCardBookmarkControls';
 
 class RenderCardState extends React.Component{
 

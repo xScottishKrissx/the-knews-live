@@ -23,7 +23,7 @@ export const ArticleFooter = (props) =>{
                         fullDatabaseCall={props.fullDatabaseCall}
                     />
 
-                    <RecommendedReading database={database} />
+                    {/* <RecommendedReading database={database} /> */}
   
 
             </div>

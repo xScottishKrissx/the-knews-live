@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/esm/Button';
-import OnCardBookMarkControls from '../../utility_components/bookmarks/onCardBookmarkControls';
+import OnCardBookMarkControls from '../../utility_components/onCardControls/onCardBookmarkControls';
 // styles in navbar.css
 
 

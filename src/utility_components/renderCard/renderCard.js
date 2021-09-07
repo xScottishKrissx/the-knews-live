@@ -10,7 +10,7 @@ import swipeLeftAction from '../../utility_components/swipeLeftAction.js';
 
 import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
 
-import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
+// import OnCardBookMarkControls from '../bookmarks/onCardBookmarkControls';
 
 export const RenderCard = (props) => {
     // console.log(props.database.length)
