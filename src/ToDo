@@ -1510,7 +1510,7 @@ General Notes  Objectives:
                     ✔  The bookmark counter should remain constant, @done(15:45 - 07/09/21)
                     ✔  The filter should have a counter that can change.(like the home page) @done(15:47 - 07/09/21)
                     ✔ add a better 0 bookmark message @done(15:56 - 07/09/21)
-                    ☐ Add a "hide non bookmarked articles" option to the menu
+                    ✔ Add a "hide non bookmarked articles" option to the menu @done(16:10 - 07/09/21)
                 
                 12.10.7.12 - Tags Page:
                     Both:

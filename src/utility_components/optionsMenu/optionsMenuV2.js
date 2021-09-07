@@ -51,14 +51,19 @@ class OptionsMenu extends Component {
                 if( getMatchingRecord.length > 0 ) x.markedforhide = changeThingTo;
                 return x 
             }) 
-        }else{
+        } else if(thingToChange === "hidenonbookmarked" ){
+            localStorageCards.map(x => { 
+                var getMatchingRecord = currentCards.filter(obj => obj.bookmarked === false && obj.id === x.id);
+                if( getMatchingRecord.length > 0 ) x.markedforhide = changeThingTo;
+                return x 
+            }) 
+        } else {
         localStorageCards.map(x => { 
             var getMatchingRecord = currentCards.filter(obj => obj.id === x.id);
             if( getMatchingRecord.length > 0 ) x[thingToChange] = changeThingTo;
             return x 
         }) 
     }
-        console.log(localStorageCards)
         this.props.updateBookmarkStatus(localStorageCards)
         localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
@@ -146,6 +151,12 @@ class OptionsMenu extends Component {
                                     <span onClick={()=> this.markAll("markedforhide",false)}>
                                         <i class="bi bi-caret-right-fill"></i>Unhide All</span>
                             </Accordion.Collapse>
+                            
+                            <Accordion.Collapse eventKey="3" className="accordionItems"> 
+                                    <span onClick={()=> this.markAll("hidenonbookmarked",true)}>
+                                        <i class="bi bi-caret-right-fill"></i>Hide Non-Bookmarked</span>
+                            </Accordion.Collapse>
+
                             <Accordion.Collapse eventKey="3" className="accordionItems"> 
                                     <span onClick={()=> this.markAll("hideread",true)}>
                                         <i class="bi bi-caret-right-fill"></i>Hide Read</span>
