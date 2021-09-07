@@ -47,9 +47,9 @@ class Tags extends React.Component{
             }
 
             this.setState({
-                articlesArray: newState,
+                // articlesArray: newState,
                 // fullDatabaseCall: newState,
-                leftoverArticles:newState.slice(30,97)
+                // leftoverArticles:newState.slice(30,97)
             })            
         }) 
         

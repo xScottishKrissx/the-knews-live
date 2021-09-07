@@ -1517,7 +1517,7 @@ General Notes  Objectives:
                         ✔ I have the bones of it in place, now i just need to work through add what needs to be added. @done(17:39 - 07/09/21)
 
                     Both:
-                        ☐ Add the options menu                        
+                        ✔ Add the options menu @done(17:48 - 07/09/21)
                         ✔ The oncard hide button isn't working @done(16:58 - 07/09/21)
                         ☐ When hiding/removing articles, counts should decrease
                         ☐ The article count in tags doesn't
@@ -1526,6 +1526,7 @@ General Notes  Objectives:
                         ☐ add mark as read
                             ☐ the style isnt being applied
                         ☐ add hiding articles
+                            ☐ i have most of this in place, just need to remove the markedforhide on render.
                         ☐ add reload button
 
                     Author Page:

@@ -18,11 +18,21 @@ export class TagsView extends React.Component{
         }
         this.getCardSize = this.getCardSize.bind(this);
     }
+
+    componentDidMount(){
+     
+    }
     getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 
-    updateBookmarkStatus(){
-        console.log("Update")
+    updateBookmarkStatus = (articles) => {
+        console.log("Update Bookmarks")
+        const filteredArticles = articles.filter(x=> x.tag === this.props.paramB )  
+        this.setState({ renderArray:filteredArticles }) 
+        
+
     }
+
+    updateHideStatus = (articles) =>{ this.setState({renderArray:articles}) }
 
     render(){
         console.log(this.props.fullDatabaseCall)
@@ -37,8 +47,16 @@ export class TagsView extends React.Component{
 
         // const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
 
-        const renderTags = this.state.fullDatabaseCall.filter(obj => obj.tag === this.props.paramB)
+        
+
+
+        // I need to filter out the hidden tags
+        // ... then add a message for 0 visible tags.
+        const getCards = this.state.renderArray || this.state.fullDatabaseCall.filter(obj => obj.tag === this.props.paramB)
+        const renderTags = getCards.filter(obj => obj.hidden === false)
         console.log(renderTags)
+
+        
 
 
 
@@ -58,7 +76,6 @@ export class TagsView extends React.Component{
 
                         // filter to work...
                         fullDatabaseCall={this.state.fullDatabaseCall}
-                        getFilteredArticles = {this.getFilteredArticles}
                         tagsArray={renderTags}
 
                         // tag specific
@@ -67,6 +84,10 @@ export class TagsView extends React.Component{
                         tagPageTitle={this.props.paramA}
                         tagPageTitle2={this.props.paramB}
                         articleNumber={renderTags.length}
+
+                        // options
+                        currentCardArray = {renderTags}
+                        updateBookmarkStatus={this.updateBookmarkStatus}
                     />
 
 
@@ -84,6 +105,7 @@ export class TagsView extends React.Component{
 
                             // Updating Bookmark
                             updateBookmarkStatus={this.updateBookmarkStatus}
+                            updateHideStatus={this.updateHideStatus}
 
                             // This needs to be clean database call
                             arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
