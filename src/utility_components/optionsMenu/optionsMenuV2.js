@@ -10,16 +10,14 @@ import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
 import "../optionsMenu/optionsMenu.css";
 import MarkAll from './optionsCode/markAll.js';
+import SortAll from './optionsCode/sortAll.js';
 
 class OptionsMenu extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            optionsMenuOpen:false,
-            fullDatabaseCall:[],
             bookmarks:[],
-            test:[]
         }
     }
 
@@ -52,25 +50,10 @@ class OptionsMenu extends Component {
     }
 
     sortAll(sortBy){
-        console.log("Sort by" + sortBy)
-        var currentCards = this.props.currentCardArray;
-
-        currentCards.sort((a, b) => {
-            if (a[sortBy] > b[sortBy]) return 1;
-            if (a[sortBy] < b[sortBy]) return -1;
-            return 0;
-        });        
-
-        console.log(currentCards)
-        this.props.updateBookmarkStatus(currentCards)
-        localStorage.setItem("bookmarkArray", JSON.stringify(currentCards))
-        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(currentCards))
-
+        SortAll(this.props.currentCardArray,sortBy,this.props.updateBookmarkStatus)
         }
 
     render(){
-        // console.log(this.props.urlInfo)
-        console.log(this.props.currentCardArray)
         return (
             <div id="optionsMenuWrapper">
                 
