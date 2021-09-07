@@ -1513,10 +1513,11 @@ General Notes  Objectives:
                     ✔ Add a "hide non bookmarked articles" option to the menu @done(16:10 - 07/09/21)
                 
                 12.10.7.12 - Tags Page:
-                    ☐ I think i need to create a tags-view file and separate the database call and the rest. This should make things easier for me.
+                    ✔ I think i need to create a tags-view file and separate the database call and the rest. This should make things easier for me. @done(17:39 - 07/09/21)
+                        ✔ I have the bones of it in place, now i just need to work through add what needs to be added. @done(17:39 - 07/09/21)
 
                     Both:
-                        ☐ Add the options menu
+                        ☐ Add the options menu                        
                         ✔ The oncard hide button isn't working @done(16:58 - 07/09/21)
                         ☐ When hiding/removing articles, counts should decrease
                         ☐ The article count in tags doesn't

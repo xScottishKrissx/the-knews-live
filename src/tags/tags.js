@@ -2,14 +2,6 @@ import React from 'react';
 import fire from '../fire.js';
 
 import '../tags/tags.css';
-
-
-import ScrollCheckV2 from '../utility_components/ScrollCheckV2.js';
-import RenderCard from '../utility_components/renderCard/renderCardState.js';
-
-import loading from '../img/loading5.gif';
-import NavBar from '../navBar/navBar.js';
-import FilterOptions from '../utility_components/filterOptions/filterOptions.js';
 import TagsView from './tagsView/tagsView.js';
 
 class Tags extends React.Component{
@@ -21,44 +13,17 @@ class Tags extends React.Component{
             leftoverArticles:[],
             searchDBFor: this.props.match.params.a || this.props.location.state.searchDBFor,
             fullDatabaseCall:[],
-            numberOfItemsInArray:[],
 
-            // Hiding Posts
-            postsArray:[],
 
-        // Card Size
-        startingCardSize:"",
-        changedCardSize:{
-            width: JSON.parse(localStorage.getItem("myData"))[0] ,
-            height: JSON.parse(localStorage.getItem("myData"))[1]
-        },          
+                 
         }
-        this.getCardSize = this.getCardSize.bind(this);
-    }
-    // There must be a way to only have one of these across the entire project.
-    getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 
-    getFilteredArticles = (filteredByTag,getArticleBy,length) => {
-        // console.log(filteredByTag)
-        // console.log(getArticleBy)
-        // console.log(length)
-        this.setState({
-            bookmarks: filteredByTag,
-            getArticleBy:getArticleBy,
-            bookmarksCount:length
-        })
-        
     }
+     componentDidMount(){
 
-    componentDidMount(){
-        // console.log(this.props.match.params.a)
-        // console.log(this.props.match.params.b)
         
         const orderQueryByChild = this.props.match.params.a || this.props.location.state.orderByChild
         const searchDBFor = this.props.match.params.b || this.props.location.state.author
-        // console.log(searchDBFor)
-        // console.log(orderQueryByChild)
-        // console.log(orderQueryByChild + " " + searchDBFor)
 
         const dbRef = fire.database().ref('items').orderByChild(orderQueryByChild).equalTo(searchDBFor)
                 
@@ -121,26 +86,21 @@ class Tags extends React.Component{
     
     render(){
 
-        // const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall.slice(0,10);
 
-        // // console.log(fullDatabaseCallFromStorage) 
-        // const filterTags = fullDatabaseCallFromStorage.filter(obj => 
-        //     obj.hidden !== true &&
-        //     (obj.author === this.props.match.params.b || 
-        //     obj.tag === this.props.match.params.b ||
-        //     obj.postdate === this.props.match.params.b )
-        // ) || this.props.location.state.arrayFromDatabase;
+        var paramA = {}
+        var paramB = {}
+        if(this.props.match.params.a) paramA = this.props.match.params.a;
+        if(this.props.match.params.b) paramB = this.props.match.params.b;
 
-        // const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
-        // // console.log(this.state.searchDBFor)
-        // // console.log(this.props.match.params.a)        
-        // // console.log(this.props.match.params.b)
-        // console.log(renderTags.length)
+        
         return(
-            <div><h1>Tags View</h1></div>
-            // <TagsView 
-            
-            // />
+            // <div><h1>Tags View</h1></div>
+            <TagsView  
+                fullDatabaseCall={fullDatabaseCallFromStorage}
+                paramA={paramA}    
+                paramB={paramB}
+            />
             
             
         )
