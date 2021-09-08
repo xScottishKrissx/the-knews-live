@@ -49,6 +49,42 @@ export class TagsView extends React.Component{
 
     updateHideStatus = (articles) =>{ this.setState({fullDatabaseCall:articles}) }
 
+    reload(){
+
+        const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        if(localStorageCards){
+
+            // Check For Hidden Articles
+            var hideArticle = localStorageCards.map(el => {
+                if(el.bookmarked === false && el.markedforhide === true && el != null )
+                    // return Object.assign({}, el, {hidden:false})
+                    return Object.assign({}, el, {hidden:true})
+                    return el
+            });
+            // console.log(hideArticle)           
+    
+            // console.log("news-item-loop-view.js mounted")
+            const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false )
+            
+            // Check if a filter is active
+            const getFilter = localStorage.getItem("filterOption")
+            var checkFilter = {}
+            if(getFilter === "All"){
+                checkFilter = filterMarkedAsHiddenForReload;
+            }else{
+                checkFilter = filterMarkedAsHiddenForReload.filter(x=>x.tag === getFilter)
+            }
+
+
+            localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
+            this.setState({fullDatabaseCall:checkFilter})
+            document.getElementById("reloadBtn").classList.remove('testClass1')
+            // console.log(this.state.renderArray)
+        }
+
+
+    }
+
     render(){
 
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
@@ -77,7 +113,8 @@ export class TagsView extends React.Component{
                     <NavBar 
                         bookmarks={true}
                         cardStyle={true}    
-                        options={true}                     
+                        options={true}  
+                        reload={true}                   
                         // filter={true}
                         homeButtonOn={true}
 
@@ -95,6 +132,9 @@ export class TagsView extends React.Component{
                         tagPageTitle={this.props.paramA}
                         tagPageTitle2={this.props.paramB}
                         articleNumber={renderToPage.length}
+
+                        //forceReload
+                        forceReload={()=>this.reload()}
 
                         // options
                         currentCardArray = {renderToPage}
