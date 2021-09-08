@@ -15,3 +15,27 @@
             margin-top: 3rem;
             width: 100%;
         }
+
+
+/* Tags View */
+
+.aboutAuthorTagsPage{
+    background-color: #6c757d;
+    color: white  !important;
+    margin: 0 auto;
+    margin-top: 106px;
+    width: 100%;
+    /* outline: 1px solid red; */
+}
+.aboutAuthorTagsPage > .articleInfo{
+   
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+
+    .aboutAuthorTagsPage{
+        margin-top: 53px;
+        /* width: 100%; */
+    }
+
+}

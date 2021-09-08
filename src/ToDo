@@ -1519,18 +1519,21 @@ General Notes  Objectives:
                     Both:
                         ✔ Add the options menu @done(17:48 - 07/09/21)
                         ✔ The oncard hide button isn't working @done(16:58 - 07/09/21)
-                        ☐ When hiding/removing articles, counts should decrease
-                        ☐ The article count in tags doesn't
+                        ✔ When hiding/removing articles, counts should decrease @done(13:16 - 08/09/21)
+                        ✔ The article count in tags doesn't @done(13:16 - 08/09/21)
                         ✔ Add swiping @done(16:58 - 07/09/21)
                         ✔ Add Bookmarking @done(16:58 - 07/09/21)
-                        ☐ add mark as read
-                            ☐ the style isnt being applied
-                        ☐ add hiding articles
-                            ☐ i have most of this in place, just need to remove the markedforhide on render.
-                        ☐ add reload button
+                        ✔ add mark as read @done(13:20 - 08/09/21)
+                            ✔ the style isnt being applied @done(13:20 - 08/09/21)
+                        ✔ add hiding articles @done(13:04 - 08/09/21)
+                            ✔ i have most of this in place, just need to remove the markedforhide on render. @done(13:04 - 08/09/21)
+                        ✔ add reload button @done(13:04 - 08/09/21)
+                        ✔ add card size @done(13:30 - 08/09/21)
+                        ☐ tags page page will always be empty after clearing cache without going to an article first.Fix this.
+
 
                     Author Page:
-                        ☐ Add the author bio from the recommended reading section to the author tag page.
+                        ✔ Add the author bio from the recommended reading section to the author tag page. @done(16:21 - 08/09/21)
                         ☐ Add filter button
 
                     Filter Page:

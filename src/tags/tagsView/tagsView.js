@@ -1,9 +1,8 @@
 import React from 'react';
 import NavBar from '../../navBar/navBar';
-import updateBookmarkStyles from '../../utility_components/bookmarks/updateBookmarkStyle';
-import FilterOptions from '../../utility_components/filterOptions/filterOptions';
 import RenderCard from '../../utility_components/renderCard/renderCardState';
-
+import AuthorInfo from '../../utility_components/aboutAuthor/aboutAuthor'
+import TagsAuthorInfo from './tagsAuthorInfo/tagsAuthorInfo';
 
 export class TagsView extends React.Component{
     
@@ -18,21 +17,36 @@ export class TagsView extends React.Component{
                 width: JSON.parse(localStorage.getItem("myData"))[0] ,
                 height: JSON.parse(localStorage.getItem("myData"))[1]
             }, 
+
+            showAuthorBio:false
         }
+        this.getCardSize = this.getCardSize.bind(this);
        
     }
-
-    
-    getFilteredArticles = (filteredByTag,getArticleBy,length) => {
-        // console.log(filteredByTag)
-        // console.log(getArticleBy)
-        // console.log(length)
+    getCardSize(width,height){
         this.setState({
-            bookmarks: filteredByTag,
-            getArticleBy:getArticleBy,
-            bookmarksCount:length
-        })
-        
+            startingCardSize:{
+                width:width,
+                height:height}
+            })
+    }
+
+    componentDidUpdate(){
+        this.updateReadStyles(); 
+        // console.log(this.props.paramA)
+       
+    }
+    showAuthorBio(){
+        if(this.props.paramA && this.props.paramA === "author"){
+            this.setState({showAuthorBio:true})
+            
+        }else{
+            this.setState({showAuthorBio:false})
+        }
+
+    }
+    componentDidMount(){
+        this.showAuthorBio()
     }
 
     updateBookmarkStatus = (articles) => { 
@@ -47,7 +61,23 @@ export class TagsView extends React.Component{
         }
      }
 
-    updateHideStatus = (articles) =>{ this.setState({fullDatabaseCall:articles}) }
+    updateHideStatus = (articles) =>{ 
+        this.setState({
+            fullDatabaseCall:articles
+        }) 
+    }
+
+    updateReadStyles = () => {
+        const renderToPage = this.state.fullDatabaseCall || this.props.fullDatabaseCall ;
+        var markArticleRead = renderToPage.map(el => {
+            if(el.read === true && el != null )if( document.getElementById(el.id)){
+                document.getElementById(el.id).classList.add('markAsRead')
+            }
+            if(el.read === false && el != null )if( document.getElementById(el.id)){
+                document.getElementById(el.id).classList.remove('markAsRead')
+            }
+        });
+    }
 
     reload(){
 
@@ -96,14 +126,20 @@ export class TagsView extends React.Component{
             obj.postdate === this.props.paramB )
         ) || this.props.fullDatabaseCall;
 
-        const renderToPage = filterTags.filter(obj => obj.hidden !== true) || this.state.fullDatabaseCall
+        
+        const renderToPage = filterTags.filter(obj => obj.hidden != true) || this.state.fullDatabaseCall
 
         // console.log(this.state.searchDBFor)
         // console.log(this.props.match.params.a)        
         // console.log(this.props.match.params.b)
-        console.log(renderToPage)
+        // console.log(this.props.cleanDB)
+        var getAuthorInfo = this.props.cleanDB.filter(x => x.author === this.props.paramB)
+        console.log(getAuthorInfo)
+        // console.log(getAuthorInfo)
+        // console.log(this.props.paramA)
+        // console.log(renderToPage[0].id)
         
-
+            console.log(renderToPage)
 
 
         return(
@@ -140,8 +176,16 @@ export class TagsView extends React.Component{
                         currentCardArray = {renderToPage}
                         updateBookmarkStatus={this.updateBookmarkStatus}
                     />
-
-
+                    
+                    {getAuthorInfo.length > 0 ?
+                        <TagsAuthorInfo
+                            database={getAuthorInfo}
+                            paramA={this.props.paramA}
+                            arrayFromDatabase={this.state.fullDatabaseCall}
+                            fullDatabaseCall={this.state.fullDatabaseCall}
+                        /> 
+                    :null
+                    }
 
 
                     <div className="cardsWrapper">

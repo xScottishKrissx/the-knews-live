@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 import './aboutAuthor.css'
 
 export const AuthorInfo = (props) =>{
-    
+    // console.log(props.database)
     const getCurrentArticle = props.database.filter(x => x.id == props.id)
+    // console.log(getCurrentArticle)
     
     const authorInfoView = getCurrentArticle.map((value) => {
 

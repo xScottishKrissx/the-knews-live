@@ -46,11 +46,7 @@ class Tags extends React.Component{
                 // console.log(newState)
             }
 
-            this.setState({
-                // articlesArray: newState,
-                // fullDatabaseCall: newState,
-                // leftoverArticles:newState.slice(30,97)
-            })            
+          
         }) 
         
           // Main Database Call
@@ -79,25 +75,87 @@ class Tags extends React.Component{
                
               })
             }
-            this.setState({fullDatabaseCall: newState})    
-            localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))         
+            this.setState({
+                fullDatabaseCall: newState,
+                articlesArray:newState.slice(0,10)
+            })    
+            localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
+            // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
+  
         })        
+        console.log("Mount")
     }
+
     
     render(){
+        // console.log(this.state.fullDatabaseCall)
 
-        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall.slice(0,10);
+        // console.log(this.state.articlesArray)
+        // if(this.state.articlesArray.length){
+        //     console.log("Do Something")
+        //     var checkCleanDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        //     var checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        //     console.log(checkCleanDB)
+        //     console.log(checkChangedDB)
+        //     if(checkChangedDB === null || checkChangedDB.length === 0){
+        //         console.log("Set Changed DB")
+        //         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.articlesArray)) 
+        //         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
+        //     }else{
+        //         console.log("Dont set New Changed DB" )
+        //     }
+        // }else{
+        //     console.log("Do Nothing")
+        // }
 
-        var paramA = {}
-        var paramB = {}
+
+
+
+        
+ 
+        // if(checkChangedDB && checkCleanDB === [] || checkChangedDB && checkCleanDB === null){
+        //     console.log("Database Exists")
+        // }else{
+        //     console.log("Datbase Does not Exist")
+        //     localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
+        //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
+        // }
+
+       
+
+        
+        
+            // if(checkStorage === null){
+            //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
+            //     localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
+            //     console.log("1")
+            // }else if(checkStorage.length === 0){
+            //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
+            //     localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
+            //     console.log("2")
+            // }else{
+            //     console.log(checkStorage)
+            // }
+        
+        
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.articlesArray;
+        const cleanDBCall = JSON.parse(localStorage.getItem("cleanDatabaseCall")) ||  this.state.fullDatabaseCall;
+        
+
+        var paramA = {}; var paramB = {}
         if(this.props.match.params.a) paramA = this.props.match.params.a;
         if(this.props.match.params.b) paramB = this.props.match.params.b;
         var filterForTag = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
-        
+
+        // console.log(filterForTag)
+
+        // console.log(cleanDBCall)
+        // console.log(fullDatabaseCallFromStorage)
         return(
             // <div><h1>Tags View</h1></div>
             <TagsView  
                 fullDatabaseCall={filterForTag}
+                cleanDB={cleanDBCall}
                 paramA={paramA}    
                 paramB={paramB}
             />

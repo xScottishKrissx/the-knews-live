@@ -13,7 +13,7 @@ return(
                 {props.tagPageTitle === "tag" ? <p>Tag: <strong>{props.tagPageTitle2}</strong></p> :null }
 
                 {/* For Author */}
-                {props.tagPageTitle === "author" ? <p>Author: <strong>{props.tagPageTitle2}</strong></p> :null }
+                {/* {props.tagPageTitle === "author" ? <p>Author: <strong>{props.tagPageTitle2}</strong></p> :null } */}
                 </div>              
             </div>
         :
