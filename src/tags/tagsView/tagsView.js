@@ -39,7 +39,6 @@ export class TagsView extends React.Component{
     showAuthorBio(){
         if(this.props.paramA && this.props.paramA === "author"){
             this.setState({showAuthorBio:true})
-            
         }else{
             this.setState({showAuthorBio:false})
         }
@@ -47,6 +46,7 @@ export class TagsView extends React.Component{
     }
     componentDidMount(){
         this.showAuthorBio()
+        // console.log(this.state.fullDatabaseCall)
     }
 
     updateBookmarkStatus = (articles) => { 
@@ -82,6 +82,7 @@ export class TagsView extends React.Component{
     reload(){
 
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        
         if(localStorageCards){
 
             // Check For Hidden Articles
@@ -116,7 +117,7 @@ export class TagsView extends React.Component{
     }
 
     render(){
-
+        // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
         // console.log(fullDatabaseCallFromStorage) 
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
@@ -128,18 +129,19 @@ export class TagsView extends React.Component{
 
         
         const renderToPage = filterTags.filter(obj => obj.hidden != true) || this.state.fullDatabaseCall
+        // console.log(renderToPage)
 
         // console.log(this.state.searchDBFor)
         // console.log(this.props.match.params.a)        
         // console.log(this.props.match.params.b)
         // console.log(this.props.cleanDB)
         var getAuthorInfo = this.props.cleanDB.filter(x => x.author === this.props.paramB)
-        console.log(getAuthorInfo)
+        // console.log(getAuthorInfo)
         // console.log(getAuthorInfo)
         // console.log(this.props.paramA)
         // console.log(renderToPage[0].id)
         
-            console.log(renderToPage)
+            
 
 
         return(

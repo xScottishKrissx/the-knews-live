@@ -1530,6 +1530,7 @@ General Notes  Objectives:
                         ✔ add reload button @done(13:04 - 08/09/21)
                         ✔ add card size @done(13:30 - 08/09/21)
                         ☐ tags page page will always be empty after clearing cache without going to an article first.Fix this.
+                            ☐ Progress, i have tags working separatley from the rest of the website. The only issue is that you need to reload the page before the article appears. Its progress at least.
 
 
                     Author Page:

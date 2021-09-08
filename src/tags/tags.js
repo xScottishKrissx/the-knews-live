@@ -80,6 +80,14 @@ class Tags extends React.Component{
                 articlesArray:newState.slice(0,10)
             })    
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
+            // console.log(localStorage.getItem("changedFullDatabaseCall"))
+            var checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+            console.log(checkChangedDB)
+            if(checkChangedDB === null){
+                console.log("Do Something")
+                localStorage.setItem("changedFullDatabaseCall",JSON.stringify(this.state.articlesArray))
+            }
+            
             // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
   
         })        
@@ -139,6 +147,10 @@ class Tags extends React.Component{
         
         
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.articlesArray;
+        // console.log(fullDatabaseCallFromStorage)
+
+
+
         const cleanDBCall = JSON.parse(localStorage.getItem("cleanDatabaseCall")) ||  this.state.fullDatabaseCall;
         
 
