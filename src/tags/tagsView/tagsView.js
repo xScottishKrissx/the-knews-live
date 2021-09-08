@@ -1,7 +1,9 @@
 import React from 'react';
 import NavBar from '../../navBar/navBar';
+import updateBookmarkStyles from '../../utility_components/bookmarks/updateBookmarkStyle';
 import FilterOptions from '../../utility_components/filterOptions/filterOptions';
 import RenderCard from '../../utility_components/renderCard/renderCardState';
+
 
 export class TagsView extends React.Component{
     
@@ -9,6 +11,7 @@ export class TagsView extends React.Component{
         super(props);
         this.state = {
             fullDatabaseCall:this.props.fullDatabaseCall,
+            renderArray:[],
             // Card Size
             startingCardSize:"",
             changedCardSize:{
@@ -16,46 +19,53 @@ export class TagsView extends React.Component{
                 height: JSON.parse(localStorage.getItem("myData"))[1]
             }, 
         }
-        this.getCardSize = this.getCardSize.bind(this);
+       
     }
 
-    componentDidMount(){
-     
-    }
-    getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
-
-    updateBookmarkStatus = (articles) => {
-        console.log("Update Bookmarks")
-        const filteredArticles = articles.filter(x=> x.tag === this.props.paramB )  
-        this.setState({ renderArray:filteredArticles }) 
+    
+    getFilteredArticles = (filteredByTag,getArticleBy,length) => {
+        // console.log(filteredByTag)
+        // console.log(getArticleBy)
+        // console.log(length)
+        this.setState({
+            bookmarks: filteredByTag,
+            getArticleBy:getArticleBy,
+            bookmarksCount:length
+        })
         
-
     }
 
-    updateHideStatus = (articles) =>{ this.setState({renderArray:articles}) }
+    updateBookmarkStatus = (articles) => { 
+       
+        const filterChoice = localStorage.getItem("filterOption")
+        const filteredArticles = articles.filter(x=> x.tag === this.props.paramB )
+        
+        if(filterChoice === "All"){
+             this.setState({ fullDatabaseCall:articles })
+        }else{
+            this.setState({ fullDatabaseCall:filteredArticles }) 
+        }
+     }
+
+    updateHideStatus = (articles) =>{ this.setState({fullDatabaseCall:articles}) }
 
     render(){
-        console.log(this.props.fullDatabaseCall)
-        console.log(this.props.paramA)
-        console.log(this.props.paramB)
+
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
         // console.log(fullDatabaseCallFromStorage) 
-        // const filterTags = this.state.fullDatabaseCall.filter(obj => 
-        //     obj.hidden !== true &&
-        //     (obj.author === this.props.paramB || obj.tag === this.props.paramB || obj.postdate === this.props.paramB )
-        // ) || this.props.location.state.arrayFromDatabase;
-        // console.log(filterTags)
+        const filterTags = fullDatabaseCallFromStorage.filter(obj => 
+            obj.hidden !== true &&
+            (obj.author === this.props.paramB || 
+            obj.tag === this.props.paramB ||
+            obj.postdate === this.props.paramB )
+        ) || this.props.fullDatabaseCall;
 
-        // const renderTags = filterTags.filter(obj => obj.hidden !== true) || this.state.articlesArray
+        const renderToPage = filterTags.filter(obj => obj.hidden !== true) || this.state.fullDatabaseCall
 
-        
-
-
-        // I need to filter out the hidden tags
-        // ... then add a message for 0 visible tags.
-        const getCards = this.state.renderArray || this.state.fullDatabaseCall.filter(obj => obj.tag === this.props.paramB)
-        const renderTags = getCards.filter(obj => obj.hidden === false)
-        console.log(renderTags)
-
+        // console.log(this.state.searchDBFor)
+        // console.log(this.props.match.params.a)        
+        // console.log(this.props.match.params.b)
+        console.log(renderToPage)
         
 
 
@@ -76,17 +86,18 @@ export class TagsView extends React.Component{
 
                         // filter to work...
                         fullDatabaseCall={this.state.fullDatabaseCall}
-                        tagsArray={renderTags}
+                        tagsArray={renderToPage}
+
 
                         // tag specific
                         showArticleCounter={true}
                         showTagPageTitle={true}
                         tagPageTitle={this.props.paramA}
                         tagPageTitle2={this.props.paramB}
-                        articleNumber={renderTags.length}
+                        articleNumber={renderToPage.length}
 
                         // options
-                        currentCardArray = {renderTags}
+                        currentCardArray = {renderToPage}
                         updateBookmarkStatus={this.updateBookmarkStatus}
                     />
 
@@ -95,11 +106,11 @@ export class TagsView extends React.Component{
 
                     <div className="cardsWrapper">
                         
-                        {renderTags.length === 0 ?
+                        {renderToPage.length === 0 ?
                             <span> <img alt="now loading"  /> Loading   </span>
                         :
                             <RenderCard 
-                            database={renderTags}
+                            database={renderToPage}
                             startingCardSize={this.state.startingCardSize}
                             changedCardSize={this.state.changedCardSize}
 

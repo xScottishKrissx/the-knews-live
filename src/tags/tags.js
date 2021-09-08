@@ -92,12 +92,12 @@ class Tags extends React.Component{
         var paramB = {}
         if(this.props.match.params.a) paramA = this.props.match.params.a;
         if(this.props.match.params.b) paramB = this.props.match.params.b;
-
+        var filterForTag = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
         
         return(
             // <div><h1>Tags View</h1></div>
             <TagsView  
-                fullDatabaseCall={fullDatabaseCallFromStorage}
+                fullDatabaseCall={filterForTag}
                 paramA={paramA}    
                 paramB={paramB}
             />
