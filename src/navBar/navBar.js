@@ -86,6 +86,10 @@ export class NavBar extends React.Component{
                                 tagsArray={this.props.tagsArray}
                                 filterCounter={this.props.getFilters}
                                 currentCardCount={this.props.currentCardCount}
+                                filterPage={this.props.filterPage}
+                                // Tags
+                                paramA={this.props.paramA}    
+                                paramB={this.props.paramB}
                             />
 
                             {/************** Card Size */}

@@ -4,6 +4,7 @@ import RenderCard from '../../utility_components/renderCard/renderCardState';
 import AuthorInfo from '../../utility_components/aboutAuthor/aboutAuthor'
 import TagsAuthorInfo from './tagsAuthorInfo/tagsAuthorInfo';
 import LoadingGif from '../../utility_components/loadingGif/loadingGif';
+import FilterOptions from '../../utility_components/filterOptions/filterOptions';
 
 export class TagsView extends React.Component{
     
@@ -19,6 +20,10 @@ export class TagsView extends React.Component{
                 height: JSON.parse(localStorage.getItem("myData"))[1]
             }, 
 
+            //hiding articles for filter views
+            getArticleBy:localStorage.getItem("filterOption") || "All",
+            renderArray:[],
+
             showAuthorBio:false
         }
         this.getCardSize = this.getCardSize.bind(this);
@@ -31,6 +36,16 @@ export class TagsView extends React.Component{
                 height:height}
             })
     }
+
+    // filterViews
+    getFilteredArticles = (filteredByTag,getArticleBy) => {
+        // console.log(filteredByTag,getArticleBy)
+        this.setState({
+            fullDatabaseCall: filteredByTag,
+            getArticleBy:getArticleBy,
+        })
+    }
+
 
     componentDidUpdate(){
         this.updateReadStyles(); 
@@ -134,8 +149,11 @@ export class TagsView extends React.Component{
         ) || this.props.fullDatabaseCall;
 
         
-        const renderToPage = filterTags.filter(obj => obj.hidden != true  && obj.read === true) || this.state.fullDatabaseCall
-        // console.log(renderToPage)
+        const renderToPage = filterTags.filter(obj => obj.hidden != true ) || this.state.fullDatabaseCall
+
+        // Hides read articles
+        // const renderToPage = filterTags.filter(obj => obj.hidden != true  && obj.read === false) || this.state.fullDatabaseCall
+        console.log(renderToPage)
 
         // console.log(this.state.searchDBFor)
         // console.log(this.props.match.params.a)        
@@ -146,7 +164,7 @@ export class TagsView extends React.Component{
         // console.log(getAuthorInfo)
         // console.log(this.props.paramA)
         // console.log(renderToPage[0].id)
-        
+        const getFilters = renderToPage.filter(obj => obj.tag === this.state.getArticleBy)
             
 
 
@@ -159,8 +177,15 @@ export class TagsView extends React.Component{
                         cardStyle={true}    
                         options={true}  
                         reload={true}                   
-                        // filter={true}
+                        filter={this.props.showFilterButton}
                         homeButtonOn={true}
+
+                        // filter
+                        getArticleBy={this.state.getArticleBy}
+                        getFilteredArticles={this.getFilteredArticles}
+                        getFilters={getFilters.length}
+                        currentCardCount={renderToPage.length}
+                        filterPage="tags"
 
                         // Card Style to work...
                         getCardSize={this.getCardSize}
@@ -176,6 +201,8 @@ export class TagsView extends React.Component{
                         tagPageTitle={this.props.paramA}
                         tagPageTitle2={this.props.paramB}
                         articleNumber={renderToPage.length}
+                        paramA={this.props.paramA}    
+                        paramB={this.props.paramB}
 
                         //forceReload
                         forceReload={()=>this.reload()}
@@ -195,7 +222,7 @@ export class TagsView extends React.Component{
                     :null
                     }
                     {/* <button onClick={()=>this.test(fullDatabaseCallFromStorage)}>Buttonss</button> */}
-                  
+                    <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/> 
                     {fullDatabaseCallFromStorage.length === 0 ?
                         <LoadingGif />
                     :

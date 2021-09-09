@@ -62,6 +62,10 @@ return(
                             getFilteredArticles = {props.getFilteredArticles}
                             bookmarked={false}
                             tagsArray={props.tagsArray}
+                            filterPage={props.filterPage}
+                            // Tags
+                            paramA={props.paramA}    
+                            paramB={props.paramB}
                         />
                     }
 

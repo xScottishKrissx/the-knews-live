@@ -1531,7 +1531,8 @@ General Notes  Objectives:
 
                     Author Page:
                         ✔ Add the author bio from the recommended reading section to the author tag page. @done(16:21 - 08/09/21)
-                        ☐ Add filter button
+                        ✔ Add filter button @done(15:51 - 09/09/21)
+                            ✔ Only show the filter button on the author page @done(15:51 - 09/09/21)
 
             
             12.10.X - Misc:

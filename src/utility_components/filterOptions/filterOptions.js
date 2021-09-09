@@ -78,16 +78,26 @@ class FilterOptions extends Component {
     }
 
     render(){        
-  
         let allTags = {}
         if(this.props.bookmarked === true){
             // Bookmarks Page
-            const bookmarks = JSON.parse((localStorage.getItem("bookmarkArray"))) || this.state.bookmarkArray
-            allTags = bookmarks.filter(x => x.bookmarked === true)
+            const articlesForFilter = JSON.parse((localStorage.getItem("bookmarkArray"))) || this.state.bookmarkArray
+            allTags = articlesForFilter.filter(x => x.bookmarked === true)
+
+        }else if(this.props.filterPage === "tags"){
+            // Tags Page
+            const articlesForFilter = JSON.parse((localStorage.getItem("changedFullDatabaseCall"))) || this.props.fullDatabaseCall
+            if(this.props.paramA === "tag"){
+                allTags = articlesForFilter.filter(x => x.tag === this.props.paramB)
+            }
+            if(this.props.paramA === "author"){
+                allTags = articlesForFilter.filter(x => x.author === this.props.paramB)
+            }
+
         }else{
             // Home Page 
-            const bookmarks = JSON.parse((localStorage.getItem("changedFullDatabaseCall"))) || this.props.fullDatabaseCall
-            allTags = bookmarks
+            const articlesForFilter = JSON.parse((localStorage.getItem("changedFullDatabaseCall"))) || this.props.fullDatabaseCall
+            allTags = articlesForFilter
         }
 
         const newsCount = allTags.filter(x=> x.tag === "News")

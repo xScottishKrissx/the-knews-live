@@ -105,13 +105,15 @@ class Tags extends React.Component{
         if(this.props.match.params.a) paramA = this.props.match.params.a;
         if(this.props.match.params.b) paramB = this.props.match.params.b;
         
-        let getArticlesBasedOnParams;
+        let getArticlesBasedOnParams; let showFilterButton;
         if(fullDatabaseCallFromStorage.length > 0 && paramA.includes("author")){
             getArticlesBasedOnParams = fullDatabaseCallFromStorage.filter(x=>x.author === paramB)
+            showFilterButton = true
         }
 
         if(fullDatabaseCallFromStorage.length > 0 && paramA.includes("tag")){
             getArticlesBasedOnParams = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
+            showFilterButton = false
         }
 
         return(
@@ -124,6 +126,7 @@ class Tags extends React.Component{
                     cleanDB={cleanDBCall}
                     paramA={paramA}    
                     paramB={paramB}
+                    showFilterButton={showFilterButton}
                 />
             :
             <LoadingGif />
