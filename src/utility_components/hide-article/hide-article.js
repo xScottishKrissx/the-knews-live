@@ -41,7 +41,7 @@ export class HideArticle extends React.Component{
         const filterForNull = mainArray.filter(obj => obj !== nullKey);
         // Filter Initial Load Articles
         const index = value;
-        var markArticleForRemoval = filterForNull.map(el => {
+        const markArticleForRemoval = filterForNull.map(el => {
             if(el.id === index && el != null )
                 return Object.assign({}, el, {hidden:true})
                 
@@ -95,7 +95,7 @@ export class HideArticle extends React.Component{
 
         if(prepLeftoverArticlesForFilter === null)console.log("handle null")
         const index2 = value;
-        var markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
+        const markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
             // console.log(el.id)
             if(el.id === index2 && el != null)
                 return Object.assign({}, el, {hidden:true})
@@ -119,7 +119,7 @@ export class HideArticle extends React.Component{
         const cleanFullDatabaseCall =  dirtyFullDatabaseCall || this.props.fullDatabaseCall;
         console.log(cleanFullDatabaseCall)
 
-        var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
+        const changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
             if(el.id === value && el != null )
                 return Object.assign({}, el, {hidden:true})
                 return el

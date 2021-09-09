@@ -53,7 +53,7 @@ class OptionsMenu extends Component {
             // console.log("Clear Cache" + " " + removeFromCache)
             if(removeFromCache.includes("clearCache")){
                 localStorage.clear()
-                var arrayThing = ["260px","400px"]
+                const arrayThing = ["260px","400px"]
                 localStorage.setItem("myData", JSON.stringify(arrayThing));
             }
                 
@@ -69,7 +69,7 @@ class OptionsMenu extends Component {
             if(removeFromCache.includes("resetCardSize")){
                 // console.log("Reset Card Size")
                 localStorage.removeItem("myData")
-                var arrayThing = ["260px","400px"]
+                const arrayThing = ["260px","400px"]
                 localStorage.setItem("myData", JSON.stringify(arrayThing));
                 window.location.reload();
             }

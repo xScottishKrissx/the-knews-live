@@ -8,7 +8,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         console.log(mainArray)
     
         const filterForNull = mainArray.filter(obj => obj !== null);   
-        var markArticleForRemoval = filterForNull.map(el => {
+        const markArticleForRemoval = filterForNull.map(el => {
             if(el.id === value && el.bookmarked === false && el != null )
                 return Object.assign({}, el, {hidden:true})
                 return el
@@ -36,7 +36,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         const prepLeftoverArticlesForFilter = JSON.parse(localStorage.getItem("editedLeftoverArticlesArray"));
 
         if(prepLeftoverArticlesForFilter === null)console.log("handle null")
-        var markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
+        const markScrollCheckArticleForRemoval = prepLeftoverArticlesForFilter.map(el => {
             if(el.id === value && el.bookmarked === false && el != null)
                 return Object.assign({}, el, {hidden:true})
                 return el
@@ -52,7 +52,7 @@ export const HideArticle  = (value,postsArray,arrayFromDatabase,leftoverArticles
         const dirtyFullDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const cleanFullDatabaseCall =  dirtyFullDatabaseCall || JSON.parse(localStorage.getItem("cleanDatabaseCall"));
 
-        var changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
+        const changedFullDatabaseCall = cleanFullDatabaseCall.map(el => {
             if(el.id === value && el.bookmarked === false &&  el != null )
                 return Object.assign({}, el, {hidden:true})
                 return el

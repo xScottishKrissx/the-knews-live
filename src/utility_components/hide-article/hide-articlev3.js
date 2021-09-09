@@ -2,7 +2,7 @@ import './hide-article.css';
 
 export const HideArticle  = (articles,id) =>{
 
-    var hideArticle = articles.map(el => {
+    const hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
             // return Object.assign({}, el, {hidden:false})
             return Object.assign({}, el, {markedforhide:true})

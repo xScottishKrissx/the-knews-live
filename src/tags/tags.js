@@ -81,7 +81,7 @@ class Tags extends React.Component{
             })    
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
             // console.log(localStorage.getItem("changedFullDatabaseCall"))
-            var checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+            let checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
             console.log(checkChangedDB)
             if(checkChangedDB === null){
                 console.log("Do Something")
@@ -101,8 +101,8 @@ class Tags extends React.Component{
         // console.log(this.state.articlesArray)
         // if(this.state.articlesArray.length){
         //     console.log("Do Something")
-        //     var checkCleanDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        //     var checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        //     let checkCleanDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        //     let checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         //     console.log(checkCleanDB)
         //     console.log(checkChangedDB)
         //     if(checkChangedDB === null || checkChangedDB.length === 0){
@@ -154,10 +154,10 @@ class Tags extends React.Component{
         const cleanDBCall = JSON.parse(localStorage.getItem("cleanDatabaseCall")) ||  this.state.fullDatabaseCall;
         
 
-        var paramA = {}; var paramB = {}
+        let paramA = {}; let paramB = {}
         if(this.props.match.params.a) paramA = this.props.match.params.a;
         if(this.props.match.params.b) paramB = this.props.match.params.b;
-        var filterForTag = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
+        let filterForTag = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
 
         // console.log(filterForTag)
 

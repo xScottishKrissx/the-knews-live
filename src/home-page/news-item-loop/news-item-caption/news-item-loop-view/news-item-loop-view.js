@@ -23,11 +23,11 @@ class NewsItemLoopView extends React.Component{
             height: this.props.cardSize[1]
         },
         postsArray:[],
-        pageLayout:{
-            flexDirection:this.props.pageLayout[0],
-            margin:this.props.pageLayout[1],
-            maxWidth:this.props.pageLayout[2]
-        },
+        // pageLayout:{
+        //     flexDirection:this.props.pageLayout[0],
+        //     margin:this.props.pageLayout[1],
+        //     maxWidth:this.props.pageLayout[2]
+        // },
 
         //hiding articles for filter views
         getArticleBy:localStorage.getItem("filterOption") || "All",
@@ -101,7 +101,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     
     updateReadStyles = () => {
         const renderToPage = this.state.renderArray || this.props.databaseProp ;
-        var markArticleRead = renderToPage.map(el => {
+        const markArticleRead = renderToPage.map(el => {
             if(el.read === true && el != null )if( document.getElementById(el.id)){
                 document.getElementById(el.id).classList.add('markAsRead')
             }
@@ -117,7 +117,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         if(localStorageCards){
 
             // Check For Hidden Articles
-            var hideArticle = localStorageCards.map(el => {
+            const hideArticle = localStorageCards.map(el => {
                 if(el.bookmarked === false && el.markedforhide === true && el != null )
                     // return Object.assign({}, el, {hidden:false})
                     return Object.assign({}, el, {hidden:true})
@@ -130,7 +130,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             
             // Check if a filter is active
             const getFilter = localStorage.getItem("filterOption")
-            var checkFilter = {}
+            let checkFilter = {}
             if(getFilter === "All"){
                 checkFilter = filterMarkedAsHiddenForReload;
             }else{
@@ -160,7 +160,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
 
-        var customPageLayout = this.state.pageLayout
+        // const customPageLayout = this.state.pageLayout
 
         // console.log(renderToPage.length)
         // console.log(renderToPage)
@@ -230,33 +230,33 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
                
-                <div className="cardsWrapper" style={customPageLayout}>
+                <div className="cardsWrapper" >
 
      
-                             {this.props.databaseProp.length >= 10 && thing ? 
-                <RenderCardState 
-                    database={renderToPage}
-                    
-                    
-                    // Card Size
-                    startingCardSize={this.state.startingCardSize}
-                    changedCardSize={this.state.changedCardSize}
-                    postsArray={this.state.postsArray}
-                    arrayFromDatabase={this.props.databaseProp} 
-                    leftoverArticles={this.props.leftoverArticles}  
-                    fullDatabaseCall={this.props.fullDatabaseCall}
-                    
-                    // Controls
-                    updateBookmarkStatus={this.updateBookmarkStatus}
-                    updateHideStatus={this.updateHideStatus}
-                    hideBookmarkedArticle={false}
+                {this.props.databaseProp.length >= 10 && thing ? 
+                    <RenderCardState 
+                        database={renderToPage}
+                        
+                        
+                        // Card Size
+                        startingCardSize={this.state.startingCardSize}
+                        changedCardSize={this.state.changedCardSize}
+                        postsArray={this.state.postsArray}
+                        arrayFromDatabase={this.props.databaseProp} 
+                        leftoverArticles={this.props.leftoverArticles}  
+                        fullDatabaseCall={this.props.fullDatabaseCall}
+                        
+                        // Controls
+                        updateBookmarkStatus={this.updateBookmarkStatus}
+                        updateHideStatus={this.updateHideStatus}
+                        hideBookmarkedArticle={false}
                     />
                 :
-                <div className="blankLoopMessage">
-                    <h2>Nothing to read,<br/> Check back later...</h2>
-                    <span class="material-icons">auto_stories</span>
-                    <p>Tips: Use the refresh button to check for new articles</p>
-                </div>
+                    <div className="blankLoopMessage">
+                        <h2>Nothing to read,<br/> Check back later...</h2>
+                        <span class="material-icons">auto_stories</span>
+                        <p>Tips: Use the refresh button to check for new articles</p>
+                    </div>
                 }
 
                 

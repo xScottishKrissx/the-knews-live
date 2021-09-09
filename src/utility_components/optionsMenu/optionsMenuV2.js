@@ -27,7 +27,7 @@ class OptionsMenu extends Component {
     clearCache(removeFromCache){
         if(removeFromCache.includes("clearCache")){
             localStorage.clear()
-            var arrayThing = ["260px","400px"]
+            const arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
         }              
     }

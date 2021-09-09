@@ -32,7 +32,7 @@ export class EditArticle extends React.Component{
         console.log(this.state.articleText)
         console.log(this.state.articleTitle)
 
-    //Following code stolen from various souces on the internet.
+    //Following code stolen from the internet.
     e.target.style.height ='inherit';
     // Get the computed styles for the element
     const computed = window.getComputedStyle(e.target);

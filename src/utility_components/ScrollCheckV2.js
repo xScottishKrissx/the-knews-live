@@ -72,7 +72,7 @@ class ScrollCheckV2 extends React.Component{
         }else{
             // console.log("Not At Bottom Yet")
         }
-        // var markArticleRead = this.state.thing.map(el => {
+        // const markArticleRead = this.state.thing.map(el => {
         //     if(el.read === true && el != null )if( document.getElementById(el.id))
         //         document.getElementById(el.id).classList.add('markAsRead')
         // });

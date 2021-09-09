@@ -40,7 +40,8 @@ class RenderCardState extends React.Component{
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || fullDatabaseCall;
 
         // Hide an article as normal
-        var hideArticle = articles.map(el => {
+        let hideArticle = {}
+        hideArticle = articles.map(el => {
             if(el.id === id && el.bookmarked === false && el != null )
                 // return Object.assign({}, el, {hidden:false})
                 return Object.assign({}, el, {markedforhide:true})
@@ -49,7 +50,7 @@ class RenderCardState extends React.Component{
 
         // Hiding a bookmarked article
         if(bookmarked === true && this.props.hideBookmarkedArticle === false){
-            var hideArticle = articles.map(el => {
+            hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === true  && el != null )
                     return Object.assign({}, el, {markedforhide:true})
                     return el
@@ -75,7 +76,7 @@ class RenderCardState extends React.Component{
 
     unhideArticle(id){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        var unhideArticle = articles.map(el => {
+        const unhideArticle = articles.map(el => {
             if(el.id === id && el.markedforhide === true && el != null )
                 return Object.assign({}, el, {markedforhide:false})
                 return el
@@ -89,7 +90,7 @@ class RenderCardState extends React.Component{
 
     hideBookmarkedArticle(id){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        var hideBookmarkedArticle = articles.map(el => {
+        const hideBookmarkedArticle = articles.map(el => {
             if(el.id === id && el.markedforhide === true && el.bookmarked === true && el != null )
                 return Object.assign({}, el, {markedforhide:true, bookmarked:false})
                 return el
@@ -115,7 +116,7 @@ class RenderCardState extends React.Component{
         //     }   
         // }
 
-        // var markArticleRead = renderToPage.map(el => {
+        // const markArticleRead = renderToPage.map(el => {
         //     if(el.read === true && el != null )if( document.getElementById(el.id)){
         //         document.getElementById(el.id).classList.add('markAsRead')
         //     }

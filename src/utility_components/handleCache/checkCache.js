@@ -16,7 +16,7 @@ export const CheckCache = (props) =>{
             // const formattedPostsArray2 = localStorageHiddenPosts2.split(',').map(Number)
             
 
-            // for(var i = 0; i < formattedPostsArray.length; i++){
+            // for(let i = 0; i < formattedPostsArray.length; i++){
                 // if(!!formattedPostsArray && formattedPostsArray[i].toString() === props.id.toString()){
                     // console.log("Hidden Post Identified")
                     document.getElementById(props.id).style.display = "none";

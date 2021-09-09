@@ -4,7 +4,7 @@ export const MarkAsRead = (id,read) =>{
 
         const mainArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || cleanDB
        
-        // var markArticleRead = mainArray.map(el => {
+        // const markArticleRead = mainArray.map(el => {
         //     if(el.id === id && el != null )
         //         return Object.assign({}, el, {read:true})
         //         return el
@@ -16,7 +16,7 @@ export const MarkAsRead = (id,read) =>{
                 document.getElementById(id).classList.add('markAsRead')
                 }
 
-                var markArticleRead = mainArray.map(el => {
+                const markArticleRead = mainArray.map(el => {
                         if(el.id === id && el != null )
                             return Object.assign({}, el, {read:true})
                             return el
@@ -30,7 +30,7 @@ export const MarkAsRead = (id,read) =>{
                 console.log("Mark as UnRead")
                 document.getElementById(id).classList.remove('markAsRead')
 
-                var markArticleUnread = mainArray.map(el => {
+                const markArticleUnread = mainArray.map(el => {
                         if(el.id === id && el != null )
                             return Object.assign({}, el, {read:false})
                             return el

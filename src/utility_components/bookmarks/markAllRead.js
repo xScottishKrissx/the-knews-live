@@ -5,7 +5,7 @@ export const markAllRead = () =>{
                 // Removing Style
                 const articlesAsRead = database.filter(obj => obj.read === false && obj.bookmarked === true)
                 console.log(articlesAsRead)
-                var removeStyles = articlesAsRead.map(el => {
+                const removeStyles = articlesAsRead.map(el => {
                         if(el.read === false && el != null )
                                 if(document.getElementById(el.id)){
                                         document.getElementById(el.id).classList.add('markAsRead')
@@ -13,7 +13,7 @@ export const markAllRead = () =>{
                         })
 
                 // Removing from memory
-                var markAsRead = database.map(el => {
+                const markAsRead = database.map(el => {
                         if(el.read === false && el != null && el.bookmarked === true )
                                 return Object.assign({}, el, {read:true})
                                 return el

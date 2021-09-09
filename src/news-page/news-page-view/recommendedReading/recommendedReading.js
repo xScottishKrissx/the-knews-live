@@ -4,23 +4,23 @@ import './recommendedReading.css';
 export const RecommendedReading = (props) =>{
     
         // Random Articles
-    var articleSelection = []
-    for(var i = 0; i < 4; i++){
-        var randomNumber = Math.floor(Math.random() * 9) + 1; 
+    let articleSelection = []
+    for(let i = 0; i < 4; i++){
+        const randomNumber = Math.floor(Math.random() * 9) + 1; 
         // console.log(randomNumber)
         
-        var getArticles = props.database[randomNumber]      
+        const getArticles = props.database[randomNumber]      
         // console.log(getArticles)      
         
         articleSelection.push(getArticles)
         // console.log(articleSelection)
-        console.log(i)
+        // console.log(i)
     }
     
     // Precise Controls
-        // var compArray = [319,546,536,375,856]
-        // for(var i = 0; i < 5; i++){
-        //     var getArticles = database.filter(obj => obj.id === compArray[i] ) 
+        // const compArray = [319,546,536,375,856]
+        // for(let i = 0; i < 5; i++){
+        //     let getArticles = database.filter(obj => obj.id === compArray[i] ) 
         //     articleSelection.push(getArticles[0])
         // }
     

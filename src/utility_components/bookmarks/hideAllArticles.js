@@ -6,13 +6,13 @@ export const hideAllArticles = () =>{
                 // Removing Style
                 const articlesAsRead = database.filter(obj => obj.bookmarked === true)
                 console.log(articlesAsRead)
-                var removeStyles = articlesAsRead.map(el => {
+                const removeStyles = articlesAsRead.map(el => {
                         if(el.bookmarked === true && el != null )
                                 if(document.getElementById(el.id)){
                                         document.getElementById(el.id + "bookmarkIcon").classList.remove('bookmarkStyle')
                                 }
                         })
-                var hideAllArticles = database.map(el => {
+                const hideAllArticles = database.map(el => {
                 if(el.bookmarked === true && el != null )
                         return Object.assign({}, el, {hidden:true,bookmarked:false})
                         return el

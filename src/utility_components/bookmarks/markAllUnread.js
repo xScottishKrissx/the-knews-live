@@ -4,7 +4,7 @@ export const markAllUnread = () =>{
         if(database){
                 // Removing Style
                 const articlesAsRead = database.filter(obj => obj.read === true)
-                var removeStyles = articlesAsRead.map(el => {
+                const removeStyles = articlesAsRead.map(el => {
                         if(el.read === true && el != null )
                                 if(document.getElementById(el.id)){
                                         document.getElementById(el.id).classList.remove('markAsRead')
@@ -12,7 +12,7 @@ export const markAllUnread = () =>{
                         })
 
                 // Removing from memory
-                var clearAllBookmarks = database.map(el => {
+                const clearAllBookmarks = database.map(el => {
                         if(el.read === true && el != null )
                                 return Object.assign({}, el, {read:false})
                                 return el

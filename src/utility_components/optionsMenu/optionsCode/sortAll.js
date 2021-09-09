@@ -1,7 +1,7 @@
 export const SortAll = (currentCardArray,sortBy,updateBookmarkStatus) =>{
     
     console.log("Sort by" + sortBy)
-    var currentCards = currentCardArray;
+    const currentCards = currentCardArray;
 
     currentCards.sort((a, b) => {
         if (a[sortBy] > b[sortBy]) return 1;

@@ -10,7 +10,7 @@ export const AuthorInfo = (props) =>{
     
     const authorInfoView = getCurrentArticle.map((value) => {
 
-        var formatAuthor = value.author.toLowerCase().replace(/\w\s/g, '')
+        const formatAuthor = value.author.toLowerCase().replace(/\w\s/g, '')
         return(
             <div className="articleInfo">
 

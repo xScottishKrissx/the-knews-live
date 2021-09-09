@@ -2,7 +2,7 @@ export const clearAllBookmarks = () =>{
         console.log("Clear All Bookmarks")
         const database = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(database){
-                var clearAllBookmarks = database.map(el => {
+                const clearAllBookmarks = database.map(el => {
                 if(el.bookmarked === true && el != null )
                         return Object.assign({}, el, {bookmarked:false})
                         return el

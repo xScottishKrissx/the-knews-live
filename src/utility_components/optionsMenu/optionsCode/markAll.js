@@ -1,24 +1,24 @@
 export const MarkAll = (currentCardArray, fullDatabaseCall,thingToChange,changeThingTo,updateBookmarkStatus) =>{
     
-    var currentCards = currentCardArray;   
-    var localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||fullDatabaseCall;
+    const currentCards = currentCardArray;   
+    const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||fullDatabaseCall;
 
     if(thingToChange === "hideread" ){
         console.log("Only Hide Read")
         localStorageCards.map(x => { 
-            var getMatchingRecord = currentCards.filter(obj => obj.read === true && obj.id === x.id);
+            const getMatchingRecord = currentCards.filter(obj => obj.read === true && obj.id === x.id);
             if( getMatchingRecord.length > 0 ) x.markedforhide = changeThingTo;
             return x 
         }) 
     } else if(thingToChange === "hidenonbookmarked" ){
         localStorageCards.map(x => { 
-            var getMatchingRecord = currentCards.filter(obj => obj.bookmarked === false && obj.id === x.id);
+            const getMatchingRecord = currentCards.filter(obj => obj.bookmarked === false && obj.id === x.id);
             if( getMatchingRecord.length > 0 ) x.markedforhide = changeThingTo;
             return x 
         }) 
     } else {
     localStorageCards.map(x => { 
-        var getMatchingRecord = currentCards.filter(obj => obj.id === x.id);
+        const getMatchingRecord = currentCards.filter(obj => obj.id === x.id);
         if( getMatchingRecord.length > 0 ) x[thingToChange] = changeThingTo;
         return x 
     }) 

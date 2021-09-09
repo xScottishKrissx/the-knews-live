@@ -4,7 +4,7 @@ export const MarkAsRead = (id,markAs) =>{
                         JSON.parse(localStorage.getItem("changedFullDatabaseCall")) 
                         || JSON.parse(localStorage.getItem("cleanDatabaseCall"))
            
-                var changeArticleReadStatus = articles.map(el => { 
+                const changeArticleReadStatus = articles.map(el => { 
                     if(el.id === id && el != null )
                         return Object.assign({}, el, {read:!markAs})
                         return el

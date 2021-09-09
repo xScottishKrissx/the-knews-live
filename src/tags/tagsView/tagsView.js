@@ -69,7 +69,7 @@ export class TagsView extends React.Component{
 
     updateReadStyles = () => {
         const renderToPage = this.state.fullDatabaseCall || this.props.fullDatabaseCall ;
-        var markArticleRead = renderToPage.map(el => {
+        let markArticleRead = renderToPage.map(el => {
             if(el.read === true && el != null )if( document.getElementById(el.id)){
                 document.getElementById(el.id).classList.add('markAsRead')
             }
@@ -86,7 +86,7 @@ export class TagsView extends React.Component{
         if(localStorageCards){
 
             // Check For Hidden Articles
-            var hideArticle = localStorageCards.map(el => {
+            let hideArticle = localStorageCards.map(el => {
                 if(el.bookmarked === false && el.markedforhide === true && el != null )
                     // return Object.assign({}, el, {hidden:false})
                     return Object.assign({}, el, {hidden:true})
@@ -99,7 +99,7 @@ export class TagsView extends React.Component{
             
             // Check if a filter is active
             const getFilter = localStorage.getItem("filterOption")
-            var checkFilter = {}
+            let checkFilter = {}
             if(getFilter === "All"){
                 checkFilter = filterMarkedAsHiddenForReload;
             }else{
@@ -135,7 +135,7 @@ export class TagsView extends React.Component{
         // console.log(this.props.match.params.a)        
         // console.log(this.props.match.params.b)
         // console.log(this.props.cleanDB)
-        var getAuthorInfo = this.props.cleanDB.filter(x => x.author === this.props.paramB)
+        const getAuthorInfo = this.props.cleanDB.filter(x => x.author === this.props.paramB)
         // console.log(getAuthorInfo)
         // console.log(getAuthorInfo)
         // console.log(this.props.paramA)

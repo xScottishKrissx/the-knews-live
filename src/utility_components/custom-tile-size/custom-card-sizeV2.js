@@ -26,7 +26,7 @@ class CustomCardSize extends React.Component{
     }
 
     changeCardSize(width,height,cardStyleChoice){
-        var arrayThing = [width,height]
+        const arrayThing = [width,height]
         localStorage.removeItem("myData");
 
         localStorage.setItem("myData", JSON.stringify(arrayThing));
@@ -39,7 +39,7 @@ class CustomCardSize extends React.Component{
     }
 
     // changePageLayout(flexFlow,margin,pageLayout,maxWidth){
-    //     var array = [flexFlow,margin,maxWidth]
+    //     const array = [flexFlow,margin,maxWidth]
     //     console.log(pageLayout)
     //     localStorage.setItem("pageLayout",JSON.stringify(array))
     //     if(this.props.updatePageLayout)this.props.updatePageLayout(flexFlow,margin,maxWidth)

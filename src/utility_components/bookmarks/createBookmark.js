@@ -1,7 +1,7 @@
 export const createBookmark = (id,database,changedFullDatabaseCall) =>{
       
     // Set initial array
-    var arrayThing = JSON.parse(localStorage.getItem("bookmarks")) || []
+    const arrayThing = JSON.parse(localStorage.getItem("bookmarks")) || []
     // Push card to array
     arrayThing.push(id);
 
@@ -16,7 +16,7 @@ export const createBookmark = (id,database,changedFullDatabaseCall) =>{
         // console.log(currentBookmarks)
     const mainArray = currentBookmarks || cleanDB;
    
-    var setBookmarkTrue = mainArray.map(el => {
+    const setBookmarkTrue = mainArray.map(el => {
         if(el.id === id && el != null && el.bookmarked === false )
             return Object.assign({}, el, {bookmarked:true, hidden:false, markedforhide:false})
             return el

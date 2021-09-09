@@ -80,7 +80,7 @@ class MapDatabaseItems extends React.Component{
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
 
         // Starting Card Size
-        var cardSize = {}
+        let cardSize = {}
         const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
         if(cardSizeInStorage === null){
             cardSize = ["260px","400px"]
@@ -89,13 +89,13 @@ class MapDatabaseItems extends React.Component{
         }
 
         // Starting Page Layout
-        var pageLayout={}
-        const pageLayoutInStorage = JSON.parse(localStorage.getItem("pageLayout"))
-        if(pageLayoutInStorage === null){
-            pageLayout = ["row", "0 auto","auto"]
-        }else{
-            pageLayout = [pageLayoutInStorage[0], pageLayoutInStorage[1], pageLayoutInStorage[2]]
-        }
+        // let pageLayout={}
+        // const pageLayoutInStorage = JSON.parse(localStorage.getItem("pageLayout"))
+        // if(pageLayoutInStorage === null){
+        //     pageLayout = ["row", "0 auto","auto"]
+        // }else{
+        //     pageLayout = [pageLayoutInStorage[0], pageLayoutInStorage[1], pageLayoutInStorage[2]]
+        // }
 
 
          return (
@@ -109,7 +109,7 @@ class MapDatabaseItems extends React.Component{
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                                 urlTagProp={this.props.props}
                                 cardSize={cardSize}
-                                pageLayout = {pageLayout}
+                                // pageLayout = {pageLayout}
                             /> 
             
                             <ScrollToTopButton   />

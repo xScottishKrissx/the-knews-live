@@ -24,35 +24,35 @@ class OnCardBookMarkControls extends Component {
 
 hideArticle =(id) => {
     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall;
-
+    let hideArticle = {}
     // console.log(articles)
-    var hideArticle = articles.map(el => {
+    hideArticle = articles.map(el => {
         if(el.id === id && el.bookmarked === false && el != null )
             return Object.assign({}, el, {markedforhide:true})
             return el
     });
 
     // Hiding a bookmarked article
-        if(this.state.bookmarked === true ){
-            var hideArticle = articles.map(el => {
-                if(el.id === id && el.bookmarked === true  && el != null )
-                    return Object.assign({}, el, {markedforhide:true})
-                    return el
-            });
-        }
+    if(this.state.bookmarked === true ){
+        hideArticle = articles.map(el => {
+            if(el.id === id && el.bookmarked === true  && el != null )
+                return Object.assign({}, el, {markedforhide:true})
+                return el
+        });
+    }
   
     // Undo Hide Article In Article 
     if(this.props.hideButtonSwitching === true && this.state.bookmarked === false){
         if(this.state.hideStatus === true){
             this.setState({hideStatus:false})
-            var hideArticle = articles.map(el => {
+            hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === false && el != null )
                     return Object.assign({}, el, {markedforhide:false})
                     return el
             });
         }else{
             this.setState({hideStatus:true})
-            var hideArticle = articles.map(el => {
+            hideArticle = articles.map(el => {
                 if(el.id === id && el.bookmarked === false && el != null )
                     return Object.assign({}, el, {markedforhide:true})
                     return el

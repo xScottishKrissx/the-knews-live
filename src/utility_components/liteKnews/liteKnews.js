@@ -25,7 +25,7 @@ class LiteKnews extends Component {
     changeArticle(x){
 
         // Close liteKnews
-        var close = this.props.closeLiteKnews;
+        const close = this.props.closeLiteKnews;
         if(x === "close")close()
 
         // Return to previous article IF it isnt the first item in the array 
@@ -63,7 +63,7 @@ class LiteKnews extends Component {
     // handleHideClick(id){
     //     console.log("handleHideClick")
     //     const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-    //     var hideArticle = articles.map(el => {
+    //     const hideArticle = articles.map(el => {
     //         if(el.id === id && el.bookmarked === false && el != null )
     //             // return Object.assign({}, el, {hidden:false})
     //             return Object.assign({}, el, {markedforhide:true})

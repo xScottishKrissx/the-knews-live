@@ -21,11 +21,7 @@ export class HandleLike extends React.Component{
         const liked = this.state.liked 
         const disliked = this.state.disliked 
 
-        var updateArrayLikes = {}
-        var updateLiked = {}
-
-        var updateArrayDislikes = {}
-        var updateDisliked = {}
+        let updateArrayLikes = {}; let updateLiked = {}; let updateArrayDislikes = {}; let updateDisliked = {}
 
         if(choice === "like"){
             // Like Button Permutations ->
@@ -89,7 +85,7 @@ export class HandleLike extends React.Component{
         }
 
         // Update Main Website Array
-        var changeDatabase = database.map(el => {
+        const changeDatabase = database.map(el => {
             if(el.id === this.props.id)
                 return Object.assign({}, el, {likes:updateArrayLikes, liked:updateLiked, dislikes:updateArrayDislikes, disliked: updateDisliked})
                 return el

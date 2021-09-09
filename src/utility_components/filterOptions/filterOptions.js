@@ -59,7 +59,7 @@ class FilterOptions extends Component {
         const filterBookmarksAll = filteredForHiddenArticlesDB.filter(obj => obj.bookmarked === true);
         this.setState({bookmarkArray:filterBookmarksAll})
 
-        var updateState = this.props.getFilteredArticles;
+        const updateState = this.props.getFilteredArticles;
         if(this.props.bookmarked != true){
             localStorage.setItem("filterOption",value)
             if(value === "All" ){
@@ -79,7 +79,7 @@ class FilterOptions extends Component {
 
     render(){        
   
-        var allTags = {}
+        let allTags = {}
         if(this.props.bookmarked === true){
             // Bookmarks Page
             const bookmarks = JSON.parse((localStorage.getItem("bookmarkArray"))) || this.state.bookmarkArray

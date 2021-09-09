@@ -965,30 +965,26 @@ General Notes  Objectives:
                 Goals:
                     ✔ All controls for page should be easily accessible @done(16:36 - 06/07/21)
                 To-Do:
-                    ☐ Get working with new ui bar...
+                    ✔ Get working with new ui bar... @done(12:08 - 09/09/21)
                         ✔ Bookmark page link @done(15:43 - 28/05/21)
                         ✔ liteKnews start @done(15:43 - 28/05/21)
                         ✔ filter by tags @done(18:30 - 28/05/21)
                         ✔ change card size @done(12:15 - 02/06/21)
-                        ☐ options menu
+                        ✔ options menu @done(12:08 - 09/09/21)
                             ✔ Clear Bookmarks not currently working @done(17:35 - 08/06/21)
                                 ✔ Solution - Wrong file path for component import @done(17:35 - 08/06/21)
-                            ☐ Add mark all unread button.
+                            ✔ Add mark all unread button. @done(12:08 - 09/09/21)
                         Buttons to be added to navbar:
                             Home:
-                                ☐ Mark All As Read
-                                ☐ Mark All as Unread
-                                ☐ Clear All Articles
+                                ✔ Mark All As Read @done(12:07 - 09/09/21)
+                                ✔ Mark All as Unread @done(12:07 - 09/09/21)
+                                ✔ Clear All Articles @done(12:07 - 09/09/21)
                             Bookmarks:
-                                ☐ Reset Card Size
-                                                                
-                        ☐ What about the ability to hide but not remove articles?
-                            ☐ then have a button that:
-                                ☐ Lets you view read articles
-                                ☐ hide read articles
+                                ✔ Reset Card Size @done(12:08 - 09/09/21)
+
 
                     ✔ Just as being able to see when a filter is active, the same should be done for card size. @done(12:23 - 16/06/21)
-                    ☐ Maybe put some space between the button and the dropdown, then add a connecting line between the 2.
+                    ✔ Maybe put some space between the button and the dropdown, then add a connecting line between the 2. @done(12:08 - 09/09/21)
                     12.10.1.15:
                         Goals / Reasoning:
                             ☐Moving the UI bar from the card page into it's own component that can then be reused.
@@ -1230,14 +1226,14 @@ General Notes  Objectives:
                     ☐ Improved feedback for hiding articles using button
                     ☐ improved feedback for hiding by swiping
                         ☐ new marked as hide hasn't been integrated with swiping.
-                    ☐ Hiding an article should be more than just an instant vanishing act.
-                    ☐ Ability to undo a hide
+                    ✔ Hiding an article should be more than just an instant vanishing act. @done(12:09 - 09/09/21)
+                    ✔ Ability to undo a hide @done(12:09 - 09/09/21)
 
                         ☐ I dont want articles to instantly disappear.
-                            ☐ My idea is to "replace" the card with a message that the article will be removed on the next reload of the page. This also gives users the chance to undo if the hide was a miss-click.
+                            ✔ My idea is to "replace" the card with a message that the article will be removed on the next reload of the page. This also gives users the chance to undo if the hide was a miss-click. @done(12:09 - 09/09/21)
                                 ✔ to do this i think i need a new row in the database, "marked as Hidden". @done(13:14 - 04/08/21)
                                     ✔ Added the new row and now the card doesnt instantly disappear but vanishes when the page reloads or you activate filters. Next is the UI overlay for the marked as hidden card. @done(13:15 - 04/08/21)
-                                ☐ this will be used to sign post that the article can be removed but can appear on screen until a new render.
+                                ✔ this will be used to sign post that the article can be removed but can appear on screen until a new render. @done(12:09 - 09/09/21)
                                     ✔ created the overlay ui @done(13:35 - 04/08/21)
                                     ✔ activate on pressing the hide button @done(13:47 - 04/08/21)
                                     ✔ issue: bookmarking a card re-rerenders the page and removes the markedforhide cards which i don't want. @done(11:33 - 05/08/21)
@@ -1257,8 +1253,8 @@ General Notes  Objectives:
                                             ✔ added a confirmation box @done(12:44 - 06/08/21)
                                             ✔ integrate bookmark page with this. @done(12:57 - 06/08/21)
 
-                        ☐ there is still no feedback in the actual article
-                            ☐ working on this, have the bones of it in place and it's mostly working but there a few things to be worked out.
+                        ✔ there is still no feedback in the actual article @done(12:09 - 09/09/21)
+                            ✔ working on this, have the bones of it in place and it's mostly working but there a few things to be worked out. @done(12:09 - 09/09/21)
                                 ✔ 1 - I need to press the hide button twice after bookmarking the article.It DOES work once the article had already been bookmarked. @done(12:04 - 09/08/21)
                                     ✔ Solution - Added the updateProp from the renderCardState that simply updates the article array with the latest stored array when the bookmark icon is clicked. @done(12:04 - 09/08/21)
                                 ✔ 2 - Hookup Confirm Button @done(11:29 - 10/08/21)
@@ -1548,6 +1544,7 @@ General Notes  Objectives:
                 ✔ added animation to cards so they now do a little fade in when they render. @done(12:28 - 31/08/21)
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
+                ☐ add a close menu button to all menu's
                 ✔ refreshing the page with an active filter does not maintain the filter. @done(17:48 - 06/09/21)
                     ✔ correction - bookmarking an article causes a re-render which doesn't maintain the filter and seems to cause other issues. @done(17:48 - 06/09/21)
                     ✔ correction correction - filter is not respected @done(17:48 - 06/09/21)
@@ -1558,6 +1555,9 @@ General Notes  Objectives:
                 ✔ the mark all and sort all components can be moved to separate components. @done(16:35 - 07/09/21)
                 ☐ have a look and see how the code can be futher tidied and optimised.
                 ☐ there will be component that are no longer in use, remove these.
+                ✔ convert var to let or const @done(12:09 - 09/09/21)
+                    let for loops and stuff
+                    const for everything else
 
 
                 ☐ Issues

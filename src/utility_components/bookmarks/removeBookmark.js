@@ -4,7 +4,7 @@ export const removeBookmark = (id) =>{
 
         const currentBookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall"));
 
-        var setBookmarkFalse = currentBookmarks.map(el => {
+        const setBookmarkFalse = currentBookmarks.map(el => {
             if(el.id === id && el != null )
                 return Object.assign({}, el, {bookmarked:false})
                 return el

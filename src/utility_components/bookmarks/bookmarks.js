@@ -106,7 +106,7 @@ class Bookmarks extends Component {
         // Update Bookmark count on removing/adding bookmarks
         const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
 
-        var filterBookmarks = {}
+        let filterBookmarks = {}
         if(this.state.getArticleBy === "All"){
             filterBookmarks = bookmarkArray.filter(x => x.bookmarked === true)
             
@@ -145,7 +145,7 @@ class Bookmarks extends Component {
         updateReadStyles = () => {
             const renderToPage = this.state.bookmarks ;
             // console.log("UpdateReadStyles")
-            var markArticleRead = renderToPage.map(el => {
+            const markArticleRead = renderToPage.map(el => {
                 if(el.read === true && el != null )if( document.getElementById(el.id)){
                     document.getElementById(el.id).classList.add('markAsRead')
                 }
@@ -167,8 +167,8 @@ class Bookmarks extends Component {
 
         this.updateReadStyles()
 
-        var cleanDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall
-        var totalBookmarks = cleanDatabaseCall.filter(obj => obj.bookmarked === true);
+        const cleanDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall
+        const totalBookmarks = cleanDatabaseCall.filter(obj => obj.bookmarked === true);
         // console.log(totalBookmarks.length)
 
         return(
@@ -221,7 +221,7 @@ class Bookmarks extends Component {
                     <div className="blankLoopMessage">
                         <h2>You don't have any bookmarks<br/></h2>
                         <span class="material-icons">auto_stories</span>
-                        <p>Tips: You can create bookmarks by pressing the <span  class="material-icons" >turned_in_not</span> icon wherever you see it.</p>
+                        <p>Tips: You can create bookmarks by pressing the <span class="material-icons" >turned_in_not</span> icon wherever you see it.</p>
                     </div>
                 :
                 <RenderCard 

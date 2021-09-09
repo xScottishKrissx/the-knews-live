@@ -4,7 +4,7 @@ export const updateBookmarkStyles = () =>{
         if(bookmarks){
             const updateStyles = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
             
-            var thing = updateStyles.map(el => {
+            const thing = updateStyles.map(el => {
                 if(el.read === true && el != null )
                     // if(document.getElementById(el.id)){document.getElementById(el.id).classList.add('markAsRead')}
                    
