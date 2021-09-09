@@ -82,16 +82,16 @@ class Tags extends React.Component{
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
             // console.log(localStorage.getItem("changedFullDatabaseCall"))
             let checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-            console.log(checkChangedDB)
+            // console.log(checkChangedDB)
             if(checkChangedDB === null){
-                console.log("Do Something")
+                // console.log("Do Something")
                 localStorage.setItem("changedFullDatabaseCall",JSON.stringify(this.state.articlesArray))
             }
             
             // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
   
         })        
-        console.log("Mount")
+        // console.log("Mount")
     }
 
     
@@ -147,8 +147,8 @@ class Tags extends React.Component{
         
         
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.articlesArray;
-        // console.log(fullDatabaseCallFromStorage)
-
+        console.log(fullDatabaseCallFromStorage)
+        console.log(fullDatabaseCallFromStorage.filter(x=>x.author === "PA Media"))
 
 
         const cleanDBCall = JSON.parse(localStorage.getItem("cleanDatabaseCall")) ||  this.state.fullDatabaseCall;
@@ -157,20 +157,37 @@ class Tags extends React.Component{
         let paramA = {}; let paramB = {}
         if(this.props.match.params.a) paramA = this.props.match.params.a;
         if(this.props.match.params.b) paramB = this.props.match.params.b;
-        let filterForTag = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
+        let filterForTag;
+        if(fullDatabaseCallFromStorage.length > 0) 
+        {
+            filterForTag = fullDatabaseCallFromStorage.filter(x=>x.author === paramB)
+            // console.log(filterForTag)
+            // console.log(fullDatabaseCallFromStorage)
+
+        }else{
+            // console.log("No")
+        }
 
         // console.log(filterForTag)
+        // console.log(paramA + " " + paramB)
 
         // console.log(cleanDBCall)
         // console.log(fullDatabaseCallFromStorage)
         return(
             // <div><h1>Tags View</h1></div>
-            <TagsView  
-                fullDatabaseCall={filterForTag}
-                cleanDB={cleanDBCall}
-                paramA={paramA}    
-                paramB={paramB}
-            />
+            <>
+
+            {fullDatabaseCallFromStorage.length > 0 ? 
+                <TagsView  
+                    fullDatabaseCall={filterForTag}
+                    cleanDB={cleanDBCall}
+                    paramA={paramA}    
+                    paramB={paramB}
+                />
+            :
+                <h1>Nay</h1>
+            }
+            </>
             
             
         )

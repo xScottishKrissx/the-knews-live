@@ -46,7 +46,7 @@ export class TagsView extends React.Component{
     }
     componentDidMount(){
         this.showAuthorBio()
-        // console.log(this.state.fullDatabaseCall)
+        this.reload()
     }
 
     updateBookmarkStatus = (articles) => { 
@@ -80,7 +80,7 @@ export class TagsView extends React.Component{
     }
 
     reload(){
-
+        // console.log("Reload")
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         
         if(localStorageCards){
@@ -120,6 +120,7 @@ export class TagsView extends React.Component{
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
         // console.log(fullDatabaseCallFromStorage) 
+
         const filterTags = fullDatabaseCallFromStorage.filter(obj => 
             obj.hidden !== true &&
             (obj.author === this.props.paramB || 
@@ -189,7 +190,11 @@ export class TagsView extends React.Component{
                     :null
                     }
 
-
+                    {fullDatabaseCallFromStorage.length > 0 ?
+                        <h1>Yah</h1>
+                        :
+                        <h1>Nah</h1>
+                    }
                     <div className="cardsWrapper">
                         
                         {renderToPage.length === 0 ?

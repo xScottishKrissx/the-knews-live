@@ -1527,7 +1527,7 @@ General Notes  Objectives:
                         ✔ add card size @done(13:30 - 08/09/21)
                         ☐ tags page page will always be empty after clearing cache without going to an article first.Fix this.
                             ☐ Progress, i have tags working separatley from the rest of the website. The only issue is that you need to reload the page before the article appears. Its progress at least.
-
+                        ☐ move news-item-loop-view above news-caption in the folder structure.
 
                     Author Page:
                         ✔ Add the author bio from the recommended reading section to the author tag page. @done(16:21 - 08/09/21)
