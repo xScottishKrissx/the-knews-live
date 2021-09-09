@@ -1,7 +1,8 @@
 import React from 'react';
 import fire from '../fire.js';
-
+import loading from '../img/loading.gif'
 import '../tags/tags.css';
+import LoadingGif from '../utility_components/loadingGif/loadingGif.js';
 import TagsView from './tagsView/tagsView.js';
 
 class Tags extends React.Component{
@@ -82,74 +83,20 @@ class Tags extends React.Component{
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
             // console.log(localStorage.getItem("changedFullDatabaseCall"))
             let checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-            // console.log(checkChangedDB)
             if(checkChangedDB === null){
-                // console.log("Do Something")
                 localStorage.setItem("changedFullDatabaseCall",JSON.stringify(this.state.articlesArray))
             }
             
-            // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
   
         })        
-        // console.log("Mount")
+
     }
 
     
-    render(){
-        // console.log(this.state.fullDatabaseCall)
-
-        // console.log(this.state.articlesArray)
-        // if(this.state.articlesArray.length){
-        //     console.log("Do Something")
-        //     let checkCleanDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        //     let checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        //     console.log(checkCleanDB)
-        //     console.log(checkChangedDB)
-        //     if(checkChangedDB === null || checkChangedDB.length === 0){
-        //         console.log("Set Changed DB")
-        //         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.articlesArray)) 
-        //         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
-        //     }else{
-        //         console.log("Dont set New Changed DB" )
-        //     }
-        // }else{
-        //     console.log("Do Nothing")
-        // }
-
-
-
-
-        
- 
-        // if(checkChangedDB && checkCleanDB === [] || checkChangedDB && checkCleanDB === null){
-        //     console.log("Database Exists")
-        // }else{
-        //     console.log("Datbase Does not Exist")
-        //     localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
-        //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
-        // }
-
-       
-
-        
-        
-            // if(checkStorage === null){
-            //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
-            //     localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
-            //     console.log("1")
-            // }else if(checkStorage.length === 0){
-            //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
-            //     localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
-            //     console.log("2")
-            // }else{
-            //     console.log(checkStorage)
-            // }
-        
+    render(){      
         
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.articlesArray;
         console.log(fullDatabaseCallFromStorage)
-        console.log(fullDatabaseCallFromStorage.filter(x=>x.author === "PA Media"))
-
 
         const cleanDBCall = JSON.parse(localStorage.getItem("cleanDatabaseCall")) ||  this.state.fullDatabaseCall;
         
@@ -157,35 +104,29 @@ class Tags extends React.Component{
         let paramA = {}; let paramB = {}
         if(this.props.match.params.a) paramA = this.props.match.params.a;
         if(this.props.match.params.b) paramB = this.props.match.params.b;
-        let filterForTag;
-        if(fullDatabaseCallFromStorage.length > 0) 
-        {
-            filterForTag = fullDatabaseCallFromStorage.filter(x=>x.author === paramB)
-            // console.log(filterForTag)
-            // console.log(fullDatabaseCallFromStorage)
-
-        }else{
-            // console.log("No")
+        
+        let getArticlesBasedOnParams;
+        if(fullDatabaseCallFromStorage.length > 0 && paramA.includes("author")){
+            getArticlesBasedOnParams = fullDatabaseCallFromStorage.filter(x=>x.author === paramB)
         }
 
-        // console.log(filterForTag)
-        // console.log(paramA + " " + paramB)
+        if(fullDatabaseCallFromStorage.length > 0 && paramA.includes("tag")){
+            getArticlesBasedOnParams = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
+        }
 
-        // console.log(cleanDBCall)
-        // console.log(fullDatabaseCallFromStorage)
         return(
             // <div><h1>Tags View</h1></div>
             <>
 
-            {fullDatabaseCallFromStorage.length > 0 ? 
+            {fullDatabaseCallFromStorage.length > 0? 
                 <TagsView  
-                    fullDatabaseCall={filterForTag}
+                    fullDatabaseCall={getArticlesBasedOnParams}
                     cleanDB={cleanDBCall}
                     paramA={paramA}    
                     paramB={paramB}
                 />
             :
-                <h1>Nay</h1>
+            <LoadingGif />
             }
             </>
             

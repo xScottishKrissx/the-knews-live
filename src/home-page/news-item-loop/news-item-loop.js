@@ -7,7 +7,7 @@ import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.
 
 import NewsItemLoopView from './news-item-caption/news-item-loop-view/news-item-loop-view.js';
 
-import loading from '../../img/loading5.gif';
+import LoadingGif from '../../utility_components/loadingGif/loadingGif.js';
 
 export const NewsItemLoop = (props) => {
     return <MapDatabaseItems props={props.urlTagProp}/>;    
@@ -115,7 +115,7 @@ class MapDatabaseItems extends React.Component{
                             <ScrollToTopButton   />
                         </React.Fragment>
                     :
-                        <img alt="now loading" src={loading} />
+                       <LoadingGif />
                 }
 
                 </div>

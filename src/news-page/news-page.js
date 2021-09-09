@@ -4,9 +4,8 @@ import fire from '../fire.js'
 import {Link} from 'react-router-dom';
 import NewsPageVIEW from './news-page-view/news-page-view.js';
 
-
-import loading from '../img/loading5.gif';
 import NavBar from '../navBar/navBar.js';
+import LoadingGif from '../utility_components/loadingGif/loadingGif.js';
 
 
 
@@ -119,7 +118,7 @@ export class NewsPage extends React.Component{
                 <div>
                     
                     {this.state.showErrorMessage === false ?
-                        <img src={loading} alt="loading, please wait for results"/>
+                        <LoadingGif />
                     :
                         <span>
                         <NavBar />

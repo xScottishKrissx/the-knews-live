@@ -1525,8 +1525,8 @@ General Notes  Objectives:
                             ✔ i have most of this in place, just need to remove the markedforhide on render. @done(13:04 - 08/09/21)
                         ✔ add reload button @done(13:04 - 08/09/21)
                         ✔ add card size @done(13:30 - 08/09/21)
-                        ☐ tags page page will always be empty after clearing cache without going to an article first.Fix this.
-                            ☐ Progress, i have tags working separatley from the rest of the website. The only issue is that you need to reload the page before the article appears. Its progress at least.
+                        ✔ tags page page will always be empty after clearing cache without going to an article first.Fix this. @done(13:19 - 09/09/21)
+                            ✔ Progress, i have tags working separatley from the rest of the website. The only issue is that you need to reload the page before the article appears. Its progress at least. @done(13:19 - 09/09/21)
                         ☐ move news-item-loop-view above news-caption in the folder structure.
 
                     Author Page:
@@ -1555,6 +1555,7 @@ General Notes  Objectives:
                 ✔ the mark all and sort all components can be moved to separate components. @done(16:35 - 07/09/21)
                 ☐ have a look and see how the code can be futher tidied and optimised.
                 ☐ there will be component that are no longer in use, remove these.
+                ☐ Look into a way of unhiding articles
                 ✔ convert var to let or const @done(12:09 - 09/09/21)
                     let for loops and stuff
                     const for everything else

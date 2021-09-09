@@ -3,6 +3,7 @@ import NavBar from '../../navBar/navBar';
 import RenderCard from '../../utility_components/renderCard/renderCardState';
 import AuthorInfo from '../../utility_components/aboutAuthor/aboutAuthor'
 import TagsAuthorInfo from './tagsAuthorInfo/tagsAuthorInfo';
+import LoadingGif from '../../utility_components/loadingGif/loadingGif';
 
 export class TagsView extends React.Component{
     
@@ -190,34 +191,40 @@ export class TagsView extends React.Component{
                     :null
                     }
 
-                    {fullDatabaseCallFromStorage.length > 0 ?
-                        <h1>Yah</h1>
-                        :
-                        <h1>Nah</h1>
-                    }
-                    <div className="cardsWrapper">
+                  
+                    {fullDatabaseCallFromStorage.length === 0 ?
+                        <LoadingGif />
+                    :
+                        <div className="cardsWrapper">                            
+                            {renderToPage.length === 0 ?
+                                // <span> <img alt="now loading"  src={loading}/> Loading   </span>
+                            <div className="blankLoopMessage">
+                                <h2>You've hidden everything this author has to offer<br/></h2>
+                                <span class="material-icons">auto_stories</span>
+                                <p>Tip: You won't be able view hidden articles unless you reset the entire website using the <span className="material-icons">settings</span> options menu</p>
+                            </div>
+                            :
+                                <RenderCard 
+                                database={renderToPage}
+                                startingCardSize={this.state.startingCardSize}
+                                changedCardSize={this.state.changedCardSize}
+
+                                // Updating Bookmark
+                                updateBookmarkStatus={this.updateBookmarkStatus}
+                                updateHideStatus={this.updateHideStatus}
+
+                                // This needs to be clean database call
+                                arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
+                                // leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
+                                fullDatabaseCall={this.state.fullDatabaseCall}
+                            />
+                            }
+
+                            {/* <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} fullDatabaseCall={this.state.fullDatabaseCall}/> */}
+                        </div>                     
                         
-                        {renderToPage.length === 0 ?
-                            <span> <img alt="now loading"  /> Loading   </span>
-                        :
-                            <RenderCard 
-                            database={renderToPage}
-                            startingCardSize={this.state.startingCardSize}
-                            changedCardSize={this.state.changedCardSize}
-
-                            // Updating Bookmark
-                            updateBookmarkStatus={this.updateBookmarkStatus}
-                            updateHideStatus={this.updateHideStatus}
-
-                            // This needs to be clean database call
-                            arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
-                            // leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
-                            fullDatabaseCall={this.state.fullDatabaseCall}
-                        />
-                        }
-
-                        {/* <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} fullDatabaseCall={this.state.fullDatabaseCall}/> */}
-                    </div>
+                    }
+                       
             </div>
         </div>
         )

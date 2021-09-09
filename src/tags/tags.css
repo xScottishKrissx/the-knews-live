@@ -17,6 +17,7 @@
         }
 
 
+
 /* Tags View */
 
 .aboutAuthorTagsPage{
@@ -31,6 +32,12 @@
    
     margin: 0 auto;
 }
+
+/* Blank Loop Message */
+.tags-item-wrapper > .cardsWrapper > .blankLoopMessage{
+    top: 66%;
+}
+
 @media (min-width: 768px) {
 
     .aboutAuthorTagsPage{
