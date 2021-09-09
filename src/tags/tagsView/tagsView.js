@@ -166,7 +166,12 @@ export class TagsView extends React.Component{
         // console.log(renderToPage[0].id)
         const getFilters = renderToPage.filter(obj => obj.tag === this.state.getArticleBy)
             
-
+        // Show / Hide Read articles
+        const getShowReadArticlesChoice = localStorage.getItem("showReadCards") || "Show"
+        let filterRead;
+        if(getShowReadArticlesChoice === "Show")filterRead = renderToPage
+        if(getShowReadArticlesChoice === "Hide")filterRead = renderToPage.filter(x => x.read === false)
+        console.log(filterRead)
 
         return(
             <div className="tags-wrapper">
@@ -184,7 +189,7 @@ export class TagsView extends React.Component{
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
                         getFilters={getFilters.length}
-                        currentCardCount={renderToPage.length}
+                        currentCardCount={filterRead.length}
                         filterPage="tags"
 
                         // Card Style to work...
@@ -192,7 +197,7 @@ export class TagsView extends React.Component{
 
                         // filter to work...
                         fullDatabaseCall={this.state.fullDatabaseCall}
-                        tagsArray={renderToPage}
+                        tagsArray={filterRead}
 
 
                         // tag specific
@@ -200,7 +205,7 @@ export class TagsView extends React.Component{
                         showTagPageTitle={true}
                         tagPageTitle={this.props.paramA}
                         tagPageTitle2={this.props.paramB}
-                        articleNumber={renderToPage.length}
+                        articleNumber={filterRead.length}
                         paramA={this.props.paramA}    
                         paramB={this.props.paramB}
 
@@ -208,7 +213,7 @@ export class TagsView extends React.Component{
                         forceReload={()=>this.reload()}
 
                         // options
-                        currentCardArray = {renderToPage}
+                        currentCardArray = {filterRead}
                         updateBookmarkStatus={this.updateBookmarkStatus}
                     />
                     
@@ -227,16 +232,16 @@ export class TagsView extends React.Component{
                         <LoadingGif />
                     :
                         <div className="cardsWrapper">                            
-                            {renderToPage.length === 0 ?
+                            {filterRead.length === 0 ?
                                 // <span> <img alt="now loading"  src={loading}/> Loading   </span>
                             <div className="blankLoopMessage">
                                 <h2>You've hidden everything this page has to offer<br/></h2>
                                 <span class="material-icons">auto_stories</span>
-                                <p>Tip: You won't be able view hidden articles unless you reset the entire website using the  <span  className="material-icons">settings</span> options menu</p>
+                                <p>Tip: You can toggle between having articles you've read being visible - <span  className="material-icons">settings</span> &#62; Read Cards &#62; Show &#47; Hide Read Articles</p>
                             </div>
                             :
                                 <RenderCard 
-                                database={renderToPage}
+                                database={filterRead}
                                 startingCardSize={this.state.startingCardSize}
                                 changedCardSize={this.state.changedCardSize}
 
