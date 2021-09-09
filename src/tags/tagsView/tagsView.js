@@ -230,7 +230,7 @@ export class TagsView extends React.Component{
                             {renderToPage.length === 0 ?
                                 // <span> <img alt="now loading"  src={loading}/> Loading   </span>
                             <div className="blankLoopMessage">
-                                <h2>You've hidden everything this author has to offer<br/></h2>
+                                <h2>You've hidden everything this page has to offer<br/></h2>
                                 <span class="material-icons">auto_stories</span>
                                 <p>Tip: You won't be able view hidden articles unless you reset the entire website using the  <span  className="material-icons">settings</span> options menu</p>
                             </div>

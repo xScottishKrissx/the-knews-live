@@ -16,6 +16,9 @@ export const MarkAll = (currentCardArray, fullDatabaseCall,thingToChange,changeT
             if( getMatchingRecord.length > 0 ) x.markedforhide = changeThingTo;
             return x 
         }) 
+
+   
+
     } else {
     localStorageCards.map(x => { 
         const getMatchingRecord = currentCards.filter(obj => obj.id === x.id);

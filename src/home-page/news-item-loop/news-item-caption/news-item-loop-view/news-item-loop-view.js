@@ -98,7 +98,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         this.setState({renderLiteKnews:articles})
         console.log("updateRender")
     }
-    
+
+   
     updateReadStyles = () => {
         const renderToPage = this.state.renderArray || this.props.databaseProp ;
         const markArticleRead = renderToPage.map(el => {
@@ -145,6 +146,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         }
 
 
+
     }
     render(){  
         // console.log(this.state.renderArray)
@@ -165,8 +167,17 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         // console.log(renderToPage.length)
         // console.log(renderToPage)
 
+        // Show / Hide Read articles
+        const getShowReadArticlesChoice = localStorage.getItem("showReadCards") || "Show"
+        let filterRead;
+        if(getShowReadArticlesChoice === "Show")filterRead = renderToPage
+        if(getShowReadArticlesChoice === "Hide")filterRead = renderToPage.filter(x => x.read === false)
+        // console.log("Filter Read> " + filterRead)
+        
+        
         // Add/Remove Mark as read styles on page render
         this.updateReadStyles()
+        
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -233,9 +244,9 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <div className="cardsWrapper" >
 
      
-                {this.props.databaseProp.length >= 10 && thing ? 
+                {this.props.databaseProp.length >= 10 && thing && filterRead.length > 0 ? 
                     <RenderCardState 
-                        database={renderToPage}
+                        database={filterRead}
                         
                         
                         // Card Size

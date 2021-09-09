@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
+import ToggleButton from 'react-bootstrap/ToggleButton'
 // Bookmarks
 import clearAllBookmarks from '../bookmarks/clearAllBookmarks.js';
 import hideAllArticles from '../bookmarks/hideAllArticles.js';
@@ -21,6 +22,7 @@ class OptionsMenu extends Component {
         super(props);
         this.state = {
             bookmarks:[],
+            defVal:localStorage.getItem("showReadCards") 
         }
     }
 
@@ -29,6 +31,7 @@ class OptionsMenu extends Component {
             localStorage.clear()
             const arrayThing = ["260px","400px"]
             localStorage.setItem("myData", JSON.stringify(arrayThing));
+
         }              
     }
 
@@ -42,7 +45,7 @@ class OptionsMenu extends Component {
         this.setState({bookmarks:[]})
     }
 
-    markAll(thingToChange,changeThingTo){
+    markAll(thingToChange,changeThingTo,toggle){
         MarkAll(
             this.props.currentCardArray, 
             this.props.fullDatabaseCall,
@@ -50,13 +53,27 @@ class OptionsMenu extends Component {
             changeThingTo,
             this.props.updateBookmarkStatus            
         )
+        console.log(toggle)
+        
     }
-
+    handleForm = (x) =>{
+        this.setState({defVal:x})
+        localStorage.setItem("showReadCards",x)
+        MarkAll(
+            this.props.currentCardArray, 
+            this.props.fullDatabaseCall,
+            "toggleRead",
+            x,
+            this.props.updateBookmarkStatus
+        )
+    }
     sortAll(sortBy){
         SortAll(this.props.currentCardArray,sortBy,this.props.updateBookmarkStatus)
         }
 
     render(){
+        const defVal = this.state.defVal || 1;
+        // console.log(defVal)
         return (
             <div id="optionsMenuWrapper">
                 
@@ -143,11 +160,35 @@ class OptionsMenu extends Component {
                             <Accordion.Collapse eventKey="4" className="accordionItems">
                                 <span onClick={()=> this.markAll("read",true)}>
                                     <i class="bi bi-caret-right-fill"></i>Mark All As Read</span>
-                            </Accordion.Collapse>       
+                            </Accordion.Collapse>     
+
                             <Accordion.Collapse eventKey="4" className="accordionItems">
                                     <span onClick={()=> this.markAll("read",false)}><i class="bi bi-caret-right-fill">
                                         </i>Mark All Unread</span>
+                            </Accordion.Collapse>   
+
+                            <Accordion.Collapse eventKey="4" className="accordionItems">
+                                    <span>
+                                        <i class="bi bi-caret-right-fill"></i>                                       
+                                        <span onClick={()=>this.handleForm("Show")}>
+                                            Show Read Articles 
+                                            {defVal === "Show" ? <i class="bi bi-circle-fill"></i> : <i class="bi bi-circle"></i>} 
+                                        </span>                                      
+                                    </span>
                             </Accordion.Collapse>
+
+                            <Accordion.Collapse eventKey="4" className="accordionItems">
+                                    <span>
+                                        <i class="bi bi-caret-right-fill"></i>                                       
+                                        <span onClick={()=>this.handleForm("Hide")}>
+                                            Hide Read Articles 
+                                            {defVal === "Hide" ? <i class="bi bi-circle-fill"></i> : <i class="bi bi-circle"></i>} 
+                                        </span>                                      
+                                    </span>
+                            </Accordion.Collapse>
+
+
+                            
                         </Card> 
 
                     {/******************* Sorting */}

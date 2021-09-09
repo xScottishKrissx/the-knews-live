@@ -47,6 +47,7 @@
                 animation-fill-mode: forwards;
                 
         }
+        .accordionItems > span > div{flex-direction: column;}
         @keyframes smoothAccordion {
             0%{
                 opacity: 0;

@@ -1534,6 +1534,17 @@ General Notes  Objectives:
                         ✔ Add filter button @done(15:51 - 09/09/21)
                             ✔ Only show the filter button on the author page @done(15:51 - 09/09/21)
 
+                12.10.7.13 - Toggle Show Read Articles Button:
+                    ☐ Look into a way of unhiding articles
+                        ☐ I think instead of unhiding articles, give users an option to show/not show read articles.
+                        ☐ This will let users work through their feed towards an empty page goal, while keeping the option to view articles they've already read. Hiding articles will remain as the nuclear option to totally remove an article from the feed. I imagine in a real app, this could be used to determine users attitudes towards certain content.
+                            ✔ Added show read articles and hide read articles button to options menu @done(17:34 - 09/09/21)
+                            Pages to Integrate:
+                                ✔ Home @done(17:34 - 09/09/21)
+                                    ☐ If you select hide read cards, the filter options still have numbers in them.
+                                        ☐ Cards also vanish instantly when you hide the mark as read button.
+                                ☐ Bookmark
+                                ☐ Tag Page
             
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
@@ -1554,9 +1565,7 @@ General Notes  Objectives:
                 ☐ have a look and see how the code can be futher tidied and optimised.
                 ☐ there will be component that are no longer in use, remove these.
                 ☐ move news-item-loop-view above news-caption in the folder structure.
-                ☐ Look into a way of unhiding articles
-                    ☐ I think instead of unhiding articles, give users an option to show/not show read articles.
-                    ☐ This will let users work through their feed towards an empty page goal, while keeping the option to view articles they've already read. Hiding articles will remain as the nuclear option to totally remove an article from the feed. I imagine in a real app, this could be used to determine users attitudes towards certain content.
+
                 ✔ convert var to let or const @done(12:09 - 09/09/21)
                     let for loops and stuff
                     const for everything else
