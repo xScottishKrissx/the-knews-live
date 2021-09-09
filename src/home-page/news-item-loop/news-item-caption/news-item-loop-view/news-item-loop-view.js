@@ -211,7 +211,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
                         getFilters={getFilters.length}
-                        currentCardCount={renderToPage.length}
+                        currentCardCount={filterRead.length}
 
                         // card size
                         getCardSize={this.getCardSize} 
@@ -231,7 +231,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         forceReload={()=>this.reload()}
 
                         // options
-                        currentCardArray={renderToPage}
+                        currentCardArray={filterRead}
                         
                     />
                 <div style={setRandomColour} id="articleLine"></div>
