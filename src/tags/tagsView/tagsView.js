@@ -117,6 +117,10 @@ export class TagsView extends React.Component{
 
     }
 
+
+    test(unhideArticlesArray){
+        console.log(unhideArticlesArray)
+    }
     render(){
         // console.log(JSON.parse(localStorage.getItem("changedFullDatabaseCall")))
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
@@ -130,7 +134,7 @@ export class TagsView extends React.Component{
         ) || this.props.fullDatabaseCall;
 
         
-        const renderToPage = filterTags.filter(obj => obj.hidden != true) || this.state.fullDatabaseCall
+        const renderToPage = filterTags.filter(obj => obj.hidden != true  && obj.read === true) || this.state.fullDatabaseCall
         // console.log(renderToPage)
 
         // console.log(this.state.searchDBFor)
@@ -190,7 +194,7 @@ export class TagsView extends React.Component{
                         /> 
                     :null
                     }
-
+                    {/* <button onClick={()=>this.test(fullDatabaseCallFromStorage)}>Buttonss</button> */}
                   
                     {fullDatabaseCallFromStorage.length === 0 ?
                         <LoadingGif />
@@ -201,7 +205,7 @@ export class TagsView extends React.Component{
                             <div className="blankLoopMessage">
                                 <h2>You've hidden everything this author has to offer<br/></h2>
                                 <span class="material-icons">auto_stories</span>
-                                <p>Tip: You won't be able view hidden articles unless you reset the entire website using the <span className="material-icons">settings</span> options menu</p>
+                                <p>Tip: You won't be able view hidden articles unless you reset the entire website using the  <span  className="material-icons">settings</span> options menu</p>
                             </div>
                             :
                                 <RenderCard 
