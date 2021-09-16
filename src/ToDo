@@ -1545,7 +1545,7 @@ General Notes  Objectives:
                                         I didn't change the filter array to the filterRead array.
                                     ✔ Cards also vanish instantly when you hide the mark as read button. @done(17:45 - 09/09/21)
                                         I think i accept this as part of this feature, if you're bothered by this then there are other options for this.
-                                ☐ Bookmark
+                                ✔ Bookmark @done(10:36 - 16/09/21)
                                 ☐ Tag Page
             
             12.10.X - Misc:
@@ -1573,7 +1573,7 @@ General Notes  Objectives:
                     const for everything else
 
 
-                ☐ Issues
+                Issues:
                     ✔ Full Website Reset -> Tag on card -> error in scrollCheckV2(84, map undefined) @done(16:03 - 06/07/21)
                     ✔ Fixed by adding a fulldatabase call prop to scrollCheckV2 in tags.js@done(16:03 - 06/07/21)
                     ✔ the mark as read button is behaving weird. It's taking multiple clicks to initially activate. @done(10:26 - 12/08/21)
@@ -1603,7 +1603,7 @@ General Notes  Objectives:
         ✔ Convert timestamp to readable date time format @done(20-09-23 16:49)
         // 1 per article or multiple?
         // multiple fields or pick the tags out 1 by one in the front end?
-        ☐ after unhiding a bookmarked article, it takes 2 clicks for the hide to activate if you want to hide straight away
+        ✘ after unhiding a bookmarked article, it takes 2 clicks for the hide to activate if you want to hide straight away @cancelled(10:23 - 16/09/21)
         
     
     
@@ -1736,15 +1736,13 @@ Part 2 Implement Database functionality:
             ✘ myKnews - The Return. @cancelled(13:10 - 13/01/21)
                 // I need to move on from this project so i'm cancelling this. It's time to move on, i'll incorporate this into other projects.
                 // 11 March 2021 - ...is it though?
+                ✔ 16 September 2021 - Yes, Yes it is. @done(10:20 - 16/09/21)
 
             ☐ 13.1 - Ensure all pages can be shareable(articles, tag pages, bookmarks etc)
                 // 12/5/2021 - article pages are currently not working when directly accessed from firefox
             ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
             ☐ 13.4 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
-            ☐ 13.5 - Add any buttons that are required on the navbar
-
-
-            
+           
 
         Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)

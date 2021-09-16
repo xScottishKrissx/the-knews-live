@@ -100,7 +100,10 @@ class Bookmarks extends Component {
         this.setState({bookmarks:[]})
     }
     
-    componentDidUpdate(){ updateBookmarkStyles(); }
+    componentDidUpdate(){ 
+        updateBookmarkStyles();
+        this.updateReadStyles()
+     }
 
     updateBookmarkCount(){ 
         // Update Bookmark count on removing/adding bookmarks
@@ -165,12 +168,19 @@ class Bookmarks extends Component {
         const bookmarkCount = this.state.bookmarksCount;
 
 
-        this.updateReadStyles()
+        
 
         const cleanDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall
         const totalBookmarks = cleanDatabaseCall.filter(obj => obj.bookmarked === true);
         // console.log(totalBookmarks.length)
 
+        // Show / Hide Read articles
+        const getShowReadArticlesChoice = localStorage.getItem("showReadCards") || "Show"
+        let filterRead;
+        if(getShowReadArticlesChoice === "Show")filterRead = this.state.bookmarks
+        if(getShowReadArticlesChoice === "Hide")filterRead = this.state.bookmarks.filter(x => x.read === false)
+
+        this.updateReadStyles()
         return(
 
         <div id="bookmarkWrapper">
@@ -198,11 +208,11 @@ class Bookmarks extends Component {
                     hideAllArticles={()=>this.hideAllArticles()}
                     bookmarkNumber={totalBookmarks.length || this.state.bookmarks.length}
                     // filter ui
-                    bookmarkArray={this.state.bookmarks}
+                    bookmarkArray={filterRead}
                     getFilters = {bookmarkCount}
                     currentCardCount={totalBookmarks.length}
                     // Options
-                    currentCardArray={this.state.bookmarks}
+                    currentCardArray={filterRead}
                     updateBookmarkStatus={this.updateBookmarkStatus}
 
 
@@ -226,7 +236,7 @@ class Bookmarks extends Component {
                 :
                 <RenderCard 
                     // Bookmarking
-                    database={this.state.bookmarks} 
+                    database={filterRead} 
                     bookmarked={true}
                     // Hiding
                     hideBookmarkedArticle={true}

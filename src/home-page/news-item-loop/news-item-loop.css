@@ -9,6 +9,7 @@
         }
     
         .news-item-loop-wrapper img{
+            /* Centering in a div */
             position: fixed;
             top: 50%;
             left: 50%;
