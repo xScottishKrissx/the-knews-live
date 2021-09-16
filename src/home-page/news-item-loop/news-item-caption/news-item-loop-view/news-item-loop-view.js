@@ -8,6 +8,7 @@ import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
 import NavBar from '../../../../navBar/navBar';
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
+import SortAll from '../../../../utility_components/optionsMenu/optionsCode/sortAll';
 
 
 class NewsItemLoopView extends React.Component{
@@ -174,6 +175,18 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         if(getShowReadArticlesChoice === "Hide")filterRead = renderToPage.filter(x => x.read === false)
         // console.log("Filter Read> " + filterRead)
         // console.log(filterRead)
+
+        // Set Default Sort if cache is empty
+        if(localStorage.getItem("sortBy")===null){
+            filterRead.sort((a, b) => {
+                if (a["postdate"] > b["postdate"]) return 1;
+                if (a["postdate"] < b["postdate"]) return -1;
+                return 0;
+            });   
+        }
+        // Orders the main array by postdate and then reverse it to get the newest articles.
+        filterRead.reverse()
+    
         
         // Add/Remove Mark as read styles on page render
         this.updateReadStyles()

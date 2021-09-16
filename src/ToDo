@@ -1496,7 +1496,7 @@ General Notes  Objectives:
                                         ✔ Format Article Date @done(11:54 - 16/09/21)
                                         ☐ Add Sort By Date Asc + Desc button
                                             ☐ This needs to be done for the other buttons
-                                            
+                                                ☐ I have mostly implemented this but clearing the cache sets the postdate ui as oldest instead of newest. It's actually correct for the code but it's not what i want. If the cache is cleared the default load should be newest
                             ✔ Sort by Tag @done(17:45 - 06/09/21)
                 
                     before moving on - code cleanup:
