@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import '../articleInformation/articleInformation.css';
 export const ArticleInformation = (props) =>{
     const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
+
+    const date = new Date(props.postdate).toLocaleDateString('en-gb')
 return(
     
     <div className="articleInformation">
@@ -69,7 +71,7 @@ return(
                                 fullDatabaseCall:props.fullDatabaseCall
                             }
                         }}> */}
-                        <span>on {props.postdate}</span>
+                        <span>on {date}</span>
                     {/* </Link> */}
                 </div>
 

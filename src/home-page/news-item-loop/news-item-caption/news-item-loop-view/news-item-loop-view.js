@@ -173,7 +173,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         if(getShowReadArticlesChoice === "Show")filterRead = renderToPage
         if(getShowReadArticlesChoice === "Hide")filterRead = renderToPage.filter(x => x.read === false)
         // console.log("Filter Read> " + filterRead)
-        
+        // console.log(filterRead)
         
         // Add/Remove Mark as read styles on page render
         this.updateReadStyles()

@@ -1,18 +1,31 @@
-export const SortAll = (currentCardArray,sortBy,updateBookmarkStatus) =>{
+export const SortAll = (currentCardArray,sortBy,order,updateBookmarkStatus, fullDatabaseCall) =>{
     
-    console.log("Sort by" + sortBy)
-    const currentCards = currentCardArray;
+    console.log("Sort by" + sortBy + " " + order)
+    let currentCards = currentCardArray;
+    const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||fullDatabaseCall;
 
-    currentCards.sort((a, b) => {
+    localStorageCards.sort((a, b) => {
         if (a[sortBy] > b[sortBy]) return 1;
         if (a[sortBy] < b[sortBy]) return -1;
         return 0;
     });        
+    // console.log(currentCards)
 
-    console.log(currentCards)
-    updateBookmarkStatus(currentCards)
-    localStorage.setItem("bookmarkArray", JSON.stringify(currentCards))
-    localStorage.setItem("changedFullDatabaseCall", JSON.stringify(currentCards))
+
+    if(order === "asc"){
+    //     // console.log(currentCards)
+        updateBookmarkStatus(localStorageCards)
+        localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
+    }
+    
+    if(order === "desc"){
+        localStorageCards.reverse()
+        updateBookmarkStatus(localStorageCards)
+        localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
+        localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
+    }
+
 }
 
 export default SortAll;

@@ -129,13 +129,7 @@ export class NavBar extends React.Component{
 
                             /> */}
 
-                            {/************** Options Menu */}
-                            <OptionsMenuButton 
-                                showOptionsMenuButton={this.props.options}
-                                currentCardArray={this.props.currentCardArray}
-                                updateBookmarkStatus={this.props.updateBookmarkStatus}
-                                fullDatabaseCall={this.props.fullDatabaseCall}
-                            />
+
 
                             {/************Score Buttons  */}
                             <ScoreButtons 
@@ -192,7 +186,13 @@ export class NavBar extends React.Component{
                                 articleNumberCount={this.props.articleNumber}
                                 />
 
-                        
+                            {/************** Options Menu */}
+                            <OptionsMenuButton 
+                                showOptionsMenuButton={this.props.options}
+                                currentCardArray={this.props.currentCardArray}
+                                updateBookmarkStatus={this.props.updateBookmarkStatus}
+                                fullDatabaseCall={this.props.fullDatabaseCall}
+                            />
                             
                                 
                         </div>

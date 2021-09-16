@@ -77,6 +77,17 @@ class MapDatabaseItems extends React.Component{
     render(){
         localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
 
+        
+        if(this.state.articlesArray[0] != undefined){
+            // console.log(this.state.articlesArray[0].postdate)
+            let myDate = this.state.articlesArray[2].postdate;
+            // console.log(myDate.toLocaleDateString('en-gb'))
+            console.log( new Date(myDate).toLocaleDateString('en-gb'))
+
+ 
+        }
+        let date;
+
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
 
         // Starting Card Size

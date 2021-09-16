@@ -116,6 +116,14 @@ class Tags extends React.Component{
             showFilterButton = false
         }
 
+        // Starting Card Size
+        let cardSize = {}
+        const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
+        if(cardSizeInStorage === null){
+            cardSize = ["260px","400px"]
+        }else{
+            cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
+        }
         return(
             // <div><h1>Tags View</h1></div>
             <>
@@ -127,6 +135,7 @@ class Tags extends React.Component{
                     paramA={paramA}    
                     paramB={paramB}
                     showFilterButton={showFilterButton}
+                    cardSize={cardSize}
                 />
             :
             <LoadingGif />
