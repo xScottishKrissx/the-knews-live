@@ -9,6 +9,8 @@ import updateBookmarkStyles from '../../../../utility_components/bookmarks/updat
 import NavBar from '../../../../navBar/navBar';
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
 import SortAll from '../../../../utility_components/optionsMenu/optionsCode/sortAll';
+import ScrollCheck from '../../../../utility_components/scrollCheck/scrollCheck';
+// import ScrollCheck from '../../../../utility_components/scrollCheck/scrollCheck';
 
 
 class NewsItemLoopView extends React.Component{
@@ -150,7 +152,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
     }
     render(){  
-        // console.log(this.state.renderArray)
+        console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         // document.getElementById("reloadBtn2").classList.remove('testClass1')
@@ -247,6 +249,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         currentCardArray={filterRead}
                         
                     />
+                    
                 <div style={setRandomColour} id="articleLine"></div>
                 
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
@@ -257,7 +260,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <div className="cardsWrapper" >
 
      
-                {this.props.databaseProp.length >= 10 && thing && filterRead.length > 0 ? 
+                {this.props.databaseProp.length >= 1 && thing && filterRead.length > 0 ? 
                     <RenderCardState 
                         database={filterRead}
                         
@@ -303,22 +306,37 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 } */}
                 
                {/* <h5>Infinite Scrolling Coming Soon...</h5> */}
-                {/* {this.state.getArticleBy === "All" ?
+
+                {this.state.getArticleBy === "lll" ?
                     <ScrollCheckV2 
-                        articlesArray={this.props.databaseProp}
+                        articlesArray={filterRead}
+
                         startingCardSize={this.state.startingCardSize}
                         changedCardSize={this.state.changedCardSize}
+                        
                         leftoverArticles={this.props.leftoverArticles}
                         getArticleBy={this.state.getArticleBy}
                         fullDatabaseCall={this.props.fullDatabaseCall}
+                        
                         showMoreArticlesBtn={true}
+                        
                         updateBookmarkStatus={this.updateBookmarkStatus}
                         updateHideStatus={this.updateHideStatus}
                         hideBookmarkedArticle={false}
                     />                   
                 :
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
-                }       */}
+                }      
+
+                <ScrollCheck 
+                    database={this.state.renderArray}
+
+                    // Card Size
+                    startingCardSize={this.state.startingCardSize}
+                    changedCardSize={this.state.changedCardSize}
+
+                />
+                
                 </div> 
             </div>
             }

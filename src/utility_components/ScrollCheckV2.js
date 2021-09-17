@@ -1,5 +1,6 @@
 import React from 'react';
 import fire from '../fire.js';
+import RenderCardState from './renderCard/renderCardState.js';
 
 // Render Card
 import RenderCard from './renderCard/renderCardState.js';
@@ -19,7 +20,9 @@ class ScrollCheckV2 extends React.Component{
     }
 
     componentDidMount(){
-        const thing = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall;
+        // const thing = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall;
+const thing = this.props.articlesArray
+
         this.setState({thing:thing})
         window.addEventListener('scroll', this.scroll);    
         window.addEventListener('touchstart', this.scroll);       
@@ -30,7 +33,7 @@ class ScrollCheckV2 extends React.Component{
 
         if(editedArticlesArray != null)this.setState({articlesArray:editedArticlesArray})
 
-
+        // console.log(JSON.parse(localStorage.getItem("editedLeftoverArticlesArray")) )
     }
 
     scroll = (e) => {
@@ -68,7 +71,7 @@ class ScrollCheckV2 extends React.Component{
                 arrayEndState: this.state.arrayEndState + 5
             })    
 
-            console.log(this.state.mainArray)
+            // console.log(this.state.mainArray)
         }else{
             // console.log("Not At Bottom Yet")
         }
@@ -85,11 +88,11 @@ class ScrollCheckV2 extends React.Component{
       }
 
     render(){
-
+        // console.log(this.state.mainArray)
         return(
             <React.Fragment>
               
-                <RenderCard 
+                {/* <RenderCard 
                     database={this.state.mainArray}
                     startingCardSize={this.props.startingCardSize}
                     changedCardSize={this.props.changedCardSize}
@@ -101,6 +104,24 @@ class ScrollCheckV2 extends React.Component{
                     updateBookmarkStatus={this.props.updateBookmarkStatus}
                     updateHideStatus={this.props.updateHideStatus}
                     hideBookmarkedArticle={false}
+                /> */}
+
+                <RenderCardState
+                        database={this.props.articlesArray}
+                        
+                        
+                        // Card Size
+                        startingCardSize={this.props.startingCardSize}
+                        changedCardSize={this.props.changedCardSize}
+                        // postsArray={this.state.postsArray}
+                        arrayFromDatabase={this.props.databaseProp} 
+                        leftoverArticles={this.props.leftoverArticles}  
+                        fullDatabaseCall={this.props.fullDatabaseCall}
+                        
+                        // Controls
+                        updateBookmarkStatus={this.props.updateBookmarkStatus}
+                        updateHideStatus={this.props.updateHideStatus}
+                        hideBookmarkedArticle={false}
                 />
 
                {this.props.showMoreArticlesBtn ?

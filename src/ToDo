@@ -221,7 +221,7 @@ General Notes  Objectives:
                         Well I've managed to get the swipe to hide multiple posts at a time... the only problem is that when i refresh and swipe away new posts, my previous swipes are overwritten, bringing back the old hidden posts. I'll count that as progress.Please.
                     16/11/2020
                         Got it working as expected. You can hide multiple articles and they will remain hidden as you work your way through the website. I did this by simply adding a check on component mount that checks the local storage for a list of hidden posts. If it's there it checks the artice id and hides the relevant articles, if not it initialises the with an empty array.
-                ☐ Ability to undo last hide action 
+                ✔ Ability to undo last hide action @done(12:53 - 17/09/21)
                 ✔ Clear Cache button should not be visible if cache is empty @started(20-12-15 13:37) @done(20-12-15 15:17) @lasted(1h40m19s)
                     ✔ Clear cache button should appear when hiding articles. @started(15/12/2020 15:18) @done(15:36 - 15/12/20) @lasted(18m29s)
                 ✔ The unhide all button isn't showing as soon as you hide an article @done(15:54 - 26/02/21)
@@ -378,7 +378,7 @@ General Notes  Objectives:
                         // Fixed this by copying an if statement from the hide article file into the swipeRightAction file.
 
                     ✔ Hide Post when Clicked @done(20-11-05 13:56)    
-                        ☐ Look into animation for this, it feels a bit crap when the card just instantly disappears. -> v12.10
+                        ✔ Look into animation for this, it feels a bit crap when the card just instantly disappears. -> v12.10 @done(12:53 - 17/09/21)
                     ✔ BUG:: z-index issue when scrolling the page @started(20-11-16 14:00) @done(20-12-14 14:33) @lasted(4w33m55s)
                 ✔ Add functionality to restore posts to view / undo hide. @started(20-11-04 15:45) @done(20-12-03 15:41) @lasted(4w23h56m29s)
                     ✔ Temp fix is to swipe right but this will need a better solution @done(20-11-16 14:00)
@@ -679,7 +679,7 @@ General Notes  Objectives:
 
             Actual Articles:
                 ✔ Think about creating different templates for the article text. It just looks like large walls of text, find a way of splicing these areas with images. @done(16:35 - 06/07/21)
-                ☐ Ability to edit articles on page. 
+                ✘ Ability to edit articles on page. @cancelled(12:54 - 17/09/21)
                     //Wouldn't this just be a case of switching views when the article is clicked?
                     // Step 1 - Load the article into the edit box
                     // Step 2 - When article is clicked, switch views
@@ -866,10 +866,10 @@ General Notes  Objectives:
                                                 ✔ Possible Breakthrough - So my attempt at using url params and switching the database call was being difficult due to needing 2 different database calls. I may have gotten around this requirement by simply adding a second required parameter to the url path. This allows me to specify which records to query much more precisely than before. It is case sensitive so home/search/tag/news will not work unless News is capitalised.
                                                 ✔ While not full complete, I do consider having the 2 tags files merged as complete. There are issues to be resolved but i am happy with the overall solution and so marking this section as done. @done(12:50 - 14/04/21)
                                                 Bugs / Issues:
-                                                    ☐ Post Date might not work well here 
+                                                    ✔ Post Date might not work well here @done(12:55 - 17/09/21)
                                                         My dates are in the wrong format so...
                                                         ...not sure what do about this. It does work if I remove the slashes in the database...
-                                                    ☐ Case sensitivity for url params(news will not work but News will) 
+                                                    ✔ Case sensitivity for url params(news will not work but News will) @done(12:55 - 17/09/21)
                                                     ✔ Make sure hiding articlesworks @started(11:57 - 13/04/21) @done(12:45 - 14/04/21) @lasted(1d48m12s)
                                                         ✔ Hiding works one way at the moment, if you hide an article on home it will be hidden if you go straight to tags. Howerver, if you do it the other way, things break down. @done(12:43 - 14/04/21)
                                                         ✔ The reason being that the database call in tags3.1 is only calling the records specific to that page. In order for hiding to properly work, there needs to be at least 1 full call of the database articles. Without that populted array, the hide component takes that single article array, hides the objects(as expected) and renders the array on home(again as expected) @done(12:43 - 14/04/21)
@@ -949,7 +949,7 @@ General Notes  Objectives:
                 //Not Sure what this means I can't see any issues.
             ✔ Can I reset scroll position when switching articles in liteKnews? @done(13:34 - 26/05/21)
                 // window.scrollTo(0,0) in render
-            ☐ Look into "undo hide"
+            ✔ Look into "undo hide" @done(12:55 - 17/09/21)
                 should be a simple object.assign i would think
                 nope, this might require a rework of the entire feedback system. However, this might be getting some attention as part of the UI overhaul so let's leave this until then.
 
@@ -960,7 +960,7 @@ General Notes  Objectives:
             To-Do:
                 ✔ Do another style pass for card controls(different layout at larger widths?) @done(12:29 - 16/06/21)
                 ☐ Inform the user of how to interact with the website( swipe, hiding etc)
-                ☐ Look into animations for hiding articles.
+                ✔ Look into animations for hiding articles. @done(12:55 - 17/09/21)
             12.10.1 - Home Page New Nav Bar:
                 Goals:
                     ✔ All controls for page should be easily accessible @done(16:36 - 06/07/21)
@@ -1023,11 +1023,11 @@ General Notes  Objectives:
                                                 ✔ Add bookmark controls to navbar @done(10:56 - 14/06/21)
                                                 ✔ Add link to bookmark page @done(11:13 - 14/06/21)
                                                 ✔ Add Hide article button to nav bar @done(10:56 - 14/06/21)
-                                            ☐ Tags
+                                            ✔ Tags @done(12:57 - 17/09/21)
                                                 Tags Bar Options:
                                                     ✔ Home Button @done(12:21 - 15/06/21)
                                                     ✔ Card Style @done(12:21 - 15/06/21)
-                                                    ☐ Filter(only for author)
+                                                    ✔ Filter(only for author) @done(12:57 - 17/09/21)
                                             ✔ liteKnews @done(16:49 - 15/06/21)
                                                 Options to add:
                                                     ✔ Bookmark Controls @done(13:23 - 15/06/21)
@@ -1113,7 +1113,7 @@ General Notes  Objectives:
                         ✘ Add the article information here as well @cancelled(16:48 - 24/06/21)
                             ✔ Create component for article information @done(16:48 - 24/06/21)
                             // the article info just clogs the space up a little bit but I did create the component anyway.
-                    ☐ What about user customisation for articles?
+                    ✘ What about user customisation for articles? @cancelled(12:58 - 17/09/21)
 
                 ✔ Ready for release? @done(16:39 - 06/07/21)
                     ✔ Yes @done(18:15 - 24/06/21)
@@ -1417,7 +1417,7 @@ General Notes  Objectives:
                 12.10.7.9 - Navbar:
                     ✔ add border-line to navbar(like the article page) @done(16:49 - 25/08/21)
                     ✔ the navbar is getting large, hide the button text above desktop res, the icons can do the heavy lifting here. @done(17:20 - 25/08/21)
-                    ☐ improve appearance of dropdown menu's
+                    ✔ improve appearance of dropdown menu's @done(13:00 - 17/09/21)
                         ✔ added animation and increased padding and they're looking better. I've focused on the mobile card style menu so a good amount of work left. However, I am much happier with the menu's than before. They're nicer to look at and with the increased space between buttons, better to use. @done(17:40 - 26/08/21)
                         Things to tweak:
                             ✔ Watch for mobile, desktop etch as the dropdown position will get ya @done(16:43 - 30/08/21)
@@ -1451,8 +1451,8 @@ General Notes  Objectives:
 
                 12.10.7.10 - Add buttons to Navbar / merge option menu's (sitewide):
                         this will be mostyl sorted when I merge the 2 menus from home and bookmarks
-                        ☐ the same options menu should be available throughout the entire website
-                        ☐ tried to add an accordion but turns out I was looking at the bootstrap 2.0 docs, my boostrap version is 1.6.1 ...need to remember that.
+                        ✔ the same options menu should be available throughout the entire website @done(13:00 - 17/09/21)
+                        ✔ tried to add an accordion but turns out I was looking at the bootstrap 2.0 docs, my boostrap version is 1.6.1 ...need to remember that. @done(13:00 - 17/09/21)
                         ✔ i can't get the dropdown smooth and I dont know how to fix it at the moment. Going to leave it and move on to the functionality of the menu, will come back to this later @done(12:06 - 01/09/21)
                             ✔ fix options menu smoothness. @started(17:15 - 31/08/21) @done(12:06 - 01/09/21) @lasted(18h51m54s)
                             ✔ im getting less and less happy about this menu, i might call it a day here and have a look tommorow because i feel like I want to redo the entire thing. @done(12:06 - 01/09/21)
@@ -1553,14 +1553,19 @@ General Notes  Objectives:
                                         I think i accept this as part of this feature, if you're bothered by this then there are other options for this.
                                 ✔ Bookmark @done(10:36 - 16/09/21)
                                 ✔ Tag Page @done(10:41 - 16/09/21)
-                                
+
                 12.10.7.14 - Switch Old Menu Styles to New Options Menu Appearance:
                     ✔ FIlter Options @done(12:46 - 17/09/21)
                     ✔ Card Styles @done(12:47 - 17/09/21)
-                    ☐ Add a close menu button to each of these menus
-                        ☐ Options menu
-                        ☐ Filter Options
-                        ☐ Card Styles
+                    
+            
+            12.10.8 - Scroll Check:
+                Might as well do it now, no point putting if off any further. I get this done, the project is 95% finished.
+                ✔ This might take a while as I try to figure out the best approach as there is a lot I need to consider like filtering, sorting , hiding etc. So i am starting from the start in a new file to see if I can piece together my previous progress and make any improvements along the way. I dont think it's going to be hard, i just need to figure out a way of integrating a number of systems that allow for user customisation and variety into an infinite scroll. @done(14:29 - 17/09/21)
+                
+                Other Stuff to add here:
+                    ☐ Replace the 100% complete for swiping with an icon(a tick, thumbs up etc)
+
 
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
@@ -1595,6 +1600,7 @@ General Notes  Objectives:
                         swipe is unaffected and the hide button works as normal if you swipe first then hide. So im guessing im not properly passing on the main render array at some point.
                         ✔ Yup, i wasn't passing a database call to the hide button in the event of an empty cache. @done(13:49 - 26/08/21)
                     ✔ Sorting By on a tag page overwrites the main array @done(13:33 - 16/09/21)
+                    ☐ Filtering the authors tag overwrite the main website array.
 
                 
             ☐ Random Colours I like
@@ -1626,7 +1632,7 @@ General Notes  Objectives:
          Might put a small bar at the bottom to act as footer.
          23/9/2020 - Well I have one now so I may as well make it look presentable.
          27/10/2020 - Recommended Reading Bar currently footer.
-        ☐ Add Proper Footer sitewide.
+        ✘ Add Proper Footer sitewide. @cancelled(12:51 - 17/09/21)
     
 
 Part 2 Implement Database functionality:
@@ -1754,8 +1760,7 @@ Part 2 Implement Database functionality:
 
             ☐ 13.1 - Ensure all pages can be shareable(articles, tag pages, bookmarks etc)
                 // 12/5/2021 - article pages are currently not working when directly accessed from firefox
-            ☐ 13.2 - Have another look at the scrollCheck and Hide Article Components. There's a lot to be improved and/or simplified here. At the very least, there is code relating to scrollCheck that should not be found in the hideArticleV2 file.
-            ☐ 13.4 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
+            ☐ 13.3 - Integrate social media sharing functionality(i.e twitter cards or whatever they're called)
            
 
         Version 12 (Future Version) - Planned Notes:
@@ -1800,7 +1805,7 @@ Part 2 Implement Database functionality:
             ✔ Full Article link goes to blank pagRe @done(17:18 - 22/04/21)
             ✔ ScrollCheck requires a two finger up and down scroll to work...not ideal. @done(17:18 - 22/04/21)
                 ✔ Solution - Increase the detection range for the scrollCheck component @done(17:18 - 22/04/21)
-            ☐ If there are 2 or less articles on the page when you refresh, you might get an error.
+            ✔ If there are 2 or less articles on the page when you refresh, you might get an error. @done(12:52 - 17/09/21)
             ✔ Changing card size and then attempting to hide articles causes an error on dev and does nothing on live. @done(18:02 - 22/04/21)
                 ✔ pressing a card size empties the cleanDatabaseCall cache for some reason. My solution right now is to disable the card size controls for the time being. My intention was to rework them in the next release anyway so not a big deal. @done(18:02 - 22/04/21)
 
@@ -1859,7 +1864,7 @@ Part 2 Implement Database functionality:
             ✔ Fixed issue where card size controls would not affect newly loaded articles. @done(17:36 - 01/03/21)
             ✔ Fixed issue where newly loaded articles could not be swiped. @done(17:36 - 01/03/21)
             ☐ Fixed Issue where clear cache button failed to appear when swiping articles right.✔ @done(16:33 - 15/03/21)
-            ☐ Remove the database call in news-page.js.
+            ✘ Remove the database call in news-page.js. @cancelled(12:53 - 17/09/21)
 
               
 

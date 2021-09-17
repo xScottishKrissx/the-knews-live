@@ -29,7 +29,7 @@ class MapDatabaseItems extends React.Component{
         // console.log("mount")
     // This is the initial database query.
       // Main Database Call
-     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(10);     
+     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);     
         dbRef.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
             let newState = [];
@@ -57,7 +57,7 @@ class MapDatabaseItems extends React.Component{
             this.setState({
                 //Set's the initial number of articles loaded into home.
                 articlesArray: newState.slice(0,10),
-                leftoverArticles: newState.slice(30,97),
+                leftoverArticles: newState.slice(11,97),
                 fullDatabaseCall: newState
             })
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
@@ -76,18 +76,8 @@ class MapDatabaseItems extends React.Component{
 
     render(){
         localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
-
+        // console.log(this.state.leftoverArticles)
         
-        if(this.state.articlesArray[0] != undefined){
-            // console.log(this.state.articlesArray[0].postdate)
-            let myDate = this.state.articlesArray[2].postdate;
-            // console.log(myDate.toLocaleDateString('en-gb'))
-            console.log( new Date(myDate).toLocaleDateString('en-gb'))
-
- 
-        }
-        let date;
-
         const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
 
         // Starting Card Size
@@ -112,7 +102,7 @@ class MapDatabaseItems extends React.Component{
          return (
             <div className="news-item-loop-wrapper"> 
             
-                {this.state.articlesArray.length === 10 ? 
+                {this.state.articlesArray.length > 0 ? 
                         <React.Fragment>
                             <NewsItemLoopView 
                                 databaseProp={arrayWithArticlesHidden } 
