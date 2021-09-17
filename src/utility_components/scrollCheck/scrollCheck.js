@@ -10,7 +10,9 @@ class ScrollCheck extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            renderToPage:this.props.database
+            renderToPage:this.props.database,
+            arrayStartState:10,
+            arrayEndState:15
         }
     }
 
@@ -54,9 +56,11 @@ class ScrollCheck extends React.Component{
             // Get the articles that should be rendered on scroll...
             // console.log(editedArticlesArray.splice(0,5))
             // console.log(getArticlesToLoad.splice(10,15))
-            const renderNewArticles = this.state.renderToPage.concat(getArticlesToLoad.splice(10,15))
+            const renderNewArticles = this.state.renderToPage.concat(getArticlesToLoad.splice(this.state.arrayStartState,this.state.arrayEndState))
             this.setState({
-                renderToPage:renderNewArticles
+                renderToPage:renderNewArticles,
+                arrayStartState: this.state.arrayStartState + 5,
+                arrayEndState: this.state.arrayEndState + 5
             })
             // Then join with the main array
             // const renderNewArticlesOnScroll = this.state.mainArray.concat(editedArticlesArray.slice(this.state.arrayStartState,this.state.arrayEndState));
@@ -84,14 +88,6 @@ class ScrollCheck extends React.Component{
         // });
     }
 
-    loadArticles(){
-        const getArticlesToLoad = this.props.database
-        const renderNewArticles = this.state.renderToPage.concat(getArticlesToLoad.splice(10,15))
-        this.setState({
-            renderToPage:renderNewArticles
-        })
-        // Then j
-    }
 
     componentWillUnmount(){
         window.removeEventListener('scroll',this.scroll, {passive:true});
@@ -109,6 +105,8 @@ class ScrollCheck extends React.Component{
         //         <li>Name:</li>
         // });
         // }
+
+        // console.log(this.props.database.slice(10))
         console.log(render)
 
 

@@ -152,7 +152,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
     }
     render(){  
-        console.log(this.state.renderArray)
+        // console.log(this.state.renderArray)
         const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         // document.getElementById("reloadBtn2").classList.remove('testClass1')
@@ -188,7 +188,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
         }
         // Orders the main array by postdate and then reverse it to get the newest articles.
         filterRead.reverse()
-    
+        console.log(filterRead)
         
         // Add/Remove Mark as read styles on page render
         this.updateReadStyles()

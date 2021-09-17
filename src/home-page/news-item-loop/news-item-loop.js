@@ -89,6 +89,15 @@ class MapDatabaseItems extends React.Component{
             cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
         }
 
+
+        this.state.fullDatabaseCall.sort((a, b) => {
+            if (a["postdate"] > b["postdate"]) return 1;
+            if (a["postdate"] < b["postdate"]) return -1;
+            return 0;
+        });   
+        this.state.fullDatabaseCall.reverse()
+        // console.dir(this.state.fullDatabaseCall.reverse()) 
+        
         // Starting Page Layout
         // let pageLayout={}
         // const pageLayoutInStorage = JSON.parse(localStorage.getItem("pageLayout"))
