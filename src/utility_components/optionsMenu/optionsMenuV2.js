@@ -92,7 +92,6 @@ class OptionsMenu extends Component {
         // const getSortOrder = JSON.parse(localStorage.getItem("sortBy"))
         let sortBy = this.state.sortBy
         let sortOrder = this.state.sortOrder
-        console.log(sortBy + " " +sortOrder)
         return (
             <div id="optionsMenuWrapper">
                 
@@ -174,43 +173,40 @@ class OptionsMenu extends Component {
                         <Card>
                             <Card.Header>
                                 <Accordion.Toggle as={Button} variant="link" eventKey="4">
-                                    <i class="bi bi-caret-down"></i>Read Cards
+                                    <i class="bi bi-caret-down"></i>
+                                    Read Cards
                                 </Accordion.Toggle>
                             </Card.Header>
 
                             <Accordion.Collapse eventKey="4" className="accordionItems">
                                 <span onClick={()=> this.markAll("read",true)}>
-                                    <i class="bi bi-caret-right-fill"></i>Mark All As Read</span>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Mark All As Read
+                                </span>
                             </Accordion.Collapse>     
 
                             <Accordion.Collapse eventKey="4" className="accordionItems">
-                                    <span onClick={()=> this.markAll("read",false)}><i class="bi bi-caret-right-fill">
-                                        </i>Mark All Unread</span>
+                                    <span onClick={()=> this.markAll("read",false)}>
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        Mark All Unread
+                                    </span>
                             </Accordion.Collapse>   
 
                             <Accordion.Collapse eventKey="4" className="accordionItems">
-                                    
-                                                                            
-                                        <span onClick={()=>this.handleForm("Show")}>
-                                        <i class="bi bi-caret-right-fill"></i>   
-                                            Show Read Articles 
-                                            {defVal === "Show" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
-                                        </span>                                      
-                                   
+                                <span onClick={()=>this.handleForm("Show")}>
+                                    <i class="bi bi-caret-right-fill"></i>   
+                                    Show Read Articles 
+                                    {defVal === "Show" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
+                                </span>                                                                         
                             </Accordion.Collapse>
 
                             <Accordion.Collapse eventKey="4" className="accordionItems">
-                                    
-                                                                               
-                                        <span onClick={()=>this.handleForm("Hide")}>
-                                        <i class="bi bi-caret-right-fill"></i>
-                                            Hide Read Articles 
-                                            {defVal === "Hide" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
-                                        </span>                                      
-                                    
+                                <span onClick={()=>this.handleForm("Hide")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Hide Read Articles 
+                                    {defVal === "Hide" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
+                                </span>
                             </Accordion.Collapse>
-
-
                             
                         </Card> 
 
@@ -225,19 +221,17 @@ class OptionsMenu extends Component {
                         {/* Tag */}
                         {sortBy.includes("tag") && sortOrder.includes("desc") ? 
                             <Accordion.Collapse eventKey="5" className="accordionItems">
-                                    <span onClick={()=>this.sortAll("tag","asc")}>
-                                        
-                                            <i class="bi bi-caret-right-fill"></i>
-                                            Sort By Tag  
-                                            {sortBy.includes("tag") ? <span> <i class="bi bi-sort-alpha-down"></i></span> : null}
-                                        
-                                    </span>
+                                <span onClick={()=>this.sortAll("tag","asc")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Sort By Tag  
+                                    {sortBy.includes("tag") ? <span> <i class="bi bi-sort-alpha-down"></i></span> : null}
+                                </span>
      
                             </Accordion.Collapse>
                         :
                             <Accordion.Collapse eventKey="5" className="accordionItems">
                                 <span onClick={()=>this.sortAll("tag","desc")}>
-                                <i class="bi bi-caret-right-fill"></i>
+                                    <i class="bi bi-caret-right-fill"></i>
                                     Sort By Tag
                                     {sortBy.includes("tag") ? <span>   <i class="bi bi-sort-alpha-up"></i></span> : null}
                                 </span>
@@ -247,17 +241,17 @@ class OptionsMenu extends Component {
                         {/* Author */}
                         {sortBy.includes("author") && sortOrder.includes("desc") ? 
                             <Accordion.Collapse eventKey="5" className="accordionItems">
-                                    <span onClick={()=>this.sortAll("author","asc")}>
+                                <span onClick={()=>this.sortAll("author","asc")}>
                                     <i class="bi bi-caret-right-fill"></i>
-                                        Sort By Author 
-                                        {sortBy.includes("author") ? <span><i class="bi bi-sort-alpha-down"></i></span> : null}
-                                    </span>
+                                    Sort By Author 
+                                    {sortBy.includes("author") ? <span><i class="bi bi-sort-alpha-down"></i></span> : null}
+                                </span>
                             </Accordion.Collapse>
                         :
                             <Accordion.Collapse eventKey="5" className="accordionItems">
                                 <span onClick={()=>this.sortAll("author","desc")}>
-                                <i class="bi bi-caret-right-fill"></i>
-                                Sort By Author {sortBy.includes("author") ? <span><i class="bi bi-sort-alpha-up"></i></span> : null}
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Sort By Author {sortBy.includes("author") ? <span><i class="bi bi-sort-alpha-up"></i></span> : null}
                                 </span>
                             </Accordion.Collapse>
                         }
@@ -266,14 +260,14 @@ class OptionsMenu extends Component {
                         {sortBy.includes("postdate") && sortOrder.includes("desc") ? 
                             <Accordion.Collapse eventKey="5" className="accordionItems">
                                 <span onClick={()=>this.sortAll("postdate","asc")}>
-                                <i class="bi bi-caret-right-fill"></i>
+                                    <i class="bi bi-caret-right-fill"></i>
                                     Oldest First{sortBy.includes("postdate") ? <span><i class="bi bi-circle-fill"></i></span> : null}
                                 </span>
                             </Accordion.Collapse>
                         :
                             <Accordion.Collapse eventKey="5" className="accordionItems">
                                 <span onClick={()=>this.sortAll("postdate","desc")}>
-                                <i class="bi bi-caret-right-fill"></i>
+                                    <i class="bi bi-caret-right-fill"></i>
                                     Latest First {sortBy.includes("postdate") ? <span><i class="bi bi-circle-fill"></i></span> : null}
                                 </span>
                             </Accordion.Collapse>
@@ -282,7 +276,9 @@ class OptionsMenu extends Component {
                         {/* Reset */}
                             <Accordion.Collapse eventKey="5" className="accordionItems">
                                     <span onClick={()=>this.sortAll("postdate","asc")}>
-                                        <i class="bi bi-caret-right-fill"></i>Reset Sort</span>
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        Reset Sort
+                                    </span>
                             </Accordion.Collapse>
 
                         </Card>

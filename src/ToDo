@@ -1553,7 +1553,15 @@ General Notes  Objectives:
                                         I think i accept this as part of this feature, if you're bothered by this then there are other options for this.
                                 ✔ Bookmark @done(10:36 - 16/09/21)
                                 ✔ Tag Page @done(10:41 - 16/09/21)
-            
+                                
+                12.10.7.14 - Switch Old Menu Styles to New Options Menu Appearance:
+                    ✔ FIlter Options @done(12:46 - 17/09/21)
+                    ✔ Card Styles @done(12:47 - 17/09/21)
+                    ☐ Add a close menu button to each of these menus
+                        ☐ Options menu
+                        ☐ Filter Options
+                        ☐ Card Styles
+
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
                 ✔ Fix the post date issue @done(12:23 - 17/09/21)
@@ -1561,7 +1569,6 @@ General Notes  Objectives:
                 ✔ added animation to cards so they now do a little fade in when they render. @done(12:28 - 31/08/21)
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
                 ☐ Dragging on firefox is not working correctly.
-                ☐ add a close menu button to all menu's
                 ✔ refreshing the page with an active filter does not maintain the filter. @done(17:48 - 06/09/21)
                     ✔ correction - bookmarking an article causes a re-render which doesn't maintain the filter and seems to cause other issues. @done(17:48 - 06/09/21)
                     ✔ correction correction - filter is not respected @done(17:48 - 06/09/21)

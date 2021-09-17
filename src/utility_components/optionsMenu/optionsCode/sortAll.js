@@ -1,6 +1,6 @@
 export const SortAll = (currentCardArray,sortBy,order,updateBookmarkStatus, fullDatabaseCall) =>{
     
-    console.log("Sort by" + sortBy + " " + order)
+    // console.log("Sort by" + sortBy + " " + order)
     let currentCards = currentCardArray;
     const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||fullDatabaseCall;
 
