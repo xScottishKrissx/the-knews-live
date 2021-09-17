@@ -29,7 +29,7 @@ class MapDatabaseItems extends React.Component{
         // console.log("mount")
     // This is the initial database query.
       // Main Database Call
-     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(97);     
+     const dbRef = fire.database().ref('items').orderByKey().limitToFirst(50);     
         dbRef.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
             let newState = [];

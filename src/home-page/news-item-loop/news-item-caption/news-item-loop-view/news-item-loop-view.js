@@ -153,7 +153,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
     }
     render(){  
         // console.log(this.state.renderArray)
-        const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
+        const renderToPage = this.state.renderArray || this.props.databaseProp ;
         const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
         // document.getElementById("reloadBtn2").classList.remove('testClass1')
         
