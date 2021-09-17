@@ -39,11 +39,14 @@ class NewsItemLoopView extends React.Component{
         // liteKnews
         showArticle:false,
         renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
+
+        endSlice:10
         }
         // Card Size Controls
         this.getCardSize = this.getCardSize.bind(this);
         // liteKnews
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
+        window.addEventListener('scroll', this.scroll);
     }
 
 componentDidMount(){ this.reload() }
@@ -53,6 +56,22 @@ componentDidUpdate(){
     this.updateReadStyles();    
 }
 
+scroll = (e) =>{
+    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    const body = document.body;
+    const html = document.documentElement;
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+    // ...this is what is actually used.
+    const windowBottom = windowHeight + window.pageYOffset;
+    if(windowBottom >= docHeight){
+        // console.log("Load New Articles")
+        this.setState({
+            load:true, 
+            endSlice:this.state.endSlice + 10
+        })
+    }
+    // console.log("scroll")
+}
 // Card Size Controls
 getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 
@@ -187,12 +206,23 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             });   
         }
         // Orders the main array by postdate and then reverse it to get the newest articles.
-        filterRead.reverse()
+        
         console.log(filterRead)
         
         // Add/Remove Mark as read styles on page render
         this.updateReadStyles()
         
+
+        // This will achieve an infinite scroll...
+        let renderAgain;
+        if(this.state.load === true){
+            console.log("Load New")
+            renderAgain = filterRead.slice(0,this.state.endSlice)
+
+        }else{
+            renderAgain = filterRead.slice(0,this.state.endSlice)
+        }
+        console.log(renderAgain)
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -226,7 +256,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
                         getFilters={getFilters.length}
-                        currentCardCount={filterRead.length}
+                        currentCardCount={renderAgain.length}
 
                         // card size
                         getCardSize={this.getCardSize} 
@@ -246,7 +276,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         forceReload={()=>this.reload()}
 
                         // options
-                        currentCardArray={filterRead}
+                        currentCardArray={renderAgain}
                         
                     />
                     
@@ -260,9 +290,9 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <div className="cardsWrapper" >
 
      
-                {this.props.databaseProp.length >= 1 && thing && filterRead.length > 0 ? 
+                {this.props.databaseProp.length >= 1 && thing && renderAgain.length > 0 ? 
                     <RenderCardState 
-                        database={filterRead}
+                        database={renderAgain}
                         
                         
                         // Card Size
@@ -309,7 +339,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
                 {this.state.getArticleBy === "lll" ?
                     <ScrollCheckV2 
-                        articlesArray={filterRead}
+                        articlesArray={renderAgain}
 
                         startingCardSize={this.state.startingCardSize}
                         changedCardSize={this.state.changedCardSize}
@@ -328,14 +358,14 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
                 }      
 
-                <ScrollCheck 
+                {/* <ScrollCheck 
                     database={this.state.renderArray}
 
                     // Card Size
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
 
-                />
+                /> */}
                 
                 </div> 
             </div>
