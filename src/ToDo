@@ -1490,13 +1490,14 @@ General Notes  Objectives:
                                     ✔ This isn't removing the style because life is pain. @done(16:41 - 06/09/21)
                             // (new) Sort
                             ✔ Sort By Author @done(17:45 - 06/09/21)
-                            ☐ Sort By Date
+                            ✔ Sort By Date @done(12:11 - 17/09/21)
                                     ✔ I need to fix the data for this to work correctly. @done(11:50 - 16/09/21)
                                     Date Fixed, Now Format and Add Functionality:
                                         ✔ Format Article Date @done(11:54 - 16/09/21)
-                                        ☐ Add Sort By Date Asc + Desc button
-                                            ☐ This needs to be done for the other buttons
-                                                ☐ I have mostly implemented this but clearing the cache sets the postdate ui as oldest instead of newest. It's actually correct for the code but it's not what i want. If the cache is cleared the default load should be newest
+                                        ✔ Add Sort By Date Asc + Desc button @done(12:10 - 17/09/21)
+                                            ✔ This needs to be done for the other buttons @done(12:10 - 17/09/21)
+                                                ✔ I have mostly implemented this but clearing the cache sets the postdate ui as oldest instead of newest. It's actually correct for the code but it's not what i want. If the cache is cleared the default load should be newest @done(12:10 - 17/09/21)
+                                            ✔ Style buttons @done(12:23 - 17/09/21)
                             ✔ Sort by Tag @done(17:45 - 06/09/21)
                 
                     before moving on - code cleanup:
@@ -1555,7 +1556,7 @@ General Notes  Objectives:
             
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
-                ☐ Fix the post date issue
+                ✔ Fix the post date issue @done(12:23 - 17/09/21)
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ✔ added animation to cards so they now do a little fade in when they render. @done(12:28 - 31/08/21)
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)

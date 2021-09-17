@@ -80,13 +80,17 @@
                 padding-bottom: 20px;
                 padding-left: 20px;
                 padding-top: 20px;
+                position: relative;
                 width: 100%;
             }
             .accordionItems > span:hover{
                 background-color: black;
                 cursor: pointer;
             }
-
+            .accordionItems > span > span{
+                position: absolute;
+                left: 5px;
+            }
             .accordionItems > span > a {
                 color: white;
                 display: flex;
