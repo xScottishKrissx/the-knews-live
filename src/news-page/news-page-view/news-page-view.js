@@ -132,6 +132,10 @@ export class NewsPageVIEW extends React.Component{
         const id = parseInt(this.props.params)
         const getArticle = database.filter(obj => obj.id === id)
         const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
+
+        // bookmark counter
+        const getBookmarks = database.filter(obj => obj.bookmarked === true)
+        
         const NewsPageView = getArticle.map((value) => {
 
 
@@ -170,6 +174,11 @@ export class NewsPageVIEW extends React.Component{
                     // bookmarkControls
                     bookmarkedStatus={value.bookmarked}
                     fullDatabaseCall={this.state.fullDatabaseCall}
+
+                    
+                    bookmarkCounter={getBookmarks.length}
+
+
                     id={value.id}
                     readStatus={value.read}
                     showMarkAsReadButton={false}
