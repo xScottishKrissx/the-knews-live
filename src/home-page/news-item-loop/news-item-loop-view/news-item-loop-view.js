@@ -28,7 +28,7 @@ class NewsItemLoopView extends React.Component{
         showArticle:false,
         renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
         // Set New End Point for Slicing Array for Infinite Load
-        endSlice:10
+        endSlice:this.props.articlesOnLoad
         }
         // Card Size Controls
         this.getCardSize = this.getCardSize.bind(this);
@@ -53,7 +53,7 @@ scroll = (e) =>{
     const html = document.documentElement;
     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
 
-    const windowBottom = windowHeight + window.pageYOffset;
+    const windowBottom = windowHeight + window.pageYOffset + 100;
     if(windowBottom >= docHeight){
         this.setState({
             load:true, 

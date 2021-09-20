@@ -6,6 +6,8 @@ import RenderCard from '../renderCard/renderCardState.js';
 
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
+import getCardStyle from '../cardStyle/getCardStyle.js';
+
 
 class Bookmarks extends Component {
     constructor(props){
@@ -15,13 +17,17 @@ class Bookmarks extends Component {
             bookmarks:[],
             // Card Size
             startingCardSize:"",
+            changedCardSize:{
+                width: getCardStyle()[0],
+                height: getCardStyle()[1]
+            },
         }
         this.getCardSize = this.getCardSize.bind(this);
         // this.clearBookmarks = this.clearBookmarks.bind(this);
     }
 
 
-    getCardSize(width,height){
+    getCardSize = (width,height) =>{
         this.setState({
             startingCardSize:{
                 width:width,
@@ -31,53 +37,39 @@ class Bookmarks extends Component {
     }
     componentDidMount(){
         console.log("Mount")
-        const cardSizeInStorage = JSON.parse(localStorage.getItem("savedCardStyle"))
 
-
-        if(cardSizeInStorage === null){
-            this.setState({changedCardSize:{
-                width:"260px",
-                height:"400px"
-            }})
-        }else{
-            this.setState({changedCardSize:{
-                width:cardSizeInStorage[0],
-                height:cardSizeInStorage[1]
-            }})
-        }
-
-
-      const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
-        // Main Database Call
-      cleanDB.on('value', (snapshot) => {
-        let dbObjects = snapshot.val();
-        let newState = [];
-        for (let dbObject in dbObjects){
-          newState.push({
-            author: dbObjects[dbObject].author,
-            bookmarked: dbObjects[dbObject].bookmarked,
-            dislikes:dbObjects[dbObject].dislikes,
-            email:dbObjects[dbObject].email,
-            hidden:dbObjects[dbObject].hidden,
-            markedforhide:dbObjects[dbObject].markedforhide,
-            id:dbObjects[dbObject].id,
-            key:dbObject,
-            likes:dbObjects[dbObject].likes,
-            liked:dbObjects[dbObject].liked,
-            postdate:dbObjects[dbObject].postdate,
-            read: dbObjects[dbObject].read,
-            tag:dbObjects[dbObject].tag,
-            text:dbObjects[dbObject].text,
-            title:dbObjects[dbObject].title,
-           
-          })
-        }
-          this.setState({
-            fullDatabaseCall: newState,
-              articlesArray: newState.slice(0,30),
-              
-            })    
-      })  
+        //     const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
+        //     // Main Database Call
+        //   cleanDB.on('value', (snapshot) => {
+        //     let dbObjects = snapshot.val();
+        //     let newState = [];
+        //     for (let dbObject in dbObjects){
+        //       newState.push({
+        //         author: dbObjects[dbObject].author,
+        //         bookmarked: dbObjects[dbObject].bookmarked,
+        //         dislikes:dbObjects[dbObject].dislikes,
+        //         email:dbObjects[dbObject].email,
+        //         hidden:dbObjects[dbObject].hidden,
+        //         markedforhide:dbObjects[dbObject].markedforhide,
+        //         id:dbObjects[dbObject].id,
+        //         key:dbObject,
+        //         likes:dbObjects[dbObject].likes,
+        //         liked:dbObjects[dbObject].liked,
+        //         postdate:dbObjects[dbObject].postdate,
+        //         read: dbObjects[dbObject].read,
+        //         tag:dbObjects[dbObject].tag,
+        //         text:dbObjects[dbObject].text,
+        //         title:dbObjects[dbObject].title,
+            
+        //       })
+        //     }
+        //       this.setState({
+        //         fullDatabaseCall: newState,
+        //           articlesArray: newState.slice(0,30),
+                
+        //         })    
+        //   })  
+ 
         if(this.state.getArticleBy === undefined){
             this.setState({getArticleBy:localStorage.getItem("bookmarksFilterOption")})
         }
@@ -147,7 +139,7 @@ class Bookmarks extends Component {
 
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
-        // console.log(this.state.bookmarks)
+
         const fullDatabaseCall = this.state.fullDatabaseCall
         const bookmarkCount = this.state.bookmarksCount;
       
@@ -193,17 +185,14 @@ class Bookmarks extends Component {
                     currentCardArray={filterRead}
                     updateBookmarkStatus={this.updateBookmarkStatus}
 
-
-
                     // Card Size
                     getCardSize={this.getCardSize}
             
             />
+
             {/* The Initial Render */}
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles={this.getFilteredArticles} bookmarked={true} />
-            
-            {/* <PageTitle pageTitle="BOOKMARKS"/> */}
-            
+                        
             <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
                 {this.state.bookmarks.length === 0 ?
                     <div className="blankLoopMessage">
@@ -230,7 +219,7 @@ class Bookmarks extends Component {
                 />
                 }
             </div>
-            {/* <Footer /> */}
+
             </div>
         )
     }

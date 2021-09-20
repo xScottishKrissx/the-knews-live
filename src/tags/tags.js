@@ -4,7 +4,7 @@ import loading from '../img/loading.gif'
 import '../tags/tags.css';
 import LoadingGif from '../utility_components/loadingGif/loadingGif.js';
 import TagsView from './tagsView/tagsView.js';
-
+import getCardStyle from '../utility_components/cardStyle/getCardStyle.js';
 class Tags extends React.Component{
 
     constructor(props){
@@ -13,6 +13,10 @@ class Tags extends React.Component{
             articlesArray: [],
             searchDBFor: this.props.match.params.a || this.props.location.state.searchDBFor,
             fullDatabaseCall:[],
+            totalArticles:80,
+            articlesOnLoad:20,
+            articlesPerScroll:5,
+            cardSize:getCardStyle()
 
 
                  
@@ -50,7 +54,7 @@ class Tags extends React.Component{
         }) 
         
           // Main Database Call
-        const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
+        const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(this.state.totalArticles);  
         cleanDB.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
             let newState = [];
@@ -77,13 +81,13 @@ class Tags extends React.Component{
             }
             this.setState({
                 fullDatabaseCall: newState,
-                articlesArray:newState.slice(0,10)
+                articlesArray:newState.slice(0,this.state.articlesOnLoad)
             })    
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))  
             // console.log(localStorage.getItem("changedFullDatabaseCall"))
             let checkChangedDB = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
             if(checkChangedDB === null){
-                localStorage.setItem("changedFullDatabaseCall",JSON.stringify(this.state.articlesArray))
+                // localStorage.setItem("changedFullDatabaseCall",JSON.stringify(this.state.articlesArray))
             }
             
   
@@ -93,8 +97,8 @@ class Tags extends React.Component{
 
     
     render(){      
-        
-        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.articlesArray;
+        console.log(this.state.articlesArray)
+        const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
         console.log(fullDatabaseCallFromStorage)
 
         const cleanDBCall = JSON.parse(localStorage.getItem("cleanDatabaseCall")) ||  this.state.fullDatabaseCall;
@@ -114,17 +118,7 @@ class Tags extends React.Component{
             getArticlesBasedOnParams = fullDatabaseCallFromStorage.filter(x=>x.tag === paramB)
             showFilterButton = false
         }
-
-
-        // Starting Card Size
-        let cardSize = {}
-        const cardSizeInStorage = JSON.parse(localStorage.getItem("savedCardStyle"))
-        if(cardSizeInStorage === null){
-            cardSize = ["260px","400px"]
-        }else{
-            cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
-        }
-        
+      
         return(
             // <div><h1>Tags View</h1></div>
             <>
@@ -136,7 +130,8 @@ class Tags extends React.Component{
                     paramA={paramA}    
                     paramB={paramB}
                     showFilterButton={showFilterButton}
-                    cardSize={cardSize}
+                    cardSize={this.state.cardSize}
+
                 />
             :
             <LoadingGif />

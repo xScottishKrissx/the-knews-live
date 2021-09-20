@@ -23,7 +23,7 @@ class MapDatabaseItems extends React.Component{
             // The Actual Article Array
                 articlesArray : [],
                 fullDatabaseCall:[],
-                totalArticles:50,
+                totalArticles:80,
                 articlesOnLoad:20,
                 articlesPerScroll:5,
                 cardSize:getCardStyle()
@@ -96,6 +96,7 @@ class MapDatabaseItems extends React.Component{
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                                 urlTagProp={this.props.props}
                                 cardSize={this.state.cardSize}
+                                articlesOnLoad={this.state.articlesOnLoad}
                             /> 
             
                             <ScrollToTopButton   />

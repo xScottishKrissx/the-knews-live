@@ -153,7 +153,7 @@ export class TagsView extends React.Component{
 
         // Hides read articles
         // const renderToPage = filterTags.filter(obj => obj.hidden != true  && obj.read === false) || this.state.fullDatabaseCall
-        console.log(renderToPage)
+        // console.log(renderToPage)
 
         // console.log(this.state.searchDBFor)
         // console.log(this.props.match.params.a)        
@@ -171,7 +171,7 @@ export class TagsView extends React.Component{
         let filterRead;
         if(getShowReadArticlesChoice === "Show")filterRead = renderToPage
         if(getShowReadArticlesChoice === "Hide")filterRead = renderToPage.filter(x => x.read === false)
-        console.log(filterRead)
+        // console.log(filterRead)
 
         return(
             <div className="tags-wrapper">
