@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 export class ClearCache extends React.Component{
 
     clearCache(){
-        localStorage.removeItem("editedArticleArray")
         localStorage.removeItem("filterOption")
         localStorage.removeItem("changedFullDatabaseCall")
         localStorage.removeItem("cleanDatabaseCall")

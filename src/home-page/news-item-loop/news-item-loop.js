@@ -78,7 +78,7 @@ class MapDatabaseItems extends React.Component{
     render(){
         localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
         
-        const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("editedArticleArray")) || this.state.articlesArray;
+        const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.articlesArray;
 
         // Starting Card Size
         let cardSize = {}

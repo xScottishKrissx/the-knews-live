@@ -21,34 +21,6 @@ class OptionsMenu extends Component {
         }
     }
 
-    // toggleMenu(){
-    //     // console.log("Toggle Menu")
-
-    //     if(this.state.optionsMenuOpen === false){
-    //         // document.getElementById("optionsMenuPopup" ).style.visibility = "visible"; 
-
-    //         // Icon
-    //         document.getElementById("optionsMenuIcon" ).classList.add('animateIcon')
-            
-    //         // Menu
-    //         document.getElementById("optionsMenuWrapper" ).classList.add('animateOptionsMenuWrapper')
-    //         document.getElementById("optionsMenuPopup" ).classList.add('animateMenuPopup')
-
-    //         this.setState({optionsMenuOpen:true})
-    //     }else{
-    //         // document.getElementById("optionsMenuPopup" ).style.visibility = "hidden"; 
-
-    //         // Icon
-    //         document.getElementById("optionsMenuIcon" ).classList.remove('animateIcon')
-            
-    //         //Menu
-    //         document.getElementById("optionsMenuWrapper" ).classList.remove('animateOptionsMenuWrapper')
-    //         document.getElementById("optionsMenuPopup" ).classList.remove('animateMenuPopup')
-
-    //         this.setState({optionsMenuOpen:false})            
-    //     }
-    // }
-
     clearCache(removeFromCache){
             // console.log("Clear Cache" + " " + removeFromCache)
             if(removeFromCache.includes("clearCache")){
@@ -61,7 +33,6 @@ class OptionsMenu extends Component {
                 unhideAllArticles();
                 // localStorage.removeItem("changedFullDatabaseCall")
                 // localStorage.removeItem("cleanDatabaseCall")
-                // localStorage.removeItem("editedArticleArray")
                 window.location.reload();
             }
 
