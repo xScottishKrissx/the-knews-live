@@ -4,13 +4,9 @@ import './renderCard.css';
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 
-import swipeRightAction from '../swipeRightAction.js';
-import swipeLeftAction from '../swipeLeftAction.js';
-
 import Caption from './cardCaption/cardCaption.js';
 
-import createBookmark from '../bookmarks/bookmarkFunctions/createBookmark';
-import removeBookmark from '../bookmarks/bookmarkFunctions/removeBookmark';
+import toggleBookmark from '../bookmarks/bookmarkFunctions/toggleBookmark';
 
 import OnCardBookMarkControls from '../onCardControls/onCardBookmarkControls';
 
@@ -25,11 +21,10 @@ class RenderCardState extends React.Component{
 
     swipeLeftAction(id,b,database,bookmarked){
          // Handles updating the bookmark when swiping
-        if(bookmarked === true){ removeBookmark(id) }
-        if(bookmarked === false){ createBookmark(id,database) }
+        if(bookmarked === true){ toggleBookmark(id,database,"remove") }
+        if(bookmarked === false){ toggleBookmark(id,database,"create") }
             
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-
         this.props.updateBookmarkStatus(articles)
     }
 

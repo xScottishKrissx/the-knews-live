@@ -7,9 +7,6 @@ import RenderCard from '../renderCard/renderCardState.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
 
-import PageTitle from '../pageTitle/pageTitle.js';
-import Footer from '../../footer/footer.js';
-
 class Bookmarks extends Component {
     constructor(props){
         super(props);
@@ -86,16 +83,6 @@ class Bookmarks extends Component {
         }
 
     }
-
-    // clearBookmarks(){
-    //     clearAllBookmarks();
-    //     this.setState({bookmarks:[]})
-    // }
-
-    // hideAllArticles(){
-    //     hideAllArticles();
-    //     this.setState({bookmarks:[]})
-    // }
     
     componentDidUpdate(){ 
         this.updateReadStyles()

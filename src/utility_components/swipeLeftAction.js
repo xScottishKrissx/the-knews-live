@@ -1,7 +1,7 @@
-import createBookmarks from "./bookmarks/bookmarkFunctions/createBookmark.js";
+import toggleBookmark from "./bookmarks/bookmarkFunctions/toggleBookmark.js";
 
 export const swipeLeftAction = (id,database,changedFullDatabaseCall) =>{
-    createBookmarks(id,database,changedFullDatabaseCall)
+    toggleBookmark(id,database,changedFullDatabaseCall)
 }
 
 export default swipeLeftAction;

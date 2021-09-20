@@ -18,8 +18,7 @@ import './article-area.css';
 import ArticleInformation from './articleInformation/articleInformation.js';
 
 
-// import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
-// import removeBookmark from '../../../utility_components/bookmarks/removeBookmark.js';
+
 
 
 

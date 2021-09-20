@@ -1,6 +1,6 @@
 import React from 'react';
-import createBookmark from '../../../utility_components/bookmarks/createBookmark';
-import removeBookmark from '../../../utility_components/bookmarks/removeBookmark';
+import toggleBookmark from '../../../utility_components/bookmarks/toggleBookmark';
+
 
 
 export class InArticleBookmark extends React.Component{
@@ -22,10 +22,10 @@ export class InArticleBookmark extends React.Component{
 
         if(this.state.bookmarked === true){
             this.setState({bookmarked:false})
-            removeBookmark(this.props.articleId)
+            toggleBookmark(this.props.articleId,this.props.fullDatabaseCall,"remove")
         }else{
             this.setState({bookmarked:true})
-            createBookmark(this.props.articleId,this.props.fullDatabaseCall)
+            toggleBookmark(this.props.articleId,this.props.fullDatabaseCall,"create")
         }
     }
     render(){

@@ -3,8 +3,8 @@ import React,{Component} from 'react';
 import "./onCardBookmarkControls.css";
 
 // Bookmarks
-import removeBookmark from '../bookmarks/bookmarkFunctions/removeBookmark';
-import createBookmark from '../bookmarks/bookmarkFunctions/createBookmark';
+
+import toggleBookmark from '../bookmarks/bookmarkFunctions/toggleBookmark';
 import SocialScore from './socialScore/socialScore';
 import Bookmark from './bookmark/bookmark';
 import MarkAsReadButton from './markAsReadButton/markAsReadButton';
@@ -72,11 +72,11 @@ hideArticle =(id) => {
 
         if(this.state.bookmarked === true){
             this.setState({bookmarked:false,hideStatus:false})
-            removeBookmark(this.props.id)
+            toggleBookmark(this.props.id,this.props.fullDatabaseCall,"remove")
             if(this.props.updateProp)this.props.updateProp(false)
         }else{
             this.setState({bookmarked:true,hideStatus:false})
-            createBookmark(this.props.id,this.props.fullDatabaseCall)
+            toggleBookmark(this.props.id,this.props.fullDatabaseCall,"create")
             if(this.props.updateProp)this.props.updateProp(true)
         }
         
