@@ -24,7 +24,7 @@ class MapDatabaseItems extends React.Component{
                 articlesArray : [],
                 fullDatabaseCall:[],
                 totalArticles:80,
-                articlesOnLoad:20,
+                articlesOnLoad:10,
                 articlesPerScroll:5,
                 cardSize:getCardStyle()
         }

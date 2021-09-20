@@ -278,6 +278,9 @@ scroll = (e) =>{
                     }
 
                 </div> 
+                <div>
+                    <span className="loadMoreArticlesButton">Load More...</span>
+                </div>
             </div>
             }
             </div>

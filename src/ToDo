@@ -1596,14 +1596,14 @@ General Notes  Objectives:
                     ✔ Add bookmark counter to in-article bookmark page link. @done(18:13 - 20/09/21)
                     ✔ Bookmarks.js is in a different sort order to home(when cache is empty) @done(18:18 - 20/09/21)
                     ☐ Add Load More Articles button to bottom of loop
-                    ☐ Articles sometimes dont have the author info section when clicking on the author tag
-                    ☐ Pick a colour / Make the random colour activate without reload.
+                        ☐ For this to work i need to make the new scroll check work on click, which it currently does not.
                     ☐ make menu's fullscreen on mobile, or at least centre them.
 
 
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
                 ✔ Fix the post date issue @done(12:23 - 17/09/21)
+                ☐ Pick a colour / Make the random colour activate without reload.
                 ☐ Do another pass for responsive design, too many things become small at 2k and up.
                 ✔ added animation to cards so they now do a little fade in when they render. @done(12:28 - 31/08/21)
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
@@ -1634,6 +1634,7 @@ General Notes  Objectives:
                         swipe is unaffected and the hide button works as normal if you swipe first then hide. So im guessing im not properly passing on the main render array at some point.
                         ✔ Yup, i wasn't passing a database call to the hide button in the event of an empty cache. @done(13:49 - 26/08/21)
                     ✔ Sorting By on a tag page overwrites the main array @done(13:33 - 16/09/21)
+                    ☐ Articles sometimes dont have the author info section when clicking on the author tag
 
                 
             Random Colours I like:
