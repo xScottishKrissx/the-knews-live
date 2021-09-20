@@ -1576,7 +1576,13 @@ General Notes  Objectives:
                         ✔ Rename the custom-tile-size folder -> cardStyle @done(13:01 - 20/09/21)
                         ✔ clean up cardStyle.js @done(13:02 - 20/09/21)
                         ✔ rename myData to savedCardStyle @done(13:07 - 20/09/21)
+                        ☐ switch to new card style component
+                            ✔ news item loop @done(13:48 - 20/09/21)
+                            ☐ bookmark.js(probably after splitting that file up)
+                            ☐ tags
+                            
                     ☐ Move the news-item-loop-view above caption.
+                    ☐ Create a bookmark view file that separates the database call from the main presentation elements(like news item loop)
                 
                 Other Stuff to add here:
                     ☐ Replace the 100% complete for swiping with an icon(a tick, thumbs up etc)

@@ -8,6 +8,8 @@ import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.
 import NewsItemLoopView from './news-item-caption/news-item-loop-view/news-item-loop-view.js';
 
 import LoadingGif from '../../utility_components/loadingGif/loadingGif.js';
+import getCardStyle from '../../utility_components/cardStyle/getCardStyle.js';
+
 
 export const NewsItemLoop = (props) => {
     return <MapDatabaseItems props={props.urlTagProp}/>;    
@@ -23,19 +25,15 @@ class MapDatabaseItems extends React.Component{
                 fullDatabaseCall:[],
                 totalArticles:50,
                 articlesOnLoad:20,
-                articlesPerScroll:5
+                articlesPerScroll:5,
+                cardSize:getCardStyle()
         }
     }
-    doThing(){
-        console.log("Do Thing")
-    }
+
     componentDidMount(){
-        this.doThing();
-
-
-        // console.log("mount")
+    // console.log("mount")
     // This is the initial database query.
-      // Main Database Call
+    // Main Database Call
      const dbRef = fire.database().ref('items').orderByKey().limitToFirst(this.state.totalArticles);     
         dbRef.on('value', (snapshot) => {
             let dbObjects = snapshot.val();
@@ -80,15 +78,6 @@ class MapDatabaseItems extends React.Component{
         
         const getLatestArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.articlesArray;
 
-        // Starting Card Size
-        let cardSize = {}
-        const cardSizeInStorage = JSON.parse(localStorage.getItem("savedCardStyle"))
-        if(cardSizeInStorage === null){
-            cardSize = ["260px","400px"]
-        }else{
-            cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
-        }
-
         // Default Sort
         this.state.fullDatabaseCall.sort((a, b) => {
             if (a["postdate"] > b["postdate"]) return 1;
@@ -106,7 +95,7 @@ class MapDatabaseItems extends React.Component{
                                 databaseProp={ getLatestArray } 
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                                 urlTagProp={this.props.props}
-                                cardSize={cardSize}
+                                cardSize={this.state.cardSize}
                             /> 
             
                             <ScrollToTopButton   />

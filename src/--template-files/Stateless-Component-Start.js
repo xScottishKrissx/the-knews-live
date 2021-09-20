@@ -1,6 +1,11 @@
-export const CLASSNAME = (props) =>{
+export const StatelessComponentDefault = (props) =>{
     
-<div>Stateless Coponent Start</div>
+return(
+    <div>
+        <h1>Stateless Component Start</h1>
+    </div>
+)
+
 }
 
-export default CLASSNAME;
+export default StatelessComponentDefault;
