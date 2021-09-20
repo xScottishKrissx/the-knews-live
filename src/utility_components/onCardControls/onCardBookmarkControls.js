@@ -60,7 +60,6 @@ hideArticle =(id) => {
         }
     }    
 
-    localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     // Shows the overlay for comfirming a hide on a bookmark
     if(this.props.hidePressed)this.props.hidePressed()

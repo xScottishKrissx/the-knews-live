@@ -58,27 +58,22 @@ class MapDatabaseItems extends React.Component{
             }
             this.setState({
                 //Set's the initial number of articles loaded into home.
-                articlesArray: newState.slice(0,10),
+                articlesArray: newState.slice(0,this.state.articlesOnLoad),
                 fullDatabaseCall: newState
             })
             localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall)) 
         })
 
-        // console.log(JSON.parse(localStorage.getItem("myData"))[0] )
-
     }
 
      componentWillUnmount(){
-        // window.removeEventListener('scroll',this.scroll);
-        fire.database().ref("items").off();
-        localStorage.setItem("hiddenPosts", localStorage.getItem("hiddenPosts"));
+         fire.database().ref("items").off();
       }
 
 
     render(){
-        localStorage.setItem("unchangedFullDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))
         
-        const arrayWithArticlesHidden = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.articlesArray;
+        const getLatestArray = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.articlesArray;
 
         // Starting Card Size
         let cardSize = {}
@@ -89,32 +84,21 @@ class MapDatabaseItems extends React.Component{
             cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
         }
 
-
+        // Default Sort
         this.state.fullDatabaseCall.sort((a, b) => {
             if (a["postdate"] > b["postdate"]) return 1;
             if (a["postdate"] < b["postdate"]) return -1;
             return 0;
         });   
         this.state.fullDatabaseCall.reverse()
-        // console.dir(this.state.fullDatabaseCall.reverse()) 
         
-        // Starting Page Layout
-        // let pageLayout={}
-        // const pageLayoutInStorage = JSON.parse(localStorage.getItem("pageLayout"))
-        // if(pageLayoutInStorage === null){
-        //     pageLayout = ["row", "0 auto","auto"]
-        // }else{
-        //     pageLayout = [pageLayoutInStorage[0], pageLayoutInStorage[1], pageLayoutInStorage[2]]
-        // }
-
-
          return (
             <div className="news-item-loop-wrapper"> 
             
                 {this.state.articlesArray.length > 0 ? 
                         <React.Fragment>
                             <NewsItemLoopView 
-                                databaseProp={arrayWithArticlesHidden } 
+                                databaseProp={ getLatestArray } 
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                                 urlTagProp={this.props.props}
                                 cardSize={cardSize}

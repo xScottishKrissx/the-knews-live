@@ -19,16 +19,9 @@ class NewsItemLoopView extends React.Component{
         // Card Size
         startingCardSize:"",
         changedCardSize:{
-            // width: JSON.parse(localStorage.getItem("myData"))[0] ,
             width: this.props.cardSize[0],
             height: this.props.cardSize[1]
         },
-        postsArray:[],
-        // pageLayout:{
-        //     flexDirection:this.props.pageLayout[0],
-        //     margin:this.props.pageLayout[1],
-        //     maxWidth:this.props.pageLayout[2]
-        // },
 
         //hiding articles for filter views
         getArticleBy:localStorage.getItem("filterOption") || "All",
@@ -37,7 +30,7 @@ class NewsItemLoopView extends React.Component{
         // liteKnews
         showArticle:false,
         renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")),
-
+        // Set New End Point for Slicing Array for Infinite Load
         endSlice:10
         }
         // Card Size Controls
@@ -55,15 +48,15 @@ componentDidUpdate(){
     this.updateReadStyles();    
 }
 
+
 scroll = (e) =>{
     const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
     const body = document.body;
     const html = document.documentElement;
     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-    // ...this is what is actually used.
+
     const windowBottom = windowHeight + window.pageYOffset;
     if(windowBottom >= docHeight){
-        // console.log("Load New Articles")
         this.setState({
             load:true, 
             endSlice:this.state.endSlice + 10
@@ -71,23 +64,25 @@ scroll = (e) =>{
     }
     // console.log("scroll")
 }
-// Card Size Controls
-getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
 
-// LiteKnews
+    // Card Size Controls
+    getCardSize(width,height){this.setState({startingCardSize:{width:width,height:height}})}
+
+    // LiteKnews
     showArticle(){
-        this.setState({
-            showArticle:true,
-            renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
-        })
-    }
-    closeLiteKnewsView(){
-        this.setState({ 
-            showArticle:false,
-            renderArray: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray })
+            this.setState({
+                showArticle:true,
+                renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
+            })
     }
 
-// filterViews
+    closeLiteKnewsView(){
+            this.setState({ 
+                showArticle:false,
+                renderArray: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray })
+    }
+
+    // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
         // console.log(filteredByTag,getArticleBy)
         this.setState({
@@ -95,9 +90,6 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             getArticleBy:getArticleBy,
         })
     }
-
-    swipeThing(x){ this.setState({ loadingProgress:x }) }
-    handleMenu(x){ document.getElementById(x).classList.add("showMenu") }
 
     // Updates the main render array when bookmarking articles. 
     // This let's me change the bookmark icon when using any of the bookmark options 
@@ -122,8 +114,8 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
    
     updateReadStyles = () => {
-        const renderToPage = this.state.renderArray || this.props.databaseProp ;
-        const markArticleRead = renderToPage.map(el => {
+        const getArticles = this.state.renderArray || this.props.databaseProp ;
+        const markArticleRead = getArticles.map(el => {
             if(el.read === true && el != null )if( document.getElementById(el.id)){
                 document.getElementById(el.id).classList.add('markAsRead')
             }
@@ -175,31 +167,15 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
 
     }
     render(){  
-        // console.log(this.state.renderArray)
-        const renderToPage = this.state.renderArray || this.props.databaseProp ;
-        const thing = renderToPage[this.state.articleNumber] || renderToPage[0];
-        // document.getElementById("reloadBtn2").classList.remove('testClass1')
+
+        const getArticles = this.state.renderArray || this.props.databaseProp ;
+        const checkArticlesExist = getArticles[this.state.articleNumber] || getArticles[0];
         
-        
-        const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
-
-        // bookmark counter
-        const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
-        // filter counter
-        const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
-
-        // const customPageLayout = this.state.pageLayout
-
-        // console.log(renderToPage.length)
-        // console.log(renderToPage)
-
         // Show / Hide Read articles
         const getShowReadArticlesChoice = localStorage.getItem("showReadCards") || "Show"
         let filterRead;
-        if(getShowReadArticlesChoice === "Show")filterRead = renderToPage
-        if(getShowReadArticlesChoice === "Hide")filterRead = renderToPage.filter(x => x.read === false)
-        // console.log("Filter Read> " + filterRead)
-        // console.log(filterRead)
+        if(getShowReadArticlesChoice === "Show")filterRead = getArticles
+        if(getShowReadArticlesChoice === "Hide")filterRead = getArticles.filter(x => x.read === false)
 
         // Set Default Sort if cache is empty
         if(localStorage.getItem("sortBy")===null){
@@ -209,33 +185,34 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 return 0;
             });   
         }
-        // Orders the main array by postdate and then reverse it to get the newest articles.
-        
-        console.log(filterRead)
         
         // Add/Remove Mark as read styles on page render
         this.updateReadStyles()
         
-
         // This will achieve an infinite scroll...
-        let renderAgain;
+        let renderToPage;
         if(this.state.load === true){
-            console.log("Load New")
-            renderAgain = filterRead.slice(0,this.state.endSlice)
+            renderToPage = filterRead.slice(0,this.state.endSlice)
 
         }else{
-            renderAgain = filterRead.slice(0,this.state.endSlice)
+            renderToPage = filterRead.slice(0,this.state.endSlice)
         }
-        console.log(renderAgain)
+        console.log(renderToPage)
+
+        // Presentational Stuff
+        const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
+        // bookmark counter
+        const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
+        // filter counter
+        const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
         return(
             
             <div className="newsItemLoopViewWrapper">
             
             {this.state.showArticle === true ?
                 <LiteKnews 
-                    renderToPage={this.state.renderLiteKnews}
-                    closeLiteKnews={()=>this.closeLiteKnewsView()}                     
-                    postsArray={this.state.postsArray}
+                    getArticles={this.state.renderLiteKnews}
+                    closeLiteKnews={()=>this.closeLiteKnewsView()}
                     arrayFromDatabase={this.props.databaseProp} 
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     updateRender={this.updateRender}
@@ -244,8 +221,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
             
             <div id="cardArea"> 
 
-                    <NavBar                         
-                        // selecting buttons for menu
+                    <NavBar
                         filter={true} 
                         bookmarks={true} 
                         cardStyle={true} 
@@ -259,7 +235,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         getArticleBy={this.state.getArticleBy}
                         getFilteredArticles={this.getFilteredArticles}
                         getFilters={getFilters.length}
-                        currentCardCount={renderAgain.length}
+                        currentCardCount={renderToPage.length}
 
                         // card size
                         getCardSize={this.getCardSize} 
@@ -279,8 +255,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         forceReload={()=>this.reload()}
 
                         // options
-                        currentCardArray={renderAgain}
-                        
+                        currentCardArray={renderToPage}            
                     />
                     
                 <div style={setRandomColour} id="articleLine"></div>
@@ -291,53 +266,31 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
                
                 <div className="cardsWrapper" >
-
      
-                {this.props.databaseProp.length >= 1 && thing && renderAgain.length > 0 ? 
-                    <RenderCardState 
-                        database={renderAgain}
-                        
-                        
-                        // Card Size
-                        startingCardSize={this.state.startingCardSize}
-                        changedCardSize={this.state.changedCardSize}
-                        postsArray={this.state.postsArray}
-                        arrayFromDatabase={this.props.databaseProp} 
-                        fullDatabaseCall={this.props.fullDatabaseCall}
-                        
-                        // Controls
-                        updateBookmarkStatus={this.updateBookmarkStatus}
-                        updateHideStatus={this.updateHideStatus}
-                        hideBookmarkedArticle={false}
-                    />
-                :
-                    <div className="blankLoopMessage">
-                        <h2>Nothing to read,<br/> Check back later...</h2>
-                        <span class="material-icons">auto_stories</span>
-                        <p>Tips: Use the refresh button to check for new articles</p>
-                    </div>
-                }
+                    {this.props.databaseProp.length >= 1 && checkArticlesExist && renderToPage.length > 0 ? 
+                        <RenderCardState 
+                            database={renderToPage}
+                            
+                            
+                            // Card Size
+                            startingCardSize={this.state.startingCardSize}
+                            changedCardSize={this.state.changedCardSize}
+                            arrayFromDatabase={this.props.databaseProp} 
+                            fullDatabaseCall={this.props.fullDatabaseCall}
+                            
+                            // Controls
+                            updateBookmarkStatus={this.updateBookmarkStatus}
+                            updateHideStatus={this.updateHideStatus}
+                            hideBookmarkedArticle={false}
+                        />
+                    :
+                        <div className="blankLoopMessage">
+                            <h2>Nothing to read,<br/> Check back later...</h2>
+                            <span class="material-icons">auto_stories</span>
+                            <p>Tips: Use the refresh button to check for new articles</p>
+                        </div>
+                    }
 
-                
-       
-               
-                {/* {this.props.databaseProp.length >= 30 && thing ? 
-                 <RenderCard
-                    database={renderToPage}
-                    startingCardSize={this.state.startingCardSize}
-                    changedCardSize={this.state.changedCardSize}
-                    postsArray={this.state.postsArray}
-                    arrayFromDatabase={this.props.databaseProp}  
-                    fullDatabaseCall={this.props.fullDatabaseCall}
-                    showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
-                    updateBookmarkStatus={this.updateBookmarkStatus}
-                 />
-                :
-                <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
-                } */}
-                
-
-                
                 </div> 
             </div>
             }

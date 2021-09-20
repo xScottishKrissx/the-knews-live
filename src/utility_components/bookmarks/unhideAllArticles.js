@@ -7,8 +7,7 @@ export const unhideAllArticles = () =>{
                         return Object.assign({}, el, {markedforhide:false,hidden:false,bookmarked:false})
                         return el
                 });
-                console.log(unhideAllArticles)
-                localStorage.setItem("bookmarkArray", JSON.stringify(unhideAllArticles))
+                
                 localStorage.setItem("changedFullDatabaseCall", JSON.stringify(unhideAllArticles))
                 console.log("Hidden Articles Now Unhidden")
         }

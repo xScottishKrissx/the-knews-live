@@ -1564,6 +1564,12 @@ General Notes  Objectives:
                 ✔ This might take a while as I try to figure out the best approach as there is a lot I need to consider like filtering, sorting , hiding etc. So i am starting from the start in a new file to see if I can piece together my previous progress and make any improvements along the way. I dont think it's going to be hard, i just need to figure out a way of integrating a number of systems that allow for user customisation and variety into an infinite scroll. @done(14:29 - 17/09/21)
                 ✔ Christ I think i've actually done it. My solution here was to continue the enlargment of news-item-loop view and change the main filterRead array as I reached the bottom of the screen(using the new scroll function ripped from the scrollCheck file). It skips the scrollCheck components completley and is totally compatible with all of the website options as it's the same array(so no messing with trying to join slice arrays). I'm calling it a day here so i havent completley investigated everything for bugs and issues, but I am very hopeful that I am seeing the end of theKnews in the horizon @done(18:39 - 17/09/21)
 
+                Things To Investigate:
+                    ✔ bookmarkArray - Removed @done(12:51 - 20/09/21)
+                    ☐ updateBookmarkStyles
+                        ☐ Does this do anything?
+                    ☐ 
+
                 
                 Other Stuff to add here:
                     ☐ Replace the 100% complete for swiping with an icon(a tick, thumbs up etc)

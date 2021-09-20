@@ -57,7 +57,7 @@ class RenderCardState extends React.Component{
             });
         }
 
-        localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
+
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
         if(this.props.hidePressed)this.props.hidePressed()
         // Shows the overlay
@@ -82,7 +82,6 @@ class RenderCardState extends React.Component{
                 return el
         });
     
-        localStorage.setItem("bookmarkArray", JSON.stringify(unhideArticle))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(unhideArticle))
         this.props.updateHideStatus(unhideArticle)
     }
@@ -143,7 +142,6 @@ class RenderCardState extends React.Component{
                         hideBookmarkedArticle={this.props.hideBookmarkedArticle}
                         
                         fullDatabaseCall={this.props.fullDatabaseCall}
-                        postsArray={this.props.postsArray}
                         arrayFromDatabase={this.props.arrayFromDatabase}
 
                         bookmarkTest={this.state.bookmarked}

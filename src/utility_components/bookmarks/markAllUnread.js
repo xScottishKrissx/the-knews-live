@@ -18,7 +18,6 @@ export const markAllUnread = () =>{
                                 return el
                 });
                 console.log(clearAllBookmarks)
-                localStorage.setItem("bookmarkArray", JSON.stringify(clearAllBookmarks))
                 localStorage.setItem("changedFullDatabaseCall", JSON.stringify(clearAllBookmarks))
                 // console.log("Articles Marked as Unread")
         }

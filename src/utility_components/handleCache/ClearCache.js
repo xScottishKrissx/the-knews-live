@@ -37,7 +37,6 @@ export default ClearCache;
 // Things that have been set
 
 // articlesArray
-// hiddenPosts
 // myData
 // CardStyleSetting
 // savedCardOptionsPosition

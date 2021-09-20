@@ -22,7 +22,7 @@ export const MarkAsRead = (id,read) =>{
                             return el
                     });
                 
-        localStorage.setItem("bookmarkArray", JSON.stringify(markArticleRead))
+       
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(markArticleRead))
         }
         
@@ -36,12 +36,12 @@ export const MarkAsRead = (id,read) =>{
                             return el
                     });
                 
-        localStorage.setItem("bookmarkArray", JSON.stringify(markArticleUnread))
+        
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(markArticleUnread))
         }
 
 
-        // localStorage.setItem("bookmarkArray", JSON.stringify(markArticleRead))
+        
         // localStorage.setItem("changedFullDatabaseCall", JSON.stringify(markArticleRead))
         
         // document.getElementById(id).classList.add('markAsRead')

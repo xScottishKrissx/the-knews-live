@@ -10,7 +10,7 @@ export const MarkAsRead = (id,markAs) =>{
                         return el
                 });
                       
-                localStorage.setItem("bookmarkArray", JSON.stringify(changeArticleReadStatus))
+                
                 localStorage.setItem("changedFullDatabaseCall", JSON.stringify(changeArticleReadStatus))            
 }
 

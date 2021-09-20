@@ -106,7 +106,7 @@ class Bookmarks extends Component {
 
     updateBookmarkCount(){ 
         // Update Bookmark count on removing/adding bookmarks
-        const bookmarkArray = JSON.parse((localStorage.getItem("bookmarkArray"))) 
+        const bookmarkArray = JSON.parse((localStorage.getItem("changedFullDatabaseCall"))) 
 
         let filterBookmarks = {}
         if(this.state.getArticleBy === "All"){

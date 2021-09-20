@@ -19,7 +19,6 @@ export const markAllRead = () =>{
                                 return el
                 });
                 console.log(markAsRead)
-                localStorage.setItem("bookmarkArray", JSON.stringify(markAsRead))
                 localStorage.setItem("changedFullDatabaseCall", JSON.stringify(markAsRead))
                 console.log("Articles Marked as Read")
         }

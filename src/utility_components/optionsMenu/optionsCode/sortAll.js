@@ -15,14 +15,12 @@ export const SortAll = (currentCardArray,sortBy,order,updateBookmarkStatus, full
     if(order === "asc"){
     //     // console.log(currentCards)
         updateBookmarkStatus(localStorageCards)
-        localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
     }
     
     if(order === "desc"){
         localStorageCards.reverse()
         updateBookmarkStatus(localStorageCards)
-        localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
     }
 

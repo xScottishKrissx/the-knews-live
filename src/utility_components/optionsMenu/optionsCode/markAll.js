@@ -28,7 +28,6 @@ export const MarkAll = (currentCardArray, fullDatabaseCall,thingToChange,changeT
 }
     // this.props.updateBookmarkStatus(localStorageCards)
     updateBookmarkStatus(localStorageCards)
-    localStorage.setItem("bookmarkArray", JSON.stringify(localStorageCards))
     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(localStorageCards))
 }
 

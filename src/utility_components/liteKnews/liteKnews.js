@@ -70,7 +70,6 @@ class LiteKnews extends Component {
     //             return el
     //     });
 
-    //     localStorage.setItem("bookmarkArray", JSON.stringify(hideArticle))
     //     localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
     //     console.log(hideArticle)
     // }

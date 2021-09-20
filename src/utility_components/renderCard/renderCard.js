@@ -26,7 +26,6 @@ export const RenderCard = (props) => {
                         hideBookmarkedArticle={props.hideBookmarkedArticle}
                         
                         fullDatabaseCall={props.fullDatabaseCall}
-                        postsArray={props.postsArray}
                         arrayFromDatabase={props.arrayFromDatabase}
  
                 />
@@ -44,8 +43,7 @@ export const RenderCard = (props) => {
                             content: <div>Hiding article...</div>, 
                             
                             action: () => swipeRightAction(
-                                value.id, 
-                                props.postsArray,
+                                value.id,
                                 props.arrayFromDatabase,
                                 props.fullDatabaseCall,
                                 props.bookmarked

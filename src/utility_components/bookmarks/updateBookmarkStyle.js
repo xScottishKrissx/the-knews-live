@@ -1,6 +1,7 @@
 export const updateBookmarkStyles = () =>{
         
-        const bookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || JSON.parse(localStorage.getItem("bookmarkArray")) 
+        const bookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
+        
         if(bookmarks){
             const updateStyles = bookmarks.filter(obj => obj.bookmarked === true || obj.read === true)
             

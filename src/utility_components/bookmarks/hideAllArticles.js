@@ -18,7 +18,6 @@ export const hideAllArticles = () =>{
                         return el
                 });
                 console.log(hideAllArticles)
-                localStorage.setItem("bookmarkArray", JSON.stringify(hideAllArticles))
                 localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideAllArticles))
                 console.log("All Articles Hidden")
         }

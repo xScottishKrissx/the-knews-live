@@ -10,7 +10,7 @@ export const removeBookmark = (id) =>{
                 return el
         });
 
-        localStorage.setItem("bookmarkArray", JSON.stringify(setBookmarkFalse))
+        
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(setBookmarkFalse))
         if(document.getElementById(id + "bookmarkIcon")){
                 document.getElementById(id + "bookmarkIcon").classList.remove('bookmarkStyle')
