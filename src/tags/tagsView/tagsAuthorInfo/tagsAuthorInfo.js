@@ -14,7 +14,6 @@ export const TagsAuthorInfo = (props) =>{
                     tag={props.database[0].tag}
 
                     arrayFromDatabase={props.arrayFromDatabase}
-                    // leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
                     fullDatabaseCall={props.fullDatabaseCall}
                 />
                 </div>

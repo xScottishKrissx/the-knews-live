@@ -28,10 +28,9 @@ const ArticleArea = (props) => {
     //const loggedInEmail = "chrisdunne66@gmail.com"
     // const articleEmail = props.email;
     // console.log(props.articleId)
-    // console.log(props.leftoverArticles)
     // console.log(props.fullDatabaseCall)
-    function handleClick(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall){
-        HideArticle(id, postsArray,arrayFromDatabase,leftoverArticles,fullDatabaseCall);
+    function handleClick(id, postsArray,arrayFromDatabase,fullDatabaseCall){
+        HideArticle(id, postsArray,arrayFromDatabase,fullDatabaseCall);
         // console.log(arrayFromDatabase.length)
     }
     console.log(props.read)
@@ -65,7 +64,6 @@ const ArticleArea = (props) => {
                                     origin: "Article", 
                                     orderByChild: "postdate",
                                     arrayFromDatabase:props.arrayFromDatabase,
-                                    leftoverArticles:props.leftoverArticles,
                                     fullDatabaseCall:props.fullDatabaseCall
                                 }
                             }}> */}
@@ -92,7 +90,6 @@ const ArticleArea = (props) => {
                                     orderByChild: "author",
                                     thingFromArticle:props.tag,
                                     arrayFromDatabase:props.arrayFromDatabase,
-                                    leftoverArticles:props.leftoverArticles,
                                     fullDatabaseCall:props.fullDatabaseCall
                                     }
                                 }}>
@@ -144,7 +141,6 @@ const ArticleArea = (props) => {
                                                                     props.articleId, 
                                                                     props.postsArray,
                                                                     props.arrayFromDatabase,
-                                                                    props.leftoverArticles,
                                                                     props.fullDatabaseCall)}>
                                                                     Hide Article</button>
                         </div>

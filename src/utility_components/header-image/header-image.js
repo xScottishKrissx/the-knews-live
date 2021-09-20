@@ -20,7 +20,6 @@ const HeaderImage = (props) =>{
                     // Author
                     author={props.author}
                     arrayFromDatabase={props.arrayFromDatabase}
-                    leftoverArticles={props.leftoverArticles}
                     fullDatabaseCall={props.fullDatabaseCall}
                     // PostDate
                     postdate={props.postdate}

@@ -4,13 +4,11 @@ import '../news-item-loop-view/news-item-loop-view.css';
 
 import FilterOptions from '../../../../utility_components/filterOptions/filterOptions';
 import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
-import ScrollCheckV2 from '../../../../utility_components/ScrollCheckV2';
 import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
 import NavBar from '../../../../navBar/navBar';
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
 import SortAll from '../../../../utility_components/optionsMenu/optionsCode/sortAll';
-import ScrollCheck from '../../../../utility_components/scrollCheck/scrollCheck';
-// import ScrollCheck from '../../../../utility_components/scrollCheck/scrollCheck';
+
 
 
 class NewsItemLoopView extends React.Component{
@@ -46,7 +44,8 @@ class NewsItemLoopView extends React.Component{
         this.getCardSize = this.getCardSize.bind(this);
         // liteKnews
         this.closeLiteKnewsView = this.closeLiteKnewsView.bind(this);        
-        window.addEventListener('scroll', this.scroll);
+        window.addEventListener('scroll', this.scroll);        
+        window.addEventListener('touchstart',this.scroll, {passive:true});
     }
 
 componentDidMount(){ this.reload() }
@@ -132,6 +131,11 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 document.getElementById(el.id).classList.remove('markAsRead')
             }
         });
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener('scroll', this.scroll);        
+        window.removeEventListener('touchstart',this.scroll, {passive:true});
     }
 
     reload(){
@@ -233,7 +237,6 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     closeLiteKnews={()=>this.closeLiteKnewsView()}                     
                     postsArray={this.state.postsArray}
                     arrayFromDatabase={this.props.databaseProp} 
-                    leftoverArticles={this.props.leftoverArticles}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     updateRender={this.updateRender}
                 />
@@ -300,7 +303,6 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                         changedCardSize={this.state.changedCardSize}
                         postsArray={this.state.postsArray}
                         arrayFromDatabase={this.props.databaseProp} 
-                        leftoverArticles={this.props.leftoverArticles}  
                         fullDatabaseCall={this.props.fullDatabaseCall}
                         
                         // Controls
@@ -325,8 +327,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}
                     postsArray={this.state.postsArray}
-                    arrayFromDatabase={this.props.databaseProp} 
-                    leftoverArticles={this.props.leftoverArticles}  
+                    arrayFromDatabase={this.props.databaseProp}  
                     fullDatabaseCall={this.props.fullDatabaseCall}
                     showArticle={() => this.showArticle(renderToPage[this.state.articleNumber].id)}
                     updateBookmarkStatus={this.updateBookmarkStatus}
@@ -335,37 +336,7 @@ getCardSize(width,height){this.setState({startingCardSize:{width:width,height:he
                 <p>Something has gone wrong. Contact your nearest guardian of the light</p> 
                 } */}
                 
-               {/* <h5>Infinite Scrolling Coming Soon...</h5> */}
 
-                {this.state.getArticleBy === "lll" ?
-                    <ScrollCheckV2 
-                        articlesArray={renderAgain}
-
-                        startingCardSize={this.state.startingCardSize}
-                        changedCardSize={this.state.changedCardSize}
-                        
-                        leftoverArticles={this.props.leftoverArticles}
-                        getArticleBy={this.state.getArticleBy}
-                        fullDatabaseCall={this.props.fullDatabaseCall}
-                        
-                        showMoreArticlesBtn={true}
-                        
-                        updateBookmarkStatus={this.updateBookmarkStatus}
-                        updateHideStatus={this.updateHideStatus}
-                        hideBookmarkedArticle={false}
-                    />                   
-                :
-                <p>No more articles to show. Refresh the page or check again later for more Knews.</p>
-                }      
-
-                {/* <ScrollCheck 
-                    database={this.state.renderArray}
-
-                    // Card Size
-                    startingCardSize={this.state.startingCardSize}
-                    changedCardSize={this.state.changedCardSize}
-
-                /> */}
                 
                 </div> 
             </div>

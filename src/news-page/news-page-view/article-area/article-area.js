@@ -16,8 +16,8 @@ import pinterestIcon from '../../../img/pinterest_icon_512px_black_and_white.png
 
 import './article-area.css';
 import ArticleInformation from './articleInformation/articleInformation.js';
-// import HideArticle from '../../../utility_components/hide-article/hide-articlev2.js';
-// import hideArticleFeedback from '../../../utility_components/hide-article/hideArticleFeedback.js';
+
+
 // import createBookmark from '../../../utility_components/bookmarks/createBookmark.js';
 // import removeBookmark from '../../../utility_components/bookmarks/removeBookmark.js';
 
@@ -38,7 +38,6 @@ const ArticleArea = (props) => {
     //const loggedInEmail = "chrisdunne66@gmail.com"
     // const articleEmail = props.email;
     // console.log(props.articleId)
-    // console.log(props.leftoverArticles)
     // console.log(props.fullDatabaseCall)
     // console.log(props.bookmarked)
 
@@ -76,7 +75,6 @@ const ArticleArea = (props) => {
                         // Author
                         author={props.author}
                         arrayFromDatabase={props.arrayFromDatabase}
-                        leftoverArticles={props.leftoverArticles}
                         fullDatabaseCall={props.fullDatabaseCall}
                         // PostDate
                         postdate={props.postdate}

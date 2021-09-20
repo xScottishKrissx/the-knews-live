@@ -152,7 +152,6 @@ export class NavBar extends React.Component{
                                 readStatus={this.props.readStatus}
                                 showMarkAsReadButton={this.props.showMarkAsReadButton}
                                 arrayFromDatabase={this.props.arrayFromDatabase}
-                                leftoverArticles={this.props.leftoverArticles}
 
                                 hidePressed={this.props.hidePressed}
                                 updateArticle={this.props.updateArticle}

@@ -32,7 +32,6 @@ export class LiteKnewsView extends React.Component{
                 // Author
                 author={this.props.author}
                 arrayFromDatabase={this.props.arrayFromDatabase}
-                leftoverArticles={this.props.leftoverArticles}
                 fullDatabaseCall={this.props.fullDatabaseCall}
                 // PostDate
                 postdate={this.props.postdate}

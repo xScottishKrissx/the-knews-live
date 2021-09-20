@@ -19,7 +19,6 @@ export const ArticleFooter = (props) =>{
                         author={props.author}
                         tag={props.tag}
                         arrayFromDatabase={props.articlesArray}
-                        leftoverArticles={props.leftoverArticles}
                         fullDatabaseCall={props.fullDatabaseCall}
                     />
 

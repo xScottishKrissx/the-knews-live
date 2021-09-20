@@ -24,7 +24,6 @@ export class NewsPageVIEW extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            leftoverArticles:[],
             fullDatabaseCall:[],
             
         }
@@ -63,8 +62,7 @@ export class NewsPageVIEW extends React.Component{
           
           this.setState({
             fullDatabaseCall: newState,
-            articlesArray: newState.slice(0,30),
-            leftoverArticles: newState.slice(30,97)
+            articlesArray: newState.slice(0,30)
           })
  
           
@@ -176,7 +174,6 @@ export class NewsPageVIEW extends React.Component{
                     readStatus={value.read}
                     showMarkAsReadButton={false}
                     arrayFromDatabase={this.state.articlesArray}
-                    leftoverArticles={this.state.leftoverArticles}
                     fullDatabaseCall={this.state.fullDatabaseCall}
 
                     hideStatus={value.markedforhide}
@@ -195,7 +192,6 @@ export class NewsPageVIEW extends React.Component{
                         postdate={value.postdate} 
                         tag={value.tag}
                         arrayFromDatabase={this.state.articlesArray}
-                        leftoverArticles={this.state.leftoverArticles}
                         fullDatabaseCall={this.state.fullDatabaseCall}
 
                         />
@@ -223,7 +219,6 @@ export class NewsPageVIEW extends React.Component{
 
                         //Hiding
                         arrayFromDatabase={this.state.articlesArray}
-                        leftoverArticles={this.state.leftoverArticles}
                         fullDatabaseCall={this.state.fullDatabaseCall}
                         showHideInfo={value.markedforhide}
                        
@@ -271,7 +266,6 @@ export class NewsPageVIEW extends React.Component{
                         tag={value.tag}
                         id={value.id}                         
                         arrayFromDatabase={this.state.articlesArray}
-                        leftoverArticles={this.state.leftoverArticles}
                         fullDatabaseCall={this.state.fullDatabaseCall}
                       />                    
                     <ScrollToTopButton  />   

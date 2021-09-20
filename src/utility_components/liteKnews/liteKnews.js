@@ -141,7 +141,6 @@ class LiteKnews extends Component {
                 readStatus={articleFromArray.read}
                 showMarkAsReadButton={false}
                 arrayFromDatabase={this.props.arrayFromDatabase}
-                leftoverArticles={this.props.leftoverArticles}
                 fullDatabaseCall={this.props.fullDatabaseCall}
 
                 // Article COntrols
@@ -237,7 +236,6 @@ class LiteKnews extends Component {
                             // Author
                             author={articleFromArray.author}
                             arrayFromDatabase={this.props.arrayFromDatabase}
-                            leftoverArticles={this.props.leftoverArticles}
                             fullDatabaseCall={this.props.fullDatabaseCall}
                             // PostDate
                             postdate={articleFromArray.postdate}

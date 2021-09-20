@@ -72,7 +72,6 @@ export class NewsPage extends React.Component{
             this.setState({
                 fullDatabaseCall: newState,
                 articlesArray: newState.slice(0,30),
-                leftoverArticles: newState.slice(30,97)
                 
             })
             if(this.state.articlesArray.length === 0 ){
@@ -108,8 +107,7 @@ export class NewsPage extends React.Component{
                 <NewsPageVIEW 
                     database={this.state.articlesArray} 
                     params={this.props.match.params.id} 
-                    fullDatabaseCall={this.state.fullDatabaseCall} 
-                    leftoverArticles={this.state.leftoverArticles}
+                    fullDatabaseCall={this.state.fullDatabaseCall}
                     id={this.props.match.params.id}
                     // articleId={this.props.location.state.articleId}
                     updateArticle={this.updateArticle}

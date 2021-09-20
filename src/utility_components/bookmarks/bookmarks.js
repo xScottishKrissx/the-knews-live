@@ -81,7 +81,6 @@ class Bookmarks extends Component {
           this.setState({
             fullDatabaseCall: newState,
               articlesArray: newState.slice(0,30),
-              leftoverArticles: newState.slice(30,97)
               
             })    
       })  
@@ -241,8 +240,7 @@ class Bookmarks extends Component {
                     // Hiding
                     hideBookmarkedArticle={true}
                     arrayFromDatabase={this.state.fullDatabaseCall}
-                    fullDatabaseCall={this.state.fullDatabaseCall}
-                    leftoverArticles={this.state.leftoverArticles}                    
+                    fullDatabaseCall={this.state.fullDatabaseCall}                 
                     // Custom Card Size
                     startingCardSize={this.state.startingCardSize}
                     changedCardSize={this.state.changedCardSize}

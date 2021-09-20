@@ -251,12 +251,12 @@ export class TagsView extends React.Component{
 
                                 // This needs to be clean database call
                                 arrayFromDatabase={this.state.fullDatabaseCall || this.props.location.state.arrayFromDatabase}
-                                // leftoverArticles={this.state.leftoverArticles||this.props.location.state.leftoverArticles}
+                                
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                             />
                             }
 
-                            {/* <ScrollCheckV2 leftoverArticles={this.state.leftoverArticles} fullDatabaseCall={this.state.fullDatabaseCall}/> */}
+                            
                         </div>                     
                         
                     }

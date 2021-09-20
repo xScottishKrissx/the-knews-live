@@ -62,7 +62,6 @@ class OptionsMenu extends Component {
                 // localStorage.removeItem("changedFullDatabaseCall")
                 // localStorage.removeItem("cleanDatabaseCall")
                 // localStorage.removeItem("editedArticleArray")
-                // localStorage.removeItem("editedLeftoverArticlesArray")
                 window.location.reload();
             }
 

@@ -11,7 +11,6 @@ class Tags extends React.Component{
         super(props);
         this.state = {
             articlesArray: [],
-            leftoverArticles:[],
             searchDBFor: this.props.match.params.a || this.props.location.state.searchDBFor,
             fullDatabaseCall:[],
 

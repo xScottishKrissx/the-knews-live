@@ -43,7 +43,6 @@ return(
                                 orderByChild: "author",
                                 thingFromArticle:props.tag,
                                 arrayFromDatabase:props.arrayFromDatabase,
-                                leftoverArticles:props.leftoverArticles,
                                 fullDatabaseCall:props.fullDatabaseCall
                                 }
                             }}>
@@ -67,7 +66,6 @@ return(
                                 origin: "Article", 
                                 orderByChild: "postdate",
                                 arrayFromDatabase:props.arrayFromDatabase,
-                                leftoverArticles:props.leftoverArticles,
                                 fullDatabaseCall:props.fullDatabaseCall
                             }
                         }}> */}

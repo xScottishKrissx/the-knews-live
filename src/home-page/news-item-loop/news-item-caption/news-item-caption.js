@@ -106,7 +106,6 @@ export class Caption extends React.Component{
                                             orderByChild: "author",
                                             thingFromArticle:this.props.tag,
                                             arrayFromDatabase:this.props.arrayFromDatabase,
-                                            leftoverArticles:this.props.leftoverArticles,
                                             fullDatabaseCall:this.props.fullDatabaseCall
                                             }
                                         }}>

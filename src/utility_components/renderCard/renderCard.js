@@ -27,7 +27,6 @@ export const RenderCard = (props) => {
                         
                         fullDatabaseCall={props.fullDatabaseCall}
                         postsArray={props.postsArray}
-                        leftoverArticles={props.leftoverArticles}
                         arrayFromDatabase={props.arrayFromDatabase}
  
                 />
@@ -48,7 +47,6 @@ export const RenderCard = (props) => {
                                 value.id, 
                                 props.postsArray,
                                 props.arrayFromDatabase,
-                                props.leftoverArticles,
                                 props.fullDatabaseCall,
                                 props.bookmarked
                                 

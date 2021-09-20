@@ -144,7 +144,6 @@ class RenderCardState extends React.Component{
                         
                         fullDatabaseCall={this.props.fullDatabaseCall}
                         postsArray={this.props.postsArray}
-                        leftoverArticles={this.props.leftoverArticles}
                         arrayFromDatabase={this.props.arrayFromDatabase}
 
                         bookmarkTest={this.state.bookmarked}

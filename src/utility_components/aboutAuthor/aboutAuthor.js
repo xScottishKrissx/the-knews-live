@@ -30,7 +30,6 @@ export const AuthorInfo = (props) =>{
                                 orderByChild: "author",
                                 thingFromArticle:props.tag,
                                 arrayFromDatabase:props.arrayFromDatabase,
-                                leftoverArticles:props.leftoverArticles,
                                 fullDatabaseCall:props.fullDatabaseCall
                                 }
                             }}>

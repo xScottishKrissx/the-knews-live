@@ -21,7 +21,6 @@ return(
                     readStatus={props.readStatus}
                     showMarkAsReadButton={props.showMarkAsReadButton}
                     arrayFromDatabase={props.arrayFromDatabase}
-                    leftoverArticles={props.leftoverArticles}
 
                     hidePressed={props.hidePressed}
                     updateProp={props.updateArticle}

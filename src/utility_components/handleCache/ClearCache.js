@@ -7,7 +7,6 @@ export class ClearCache extends React.Component{
 
     clearCache(){
         localStorage.removeItem("editedArticleArray")
-        localStorage.removeItem("editedLeftoverArticlesArray")
         localStorage.removeItem("filterOption")
         localStorage.removeItem("changedFullDatabaseCall")
         localStorage.removeItem("cleanDatabaseCall")
