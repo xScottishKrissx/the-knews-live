@@ -152,6 +152,8 @@ class Bookmarks extends Component {
         if(getShowReadArticlesChoice === "Show")filterRead = this.state.bookmarks
         if(getShowReadArticlesChoice === "Hide")filterRead = this.state.bookmarks.filter(x => x.read === false)
 
+        
+
         this.updateReadStyles()
         return(
 
@@ -203,7 +205,7 @@ class Bookmarks extends Component {
                 :
                 <RenderCard 
                     // Bookmarking
-                    database={filterRead} 
+                    database={filterRead.reverse()} 
                     bookmarked={true}
                     // Hiding
                     hideBookmarkedArticle={true}
