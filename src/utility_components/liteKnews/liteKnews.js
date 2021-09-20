@@ -51,7 +51,7 @@ class LiteKnews extends Component {
         window.scrollTo(0,0)
     }
     //Right
-    if(event.keyCode === 39 && this.state.articleNumber < this.props.renderToPage.length ){
+    if(event.keyCode === 39 && this.state.articleNumber < this.props.getArticles.length ){
         this.setState({articleNumber: this.state.articleNumber + 1}) 
         window.scrollTo(0,0)
     }
@@ -77,19 +77,19 @@ class LiteKnews extends Component {
 
 
     render(){ 
-    const filterHidden = this.props.renderToPage.filter(obj => 
+    const filterHidden = this.props.getArticles.filter(obj => 
         obj.hidden === false && 
         obj.read === false  
         && obj.markedforhide === false
         )
-    // const filterHidden = this.props.renderToPage
+    // const filterHidden = this.props.getArticles
     const articleFromArray = filterHidden[this.state.articleNumber];
     const nextArticleTitle = filterHidden[this.state.articleNumber + 1]
     const prevArticleTitle = filterHidden[this.state.articleNumber - 1]
     // console.log(articleFromArray.markedforhide)
     // console.log(articleFromArray)
-    // console.log(this.props.renderToPage)
-    // console.log(this.props.renderToPage.length)
+    // console.log(this.props.getArticles)
+    // console.log(this.props.getArticles.length)
     // console.log(this.state.articleNumber)
         return (
             <div id="liteKnewsWrapper">     

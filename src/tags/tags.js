@@ -111,7 +111,7 @@ class Tags extends React.Component{
         let getArticlesBasedOnParams; let showFilterButton;
         if(fullDatabaseCallFromStorage.length > 0 && paramA.includes("author")){
             getArticlesBasedOnParams = fullDatabaseCallFromStorage.filter(x=>x.author === paramB)
-            showFilterButton = true
+            showFilterButton = false
         }
 
         if(fullDatabaseCallFromStorage.length > 0 && paramA.includes("tag")){

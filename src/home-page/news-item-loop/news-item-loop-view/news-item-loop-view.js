@@ -203,7 +203,7 @@ scroll = (e) =>{
             
             {this.state.showArticle === true ?
                 <LiteKnews 
-                    getArticles={this.state.renderLiteKnews}
+                    getArticles={renderToPage}
                     closeLiteKnews={()=>this.closeLiteKnewsView()}
                     arrayFromDatabase={this.props.databaseProp} 
                     fullDatabaseCall={this.props.fullDatabaseCall}

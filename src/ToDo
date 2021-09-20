@@ -1571,15 +1571,15 @@ General Notes  Objectives:
 
                     ✔ remove optionsMenu @done(12:58 - 20/09/21)
                         ✔ rename optionsMenuV2 -> optionsMenu @done(12:58 - 20/09/21)
-                    ☐ Card Size
+                    ✔ Card Size @done(17:42 - 20/09/21)
                         ✔ remove the customCardSize file that isn't in use(rename if needed) @done(13:01 - 20/09/21)
                         ✔ Rename the custom-tile-size folder -> cardStyle @done(13:01 - 20/09/21)
                         ✔ clean up cardStyle.js @done(13:02 - 20/09/21)
                         ✔ rename myData to savedCardStyle @done(13:07 - 20/09/21)
-                        ☐ switch to new card style component
+                        ✔ switch to new card style component @done(17:42 - 20/09/21)
                             ✔ news item loop @done(13:48 - 20/09/21)
                             ✔ bookmark.js(probably after splitting that file up) @done(17:21 - 20/09/21)
-                            ☐ tags
+                            ✔ tags @done(17:42 - 20/09/21)
 
                     ✔ Move the news-item-loop-view above caption. @done(14:00 - 20/09/21)
                     ✔ Bookmarks @done(17:11 - 20/09/21)
@@ -1590,10 +1590,14 @@ General Notes  Objectives:
                                 ✔ rename createBookmark -> toggleBookmark @done(16:35 - 20/09/21)
                 
                 Other Stuff to add here:
+                    ✔ liteKnews is broken @done(17:58 - 20/09/21)
+                        ✔ i changed a prop name in it's parent component and forgot to update liteKnews @done(17:58 - 20/09/21)
                     ☐ Replace the 100% complete for swiping with an icon(a tick, thumbs up etc)
                     ☐ Add bookmark counter to in-article bookmark page link.
-                    ☐ Bookmarks.js is in a different sort order to home
+                    ☐ Bookmarks.js is in a different sort order to home(when cache is empty)
                     ☐ Add Load More Articles button to bottom of loop
+                    ☐ Articles sometimes dont have the author info section when clicking on the author tag
+                    ☐ Pick a colour / Make the random colour activate without reload.
 
 
             12.10.X - Misc:
@@ -1609,11 +1613,11 @@ General Notes  Objectives:
 
                 ✔ Separate navbar.js into components @done(13:15 - 05/07/21)
                 ✔ PICK A FONT!! @done(13:01 - 05/07/21)
-                ☐ Move the hide article dialogue box into it's own component.
+                ✘ Move the hide article dialogue box into it's own component. @cancelled(17:48 - 20/09/21)
                 ✔ the mark all and sort all components can be moved to separate components. @done(16:35 - 07/09/21)
-                ☐ have a look and see how the code can be futher tidied and optimised.
-                ☐ there will be component that are no longer in use, remove these.
-                ☐ move news-item-loop-view above news-caption in the folder structure.
+                ✔ have a look and see how the code can be futher tidied and optimised. @done(17:42 - 20/09/21)
+                ✔ there will be component that are no longer in use, remove these. @done(17:42 - 20/09/21)
+                ✔ move news-item-loop-view above news-caption in the folder structure. @done(17:42 - 20/09/21)
 
                 ✔ convert var to let or const @done(12:09 - 09/09/21)
                     let for loops and stuff
@@ -1629,11 +1633,10 @@ General Notes  Objectives:
                         swipe is unaffected and the hide button works as normal if you swipe first then hide. So im guessing im not properly passing on the main render array at some point.
                         ✔ Yup, i wasn't passing a database call to the hide button in the event of an empty cache. @done(13:49 - 26/08/21)
                     ✔ Sorting By on a tag page overwrites the main array @done(13:33 - 16/09/21)
-                    ☐ Filtering the authors tag overwrite the main website array.
 
                 
-            ☐ Random Colours I like
-                ☐ A dark matte-looking audi sort of green
+            Random Colours I like:
+                A dark matte-looking audi sort of green
                     rgb(79, 101, 90)
 
 
