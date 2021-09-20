@@ -138,7 +138,7 @@ class RenderCardState extends React.Component{
                                     {this.state.progress <= 40 ? 
                                     <span>{Math.round(this.state.progress * 2.5) +  "%"}</span> 
                                     :
-                                    <span>100%</span> 
+                                    <i class="bi bi-check"></i>
                                     }                                         
                                      
                                     {value.bookmarked === false ? 
@@ -147,7 +147,7 @@ class RenderCardState extends React.Component{
                                         <span className="displaySwipeText2">Removing Bookmark</span>
                                     }       
 
-                                    {this.state.progress >= 40 ? <span>-<br/>Complete</span> :null }     
+                                    {/* {this.state.progress >= 40 ? <span>-<br/>Complete</span> :null }      */}
                                 </div>,
                             action: () => this.swipeLeftAction(value.id,true,this.props.fullDatabaseCall,value.bookmarked),
                             
@@ -161,12 +161,12 @@ class RenderCardState extends React.Component{
                                         {this.state.progress <= 40 ? 
                                         <span>{Math.round(this.state.progress * 2.5) +  "%"}</span> 
                                         :
-                                        <span>100%</span> 
+                                        <i class="bi bi-check"></i>
                                         }   
                                          
                                         <span>Hiding article...</span> 
 
-                                        {this.state.progress >= 40 ? <span>-<br/>Complete</span> :null }
+                                        {/* {this.state.progress >= 40 ? <span>-<br/>Complete</span> :null } */}
                                     </div>, 
                             action:() => this.swipeRightAction(value.id,this.props.fullDatabaseCall,value.bookmarked)
                         }}
