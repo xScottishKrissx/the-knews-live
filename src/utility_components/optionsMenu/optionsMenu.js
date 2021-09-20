@@ -6,10 +6,6 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-// Bookmarks
-import clearAllBookmarks from '../bookmarks/clearAllBookmarks.js';
-import hideAllArticles from '../bookmarks/hideAllArticles.js';
-
 // Options Menu
 import "../optionsMenu/optionsMenu.css";
 import MarkAll from './optionsCode/markAll.js';
@@ -34,16 +30,6 @@ class OptionsMenu extends Component {
             localStorage.setItem("savedCardStyle", JSON.stringify(arrayThing));
 
         }              
-    }
-
-    clearBookmarks(){
-        clearAllBookmarks();
-        this.setState({bookmarks:[]})
-    }
-
-    hideAllArticles(){
-        hideAllArticles();
-        this.setState({bookmarks:[]})
     }
 
     markAll(thingToChange,changeThingTo,toggle){

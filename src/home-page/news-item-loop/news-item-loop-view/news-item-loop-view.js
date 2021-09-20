@@ -8,8 +8,6 @@ import NavBar from '../../../navBar/navBar';
 import RenderCardState from '../../../utility_components/renderCard/renderCardState';
 import SortAll from '../../../utility_components/optionsMenu/optionsCode/sortAll';
 
-
-
 class NewsItemLoopView extends React.Component{
 
     constructor(props){
@@ -62,7 +60,6 @@ scroll = (e) =>{
             endSlice:this.state.endSlice + 10
         })
     }
-    // console.log("scroll")
 }
 
     // Card Size Controls
@@ -70,16 +67,16 @@ scroll = (e) =>{
 
     // LiteKnews
     showArticle(){
-            this.setState({
-                showArticle:true,
-                renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
-            })
+        this.setState({
+            showArticle:true,
+            renderLiteKnews: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray
+        })
     }
 
     closeLiteKnewsView(){
-            this.setState({ 
-                showArticle:false,
-                renderArray: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray })
+        this.setState({ 
+            showArticle:false,
+            renderArray: JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.renderArray })
     }
 
     // filterViews
@@ -142,14 +139,12 @@ scroll = (e) =>{
                     return Object.assign({}, el, {hidden:true})
                     return el
             });
-            // console.log(hideArticle)           
-    
-            // console.log("news-item-loop-view.js mounted")
+
             const filterMarkedAsHiddenForReload = hideArticle.filter(x=> x.hidden === false )
             
             // Check if a filter is active
             const getFilter = localStorage.getItem("filterOption")
-            let checkFilter = {}
+            let checkFilter;
             if(getFilter === "All"){
                 checkFilter = filterMarkedAsHiddenForReload;
             }else{
@@ -160,12 +155,9 @@ scroll = (e) =>{
             localStorage.setItem("changedFullDatabaseCall", JSON.stringify(filterMarkedAsHiddenForReload))
             this.setState({renderArray:checkFilter})
             document.getElementById("reloadBtn").classList.remove('testClass1')
-            // console.log(this.state.renderArray)
         }
-
-
-
     }
+
     render(){  
 
         const getArticles = this.state.renderArray || this.props.databaseProp ;
@@ -261,23 +253,17 @@ scroll = (e) =>{
                 <div style={setRandomColour} id="articleLine"></div>
                 
                 <FilterOptions fullDatabaseCall={this.props.fullDatabaseCall} getFilteredArticles = {this.getFilteredArticles} bookmarked={false}/>                
-
-                
-                {/* <PageTitle pageTitle="YOUR KNEWS"/> */}
                
                 <div className="cardsWrapper" >
      
                     {this.props.databaseProp.length >= 1 && checkArticlesExist && renderToPage.length > 0 ? 
                         <RenderCardState 
-                            database={renderToPage}
-                            
-                            
+                            database={renderToPage}                           
                             // Card Size
                             startingCardSize={this.state.startingCardSize}
                             changedCardSize={this.state.changedCardSize}
                             arrayFromDatabase={this.props.databaseProp} 
                             fullDatabaseCall={this.props.fullDatabaseCall}
-                            
                             // Controls
                             updateBookmarkStatus={this.updateBookmarkStatus}
                             updateHideStatus={this.updateHideStatus}

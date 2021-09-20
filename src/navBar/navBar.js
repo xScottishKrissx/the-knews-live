@@ -9,7 +9,6 @@ import FilterOptionsButton from './navBarButtons/filterOptionsButton';
 import CardStyleButton from './navBarButtons/cardStyleButton';
 import LiteKnewsButton from './navBarButtons/liteKnewsButton';
 import BookmarkButton from './navBarButtons/bookmarkButton';
-import BookmarkOptionsMenuButton from './navBarButtons/optionsMenu/bookmarkOptionsMenuButton';
 import OptionsMenuButton from './navBarButtons/optionsMenu/optionsMenuButton';
 import ScoreButtons from './navBarButtons/articlePage/scoreButtons';
 import BookmarkControlButtons from './navBarButtons/bookmarkControlButtons';
@@ -118,18 +117,6 @@ export class NavBar extends React.Component{
                                 bookmarkCounter={this.props.bookmarkCounter}
 
                             />
-
-                            {/************Bookmark Options Menu  */}
-                            {/* <BookmarkOptionsMenuButton
-                                showBookmarkOptionsMenu={this.props.bookmarked}
-                                clearBookmarks={this.props.clearBookmarks}
-                                markAllUnread={this.props.markAllUnread}
-                                markAllRead={this.props.markAllRead}
-                                hideAllArticles={this.props.hideAllArticles}
-
-                            /> */}
-
-
 
                             {/************Score Buttons  */}
                             <ScoreButtons 

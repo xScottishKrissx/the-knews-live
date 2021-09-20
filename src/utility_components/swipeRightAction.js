@@ -1,5 +1,5 @@
 import HideArticle from './hide-article/hide-article.js';
-import removeBookmark from '../utility_components/bookmarks/removeBookmark.js';
+import removeBookmark from './bookmarks/bookmarkFunctions/removeBookmark.js';
 export const swipeRightAction = (id,bookmarked) =>{
 
     document.getElementById(id).style.display = "none";    

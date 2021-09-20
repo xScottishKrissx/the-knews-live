@@ -1,4 +1,4 @@
-import MarkAsRead from "../../bookmarks/markAsReadV2";
+import MarkAsRead from "../../markAsRead";
 
 export const MarkAsReadButton = (props) =>{
 

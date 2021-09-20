@@ -1,15 +1,15 @@
 export const createBookmark = (id,database,changedFullDatabaseCall) =>{
       
     // Set initial array
-    const arrayThing = JSON.parse(localStorage.getItem("bookmarks")) || []
+    // const arrayThing = JSON.parse(localStorage.getItem("bookmarks")) || []
     // Push card to array
-    arrayThing.push(id);
+    // arrayThing.push(id);
 
     // remove duplicates
-    const filterForDuplicate = Array.from(new Set(arrayThing))
+    // const filterForDuplicate = Array.from(new Set(arrayThing))
 
     // push array to localstorage for use elsewhere
-    localStorage.setItem("bookmarks", JSON.stringify(filterForDuplicate));
+    // localStorage.setItem("bookmarks", JSON.stringify(filterForDuplicate));
 
     const cleanDB = database;
     const currentBookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))

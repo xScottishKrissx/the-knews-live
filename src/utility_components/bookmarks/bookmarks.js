@@ -4,14 +4,9 @@ import fire from '../../fire.js';
 import "../bookmarks/bookmarks.css";
 import RenderCard from '../renderCard/renderCardState.js';
 
-// Bookmarks
-import clearAllBookmarks from './clearAllBookmarks.js';
-import markAllUnread from './markAllUnread.js';
-
-import hideAllArticles from './hideAllArticles.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
-import markAllRead from './markAllRead.js';
+
 import PageTitle from '../pageTitle/pageTitle.js';
 import Footer from '../../footer/footer.js';
 
@@ -92,14 +87,15 @@ class Bookmarks extends Component {
 
     }
 
-    clearBookmarks(){
-        clearAllBookmarks();
-        this.setState({bookmarks:[]})
-    }
-    hideAllArticles(){
-        hideAllArticles();
-        this.setState({bookmarks:[]})
-    }
+    // clearBookmarks(){
+    //     clearAllBookmarks();
+    //     this.setState({bookmarks:[]})
+    // }
+
+    // hideAllArticles(){
+    //     hideAllArticles();
+    //     this.setState({bookmarks:[]})
+    // }
     
     componentDidUpdate(){ 
         this.updateReadStyles()
@@ -200,8 +196,6 @@ class Bookmarks extends Component {
                     
                     // Bookmark UI
                     clearBookmarks={() => this.clearBookmarks()}
-                    markAllUnread={() => markAllUnread()}
-                    markAllRead={() => markAllRead()}
                     hideAllArticles={()=>this.hideAllArticles()}
                     bookmarkNumber={totalBookmarks.length || this.state.bookmarks.length}
                     // filter ui

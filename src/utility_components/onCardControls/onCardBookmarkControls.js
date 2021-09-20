@@ -3,8 +3,8 @@ import React,{Component} from 'react';
 import "./onCardBookmarkControls.css";
 
 // Bookmarks
-import removeBookmark from '../bookmarks/removeBookmark';
-import createBookmark from '../bookmarks/createBookmark';
+import removeBookmark from '../bookmarks/bookmarkFunctions/removeBookmark';
+import createBookmark from '../bookmarks/bookmarkFunctions/createBookmark';
 import SocialScore from './socialScore/socialScore';
 import Bookmark from './bookmark/bookmark';
 import MarkAsReadButton from './markAsReadButton/markAsReadButton';

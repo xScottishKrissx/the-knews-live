@@ -9,8 +9,8 @@ import swipeLeftAction from '../swipeLeftAction.js';
 
 import Caption from './cardCaption/cardCaption.js';
 
-import createBookmark from '../bookmarks/createBookmark';
-import removeBookmark from '../bookmarks/removeBookmark';
+import createBookmark from '../bookmarks/bookmarkFunctions/createBookmark';
+import removeBookmark from '../bookmarks/bookmarkFunctions/removeBookmark';
 
 import OnCardBookMarkControls from '../onCardControls/onCardBookmarkControls';
 
@@ -100,33 +100,10 @@ class RenderCardState extends React.Component{
 
     swipeProgress(progress){ this.setState({progress:progress }) }
 
-    updateReadStyles = (value,id,read) => {
-        // const renderToPage = this.state.renderArray.slice(0,10) || this.props.databaseProp ;
-        console.log("UpdateReadStyles")
-        console.log(id,read)
-
-        // if(read === true){
-        //     if( document.getElementById(id)){
-        //         document.getElementById(id).classList.add('markAsRead')
-        //     }            
-        // }else{
-        //     if( document.getElementById(id)){
-        //         document.getElementById(id).classList.remove('markAsRead')
-        //     }   
-        // }
-
-        // const markArticleRead = renderToPage.map(el => {
-        //     if(el.read === true && el != null )if( document.getElementById(el.id)){
-        //         document.getElementById(el.id).classList.add('markAsRead')
-        //     }
-        //     if(el.read === false && el != null )if( document.getElementById(el.id)){
-        //         document.getElementById(el.id).classList.remove('markAsRead')
-        //     }
-        // });
-    }
+ 
 
     render(){
-        // console.log(this.state.progress)
+
     
     const pageView = this.props.database.map((value,key) => {
     // this.updateReadStyles(value,value.id,value.read)
@@ -144,7 +121,7 @@ class RenderCardState extends React.Component{
                         fullDatabaseCall={this.props.fullDatabaseCall}
                         arrayFromDatabase={this.props.arrayFromDatabase}
 
-                        bookmarkTest={this.state.bookmarked}
+                        // bookmarkTest={this.state.bookmarked}
                         updateProp={()=>this.updateProp()}
                         hidePressed={()=> this.updateProp()}   
 
