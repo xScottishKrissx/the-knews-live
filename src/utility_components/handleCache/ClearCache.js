@@ -10,7 +10,7 @@ export class ClearCache extends React.Component{
         localStorage.removeItem("changedFullDatabaseCall")
         localStorage.removeItem("cleanDatabaseCall")
         localStorage.removeItem("cardStyleSetting")
-        localStorage.removeItem("myData")
+        localStorage.removeItem("savedCardStyle")
         
        
                 
@@ -37,7 +37,6 @@ export default ClearCache;
 // Things that have been set
 
 // articlesArray
-// myData
 // CardStyleSetting
 // savedCardOptionsPosition
 // DarkMode (Disabled)

@@ -1,7 +1,7 @@
 import React from 'react';
 import createBookmark from '../../../utility_components/bookmarks/createBookmark';
 import removeBookmark from '../../../utility_components/bookmarks/removeBookmark';
-import updateBookmarkStyles from '../../../utility_components/bookmarks/updateBookmarkStyle';
+
 
 export class InArticleBookmark extends React.Component{
     

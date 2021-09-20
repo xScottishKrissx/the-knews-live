@@ -9,7 +9,6 @@ import clearAllBookmarks from './clearAllBookmarks.js';
 import markAllUnread from './markAllUnread.js';
 
 import hideAllArticles from './hideAllArticles.js';
-import updateBookmarkStyles from './updateBookmarkStyle.js';
 import FilterOptions from '../filterOptions/filterOptions.js';
 import NavBar from '../../navBar/navBar.js';
 import markAllRead from './markAllRead.js';
@@ -39,7 +38,10 @@ class Bookmarks extends Component {
         })
     }
     componentDidMount(){
-        const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
+        console.log("Mount")
+        const cardSizeInStorage = JSON.parse(localStorage.getItem("savedCardStyle"))
+
+
         if(cardSizeInStorage === null){
             this.setState({changedCardSize:{
                 width:"260px",
@@ -100,7 +102,6 @@ class Bookmarks extends Component {
     }
     
     componentDidUpdate(){ 
-        updateBookmarkStyles();
         this.updateReadStyles()
      }
 
@@ -142,36 +143,33 @@ class Bookmarks extends Component {
             }else{
                 this.setState({ bookmarks:filteredArticles }) 
             }
-        }
+    }
 
-        updateReadStyles = () => {
-            const renderToPage = this.state.bookmarks ;
-            // console.log("UpdateReadStyles")
-            const markArticleRead = renderToPage.map(el => {
-                if(el.read === true && el != null )if( document.getElementById(el.id)){
-                    document.getElementById(el.id).classList.add('markAsRead')
-                }
-                if(el.read === false && el != null )if( document.getElementById(el.id)){
-                    document.getElementById(el.id).classList.remove('markAsRead')
-                }
-            });
-        }
+    updateReadStyles = () => {
+        const renderToPage = this.state.bookmarks ;
+        // console.log("UpdateReadStyles")
+        let markArticleRead = renderToPage.map(el => {
+            if(el.read === true && el != null )if( document.getElementById(el.id)){
+                document.getElementById(el.id).classList.add('markAsRead')
+            }
+            if(el.read === false && el != null )if( document.getElementById(el.id)){
+                document.getElementById(el.id).classList.remove('markAsRead')
+            }
+        });
+    }
 
-        updateHideStatus = (articles) =>{
-            this.setState({bookmarks:articles})
-        }
+    updateHideStatus = (articles) =>{
+        this.setState({bookmarks:articles})
+    }
+
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
         // console.log(this.state.bookmarks)
         const fullDatabaseCall = this.state.fullDatabaseCall
         const bookmarkCount = this.state.bookmarksCount;
-
-
-        
-
+      
         const cleanDatabaseCall = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.state.fullDatabaseCall
         const totalBookmarks = cleanDatabaseCall.filter(obj => obj.bookmarked === true);
-        // console.log(totalBookmarks.length)
 
         // Show / Hide Read articles
         const getShowReadArticlesChoice = localStorage.getItem("showReadCards") || "Show"

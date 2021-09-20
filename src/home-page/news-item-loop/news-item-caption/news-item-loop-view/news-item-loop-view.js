@@ -4,7 +4,6 @@ import '../news-item-loop-view/news-item-loop-view.css';
 
 import FilterOptions from '../../../../utility_components/filterOptions/filterOptions';
 import LiteKnews from '../../../../utility_components/liteKnews/liteKnews';
-import updateBookmarkStyles from '../../../../utility_components/bookmarks/updateBookmarkStyle';
 import NavBar from '../../../../navBar/navBar';
 import RenderCardState from '../../../../utility_components/renderCard/renderCardState';
 import SortAll from '../../../../utility_components/optionsMenu/optionsCode/sortAll';
@@ -41,10 +40,11 @@ class NewsItemLoopView extends React.Component{
         window.addEventListener('touchstart',this.scroll, {passive:true});
     }
 
-componentDidMount(){ this.reload() }
+componentDidMount(){ 
+    this.reload()
+ }
 
 componentDidUpdate(){
-    updateBookmarkStyles();
     this.updateReadStyles();    
 }
 

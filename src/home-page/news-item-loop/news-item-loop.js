@@ -26,8 +26,13 @@ class MapDatabaseItems extends React.Component{
                 articlesPerScroll:5
         }
     }
-
+    doThing(){
+        console.log("Do Thing")
+    }
     componentDidMount(){
+        this.doThing();
+
+
         // console.log("mount")
     // This is the initial database query.
       // Main Database Call
@@ -77,7 +82,7 @@ class MapDatabaseItems extends React.Component{
 
         // Starting Card Size
         let cardSize = {}
-        const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
+        const cardSizeInStorage = JSON.parse(localStorage.getItem("savedCardStyle"))
         if(cardSizeInStorage === null){
             cardSize = ["260px","400px"]
         }else{
@@ -102,7 +107,6 @@ class MapDatabaseItems extends React.Component{
                                 fullDatabaseCall={this.state.fullDatabaseCall}
                                 urlTagProp={this.props.props}
                                 cardSize={cardSize}
-                                // pageLayout = {pageLayout}
                             /> 
             
                             <ScrollToTopButton   />

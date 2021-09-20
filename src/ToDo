@@ -1566,10 +1566,17 @@ General Notes  Objectives:
 
                 Things To Investigate:
                     ✔ bookmarkArray - Removed @done(12:51 - 20/09/21)
-                    ☐ updateBookmarkStyles
-                        ☐ Does this do anything?
-                    ☐ 
+                    ✔ updateBookmarkStyles @done(12:54 - 20/09/21)
+                        ✔ Does this do anything? - Nope - Removed @done(12:54 - 20/09/21)
 
+                    ✔ remove optionsMenu @done(12:58 - 20/09/21)
+                        ✔ rename optionsMenuV2 -> optionsMenu @done(12:58 - 20/09/21)
+                    ☐ Card Size
+                        ✔ remove the customCardSize file that isn't in use(rename if needed) @done(13:01 - 20/09/21)
+                        ✔ Rename the custom-tile-size folder -> cardStyle @done(13:01 - 20/09/21)
+                        ✔ clean up cardStyle.js @done(13:02 - 20/09/21)
+                        ✔ rename myData to savedCardStyle @done(13:07 - 20/09/21)
+                    ☐ Move the news-item-loop-view above caption.
                 
                 Other Stuff to add here:
                     ☐ Replace the 100% complete for swiping with an icon(a tick, thumbs up etc)

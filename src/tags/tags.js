@@ -115,14 +115,16 @@ class Tags extends React.Component{
             showFilterButton = false
         }
 
+
         // Starting Card Size
         let cardSize = {}
-        const cardSizeInStorage = JSON.parse(localStorage.getItem("myData"))
+        const cardSizeInStorage = JSON.parse(localStorage.getItem("savedCardStyle"))
         if(cardSizeInStorage === null){
             cardSize = ["260px","400px"]
         }else{
             cardSize = [cardSizeInStorage[0], cardSizeInStorage[1]]
         }
+        
         return(
             // <div><h1>Tags View</h1></div>
             <>

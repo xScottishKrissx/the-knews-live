@@ -1,6 +1,6 @@
 import React from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import CustomCardSize from '../../utility_components/custom-tile-size/custom-card-sizeV2';
+import CustomCardSize from '../../utility_components/cardStyle/cardStyle';
 // styles in navbar.css
 
 export const CardStyleButton = (props) =>{

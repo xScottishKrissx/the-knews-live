@@ -1,55 +1,39 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 
+// Menu Elements
+import Accordion from 'react-bootstrap/Accordion'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+
 // Bookmarks
 import clearAllBookmarks from '../bookmarks/clearAllBookmarks.js';
 import hideAllArticles from '../bookmarks/hideAllArticles.js';
-// import markAllRead from '../bookmarks/markAllRead.js';
-// import markAllUnread from '../bookmarks/markAllUnread.js';
-import unhideAllArticles from '../bookmarks/unhideAllArticles';
 
+// Options Menu
 import "../optionsMenu/optionsMenu.css";
+import MarkAll from './optionsCode/markAll.js';
+import SortAll from './optionsCode/sortAll.js';
 
 class OptionsMenu extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            optionsMenuOpen:false,
-            fullDatabaseCall:[],
-            bookmarks:[]
+            bookmarks:[],
+            defVal:localStorage.getItem("showReadCards"),
+            sortOrder: localStorage.getItem("sortOrder") || "asc",
+            sortBy:localStorage.getItem("sortBy") || "postdate"
         }
     }
 
     clearCache(removeFromCache){
-            // console.log("Clear Cache" + " " + removeFromCache)
-            if(removeFromCache.includes("clearCache")){
-                localStorage.clear()
-                const arrayThing = ["260px","400px"]
-                localStorage.setItem("myData", JSON.stringify(arrayThing));
-            }
-                
-            if(removeFromCache.includes("unhideArticles")){
-                unhideAllArticles();
-                // localStorage.removeItem("changedFullDatabaseCall")
-                // localStorage.removeItem("cleanDatabaseCall")
-                window.location.reload();
-            }
+        if(removeFromCache.includes("clearCache")){
+            localStorage.clear()
+            const arrayThing = ["260px","400px"]
+            localStorage.setItem("savedCardStyle", JSON.stringify(arrayThing));
 
-            if(removeFromCache.includes("resetCardSize")){
-                // console.log("Reset Card Size")
-                localStorage.removeItem("myData")
-                const arrayThing = ["260px","400px"]
-                localStorage.setItem("myData", JSON.stringify(arrayThing));
-                window.location.reload();
-            }
-
-            if(removeFromCache.includes("removeBookmarks")){ 
-                // console.log("Clear All Bookmarks.")
-                clearAllBookmarks(); }
-
-        // this.toggleMenu()
-        
+        }              
     }
 
     clearBookmarks(){
@@ -61,39 +45,246 @@ class OptionsMenu extends Component {
         hideAllArticles();
         this.setState({bookmarks:[]})
     }
-    render(){
-        // console.log(this.props.urlInfo)
 
+    markAll(thingToChange,changeThingTo,toggle){
+        MarkAll(
+            this.props.currentCardArray, 
+            this.props.fullDatabaseCall,
+            thingToChange,
+            changeThingTo,
+            this.props.updateBookmarkStatus            
+        )
+        console.log(toggle)
+        
+    }
+    handleForm = (x) =>{
+        this.setState({defVal:x})
+        localStorage.setItem("showReadCards",x)
+        MarkAll(
+            this.props.currentCardArray, 
+            this.props.fullDatabaseCall,
+            "toggleRead",
+            x,
+            this.props.updateBookmarkStatus
+        )
+    }
+    sortAll(sortBy,order){
+       
+        // console.log(sortBy,order)
+        SortAll(this.props.currentCardArray,sortBy,order,this.props.updateBookmarkStatus, this.props.fullDatabaseCall,)
+        localStorage.setItem("sortBy",JSON.stringify(sortBy))
+        localStorage.setItem("sortOrder",JSON.stringify(order))
+
+        // console.log(localStorage.getItem("sortBy"))
+
+        this.setState({
+            sortBy:sortBy, 
+            sortOrder:order
+        })
+        }
+
+    render(){
+        //  localStorage.clear()
+        const defVal = this.state.defVal || 1;
+        // console.log(JSON.parse(localStorage.getItem("sortBy")))
+        // console.log(defVal)
+
+        // const getSortOrder = JSON.parse(localStorage.getItem("sortBy"))
+        let sortBy = this.state.sortBy
+        let sortOrder = this.state.sortOrder
         return (
             <div id="optionsMenuWrapper">
                 
-                <span className="menuBorder"></span>
-                {/* <span onClick={()=> this.toggleMenu()} id="optionsMenuIcon" className="material-icons">settings</span> */}
-                        {/* <button onClick={()=> this.clearBookmarks()}><span class="material-icons">bookmark_remove</span>Remove All Bookmarks</button>
-                        <button onClick={()=> markAllRead()}><span class="material-icons">done_all</span>Mark All As Read</button>
-                        <button onClick={()=> markAllUnread()}><span class="material-icons">remove_done</span>Mark All As Unread</button>
-                        <button onClick={()=> this.hideAllArticles()}><span class="material-icons">delete_sweep</span>Remove and Hide All</button> */}
-                        
-                        <span>
-                            <p>Full Website Reset</p>
-                            <Link to='/' onClick={()=> this.clearCache("clearCache")}><button>Confirm</button></Link>
-                        </span>
-                        
-                        <span>
-                            <p>Unhide Articles </p>
-                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("unhideArticles")}><button>Confirm</button></Link>
-                        </span>
-                        
-                        <span>
-                            <p>Reset Card Size </p>
-                            <Link to={this.props.urlInfo} onClick={()=> this.clearCache("resetCardSize")}><button>Confirm</button></Link>
-                        </span>   
+                <span className="menuBorder"></span>                                     
+                <React.Fragment >
 
-                        <span>
-                            <p>Clear Bookmarks</p>
-                            <Link to='/' onClick={()=> this.clearCache("removeBookmarks")}><button>Confirm</button></Link>
-                        </span> 
+                    <Accordion defaultActiveKey="0">
+                    
+                    {/******************* Full Website Reset */}
+                        <Card>
+                            <Card.Header>
+                                <Accordion.Toggle as={Button} variant="link" eventKey="1" block>
+                                    <i class="bi bi-caret-down"></i>Full Website Reset
+                                </Accordion.Toggle>
+                            </Card.Header>
 
+                            <Accordion.Collapse eventKey="1" className="accordionItems">
+                                <span>
+                                    <Link to='/' onClick={()=> this.clearCache("clearCache")}>
+                                        <i class="bi bi-caret-right-fill"></i>Full Website Reset
+                                    </Link>
+                                </span>
+                                {/* <Link to='/' onClick={()=> this.clearCache("clearCache")}><span>Confirm</span></Link> */}
+                            </Accordion.Collapse>
+                        </Card>
+
+
+                    {/******************* Bookmarks */}
+                        <Card>
+                            <Card.Header>
+                                <Accordion.Toggle as={Button} variant="link" eventKey="2">
+                                    <i class="bi bi-caret-down"></i>Bookmarks</Accordion.Toggle>
+                            </Card.Header>
+
+                            <Accordion.Collapse eventKey="2" className="accordionItems" >
+
+                                    <span onClick={()=> this.markAll("bookmarked",true)}>                                     
+                                        <i class="bi bi-caret-right-fill"></i>Mark All As Bookmarked
+                                    </span>    
+
+                            </Accordion.Collapse>
+                            <Accordion.Collapse eventKey="2" className="accordionItems">
+                                    <span onClick={()=> this.markAll("bookmarked",false)}>
+                                        <i class="bi bi-caret-right-fill"></i>Remove All Bookmarks
+                                    </span>    
+                            </Accordion.Collapse>
+                        </Card>
+
+
+
+                    {/******************* Hiding Cards */}
+                        <Card>
+                            <Card.Header>
+                                <Accordion.Toggle as={Button} variant="link" eventKey="3"><i class="bi bi-caret-down"></i>Hide Cards</Accordion.Toggle>
+                            </Card.Header>
+                            
+                            <Accordion.Collapse eventKey="3" className="accordionItems">
+                                    <span onClick={()=> this.markAll("markedforhide",true)}>
+                                        <i class="bi bi-caret-right-fill"></i>Hide All</span> 
+                            </Accordion.Collapse>
+                            <Accordion.Collapse eventKey="3" className="accordionItems">
+                                    <span onClick={()=> this.markAll("markedforhide",false)}>
+                                        <i class="bi bi-caret-right-fill"></i>Unhide All</span>
+                            </Accordion.Collapse>
+                            
+                            <Accordion.Collapse eventKey="3" className="accordionItems"> 
+                                    <span onClick={()=> this.markAll("hidenonbookmarked",true)}>
+                                        <i class="bi bi-caret-right-fill"></i>Hide Non-Bookmarked</span>
+                            </Accordion.Collapse>
+
+                            <Accordion.Collapse eventKey="3" className="accordionItems"> 
+                                    <span onClick={()=> this.markAll("hideread",true)}>
+                                        <i class="bi bi-caret-right-fill"></i>Hide Read</span>
+                            </Accordion.Collapse>
+                        </Card>
+
+
+                    {/******************* Read Cards */}
+                        <Card>
+                            <Card.Header>
+                                <Accordion.Toggle as={Button} variant="link" eventKey="4">
+                                    <i class="bi bi-caret-down"></i>
+                                    Read Cards
+                                </Accordion.Toggle>
+                            </Card.Header>
+
+                            <Accordion.Collapse eventKey="4" className="accordionItems">
+                                <span onClick={()=> this.markAll("read",true)}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Mark All As Read
+                                </span>
+                            </Accordion.Collapse>     
+
+                            <Accordion.Collapse eventKey="4" className="accordionItems">
+                                    <span onClick={()=> this.markAll("read",false)}>
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        Mark All Unread
+                                    </span>
+                            </Accordion.Collapse>   
+
+                            <Accordion.Collapse eventKey="4" className="accordionItems">
+                                <span onClick={()=>this.handleForm("Show")}>
+                                    <i class="bi bi-caret-right-fill"></i>   
+                                    Show Read Articles 
+                                    {defVal === "Show" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
+                                </span>                                                                         
+                            </Accordion.Collapse>
+
+                            <Accordion.Collapse eventKey="4" className="accordionItems">
+                                <span onClick={()=>this.handleForm("Hide")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Hide Read Articles 
+                                    {defVal === "Hide" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
+                                </span>
+                            </Accordion.Collapse>
+                            
+                        </Card> 
+
+                    {/******************* Sorting */}
+                        <Card>
+                            <Card.Header>
+                                <Accordion.Toggle as={Button} variant="link" eventKey="5">
+                                    <i class="bi bi-caret-down"></i>Sort Cards
+                                </Accordion.Toggle>
+                            </Card.Header>
+                            
+                        {/* Tag */}
+                        {sortBy.includes("tag") && sortOrder.includes("desc") ? 
+                            <Accordion.Collapse eventKey="5" className="accordionItems">
+                                <span onClick={()=>this.sortAll("tag","asc")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Sort By Tag  
+                                    {sortBy.includes("tag") ? <span> <i class="bi bi-sort-alpha-down"></i></span> : null}
+                                </span>
+     
+                            </Accordion.Collapse>
+                        :
+                            <Accordion.Collapse eventKey="5" className="accordionItems">
+                                <span onClick={()=>this.sortAll("tag","desc")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Sort By Tag
+                                    {sortBy.includes("tag") ? <span>   <i class="bi bi-sort-alpha-up"></i></span> : null}
+                                </span>
+                            </Accordion.Collapse>
+                        }                        
+
+                        {/* Author */}
+                        {sortBy.includes("author") && sortOrder.includes("desc") ? 
+                            <Accordion.Collapse eventKey="5" className="accordionItems">
+                                <span onClick={()=>this.sortAll("author","asc")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Sort By Author 
+                                    {sortBy.includes("author") ? <span><i class="bi bi-sort-alpha-down"></i></span> : null}
+                                </span>
+                            </Accordion.Collapse>
+                        :
+                            <Accordion.Collapse eventKey="5" className="accordionItems">
+                                <span onClick={()=>this.sortAll("author","desc")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Sort By Author {sortBy.includes("author") ? <span><i class="bi bi-sort-alpha-up"></i></span> : null}
+                                </span>
+                            </Accordion.Collapse>
+                        }
+
+                        {/* Post Date */}
+                        {sortBy.includes("postdate") && sortOrder.includes("desc") ? 
+                            <Accordion.Collapse eventKey="5" className="accordionItems">
+                                <span onClick={()=>this.sortAll("postdate","asc")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Oldest First{sortBy.includes("postdate") ? <span><i class="bi bi-circle-fill"></i></span> : null}
+                                </span>
+                            </Accordion.Collapse>
+                        :
+                            <Accordion.Collapse eventKey="5" className="accordionItems">
+                                <span onClick={()=>this.sortAll("postdate","desc")}>
+                                    <i class="bi bi-caret-right-fill"></i>
+                                    Latest First {sortBy.includes("postdate") ? <span><i class="bi bi-circle-fill"></i></span> : null}
+                                </span>
+                            </Accordion.Collapse>
+                        }
+
+                        {/* Reset */}
+                            <Accordion.Collapse eventKey="5" className="accordionItems">
+                                    <span onClick={()=>this.sortAll("postdate","asc")}>
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        Reset Sort
+                                    </span>
+                            </Accordion.Collapse>
+
+                        </Card>
+
+                    </Accordion>
+                </React.Fragment>
 
                         
             </div>
