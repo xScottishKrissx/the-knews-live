@@ -14,6 +14,7 @@ export const getCardStyle = (props) =>{
     //         height:cardSizeInStorage[1]
     //     }})
     // }
+    
     if(cardSizeInStorage === null){
         thing = ["260px","400px"]
     }else{

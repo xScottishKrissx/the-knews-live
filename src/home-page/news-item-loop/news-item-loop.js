@@ -5,7 +5,7 @@ import '../news-item-loop/news-item-loop.css';
 
 import ScrollToTopButton from '../../utility_components/scrollToTop/scrollToTop.js';
 
-import NewsItemLoopView from './news-item-caption/news-item-loop-view/news-item-loop-view.js';
+import NewsItemLoopView from './news-item-loop-view/news-item-loop-view.js';
 
 import LoadingGif from '../../utility_components/loadingGif/loadingGif.js';
 import getCardStyle from '../../utility_components/cardStyle/getCardStyle.js';

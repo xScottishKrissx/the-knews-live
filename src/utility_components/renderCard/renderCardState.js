@@ -7,7 +7,7 @@ import '@sandstreamdev/react-swipeable-list/dist/styles.css';
 import swipeRightAction from '../swipeRightAction.js';
 import swipeLeftAction from '../swipeLeftAction.js';
 
-import Caption from '../../home-page/news-item-loop/news-item-caption/news-item-caption.js';
+import Caption from './cardCaption/cardCaption.js';
 
 import createBookmark from '../bookmarks/createBookmark';
 import removeBookmark from '../bookmarks/removeBookmark';

@@ -1580,8 +1580,8 @@ General Notes  Objectives:
                             ✔ news item loop @done(13:48 - 20/09/21)
                             ☐ bookmark.js(probably after splitting that file up)
                             ☐ tags
-                            
-                    ☐ Move the news-item-loop-view above caption.
+
+                    ✔ Move the news-item-loop-view above caption. @done(14:00 - 20/09/21)
                     ☐ Create a bookmark view file that separates the database call from the main presentation elements(like news item loop)
                 
                 Other Stuff to add here:

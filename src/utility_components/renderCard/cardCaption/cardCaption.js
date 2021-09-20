@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import './news-item-caption.css';
+import './cardCaption.css';
 
 export class Caption extends React.Component{
 
