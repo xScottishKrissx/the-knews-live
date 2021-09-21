@@ -1,7 +1,11 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 
 /* *{outline: 1px solid red;} */
-#liteKnewsWrapper, #liteKnewsWrapper > div{ width: 100%; }
+#liteKnewsWrapper{
+    width: 100%;
+}
+
+#liteKnewsWrapper > span{ width: 100%; }
 
 .liteKnewsArticleContainer > .onCardControls > div {
     position: relative;

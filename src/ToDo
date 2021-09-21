@@ -1603,20 +1603,24 @@ General Notes  Objectives:
                         ✔ Yup - Added tags to everything, now its working fine. @done(11:50 - 21/09/21)
                     ✔ make menu's fullscreen on mobile, or at least centre them. @done(13:10 - 21/09/21)
                         ✔ Options @done(13:37 - 21/09/21)
-                        ☐ Filter
-                        ☐ Tags
+                        ✔ Filter @done(13:47 - 21/09/21)
+                        ✔ Tags @done(13:47 - 21/09/21)
                     ✔ the filter menu shows the total count for each tag, i think it should show the tag count for the current array. @done(12:49 - 21/09/21)
                         ✔ nah, its fine the way it is, the filters should act as filters for the entire loop not just whats on screen. @done(12:49 - 21/09/21)
+            12.10.9 - liteKnews:
+                ✔ liteKnews is not centred @done(13:57 - 21/09/21)
+                    ✔ There was a span tag that was incorrectly tarteted as a div in css @done(13:57 - 21/09/21)
+                    
 
 
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
                 ✔ Fix the post date issue @done(12:23 - 17/09/21)
                 ✔ Pick a colour / Make the random colour activate without reload. @done(13:25 - 21/09/21)
-                ☐ Do another pass for responsive design, too many things become small at 2k and up.
+                ✔ Do another pass for responsive design, too many things become small at 2k and up. @done(13:48 - 21/09/21)
                 ✔ added animation to cards so they now do a little fade in when they render. @done(12:28 - 31/08/21)
                 ✔ Change styles for when clicking on stuff in the navbar @done(13:15 - 05/07/21)
-                ☐ Dragging on firefox is not working correctly.
+                ✔ Dragging on firefox is not working correctly. @done(13:48 - 21/09/21)
                 ✔ refreshing the page with an active filter does not maintain the filter. @done(17:48 - 06/09/21)
                     ✔ correction - bookmarking an article causes a re-render which doesn't maintain the filter and seems to cause other issues. @done(17:48 - 06/09/21)
                     ✔ correction correction - filter is not respected @done(17:48 - 06/09/21)
@@ -1810,7 +1814,7 @@ Part 2 Implement Database functionality:
             ✔ 12.7 - Look into swiping liteKnews to switch articles @done(11:41 - 25/05/21)
             ✔ 12.8 - Redo Recommended Reading Section @done(12:37 - 26/05/21)
             ✔ 12.9 - Misc Bug Fixes & Tweaks @done(10:53 - 14/06/21)
-            ☐ 12.10 - Overhaul Main UI
+            ✔ 12.10 - Overhaul Main UI @done(13:48 - 21/09/21)
                 ✔ V12.10.1 - Navbar - Release @done(12:48 - 21/06/21)
                 ✔ V12.10.2 - Article Page - Release @done(10:16 - 28/06/21)
                 ✔ V12.10.3 - Bookmark & Tags Page @done(11:19 - 28/06/21)
@@ -1828,7 +1832,7 @@ Part 2 Implement Database functionality:
                     ✔ Fixed navbar swallowing top of cards. 
                 ✔ V12.10.5 - Nothing of note, just small tweaks @done(12:09 - 07/07/21)
                 ✔ V12.10.6- Cancelled footer @done(12:09 - 07/07/21)
-                ☐ V12.10.7 - Website Feedback Overhaul
+                ✔ V12.10.7 - Website Feedback Overhaul @done(13:48 - 21/09/21)
                     ✔ Tweaked on card bookmark controls by centering them in the area and moving the area to the right for easier use with hands. @done(12:10 - 07/07/21)
                    
                     
