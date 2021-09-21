@@ -40,7 +40,7 @@ class OptionsMenu extends Component {
             changeThingTo,
             this.props.updateBookmarkStatus            
         )
-        console.log(toggle)
+        // console.log(toggle)
         
     }
     handleForm = (x) =>{
@@ -67,7 +67,7 @@ class OptionsMenu extends Component {
             sortBy:sortBy, 
             sortOrder:order
         })
-        }
+    }
 
     render(){
         //  localStorage.clear()

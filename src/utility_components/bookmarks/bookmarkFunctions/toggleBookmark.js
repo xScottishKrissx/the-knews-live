@@ -1,5 +1,5 @@
 export const toggleBookmark = (id,database,toggleBookmark) =>{
-    console.log(toggleBookmark + " Bookmark")
+    // console.log(toggleBookmark + " Bookmark")
     const cleanDB = database;
     const currentBookmarks = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
     const mainArray = currentBookmarks || cleanDB;

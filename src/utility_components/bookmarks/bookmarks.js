@@ -36,7 +36,7 @@ class Bookmarks extends Component {
         })
     }
     componentDidMount(){
-        console.log("Mount")
+        // console.log("Mount")
 
         //     const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
         //     // Main Database Call

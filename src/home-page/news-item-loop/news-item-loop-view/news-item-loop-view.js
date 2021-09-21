@@ -128,7 +128,7 @@ scroll = (e) =>{
     }
 
     reload(){
-        console.log("reload")
+        // console.log("reload")
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(localStorageCards){
 
@@ -160,7 +160,7 @@ scroll = (e) =>{
 
 
     loadArticlesOnClick(){
-        console.log("Load Articles")
+        // console.log("Load Articles")
         this.setState({
             load:true, 
             endSlice:this.state.endSlice + 10

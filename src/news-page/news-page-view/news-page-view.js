@@ -96,7 +96,7 @@ export class NewsPageVIEW extends React.Component{
     // Shows the confirmation box if attempting to hide a bookmarked article
     handleHideClick = (bookmarked) => { 
       this.setState({showBox:bookmarked})
-      console.log("Show box")
+      // console.log("Show box")
       console.log(this.state.showBox)
     }
 

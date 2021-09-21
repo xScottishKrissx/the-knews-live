@@ -27,7 +27,7 @@ export class HandleLike extends React.Component{
             // Like Button Permutations ->
             // Nothing Selected -> +1 to like, liked === true
             if(liked === false && disliked === false){
-                console.log("Liked -> Option 1")
+                // console.log("Liked -> Option 1")
                 this.setState({likeCounter:this.state.likeCounter + 1, liked:true})
                 updateArrayLikes = this.state.likeCounter + 1;
                 updateLiked = true;
@@ -36,7 +36,7 @@ export class HandleLike extends React.Component{
             }
             //Liked -> -1 to like, liked === false
             if(liked === true){
-                console.log("Liked -> Option 2")
+                // console.log("Liked -> Option 2")
                 this.setState({likeCounter:this.state.likeCounter - 1, liked:false})
                 updateArrayLikes = this.state.likeCounter - 1;
                 updateLiked = false;
@@ -45,7 +45,7 @@ export class HandleLike extends React.Component{
             }
             // disliked -> +1 to like, -1 to dislike, liked = true, disliked = false
             if(disliked === true){
-                console.log("Liked -> Option 3")
+                // console.log("Liked -> Option 3")
                 this.setState({likeCounter:this.state.likeCounter + 1, dislikeCounter:this.state.dislikeCounter - 1, disliked:false, liked:true})
                 updateArrayLikes = this.state.likeCounter + 1;
                 updateLiked = true;

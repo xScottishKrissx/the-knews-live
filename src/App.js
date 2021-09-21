@@ -14,6 +14,7 @@ import { Routes } from './routes/routes';
 import {Helmet} from 'react-helmet';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import randomColour from './utility_components/randomColour';
 
 
 
@@ -25,6 +26,8 @@ class App extends Component {
 }
 
 componentDidMount(){
+
+  
   
   // console.log("App.js Mounted")
   const cleanDB = fire.database().ref('items').orderByKey().limitToFirst(97);  
@@ -63,7 +66,9 @@ handleClick(){
 }
 
   render(){
-    
+    randomColour()
+
+
     // console.log("Render App!")
     // console.log(window.location.pathname)
     return(
