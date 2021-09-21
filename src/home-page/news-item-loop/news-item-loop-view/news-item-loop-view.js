@@ -128,7 +128,7 @@ scroll = (e) =>{
     }
 
     reload(){
-
+        console.log("reload")
         const localStorageCards = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         if(localStorageCards){
 
@@ -156,6 +156,15 @@ scroll = (e) =>{
             this.setState({renderArray:checkFilter})
             document.getElementById("reloadBtn").classList.remove('testClass1')
         }
+    }
+
+
+    loadArticlesOnClick(){
+        console.log("Load Articles")
+        this.setState({
+            load:true, 
+            endSlice:this.state.endSlice + 10
+        })
     }
 
     render(){  
@@ -278,9 +287,16 @@ scroll = (e) =>{
                     }
 
                 </div> 
-                <div>
-                    <span className="loadMoreArticlesButton">Load More...</span>
-                </div>
+                {renderToPage.length === this.props.totalArticles ?
+                    <div className="LoadArticlesOnClickButton">
+                        <span id="noArticlesMessage" onClick={()=>this.reload()} className="loadMoreArticlesButton">No more articles, check back later</span>
+                    </div>
+                :
+                    <div className="LoadArticlesOnClickButton">
+                        <span onClick={()=>this.loadArticlesOnClick()} className="loadMoreArticlesButton">Load Cards</span>
+                    </div>
+                }
+
             </div>
             }
             </div>

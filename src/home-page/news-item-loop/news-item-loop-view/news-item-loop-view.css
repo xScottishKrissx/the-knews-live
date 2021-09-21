@@ -53,6 +53,33 @@
     opacity: 0.25;
 }
 
+
+.LoadArticlesOnClickButton{
+    display: flex;
+        align-items: center;
+        justify-content: center;
+    margin-top: 1vh;
+    /* outline: 1px solid; */
+    width: 100%;
+}
+    .LoadArticlesOnClickButton > span{
+        background-color: #6c757d;
+        color: white;
+        cursor: pointer;
+        opacity: 0.5;
+        padding: 20px;
+        transition: ease-in-out 1s;
+        text-align: center;
+        text-transform: uppercase;
+        width: 300px;
+    }
+    .LoadArticlesOnClickButton > span:hover{
+        opacity: 2;
+    }
+    #noArticlesMessage{
+        width: 100%;
+    }
+
 /* To make this work i will need to change what each card layout does in each page layout. */
 
 /* Dual Column */

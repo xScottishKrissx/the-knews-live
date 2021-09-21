@@ -97,6 +97,7 @@ class MapDatabaseItems extends React.Component{
                                 urlTagProp={this.props.props}
                                 cardSize={this.state.cardSize}
                                 articlesOnLoad={this.state.articlesOnLoad}
+                                totalArticles={this.state.totalArticles}
                             /> 
             
                             <ScrollToTopButton   />
