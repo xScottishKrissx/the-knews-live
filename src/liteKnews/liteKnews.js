@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
 import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 
-import '../liteKnews/liteKnews.css';
+import './liteKnews.css';
 
-import LiteKnewsView from './liteKnewsView';
-import NavBar from '../../navBar/navBar';
+// import LiteKnewsView from './liteKnewsView';
+// import NavBar from '../../navBar/navBar';
+
+import NavBar from '../navBar/navBar';
+import LiteKnewsView from '../liteKnews/liteKnewsView'
 
 class LiteKnews extends Component {
 

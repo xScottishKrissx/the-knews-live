@@ -1607,10 +1607,11 @@ General Notes  Objectives:
                         ✔ Tags @done(13:47 - 21/09/21)
                     ✔ the filter menu shows the total count for each tag, i think it should show the tag count for the current array. @done(12:49 - 21/09/21)
                         ✔ nah, its fine the way it is, the filters should act as filters for the entire loop not just whats on screen. @done(12:49 - 21/09/21)
+            
             12.10.9 - liteKnews:
                 ✔ liteKnews is not centred @done(13:57 - 21/09/21)
                     ✔ There was a span tag that was incorrectly tarteted as a div in css @done(13:57 - 21/09/21)
-                    
+                ✔ Move liteKnews out of utility components, it's a feature of the website. @done(14:05 - 21/09/21)
 
 
             12.10.X - Misc:

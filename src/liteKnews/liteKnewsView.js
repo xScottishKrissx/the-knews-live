@@ -1,8 +1,10 @@
 import React from 'react';
-import ArticleInformation from '../../news-page/news-page-view/article-area/articleInformation/articleInformation';
-import MarkAsRead from '../markAsRead';
-import HeaderImage from '../header-image/header-image';
-import ParseHTML from '../parse-database-html/parse-html';
+
+import ArticleInformation from '../news-page/news-page-view/article-area/articleInformation/articleInformation'
+import HeaderImage from '../utility_components/header-image/header-image'
+import MarkAsRead from '../utility_components/markAsRead';
+import ParseHTML from '../utility_components/parse-database-html/parse-html'
+
 
 export class LiteKnewsView extends React.Component{
     
