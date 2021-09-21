@@ -1598,8 +1598,11 @@ General Notes  Objectives:
                     ✔ Add Load More Articles button to bottom of loop @done(10:32 - 21/09/21)
                         ✔ For this to work i need to make the new scroll check work on click, which it currently does not. @done(10:32 - 21/09/21)
                     ✔ (Finally)update the scrollUp button styles @done(11:12 - 21/09/21)
-                    ☐ After clearning cache, if you open the menu it takes multiple(3) clicks to activate a sort option
+                    ✔ After clearning cache, if you open the menu it takes multiple(3) clicks to activate sorting by tag @done(11:50 - 21/09/21)
+                        ✔ Possibly because a lot of articles don't have a tag? @done(11:50 - 21/09/21)
+                        ✔ Yup - Added tags to everything, now its working fine. @done(11:50 - 21/09/21)
                     ☐ make menu's fullscreen on mobile, or at least centre them.
+                    ☐ the filter menu shows the total count for each tag, i think it should show the tag count for the current array.
 
 
             12.10.X - Misc:

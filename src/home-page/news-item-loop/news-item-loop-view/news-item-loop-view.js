@@ -198,7 +198,7 @@ scroll = (e) =>{
         }else{
             renderToPage = filterRead.slice(0,this.state.endSlice)
         }
-        console.log(renderToPage)
+        // console.log(renderToPage)
 
         // Presentational Stuff
         const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
@@ -287,7 +287,7 @@ scroll = (e) =>{
                     }
 
                 </div> 
-                
+
                 {renderToPage.length === this.props.totalArticles ?
                     <div className="LoadArticlesOnClickButton">
                         <span id="noArticlesMessage" onClick={()=>this.reload()} className="loadMoreArticlesButton">No more articles, check back later</span>

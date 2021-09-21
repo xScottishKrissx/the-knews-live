@@ -55,7 +55,7 @@ class OptionsMenu extends Component {
         )
     }
     sortAll(sortBy,order){
-       
+       console.log("SortAll")
         // console.log(sortBy,order)
         SortAll(this.props.currentCardArray,sortBy,order,this.props.updateBookmarkStatus, this.props.fullDatabaseCall,)
         localStorage.setItem("sortBy",JSON.stringify(sortBy))
@@ -78,6 +78,9 @@ class OptionsMenu extends Component {
         // const getSortOrder = JSON.parse(localStorage.getItem("sortBy"))
         let sortBy = this.state.sortBy
         let sortOrder = this.state.sortOrder
+
+        // console.log(sortBy)
+        // console.log(sortOrder)
         return (
             <div id="optionsMenuWrapper">
                 
