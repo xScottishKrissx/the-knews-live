@@ -1601,8 +1601,9 @@ General Notes  Objectives:
                     ✔ After clearning cache, if you open the menu it takes multiple(3) clicks to activate sorting by tag @done(11:50 - 21/09/21)
                         ✔ Possibly because a lot of articles don't have a tag? @done(11:50 - 21/09/21)
                         ✔ Yup - Added tags to everything, now its working fine. @done(11:50 - 21/09/21)
-                    ☐ make menu's fullscreen on mobile, or at least centre them.
-                    ☐ the filter menu shows the total count for each tag, i think it should show the tag count for the current array.
+                    ✔ make menu's fullscreen on mobile, or at least centre them. @done(13:10 - 21/09/21)
+                    ✔ the filter menu shows the total count for each tag, i think it should show the tag count for the current array. @done(12:49 - 21/09/21)
+                        ✔ nah, its fine the way it is, the filters should act as filters for the entire loop not just whats on screen. @done(12:49 - 21/09/21)
 
 
             12.10.X - Misc:
