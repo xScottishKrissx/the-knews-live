@@ -287,6 +287,7 @@ scroll = (e) =>{
                     }
 
                 </div> 
+                
                 {renderToPage.length === this.props.totalArticles ?
                     <div className="LoadArticlesOnClickButton">
                         <span id="noArticlesMessage" onClick={()=>this.reload()} className="loadMoreArticlesButton">No more articles, check back later</span>

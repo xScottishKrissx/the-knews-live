@@ -1597,7 +1597,7 @@ General Notes  Objectives:
                     ✔ Bookmarks.js is in a different sort order to home(when cache is empty) @done(18:18 - 20/09/21)
                     ✔ Add Load More Articles button to bottom of loop @done(10:32 - 21/09/21)
                         ✔ For this to work i need to make the new scroll check work on click, which it currently does not. @done(10:32 - 21/09/21)
-                    ☐ (Finally)update the scrollUp button styles
+                    ✔ (Finally)update the scrollUp button styles @done(11:12 - 21/09/21)
                     ☐ After clearning cache, if you open the menu it takes multiple(3) clicks to activate a sort option
                     ☐ make menu's fullscreen on mobile, or at least centre them.
 
