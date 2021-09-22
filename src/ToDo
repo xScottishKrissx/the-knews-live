@@ -1623,20 +1623,22 @@ General Notes  Objectives:
                     * - Used in built device testing tools in chrome and firefox, testing a variety of devices and resolutions, often alongside direct development of features.
 
                 Desktop:
-                    ☐ Chrome
-                        ☐ Nothing noted so far.
+                    ☐Chrome
+                        ☐Nothing noted so far.
                     
-                    ☐ Edge
-                        ☐ liteKnews wasn't working, not sure what the cause was and I can't replicate it
+                    ☐Edge
+                        ☐liteKnews wasn't working, not sure what the cause was and I can't replicate it
 
-                    ☐ Firefox
-                        ☐ Swiping to Bookmark + Hide doesnt work
-                            ☐ Dragging in liteKnews works fine though...not sure why as its the same code??
-                        ☐ Dragging is glitchy
-                    ☐ Opera
-                        ☐ Nothing of note
+                    ✔ Firefox @done(14:08 - 22/09/21)
+                        ✔ Swiping to Bookmark + Hide doesnt work @done(14:08 - 22/09/21)
+                            ✔ Dragging in liteKnews works fine though...not sure why as its the same code?? @done(14:08 - 22/09/21)
+                        ✔ Dragging is glitchy @done(14:08 - 22/09/21)
+                        ✔ I think the libary itself is the issue, having a quick look I can see any obvous fix @done(14:08 - 22/09/21)
+                            ✔ I've also just noticed the library isn't maintained so...maybe probably shouldn't have used it in the first place. @done(14:08 - 22/09/21)
+                    ☐Opera
+                        ☐Nothing of note
             
-                    ☐ All / Notes / Improvements
+                    ✔ All / Notes / Improvements @done(14:09 - 22/09/21)
                         ✔ the load more articles button is still visible with the "nothing to read error" @done(10:26 - 22/09/21)
                             
                         ✔ When hiding cards, add a notice that the card will hide when the page reloads @done(10:40 - 22/09/21)
@@ -1656,17 +1658,17 @@ General Notes  Objectives:
                                 ✔ This could be useful if there was a indicator of this(eg 35/80 in the navbar) @done(12:36 - 22/09/21)
                     
                 Mobile:
-                    ☐ Firefox
-                        ☐ Swiping Works fine
-                        ☐ There is a 1px gap at the top of the page
-                            ☐ I've added a margin-top to the entire body so i'll see if that works.
-                            ☐ The problem is that i cant reproduce this anywhere but on firefox mobile.
+                    ✔ Firefox @done(13:55 - 22/09/21)
+                        ✔ Swiping Works fine @done(13:55 - 22/09/21)
+                        ✔ There is a 1px gap at the top of the page @done(13:55 - 22/09/21)
+                            ✔ I've added a margin-top to the entire body so i'll see if that works. @done(13:55 - 22/09/21)
+                            ✔ The problem is that i cant reproduce this anywhere but on firefox mobile. @done(13:55 - 22/09/21)
 
-                    ☐ Chrome
+                    ✔ Chrome @done(13:55 - 22/09/21)
                         ✔ The mark all read button doesn't change styles @done(17:01 - 21/09/21)
                             ✔ Nevermind, had the hide read articles button active @done(17:01 - 21/09/21)
 
-                    ☐ All / Notes / Improvements
+                    ✔ All / Notes / Improvements @done(13:55 - 22/09/21)
                         ✔ The scroll to top arrow is all the way to the left, half offscreen(still works though) @done(12:42 - 22/09/21)
                         ✔ The top card on card controls get lost behind the navbar @done(12:43 - 22/09/21)
                             ✔ Increased the margin at the top of the page @done(12:43 - 22/09/21)
@@ -1686,18 +1688,23 @@ General Notes  Objectives:
                         ✔ In article, the bookmark and hide card icons are too close together @done(13:43 - 22/09/21)
                             ✔ Spaced them out, but still not great @done(13:43 - 22/09/21)
                         ✔ In author page, the empty page message is broken and takes up the entire screen. @done(13:53 - 22/09/21)
-                        ☐ The buttons are too small to be comfortably used, i should have tried to position things more comfortably for the hand at least on mobile.
-                            ☐ Accessing the home page could have been easier
-                        ☐ The screen moves as you're swiping making it trickier than it should to swipe
-                        ☐ It's not that easy to tell what icons do what at first glance. I think you could learn but yeah, i don't think they're all that intuitive.
+                        
+
                         ✔ Sometimes cards don't have tags @done(11:42 - 22/09/21)
                             ✔ Stacy Burgess @done(11:42 - 22/09/21)
                             ✔ Felcia Barr @done(11:41 - 22/09/21)
-                        ☐ Bookmarking multiple cards at a time is a bit janky, not sure there's anything I can do about this but it is janky.
+
 
                 Tablet:
-                    ☐ Amazon Kindle Fire 8"
-                        ☐ Lot's of jank and UI issues(small buttons etc) but actually functions as expected
+                    ✔ Amazon Kindle Fire 8" @done(13:55 - 22/09/21)
+                        ✔ Lot's of jank and UI issues(small buttons etc) but actually functions as expected @done(13:55 - 22/09/21)
+
+                Observations:
+                    ✔ The buttons are too small to be comfortably used, i should have tried to position things more comfortably for the hand at least on mobile. @done(13:55 - 22/09/21)
+                    ✔ Accessing the home page could have been easier @done(13:55 - 22/09/21)
+                    ✔ The screen moves as you're swiping making it trickier than it should to swipe @done(13:55 - 22/09/21)
+                    ✔ It's not that easy to tell what icons do what at first glance. I think you could learn but yeah, i don't think they're all that intuitive. @done(13:55 - 22/09/21)
+                    ✔ Bookmarking multiple cards at a time is a bit janky, not sure there's anything I can do about this but it is janky. @done(13:55 - 22/09/21)
 
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
@@ -1734,6 +1741,9 @@ General Notes  Objectives:
                         ✔ Yup, i wasn't passing a database call to the hide button in the event of an empty cache. @done(13:49 - 26/08/21)
                     ✔ Sorting By on a tag page overwrites the main array @done(13:33 - 16/09/21)
                     ☐ Articles sometimes dont have the author info section when clicking on the author tag
+                    ☐ The entire swipe functionality isn't working properly in firefox
+                        ☐ The main cards don't activate their function when swiped
+                        ☐ liteKnews swiping works fine though
 
                 
             Random Colours I like:

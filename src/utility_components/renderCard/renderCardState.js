@@ -94,7 +94,7 @@ class RenderCardState extends React.Component{
  
 
     render(){
-        console.log(this.props.database)
+
     
     const pageView = this.props.database.map((value,key) => {
     // this.updateReadStyles(value,value.id,value.read)
@@ -150,6 +150,9 @@ class RenderCardState extends React.Component{
                         }}
                         
                         onSwipeProgress={progress => this.swipeProgress(progress)}
+                        containerStyle={{
+                            transition: 'transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s'
+                        }}
 
                         swipeRight={{
                             content: 
