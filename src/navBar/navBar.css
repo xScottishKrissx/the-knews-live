@@ -292,7 +292,7 @@
     /* outline: 1px solid red;  */
 }
     #bookmarkControls > button {
-        width: 90%; 
+        /* width: 90%;  */
         padding: 0;
         z-index: 0;
     }
@@ -303,6 +303,9 @@
                 justify-content: space-evenly;
             position: relative;
             width: inherit;
+        }
+        #bookmarkControls > button > .onCardControls > .onCardBookmarkedButton{
+            margin-right: 30px;
         }
             #bookmarkControls > button > .onCardControls > div > button{
                 color: black;

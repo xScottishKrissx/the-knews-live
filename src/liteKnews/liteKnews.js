@@ -116,10 +116,13 @@ class LiteKnews extends Component {
                     />
 
                     <div id="endOfLiteKnewsMessage">
+                        <h1>Welcome to liteKnews</h1><br/>
                         <h2>Nothing to read.<br/> Check back later...</h2>
                         <span class="material-icons">auto_stories</span>
-                        <p>Tips: Use the left and right arrow keys to switch articles in liteKnews</p>
-                        <p>You can also use the Esc key to close liteKnews</p>
+                        <p>Tip: liteKnews ONLY displays the most recent unread articles</p>
+                        <p>Tip: Click the <span className="material-icons">article</span> icon to go to the full page for each article, where you can view more information and give your opinion</p>
+                        {/* <p>Tips: Use the left and right arrow keys to switch articles in liteKnews</p>
+                        <p>You can also use the Esc key to close liteKnews</p> */}
                         {/* <i class="bi-alarm"></i> */}
                     </div>
                 
