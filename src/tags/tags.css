@@ -33,16 +33,17 @@
     margin: 0 auto;
 }
 
-/* Blank Loop Message */
-.tags-item-wrapper > .cardsWrapper > .blankLoopMessage{
-    top: 66%;
-}
+
 
 @media (min-width: 768px) {
 
     .aboutAuthorTagsPage{
         margin-top: 53px;
         /* width: 100%; */
+    }
+    /* Blank Loop Message */
+    .tags-item-wrapper > .cardsWrapper > .blankLoopMessage{
+        top: 66%;
     }
 
 }

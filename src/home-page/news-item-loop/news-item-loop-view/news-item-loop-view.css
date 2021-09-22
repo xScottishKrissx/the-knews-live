@@ -34,13 +34,8 @@
     }
 
 .blankLoopMessage{
-    /* Centering the div */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
 
+    position: relative;
     cursor: default;
     display: flex;
         flex-direction: column;
@@ -48,6 +43,7 @@
     opacity: 0.5;
     text-align: center;
 }
+
 .blankLoopMessage > span{
     font-size: 25vh;
     opacity: 0.25;
@@ -95,3 +91,13 @@
     max-width:800px
 
 */
+
+@media (min-width: 767px) { 
+    .blankLoopMessage{
+        /* Centering the div */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
