@@ -1613,6 +1613,75 @@ General Notes  Objectives:
                     ✔ There was a span tag that was incorrectly tarteted as a div in css @done(13:57 - 21/09/21)
                 ✔ Move liteKnews out of utility components, it's a feature of the website. @done(14:05 - 21/09/21)
 
+            12.10.10 - Final Deployment:
+                Devices Tested:
+                    Monitor 1 - 2460 x 1440* 165hz
+                    Monitor 2 - 2560 x 1440* 60hz
+                    Phone - Google Pixel 3a
+                    Tablet - Amazon Kindle Fire 8"
+                    
+                    * - Used in built device testing tools in chrome and firefox, testing a variety of devices and resolutions, often alongside direct development of features.
+
+                Desktop:
+                    ☐ Chrome
+                        ☐ Nothing noted so far.
+                    
+                    ☐ Edge
+                        ☐ liteKnews wasn't working, not sure what the cause was and I can't replicate it
+
+                    ☐ Firefox
+                        ☐ Swiping to Bookmark + Hide doesnt work
+                            ☐ Dragging in liteKnews works fine though...not sure why as its the same code??
+                        ☐ Dragging is glitchy
+                    ☐ Opera
+                        ☐ Nothing of note
+            
+                    ☐ All / Notes / Improvements
+                        ✔ the load more articles button is still visible with the "nothing to read error" @done(10:26 - 22/09/21)
+                            
+                        ☐ When hiding cards, add a notice that the card will hide when the page reloads
+                        ☐ There are 2 "Hide Read" cards in the options menu
+                        ☐ In the options menu, the hover effect is not reflective of the item you're hovering over.
+                        ☐ In bookmarks, with Hide Read Cards active, hiding all cards just results in empty page with no further info.
+                            ☐ I don't think this is wrong, but there should be a message to remind the user why the page appears blank
+                        ☐ The load more articles button doesnt turn into the no more articles button
+                                ☐ I think its because hidden articles are still being counted towards the overall total, so the message isn't activated.
+                        ☐ In article, with an article bookmarked, pressing the hide button you get the cancel hide message. I don't think this makes sense because cancelling a hide might not be the users intent. THey might want to hide the article regardless of whether it's bookmarked.
+                        ☐ It needs to be clearer what the "reset sort" buttona actually does.
+                        ☐ Option to generate a new colour for website without resetting the entire thing.
+                        ☐ The filter tab can be confusing
+                            ☐ The navbar icon shows the current total articles on the page, whereas the no filter options shows the total articles available even if they're not loaded yet.
+                                ☐ This could be useful if there was a indicator of this(eg 35/80 in the navbar)
+                    
+                Mobile:
+                    ☐ Firefox
+                        ☐ Swiping Works fine
+                        ☐ There is a 1px gap at the top of the page
+                    ☐ Chrome
+                        ✔ The mark all read button doesn't change styles @done(17:01 - 21/09/21)
+                            ✔ Nevermind, had the hide read articles button active @done(17:01 - 21/09/21)
+
+                    ☐ All / Notes / Improvements
+                        ☐ The scroll to top arrow is all the way to the left, half offscreen(still works though)
+                        ☐ The top card on card controls get lost behind the navbar                        ☐ Hiding a card is not working correctly with the filters
+                            ☐ Click to hide
+                            ☐ Cancel
+                            ☐ That article hides but another article appears with the marked as hidden banner
+                        ☐ The liteKnews tips mean nothing on mobile
+                        ☐ In article, the bookmark and hide card icons are too close together
+                        ☐ In author page, the empty page message is broken and takes up the entire screen.
+                        ☐ The buttons are too small to be comfortably used, i should have tried to position things more comfortably for the hand at least on mobile.
+                            ☐ Accessing the home page could have been easier
+                        ☐ The screen moves as you're swiping making it trickier than it should to swipe
+                        ☐ It's not that easy to tell what icons do what at first glance. I think you could learn but yeah, i don't think they're all that intuitive.
+                        ☐ Sometimes cards don't have tags
+                            ☐ Stacy Burgess
+                            ☐ Felcia Barr
+                        ☐ Bookmarking multiple cards at a time is a bit janky, not sure there's anything I can do about this but it is janky.
+
+                Tablet:
+                    ☐ Amazon Kindle Fire 8"
+                        ☐ Lot's of jank and UI issues(small buttons etc) but actually functions as expected
 
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)

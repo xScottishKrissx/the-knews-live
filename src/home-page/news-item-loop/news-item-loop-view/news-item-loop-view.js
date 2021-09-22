@@ -207,6 +207,12 @@ scroll = (e) =>{
         const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
+
+        console.log(renderToPage)
+        console.log(this.props.totalArticles)
+        console.log(this.state.endSlice)
+        if(this.state.endSlice > this.props.totalArticles)console.log("Stop Loading")
+
         return(
             
             <div className="newsItemLoopViewWrapper">
@@ -289,7 +295,7 @@ scroll = (e) =>{
 
                 </div> 
 
-                {renderToPage.length === this.props.totalArticles ?
+                {this.state.endSlice > this.props.totalArticles ?
                     <div className="LoadArticlesOnClickButton">
                         <span id="noArticlesMessage" onClick={()=>this.reload()} className="loadMoreArticlesButton">No more articles, check back later</span>
                     </div>
