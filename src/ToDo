@@ -1659,16 +1659,26 @@ General Notes  Objectives:
                     ☐ Firefox
                         ☐ Swiping Works fine
                         ☐ There is a 1px gap at the top of the page
+                            ☐ I've added a margin-top to the entire body so i'll see if that works.
+                            ☐ The problem is that i cant reproduce this anywhere but on firefox mobile.
+
                     ☐ Chrome
                         ✔ The mark all read button doesn't change styles @done(17:01 - 21/09/21)
                             ✔ Nevermind, had the hide read articles button active @done(17:01 - 21/09/21)
 
                     ☐ All / Notes / Improvements
-                        ☐ The scroll to top arrow is all the way to the left, half offscreen(still works though)
-                        ☐ The top card on card controls get lost behind the navbar                        ☐ Hiding a card is not working correctly with the filters
+                        ✔ The scroll to top arrow is all the way to the left, half offscreen(still works though) @done(12:42 - 22/09/21)
+                        ✔ The top card on card controls get lost behind the navbar @done(12:43 - 22/09/21)
+                            ✔ Increased the margin at the top of the page @done(12:43 - 22/09/21)
+
+                        ☐ Hiding a card is not working correctly with the filters
                             ☐ Click to hide
                             ☐ Cancel
                             ☐ That article hides but another article appears with the marked as hidden banner
+                        
+                            ☐ FYI, this is affecting every platform.
+                            
+
                         ☐ The liteKnews tips mean nothing on mobile
                         ☐ In article, the bookmark and hide card icons are too close together
                         ☐ In author page, the empty page message is broken and takes up the entire screen.

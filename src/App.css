@@ -33,3 +33,6 @@
   to { transform: rotate(360deg); }
 }
 
+#root{
+  margin-top: -1px;
+}
