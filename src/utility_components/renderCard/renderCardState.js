@@ -18,14 +18,18 @@ class RenderCardState extends React.Component{
             
         }
     }
+    updateMainArray(){
+        // Handles updating the main array
+        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall
+        this.props.updateBookmarkStatus(articles)
+    }
 
     swipeLeftAction(id,b,database,bookmarked){
          // Handles updating the bookmark when swiping
         if(bookmarked === true){ toggleBookmark(id,database,"remove") }
         if(bookmarked === false){ toggleBookmark(id,database,"create") }
             
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
-        this.props.updateBookmarkStatus(articles)
+        this.updateMainArray()
     }
 
     // this entire thing is a mess.
@@ -56,18 +60,8 @@ class RenderCardState extends React.Component{
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideArticle))
         if(this.props.hidePressed)this.props.hidePressed()
         // Shows the overlay
-        this.props.updateBookmarkStatus(hideArticle)
+        this.updateMainArray()
     }
-
-
-
-    updateProp(){
-        // Handles updating the bookmark when clicking the bookmark icon
-        const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall
-        
-        this.props.updateBookmarkStatus(articles)
-    }
-
 
     unhideArticle(id){
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
@@ -78,7 +72,7 @@ class RenderCardState extends React.Component{
         });
     
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(unhideArticle))
-        this.updateProp()
+        this.updateMainArray()
     }
 
 
@@ -90,8 +84,9 @@ class RenderCardState extends React.Component{
                 return Object.assign({}, el, {markedforhide:true, bookmarked:false})
                 return el
         });
-        this.props.updateHideStatus(hideBookmarkedArticle)
+
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(hideBookmarkedArticle))
+        this.updateMainArray()
     }
 
     swipeProgress(progress){ this.setState({progress:progress }) }
@@ -118,8 +113,8 @@ class RenderCardState extends React.Component{
                         arrayFromDatabase={this.props.arrayFromDatabase}
 
                         // bookmarkTest={this.state.bookmarked}
-                        updateProp={()=>this.updateProp()}
-                        hidePressed={()=> this.updateProp()}   
+                        updateMainArray={()=>this.updateMainArray()}
+                        hidePressed={()=> this.updateMainArray()}   
 
                         
                         liked={value.liked}

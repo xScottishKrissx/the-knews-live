@@ -1671,15 +1671,15 @@ General Notes  Objectives:
                         ✔ The top card on card controls get lost behind the navbar @done(12:43 - 22/09/21)
                             ✔ Increased the margin at the top of the page @done(12:43 - 22/09/21)
 
-                        ☐ Hiding a card is not working correctly with the filters
-                            ☐ Click to hide
-                            ☐ Cancel
-                            ☐ That article hides but another article appears with the marked as hidden banner
+                        ✔ Hiding a card is not working correctly with the filters @done(13:31 - 22/09/21)
+                            ✔ Click to hide @done(13:31 - 22/09/21)
+                            ✔ Cancel @done(13:31 - 22/09/21)
+                            ✔ That article hides but another article appears with the marked as hidden banner @done(13:31 - 22/09/21)
                         
-                            ☐ FYI, this is affecting every platform.
+                            ✔ FYI, this is affecting every platform. @done(13:31 - 22/09/21)
                                 ✔ It's the unhideArticle function in renderCardState. It's updating the main loop with a new array everytime it's called. @done(13:27 - 22/09/21)
                                 ✔ Fixed this by simply stopping the previous function overwriting the main loop with the current filter array and instead calling a function that simply updates the main loop with the latest version of changedFullDatabaseCall. @done(13:27 - 22/09/21)
-                                ☐ Now that I am here, i think this change can be made to other things on this page.
+                                ✔ Now that I am here, i think this change can be made to other things on this page. @done(13:31 - 22/09/21)
 
 
                         ☐ The liteKnews tips mean nothing on mobile
