@@ -1709,6 +1709,8 @@ General Notes  Objectives:
                 ☐ Final Final Notes
                     ✔ The margin on desktop between the cards and the header is too big @done(15:37 - 22/09/21)
                     ✔ the top of the cards in bookmarks.js are behind the navbar @done(16:00 - 22/09/21)
+                    ✔ The main "theKnews" header is off centre and doesn't take up the width of the page.It's borked. @done(16:07 - 22/09/21)
+                        ✔ It was a rogue justify-content causing the issue. I've set it to normal and it's working fine. @done(16:07 - 22/09/21)
                     
 
             12.10.X - Misc:
