@@ -215,7 +215,7 @@ scroll = (e) =>{
         }else{
             renderToPage = filterRead.slice(0,this.state.endSlice)
         }
-        // console.log(renderToPage)
+        console.log(renderToPage)
 
         // Presentational Stuff
         const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
@@ -223,6 +223,17 @@ scroll = (e) =>{
         const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
+
+        
+        // Total Overall Active Articles Count
+        let totalOverallActiveArticlesCount
+        if(JSON.parse((localStorage.getItem("changedFullDatabaseCall")))){
+            totalOverallActiveArticlesCount = JSON.parse((localStorage.getItem("changedFullDatabaseCall"))).length
+        }else{
+            totalOverallActiveArticlesCount = this.props.fullDatabaseCall.length
+        }
+        
+    
 
         return(
             
@@ -255,6 +266,7 @@ scroll = (e) =>{
                         getFilteredArticles={this.getFilteredArticles}
                         getFilters={getFilters.length}
                         currentCardCount={renderToPage.length}
+                        totalOverallActiveArticlesCount={totalOverallActiveArticlesCount}
 
                         // card size
                         getCardSize={this.getCardSize} 

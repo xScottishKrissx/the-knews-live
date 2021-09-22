@@ -1649,11 +1649,11 @@ General Notes  Objectives:
                                 ✔ Added a new function that fixes this. @done(11:06 - 22/09/21)
                         ✔ In article, with an article bookmarked, pressing the hide button you get the cancel hide message. I don't think this makes sense because cancelling a hide might not be the users intent. THey might want to hide the article regardless of whether it's bookmarked. @done(11:38 - 22/09/21)
                             ✔ Adjusted the code so now the question and options make more sense. @done(11:38 - 22/09/21)
-                        ☐ It needs to be clearer what the "reset sort" buttona actually does.
-                        ☐ Option to generate a new colour for website without resetting the entire thing.
-                        ☐ The filter tab can be confusing
-                            ☐ The navbar icon shows the current total articles on the page, whereas the no filter options shows the total articles available even if they're not loaded yet.
-                                ☐ This could be useful if there was a indicator of this(eg 35/80 in the navbar)
+                        ✔ It needs to be clearer what the "reset sort" buttona actually does. @done(11:49 - 22/09/21)
+                        ✘ Option to generate a new colour for website without resetting the entire thing. @cancelled(11:57 - 22/09/21)
+                        ✔ The filter tab can be confusing @done(12:36 - 22/09/21)
+                            ✔ The navbar icon shows the current total articles on the page, whereas the no filter options shows the total articles available even if they're not loaded yet. @done(12:36 - 22/09/21)
+                                ✔ This could be useful if there was a indicator of this(eg 35/80 in the navbar) @done(12:36 - 22/09/21)
                     
                 Mobile:
                     ☐ Firefox
@@ -1676,9 +1676,9 @@ General Notes  Objectives:
                             ☐ Accessing the home page could have been easier
                         ☐ The screen moves as you're swiping making it trickier than it should to swipe
                         ☐ It's not that easy to tell what icons do what at first glance. I think you could learn but yeah, i don't think they're all that intuitive.
-                        ☐ Sometimes cards don't have tags
-                            ☐ Stacy Burgess
-                            ☐ Felcia Barr
+                        ✔ Sometimes cards don't have tags @done(11:42 - 22/09/21)
+                            ✔ Stacy Burgess @done(11:42 - 22/09/21)
+                            ✔ Felcia Barr @done(11:41 - 22/09/21)
                         ☐ Bookmarking multiple cards at a time is a bit janky, not sure there's anything I can do about this but it is janky.
 
                 Tablet:

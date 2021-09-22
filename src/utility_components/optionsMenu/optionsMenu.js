@@ -264,9 +264,9 @@ class OptionsMenu extends Component {
 
                         {/* Reset */}
                             <Accordion.Collapse eventKey="5" className="accordionItems">
-                                    <span onClick={()=>this.sortAll("postdate","asc")}>
+                                    <span onClick={()=>this.sortAll("postdate","asc")} title="Reset to sort by latest">
                                         <i class="bi bi-caret-right-fill"></i>
-                                        Reset Sort
+                                        Reset Sort 
                                     </span>
                             </Accordion.Collapse>
 

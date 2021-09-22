@@ -17,7 +17,7 @@ import LiteKnewsControlButtons from './navBarButtons/liteKnews/liteKnewsControlB
 import ArticleNumber from './navBarButtons/tagsPage/articleNumber';
 import TagPageTitle from './navBarButtons/tagsPage/tagPageTitle';
 import Reload from './navBarButtons/reload';
-
+import randomColour from '../utility_components/randomColour'
 export class NavBar extends React.Component{
     
     constructor(props){
@@ -30,7 +30,9 @@ export class NavBar extends React.Component{
 
     }
 
+
     render(){
+        
         const getArticle = this.props.getArticleBy || "All";
         const cardStyle = localStorage.getItem("cardStyleChoice") || "Standard";
 
@@ -39,7 +41,9 @@ export class NavBar extends React.Component{
 
                 <div className="headerText" style={this.state.headerColour} onClick={this.props.closeLiteKnews}>
                     <Link to='/theKnews/home'>
-                        <div><h1 >theKnews</h1></div>
+                        <div>
+                            <h1 >theKnews</h1>
+                        </div>
                     </Link>
                 </div>
                 
@@ -72,6 +76,8 @@ export class NavBar extends React.Component{
                                 filterCounter={this.props.getFilters}
                                 currentCardCount={this.props.currentCardCount}
                                 filterPage={this.props.filterPage}
+                                
+                                totalOverallActiveArticlesCount={this.props.totalOverallActiveArticlesCount}
                                 // Tags
                                 paramA={this.props.paramA}    
                                 paramB={this.props.paramB}

@@ -1,4 +1,5 @@
 export const randomColour = () =>{
+    console.log("Random Colour")
     // Generates a random colour for the:
         // Navbar
         // Author Info
@@ -9,6 +10,7 @@ export const randomColour = () =>{
     const randomBackgroundColour = {
         backgroundColor:randomColour
     }
+    // console.log(randomBackgroundColour)
 
     if(localStorage.getItem("headerColour") === null){
         localStorage.setItem("headerColour",JSON.stringify(randomBackgroundColour))

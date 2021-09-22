@@ -5,6 +5,7 @@ import FilterOptions from '../../utility_components/filterOptions/filterOptions'
 
 export const FilterOptionsButton = (props) =>{
     // console.log(props.getFilteredArticles)
+    console.log(props.filterPage)
 return(
     // react-fragment - <> + </>
     <>
@@ -18,7 +19,7 @@ return(
                                 {props.getArticle === "All" ?                                         
                                     <span>
                                         <span className="material-icons">filter_alt</span>
-                                        <span className="bookmarkCounter">{props.currentCardCount}</span>
+                                        <span className="bookmarkCounter">{props.currentCardCount}/{props.totalOverallActiveArticlesCount} </span>
                                     </span>                                           
                                     :                                   
                                     <span>
@@ -43,7 +44,8 @@ return(
                                         }
 
                                         {/* Counter Next to filter icon */}
-                                        <span className="bookmarkCounter">{props.filterCounter}</span>
+                                        <span className="bookmarkCounter">
+                                            {props.currentCardCount}/{props.filterCounter}</span>
                                     </span>                                        
                                 }
                             </div>

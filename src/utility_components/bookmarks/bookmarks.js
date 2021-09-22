@@ -153,7 +153,7 @@ class Bookmarks extends Component {
                 <div className="blankLoopMessage">
                     <h2>You don't have any bookmarks<br/></h2>
                     <span class="material-icons">auto_stories</span>
-                    <p>Tips: You can create bookmarks by pressing the <span class="material-icons" >turned_in_not</span> icon wherever you see it.</p>
+                    <p>Tips: You can create bookmarks by pressing the <span class="material-icons" >turned_in_not</span> icon wherever you see it or by swiping left on a card.</p>
                 </div>
             )
         }
@@ -177,6 +177,8 @@ class Bookmarks extends Component {
         
 
         this.updateReadStyles()
+
+        
 
         // console.log(filterRead)
         // console.log(this.state.bookmarks)
@@ -206,15 +208,16 @@ class Bookmarks extends Component {
                     bookmarkNumber={totalBookmarks.length || this.state.bookmarks.length}
                     // filter ui
                     bookmarkArray={filterRead}
-                    getFilters = {bookmarkCount}
-                    currentCardCount={totalBookmarks.length}
+                    getFilters = {totalBookmarks.length}
+                    totalOverallActiveArticlesCount={totalBookmarks.length}
+                    currentCardCount={bookmarkCount}
                     // Options
                     currentCardArray={filterRead}
                     updateBookmarkStatus={this.updateBookmarkStatus}
 
+
                     // Card Size
                     getCardSize={this.getCardSize}
-            
             />
 
             {/* The Initial Render */}
