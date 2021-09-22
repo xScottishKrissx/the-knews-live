@@ -82,7 +82,7 @@ scroll = (e) =>{
 
     // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
-        // console.log(filteredByTag,getArticleBy)
+        console.log(filteredByTag,getArticleBy)
         this.setState({
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
@@ -224,7 +224,7 @@ scroll = (e) =>{
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
 
-        
+
         // Total Overall Active Articles Count
         let totalOverallActiveArticlesCount
         if(JSON.parse((localStorage.getItem("changedFullDatabaseCall")))){

@@ -5,7 +5,7 @@ import FilterOptions from '../../utility_components/filterOptions/filterOptions'
 
 export const FilterOptionsButton = (props) =>{
     // console.log(props.getFilteredArticles)
-    console.log(props.filterPage)
+    // console.log(props.filterPage)
 return(
     // react-fragment - <> + </>
     <>

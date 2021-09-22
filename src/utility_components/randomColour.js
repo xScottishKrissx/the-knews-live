@@ -1,5 +1,5 @@
 export const randomColour = () =>{
-    console.log("Random Colour")
+    // console.log("Random Colour")
     // Generates a random colour for the:
         // Navbar
         // Author Info

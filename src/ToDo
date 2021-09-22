@@ -1677,7 +1677,10 @@ General Notes  Objectives:
                             ☐ That article hides but another article appears with the marked as hidden banner
                         
                             ☐ FYI, this is affecting every platform.
-                            
+                                ✔ It's the unhideArticle function in renderCardState. It's updating the main loop with a new array everytime it's called. @done(13:27 - 22/09/21)
+                                ✔ Fixed this by simply stopping the previous function overwriting the main loop with the current filter array and instead calling a function that simply updates the main loop with the latest version of changedFullDatabaseCall. @done(13:27 - 22/09/21)
+                                ☐ Now that I am here, i think this change can be made to other things on this page.
+
 
                         ☐ The liteKnews tips mean nothing on mobile
                         ☐ In article, the bookmark and hide card icons are too close together

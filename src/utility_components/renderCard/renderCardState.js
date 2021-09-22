@@ -78,11 +78,12 @@ class RenderCardState extends React.Component{
         });
     
         localStorage.setItem("changedFullDatabaseCall", JSON.stringify(unhideArticle))
-        this.props.updateHideStatus(unhideArticle)
+        this.updateProp()
     }
 
 
     hideBookmarkedArticle(id){
+        
         const articles = JSON.parse(localStorage.getItem("changedFullDatabaseCall"))
         const hideBookmarkedArticle = articles.map(el => {
             if(el.id === id && el.markedforhide === true && el.bookmarked === true && el != null )
@@ -98,7 +99,7 @@ class RenderCardState extends React.Component{
  
 
     render(){
-
+        console.log(this.props.database)
     
     const pageView = this.props.database.map((value,key) => {
     // this.updateReadStyles(value,value.id,value.read)
