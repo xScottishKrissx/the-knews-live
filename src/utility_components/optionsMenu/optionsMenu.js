@@ -184,7 +184,7 @@ class OptionsMenu extends Component {
                             <Accordion.Collapse eventKey="4" className="accordionItems">
                                 <span onClick={()=>this.handleForm("Show")}>
                                     <i class="bi bi-caret-right-fill"></i>   
-                                    Show Read Articles 
+                                    Show Read Cards 
                                     {defVal === "Show" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
                                 </span>                                                                         
                             </Accordion.Collapse>
@@ -192,7 +192,7 @@ class OptionsMenu extends Component {
                             <Accordion.Collapse eventKey="4" className="accordionItems">
                                 <span onClick={()=>this.handleForm("Hide")}>
                                     <i class="bi bi-caret-right-fill"></i>
-                                    Hide Read Articles 
+                                    Don't Show Read Cards 
                                     {defVal === "Hide" ? <span><i class="bi bi-circle-fill"></i></span> : null} 
                                 </span>
                             </Accordion.Collapse>
