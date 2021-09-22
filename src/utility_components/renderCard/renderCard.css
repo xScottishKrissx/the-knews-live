@@ -74,6 +74,19 @@
     .displayFlex{
         display: flex;
     }
+        .markedAsHideOverlayWrapper > div > h3{
+            margin-top: .5rem;
+        }
+        .markedAsHideOverlayWrapper > div > span{
+            display: flex;
+            background-color: #000000b0;
+            color: white;
+            font-size: 12px;
+            width: 100%;
+            padding: 3px;
+            text-align: center;
+            justify-content: space-evenly;
+        }
 
     .undoHideButton{
         background-color: #404040;

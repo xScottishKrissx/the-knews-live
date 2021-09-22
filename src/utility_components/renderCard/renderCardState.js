@@ -199,6 +199,10 @@ class RenderCardState extends React.Component{
                                                 <span>Cancel</span>
                                             </span>
                                         </div>
+                                            <span>
+                                                {/* <i class="bi bi-info-square-fill"></i> */}
+                                                <span>This card will not be visible when the page is refreshed</span>
+                                            </span>
                                     </div>
                                 </div>
                             :

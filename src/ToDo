@@ -1639,7 +1639,7 @@ General Notes  Objectives:
                     ☐ All / Notes / Improvements
                         ✔ the load more articles button is still visible with the "nothing to read error" @done(10:26 - 22/09/21)
                             
-                        ☐ When hiding cards, add a notice that the card will hide when the page reloads
+                        ✔ When hiding cards, add a notice that the card will hide when the page reloads @done(10:40 - 22/09/21)
                         ☐ There are 2 "Hide Read" cards in the options menu
                         ☐ In the options menu, the hover effect is not reflective of the item you're hovering over.
                         ☐ In bookmarks, with Hide Read Cards active, hiding all cards just results in empty page with no further info.
