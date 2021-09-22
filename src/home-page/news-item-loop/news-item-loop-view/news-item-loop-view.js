@@ -249,7 +249,7 @@ scroll = (e) =>{
                 />
             :
             
-            <div id="cardArea"> 
+            <div className="cardArea"> 
 
                     <NavBar
                         filter={true} 

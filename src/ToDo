@@ -1705,6 +1705,11 @@ General Notes  Objectives:
                     ✔ The screen moves as you're swiping making it trickier than it should to swipe @done(13:55 - 22/09/21)
                     ✔ It's not that easy to tell what icons do what at first glance. I think you could learn but yeah, i don't think they're all that intuitive. @done(13:55 - 22/09/21)
                     ✔ Bookmarking multiple cards at a time is a bit janky, not sure there's anything I can do about this but it is janky. @done(13:55 - 22/09/21)
+                
+                ☐ Final Final Notes
+                    ✔ The margin on desktop between the cards and the header is too big @done(15:37 - 22/09/21)
+                    ✔ the top of the cards in bookmarks.js are behind the navbar @done(16:00 - 22/09/21)
+                    
 
             12.10.X - Misc:
                 ✔ the mark as read button is pretty broken. @done(13:54 - 11/08/21)
@@ -1740,8 +1745,8 @@ General Notes  Objectives:
                         swipe is unaffected and the hide button works as normal if you swipe first then hide. So im guessing im not properly passing on the main render array at some point.
                         ✔ Yup, i wasn't passing a database call to the hide button in the event of an empty cache. @done(13:49 - 26/08/21)
                     ✔ Sorting By on a tag page overwrites the main array @done(13:33 - 16/09/21)
-                    ☐ Articles sometimes dont have the author info section when clicking on the author tag
-                    ☐ The entire swipe functionality isn't working properly in firefox
+                    ☐ Articles sometimes dont have the author info section when clicking on the author tag @started(15:40 - 22/09/21)
+                    ☐ The entire swipe functionality isn't working properly in firefox @started(15:40 - 22/09/21)
                         ☐ The main cards don't activate their function when swiped
                         ☐ liteKnews swiping works fine though
 

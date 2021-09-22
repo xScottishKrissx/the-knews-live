@@ -1,8 +1,8 @@
 
-#cardArea{
+.cardArea{
     width: 100%;
 }
-#cardArea > span{
+.cardArea > span{
     display: block;
     margin: 0 auto;
     margin-top: 20px;
@@ -13,7 +13,7 @@
         /* background-color: red; */
         display: flex;
             flex-wrap: wrap;
-        margin-top: 110px !important;
+        margin-top: 110px ;
     }
 
 /* Hide Article Message  */
@@ -99,5 +99,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    .cardsWrapper{
+        margin-top: 60px;
     }
 }

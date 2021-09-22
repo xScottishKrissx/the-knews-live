@@ -184,7 +184,7 @@ class Bookmarks extends Component {
         // console.log(this.state.bookmarks)
         return(
 
-        <div id="bookmarkWrapper">
+            <div className="cardArea"> 
 
 
             <NavBar 
@@ -223,7 +223,7 @@ class Bookmarks extends Component {
             {/* The Initial Render */}
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles={this.getFilteredArticles} bookmarked={true} />
                         
-            <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
+            <div className="cardsWrapper" onClick={()=>this.updateBookmarkCount()}>
             {/* {this.props.databaseProp.length >= 1 && checkArticlesExist && renderToPage.length > 0 ?  */}
                 {filterRead.length > 0 ?
 

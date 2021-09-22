@@ -2,7 +2,7 @@
 /* *{outline: 1px solid red;} */
 
 /* Hiding the filter options ui from the actual page. */
-#cardArea > .filterButtonWrapper, #bookmarkWrapper > .filterButtonWrapper{  position: absolute; left: -99999999px; }
+.cardArea > .filterButtonWrapper, #bookmarkWrapper > .filterButtonWrapper{  position: absolute; left: -99999999px; }
 
 
 /* The overall navbar wrapper */
@@ -15,6 +15,12 @@
     /* outline: 2px solid black; */
     width: 100%;
     z-index: 100;
+
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    height: fit-content;
+    position: fixed;
+    top: 0;
 }
 
 /* theKnews text in the navbar */
@@ -130,11 +136,7 @@
         }
 
 
-        .uiBarItem :focus{
-            /* border: 5px solid black !important; */
-            /* background-color: black  !important; */
-            /* color: white !important; */
-        }
+
         .uiBarItem > div { 
             position: relative; 
             width: 100%; 
@@ -287,10 +289,7 @@
     #bookmarkCountIndicator > div > p{margin: 0;}
 
 /************************************* In Article Bookmark Controls */
-#bookmarkControls{ 
-    /* min-width: min-content;  */
-    /* outline: 1px solid red;  */
-}
+
     #bookmarkControls > button {
         /* width: 90%;  */
         padding: 0;
@@ -365,7 +364,6 @@
     width: 100%;
 }
 
-/* customising react.bootstrap  */
 .dropdown-toggle::after { display: none !important;}
 .btn-primary{border: 0px !important; background: inherit !important;}
 
@@ -392,7 +390,16 @@
     }
 
 
+
+
+
+
+    
 /* Media Queries */
+    @media (max-width: 400px) {
+        .headerWrapper{flex-wrap: wrap; justify-content: space-around;}
+    }
+
 @media (min-width: 768px) {
 
     .headerWrapper{flex-wrap: nowrap; position: fixed;}
@@ -402,8 +409,6 @@
                 #siteWideNavBar{flex-wrap:nowrap; justify-content:  space-evenly; width: 100%;}
                     .uiBarItem{height: auto;}
 
-    .cardsWrapper{margin-top: 55px;}
-
 
     /* Bookmark Controls */
     #bookmarkControls > button > .onCardControls > div{
@@ -412,17 +417,10 @@
     }
 }
 
-@media (max-width: 400px) {
-    .headerWrapper{flex-wrap: wrap; justify-content: space-around;}
-}
+
 
 @media (max-width: 767px) {
-    .headerWrapper{
-        flex-wrap: wrap; 
-        justify-content: space-around; 
-        height: fit-content;
-        position: fixed;
-    }
+
 
      .navWrapper{width: inherit;}
         .newUIBarWrapper{justify-content: space-evenly;}

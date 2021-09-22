@@ -31,7 +31,7 @@ class LiteKnews extends Component {
         const close = this.props.closeLiteKnews;
         if(x === "close")close()
 
-        // Return to previous article IF it isnt the first item in the array 
+        // Return to previous article IF it isn't the first item in the array 
         if(x === "prev" && this.state.articleNumber > 0){ 
             this.setState({articleNumber: this.state.articleNumber - 1}) 
             window.scrollTo(0,0)
