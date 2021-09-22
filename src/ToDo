@@ -1647,7 +1647,8 @@ General Notes  Objectives:
                         ✔ The load more articles button doesnt turn into the no more articles button @done(11:05 - 22/09/21)
                                 ✔ I think its because hidden articles are still being counted towards the overall total, so the message isn't activated. @done(11:05 - 22/09/21)
                                 ✔ Added a new function that fixes this. @done(11:06 - 22/09/21)
-                        ☐ In article, with an article bookmarked, pressing the hide button you get the cancel hide message. I don't think this makes sense because cancelling a hide might not be the users intent. THey might want to hide the article regardless of whether it's bookmarked.
+                        ✔ In article, with an article bookmarked, pressing the hide button you get the cancel hide message. I don't think this makes sense because cancelling a hide might not be the users intent. THey might want to hide the article regardless of whether it's bookmarked. @done(11:38 - 22/09/21)
+                            ✔ Adjusted the code so now the question and options make more sense. @done(11:38 - 22/09/21)
                         ☐ It needs to be clearer what the "reset sort" buttona actually does.
                         ☐ Option to generate a new colour for website without resetting the entire thing.
                         ☐ The filter tab can be confusing

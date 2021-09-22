@@ -56,9 +56,9 @@ const ArticleArea = (props) => {
                 {/* Article Header */}
                     <div className="hideArticleInfoWrapper">
                     {props.showHideInfo === true ?
-                        <div className="showHideMessage">This article is hidden and removed from your feed</div>
+                        <div className="showHideMessage">This article will be hidden and removed from your feed</div>
                         :
-                        <div className="hideHideMessage">This article is hidden and removed from your feed</div>
+                        null
                     }
                     </div>
 

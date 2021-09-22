@@ -137,7 +137,7 @@ export class NewsPageVIEW extends React.Component{
         const getBookmarks = database.filter(obj => obj.bookmarked === true)
         
         const NewsPageView = getArticle.map((value) => {
-
+          console.log(value.markedforhide)
 
             this.markAsRead(value.id,value.readStatus)
             return(
@@ -238,7 +238,7 @@ export class NewsPageVIEW extends React.Component{
                      {this.state.showBox === true ? 
                       <div className="hideArticleDialogueBox" >
 
-                          {value.markedforhide === false ? 
+                          {value.markedforhide === true ? 
                             <div id="confirmHideBox">
                               <h3>Hide Article?</h3>
                               <p>This article is bookmarked, hide anyway?</p>
