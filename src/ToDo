@@ -1644,8 +1644,8 @@ General Notes  Objectives:
                         ✔ In the options menu, the hover effect is not reflective of the item you're hovering over. @done(10:48 - 22/09/21)
                         ☐ In bookmarks, with Hide Read Cards active, hiding all cards just results in empty page with no further info.
                             ☐ I don't think this is wrong, but there should be a message to remind the user why the page appears blank
-                        ☐ The load more articles button doesnt turn into the no more articles button
-                                ☐ I think its because hidden articles are still being counted towards the overall total, so the message isn't activated.
+                        ✔ The load more articles button doesnt turn into the no more articles button @done(11:05 - 22/09/21)
+                                ✔ I think its because hidden articles are still being counted towards the overall total, so the message isn't activated. @done(11:05 - 22/09/21)
                         ☐ In article, with an article bookmarked, pressing the hide button you get the cancel hide message. I don't think this makes sense because cancelling a hide might not be the users intent. THey might want to hide the article regardless of whether it's bookmarked.
                         ☐ It needs to be clearer what the "reset sort" buttona actually does.
                         ☐ Option to generate a new colour for website without resetting the entire thing.

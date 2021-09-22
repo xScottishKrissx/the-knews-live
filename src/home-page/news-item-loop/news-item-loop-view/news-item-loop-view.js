@@ -168,6 +168,22 @@ scroll = (e) =>{
         })
     }
 
+    renderLoadCardsButton(){
+        if(this.state.endSlice > this.props.totalArticles){
+            return (
+                <div className="LoadArticlesOnClickButton">
+                    <span id="noArticlesMessage" onClick={()=>this.reload()} className="loadMoreArticlesButton">No more articles, check back later</span>
+                </div>
+            )
+        }else{
+            return (
+                <div className="LoadArticlesOnClickButton">
+                    <span onClick={()=>this.loadArticlesOnClick()} className="loadMoreArticlesButton">Load Cards</span>
+                </div>
+            )
+        }
+    }
+
     render(){  
 
         const getArticles = this.state.renderArray || this.props.databaseProp ;
@@ -207,11 +223,6 @@ scroll = (e) =>{
         const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
-
-        console.log(renderToPage)
-        console.log(this.props.totalArticles)
-        console.log(this.state.endSlice)
-        if(this.state.endSlice > this.props.totalArticles)console.log("Stop Loading")
 
         return(
             
@@ -295,15 +306,8 @@ scroll = (e) =>{
 
                 </div> 
 
-                {this.state.endSlice > this.props.totalArticles ?
-                    <div className="LoadArticlesOnClickButton">
-                        <span id="noArticlesMessage" onClick={()=>this.reload()} className="loadMoreArticlesButton">No more articles, check back later</span>
-                    </div>
-                :
-                    <div className="LoadArticlesOnClickButton">
-                        <span onClick={()=>this.loadArticlesOnClick()} className="loadMoreArticlesButton">Load Cards</span>
-                    </div>
-                }
+                {renderToPage.length > 0 ?  this.renderLoadCardsButton() : null }
+ 
 
             </div>
             }
