@@ -298,9 +298,10 @@ scroll = (e) =>{
                         />
                     :
                         <div className="blankLoopMessage">
-                            <h2>Nothing to read,<br/> Check back later...</h2>
+                            <h2>Nothing new to read,<br/> Check back later...</h2>
                             <span class="material-icons">auto_stories</span>
-                            <p>Tips: Use the refresh button to check for new articles</p>
+                            <p>Tip: Use the refresh button to check for new articles</p>
+                            <p>Tip: You can hide/display you're already read cards from the options menu</p>
                         </div>
                     }
 

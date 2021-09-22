@@ -17,12 +17,14 @@ return(
                 <DropdownButton 
                     id="settingsBtn" 
                     title={ <span className="material-icons">settings</span>}>
+
                     <OptionsMenu 
                         urlInfo={window.location.pathname}
                         currentCardArray={props.currentCardArray}
                         updateBookmarkStatus={props.updateBookmarkStatus}
                         fullDatabaseCall={props.fullDatabaseCall}
-                         />
+                    />
+                    
                 </DropdownButton>
             </div>
         :

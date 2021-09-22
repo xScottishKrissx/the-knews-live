@@ -137,6 +137,28 @@ class Bookmarks extends Component {
         this.setState({bookmarks:articles})
     }
 
+    renderMessage(filterRead){
+        if(this.state.bookmarks.length > 0){ 
+            return (
+                    <div className="blankLoopMessage">
+                        <h2>You don't have any unread bookmarks<br/></h2>
+                        <span class="material-icons">auto_stories</span>
+                        <p>Tips: You can show/hide you're already read cards from the <span className="material-icons">settings</span> options menu</p>
+                    </div>
+            )
+        }
+
+        if(filterRead.length === 0){
+            return (
+                <div className="blankLoopMessage">
+                    <h2>You don't have any bookmarks<br/></h2>
+                    <span class="material-icons">auto_stories</span>
+                    <p>Tips: You can create bookmarks by pressing the <span class="material-icons" >turned_in_not</span> icon wherever you see it.</p>
+                </div>
+            )
+        }
+    }
+
     render(){
         localStorage.setItem("cleanDatabaseCall", JSON.stringify(this.state.fullDatabaseCall))   
 
@@ -155,6 +177,9 @@ class Bookmarks extends Component {
         
 
         this.updateReadStyles()
+
+        // console.log(filterRead)
+        // console.log(this.state.bookmarks)
         return(
 
         <div id="bookmarkWrapper">
@@ -196,30 +221,30 @@ class Bookmarks extends Component {
             <FilterOptions fullDatabaseCall={fullDatabaseCall} getFilteredArticles={this.getFilteredArticles} bookmarked={true} />
                         
             <div id="bookmarkItemsWrapper" onClick={()=>this.updateBookmarkCount()}>
-                {this.state.bookmarks.length === 0 ?
-                    <div className="blankLoopMessage">
-                        <h2>You don't have any bookmarks<br/></h2>
-                        <span class="material-icons">auto_stories</span>
-                        <p>Tips: You can create bookmarks by pressing the <span class="material-icons" >turned_in_not</span> icon wherever you see it.</p>
-                    </div>
-                :
-                <RenderCard 
-                    // Bookmarking
-                    database={filterRead.reverse()} 
-                    bookmarked={true}
-                    // Hiding
-                    hideBookmarkedArticle={true}
-                    arrayFromDatabase={this.state.fullDatabaseCall}
-                    fullDatabaseCall={this.state.fullDatabaseCall}                 
-                    // Custom Card Size
-                    startingCardSize={this.state.startingCardSize}
-                    changedCardSize={this.state.changedCardSize}
+            {/* {this.props.databaseProp.length >= 1 && checkArticlesExist && renderToPage.length > 0 ?  */}
+                {filterRead.length > 0 ?
 
-                    updateBookmarkStatus={this.updateBookmarkStatus}
-                    updateHideStatus={this.updateBookmarkStatus}
-                    hideBookmarkedArticle={false}                    
-                />
+                    <RenderCard 
+                        // Bookmarking
+                        database={filterRead.reverse()} 
+                        bookmarked={true}
+                        // Hiding
+                        hideBookmarkedArticle={true}
+                        arrayFromDatabase={this.state.fullDatabaseCall}
+                        fullDatabaseCall={this.state.fullDatabaseCall}                 
+                        // Custom Card Size
+                        startingCardSize={this.state.startingCardSize}
+                        changedCardSize={this.state.changedCardSize}
+
+                        updateBookmarkStatus={this.updateBookmarkStatus}
+                        updateHideStatus={this.updateBookmarkStatus}
+                        hideBookmarkedArticle={false}                    
+                    />
+                :
+                    this.renderMessage(filterRead)                    
                 }
+               
+                
             </div>
 
             </div>
