@@ -65,20 +65,7 @@ export class NewsPageVIEW extends React.Component{
             articlesArray: newState.slice(0,30)
           })
  
-          
-          // Check if User is Logged In...
-          // const checkUser = fire.auth().currentUser;
-  
-          // If they Exist Check to see if they have already created article
-          // if(checkUser){
-          //   console.log(checkUser.email);
-          //   if(checkUser.email === "chrisdunne66@gmail.com"){
-          //       this.setState({ownsArticle: true})
-          //   }
-          // //... if they haven't then don't do anything.
-          // }else{
-          //   console.log("Not Logged In")
-          // }
+
         })
     }
 
@@ -97,7 +84,7 @@ export class NewsPageVIEW extends React.Component{
     handleHideClick = (bookmarked) => { 
       this.setState({showBox:bookmarked})
       // console.log("Show box")
-      console.log(this.state.showBox)
+      // console.log(this.state.showBox)
     }
 
     // The confirmation box itself.
@@ -116,7 +103,7 @@ export class NewsPageVIEW extends React.Component{
 
     markAsRead(id,markAs){
       MarkAsRead(id,markAs)
-      if(this.props.updateProp)this.props.updateProp(markAs)      
+      if(this.props.updateMainArray)this.props.updateMainArray(markAs)      
     }
 
     controls = (event) => {
@@ -137,7 +124,7 @@ export class NewsPageVIEW extends React.Component{
         const getBookmarks = database.filter(obj => obj.bookmarked === true)
         
         const NewsPageView = getArticle.map((value) => {
-          console.log(value.markedforhide)
+          // console.log(value.markedforhide)
 
             this.markAsRead(value.id,value.readStatus)
             return(

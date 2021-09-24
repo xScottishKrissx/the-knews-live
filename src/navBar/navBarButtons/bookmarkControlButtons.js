@@ -23,7 +23,7 @@ return(
                     arrayFromDatabase={props.arrayFromDatabase}
 
                     hidePressed={props.hidePressed}
-                    updateProp={props.updateArticle}
+                    updateMainArray={props.updateArticle}
                     hideStatus={props.hideStatus}
                     hideButtonSwitching={props.hideButtonSwitching}
                 />

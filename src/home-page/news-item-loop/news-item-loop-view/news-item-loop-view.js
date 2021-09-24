@@ -82,7 +82,7 @@ scroll = (e) =>{
 
     // filterViews
     getFilteredArticles = (filteredByTag,getArticleBy) => {
-        console.log(filteredByTag,getArticleBy)
+        // console.log(filteredByTag,getArticleBy)
         this.setState({
             renderArray: filteredByTag,
             getArticleBy:getArticleBy,
@@ -215,12 +215,13 @@ scroll = (e) =>{
         }else{
             renderToPage = filterRead.slice(0,this.state.endSlice)
         }
-        console.log(renderToPage)
+        // console.log(renderToPage)
 
         // Presentational Stuff
         const setRandomColour = JSON.parse(localStorage.getItem("headerColour")) || {backgroundColor:"black"};
         // bookmark counter
-        const getBookmarks = this.state.renderArray.filter(obj => obj.bookmarked === true)
+        const test = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) || this.props.fullDatabaseCall;
+        const getBookmarks = test.filter(obj => obj.bookmarked === true)
         // filter counter
         const getFilters = this.state.renderArray.filter(obj => obj.tag === this.state.getArticleBy)
 

@@ -3,9 +3,9 @@ import MarkAsRead from "../../markAsRead";
 export const MarkAsReadButton = (props) =>{
 
    function markAsRead(id,readStatus){
-        console.log(id,readStatus)
+        // console.log(id,readStatus)
         MarkAsRead(id,readStatus)
-        if(props.updateProp)props.updateProp(readStatus)    
+        if(props.updateMainArray)props.updateMainArray(readStatus)    
     }
 
 return(

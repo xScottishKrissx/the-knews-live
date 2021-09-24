@@ -165,6 +165,9 @@ export class TagsView extends React.Component{
         // console.log(this.props.paramA)
         // console.log(renderToPage[0].id)
         const getFilters = renderToPage.filter(obj => obj.tag === this.state.getArticleBy)
+                // bookmark counter
+        const bookmarkCounter = fullDatabaseCallFromStorage.filter(obj => obj.bookmarked === true)
+        // console.log(bookmarkCounter)
             
         // Show / Hide Read articles
         const getShowReadArticlesChoice = localStorage.getItem("showReadCards") || "Show"
@@ -199,6 +202,8 @@ export class TagsView extends React.Component{
                         fullDatabaseCall={this.state.fullDatabaseCall}
                         tagsArray={filterRead}
 
+                        // bookmarks
+                        bookmarkCounter={bookmarkCounter.length}
 
                         // tag specific
                         showArticleCounter={true}

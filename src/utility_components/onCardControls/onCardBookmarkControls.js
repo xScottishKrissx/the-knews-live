@@ -73,11 +73,11 @@ hideArticle =(id) => {
         if(this.state.bookmarked === true){
             this.setState({bookmarked:false,hideStatus:false})
             toggleBookmark(this.props.id,this.props.fullDatabaseCall,"remove")
-            if(this.props.updateProp)this.props.updateProp(false)
+            if(this.props.updateMainArray)this.props.updateMainArray(false)
         }else{
             this.setState({bookmarked:true,hideStatus:false})
             toggleBookmark(this.props.id,this.props.fullDatabaseCall,"create")
-            if(this.props.updateProp)this.props.updateProp(true)
+            if(this.props.updateMainArray)this.props.updateMainArray(true)
         }
         
     }
@@ -111,7 +111,7 @@ render(){
                     id={this.props.id} 
                     showMarkAsReadButton={this.props.showMarkAsReadButton} 
                     readStatus={this.props.readStatus} 
-                    updateProp={this.props.updateProp} 
+                    updateMainArray={this.props.updateMainArray} 
                 />
 
                 <HideArticleButton 

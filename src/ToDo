@@ -1706,11 +1706,23 @@ General Notes  Objectives:
                     ✔ It's not that easy to tell what icons do what at first glance. I think you could learn but yeah, i don't think they're all that intuitive. @done(13:55 - 22/09/21)
                     ✔ Bookmarking multiple cards at a time is a bit janky, not sure there's anything I can do about this but it is janky. @done(13:55 - 22/09/21)
                 
-                ☐ Final Final Notes
+                ✔ Final Final Notes @done(10:58 - 24/09/21)
                     ✔ The margin on desktop between the cards and the header is too big @done(15:37 - 22/09/21)
                     ✔ the top of the cards in bookmarks.js are behind the navbar @done(16:00 - 22/09/21)
                     ✔ The main "theKnews" header is off centre and doesn't take up the width of the page.It's borked. @done(16:07 - 22/09/21)
                         ✔ It was a rogue justify-content causing the issue. I've set it to normal and it's working fine. @done(16:07 - 22/09/21)
+                
+
+
+                ☐ Post Final Final Notes - 24/9/2021
+                    ✔ The mark as read button isn't working. @done(11:07 - 24/09/21)
+                        ✔ Didn't change the old updateProp to updateMainArray @done(11:08 - 24/09/21)
+                    ✔ The Bookmark button on cards isn't updating the bookmarks counter. @done(11:08 - 24/09/21)
+                        ✔ Same issue as above @done(11:08 - 24/09/21)
+                    ✔ The bookmark button for author cards isn't updating the bookmark counter. @done(11:18 - 24/09/21)
+                        ✔ I don't think it HAS a counter. @done(11:18 - 24/09/21)
+                        ✔ It didnt @done(11:18 - 24/09/21)
+                    ✔ The bookmark counter should remain constant, it's currently changing for each filter which is wrong. @done(11:21 - 24/09/21)
                     
 
             12.10.X - Misc:
@@ -1879,7 +1891,7 @@ Part 2 Implement Database functionality:
     ✔ Move everything in the filters page to myKnews @started(18-08-13 18:04) @done(18-08-14 13:53) @lasted(19h49m12s)
 
 
-    Part 3 Deployment:
+Part 3 Deployment:
         ✔ 21/9/2020 - Create a new live version (Version 8) to go on the site @started(20-09-21 17:50) @done(20-09-28 12:17) @lasted(6d18h27m55s)
              Remove everything but the home page
              Remove any sign of editing
@@ -1903,7 +1915,7 @@ Part 2 Implement Database functionality:
  -----
 
          
-        Version 12 (Future Version) - Planned Notes:
+Version 12 (Future Version) - Planned Notes:
             ✘ Implement Mobile Menu using swipe @cancelled(15:43 - 08/03/21)
             ✔ 12.1 - Add Options Menu for card control sizes, clearing cache etc @started(14:01 - 27/04/21) @done(16:05 - 27/04/21) @lasted(2h4m9s)
                 ✔ 12.1.4 - Improve Appearance of Options Menu with new controls in place. @started(12:10 - 29/04/21) @done(15:40 - 11/05/21) @lasted(1w5d3h30m20s)
@@ -1937,6 +1949,17 @@ Part 2 Implement Database functionality:
                 ✔ V12.10.6- Cancelled footer @done(12:09 - 07/07/21)
                 ✔ V12.10.7 - Website Feedback Overhaul @done(13:48 - 21/09/21)
                     ✔ Tweaked on card bookmark controls by centering them in the area and moving the area to the right for easier use with hands. @done(12:10 - 07/07/21)
+                ✔ V12.10.8 - Fix Scrollcheck @done(11:02 - 24/09/21)
+                ✔ V12.10.9 - Fix LiteKnews @done(11:02 - 24/09/21)
+                ✔ V12.10.10 - Testing, Fixing the bugs from testing and deployment @done(11:02 - 24/09/21)
+            
+        ☐ Update Portfolio
+            ☐ Add link to blog post
+            ☐ Change portfolio theKnews preview image
+        ☐ Blog Post
+        ☐ Update ico
+        ☐ Update Github
+        ☐ Done?
                    
                     
         

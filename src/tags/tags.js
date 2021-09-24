@@ -97,9 +97,9 @@ class Tags extends React.Component{
 
     
     render(){      
-        console.log(this.state.articlesArray)
+        // console.log(this.state.articlesArray)
         const fullDatabaseCallFromStorage = JSON.parse(localStorage.getItem("changedFullDatabaseCall")) ||  this.state.fullDatabaseCall;
-        console.log(fullDatabaseCallFromStorage)
+        // console.log(fullDatabaseCallFromStorage)
 
         const cleanDBCall = JSON.parse(localStorage.getItem("cleanDatabaseCall")) ||  this.state.fullDatabaseCall;
         
